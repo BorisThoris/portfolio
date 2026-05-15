@@ -1,0 +1,9 @@
+node_modules
+dist
+output
+.wrangler
+.env
+.DS_Store
+npm-debug.log*
+.portfolio-*.log
+public/runtime-project-status.json
