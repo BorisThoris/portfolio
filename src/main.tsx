@@ -5,8 +5,8 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   ExternalLink,
+  Github,
   MonitorUp,
   Play,
   Sparkles
@@ -44,7 +44,6 @@ function HomePage() {
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
   const activeRuntime = runtimeStatus?.projects.find((item) => item.slug === activeProject.slug);
-  const liveCount = runtimeStatus?.projects.filter((item) => item.mode === 'live').length ?? '-';
   const navigate = useNavigate();
 
   const setByDirection = (direction: -1 | 1) => {
@@ -57,16 +56,18 @@ function HomePage() {
       <header className="site-topbar" aria-label="Portfolio header">
         <Link to="/" className="site-mark">
           <MonitorUp size={18} />
-          Portfolio
+          Boris Bostandzhiev
         </Link>
-        <div className="site-pills" aria-label="Portfolio stats">
-          <span>{showcaseProjects.length} showcase</span>
-          <span>{visibleProjects.length} demoable</span>
-          <span>{liveCount} live</span>
-        </div>
+        <nav className="site-pills" aria-label="Portfolio navigation">
+          <a href="https://github.com/BorisThoris" target="_blank" rel="noreferrer">
+            <Github size={14} />
+            GitHub
+          </a>
+        </nav>
       </header>
 
       <section
+        id="showcase"
         className="premium-hero"
         aria-label="Portfolio showcase"
         style={{ '--accent': activeProject.accent } as React.CSSProperties}
@@ -74,12 +75,12 @@ function HomePage() {
         <div className="hero-copy">
           <p className="eyebrow">
             <Sparkles size={15} />
-            Ranked local showcase
+            Boris Bostandzhiev
           </p>
-          <h1>Playable work, ranked by craft.</h1>
+          <h1>Interactive web apps, games, and tools.</h1>
           <p>
-            A focused index of playable tools, games, editors, and product demos,
-            ordered by depth, polish, originality, and how reliably each one runs.
+            A portfolio of browser-based projects spanning music creation, 3D editors,
+            games, dashboards, and ecommerce demos.
           </p>
           <div className="hero-actions">
             <a
@@ -99,10 +100,6 @@ function HomePage() {
         </div>
 
         <div className="showcase-dock" aria-label="Top projects">
-          <div className="hero-score-card" aria-label={`${activeProject.title} score`}>
-            <strong>{activeProject.priorityScore}</strong>
-            <span>Priority</span>
-          </div>
           {showcaseProjects.map((project, index) => (
             <button
               className={`dock-item ${index === activeIndex ? 'active' : ''}`}
@@ -137,7 +134,6 @@ function HomePage() {
               <h2>{activeProject.title}</h2>
               <p>{activeProject.subtitle}</p>
             </div>
-            <RuntimeBadge mode={activeRuntime?.mode ?? (activeProject.deploymentUrl ? 'deployed' : 'local')} />
           </div>
         </button>
       </section>
@@ -156,7 +152,6 @@ function HomePage() {
               style={{ '--accent': project.accent } as React.CSSProperties}
             >
               <ProjectScreenshot project={project} />
-              <span>{project.priorityScore}</span>
               <strong>{project.title}</strong>
               <p>{project.subtitle}</p>
             </Link>
@@ -164,13 +159,13 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="archive-section" aria-label="More projects">
+      <section id="archive" className="archive-section" aria-label="Project archive">
         <div className="section-heading archive-heading">
           <div>
             <p className="eyebrow">Archive</p>
-            <h2>More demoable work</h2>
+            <h2>Project Archive</h2>
           </div>
-          <span>Quieter projects, still runnable locally.</span>
+          <span>Additional builds, experiments, and supporting interface work.</span>
         </div>
 
         <div className="archive-grid">
@@ -183,7 +178,6 @@ function HomePage() {
             >
               <ProjectScreenshot project={project} />
               <div>
-                <span className="score-pill">{project.priorityScore}</span>
                 <h3>{project.title}</h3>
                 <p>{project.subtitle}</p>
                 <div className="tag-row compact">
@@ -232,7 +226,7 @@ function ProjectPage() {
       <nav className="top-nav">
         <Link to="/" className="site-mark">
           <MonitorUp size={18} />
-          Portfolio
+          Boris Bostandzhiev
         </Link>
         <div className="nav-links">
           {visibleProjects.map((item) => (
@@ -247,8 +241,8 @@ function ProjectPage() {
         <div className="detail-header">
           <div>
             <p className="eyebrow">
-              <BarChart3 size={15} />
-              Embedded local project
+              <Sparkles size={15} />
+              Project Preview
             </p>
             <h1>{project.title}</h1>
             <p>{project.description}</p>
