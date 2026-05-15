@@ -66,22 +66,39 @@ function HomePage() {
         </nav>
       </header>
 
+      <section className="portfolio-intro" aria-label="Portfolio introduction">
+        <div>
+          <p className="eyebrow">
+            <Sparkles size={15} />
+            Boris Bostandzhiev
+          </p>
+          <h1>Interactive web apps, games, and tools.</h1>
+        </div>
+        <p>
+          Selected browser projects across music creation, 3D editors, games,
+          dashboards, and ecommerce demos.
+        </p>
+      </section>
+
       <section
         id="showcase"
         className="premium-hero"
         aria-label="Portfolio showcase"
         style={{ '--accent': activeProject.accent } as React.CSSProperties}
       >
-        <div className="hero-copy">
+        <div className="hero-copy project-copy">
           <p className="eyebrow">
-            <Sparkles size={15} />
-            Boris Bostandzhiev
+            <span>{String(activeIndex + 1).padStart(2, '0')} / {String(showcaseProjects.length).padStart(2, '0')}</span>
+            Featured project
           </p>
-          <h1>Interactive web apps, games, and tools.</h1>
-          <p>
-            A portfolio of browser-based projects spanning music creation, 3D editors,
-            games, dashboards, and ecommerce demos.
-          </p>
+          <h2>{activeProject.title}</h2>
+          <strong>{activeProject.subtitle}</strong>
+          <p>{activeProject.description}</p>
+          <div className="tag-row hero-tags">
+            {activeProject.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
           <div className="hero-actions">
             <a
               className="primary-action"
@@ -130,33 +147,8 @@ function HomePage() {
           <ProjectScreenshot project={activeProject} />
           <div className="stage-caption">
             <span className="rank-kicker">0{activeIndex + 1} / 06</span>
-            <div>
-              <h2>{activeProject.title}</h2>
-              <p>{activeProject.subtitle}</p>
-            </div>
           </div>
         </button>
-      </section>
-
-      <section className="mobile-showcase" aria-label="Mobile top projects">
-        <div className="section-heading">
-          <p className="eyebrow">Top projects</p>
-          <h2>Showcase</h2>
-        </div>
-        <div className="mobile-card-row">
-          {showcaseProjects.map((project) => (
-            <Link
-              className="mobile-project-card crafted-frame"
-              to={`/projects/${project.slug}`}
-              key={project.slug}
-              style={{ '--accent': project.accent } as React.CSSProperties}
-            >
-              <ProjectScreenshot project={project} />
-              <strong>{project.title}</strong>
-              <p>{project.subtitle}</p>
-            </Link>
-          ))}
-        </div>
       </section>
 
       <section id="archive" className="archive-section" aria-label="Project archive">
