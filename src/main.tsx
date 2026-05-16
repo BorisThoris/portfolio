@@ -62,6 +62,13 @@ type ProfessionalContext = {
   confidence: 'LinkedIn/CV-backed' | 'Public context';
 };
 
+type DisplayProfessionalContext = ProfessionalContext & {
+  company: string;
+  accent: string;
+  logo?: string;
+  initials: string;
+};
+
 const experiences: Experience[] = [
   {
     company: 'Man Group',
@@ -90,7 +97,6 @@ const experiences: Experience[] = [
           'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling.',
         sourceLabel: 'Man Technology',
         sourceUrl: 'https://www.man.com/technology',
-        image: '/company-logos/man-group.jpg',
         tags: ['Risk analytics', 'React', 'Python', 'Data platforms'],
         confidence: 'LinkedIn/CV-backed'
       }
@@ -122,7 +128,7 @@ const experiences: Experience[] = [
           'Zonal presents one connected hospitality technology ecosystem covering front- and back-of-house operations, ordering, reservations, property management, operations, and marketing.',
         sourceLabel: 'Zonal products',
         sourceUrl: 'https://www.zonal.co.uk/products/',
-        image: '/company-logos/zonal.jpg',
+        image: '/company-project-shots/zonal/epos.png',
         tags: ['Hospitality SaaS', 'React', 'TypeScript', 'Workflow UI'],
         confidence: 'LinkedIn/CV-backed'
       },
@@ -135,7 +141,7 @@ const experiences: Experience[] = [
           'Zonal describes EPoS, handheld ordering, and order/payment flows built for speed, reliability, kitchen routing, and reduced re-keying in busy venues.',
         sourceLabel: 'Zonal EPoS',
         sourceUrl: 'https://www.zonal.co.uk/products/epos/',
-        image: '/company-logos/zonal.jpg',
+        image: '/company-project-shots/zonal/epos.png',
         tags: ['EPoS', 'Handheld ordering', 'Operations', 'Reliability'],
         confidence: 'Public context'
       }
@@ -168,7 +174,7 @@ const experiences: Experience[] = [
           'Quickbase describes Pipelines Designer as a drag-and-drop visual builder for orchestrating automated workflows across apps and third-party tools.',
         sourceLabel: 'Quickbase Pipelines Designer',
         sourceUrl: 'https://www.quickbase.com/product/pipelines-designer',
-        image: '/company-logos/quickbase.jpg',
+        image: '/company-project-shots/quickbase/pipelines-designer.png',
         tags: ['Low-code', 'Pipelines', 'Visual builder', 'Automation'],
         confidence: 'LinkedIn/CV-backed'
       },
@@ -178,10 +184,10 @@ const experiences: Experience[] = [
         relationshipText:
           'Public Quickbase context for the workflow concepts that match the CV-described loops and conditional visual-builder work.',
         summary:
-          'Quickbase’s platform material references visual workflow design and screenshots of loops and branches automation as part of integration and workflow capabilities.',
+          "Quickbase's platform material references visual workflow design and screenshots of loops and branches automation as part of integration and workflow capabilities.",
         sourceLabel: 'Quickbase workflow guide',
         sourceUrl: 'https://www.quickbase.com/platform-evaluation-guide/integration-and-workflow-capabilities/automated-workflow',
-        image: '/company-logos/quickbase.jpg',
+        image: '/company-project-shots/quickbase/pipelines-designer.png',
         tags: ['Loops', 'Branches', 'Workflow UX', 'Builder UI'],
         confidence: 'Public context'
       }
@@ -213,7 +219,6 @@ const experiences: Experience[] = [
           'This card keeps Hakomo conservative until an authenticated LinkedIn scrape or stronger public project page confirms specific product names and imagery.',
         sourceLabel: 'LinkedIn/CV-backed note',
         sourceUrl: 'https://www.linkedin.com/in/boris-b-22566b171/',
-        image: '/company-logos/hakomo.jpg',
         tags: ['React Native', 'React', 'Mobile UX', 'Web UI'],
         confidence: 'LinkedIn/CV-backed'
       }
@@ -245,7 +250,7 @@ const experiences: Experience[] = [
           'A1 presents Xplore TV around 4K channels, video library, personalized recommendations, universal search, mobile viewing, and TV-box setup/help flows.',
         sourceLabel: 'A1 Xplore TV',
         sourceUrl: 'https://www.a1.bg/a1-xplore-tv',
-        image: '/company-logos/a1-bulgaria.jpg',
+        image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['TV UX', 'React Native', 'Remote control', 'Support tools'],
         confidence: 'LinkedIn/CV-backed'
       },
@@ -255,10 +260,10 @@ const experiences: Experience[] = [
         relationshipText:
           'Public product context for the broader A1 television app ecosystem; not stated as sole ownership.',
         summary:
-          'The public app listing identifies A1 Xplore TV GO as A1 Bulgaria’s mobile/cable/Wi-Fi TV viewing app.',
+          "The public app listing identifies A1 Xplore TV GO as A1 Bulgaria's mobile/cable/Wi-Fi TV viewing app.",
         sourceLabel: 'Google Play listing',
         sourceUrl: 'https://play.google.com/store/apps/details?id=bg.a1.android.xploretv',
-        image: '/company-logos/a1-bulgaria.jpg',
+        image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['Mobile TV', 'A1 Bulgaria', 'App ecosystem'],
         confidence: 'Public context'
       }
@@ -323,7 +328,7 @@ const experiences: Experience[] = [
           'The portfolio treats this as practical business and web-maintenance experience rather than a software-company product role.',
         sourceLabel: 'Soap Factory',
         sourceUrl: 'https://soapfactory.bg/',
-        image: '/company-logos/soap-factory.webp',
+        image: '/company-project-shots/soap-factory/storefront.png',
         tags: ['E-commerce', 'Catalog', 'Operations', 'Family business'],
         confidence: 'LinkedIn/CV-backed'
       }
@@ -331,15 +336,15 @@ const experiences: Experience[] = [
   }
 ];
 
-const professionalContext = experiences.flatMap((experience) =>
-  (experience.contextProjects ?? []).map((project) => ({
+function toDisplayContext(experience: Experience, project: ProfessionalContext): DisplayProfessionalContext {
+  return {
     ...project,
     company: experience.company,
     accent: experience.accent,
     logo: experience.logos?.[0],
     initials: experience.initials
-  }))
-);
+  };
+}
 
 function App() {
   return (
@@ -359,6 +364,7 @@ function HomePage() {
   const runtimeStatus = useRuntimeStatus();
   const activeRuntime = runtimeStatus?.projects.find((item) => item.slug === activeProject.slug);
   const [selectedExperienceIndex, setSelectedExperienceIndex] = React.useState<number | null>(null);
+  const [selectedContext, setSelectedContext] = React.useState<DisplayProfessionalContext | null>(null);
   const selectedExperience = selectedExperienceIndex === null ? null : experiences[selectedExperienceIndex];
   const navigate = useNavigate();
 
@@ -376,13 +382,17 @@ function HomePage() {
   };
 
   React.useEffect(() => {
-    if (!selectedExperience) return;
+    if (!selectedExperience && !selectedContext) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setSelectedExperienceIndex(null);
+        if (selectedContext) {
+          setSelectedContext(null);
+        } else {
+          setSelectedExperienceIndex(null);
+        }
       }
     };
 
@@ -391,7 +401,7 @@ function HomePage() {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [selectedExperience]);
+  }, [selectedContext, selectedExperience]);
 
   return (
     <main className="page-shell home-shell">
@@ -541,11 +551,18 @@ function HomePage() {
                 <span className="timeline-dot" aria-hidden="true" />
               </div>
 
-              <motion.button
+              <motion.article
                 className="experience-panel crafted-frame"
                 layoutId={`experience-card-${index}`}
                 onClick={() => setSelectedExperienceIndex(index)}
-                type="button"
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedExperienceIndex(index);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
                 aria-haspopup="dialog"
                 aria-label={`Open details for ${experience.company}`}
                 whileHover={{ y: -4 }}
@@ -571,31 +588,20 @@ function HomePage() {
                   ))}
                 </ul>
 
+                {experience.contextProjects?.length ? (
+                  <ProductContextStrip
+                    contexts={experience.contextProjects.map((project) => toDisplayContext(experience, project))}
+                    onSelect={setSelectedContext}
+                  />
+                ) : null}
+
                 <div className="tag-row compact experience-stack">
                   {experience.stack.map((tag) => (
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-              </motion.button>
+              </motion.article>
             </motion.article>
-          ))}
-        </div>
-      </section>
-
-      <section className="professional-context-section" aria-label="Professional product context">
-        <div className="section-heading professional-heading">
-          <div>
-            <p className="eyebrow">Professional context</p>
-            <h2>Products & Platforms Around My Roles</h2>
-          </div>
-          <span>
-            Public product references paired with LinkedIn/CV-backed tenure notes, worded carefully where employer work is private.
-          </span>
-        </div>
-
-        <div className="professional-context-grid">
-          {professionalContext.map((project) => (
-            <ProfessionalContextCard context={project} key={`${project.company}-${project.title}`} />
           ))}
         </div>
       </section>
@@ -605,15 +611,27 @@ function HomePage() {
           <ExperienceModal
             experience={selectedExperience}
             index={selectedExperienceIndex}
+            onSelectContext={setSelectedContext}
             onClose={() => setSelectedExperienceIndex(null)}
           />
+        ) : null}
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedContext ? (
+          <ProductContextModal context={selectedContext} onClose={() => setSelectedContext(null)} />
         ) : null}
       </AnimatePresence>
     </main>
   );
 }
 
-function CompanyLogo({ experience, layoutId }: { experience: Experience; layoutId?: string }) {
+function CompanyLogo({
+  experience,
+  layoutId
+}: {
+  experience: Pick<Experience, 'company' | 'logos' | 'initials'>;
+  layoutId?: string;
+}) {
   const logos = experience.logos ?? [];
 
   return (
@@ -637,10 +655,12 @@ function CompanyLogo({ experience, layoutId }: { experience: Experience; layoutI
 function ExperienceModal({
   experience,
   index,
+  onSelectContext,
   onClose
 }: {
   experience: Experience;
   index: number;
+  onSelectContext: (context: DisplayProfessionalContext) => void;
   onClose: () => void;
 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -703,19 +723,11 @@ function ExperienceModal({
 
         {experience.contextProjects?.length ? (
           <div className="modal-context-strip" aria-label={`${experience.company} product context`}>
-            {experience.contextProjects.map((project) => (
-              <ProfessionalContextCard
-                context={{
-                  ...project,
-                  company: experience.company,
-                  accent: experience.accent,
-                  logo: experience.logos?.[0],
-                  initials: experience.initials
-                }}
-                compact
-                key={project.title}
-              />
-            ))}
+            <ProductContextStrip
+              contexts={experience.contextProjects.map((project) => toDisplayContext(experience, project))}
+              onSelect={onSelectContext}
+              dense
+            />
           </div>
         ) : null}
 
@@ -729,39 +741,110 @@ function ExperienceModal({
   );
 }
 
-function ProfessionalContextCard({
-  context,
-  compact = false
+function ProductContextStrip({
+  contexts,
+  onSelect,
+  dense = false
 }: {
-  context: ProfessionalContext & { company: string; accent: string; logo?: string; initials: string };
-  compact?: boolean;
+  contexts: DisplayProfessionalContext[];
+  onSelect: (context: DisplayProfessionalContext) => void;
+  dense?: boolean;
 }) {
   return (
-    <article
-      className={`professional-context-card crafted-frame ${compact ? 'compact-context-card' : ''}`}
-      style={{ '--accent': context.accent } as React.CSSProperties}
-    >
-      <div className="context-visual">
-        <img src={context.image || context.logo || '/project-shots/portfolio-placeholder.svg'} alt={`${context.title} visual reference`} />
-        <span>{context.confidence}</span>
-      </div>
-      <div className="context-body">
-        <p className="experience-company">{context.company}</p>
-        <h3>{context.title}</h3>
-        <strong>{context.productArea}</strong>
-        <p>{context.relationshipText}</p>
-        {!compact ? <p>{context.summary}</p> : null}
-        <div className="tag-row compact">
-          {context.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-        <a href={context.sourceUrl} target="_blank" rel="noreferrer">
-          {context.sourceLabel}
+    <div className={`product-context-strip ${dense ? 'dense-context-strip' : ''}`}>
+      {contexts.map((context) => (
+        <button
+          className="product-context-pill"
+          key={`${context.company}-${context.title}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            onSelect(context);
+          }}
+          type="button"
+          style={{ '--accent': context.accent } as React.CSSProperties}
+        >
+          {context.image ? (
+            <img src={context.image} alt={`${context.title} public product screenshot`} loading="lazy" />
+          ) : (
+            <span className="context-logo-fallback">{context.initials}</span>
+          )}
+          <span className="context-pill-copy">
+            <strong>{context.title}</strong>
+            <span>{context.sourceLabel}</span>
+          </span>
           <ArrowUpRight size={15} />
-        </a>
-      </div>
-    </article>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ProductContextModal({
+  context,
+  onClose
+}: {
+  context: DisplayProfessionalContext;
+  onClose: () => void;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      className="product-modal-layer"
+      role="presentation"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.16 }}
+      onMouseDown={onClose}
+    >
+      <motion.article
+        className="product-context-modal crafted-frame"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="product-context-title"
+        style={{ '--accent': context.accent } as React.CSSProperties}
+        initial={shouldReduceMotion ? false : { y: 26, scale: 0.98 }}
+        animate={shouldReduceMotion ? {} : { y: 0, scale: 1 }}
+        exit={shouldReduceMotion ? {} : { y: 18, scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 270, damping: 30 }}
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="product-modal-header">
+          <div>
+            <p className="experience-company">{context.company}</p>
+            <h3 id="product-context-title">{context.title}</h3>
+          </div>
+          <button className="modal-close-button" onClick={onClose} type="button" aria-label="Close product context">
+            <X size={18} />
+          </button>
+        </div>
+
+        {context.image ? (
+          <img className="product-modal-shot" src={context.image} alt={`${context.title} public product screenshot`} />
+        ) : (
+          <div className="product-modal-no-shot">
+            <CompanyLogo experience={context} />
+            <span>Private/internal work context</span>
+          </div>
+        )}
+
+        <div className="product-modal-copy">
+          <strong>{context.productArea}</strong>
+          <p>{context.relationshipText}</p>
+          <p>{context.summary}</p>
+          <div className="tag-row compact">
+            {context.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          <a href={context.sourceUrl} target="_blank" rel="noreferrer">
+            {context.sourceLabel}
+            <ArrowUpRight size={15} />
+          </a>
+        </div>
+      </motion.article>
+    </motion.div>
   );
 }
 

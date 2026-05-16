@@ -903,6 +903,7 @@ p {
 }
 
 .modal-close-button {
+  flex: 0 0 auto;
   display: grid;
   place-items: center;
   width: 38px;
@@ -980,133 +981,165 @@ p {
 }
 
 .modal-context-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 12px;
   margin-top: 18px;
 }
 
-.professional-context-section {
-  margin-top: 34px;
-  padding: clamp(18px, 2.6vw, 38px) 0 16px;
-  border-top: 1px solid rgba(246, 241, 232, 0.12);
-}
-
-.professional-context-grid {
+.product-context-strip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.professional-context-card {
+.dense-context-strip {
+  margin-top: 0;
+}
+
+.product-context-pill {
   display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 12px;
-  min-height: 360px;
-  padding: 13px;
-  border-width: 1px;
-  color: rgba(246, 241, 232, 0.88);
-  background:
-    radial-gradient(circle at 16% 8%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 40%),
-    linear-gradient(135deg, rgba(246, 241, 232, 0.07), rgba(246, 241, 232, 0.032)),
-    rgba(5, 10, 9, 0.7);
-  backdrop-filter: blur(13px) saturate(1.12);
-}
-
-.professional-context-card:hover {
-  border-color: color-mix(in srgb, var(--accent) 54%, rgba(246, 241, 232, 0.16));
-  box-shadow: 0 24px 68px color-mix(in srgb, var(--accent) 13%, rgba(0, 0, 0, 0.42));
-}
-
-.compact-context-card {
-  grid-template-columns: 96px minmax(0, 1fr);
-  grid-template-rows: auto;
-  min-height: 0;
-  padding: 12px;
-  background:
-    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 38%),
-    rgba(246, 241, 232, 0.045);
-}
-
-.context-visual {
-  position: relative;
-  min-height: 98px;
-  overflow: hidden;
-  border: 1px solid rgba(246, 241, 232, 0.12);
+  grid-template-columns: 74px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, rgba(246, 241, 232, 0.11));
   border-radius: 16px 7px 18px 8px;
+  color: inherit;
   background:
-    radial-gradient(circle at 22% 16%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 48%),
-    linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, rgba(246, 241, 232, 0.08)), rgba(246, 241, 232, 0.035));
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%),
+    rgba(246, 241, 232, 0.055);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
-.compact-context-card .context-visual {
-  min-height: 96px;
+.product-context-pill:hover,
+.product-context-pill:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 68%, rgba(246, 241, 232, 0.2));
+  background:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 44%),
+    rgba(246, 241, 232, 0.08);
+  outline: none;
 }
 
-.context-visual img {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  width: min(44%, 140px);
-  height: auto;
-  min-height: inherit;
-  object-fit: contain;
-  padding: 10px;
+.product-context-pill img,
+.context-logo-fallback {
+  width: 74px;
+  height: 52px;
   border-radius: 12px 5px 14px 6px;
+  object-fit: cover;
   background: rgba(246, 241, 232, 0.9);
-  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
-  transform: translateY(-50%);
 }
 
-.compact-context-card .context-visual img {
-  left: 10px;
-  width: calc(100% - 20px);
+.context-logo-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-weight: 950;
 }
 
-.context-visual span {
-  position: absolute;
-  right: 7px;
-  bottom: 7px;
-  max-width: calc(100% - 14px);
-  padding: 4px 6px;
-  border: 1px solid rgba(5, 10, 9, 0.12);
-  border-radius: 999px;
-  color: rgba(5, 10, 9, 0.76);
-  background: rgba(246, 241, 232, 0.86);
-  font-size: 10px;
+.context-pill-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.context-pill-copy strong {
+  overflow: hidden;
+  color: rgba(246, 241, 232, 0.86);
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+}
+
+.context-pill-copy span {
+  color: var(--accent);
+  font-size: 11px;
   font-weight: 900;
 }
 
-.context-body {
+.product-modal-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 3vw, 34px);
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(11px) saturate(1.1);
+}
+
+.product-context-modal {
+  width: min(760px, calc(100vw - 28px));
+  max-height: min(820px, calc(100vh - 28px));
+  overflow: auto;
+  padding: clamp(16px, 2.3vw, 26px);
+  border-width: 1px;
+  color: rgba(246, 241, 232, 0.88);
+  background:
+    radial-gradient(circle at 16% 0%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 44%),
+    linear-gradient(135deg, rgba(246, 241, 232, 0.08), rgba(246, 241, 232, 0.035)),
+    rgba(5, 10, 9, 0.9);
+  box-shadow: 0 36px 120px rgba(0, 0, 0, 0.6);
+}
+
+.product-modal-header {
   display: flex;
-  min-width: 0;
-  flex-direction: column;
-  gap: 9px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.context-body h3 {
+.product-modal-header h3 {
+  max-width: 580px;
   margin: 0;
-  font-size: clamp(20px, 1.8vw, 30px);
-  line-height: 1;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 0.96;
 }
 
-.compact-context-card .context-body h3 {
-  font-size: 20px;
+.product-modal-shot,
+.product-modal-no-shot {
+  width: 100%;
+  margin-top: 18px;
+  border: 1px solid rgba(246, 241, 232, 0.12);
+  border-radius: 18px 8px 22px 10px;
+  background: rgba(246, 241, 232, 0.06);
 }
 
-.context-body strong {
-  color: rgba(246, 241, 232, 0.66);
-  font-size: 12px;
+.product-modal-shot {
+  display: block;
+  max-height: 330px;
+  object-fit: cover;
 }
 
-.context-body p {
-  margin: 0;
+.product-modal-no-shot {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  min-height: 190px;
+  color: rgba(246, 241, 232, 0.68);
+  font-weight: 900;
+}
+
+.product-modal-copy {
+  display: grid;
+  gap: 11px;
+  margin-top: 16px;
+}
+
+.product-modal-copy strong {
   color: rgba(246, 241, 232, 0.72);
   font-size: 13px;
-  line-height: 1.5;
 }
 
-.context-body a {
+.product-modal-copy p {
+  margin: 0;
+  color: rgba(246, 241, 232, 0.74);
+  line-height: 1.55;
+}
+
+.product-modal-copy a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1118,7 +1151,7 @@ p {
   text-decoration: none;
 }
 
-.context-body a:hover {
+.product-modal-copy a:hover {
   color: #fff;
 }
 
@@ -1772,19 +1805,35 @@ iframe,
     padding: 13px;
   }
 
-  .professional-context-grid,
+  .product-context-strip,
   .modal-context-strip {
     grid-template-columns: 1fr;
   }
 
-  .professional-context-card,
-  .compact-context-card {
-    grid-template-columns: 1fr;
+  .product-context-pill {
+    grid-template-columns: 68px minmax(0, 1fr) auto;
   }
 
-  .context-visual,
-  .compact-context-card .context-visual {
-    min-height: 150px;
+  .product-context-pill img,
+  .context-logo-fallback {
+    width: 68px;
+    height: 50px;
+  }
+
+  .product-modal-layer {
+    align-items: end;
+    padding: 10px;
+  }
+
+  .product-context-modal {
+    width: 100%;
+    max-height: calc(100vh - 20px);
+    padding: 16px;
+    border-radius: 22px 10px 26px 12px;
+  }
+
+  .product-modal-header h3 {
+    font-size: 31px;
   }
 
   .top-nav {
