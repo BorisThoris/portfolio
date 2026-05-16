@@ -9,8 +9,10 @@ import {
   ExternalLink,
   Github,
   MonitorUp,
-  Play
+  Play,
+  X
 } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { AeroLiquidBackground } from './AeroLiquidBackground';
 import { getProject, moreProjects, Project, showcaseProjects, visibleProjects } from './projects';
 import './styles.css';
@@ -32,10 +34,16 @@ type Experience = {
   company: string;
   role: string;
   tenure: string;
+  startYear: string;
   type: string;
   summary: string;
   bullets: string[];
   stack: string[];
+  detailTitle?: string;
+  detailSections?: Array<{
+    title: string;
+    items: string[];
+  }>;
   logos?: string[];
   initials: string;
   accent: string;
@@ -46,6 +54,7 @@ const experiences: Experience[] = [
     company: 'Man Group',
     role: 'Project Owner / Full-stack Risk Software Engineer',
     tenure: 'Feb 2024 - Present',
+    startYear: '2024',
     type: 'Full-time - Investment technology',
     summary: 'Own delivery for production risk-analytics and internal software used by professional users.',
     bullets: [
@@ -63,6 +72,7 @@ const experiences: Experience[] = [
     company: 'Expert Allies / Zonal',
     role: 'Senior Software Engineer / Senior React Developer',
     tenure: 'Feb 2023 - Feb 2024',
+    startYear: '2023',
     type: 'Contract/employment engagement - Hospitality software',
     summary: 'Worked as a senior React engineer on Zonal product interfaces for hospitality operators.',
     bullets: [
@@ -79,6 +89,7 @@ const experiences: Experience[] = [
     company: 'Quickbase',
     role: 'Software Engineer II',
     tenure: 'Aug 2020 - Jan 2023',
+    startYear: '2020',
     type: 'Full-time - Low-code automation',
     summary: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy surfaces.',
     bullets: [
@@ -96,6 +107,7 @@ const experiences: Experience[] = [
     company: 'Hakomo',
     role: 'Software Engineer',
     tenure: 'Jan 2020 - Jun 2020',
+    startYear: '2020',
     type: 'Full-time - Mobile and web products',
     summary: 'Built React Native mobile applications and design-heavy React web interfaces for product stakeholders.',
     bullets: [
@@ -112,6 +124,7 @@ const experiences: Experience[] = [
     company: 'A1 Bulgaria',
     role: 'Junior Software Engineer',
     tenure: 'Mar 2019 - Nov 2019',
+    startYear: '2019',
     type: 'Full-time - Telecom software',
     summary: 'Built React, React Native, and C# applications across public-facing and internal engineering tools.',
     bullets: [
@@ -128,6 +141,7 @@ const experiences: Experience[] = [
     company: 'Evolution Bulgaria',
     role: 'Trainee Software Engineer',
     tenure: 'Jan 2019 - Feb 2019',
+    startYear: '2019',
     type: 'Professional training',
     summary: 'Completed early professional software engineering training before moving into full-time application development.',
     bullets: [
@@ -143,6 +157,7 @@ const experiences: Experience[] = [
     company: 'Independent Products',
     role: 'Full-stack Product Builder',
     tenure: 'Jul 2018 - Present',
+    startYear: '2018',
     type: 'Public GitHub project lineage and product systems',
     summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
     bullets: [
@@ -159,6 +174,7 @@ const experiences: Experience[] = [
     company: 'Soap Factory',
     role: 'Family Business / E-commerce & Operations Support',
     tenure: '2017 - 2019 + Ongoing support',
+    startYear: '2017',
     type: 'Family business - Natural cosmetics and e-commerce',
     summary: 'Supported the family natural-cosmetics business across hands-on operations, customer-facing sales, and web shop maintenance.',
     bullets: [
@@ -190,6 +206,8 @@ function HomePage() {
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
   const activeRuntime = runtimeStatus?.projects.find((item) => item.slug === activeProject.slug);
+  const [selectedExperienceIndex, setSelectedExperienceIndex] = React.useState<number | null>(null);
+  const selectedExperience = selectedExperienceIndex === null ? null : experiences[selectedExperienceIndex];
   const navigate = useNavigate();
 
   const selectProject = (nextIndex: number) => {
@@ -204,6 +222,24 @@ function HomePage() {
     setSlideDirection(direction);
     setActiveIndex((current) => (current + direction + showcaseProjects.length) % showcaseProjects.length);
   };
+
+  React.useEffect(() => {
+    if (!selectedExperience) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedExperienceIndex(null);
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [selectedExperience]);
 
   return (
     <main className="page-shell home-shell">
@@ -341,17 +377,29 @@ function HomePage() {
 
         <div className="experience-timeline">
           {experiences.map((experience, index) => (
-            <article
+            <motion.article
               className="experience-item"
               key={experience.company}
               style={{ '--accent': experience.accent } as React.CSSProperties}
+              initial={false}
             >
-              <div className="experience-rail" aria-hidden="true">
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <CompanyLogo experience={experience} />
+              <div className="experience-rail">
+                <span className="experience-index">{String(index + 1).padStart(2, '0')}</span>
+                <span className="experience-year">{experience.startYear}</span>
+                <CompanyLogo experience={experience} layoutId={`experience-logo-${index}`} />
+                <span className="timeline-dot" aria-hidden="true" />
               </div>
 
-              <div className="experience-panel crafted-frame">
+              <motion.button
+                className="experience-panel crafted-frame"
+                layoutId={`experience-card-${index}`}
+                onClick={() => setSelectedExperienceIndex(index)}
+                type="button"
+                aria-haspopup="dialog"
+                aria-label={`Open details for ${experience.company}`}
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.992 }}
+              >
                 <div className="experience-topline">
                   <div>
                     <p className="experience-company">{experience.company}</p>
@@ -377,20 +425,30 @@ function HomePage() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-              </div>
-            </article>
+              </motion.button>
+            </motion.article>
           ))}
         </div>
       </section>
+
+      <AnimatePresence>
+        {selectedExperience && selectedExperienceIndex !== null ? (
+          <ExperienceModal
+            experience={selectedExperience}
+            index={selectedExperienceIndex}
+            onClose={() => setSelectedExperienceIndex(null)}
+          />
+        ) : null}
+      </AnimatePresence>
     </main>
   );
 }
 
-function CompanyLogo({ experience }: { experience: Experience }) {
+function CompanyLogo({ experience, layoutId }: { experience: Experience; layoutId?: string }) {
   const logos = experience.logos ?? [];
 
   return (
-    <div className={`company-logo ${logos.length > 1 ? 'logo-stack' : ''}`}>
+    <motion.div className={`company-logo ${logos.length > 1 ? 'logo-stack' : ''}`} layoutId={layoutId}>
       <span>{experience.initials}</span>
       {logos.map((logo, index) => (
         <img
@@ -403,7 +461,84 @@ function CompanyLogo({ experience }: { experience: Experience }) {
           }}
         />
       ))}
-    </div>
+    </motion.div>
+  );
+}
+
+function ExperienceModal({
+  experience,
+  index,
+  onClose
+}: {
+  experience: Experience;
+  index: number;
+  onClose: () => void;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+  const detailSections = experience.detailSections ?? [
+    { title: 'Highlights', items: experience.bullets },
+    { title: 'Tools and scope', items: [experience.stack.join(', ')] }
+  ];
+
+  return (
+    <motion.div
+      className="experience-modal-layer"
+      role="presentation"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.18 }}
+      onMouseDown={onClose}
+    >
+      <motion.div
+        className="experience-modal crafted-frame"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="experience-modal-title"
+        style={{ '--accent': experience.accent } as React.CSSProperties}
+        layoutId={`experience-card-${index}`}
+        onMouseDown={(event) => event.stopPropagation()}
+        transition={shouldReduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 260, damping: 30 }}
+      >
+        <div className="experience-modal-header">
+          <CompanyLogo experience={experience} layoutId={`experience-logo-${index}`} />
+          <button className="modal-close-button" onClick={onClose} type="button" aria-label="Close experience detail">
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="experience-modal-titlebar">
+          <p className="experience-company">{experience.company}</p>
+          <h3 id="experience-modal-title">{experience.detailTitle ?? experience.role}</h3>
+          <div className="experience-modal-meta">
+            <span>{experience.startYear}</span>
+            <span>{experience.tenure}</span>
+            <span>{experience.type}</span>
+          </div>
+        </div>
+
+        <p className="experience-summary modal-summary">{experience.summary}</p>
+
+        <div className="experience-modal-grid">
+          {detailSections.map((section) => (
+            <section className="experience-modal-section" key={section.title}>
+              <h4>{section.title}</h4>
+              <ul className="experience-bullets">
+                {section.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        <div className="tag-row compact experience-stack modal-stack">
+          {experience.stack.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
