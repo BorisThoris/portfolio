@@ -36,7 +36,7 @@ type Experience = {
   summary: string;
   bullets: string[];
   stack: string[];
-  logo?: string;
+  logos?: string[];
   initials: string;
   accent: string;
 };
@@ -55,7 +55,7 @@ const experiences: Experience[] = [
       'Integrate structured AI-assisted workflow features where appropriate and expand coverage with Playwright, Vitest, and pytest.'
     ],
     stack: ['React', 'TypeScript', 'Python', 'Flask', 'AG Grid', 'Zustand', 'Playwright', 'pytest'],
-    logo: 'https://www.man.com/themes/custom/digital/favicon.ico',
+    logos: ['/company-logos/man-group.jpg'],
     initials: 'MG',
     accent: '#8bd3ff'
   },
@@ -71,7 +71,7 @@ const experiences: Experience[] = [
       'Worked in a product domain where reliability, clear user flows, and fast day-to-day operations mattered.'
     ],
     stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Jest', 'React Testing Library'],
-    logo: 'https://www.zonal.co.uk/wp-content/uploads/2019/11/Zonal-logo-new.jpg',
+    logos: ['/company-logos/expert-allies.jpg', '/company-logos/zonal.jpg'],
     initials: 'Z',
     accent: '#90f0c0'
   },
@@ -88,7 +88,7 @@ const experiences: Experience[] = [
       'Mentored junior colleagues and received company recognition for delivery impact.'
     ],
     stack: ['React', 'Backbone', 'jQuery', 'Storybook', 'Jest', 'React Testing Library', 'Webpack'],
-    logo: 'https://www.quickbase.com/favicon.svg',
+    logos: ['/company-logos/quickbase.jpg'],
     initials: 'QB',
     accent: '#f0d879'
   },
@@ -104,6 +104,7 @@ const experiences: Experience[] = [
       'Worked closely with product and design stakeholders on practical UI implementation and delivery.'
     ],
     stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#'],
+    logos: ['/company-logos/hakomo.jpg'],
     initials: 'H',
     accent: '#ff9f73'
   },
@@ -119,7 +120,7 @@ const experiences: Experience[] = [
       'Contributed to public-facing A1 Bulgaria web work and internal tools used by engineering/support teams.'
     ],
     stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI'],
-    logo: 'https://www.a1.bg/mgw-web/cms/media?Name=nav-logo&Size=default&cacheId=',
+    logos: ['/company-logos/a1-bulgaria.jpg'],
     initials: 'A1',
     accent: '#a7d7ff'
   },
@@ -134,7 +135,7 @@ const experiences: Experience[] = [
       'Used the training period as the bridge into full-time application engineering roles.'
     ],
     stack: ['Engineering Foundations', 'Team Workflows', 'Delivery'],
-    logo: 'https://www.evolution.com/favicon.ico',
+    logos: ['/company-logos/evolution.jpg'],
     initials: 'EV',
     accent: '#d8b4ff'
   },
@@ -369,19 +370,22 @@ function HomePage() {
 }
 
 function CompanyLogo({ experience }: { experience: Experience }) {
+  const logos = experience.logos ?? [];
+
   return (
-    <div className="company-logo">
+    <div className={`company-logo ${logos.length > 1 ? 'logo-stack' : ''}`}>
       <span>{experience.initials}</span>
-      {experience.logo ? (
+      {logos.map((logo, index) => (
         <img
-          src={experience.logo}
-          alt={`${experience.company} logo`}
+          src={logo}
+          alt={`${experience.company} logo ${index + 1}`}
           loading="lazy"
+          key={logo}
           onError={(event) => {
             event.currentTarget.remove();
           }}
         />
-      ) : null}
+      ))}
     </div>
   );
 }
