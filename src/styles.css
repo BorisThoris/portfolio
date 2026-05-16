@@ -404,11 +404,13 @@ p {
   gap: 8px;
   margin: clamp(16px, 2vw, 30px) clamp(16px, 2vw, 30px) 0;
   padding: 10px;
-  border: 1px solid rgba(246, 241, 232, 0.09);
+  border: 1px solid rgba(246, 241, 232, 0.14);
   border-radius: 18px 8px 20px 10px;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
+  background:
+    linear-gradient(90deg, rgba(5, 10, 9, 0.32), rgba(5, 10, 9, 0.2)),
+    color-mix(in srgb, var(--accent) 8%, rgba(246, 241, 232, 0.045));
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px) saturate(1.16);
 }
 
 .dock-item {
