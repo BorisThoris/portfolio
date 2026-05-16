@@ -5,6 +5,9 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
+  BriefcaseBusiness,
+  Building2,
+  Code2,
   ExternalLink,
   Github,
   MonitorUp,
@@ -26,6 +29,50 @@ type RuntimeStatus = {
   generatedAt: string;
   projects: RuntimeProjectStatus[];
 };
+
+type Experience = {
+  company: string;
+  icon: React.ComponentType<{ size?: number }>;
+  description: string;
+  role: string;
+  tenure: string;
+  tags: string[];
+  screenshot: string;
+  accent: string;
+};
+
+const experiences: Experience[] = [
+  {
+    company: 'Independent Product Work',
+    icon: Code2,
+    description: 'Public portfolio and GitHub work focused on interactive tools, web apps, game prototypes, and polished demo experiences.',
+    role: 'Frontend / Full-Stack Developer',
+    tenure: 'Tenure needs confirmation',
+    tags: ['React', 'TypeScript', 'Games', 'Tools'],
+    screenshot: '/project-shots/bbeats/main.png',
+    accent: '#90f0c0'
+  },
+  {
+    company: 'Client / Employer Experience',
+    icon: BriefcaseBusiness,
+    description: 'Professional employment details are intentionally kept as placeholders until company names, dates, and permissions are verified.',
+    role: 'Software Developer',
+    tenure: 'Company and tenure need confirmation',
+    tags: ['Product UI', 'Delivery', 'Collaboration'],
+    screenshot: '/project-shots/portfolio-placeholder.svg',
+    accent: '#8bd3ff'
+  },
+  {
+    company: 'Portfolio Systems',
+    icon: Building2,
+    description: 'A curated showcase layer that packages repository work into live demos, screenshots, deployment fallbacks, and project case views.',
+    role: 'Portfolio Maintainer',
+    tenure: 'Public project timeline needs confirmation',
+    tags: ['Automation', 'Vite', 'Cloudflare', 'QA'],
+    screenshot: '/project-shots/roam-rental-dashboard/main.png',
+    accent: '#f0d879'
+  }
+];
 
 function App() {
   return (
@@ -93,7 +140,6 @@ function HomePage() {
               className={`dock-item ${index === activeIndex ? 'active' : ''}`}
               key={project.slug}
               onClick={() => selectProject(index)}
-              onMouseEnter={() => selectProject(index)}
               style={{ '--accent': project.accent } as React.CSSProperties}
             >
               <span>{String(index + 1).padStart(2, '0')}</span>
@@ -182,6 +228,56 @@ function HomePage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section id="experience" className="experience-section" aria-label="Employment and experience">
+        <div className="section-heading experience-heading">
+          <div>
+            <p className="eyebrow">Experience</p>
+            <h2>Employment & Product Work</h2>
+          </div>
+          <span>Publicly visible work plus confirmation-ready employment placeholders.</span>
+        </div>
+
+        <div className="experience-grid">
+          {experiences.map((experience) => {
+            const Icon = experience.icon;
+
+            return (
+              <article
+                className="experience-card crafted-frame"
+                key={experience.company}
+                style={{ '--accent': experience.accent } as React.CSSProperties}
+              >
+                <div className="experience-media">
+                  <img
+                    src={experience.screenshot}
+                    alt={`${experience.company} representative screenshot`}
+                    onError={(event) => {
+                      event.currentTarget.src = '/project-shots/portfolio-placeholder.svg';
+                    }}
+                  />
+                </div>
+                <div className="experience-copy">
+                  <div className="company-mark" aria-hidden="true">
+                    <Icon size={19} />
+                  </div>
+                  <div>
+                    <p className="experience-company">{experience.company}</p>
+                    <h3>{experience.role}</h3>
+                    <strong>{experience.tenure}</strong>
+                    <p>{experience.description}</p>
+                    <div className="tag-row compact">
+                      {experience.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
