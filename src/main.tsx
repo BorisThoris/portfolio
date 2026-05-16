@@ -43,34 +43,74 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    company: 'Independent Product Work',
-    icon: Code2,
-    description: 'Public portfolio and GitHub work focused on interactive tools, web apps, game prototypes, and polished demo experiences.',
-    role: 'Frontend / Full-Stack Developer',
-    tenure: 'Tenure needs confirmation',
-    tags: ['React', 'TypeScript', 'Games', 'Tools'],
-    screenshot: '/project-shots/bbeats/main.png',
-    accent: '#90f0c0'
-  },
-  {
-    company: 'Client / Employer Experience',
+    company: 'Man Group',
     icon: BriefcaseBusiness,
-    description: 'Professional employment details are intentionally kept as placeholders until company names, dates, and permissions are verified.',
-    role: 'Software Developer',
-    tenure: 'Company and tenure need confirmation',
-    tags: ['Product UI', 'Delivery', 'Collaboration'],
+    description: 'Own delivery for production risk-analytics and internal software across React/TypeScript frontends, Python services, dashboards, APIs, testing, and deployment configuration.',
+    role: 'Project Owner / Full-stack Risk Software Engineer',
+    tenure: 'Feb 2024 - Present',
+    tags: ['React', 'TypeScript', 'Python', 'Risk Analytics', 'Playwright'],
     screenshot: '/project-shots/portfolio-placeholder.svg',
     accent: '#8bd3ff'
   },
   {
-    company: 'Portfolio Systems',
+    company: 'Expert Allies / Zonal',
+    icon: BriefcaseBusiness,
+    description: 'Built and improved React interfaces for Zonal hospitality software used by pubs, hotels, restaurants, and venue operators across the UK.',
+    role: 'Senior Software Engineer / Senior React Developer',
+    tenure: 'Feb 2023 - Feb 2024',
+    tags: ['React', 'TypeScript', 'Redux', 'Jest', 'Product UI'],
+    screenshot: '/project-shots/cat-world/main.png',
+    accent: '#90f0c0'
+  },
+  {
+    company: 'Quickbase',
     icon: Building2,
-    description: 'A curated showcase layer that packages repository work into live demos, screenshots, deployment fallbacks, and project case views.',
-    role: 'Portfolio Maintainer',
-    tenure: 'Public project timeline needs confirmation',
-    tags: ['Automation', 'Vite', 'Cloudflare', 'QA'],
-    screenshot: '/project-shots/roam-rental-dashboard/main.png',
+    description: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy Backbone surfaces and delivering visual-programming features.',
+    role: 'Software Engineer II',
+    tenure: 'Aug 2020 - Jan 2023',
+    tags: ['React', 'Backbone', 'Storybook', 'Jest', 'Low-code'],
+    screenshot: '/project-shots/cross-repo-libs/main.png',
     accent: '#f0d879'
+  },
+  {
+    company: 'Hakomo',
+    icon: Code2,
+    description: 'Developed React Native mobile applications, including social and education products, plus a design-heavy React site for real-estate appraisal workflows.',
+    role: 'Software Engineer',
+    tenure: 'Jan 2020 - Jun 2020',
+    tags: ['React Native', 'React', 'JavaScript', 'Mobile', 'UI'],
+    screenshot: '/project-shots/gorilla-gainz/main.png',
+    accent: '#ff9f73'
+  },
+  {
+    company: 'A1 Bulgaria',
+    icon: Building2,
+    description: 'Built React, React Native, and C# applications across public-facing web work, TV-box interfaces, SQL-backed flows, and internal engineering-support tools.',
+    role: 'Junior Software Engineer',
+    tenure: 'Mar 2019 - Nov 2019',
+    tags: ['React', 'React Native', 'C#', 'SQL', 'TV UI'],
+    screenshot: '/project-shots/skyfall/main.png',
+    accent: '#a7d7ff'
+  },
+  {
+    company: 'Evolution Bulgaria',
+    icon: BriefcaseBusiness,
+    description: 'Completed early professional software engineering training before moving into full-time application development and product delivery roles.',
+    role: 'Trainee Software Engineer',
+    tenure: 'Jan 2019 - Feb 2019',
+    tags: ['Training', 'Delivery', 'Team Workflows', 'Engineering Foundations'],
+    screenshot: '/project-shots/portfolio-placeholder.svg',
+    accent: '#d8b4ff'
+  },
+  {
+    company: 'Independent Products',
+    icon: Code2,
+    description: 'Built substantial public projects including Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, reusable cross-repo libraries, and demo deployment tooling.',
+    role: 'Full-stack Product Builder',
+    tenure: 'Sep 2023 - Present',
+    tags: ['Electron', 'Three.js', 'Web Audio', 'Vite', 'Cloudflare'],
+    screenshot: '/project-shots/bbeats/main.png',
+    accent: '#ff8fd2'
   }
 ];
 
@@ -237,7 +277,7 @@ function HomePage() {
             <p className="eyebrow">Experience</p>
             <h2>Employment & Product Work</h2>
           </div>
-          <span>Publicly visible work plus confirmation-ready employment placeholders.</span>
+          <span>CV-backed employment history, kept public-safe where company work is not shareable as screenshots.</span>
         </div>
 
         <div className="experience-grid">
