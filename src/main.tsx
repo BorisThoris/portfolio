@@ -8,8 +8,7 @@ import {
   ExternalLink,
   Github,
   MonitorUp,
-  Play,
-  Sparkles
+  Play
 } from 'lucide-react';
 import { AeroLiquidBackground } from './AeroLiquidBackground';
 import { getProject, moreProjects, Project, showcaseProjects, visibleProjects } from './projects';
@@ -194,8 +193,14 @@ function ProjectPage() {
   const project = getProject(slug);
   const runtimeStatus = useRuntimeStatus();
   const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
-  const embedUrl = projectRuntime?.effectiveUrl || project.deploymentUrl || project.localUrl;
-  const embedMode = projectRuntime?.mode || (project.deploymentUrl ? 'deployed' : 'local');
+  const runtimeUrl = projectRuntime?.effectiveUrl;
+  const runtimeIsLocal = runtimeUrl ? /^https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?\//.test(runtimeUrl) : false;
+  const embedUrl = runtimeUrl && !runtimeIsLocal
+    ? runtimeUrl
+    : project.deploymentUrl || project.localUrl;
+  const embedMode = runtimeUrl && !runtimeIsLocal
+    ? projectRuntime?.mode || 'live'
+    : project.deploymentUrl ? 'deployed' : 'local';
   const [embedFailed, setEmbedFailed] = React.useState(false);
 
   React.useEffect(() => {
@@ -218,34 +223,33 @@ function ProjectPage() {
   return (
     <main className="page-shell detail-shell">
       <AeroLiquidBackground accent={project.accent} />
-      <nav className="top-nav">
-        <Link to="/" className="site-mark">
-          <MonitorUp size={18} />
-          Boris Bostandzhiev
+      <nav className="top-nav detail-topbar">
+        <Link to="/" className="back-action">
+          <ArrowLeft size={18} />
+          Back to portfolio
         </Link>
-        <div className="nav-links">
-          {visibleProjects.map((item) => (
-            <Link className={item.slug === project.slug ? 'current' : ''} to={`/projects/${item.slug}`} key={item.slug}>
-              {item.title}
-            </Link>
-          ))}
+        <div className="detail-topbar-title">
+          <MonitorUp size={18} />
+          <span>{project.title}</span>
         </div>
+        <a className="quiet-action" href={embedUrl} target="_blank" rel="noreferrer">
+          <ExternalLink size={16} />
+          Open app
+        </a>
       </nav>
 
       <section className="detail-panel" style={{ '--accent': project.accent } as React.CSSProperties}>
         <div className="detail-header">
           <div>
-            <p className="eyebrow">
-              <Sparkles size={15} />
-              Project Preview
-            </p>
             <h1>{project.title}</h1>
-            <p>{project.description}</p>
+            <p>{project.subtitle}</p>
+            <div className="tag-row detail-tags">
+              {project.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
           </div>
-          <a className="primary-action" href={embedUrl} target="_blank" rel="noreferrer">
-            <ExternalLink size={17} />
-            Open app
-          </a>
+          <p>{project.description}</p>
         </div>
 
         <div className="browser-frame crafted-frame">
@@ -260,8 +264,8 @@ function ProjectPage() {
             <div className="fallback-frame">
               <img src={project.screenshot} alt={`${project.title} screenshot fallback`} />
               <div>
-                <h2>Start this local app to use the live embed</h2>
-                <p>{project.runCommand}</p>
+                <h2>Live preview unavailable</h2>
+                <p>Open the app in a new tab or use the screenshot preview here.</p>
               </div>
             </div>
           ) : (
@@ -272,46 +276,8 @@ function ProjectPage() {
             />
           )}
         </div>
-
-        <div className="detail-meta">
-          <div>
-            <strong>Repository</strong>
-            <span>{project.repoPath}</span>
-          </div>
-          <div>
-            <strong>Run command</strong>
-            <span>{project.runCommand}</span>
-          </div>
-          <div>
-            <strong>Build command</strong>
-            <span>{project.buildCommand}</span>
-          </div>
-        </div>
-
-        <div className="analysis-panel">
-          <div className="priority-orb">
-            <strong>{project.priorityScore}</strong>
-            <span>Priority</span>
-          </div>
-          <ScoreLine label="Demo" value={project.demoabilityScore} />
-          <ScoreLine label="Depth" value={project.depthScore} />
-          <ScoreLine label="Polish" value={project.polishScore} />
-          <ScoreLine label="Unique" value={project.uniquenessScore} />
-          <ScoreLine label="Maintain" value={project.maintenanceScore} />
-          <p>{project.analysisNotes}</p>
-        </div>
       </section>
     </main>
-  );
-}
-
-function ScoreLine({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="score-line">
-      <span>{label}</span>
-      <meter min="0" max="100" value={value} />
-      <strong>{value}</strong>
-    </div>
   );
 }
 
