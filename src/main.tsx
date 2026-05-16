@@ -68,16 +68,8 @@ function HomePage() {
 
       <section className="portfolio-intro" aria-label="Portfolio introduction">
         <div>
-          <p className="eyebrow">
-            <Sparkles size={15} />
-            Boris Bostandzhiev
-          </p>
           <h1>Interactive web apps, games, and tools.</h1>
         </div>
-        <p>
-          Selected browser projects across music creation, 3D editors, games,
-          dashboards, and ecommerce demos.
-        </p>
       </section>
 
       <section
@@ -87,10 +79,6 @@ function HomePage() {
         style={{ '--accent': activeProject.accent } as React.CSSProperties}
       >
         <div className="hero-copy project-copy">
-          <p className="eyebrow">
-            <span>{String(activeIndex + 1).padStart(2, '0')} / {String(showcaseProjects.length).padStart(2, '0')}</span>
-            Featured project
-          </p>
           <h2>{activeProject.title}</h2>
           <strong>{activeProject.subtitle}</strong>
           <p>{activeProject.description}</p>
