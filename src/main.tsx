@@ -140,6 +140,21 @@ const experiences: Experience[] = [
     accent: '#d8b4ff'
   },
   {
+    company: 'Soap Factory',
+    role: 'Family Business / E-commerce & Operations Support',
+    tenure: '2017 - 2019 + Ongoing support',
+    type: 'Family business - Natural cosmetics and e-commerce',
+    summary: 'Supported the family natural-cosmetics business across hands-on operations, customer-facing sales, and web shop maintenance.',
+    bullets: [
+      'Helped with the full practical business loop: making cosmetics, packing orders, deliveries, trade-show sales, and day-to-day support.',
+      'Maintained the customer-facing website with product/catalog updates and small content or storefront fixes when needed.',
+      'Still provide occasional support across web, operations, and practical business needs.'
+    ],
+    stack: ['Family Business', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
+    initials: 'SF',
+    accent: '#b9df8a'
+  },
+  {
     company: 'Independent Products',
     role: 'Full-stack Product Builder',
     tenure: 'Jul 2018 - Present',
