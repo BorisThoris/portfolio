@@ -167,6 +167,7 @@ const experiences: Experience[] = [
       'Still provide occasional support across web, operations, and practical business needs.'
     ],
     stack: ['Family Business', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
+    logos: ['/company-logos/soap-factory.webp'],
     initials: 'SF',
     accent: '#b9df8a'
   }
