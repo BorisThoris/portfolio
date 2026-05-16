@@ -76,6 +76,22 @@ const experiences: Experience[] = [
     accent: '#90f0c0'
   },
   {
+    company: 'Independent Products',
+    role: 'Full-stack Product Builder',
+    tenure: 'Jul 2018 - Present',
+    type: 'Public GitHub project lineage and product systems',
+    summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
+    bullets: [
+      'First public project commit found: Cat World on Jul 31, 2018, followed by Gorilla Gainz on Aug 2, 2018.',
+      'Created Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, cross-repo libraries, and local/cloud demo tooling.',
+      'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
+      'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
+    ],
+    stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
+    initials: 'BB',
+    accent: '#ff8fd2'
+  },
+  {
     company: 'Quickbase',
     role: 'Software Engineer II',
     tenure: 'Aug 2020 - Jan 2023',
@@ -153,22 +169,6 @@ const experiences: Experience[] = [
     stack: ['Family Business', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
     initials: 'SF',
     accent: '#b9df8a'
-  },
-  {
-    company: 'Independent Products',
-    role: 'Full-stack Product Builder',
-    tenure: 'Jul 2018 - Present',
-    type: 'Public GitHub project lineage and product systems',
-    summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
-    bullets: [
-      'First public project commit found: Cat World on Jul 31, 2018, followed by Gorilla Gainz on Aug 2, 2018.',
-      'Created Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, cross-repo libraries, and local/cloud demo tooling.',
-      'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
-      'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
-    ],
-    stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
-    initials: 'BB',
-    accent: '#ff8fd2'
   }
 ];
 
