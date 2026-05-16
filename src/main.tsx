@@ -46,7 +46,7 @@ const experiences: Experience[] = [
     company: 'Man Group',
     role: 'Project Owner / Full-stack Risk Software Engineer',
     tenure: 'Feb 2024 - Present',
-    type: 'Full-time · Investment technology',
+    type: 'Full-time - Investment technology',
     summary: 'Own delivery for production risk-analytics and internal software used by professional users.',
     bullets: [
       'Build React/TypeScript frontends, Python services, dashboards, APIs, tests, and deployment configuration.',
@@ -63,7 +63,7 @@ const experiences: Experience[] = [
     company: 'Expert Allies / Zonal',
     role: 'Senior Software Engineer / Senior React Developer',
     tenure: 'Feb 2023 - Feb 2024',
-    type: 'Contract/employment engagement · Hospitality software',
+    type: 'Contract/employment engagement - Hospitality software',
     summary: 'Worked as a senior React engineer on Zonal product interfaces for hospitality operators.',
     bullets: [
       'Built and improved React/TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
@@ -79,7 +79,7 @@ const experiences: Experience[] = [
     company: 'Quickbase',
     role: 'Software Engineer II',
     tenure: 'Aug 2020 - Jan 2023',
-    type: 'Full-time · Low-code automation',
+    type: 'Full-time - Low-code automation',
     summary: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy surfaces.',
     bullets: [
       'Led visual-programming features with loops, conditionals, nesting, and rich component rendering behavior.',
@@ -96,7 +96,7 @@ const experiences: Experience[] = [
     company: 'Hakomo',
     role: 'Software Engineer',
     tenure: 'Jan 2020 - Jun 2020',
-    type: 'Full-time · Mobile and web products',
+    type: 'Full-time - Mobile and web products',
     summary: 'Built React Native mobile applications and design-heavy React web interfaces for product stakeholders.',
     bullets: [
       'Developed React Native mobile apps including social networking and education product experiences.',
@@ -112,7 +112,7 @@ const experiences: Experience[] = [
     company: 'A1 Bulgaria',
     role: 'Junior Software Engineer',
     tenure: 'Mar 2019 - Nov 2019',
-    type: 'Full-time · Telecom software',
+    type: 'Full-time - Telecom software',
     summary: 'Built React, React Native, and C# applications across public-facing and internal engineering tools.',
     bullets: [
       'Worked on TV-box and internal engineering-support software with responsive and remote-control interaction flows.',
@@ -142,10 +142,11 @@ const experiences: Experience[] = [
   {
     company: 'Independent Products',
     role: 'Full-stack Product Builder',
-    tenure: 'Sep 2023 - Present',
-    type: 'Public portfolio and product systems',
-    summary: 'Built substantial public projects that demonstrate product ownership across games, audio tools, 3D editors, and repo automation.',
+    tenure: 'Jul 2018 - Present',
+    type: 'Public GitHub project lineage and product systems',
+    summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
     bullets: [
+      'First public project commit found: Cat World on Jul 31, 2018, followed by Gorilla Gainz on Aug 2, 2018.',
       'Created Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, cross-repo libraries, and local/cloud demo tooling.',
       'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
       'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
