@@ -41,12 +41,22 @@ function App() {
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [slideDirection, setSlideDirection] = React.useState<1 | -1>(1);
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
   const activeRuntime = runtimeStatus?.projects.find((item) => item.slug === activeProject.slug);
   const navigate = useNavigate();
 
+  const selectProject = (nextIndex: number) => {
+    if (nextIndex === activeIndex) return;
+    const forwardDistance = (nextIndex - activeIndex + showcaseProjects.length) % showcaseProjects.length;
+    const backwardDistance = (activeIndex - nextIndex + showcaseProjects.length) % showcaseProjects.length;
+    setSlideDirection(forwardDistance <= backwardDistance ? 1 : -1);
+    setActiveIndex(nextIndex);
+  };
+
   const setByDirection = (direction: -1 | 1) => {
+    setSlideDirection(direction);
     setActiveIndex((current) => (current + direction + showcaseProjects.length) % showcaseProjects.length);
   };
 
@@ -78,39 +88,13 @@ function HomePage() {
         aria-label="Portfolio showcase"
         style={{ '--accent': activeProject.accent } as React.CSSProperties}
       >
-        <div className="hero-copy project-copy">
-          <h2>{activeProject.title}</h2>
-          <strong>{activeProject.subtitle}</strong>
-          <p>{activeProject.description}</p>
-          <div className="tag-row hero-tags">
-            {activeProject.tags.map((tag) => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-          <div className="hero-actions">
-            <a
-              className="primary-action"
-              href={activeRuntime?.effectiveUrl || activeProject.deploymentUrl || activeProject.localUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Play size={17} />
-              Open {activeProject.title}
-            </a>
-            <Link className="quiet-action" to={`/projects/${activeProject.slug}`}>
-              Case view
-              <ArrowUpRight size={17} />
-            </Link>
-          </div>
-        </div>
-
         <div className="showcase-dock" aria-label="Top projects">
           {showcaseProjects.map((project, index) => (
             <button
               className={`dock-item ${index === activeIndex ? 'active' : ''}`}
               key={project.slug}
-              onClick={() => setActiveIndex(index)}
-              onMouseEnter={() => setActiveIndex(index)}
+              onClick={() => selectProject(index)}
+              onMouseEnter={() => selectProject(index)}
               style={{ '--accent': project.accent } as React.CSSProperties}
             >
               <span>{String(index + 1).padStart(2, '0')}</span>
@@ -127,16 +111,47 @@ function HomePage() {
           </div>
         </div>
 
-        <button
-          className="hero-stage crafted-frame"
-          onClick={() => navigate(`/projects/${activeProject.slug}`)}
-          aria-label={`Open details for ${activeProject.title}`}
+        <div
+          className={`showcase-slide slide-${slideDirection === 1 ? 'forward' : 'backward'}`}
+          key={activeProject.slug}
         >
-          <ProjectScreenshot project={activeProject} />
-          <div className="stage-caption">
-            <span className="rank-kicker">0{activeIndex + 1} / 06</span>
+          <div className="hero-copy project-copy">
+            <h2>{activeProject.title}</h2>
+            <strong>{activeProject.subtitle}</strong>
+            <p>{activeProject.description}</p>
+            <div className="tag-row hero-tags">
+              {activeProject.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            <div className="hero-actions">
+              <a
+                className="primary-action"
+                href={activeRuntime?.effectiveUrl || activeProject.deploymentUrl || activeProject.localUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Play size={17} />
+                Open {activeProject.title}
+              </a>
+              <Link className="quiet-action" to={`/projects/${activeProject.slug}`}>
+                Case view
+                <ArrowUpRight size={17} />
+              </Link>
+            </div>
           </div>
-        </button>
+
+          <button
+            className="hero-stage crafted-frame"
+            onClick={() => navigate(`/projects/${activeProject.slug}`)}
+            aria-label={`Open details for ${activeProject.title}`}
+          >
+            <ProjectScreenshot project={activeProject} />
+            <div className="stage-caption">
+              <span className="rank-kicker">0{activeIndex + 1} / 06</span>
+            </div>
+          </button>
+        </div>
       </section>
 
       <section id="archive" className="archive-section" aria-label="Project archive">
