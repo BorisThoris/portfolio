@@ -625,20 +625,6 @@ p {
   max-width: 1180px;
 }
 
-.experience-timeline::before {
-  position: absolute;
-  top: 32px;
-  bottom: 32px;
-  left: 41px;
-  width: 2px;
-  border-radius: 999px;
-  background:
-    linear-gradient(180deg, transparent, rgba(246, 241, 232, 0.18), transparent),
-    linear-gradient(180deg, rgba(139, 211, 255, 0.24), rgba(255, 143, 210, 0.18), rgba(185, 223, 138, 0.2));
-  box-shadow: 0 0 34px rgba(139, 211, 255, 0.22);
-  content: '';
-}
-
 .experience-item {
   display: grid;
   grid-template-columns: 84px minmax(0, 1fr);
@@ -650,17 +636,35 @@ p {
   position: relative;
   display: grid;
   justify-items: center;
+  align-content: start;
   gap: 7px;
   padding-top: 4px;
+  align-self: stretch;
 }
 
-.experience-index {
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 950;
+.experience-rail::after {
+  position: absolute;
+  top: 111px;
+  bottom: -16px;
+  left: 50%;
+  z-index: 0;
+  width: 2px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(246, 241, 232, 0.2), transparent),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 42%, transparent), rgba(246, 241, 232, 0.08));
+  box-shadow: 0 0 34px color-mix(in srgb, var(--accent) 24%, transparent);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.experience-item:last-child .experience-rail::after {
+  display: none;
 }
 
 .experience-year {
+  position: relative;
+  z-index: 1;
   padding: 4px 8px;
   border: 1px solid color-mix(in srgb, var(--accent) 34%, rgba(246, 241, 232, 0.14));
   border-radius: 999px;
@@ -673,6 +677,8 @@ p {
 }
 
 .timeline-dot {
+  position: relative;
+  z-index: 1;
   width: 9px;
   height: 9px;
   border: 1px solid rgba(246, 241, 232, 0.3);
@@ -1523,21 +1529,21 @@ iframe,
     gap: 12px;
   }
 
-  .experience-timeline::before {
-    display: none;
-  }
-
   .experience-item {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 
   .experience-rail {
-    grid-template-columns: auto auto 58px auto;
+    grid-template-columns: auto 58px auto;
     justify-content: start;
     justify-items: start;
     align-items: center;
     gap: 10px;
+  }
+
+  .experience-rail::after {
+    display: none;
   }
 
   .company-logo {

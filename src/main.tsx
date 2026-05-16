@@ -384,7 +384,6 @@ function HomePage() {
               initial={false}
             >
               <div className="experience-rail">
-                <span className="experience-index">{String(index + 1).padStart(2, '0')}</span>
                 <span className="experience-year">{experience.startYear}</span>
                 <CompanyLogo experience={experience} layoutId={`experience-logo-${index}`} />
                 <span className="timeline-dot" aria-hidden="true" />
