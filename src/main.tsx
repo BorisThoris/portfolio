@@ -47,6 +47,19 @@ type Experience = {
   logos?: string[];
   initials: string;
   accent: string;
+  contextProjects?: ProfessionalContext[];
+};
+
+type ProfessionalContext = {
+  title: string;
+  productArea: string;
+  relationshipText: string;
+  summary: string;
+  sourceLabel: string;
+  sourceUrl: string;
+  image?: string;
+  tags: string[];
+  confidence: 'LinkedIn/CV-backed' | 'Public context';
 };
 
 const experiences: Experience[] = [
@@ -66,7 +79,22 @@ const experiences: Experience[] = [
     stack: ['React', 'TypeScript', 'Python', 'Flask', 'AG Grid', 'Zustand', 'Playwright', 'pytest'],
     logos: ['/company-logos/man-group.jpg'],
     initials: 'MG',
-    accent: '#8bd3ff'
+    accent: '#8bd3ff',
+    contextProjects: [
+      {
+        title: 'Risk analytics and investment technology platforms',
+        productArea: 'Internal risk, data, and analytics tooling',
+        relationshipText:
+          'LinkedIn/CV-backed work on production risk-analytics and internal software; public source is used as company technology context, not a screenshot of private tools.',
+        summary:
+          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling.',
+        sourceLabel: 'Man Technology',
+        sourceUrl: 'https://www.man.com/technology',
+        image: '/company-logos/man-group.jpg',
+        tags: ['Risk analytics', 'React', 'Python', 'Data platforms'],
+        confidence: 'LinkedIn/CV-backed'
+      }
+    ]
   },
   {
     company: 'Expert Allies / Zonal',
@@ -83,7 +111,35 @@ const experiences: Experience[] = [
     stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Jest', 'React Testing Library'],
     logos: ['/company-logos/expert-allies.jpg', '/company-logos/zonal.jpg'],
     initials: 'Z',
-    accent: '#90f0c0'
+    accent: '#90f0c0',
+    contextProjects: [
+      {
+        title: 'Zonal hospitality product ecosystem',
+        productArea: 'Hospitality operations, ordering, EPoS, and venue workflows',
+        relationshipText:
+          'LinkedIn/CV-backed senior React work on Zonal product interfaces; public pages show the product ecosystem those interfaces support.',
+        summary:
+          'Zonal presents one connected hospitality technology ecosystem covering front- and back-of-house operations, ordering, reservations, property management, operations, and marketing.',
+        sourceLabel: 'Zonal products',
+        sourceUrl: 'https://www.zonal.co.uk/products/',
+        image: '/company-logos/zonal.jpg',
+        tags: ['Hospitality SaaS', 'React', 'TypeScript', 'Workflow UI'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'EPoS and handheld service workflows',
+        productArea: 'Venue staff interfaces and high-frequency service operations',
+        relationshipText:
+          'Representative public product context for the hospitality interfaces worked on during the Zonal engagement.',
+        summary:
+          'Zonal describes EPoS, handheld ordering, and order/payment flows built for speed, reliability, kitchen routing, and reduced re-keying in busy venues.',
+        sourceLabel: 'Zonal EPoS',
+        sourceUrl: 'https://www.zonal.co.uk/products/epos/',
+        image: '/company-logos/zonal.jpg',
+        tags: ['EPoS', 'Handheld ordering', 'Operations', 'Reliability'],
+        confidence: 'Public context'
+      }
+    ]
   },
   {
     company: 'Quickbase',
@@ -101,7 +157,35 @@ const experiences: Experience[] = [
     stack: ['React', 'Backbone', 'jQuery', 'Storybook', 'Jest', 'React Testing Library', 'Webpack'],
     logos: ['/company-logos/quickbase.jpg'],
     initials: 'QB',
-    accent: '#f0d879'
+    accent: '#f0d879',
+    contextProjects: [
+      {
+        title: 'Quickbase Pipelines Designer',
+        productArea: 'Low-code workflow automation and visual programming',
+        relationshipText:
+          'LinkedIn/CV-backed work on visual-programming features including loops, conditionals, nesting, and rich component rendering behavior.',
+        summary:
+          'Quickbase describes Pipelines Designer as a drag-and-drop visual builder for orchestrating automated workflows across apps and third-party tools.',
+        sourceLabel: 'Quickbase Pipelines Designer',
+        sourceUrl: 'https://www.quickbase.com/product/pipelines-designer',
+        image: '/company-logos/quickbase.jpg',
+        tags: ['Low-code', 'Pipelines', 'Visual builder', 'Automation'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'Loops and branches automation',
+        productArea: 'Advanced workflow composition',
+        relationshipText:
+          'Public Quickbase context for the workflow concepts that match the CV-described loops and conditional visual-builder work.',
+        summary:
+          'Quickbase’s platform material references visual workflow design and screenshots of loops and branches automation as part of integration and workflow capabilities.',
+        sourceLabel: 'Quickbase workflow guide',
+        sourceUrl: 'https://www.quickbase.com/platform-evaluation-guide/integration-and-workflow-capabilities/automated-workflow',
+        image: '/company-logos/quickbase.jpg',
+        tags: ['Loops', 'Branches', 'Workflow UX', 'Builder UI'],
+        confidence: 'Public context'
+      }
+    ]
   },
   {
     company: 'Hakomo',
@@ -118,7 +202,22 @@ const experiences: Experience[] = [
     stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#'],
     logos: ['/company-logos/hakomo.jpg'],
     initials: 'H',
-    accent: '#ff9f73'
+    accent: '#ff9f73',
+    contextProjects: [
+      {
+        title: 'Mobile app and design-heavy web delivery',
+        productArea: 'React Native apps and React marketing/product sites',
+        relationshipText:
+          'CV-backed work on React Native social/education product experiences and a visually focused React web build; public product proof is limited.',
+        summary:
+          'This card keeps Hakomo conservative until an authenticated LinkedIn scrape or stronger public project page confirms specific product names and imagery.',
+        sourceLabel: 'LinkedIn/CV-backed note',
+        sourceUrl: 'https://www.linkedin.com/in/boris-b-22566b171/',
+        image: '/company-logos/hakomo.jpg',
+        tags: ['React Native', 'React', 'Mobile UX', 'Web UI'],
+        confidence: 'LinkedIn/CV-backed'
+      }
+    ]
   },
   {
     company: 'A1 Bulgaria',
@@ -135,7 +234,35 @@ const experiences: Experience[] = [
     stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI'],
     logos: ['/company-logos/a1-bulgaria.jpg'],
     initials: 'A1',
-    accent: '#a7d7ff'
+    accent: '#a7d7ff',
+    contextProjects: [
+      {
+        title: 'A1 Xplore TV and TV-box workflows',
+        productArea: 'Interactive TV, remote-control, and mobile TV product context',
+        relationshipText:
+          'CV-backed TV-box and support-tooling work; public A1 Xplore TV pages provide representative context for the TV product ecosystem.',
+        summary:
+          'A1 presents Xplore TV around 4K channels, video library, personalized recommendations, universal search, mobile viewing, and TV-box setup/help flows.',
+        sourceLabel: 'A1 Xplore TV',
+        sourceUrl: 'https://www.a1.bg/a1-xplore-tv',
+        image: '/company-logos/a1-bulgaria.jpg',
+        tags: ['TV UX', 'React Native', 'Remote control', 'Support tools'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'A1 Xplore TV GO app',
+        productArea: 'Mobile TV companion app',
+        relationshipText:
+          'Public product context for the broader A1 television app ecosystem; not stated as sole ownership.',
+        summary:
+          'The public app listing identifies A1 Xplore TV GO as A1 Bulgaria’s mobile/cable/Wi-Fi TV viewing app.',
+        sourceLabel: 'Google Play listing',
+        sourceUrl: 'https://play.google.com/store/apps/details?id=bg.a1.android.xploretv',
+        image: '/company-logos/a1-bulgaria.jpg',
+        tags: ['Mobile TV', 'A1 Bulgaria', 'App ecosystem'],
+        confidence: 'Public context'
+      }
+    ]
   },
   {
     company: 'Evolution Bulgaria',
@@ -185,9 +312,34 @@ const experiences: Experience[] = [
     stack: ['Family Business', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
     logos: ['/company-logos/soap-factory.webp'],
     initials: 'SF',
-    accent: '#b9df8a'
+    accent: '#b9df8a',
+    contextProjects: [
+      {
+        title: 'Soap Factory storefront and operations',
+        productArea: 'Family e-commerce, catalog, and day-to-day operations',
+        relationshipText:
+          'Family-business work across web maintenance, catalog/content updates, production, packing, delivery, and event sales.',
+        summary:
+          'The portfolio treats this as practical business and web-maintenance experience rather than a software-company product role.',
+        sourceLabel: 'Soap Factory',
+        sourceUrl: 'https://soapfactory.bg/',
+        image: '/company-logos/soap-factory.webp',
+        tags: ['E-commerce', 'Catalog', 'Operations', 'Family business'],
+        confidence: 'LinkedIn/CV-backed'
+      }
+    ]
   }
 ];
+
+const professionalContext = experiences.flatMap((experience) =>
+  (experience.contextProjects ?? []).map((project) => ({
+    ...project,
+    company: experience.company,
+    accent: experience.accent,
+    logo: experience.logos?.[0],
+    initials: experience.initials
+  }))
+);
 
 function App() {
   return (
@@ -430,6 +582,24 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="professional-context-section" aria-label="Professional product context">
+        <div className="section-heading professional-heading">
+          <div>
+            <p className="eyebrow">Professional context</p>
+            <h2>Products & Platforms Around My Roles</h2>
+          </div>
+          <span>
+            Public product references paired with LinkedIn/CV-backed tenure notes, worded carefully where employer work is private.
+          </span>
+        </div>
+
+        <div className="professional-context-grid">
+          {professionalContext.map((project) => (
+            <ProfessionalContextCard context={project} key={`${project.company}-${project.title}`} />
+          ))}
+        </div>
+      </section>
+
       <AnimatePresence>
         {selectedExperience && selectedExperienceIndex !== null ? (
           <ExperienceModal
@@ -531,6 +701,24 @@ function ExperienceModal({
           ))}
         </div>
 
+        {experience.contextProjects?.length ? (
+          <div className="modal-context-strip" aria-label={`${experience.company} product context`}>
+            {experience.contextProjects.map((project) => (
+              <ProfessionalContextCard
+                context={{
+                  ...project,
+                  company: experience.company,
+                  accent: experience.accent,
+                  logo: experience.logos?.[0],
+                  initials: experience.initials
+                }}
+                compact
+                key={project.title}
+              />
+            ))}
+          </div>
+        ) : null}
+
         <div className="tag-row compact experience-stack modal-stack">
           {experience.stack.map((tag) => (
             <span key={tag}>{tag}</span>
@@ -538,6 +726,42 @@ function ExperienceModal({
         </div>
       </motion.div>
     </motion.div>
+  );
+}
+
+function ProfessionalContextCard({
+  context,
+  compact = false
+}: {
+  context: ProfessionalContext & { company: string; accent: string; logo?: string; initials: string };
+  compact?: boolean;
+}) {
+  return (
+    <article
+      className={`professional-context-card crafted-frame ${compact ? 'compact-context-card' : ''}`}
+      style={{ '--accent': context.accent } as React.CSSProperties}
+    >
+      <div className="context-visual">
+        <img src={context.image || context.logo || '/project-shots/portfolio-placeholder.svg'} alt={`${context.title} visual reference`} />
+        <span>{context.confidence}</span>
+      </div>
+      <div className="context-body">
+        <p className="experience-company">{context.company}</p>
+        <h3>{context.title}</h3>
+        <strong>{context.productArea}</strong>
+        <p>{context.relationshipText}</p>
+        {!compact ? <p>{context.summary}</p> : null}
+        <div className="tag-row compact">
+          {context.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </div>
+        <a href={context.sourceUrl} target="_blank" rel="noreferrer">
+          {context.sourceLabel}
+          <ArrowUpRight size={15} />
+        </a>
+      </div>
+    </article>
   );
 }
 
