@@ -203,29 +203,17 @@ p {
   gap: 18px;
   min-height: min(620px, calc(100vh - 220px));
   margin-top: 0;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 24px;
   isolation: isolate;
 }
 
 .premium-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(90deg, rgba(13, 14, 12, 0.82) 0%, rgba(13, 14, 12, 0.16) 56%, rgba(13, 14, 12, 0.4) 100%),
-    linear-gradient(180deg, rgba(246, 241, 232, 0.08), rgba(246, 241, 232, 0.015));
+  display: none;
 }
 
 .premium-hero::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  z-index: -1;
-  border: 1px solid rgba(246, 241, 232, 0.12);
-  border-radius: inherit;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-copy {
@@ -416,13 +404,11 @@ p {
   gap: 8px;
   margin: clamp(16px, 2vw, 30px) clamp(16px, 2vw, 30px) 0;
   padding: 10px;
-  border: 1px solid rgba(246, 241, 232, 0.13);
+  border: 1px solid rgba(246, 241, 232, 0.09);
   border-radius: 18px 8px 20px 10px;
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 34%),
-    rgba(13, 14, 12, 0.78);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(16px);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .dock-item {
@@ -475,10 +461,11 @@ p {
   place-items: center;
   width: 42px;
   aspect-ratio: 1;
-  border: 1px solid rgba(246, 241, 232, 0.16);
+  border: 1px solid rgba(246, 241, 232, 0.24);
   border-radius: 50%;
-  background: rgba(246, 241, 232, 0.08);
+  background: rgba(246, 241, 232, 0.12);
   cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 
 .mobile-showcase {
