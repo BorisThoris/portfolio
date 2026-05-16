@@ -5,9 +5,7 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  BriefcaseBusiness,
-  Building2,
-  Code2,
+  CalendarDays,
   ExternalLink,
   Github,
   MonitorUp,
@@ -32,84 +30,127 @@ type RuntimeStatus = {
 
 type Experience = {
   company: string;
-  icon: React.ComponentType<{ size?: number }>;
-  description: string;
   role: string;
   tenure: string;
-  tags: string[];
-  screenshot: string;
+  type: string;
+  summary: string;
+  bullets: string[];
+  stack: string[];
+  logo?: string;
+  initials: string;
   accent: string;
 };
 
 const experiences: Experience[] = [
   {
     company: 'Man Group',
-    icon: BriefcaseBusiness,
-    description: 'Own delivery for production risk-analytics and internal software across React/TypeScript frontends, Python services, dashboards, APIs, testing, and deployment configuration.',
     role: 'Project Owner / Full-stack Risk Software Engineer',
     tenure: 'Feb 2024 - Present',
-    tags: ['React', 'TypeScript', 'Python', 'Risk Analytics', 'Playwright'],
-    screenshot: '/project-shots/portfolio-placeholder.svg',
+    type: 'Full-time · Investment technology',
+    summary: 'Own delivery for production risk-analytics and internal software used by professional users.',
+    bullets: [
+      'Build React/TypeScript frontends, Python services, dashboards, APIs, tests, and deployment configuration.',
+      'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
+      'Ship data-heavy interfaces with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
+      'Integrate structured AI-assisted workflow features where appropriate and expand coverage with Playwright, Vitest, and pytest.'
+    ],
+    stack: ['React', 'TypeScript', 'Python', 'Flask', 'AG Grid', 'Zustand', 'Playwright', 'pytest'],
+    logo: 'https://www.man.com/themes/custom/digital/favicon.ico',
+    initials: 'MG',
     accent: '#8bd3ff'
   },
   {
     company: 'Expert Allies / Zonal',
-    icon: BriefcaseBusiness,
-    description: 'Built and improved React interfaces for Zonal hospitality software used by pubs, hotels, restaurants, and venue operators across the UK.',
     role: 'Senior Software Engineer / Senior React Developer',
     tenure: 'Feb 2023 - Feb 2024',
-    tags: ['React', 'TypeScript', 'Redux', 'Jest', 'Product UI'],
-    screenshot: '/project-shots/cat-world/main.png',
+    type: 'Contract/employment engagement · Hospitality software',
+    summary: 'Worked as a senior React engineer on Zonal product interfaces for hospitality operators.',
+    bullets: [
+      'Built and improved React/TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
+      'Focused on maintainable UI architecture, component quality, testing, and repeated workflow usability.',
+      'Worked in a product domain where reliability, clear user flows, and fast day-to-day operations mattered.'
+    ],
+    stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Jest', 'React Testing Library'],
+    logo: 'https://www.zonal.co.uk/wp-content/uploads/2019/11/Zonal-logo-new.jpg',
+    initials: 'Z',
     accent: '#90f0c0'
   },
   {
     company: 'Quickbase',
-    icon: Building2,
-    description: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy Backbone surfaces and delivering visual-programming features.',
     role: 'Software Engineer II',
     tenure: 'Aug 2020 - Jan 2023',
-    tags: ['React', 'Backbone', 'Storybook', 'Jest', 'Low-code'],
-    screenshot: '/project-shots/cross-repo-libs/main.png',
+    type: 'Full-time · Low-code automation',
+    summary: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy surfaces.',
+    bullets: [
+      'Led visual-programming features with loops, conditionals, nesting, and rich component rendering behavior.',
+      'Expanded unit, end-to-end, functional, and user-flow test coverage in a team without dedicated QA.',
+      'Owned library upgrade research, reusable components, escalations, deployment monitoring, and delivery across multiple epics.',
+      'Mentored junior colleagues and received company recognition for delivery impact.'
+    ],
+    stack: ['React', 'Backbone', 'jQuery', 'Storybook', 'Jest', 'React Testing Library', 'Webpack'],
+    logo: 'https://www.quickbase.com/favicon.svg',
+    initials: 'QB',
     accent: '#f0d879'
   },
   {
     company: 'Hakomo',
-    icon: Code2,
-    description: 'Developed React Native mobile applications, including social and education products, plus a design-heavy React site for real-estate appraisal workflows.',
     role: 'Software Engineer',
     tenure: 'Jan 2020 - Jun 2020',
-    tags: ['React Native', 'React', 'JavaScript', 'Mobile', 'UI'],
-    screenshot: '/project-shots/gorilla-gainz/main.png',
+    type: 'Full-time · Mobile and web products',
+    summary: 'Built React Native mobile applications and design-heavy React web interfaces for product stakeholders.',
+    bullets: [
+      'Developed React Native mobile apps including social networking and education product experiences.',
+      'Built a React website for a real-estate appraisal business with strong visual and responsive requirements.',
+      'Worked closely with product and design stakeholders on practical UI implementation and delivery.'
+    ],
+    stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#'],
+    initials: 'H',
     accent: '#ff9f73'
   },
   {
     company: 'A1 Bulgaria',
-    icon: Building2,
-    description: 'Built React, React Native, and C# applications across public-facing web work, TV-box interfaces, SQL-backed flows, and internal engineering-support tools.',
     role: 'Junior Software Engineer',
     tenure: 'Mar 2019 - Nov 2019',
-    tags: ['React', 'React Native', 'C#', 'SQL', 'TV UI'],
-    screenshot: '/project-shots/skyfall/main.png',
+    type: 'Full-time · Telecom software',
+    summary: 'Built React, React Native, and C# applications across public-facing and internal engineering tools.',
+    bullets: [
+      'Worked on TV-box and internal engineering-support software with responsive and remote-control interaction flows.',
+      'Built SQL-backed functionality and coordinated with stakeholders around operational support needs.',
+      'Contributed to public-facing A1 Bulgaria web work and internal tools used by engineering/support teams.'
+    ],
+    stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI'],
+    logo: 'https://www.a1.bg/mgw-web/cms/media?Name=nav-logo&Size=default&cacheId=',
+    initials: 'A1',
     accent: '#a7d7ff'
   },
   {
     company: 'Evolution Bulgaria',
-    icon: BriefcaseBusiness,
-    description: 'Completed early professional software engineering training before moving into full-time application development and product delivery roles.',
     role: 'Trainee Software Engineer',
     tenure: 'Jan 2019 - Feb 2019',
-    tags: ['Training', 'Delivery', 'Team Workflows', 'Engineering Foundations'],
-    screenshot: '/project-shots/portfolio-placeholder.svg',
+    type: 'Professional training',
+    summary: 'Completed early professional software engineering training before moving into full-time application development.',
+    bullets: [
+      'Built foundations across practical software delivery, production-oriented habits, and team workflows.',
+      'Used the training period as the bridge into full-time application engineering roles.'
+    ],
+    stack: ['Engineering Foundations', 'Team Workflows', 'Delivery'],
+    logo: 'https://www.evolution.com/favicon.ico',
+    initials: 'EV',
     accent: '#d8b4ff'
   },
   {
     company: 'Independent Products',
-    icon: Code2,
-    description: 'Built substantial public projects including Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, reusable cross-repo libraries, and demo deployment tooling.',
     role: 'Full-stack Product Builder',
     tenure: 'Sep 2023 - Present',
-    tags: ['Electron', 'Three.js', 'Web Audio', 'Vite', 'Cloudflare'],
-    screenshot: '/project-shots/bbeats/main.png',
+    type: 'Public portfolio and product systems',
+    summary: 'Built substantial public projects that demonstrate product ownership across games, audio tools, 3D editors, and repo automation.',
+    bullets: [
+      'Created Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, cross-repo libraries, and local/cloud demo tooling.',
+      'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
+      'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
+    ],
+    stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
+    initials: 'BB',
     accent: '#ff8fd2'
   }
 ];
@@ -280,47 +321,68 @@ function HomePage() {
           <span>CV-backed employment history, kept public-safe where company work is not shareable as screenshots.</span>
         </div>
 
-        <div className="experience-grid">
-          {experiences.map((experience) => {
-            const Icon = experience.icon;
+        <div className="experience-timeline">
+          {experiences.map((experience, index) => (
+            <article
+              className="experience-item"
+              key={experience.company}
+              style={{ '--accent': experience.accent } as React.CSSProperties}
+            >
+              <div className="experience-rail" aria-hidden="true">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <CompanyLogo experience={experience} />
+              </div>
 
-            return (
-              <article
-                className="experience-card crafted-frame"
-                key={experience.company}
-                style={{ '--accent': experience.accent } as React.CSSProperties}
-              >
-                <div className="experience-media">
-                  <img
-                    src={experience.screenshot}
-                    alt={`${experience.company} representative screenshot`}
-                    onError={(event) => {
-                      event.currentTarget.src = '/project-shots/portfolio-placeholder.svg';
-                    }}
-                  />
-                </div>
-                <div className="experience-copy">
-                  <div className="company-mark" aria-hidden="true">
-                    <Icon size={19} />
-                  </div>
+              <div className="experience-panel crafted-frame">
+                <div className="experience-topline">
                   <div>
                     <p className="experience-company">{experience.company}</p>
                     <h3>{experience.role}</h3>
-                    <strong>{experience.tenure}</strong>
-                    <p>{experience.description}</p>
-                    <div className="tag-row compact">
-                      {experience.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
+                  </div>
+                  <div className="experience-tenure">
+                    <CalendarDays size={16} />
+                    <span>{experience.tenure}</span>
                   </div>
                 </div>
-              </article>
-            );
-          })}
+
+                <p className="experience-type">{experience.type}</p>
+                <p className="experience-summary">{experience.summary}</p>
+
+                <ul className="experience-bullets">
+                  {experience.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+
+                <div className="tag-row compact experience-stack">
+                  {experience.stack.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>
+  );
+}
+
+function CompanyLogo({ experience }: { experience: Experience }) {
+  return (
+    <div className="company-logo">
+      <span>{experience.initials}</span>
+      {experience.logo ? (
+        <img
+          src={experience.logo}
+          alt={`${experience.company} logo`}
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.remove();
+          }}
+        />
+      ) : null}
+    </div>
   );
 }
 
