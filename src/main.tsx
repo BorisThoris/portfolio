@@ -117,12 +117,12 @@ const experiences: Experience[] = [
     startYear: '2024',
     type: 'Full-time - Investment technology',
     summary:
-      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations across a business reporting $228.7bn AUM as of 31 March 2026.',
+      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations across a business reporting $228.7bn AUM as of 31 March 2026, working directly with directors, risk managers, PMs, and senior stakeholders on needs, priorities, and delivery.',
     bullets: [
-      'Build React/TypeScript frontends, Python and C# services, dashboards, APIs, tests, and deployment configuration.',
+      'Build React/TypeScript frontends, Streamlit/Python dashboards, C# services, APIs, tests, report tooling, and deployment configuration.',
       'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
-      'Ship data-heavy interfaces with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
-      'Work directly with PMs and senior stakeholders, including Chief Risk Officer-level users, to clarify project needs and delivery tradeoffs.'
+      'Ship data-heavy interfaces and reporting flows with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
+      'Support production rotations across the platform, including data loading, calculation layers, generated reports, and dev-to-test-to-prod release paths.'
     ],
     stack: [
       'React',
@@ -133,6 +133,7 @@ const experiences: Experience[] = [
       'Kubernetes',
       'ClickHouse',
       'S3',
+      'Streamlit',
       'Flask',
       'AG Grid',
       'Zustand',
@@ -144,15 +145,17 @@ const experiences: Experience[] = [
         title: 'Delivery ownership',
         items: [
           'Oversee delivery for a global platform supporting Man Group funds and connected risk workflows.',
-          'Communicate project needs directly with important stakeholders, including Chief Risk Officer-level users.',
+          'Communicate project needs directly with directors, risk managers, PMs, and senior stakeholders, including Chief Risk Officer-level users.',
           'Translate portfolio, risk, and operations requirements into working product behavior and delivery plans.'
         ]
       },
       {
         title: 'Technical scope',
         items: [
-          'React/TypeScript UI systems, Python and C# services, SQL-heavy data flows, Kubernetes deployment concerns, ClickHouse analytics, and S3-backed storage patterns.',
-          'Testing and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and data-heavy user journeys.'
+          'React/TypeScript web apps integrated with Streamlit/Python dashboards, plus Python and C# service work across APIs and data-heavy product flows.',
+          'Scripts and dynamic tools for financial report generation, including PDF report generation at large volume and real-time reporting workflows.',
+          'Touch the data loading and calculation layers that drive the platform, including SQL-heavy flows, ClickHouse analytics, S3-backed storage patterns, and Kubernetes deployment concerns.',
+          'Support rotations, testing, and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and dev-to-test-to-prod deployment paths.'
         ]
       }
     ],
@@ -169,7 +172,7 @@ const experiences: Experience[] = [
           'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling. Public Q1 2026 reporting listed $228.7bn AUM, giving public context for the fund side of the platform work.',
         sourceLabel: 'Man Technology',
         sourceUrl: 'https://www.man.com/technology',
-        tags: ['Fund platform', 'Risk analytics', 'React', 'Python', 'C#', 'Data platforms'],
+        tags: ['Fund platform', 'Risk analytics', 'Streamlit', 'React', 'Python', 'C#', 'Reports'],
         confidence: 'LinkedIn/CV-backed'
       }
     ]
