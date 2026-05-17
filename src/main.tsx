@@ -72,6 +72,13 @@ type DisplayProfessionalContext = ProfessionalContext & {
   initials: string;
 };
 
+type CapabilityGroup = {
+  title: string;
+  purpose: string;
+  primary: string[];
+  skills: string[];
+};
+
 function toPortfolioProjectContext(project: Project): ProfessionalContext {
   if (project.slug === 'saad-print-on-demand') {
     return {
@@ -547,6 +554,33 @@ function showcaseSlideTransition(shouldReduceMotion: boolean | null) {
 const SHOWCASE_SLIDE_GAP = 18;
 const SHOWCASE_AUTOPLAY_MS = 8500;
 
+const capabilityGroups: CapabilityGroup[] = [
+  {
+    title: 'Frontend Product UI',
+    purpose: 'Production-grade interfaces, workflow screens, and app surfaces.',
+    primary: ['React', 'TypeScript', 'React Native', 'Figma'],
+    skills: ['Redux', 'Zustand', 'AG Grid', 'Storybook', 'Responsive UI', 'Styled Components', 'Testing Library']
+  },
+  {
+    title: 'Backend & Data',
+    purpose: 'Service work, APIs, and data-heavy product behavior.',
+    primary: ['Python', 'C#', 'SQL', 'ClickHouse'],
+    skills: ['Flask', 'APIs', 'S3', 'Data modeling', 'Partial-failure handling', 'Dashboards']
+  },
+  {
+    title: 'Platform & Delivery',
+    purpose: 'Build stability, deployment paths, and automated confidence.',
+    primary: ['Kubernetes', 'Cloudflare', 'Playwright', 'pytest'],
+    skills: ['Vitest', 'CI/build stability', 'Vite', 'Deployment workflows', 'Monitoring', 'Repo automation']
+  },
+  {
+    title: 'Creative / Demo Systems',
+    purpose: 'Playable demos, editors, games, and media-heavy browser work.',
+    primary: ['Electron', 'Three.js', 'Web Audio', 'Phaser'],
+    skills: ['PixiJS', 'Canvas', 'Local demo orchestration', 'Screenshot pipelines', 'Cloud demo routing']
+  }
+];
+
 const contactLinks = [
   {
     label: 'GitHub',
@@ -610,6 +644,60 @@ function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'i
   );
 }
 
+function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number; onToggle: (index: number) => void }) {
+  return (
+    <section className="capability-switchboard" aria-label="Capability map">
+      {capabilityGroups.map((group, index) => {
+        const isActive = activeIndex === index;
+        const hiddenCount = group.skills.length;
+
+        return (
+          <motion.article
+            className={`capability-card ${isActive ? 'active' : ''}`}
+            key={group.title}
+            layout
+            transition={{ duration: 0.32, ease: [0.2, 0.72, 0.18, 1] }}
+          >
+            <button
+              className="capability-trigger"
+              type="button"
+              aria-expanded={isActive}
+              onClick={() => onToggle(index)}
+            >
+              <span className="capability-kicker">{String(index + 1).padStart(2, '0')}</span>
+              <strong>{group.title}</strong>
+              <span>{group.purpose}</span>
+            </button>
+
+            <div className="capability-primary" aria-label={`${group.title} primary skills`}>
+              {group.primary.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+              {!isActive ? <span className="more-skill">+{hiddenCount} more</span> : null}
+            </div>
+
+            <AnimatePresence initial={false}>
+              {isActive ? (
+                <motion.div
+                  className="capability-extra"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.24, ease: [0.2, 0.72, 0.18, 1] }}
+                >
+                  {group.skills.map((skill) => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </motion.article>
+        );
+      })}
+    </section>
+  );
+}
+
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [trackIndex, setTrackIndex] = React.useState(1);
@@ -617,6 +705,7 @@ function HomePage() {
   const [slideWidth, setSlideWidth] = React.useState(0);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
   const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
+  const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
   const introActionsRef = React.useRef<HTMLDivElement | null>(null);
   const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -769,21 +858,16 @@ function HomePage() {
             I build playable tools, games, storefronts, and enterprise interfaces that demonstrate the workflow, UI
             craft, and engineering behind them.
           </p>
-          <div className="proof-strip" aria-label="Implementation domains">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>Electron</span>
-            <span>Web Audio</span>
-            <span>Three.js</span>
-            <span>Phaser</span>
-            <span>Storefronts</span>
-            <span>Production workflow UI</span>
-          </div>
           <div className="intro-actions" ref={introActionsRef} aria-label="Contact and profile actions">
             {showTopbarContacts ? null : <ContactLinks iconSize={16} placement="intro" />}
           </div>
         </div>
       </section>
+
+      <CapabilitySwitchboard
+        activeIndex={activeCapabilityIndex}
+        onToggle={(index) => setActiveCapabilityIndex((current) => (current === index ? -1 : index))}
+      />
 
       <section
         id="showcase"

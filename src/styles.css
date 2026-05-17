@@ -276,6 +276,103 @@ p {
   background: color-mix(in srgb, var(--accent) 84%, #fff);
 }
 
+.capability-switchboard {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 clamp(8px, 1.6vw, 24px) clamp(14px, 1.8vw, 22px);
+}
+
+.capability-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, rgba(246, 241, 232, 0.12));
+  border-radius: 16px 8px 18px 10px;
+  background:
+    linear-gradient(180deg, rgba(246, 241, 232, 0.075), rgba(246, 241, 232, 0.028)),
+    color-mix(in srgb, var(--accent) 7%, rgba(7, 9, 8, 0.42));
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px) saturate(1.08);
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.capability-card:hover,
+.capability-card.active {
+  border-color: color-mix(in srgb, var(--accent) 52%, rgba(246, 241, 232, 0.16));
+  background:
+    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 44%),
+    linear-gradient(180deg, rgba(246, 241, 232, 0.09), rgba(246, 241, 232, 0.036)),
+    rgba(7, 9, 8, 0.48);
+}
+
+.capability-card:hover {
+  transform: translateY(-2px);
+}
+
+.capability-trigger {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  padding: 16px 16px 10px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.capability-kicker {
+  color: color-mix(in srgb, var(--accent) 74%, rgba(246, 241, 232, 0.68));
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.capability-trigger strong {
+  color: #fff;
+  font-size: clamp(16px, 1.1vw, 20px);
+  line-height: 1;
+}
+
+.capability-trigger span:last-child {
+  color: rgba(246, 241, 232, 0.66);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.capability-primary,
+.capability-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 16px;
+}
+
+.capability-extra {
+  padding-top: 0;
+  overflow: hidden;
+}
+
+.capability-primary span,
+.capability-extra span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 27px;
+  padding: 0 9px;
+  border: 1px solid rgba(246, 241, 232, 0.11);
+  border-radius: 999px;
+  color: rgba(246, 241, 232, 0.84);
+  background: rgba(246, 241, 232, 0.055);
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.capability-primary .more-skill {
+  border-color: color-mix(in srgb, var(--accent) 34%, rgba(246, 241, 232, 0.14));
+  color: color-mix(in srgb, var(--accent) 76%, #fff);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
 .premium-hero {
   position: relative;
   display: grid;
@@ -1525,6 +1622,11 @@ iframe,
 }
 
 @media (max-width: 1180px) {
+  .capability-switchboard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-inline: clamp(16px, 2vw, 30px);
+  }
+
   .premium-hero {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto auto;
@@ -1659,23 +1761,28 @@ iframe,
     line-height: 1.38;
   }
 
-  .proof-strip {
-    flex-wrap: nowrap;
-    margin-right: -9px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scrollbar-width: none;
+  .capability-switchboard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin: 0 2px 12px;
   }
 
-  .proof-strip::-webkit-scrollbar {
-    display: none;
+  .capability-trigger {
+    padding: 13px 13px 8px;
   }
 
-  .proof-strip span {
-    flex: 0 0 auto;
-    min-height: 28px;
-    padding: 0 10px;
-    font-size: 11px;
+  .capability-primary,
+  .capability-extra {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .capability-trigger strong {
+    font-size: 15px;
+  }
+
+  .capability-trigger span:last-child {
+    font-size: 12px;
   }
 
   .intro-actions {
