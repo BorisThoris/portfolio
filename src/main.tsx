@@ -503,12 +503,77 @@ function showcaseSlideTransition(shouldReduceMotion: boolean | null) {
 const SHOWCASE_SLIDE_GAP = 18;
 const SHOWCASE_AUTOPLAY_MS = 8500;
 
+const contactLinks = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/BorisThoris',
+    icon: Github,
+    external: true
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/boris-b-22566b171/',
+    icon: Linkedin,
+    external: true
+  },
+  {
+    label: 'CV',
+    href: '#experience',
+    icon: FileText
+  },
+  {
+    label: 'Email',
+    href: 'mailto:borisbostandzhiev@yahoo.com',
+    icon: Mail
+  }
+];
+
+function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'intro' | 'topbar' }) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <>
+      {contactLinks.map((link, index) => {
+        const Icon = link.icon;
+        const motionProps = shouldReduceMotion
+          ? {
+              initial: { opacity: 0 },
+              animate: { opacity: 1 },
+              exit: { opacity: 0 },
+              transition: { duration: 0.12 }
+            }
+          : {
+              initial: { opacity: 0, y: placement === 'topbar' ? -8 : 8, filter: 'blur(6px)' },
+              animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+              exit: { opacity: 0, y: placement === 'topbar' ? -8 : 8, filter: 'blur(6px)' },
+              transition: { duration: 0.28, delay: index * 0.035, ease: [0.2, 0.72, 0.18, 1] as const }
+            };
+
+        return (
+          <motion.a
+            href={link.href}
+            key={`${placement}-${link.label}`}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noreferrer' : undefined}
+            {...motionProps}
+          >
+            <Icon size={iconSize} />
+            {link.label}
+          </motion.a>
+        );
+      })}
+    </>
+  );
+}
+
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [trackIndex, setTrackIndex] = React.useState(1);
   const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
   const [slideWidth, setSlideWidth] = React.useState(0);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
+  const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
+  const introActionsRef = React.useRef<HTMLDivElement | null>(null);
   const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
@@ -582,6 +647,41 @@ function HomePage() {
   }, [isShowcaseInteracting, selectedContext, selectedExperience, setByDirection, shouldReduceMotion]);
 
   React.useEffect(() => {
+    const introActionsElement = introActionsRef.current;
+    if (!introActionsElement) return;
+    const browserWindow = window;
+    const supportsIntersectionObserver = typeof IntersectionObserver !== 'undefined';
+
+    if (!supportsIntersectionObserver) {
+      const updateVisibility = () => {
+        const bounds = introActionsElement.getBoundingClientRect();
+        setShowTopbarContacts(bounds.bottom < 72 || bounds.top > browserWindow.innerHeight);
+      };
+
+      updateVisibility();
+      browserWindow.addEventListener('scroll', updateVisibility, { passive: true });
+      browserWindow.addEventListener('resize', updateVisibility);
+      return () => {
+        browserWindow.removeEventListener('scroll', updateVisibility);
+        browserWindow.removeEventListener('resize', updateVisibility);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowTopbarContacts(!entry.isIntersecting || entry.intersectionRatio < 0.32);
+      },
+      {
+        threshold: [0, 0.32, 0.7],
+        rootMargin: '-68px 0px 0px 0px'
+      }
+    );
+
+    observer.observe(introActionsElement);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
     if (!selectedExperience && !selectedContext) return;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -611,23 +711,10 @@ function HomePage() {
           <MonitorUp size={18} />
           Boris Bostandzhiev
         </Link>
-        <nav className="site-pills" aria-label="Portfolio navigation">
-          <a href="https://github.com/BorisThoris" target="_blank" rel="noreferrer">
-            <Github size={14} />
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/boris-b-22566b171/" target="_blank" rel="noreferrer">
-            <Linkedin size={14} />
-            LinkedIn
-          </a>
-          <a href="#experience">
-            <FileText size={14} />
-            CV
-          </a>
-          <a href="mailto:borisbostandzhiev@yahoo.com">
-            <Mail size={14} />
-            Email
-          </a>
+        <nav className="site-pills topbar-contact-links" aria-label="Portfolio navigation">
+          <AnimatePresence mode="popLayout">
+            {showTopbarContacts ? <ContactLinks iconSize={14} placement="topbar" /> : null}
+          </AnimatePresence>
         </nav>
       </header>
 
@@ -648,23 +735,8 @@ function HomePage() {
             <span>Storefronts</span>
             <span>Production workflow UI</span>
           </div>
-          <div className="intro-actions" aria-label="Contact and profile actions">
-            <a href="https://github.com/BorisThoris" target="_blank" rel="noreferrer">
-              <Github size={16} />
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/boris-b-22566b171/" target="_blank" rel="noreferrer">
-              <Linkedin size={16} />
-              LinkedIn
-            </a>
-            <a href="#experience">
-              <FileText size={16} />
-              CV
-            </a>
-            <a href="mailto:borisbostandzhiev@yahoo.com">
-              <Mail size={16} />
-              Email
-            </a>
+          <div className="intro-actions" ref={introActionsRef} aria-label="Contact and profile actions">
+            {showTopbarContacts ? null : <ContactLinks iconSize={16} placement="intro" />}
           </div>
         </div>
       </section>

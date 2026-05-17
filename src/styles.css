@@ -150,6 +150,12 @@ p {
   justify-content: flex-end;
   gap: 6px;
   min-width: 0;
+  min-height: 34px;
+}
+
+.topbar-contact-links {
+  align-items: center;
+  min-width: clamp(0px, 38vw, 360px);
 }
 
 .site-pills a {
@@ -231,6 +237,8 @@ p {
 
 .intro-actions {
   margin-top: 2px;
+  min-height: 38px;
+  align-items: center;
 }
 
 .intro-actions a {
