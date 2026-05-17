@@ -494,11 +494,9 @@ function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [trackIndex, setTrackIndex] = React.useState(1);
   const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
-  const [isTrackAnimating, setIsTrackAnimating] = React.useState(false);
   const [slideWidth, setSlideWidth] = React.useState(0);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
   const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
-  const isTrackAnimatingRef = React.useRef(false);
   const shouldReduceMotion = useReducedMotion();
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
@@ -514,8 +512,6 @@ function HomePage() {
 
   const settleLoopPosition = () => {
     if (!showcaseCount) return;
-    isTrackAnimatingRef.current = false;
-    setIsTrackAnimating(false);
 
     if (trackIndex === 0) {
       setTrackAnimationEnabled(false);
@@ -532,22 +528,19 @@ function HomePage() {
 
   const selectProject = (nextIndex: number) => {
     if (nextIndex === activeIndex) return;
-    if (isTrackAnimatingRef.current) return;
-    isTrackAnimatingRef.current = true;
     setTrackAnimationEnabled(true);
-    setIsTrackAnimating(true);
     setActiveIndex(nextIndex);
     setTrackIndex(nextIndex + 1);
   };
 
   const setByDirection = (direction: -1 | 1) => {
     if (!showcaseCount) return;
-    if (isTrackAnimatingRef.current) return;
-    isTrackAnimatingRef.current = true;
     setTrackAnimationEnabled(true);
-    setIsTrackAnimating(true);
     setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
-    setTrackIndex((current) => current + direction);
+    setTrackIndex((current) => {
+      const normalized = current === 0 ? showcaseCount : current === showcaseCount + 1 ? 1 : current;
+      return normalized + direction;
+    });
   };
 
   React.useEffect(() => {
