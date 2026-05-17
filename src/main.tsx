@@ -117,7 +117,7 @@ const experiences: Experience[] = [
     startYear: '2024',
     type: 'Full-time - Investment technology',
     summary:
-      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations.',
+      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations across a business reporting $228.7bn AUM as of 31 March 2026.',
     bullets: [
       'Build React/TypeScript frontends, Python and C# services, dashboards, APIs, tests, and deployment configuration.',
       'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
@@ -152,8 +152,7 @@ const experiences: Experience[] = [
         title: 'Technical scope',
         items: [
           'React/TypeScript UI systems, Python and C# services, SQL-heavy data flows, Kubernetes deployment concerns, ClickHouse analytics, and S3-backed storage patterns.',
-          'Testing and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and data-heavy user journeys.',
-          'Man Group reported $228.7bn AUM as of 31 March 2026; this frames the work as private internal tooling supporting fund, risk, and investment-operations workflows around that global business.'
+          'Testing and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and data-heavy user journeys.'
         ]
       }
     ],
