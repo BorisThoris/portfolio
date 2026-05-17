@@ -603,7 +603,7 @@ function HomePage() {
             <Github size={14} />
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/boris-bostandzhiev/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/boris-b-22566b171/" target="_blank" rel="noreferrer">
             <Linkedin size={14} />
             LinkedIn
           </a>
@@ -611,7 +611,7 @@ function HomePage() {
             <FileText size={14} />
             CV
           </a>
-          <a href="mailto:modaxxx009@yahoo.com">
+          <a href="mailto:borisbostandzhiev@yahoo.com">
             <Mail size={14} />
             Email
           </a>
@@ -640,7 +640,7 @@ function HomePage() {
               <Github size={16} />
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/boris-bostandzhiev/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/boris-b-22566b171/" target="_blank" rel="noreferrer">
               <Linkedin size={16} />
               LinkedIn
             </a>
@@ -648,7 +648,7 @@ function HomePage() {
               <FileText size={16} />
               CV
             </a>
-            <a href="mailto:modaxxx009@yahoo.com">
+            <a href="mailto:borisbostandzhiev@yahoo.com">
               <Mail size={16} />
               Email
             </a>
