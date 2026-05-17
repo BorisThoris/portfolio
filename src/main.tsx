@@ -109,14 +109,47 @@ const experiences: Experience[] = [
     tenure: 'Feb 2024 - Present',
     startYear: '2024',
     type: 'Full-time - Investment technology',
-    summary: 'Own delivery for production risk-analytics and internal software used by professional users.',
+    summary:
+      'Own delivery for a global risk and fund-platform surface used around Man Group investment workflows.',
     bullets: [
-      'Build React/TypeScript frontends, Python services, dashboards, APIs, tests, and deployment configuration.',
+      'Build React/TypeScript frontends, Python and C# services, dashboards, APIs, tests, and deployment configuration.',
       'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
       'Ship data-heavy interfaces with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
-      'Integrate structured AI-assisted workflow features where appropriate and expand coverage with Playwright, Vitest, and pytest.'
+      'Work directly with PMs and senior stakeholders, including Chief Risk Officer-level users, to clarify project needs and delivery tradeoffs.'
     ],
-    stack: ['React', 'TypeScript', 'Python', 'Flask', 'AG Grid', 'Zustand', 'Playwright', 'pytest'],
+    stack: [
+      'React',
+      'TypeScript',
+      'Python',
+      'C#',
+      'SQL',
+      'Kubernetes',
+      'ClickHouse',
+      'S3',
+      'Flask',
+      'AG Grid',
+      'Zustand',
+      'Playwright',
+      'pytest'
+    ],
+    detailSections: [
+      {
+        title: 'Delivery ownership',
+        items: [
+          'Oversee delivery for a global internal platform connected to Man Group fund and risk workflows.',
+          'Communicate project needs directly with important stakeholders, including Chief Risk Officer-level users.',
+          'Translate portfolio, risk, and operations requirements into working product behavior and delivery plans.'
+        ]
+      },
+      {
+        title: 'Technical scope',
+        items: [
+          'React/TypeScript UI systems, Python and C# services, SQL-heavy data flows, Kubernetes deployment concerns, ClickHouse analytics, and S3-backed storage patterns.',
+          'Testing and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and data-heavy user journeys.',
+          'Man Group reported $228.7bn AUM as of 31 March 2026; this portfolio frames the work as private internal tooling around that global investment business.'
+        ]
+      }
+    ],
     logos: ['/company-logos/man-group.jpg'],
     initials: 'MG',
     accent: '#8bd3ff',
@@ -127,10 +160,10 @@ const experiences: Experience[] = [
         relationshipText:
           'LinkedIn/CV-backed work on production risk-analytics and internal software; public source is used as company technology context, not a screenshot of private tools.',
         summary:
-          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling.',
+          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling. Public Q1 2026 reporting listed $228.7bn AUM.',
         sourceLabel: 'Man Technology',
         sourceUrl: 'https://www.man.com/technology',
-        tags: ['Risk analytics', 'React', 'Python', 'Data platforms'],
+        tags: ['Risk analytics', 'React', 'Python', 'C#', 'Data platforms'],
         confidence: 'LinkedIn/CV-backed'
       }
     ]
@@ -145,9 +178,9 @@ const experiences: Experience[] = [
     bullets: [
       'Built and improved React/TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
       'Focused on maintainable UI architecture, component quality, testing, and repeated workflow usability.',
-      'Worked in a product domain where reliability, clear user flows, and fast day-to-day operations mattered.'
+      'Worked closely with PMs, designers, and product stakeholders in a domain where reliability and fast day-to-day operations mattered.'
     ],
-    stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Jest', 'React Testing Library'],
+    stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Figma', 'Jest', 'React Testing Library'],
     logos: ['/company-logos/expert-allies.jpg', '/company-logos/zonal.jpg'],
     initials: 'Z',
     accent: '#90f0c0',
@@ -216,10 +249,21 @@ const experiences: Experience[] = [
     bullets: [
       'Led visual-programming features with loops, conditionals, nesting, and rich component rendering behavior.',
       'Expanded unit, end-to-end, functional, and user-flow test coverage in a team without dedicated QA.',
-      'Owned library upgrade research, reusable components, escalations, deployment monitoring, and delivery across multiple epics.',
+      'Owned library upgrade research, reusable components, escalations, deployment monitoring, and delivery across multiple epics with PM/product alignment.',
       'Mentored junior colleagues and received company recognition for delivery impact.'
     ],
-    stack: ['React', 'Backbone', 'jQuery', 'Storybook', 'Jest', 'React Testing Library', 'Webpack'],
+    stack: [
+      'React',
+      'Backbone',
+      'jQuery',
+      'C#',
+      'Python',
+      'Figma',
+      'Storybook',
+      'Jest',
+      'React Testing Library',
+      'Webpack'
+    ],
     logos: ['/company-logos/quickbase.jpg'],
     initials: 'QB',
     accent: '#f0d879',
@@ -275,7 +319,7 @@ const experiences: Experience[] = [
     bullets: [
       'Developed React Native mobile apps including social networking and education product experiences.',
       'Built a React website for a real-estate appraisal business with strong visual and responsive requirements.',
-      'Worked closely with product and design stakeholders on practical UI implementation and delivery.'
+      'Worked closely with PM, product, and design stakeholders on practical UI implementation and delivery.'
     ],
     stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#'],
     logos: ['/company-logos/hakomo.jpg'],
@@ -329,7 +373,7 @@ const experiences: Experience[] = [
     bullets: [
       'Worked on TV-box and internal engineering-support software with responsive and remote-control interaction flows.',
       'Built SQL-backed functionality and coordinated with stakeholders around operational support needs.',
-      'Contributed to public-facing A1 Bulgaria web work and internal tools used by engineering/support teams.'
+      'Contributed to public-facing A1 Bulgaria web work and internal tools while coordinating with PMs and engineering/support stakeholders.'
     ],
     stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI'],
     logos: ['/company-logos/a1-bulgaria.jpg'],
@@ -385,10 +429,10 @@ const experiences: Experience[] = [
     type: 'Professional training',
     summary: 'Completed early professional software engineering training before moving into full-time application development.',
     bullets: [
-      'Built foundations across practical software delivery, production-oriented habits, and team workflows.',
+      'Built foundations across React, practical software delivery, production-oriented habits, and team workflows.',
       'Used the training period as the bridge into full-time application engineering roles.'
     ],
-    stack: ['Engineering Foundations', 'Team Workflows', 'Delivery'],
+    stack: ['React', 'Engineering Foundations', 'Team Workflows', 'Delivery'],
     logos: ['/company-logos/evolution.jpg'],
     initials: 'EV',
     accent: '#d8b4ff'
@@ -420,10 +464,10 @@ const experiences: Experience[] = [
     summary: 'Supported the family natural-cosmetics business across hands-on operations, customer-facing sales, and web shop maintenance.',
     bullets: [
       'Helped with the full practical business loop: making cosmetics, packing orders, deliveries, trade-show sales, and day-to-day support.',
-      'Maintained the customer-facing website with product/catalog updates and small content or storefront fixes when needed.',
+      'Maintained the WordPress customer-facing website with product/catalog updates and small content or storefront fixes when needed.',
       'Still provide occasional support across web, operations, and practical business needs.'
     ],
-    stack: ['Family Business', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
+    stack: ['Family Business', 'WordPress', 'E-commerce', 'Website Maintenance', 'Product Catalog', 'Operations'],
     logos: ['/company-logos/soap-factory.webp'],
     initials: 'SF',
     accent: '#b9df8a',
