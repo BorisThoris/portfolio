@@ -633,10 +633,10 @@ function HomePage() {
 
       <section className="portfolio-intro" aria-label="Portfolio introduction">
         <div className="intro-copy">
-          <h1>Real interactive products across creative tools, games, commerce, and enterprise software.</h1>
+          <h1>Interactive software with real product depth.</h1>
           <p>
-            Boris Bostandzhiev builds demo-runnable software with product judgment, working UI depth, and production
-            habits.
+            I build playable tools, games, storefronts, and enterprise interfaces that demonstrate the workflow, UI
+            craft, and engineering behind them.
           </p>
           <div className="proof-strip" aria-label="Implementation domains">
             <span>React</span>
