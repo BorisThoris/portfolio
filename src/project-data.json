@@ -60,6 +60,21 @@
     "accent": "#ef4444"
   },
   {
+    "slug": "saad-print-on-demand",
+    "title": "SAAD Print-on-Demand",
+    "subtitle": "Live graphic-apparel storefront",
+    "description": "A live streetwear, racing, and graphic apparel storefront managed as a small revenue-generating print-on-demand product.",
+    "repoPath": "https://saad.printondemand.bg/",
+    "localUrl": "https://saad.printondemand.bg/",
+    "deploymentUrl": "https://saad.printondemand.bg/",
+    "buildCommand": "Live managed storefront",
+    "buildOutput": "PrintOnDemand hosted storefront",
+    "runCommand": "Open https://saad.printondemand.bg/",
+    "screenshot": "/company-project-shots/saad/main.png",
+    "tags": ["E-commerce", "Print-on-demand", "Storefront", "Revenue"],
+    "accent": "#f43f5e"
+  },
+  {
     "slug": "cross-repo-libs",
     "title": "Cross Repo Libs",
     "subtitle": "Reusable workspace packages",

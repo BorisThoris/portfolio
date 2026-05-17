@@ -60,6 +60,18 @@
     "analysisNotes": "3D dungeon/editor variant with React Three Fiber, asset generation scripts, Storybook dependencies, and a working Vite demo."
   },
   {
+    "slug": "saad-print-on-demand",
+    "repoName": "saad.printondemand.bg",
+    "showcaseTier": "showcase",
+    "priorityScore": 88,
+    "demoabilityScore": 92,
+    "depthScore": 64,
+    "polishScore": 78,
+    "uniquenessScore": 76,
+    "maintenanceScore": 74,
+    "analysisNotes": "Live managed print-on-demand storefront with real customer-facing catalog, product positioning, and small revenue proof; placed as commercial proof after the 3D/editor projects."
+  },
+  {
     "slug": "cross-repo-libs",
     "repoName": "cross-repo-libs",
     "showcaseTier": "more",
