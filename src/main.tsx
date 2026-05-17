@@ -361,6 +361,19 @@ const experiences: Experience[] = [
         image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['Mobile TV', 'A1 Bulgaria', 'App ecosystem'],
         confidence: 'Public context'
+      },
+      {
+        title: 'A1 Bulgaria main website',
+        productArea: 'Public telecom website and customer-facing web flows',
+        relationshipText:
+          'CV-backed A1 tenure included a chance to contribute to the main public website alongside TV-box and internal tooling work.',
+        summary:
+          'The A1 Bulgaria website is the primary public surface for telecom plans, devices, TV, internet, support, and customer account journeys.',
+        sourceLabel: 'A1 Bulgaria website',
+        sourceUrl: 'https://www.a1.bg/',
+        image: '/company-project-shots/a1/xplore-tv.png',
+        tags: ['Public website', 'Responsive UI', 'Telecom', 'Customer flows'],
+        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
