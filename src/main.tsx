@@ -7,7 +7,10 @@ import {
   ArrowUpRight,
   CalendarDays,
   ExternalLink,
+  FileText,
   Github,
+  Linkedin,
+  Mail,
   MonitorUp,
   Play,
   X
@@ -597,12 +600,56 @@ function HomePage() {
             <Github size={14} />
             GitHub
           </a>
+          <a href="https://www.linkedin.com/in/boris-bostandzhiev/" target="_blank" rel="noreferrer">
+            <Linkedin size={14} />
+            LinkedIn
+          </a>
+          <a href="#experience">
+            <FileText size={14} />
+            CV
+          </a>
+          <a href="mailto:modaxxx009@yahoo.com">
+            <Mail size={14} />
+            Email
+          </a>
         </nav>
       </header>
 
       <section className="portfolio-intro" aria-label="Portfolio introduction">
-        <div>
-          <h1>Interactive web apps, games, and tools.</h1>
+        <div className="intro-copy">
+          <h1>Real interactive products across creative tools, games, commerce, and enterprise software.</h1>
+          <p>
+            Boris Bostandzhiev builds demo-runnable software with product judgment, working UI depth, and production
+            habits.
+          </p>
+          <div className="proof-strip" aria-label="Implementation domains">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Electron</span>
+            <span>Web Audio</span>
+            <span>Three.js</span>
+            <span>Phaser</span>
+            <span>Storefronts</span>
+            <span>Production workflow UI</span>
+          </div>
+          <div className="intro-actions" aria-label="Contact and profile actions">
+            <a href="https://github.com/BorisThoris" target="_blank" rel="noreferrer">
+              <Github size={16} />
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/boris-bostandzhiev/" target="_blank" rel="noreferrer">
+              <Linkedin size={16} />
+              LinkedIn
+            </a>
+            <a href="#experience">
+              <FileText size={16} />
+              CV
+            </a>
+            <a href="mailto:modaxxx009@yahoo.com">
+              <Mail size={16} />
+              Email
+            </a>
+          </div>
         </div>
       </section>
 
