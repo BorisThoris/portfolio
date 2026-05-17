@@ -1139,7 +1139,8 @@ p {
   line-height: 1.55;
 }
 
-.product-modal-copy a {
+.product-modal-copy a,
+.source-note {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1149,6 +1150,10 @@ p {
   font-size: 12px;
   font-weight: 900;
   text-decoration: none;
+}
+
+.source-note {
+  color: rgba(246, 241, 232, 0.58);
 }
 
 .product-modal-copy a:hover {

@@ -56,7 +56,7 @@ type ProfessionalContext = {
   relationshipText: string;
   summary: string;
   sourceLabel: string;
-  sourceUrl: string;
+  sourceUrl?: string;
   image?: string;
   tags: string[];
   confidence: 'LinkedIn/CV-backed' | 'Public context';
@@ -120,29 +120,55 @@ const experiences: Experience[] = [
     accent: '#90f0c0',
     contextProjects: [
       {
-        title: 'Zonal hospitality product ecosystem',
-        productArea: 'Hospitality operations, ordering, EPoS, and venue workflows',
+        title: 'Aztec EPoS ecosystem',
+        productArea: 'Core hospitality EPoS and venue operations',
         relationshipText:
-          'LinkedIn/CV-backed senior React work on Zonal product interfaces; public pages show the product ecosystem those interfaces support.',
+          "LinkedIn/CV-backed senior React work on Zonal product interfaces; Aztec EPoS is the public product ecosystem those hospitality workflows connect around.",
         summary:
-          'Zonal presents one connected hospitality technology ecosystem covering front- and back-of-house operations, ordering, reservations, property management, operations, and marketing.',
-        sourceLabel: 'Zonal products',
-        sourceUrl: 'https://www.zonal.co.uk/products/',
-        image: '/company-project-shots/zonal/epos.png',
-        tags: ['Hospitality SaaS', 'React', 'TypeScript', 'Workflow UI'],
-        confidence: 'LinkedIn/CV-backed'
-      },
-      {
-        title: 'EPoS and handheld service workflows',
-        productArea: 'Venue staff interfaces and high-frequency service operations',
-        relationshipText:
-          'Representative public product context for the hospitality interfaces worked on during the Zonal engagement.',
-        summary:
-          'Zonal describes EPoS, handheld ordering, and order/payment flows built for speed, reliability, kitchen routing, and reduced re-keying in busy venues.',
+          'Zonal describes its EPoS platform as purpose-built for hospitality, spanning operational control, reporting, stock, integrations, and venue service workflows.',
         sourceLabel: 'Zonal EPoS',
         sourceUrl: 'https://www.zonal.co.uk/products/epos/',
         image: '/company-project-shots/zonal/epos.png',
-        tags: ['EPoS', 'Handheld ordering', 'Operations', 'Reliability'],
+        tags: ['Aztec', 'EPoS', 'Hospitality SaaS', 'Workflow UI'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'iServe / iServe Plus handheld ordering',
+        productArea: 'Server tablets, phones, and handheld POS workflows',
+        relationshipText:
+          "Worked around mobile/tablet-facing hospitality workflows integrated with Zonal's Aztec EPoS ecosystem; public iServe material shows the staff handheld ordering surface.",
+        summary:
+          'Zonal positions iServe Plus as an all-in-one handheld order and payment solution for tableside service in hospitality venues.',
+        sourceLabel: 'Zonal iServe',
+        sourceUrl: 'https://www.zonal.co.uk/products/epos/handheld-ordering/',
+        image: '/company-project-shots/zonal/iserve.png',
+        tags: ['iServe', 'Handheld ordering', 'Table service', 'Payments'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'Order & Pay / iOrder journeys',
+        productArea: 'Guest ordering and payment flows',
+        relationshipText:
+          "Public product context for guest-facing Zonal ordering flows connected to the same EPoS ecosystem; not stated as sole ownership.",
+        summary:
+          'Zonal describes Order & Pay as a branded app and web platform for guest ordering and payment journeys integrated with EPoS.',
+        sourceLabel: 'Zonal Order & Pay',
+        sourceUrl: 'https://www.zonal.co.uk/products/online-ordering-systems/order-and-pay/',
+        image: '/company-project-shots/zonal/kiosk.png',
+        tags: ['Order & Pay', 'iOrder', 'Guest ordering', 'Web app'],
+        confidence: 'Public context'
+      },
+      {
+        title: 'Kiosk ordering',
+        productArea: 'Self-service ordering devices and kiosk flows',
+        relationshipText:
+          'Representative public product context for kiosk-facing hospitality ordering scenarios in the Zonal product suite.',
+        summary:
+          'Zonal presents online ordering systems including kiosks, Order & Pay, click and collect, and digital-first guest ordering experiences.',
+        sourceLabel: 'Zonal online ordering',
+        sourceUrl: 'https://www.zonal.co.uk/products/online-ordering-systems/',
+        image: '/company-project-shots/zonal/kiosk.png',
+        tags: ['Kiosks', 'Self-service', 'Ordering', 'Hospitality'],
         confidence: 'Public context'
       }
     ]
@@ -166,6 +192,19 @@ const experiences: Experience[] = [
     accent: '#f0d879',
     contextProjects: [
       {
+        title: 'Quickbase low-code platform',
+        productArea: 'Main low-code application platform',
+        relationshipText:
+          'Software Engineer II in the broader Quickbase low-code platform ecosystem, contributing to modernization while working alongside legacy product surfaces.',
+        summary:
+          'Quickbase presents its platform as an application platform for dynamic work, bringing data, teams, applications, automation, and reporting into one place.',
+        sourceLabel: 'Quickbase product',
+        sourceUrl: 'https://www.quickbase.com/product',
+        image: '/company-project-shots/quickbase/platform.png',
+        tags: ['Low-code platform', 'App builder', 'Dashboards', 'Reporting'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
         title: 'Quickbase Pipelines Designer',
         productArea: 'Low-code workflow automation and visual programming',
         relationshipText:
@@ -179,17 +218,17 @@ const experiences: Experience[] = [
         confidence: 'LinkedIn/CV-backed'
       },
       {
-        title: 'Loops and branches automation',
-        productArea: 'Advanced workflow composition',
+        title: 'Legacy platform and API surfaces',
+        productArea: 'Mixed legacy and modern engineering environment',
         relationshipText:
-          'Public Quickbase context for the workflow concepts that match the CV-described loops and conditional visual-builder work.',
+          'Local CV history includes C# alongside Backbone, jQuery, Handlebars, React, and Python; public company profiles list ASP.NET/C# among Quickbase engineering technologies.',
         summary:
-          "Quickbase's platform material references visual workflow design and screenshots of loops and branches automation as part of integration and workflow capabilities.",
-        sourceLabel: 'Quickbase workflow guide',
-        sourceUrl: 'https://www.quickbase.com/platform-evaluation-guide/integration-and-workflow-capabilities/automated-workflow',
-        image: '/company-project-shots/quickbase/pipelines-designer.png',
-        tags: ['Loops', 'Branches', 'Workflow UX', 'Builder UI'],
-        confidence: 'Public context'
+          'This is framed as product-context around a mixed legacy/modern platform, not as a claim of owning the legacy backend. Quickbase also documents older API surfaces alongside modern REST APIs.',
+        sourceLabel: 'Built In / API guide',
+        sourceUrl: 'https://builtin.com/company/quickbase',
+        image: '/company-project-shots/quickbase/platform.png',
+        tags: ['C# context', 'Backbone', 'Legacy APIs', 'Modernization'],
+        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
@@ -211,15 +250,38 @@ const experiences: Experience[] = [
     accent: '#ff9f73',
     contextProjects: [
       {
-        title: 'Mobile app and design-heavy web delivery',
-        productArea: 'React Native apps and React marketing/product sites',
+        title: 'Asko',
+        productArea: 'React Native social Q&A app',
         relationshipText:
-          'CV-backed work on React Native social/education product experiences and a visually focused React web build; public product proof is limited.',
+          'Local CV sources name Asko as a React Native social networking app worked on at Hakomo; public Hakomo portfolio pages describe the product concept.',
         summary:
-          'This card keeps Hakomo conservative until an authenticated LinkedIn scrape or stronger public project page confirms specific product names and imagery.',
-        sourceLabel: 'LinkedIn/CV-backed note',
-        sourceUrl: 'https://www.linkedin.com/in/boris-b-22566b171/',
-        tags: ['React Native', 'React', 'Mobile UX', 'Web UI'],
+          'Hakomo describes Asko as a product taken from idea through sketches, design, and development of a complete app experience.',
+        sourceLabel: 'Hakomo Asko',
+        sourceUrl: 'https://www.hakomo.com/portfolio/asko/',
+        tags: ['React Native', 'Social app', 'Mobile UX', 'Hakomo'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'Amrita Appraisal System',
+        productArea: 'React web appraisal-management product',
+        relationshipText:
+          'Local CV sources name Amrita Appraisal System as a design-heavy React website for a real estate appraisal business.',
+        summary:
+          'Hakomo describes Amrita as an internal appraisal system that combined documents and Excel calculations into one appraisal-management workflow.',
+        sourceLabel: 'Hakomo Amrita',
+        sourceUrl: 'https://www.hakomo.com/portfolio/amrita-appraisal-system/',
+        tags: ['React', 'Real estate', 'Dashboard UI', 'Workflow'],
+        confidence: 'LinkedIn/CV-backed'
+      },
+      {
+        title: 'Educational mobile platform',
+        productArea: 'Undisclosed React Native education app',
+        relationshipText:
+          'Local CV/profile sources mention an educational mobile platform, but the public product name is undisclosed.',
+        summary:
+          'Kept intentionally conservative: this item records the product category and mobile delivery work without inventing a public product name or screenshot.',
+        sourceLabel: 'Local CV-backed',
+        tags: ['React Native', 'Education', 'Mobile learning', 'Private'],
         confidence: 'LinkedIn/CV-backed'
       }
     ]
@@ -838,10 +900,14 @@ function ProductContextModal({
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <a href={context.sourceUrl} target="_blank" rel="noreferrer">
-            {context.sourceLabel}
-            <ArrowUpRight size={15} />
-          </a>
+          {context.sourceUrl ? (
+            <a href={context.sourceUrl} target="_blank" rel="noreferrer">
+              {context.sourceLabel}
+              <ArrowUpRight size={15} />
+            </a>
+          ) : (
+            <span className="source-note">{context.sourceLabel}</span>
+          )}
         </div>
       </motion.article>
     </motion.div>
