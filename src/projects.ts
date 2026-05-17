@@ -63,7 +63,7 @@ export const projects: Project[] = (projectData as ProjectRecord[])
   }))
   .sort(byPriority);
 export const visibleProjects = projects.filter((project) => project.showcaseTier !== 'excluded');
-export const showcaseProjects = visibleProjects.filter((project) => project.showcaseTier === 'showcase').slice(0, 6);
+export const showcaseProjects = visibleProjects.filter((project) => project.showcaseTier === 'showcase');
 export const moreProjects = visibleProjects.filter((project) => project.showcaseTier === 'more');
 
 export function getProject(slug: string | undefined): Project {

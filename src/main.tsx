@@ -69,6 +69,36 @@ type DisplayProfessionalContext = ProfessionalContext & {
   initials: string;
 };
 
+function toPortfolioProjectContext(project: Project): ProfessionalContext {
+  if (project.slug === 'saad-print-on-demand') {
+    return {
+      title: project.title,
+      productArea: project.subtitle,
+      relationshipText:
+        'Owned and managed live print-on-demand storefront with catalog upkeep, storefront presentation, product positioning, and real customer-facing operations.',
+      summary:
+        'SAD Designs is a streetwear, racing, and graphic apparel storefront running on PrintOnDemand infrastructure. It has produced small real earnings, which makes it useful commercial proof alongside the larger engineering demos.',
+      sourceLabel: 'Live storefront',
+      sourceUrl: project.deploymentUrl ?? project.localUrl,
+      image: project.screenshot,
+      tags: project.tags,
+      confidence: 'Public context'
+    };
+  }
+
+  return {
+    title: project.title,
+    productArea: project.subtitle,
+    relationshipText: 'Independent portfolio project built, maintained, demo-hardened, and wired into the local/cloud showcase system.',
+    summary: project.description,
+    sourceLabel: 'Open project',
+    sourceUrl: project.deploymentUrl ?? project.localUrl,
+    image: project.screenshot,
+    tags: project.tags,
+    confidence: 'Public context'
+  };
+}
+
 const experiences: Experience[] = [
   {
     company: 'Man Group',
@@ -356,13 +386,14 @@ const experiences: Experience[] = [
     summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
     bullets: [
       'First public project commit found: Cat World on Jul 31, 2018, followed by Gorilla Gainz on Aug 2, 2018.',
-      'Created Memory Dungeon, BBeats, ThreeJS Gem Dungeon Editor, cross-repo libraries, and local/cloud demo tooling.',
+      'Created games, music tools, 3D editors, ecommerce/admin demos, reusable libraries, and local/cloud demo tooling.',
       'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
       'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
     ],
     stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
     initials: 'BB',
-    accent: '#ff8fd2'
+    accent: '#ff8fd2',
+    contextProjects: showcaseProjects.map(toPortfolioProjectContext)
   },
   {
     company: 'Soap Factory',
@@ -419,29 +450,117 @@ function App() {
   );
 }
 
+const showcaseSlideVariants = {
+  center: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      staggerChildren: 0.018,
+      delayChildren: 0.04
+    }
+  }
+};
+
+const showcaseCopyVariants = {
+  enter: { opacity: 0, y: 18 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -10 }
+};
+
+const showcaseStageVariants = {
+  enter: { opacity: 0, y: 12 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 }
+};
+
+function showcaseSlideTransition(shouldReduceMotion: boolean | null) {
+  if (shouldReduceMotion) {
+    return { duration: 0.12 };
+  }
+
+  return {
+    duration: 2.25,
+    ease: [0.2, 0.72, 0.18, 1] as const
+  };
+}
+
+const SHOWCASE_SLIDE_GAP = 18;
+const SHOWCASE_AUTOPLAY_MS = 8500;
+
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [slideDirection, setSlideDirection] = React.useState<1 | -1>(1);
+  const [trackIndex, setTrackIndex] = React.useState(1);
+  const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
+  const [slideWidth, setSlideWidth] = React.useState(0);
+  const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
+  const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
+  const shouldReduceMotion = useReducedMotion();
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
-  const activeRuntime = runtimeStatus?.projects.find((item) => item.slug === activeProject.slug);
   const [selectedExperienceIndex, setSelectedExperienceIndex] = React.useState<number | null>(null);
   const [selectedContext, setSelectedContext] = React.useState<DisplayProfessionalContext | null>(null);
   const selectedExperience = selectedExperienceIndex === null ? null : experiences[selectedExperienceIndex];
   const navigate = useNavigate();
+  const showcaseCount = showcaseProjects.length;
+  const trackProjects = React.useMemo(() => {
+    if (!showcaseCount) return [];
+    return [showcaseProjects[showcaseCount - 1], ...showcaseProjects, showcaseProjects[0]];
+  }, [showcaseCount]);
+
+  const settleLoopPosition = () => {
+    if (!showcaseCount) return;
+
+    if (trackIndex === 0) {
+      setTrackAnimationEnabled(false);
+      setTrackIndex(showcaseCount);
+      window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
+    }
+
+    if (trackIndex === showcaseCount + 1) {
+      setTrackAnimationEnabled(false);
+      setTrackIndex(1);
+      window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
+    }
+  };
 
   const selectProject = (nextIndex: number) => {
     if (nextIndex === activeIndex) return;
-    const forwardDistance = (nextIndex - activeIndex + showcaseProjects.length) % showcaseProjects.length;
-    const backwardDistance = (activeIndex - nextIndex + showcaseProjects.length) % showcaseProjects.length;
-    setSlideDirection(forwardDistance <= backwardDistance ? 1 : -1);
+    setTrackAnimationEnabled(true);
     setActiveIndex(nextIndex);
+    setTrackIndex(nextIndex + 1);
   };
 
   const setByDirection = (direction: -1 | 1) => {
-    setSlideDirection(direction);
-    setActiveIndex((current) => (current + direction + showcaseProjects.length) % showcaseProjects.length);
+    if (!showcaseCount) return;
+    setTrackAnimationEnabled(true);
+    setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
+    setTrackIndex((current) => current + direction);
   };
+
+  React.useEffect(() => {
+    const slideElement = firstShowcaseSlideRef.current;
+    if (!slideElement) return;
+
+    const updateSlideWidth = () => {
+      setSlideWidth(slideElement.getBoundingClientRect().width);
+    };
+
+    updateSlideWidth();
+    const observer = new ResizeObserver(updateSlideWidth);
+    observer.observe(slideElement);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
+
+    const autoplay = window.setInterval(() => {
+      if (document.hidden) return;
+      setByDirection(1);
+    }, SHOWCASE_AUTOPLAY_MS);
+
+    return () => window.clearInterval(autoplay);
+  }, [isShowcaseInteracting, selectedContext, selectedExperience, setByDirection, shouldReduceMotion]);
 
   React.useEffect(() => {
     if (!selectedExperience && !selectedContext) return;
@@ -492,8 +611,20 @@ function HomePage() {
         className="premium-hero"
         aria-label="Portfolio showcase"
         style={{ '--accent': activeProject.accent } as React.CSSProperties}
+        onPointerEnter={() => setIsShowcaseInteracting(true)}
+        onPointerLeave={() => setIsShowcaseInteracting(false)}
+        onFocusCapture={() => setIsShowcaseInteracting(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+            setIsShowcaseInteracting(false);
+          }
+        }}
       >
-        <div className="showcase-dock" aria-label="Top projects">
+        <div
+          className="showcase-dock"
+          aria-label="Top projects"
+          style={{ '--showcase-count': showcaseProjects.length } as React.CSSProperties}
+        >
           {showcaseProjects.map((project, index) => (
             <button
               className={`dock-item ${index === activeIndex ? 'active' : ''}`}
@@ -515,46 +646,76 @@ function HomePage() {
           </div>
         </div>
 
-        <div
-          className={`showcase-slide slide-${slideDirection === 1 ? 'forward' : 'backward'}`}
-          key={activeProject.slug}
-        >
-          <div className="hero-copy project-copy">
-            <h2>{activeProject.title}</h2>
-            <strong>{activeProject.subtitle}</strong>
-            <p>{activeProject.description}</p>
-            <div className="tag-row hero-tags">
-              {activeProject.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-            <div className="hero-actions">
-              <a
-                className="primary-action"
-                href={activeRuntime?.effectiveUrl || activeProject.deploymentUrl || activeProject.localUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Play size={17} />
-                Open {activeProject.title}
-              </a>
-              <Link className="quiet-action" to={`/projects/${activeProject.slug}`}>
-                Case view
-                <ArrowUpRight size={17} />
-              </Link>
-            </div>
-          </div>
-
-          <button
-            className="hero-stage crafted-frame"
-            onClick={() => navigate(`/projects/${activeProject.slug}`)}
-            aria-label={`Open details for ${activeProject.title}`}
+        <div className="showcase-viewport">
+          <motion.div
+            className="showcase-track"
+            animate={{ x: slideWidth ? -trackIndex * (slideWidth + SHOWCASE_SLIDE_GAP) : 0 }}
+            transition={trackAnimationEnabled ? showcaseSlideTransition(shouldReduceMotion) : { duration: 0 }}
+            onAnimationComplete={settleLoopPosition}
           >
-            <ProjectScreenshot project={activeProject} />
-            <div className="stage-caption">
-              <span className="rank-kicker">0{activeIndex + 1} / 06</span>
-            </div>
-          </button>
+            {trackProjects.map((project, trackPosition) => {
+              const index =
+                trackPosition === 0 ? showcaseCount - 1 : trackPosition === showcaseCount + 1 ? 0 : trackPosition - 1;
+              const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
+              const isActive = trackPosition === trackIndex;
+              const projectHref = projectRuntime?.effectiveUrl || project.deploymentUrl || project.localUrl;
+
+              return (
+                <motion.div
+                  className="showcase-slide"
+                  key={`${project.slug}-${trackPosition}`}
+                  ref={trackPosition === 1 ? firstShowcaseSlideRef : undefined}
+                  aria-hidden={!isActive}
+                  variants={showcaseSlideVariants}
+                  animate={isActive ? 'center' : undefined}
+                >
+                  <motion.div className="hero-copy project-copy" variants={showcaseCopyVariants}>
+                    <h2>{project.title}</h2>
+                    <strong>{project.subtitle}</strong>
+                    <p>{project.description}</p>
+                    <div className="tag-row hero-tags">
+                      {project.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                    <div className="hero-actions">
+                      <a
+                        className="primary-action"
+                        href={projectHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        tabIndex={isActive ? 0 : -1}
+                      >
+                        <Play size={17} />
+                        Open {project.title}
+                      </a>
+                      <Link className="quiet-action" to={`/projects/${project.slug}`} tabIndex={isActive ? 0 : -1}>
+                        Case view
+                        <ArrowUpRight size={17} />
+                      </Link>
+                    </div>
+                  </motion.div>
+
+                  <motion.button
+                    className="hero-stage crafted-frame"
+                    onClick={() => navigate(`/projects/${project.slug}`)}
+                    aria-label={`Open details for ${project.title}`}
+                    tabIndex={isActive ? 0 : -1}
+                    variants={showcaseStageVariants}
+                    whileHover={isActive && !shouldReduceMotion ? { y: -3, scale: 1.006 } : undefined}
+                    transition={{ duration: 0.22, ease: [0.22, 0.8, 0.26, 1] }}
+                  >
+                    <ProjectScreenshot project={project} />
+                    <div className="stage-caption">
+                      <span className="rank-kicker">
+                        {String(index + 1).padStart(2, '0')} / {String(showcaseProjects.length).padStart(2, '0')}
+                      </span>
+                    </div>
+                  </motion.button>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 

@@ -200,10 +200,12 @@ p {
     "dock"
     "slide";
   gap: 18px;
+  width: 100vw;
   min-height: min(620px, calc(100vh - 220px));
   margin-top: 0;
-  overflow: visible;
-  border-radius: 24px;
+  margin-left: calc(50% - 50vw);
+  overflow: clip;
+  padding-inline: 0;
   isolation: isolate;
 }
 
@@ -229,12 +231,27 @@ p {
   max-width: none;
 }
 
-.showcase-slide {
+.showcase-viewport {
   grid-area: slide;
+  width: 100%;
+  overflow: visible;
+}
+
+.showcase-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  padding-left: max(20px, calc((100vw - 1840px) / 2));
+  will-change: transform;
+}
+
+.showcase-slide {
   display: grid;
   grid-template-columns: minmax(360px, 0.42fr) minmax(680px, 1fr);
   grid-template-areas: "copy stage";
   gap: 18px;
+  flex: 0 0 min(1840px, calc(100vw - 40px));
+  width: min(1840px, calc(100vw - 40px));
   min-width: 0;
   border: 1px solid rgba(246, 241, 232, 0.12);
   border-radius: 22px 10px 26px 12px;
@@ -243,44 +260,8 @@ p {
     linear-gradient(90deg, rgba(5, 10, 9, 0.24), rgba(5, 10, 9, 0.08) 46%, rgba(5, 10, 9, 0.14));
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(8px) saturate(1.12);
-  animation-duration: 420ms;
-  animation-timing-function: cubic-bezier(0.22, 0.8, 0.26, 1);
-  animation-fill-mode: both;
-  will-change: transform, opacity, filter;
-}
-
-.showcase-slide.slide-forward {
-  animation-name: slideInForward;
-}
-
-.showcase-slide.slide-backward {
-  animation-name: slideInBackward;
-}
-
-@keyframes slideInForward {
-  from {
-    opacity: 0;
-    transform: translateX(34px) scale(0.985);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes slideInBackward {
-  from {
-    opacity: 0;
-    transform: translateX(-34px) scale(0.985);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-  }
+  transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .eyebrow {
@@ -451,10 +432,12 @@ p {
 .showcase-dock {
   grid-area: dock;
   align-self: end;
+  justify-self: center;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr)) auto;
+  grid-template-columns: repeat(var(--showcase-count, 6), minmax(0, 1fr)) auto;
   gap: 8px;
-  margin: clamp(16px, 2vw, 30px) clamp(16px, 2vw, 30px) 0;
+  width: min(1840px, calc(100vw - 40px));
+  margin: clamp(16px, 2vw, 30px) 0 0;
   padding: 10px;
   border: 1px solid rgba(246, 241, 232, 0.14);
   border-radius: 18px 8px 20px 10px;
@@ -466,15 +449,28 @@ p {
 }
 
 .dock-item {
+  position: relative;
   min-width: 0;
   min-height: 72px;
+  overflow: hidden;
   border: 1px solid transparent;
   border-radius: 13px 6px 15px 8px;
   padding: 10px 11px;
   background: transparent;
   cursor: pointer;
   text-align: left;
-  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.dock-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0%, color-mix(in srgb, var(--accent) 18%, transparent) 48%, transparent 72%);
+  transform: translateX(-65%);
+  transition: opacity 180ms ease, transform 320ms ease;
 }
 
 .dock-item.active {
@@ -487,12 +483,21 @@ p {
 }
 
 .dock-item:hover {
-  border-color: rgba(246, 241, 232, 0.18);
-  background: color-mix(in srgb, var(--accent) 7%, rgba(246, 241, 232, 0.05));
+  border-color: color-mix(in srgb, var(--accent) 48%, rgba(246, 241, 232, 0.18));
+  background: color-mix(in srgb, var(--accent) 11%, rgba(246, 241, 232, 0.06));
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 12%, transparent);
+  transform: translateY(-4px) scale(1.012);
+}
+
+.dock-item:hover::after {
+  opacity: 1;
+  transform: translateX(65%);
 }
 
 .dock-item span,
 .dock-item strong {
+  position: relative;
+  z-index: 1;
   display: block;
   min-width: 0;
 }
