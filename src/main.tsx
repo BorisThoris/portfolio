@@ -120,9 +120,9 @@ const experiences: Experience[] = [
       'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations across a business reporting $228.7bn AUM as of 31 March 2026, working directly with directors, risk managers, PMs, and senior stakeholders on needs, priorities, and delivery.',
     bullets: [
       'Build React/TypeScript frontends, Streamlit/Python dashboards, C# services, APIs, tests, report tooling, and deployment configuration.',
-      'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
+      'Lead modernization across Python upgrades, React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
       'Ship data-heavy interfaces and reporting flows with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
-      'Support production rotations across the platform, including data loading, calculation layers, generated reports, and dev-to-test-to-prod release paths.'
+      'Support production rotations, AI-assisted financial-report analysis, mass-release testing, and hardened dev-to-test-to-prod deployment paths.'
     ],
     stack: [
       'React',
@@ -153,9 +153,10 @@ const experiences: Experience[] = [
         title: 'Technical scope',
         items: [
           'React/TypeScript web apps integrated with Streamlit/Python dashboards, plus Python and C# service work across APIs and data-heavy product flows.',
-          'Scripts and dynamic tools for financial report generation, including PDF report generation at large volume and real-time reporting workflows.',
+          'Upgrade Python versions in systems that generate thousands of important financial PDF reports and support dynamic real-time reporting workflows.',
+          'Integrate AI-assisted analysis around financial reporting so users can inspect and reason about report outputs in real time.',
           'Touch the data loading and calculation layers that drive the platform, including SQL-heavy flows, ClickHouse analytics, S3-backed storage patterns, and Kubernetes deployment concerns.',
-          'Support rotations, testing, and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and dev-to-test-to-prod deployment paths.'
+          'Support rotations, mass-release testing, 100% release-check coverage goals, Playwright/Vitest/pytest reliability, CI/build stability, and hardened dev-to-test-to-prod deployment paths.'
         ]
       }
     ],
