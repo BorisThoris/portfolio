@@ -117,7 +117,7 @@ const experiences: Experience[] = [
     startYear: '2024',
     type: 'Full-time - Investment technology',
     summary:
-      'Own delivery for a global risk and fund-platform surface used around Man Group investment workflows.',
+      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations.',
     bullets: [
       'Build React/TypeScript frontends, Python and C# services, dashboards, APIs, tests, and deployment configuration.',
       'Lead modernization across React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
@@ -143,7 +143,7 @@ const experiences: Experience[] = [
       {
         title: 'Delivery ownership',
         items: [
-          'Oversee delivery for a global internal platform connected to Man Group fund and risk workflows.',
+          'Oversee delivery for a global platform supporting Man Group funds and connected risk workflows.',
           'Communicate project needs directly with important stakeholders, including Chief Risk Officer-level users.',
           'Translate portfolio, risk, and operations requirements into working product behavior and delivery plans.'
         ]
@@ -153,7 +153,7 @@ const experiences: Experience[] = [
         items: [
           'React/TypeScript UI systems, Python and C# services, SQL-heavy data flows, Kubernetes deployment concerns, ClickHouse analytics, and S3-backed storage patterns.',
           'Testing and reliability across Playwright, Vitest, pytest, CI/build stability, partial-failure handling, and data-heavy user journeys.',
-          'Man Group reported $228.7bn AUM as of 31 March 2026; this portfolio frames the work as private internal tooling around that global investment business.'
+          'Man Group reported $228.7bn AUM as of 31 March 2026; this frames the work as private internal tooling supporting fund, risk, and investment-operations workflows around that global business.'
         ]
       }
     ],
@@ -162,15 +162,15 @@ const experiences: Experience[] = [
     accent: '#8bd3ff',
     contextProjects: [
       {
-        title: 'Risk analytics and investment technology platforms',
-        productArea: 'Internal risk, data, and analytics tooling',
+        title: 'Fund platform, risk analytics, and investment technology',
+        productArea: 'Internal fund, risk, data, and investment-operations tooling',
         relationshipText:
-          'LinkedIn/CV-backed work on production risk-analytics and internal software; public source is used as company technology context, not a screenshot of private tools.',
+          'LinkedIn/CV-backed work overseeing delivery for a global platform supporting Man Group funds, risk analytics, and internal investment workflows; public source is used as company technology context, not a screenshot of private tools.',
         summary:
-          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling. Public Q1 2026 reporting listed $228.7bn AUM.',
+          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling. Public Q1 2026 reporting listed $228.7bn AUM, giving public context for the fund side of the platform work.',
         sourceLabel: 'Man Technology',
         sourceUrl: 'https://www.man.com/technology',
-        tags: ['Risk analytics', 'React', 'Python', 'C#', 'Data platforms'],
+        tags: ['Fund platform', 'Risk analytics', 'React', 'Python', 'C#', 'Data platforms'],
         confidence: 'LinkedIn/CV-backed'
       }
     ]
