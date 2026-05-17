@@ -646,54 +646,64 @@ function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'i
 
 function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number; onToggle: (index: number) => void }) {
   return (
-    <section className="capability-switchboard" aria-label="Capability map">
-      {capabilityGroups.map((group, index) => {
-        const isActive = activeIndex === index;
-        const hiddenCount = group.skills.length;
+    <section className="technical-range-section" aria-label="Technical range">
+      <div className="section-heading technical-range-heading">
+        <div>
+          <p className="eyebrow">Technical range</p>
+          <h2>Capability Summary</h2>
+        </div>
+        <span>A grouped summary of the tools, platforms, and delivery habits represented above.</span>
+      </div>
 
-        return (
-          <motion.article
-            className={`capability-card ${isActive ? 'active' : ''}`}
-            key={group.title}
-            layout
-            transition={{ duration: 0.32, ease: [0.2, 0.72, 0.18, 1] }}
-          >
-            <button
-              className="capability-trigger"
-              type="button"
-              aria-expanded={isActive}
-              onClick={() => onToggle(index)}
+      <div className="capability-switchboard">
+        {capabilityGroups.map((group, index) => {
+          const isActive = activeIndex === index;
+          const hiddenCount = group.skills.length;
+
+          return (
+            <motion.article
+              className={`capability-card ${isActive ? 'active' : ''}`}
+              key={group.title}
+              layout
+              transition={{ duration: 0.32, ease: [0.2, 0.72, 0.18, 1] }}
             >
-              <span className="capability-kicker">{String(index + 1).padStart(2, '0')}</span>
-              <strong>{group.title}</strong>
-              <span>{group.purpose}</span>
-            </button>
+              <button
+                className="capability-trigger"
+                type="button"
+                aria-expanded={isActive}
+                onClick={() => onToggle(index)}
+              >
+                <span className="capability-kicker">{String(index + 1).padStart(2, '0')}</span>
+                <strong>{group.title}</strong>
+                <span>{group.purpose}</span>
+              </button>
 
-            <div className="capability-primary" aria-label={`${group.title} primary skills`}>
-              {group.primary.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
-              {!isActive ? <span className="more-skill">+{hiddenCount} more</span> : null}
-            </div>
+              <div className="capability-primary" aria-label={`${group.title} primary skills`}>
+                {group.primary.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+                {!isActive ? <span className="more-skill">+{hiddenCount} more</span> : null}
+              </div>
 
-            <AnimatePresence initial={false}>
-              {isActive ? (
-                <motion.div
-                  className="capability-extra"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.24, ease: [0.2, 0.72, 0.18, 1] }}
-                >
-                  {group.skills.map((skill) => (
-                    <span key={skill}>{skill}</span>
-                  ))}
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-          </motion.article>
-        );
-      })}
+              <AnimatePresence initial={false}>
+                {isActive ? (
+                  <motion.div
+                    className="capability-extra"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.24, ease: [0.2, 0.72, 0.18, 1] }}
+                  >
+                    {group.skills.map((skill) => (
+                      <span key={skill}>{skill}</span>
+                    ))}
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </motion.article>
+          );
+        })}
+      </div>
     </section>
   );
 }
@@ -863,11 +873,6 @@ function HomePage() {
           </div>
         </div>
       </section>
-
-      <CapabilitySwitchboard
-        activeIndex={activeCapabilityIndex}
-        onToggle={(index) => setActiveCapabilityIndex((current) => (current === index ? -1 : index))}
-      />
 
       <section
         id="showcase"
@@ -1091,6 +1096,11 @@ function HomePage() {
           ))}
         </div>
       </section>
+
+      <CapabilitySwitchboard
+        activeIndex={activeCapabilityIndex}
+        onToggle={(index) => setActiveCapabilityIndex((current) => (current === index ? -1 : index))}
+      />
 
       <AnimatePresence>
         {selectedExperience && selectedExperienceIndex !== null ? (

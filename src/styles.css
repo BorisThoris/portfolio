@@ -276,13 +276,21 @@ p {
   background: color-mix(in srgb, var(--accent) 84%, #fff);
 }
 
-.capability-switchboard {
+.technical-range-section {
   position: relative;
   z-index: 1;
+  margin-top: 22px;
+  padding: clamp(18px, 2.6vw, 38px) 0 0;
+  border-top: 1px solid rgba(246, 241, 232, 0.12);
+  background:
+    radial-gradient(circle at 18% 10%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 30%),
+    linear-gradient(180deg, rgba(8, 10, 9, 0.42), rgba(8, 10, 9, 0.16));
+}
+
+.capability-switchboard {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
-  margin: 0 clamp(8px, 1.6vw, 24px) clamp(14px, 1.8vw, 22px);
 }
 
 .capability-card {
@@ -1624,7 +1632,6 @@ iframe,
 @media (max-width: 1180px) {
   .capability-switchboard {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-inline: clamp(16px, 2vw, 30px);
   }
 
   .premium-hero {
@@ -1764,7 +1771,6 @@ iframe,
   .capability-switchboard {
     grid-template-columns: minmax(0, 1fr);
     gap: 8px;
-    margin: 0 2px 12px;
   }
 
   .capability-trigger {
