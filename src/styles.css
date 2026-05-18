@@ -477,7 +477,12 @@ p {
 .showcase-viewport {
   grid-area: slide;
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.showcase-viewport:active {
+  cursor: grabbing;
 }
 
 .showcase-track {
@@ -1899,10 +1904,74 @@ iframe,
 }
 
 @media (max-width: 700px) {
+  body::before,
+  .aero-background {
+    display: none;
+  }
+
   body {
     background:
       radial-gradient(circle at 94% 4%, rgba(225, 243, 167, 0.1), transparent 32%),
       linear-gradient(180deg, #10110e, #080908);
+  }
+
+  .site-topbar,
+  .top-nav,
+  .proof-strip span,
+  .intro-actions a,
+  .capability-card,
+  .showcase-dock,
+  .icon-button,
+  .supporting-projects,
+  .experience-panel,
+  .experience-modal-layer,
+  .experience-modal,
+  .product-modal-layer,
+  .product-context-modal,
+  .product-context-pill,
+  .detail-panel,
+  .fallback-frame div {
+    backdrop-filter: none;
+  }
+
+  .crafted-frame,
+  .site-topbar,
+  .top-nav,
+  .capability-card,
+  .showcase-dock,
+  .supporting-projects,
+  .archive-section,
+  .experience-panel,
+  .experience-section,
+  .detail-panel {
+    box-shadow: none;
+  }
+
+  .technical-range-section,
+  .archive-section,
+  .experience-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 720px;
+  }
+
+  .showcase-track,
+  .showcase-slide {
+    will-change: auto;
+  }
+
+  .site-pills a,
+  .intro-actions a,
+  .capability-card,
+  .dock-item,
+  .archive-card,
+  .archive-card__arrow,
+  .company-logo,
+  .experience-panel,
+  .hero-stage img,
+  .supporting-projects__summary,
+  .supporting-projects__summary::after,
+  .supporting-projects__toggle {
+    transition-duration: 0ms;
   }
 
   .page-shell {
@@ -2011,7 +2080,20 @@ iframe,
     background:
       linear-gradient(180deg, rgba(5, 10, 9, 0.08), rgba(5, 10, 9, 0.22)),
       color-mix(in srgb, var(--accent) 7%, rgba(246, 241, 232, 0.035));
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.16);
+    box-shadow: none;
+    backdrop-filter: none;
+    will-change: auto;
+  }
+
+  .showcase-viewport,
+  .showcase-track,
+  .hero-stage {
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  .showcase-viewport {
+    contain: layout paint;
   }
 
   .project-copy h2 {
@@ -2047,16 +2129,34 @@ iframe,
   .hero-stage {
     margin: 0;
     border-radius: 20px 8px 24px 10px;
+    box-shadow: none;
   }
 
   .hero-stage img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
+    filter: none;
+    transition: none;
+    -webkit-user-drag: none;
+  }
+
+  .hero-stage:hover img {
+    transform: none;
+    filter: none;
+  }
+
+  .dock-item:hover,
+  .capability-card:hover,
+  .archive-card:hover .archive-card__arrow,
+  .experience-item:hover .company-logo,
+  .experience-item:focus-within .company-logo {
+    transform: none;
   }
 
   .stage-caption {
     top: 10px;
     right: 10px;
+    backdrop-filter: none;
   }
 
   .showcase-dock {
@@ -2069,6 +2169,7 @@ iframe,
     padding: 8px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    backdrop-filter: none;
   }
 
   .showcase-dock::-webkit-scrollbar {

@@ -551,6 +551,23 @@ function App() {
   );
 }
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = React.useState(() =>
+    typeof window === 'undefined' ? false : window.matchMedia(query).matches
+  );
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia(query);
+    const updateMatches = () => setMatches(mediaQuery.matches);
+
+    updateMatches();
+    mediaQuery.addEventListener('change', updateMatches);
+    return () => mediaQuery.removeEventListener('change', updateMatches);
+  }, [query]);
+
+  return matches;
+}
+
 const showcaseSlideVariants = {
   center: {
     opacity: 1,
@@ -574,19 +591,41 @@ const showcaseStageVariants = {
   exit: { opacity: 0, y: -8 }
 };
 
-function showcaseSlideTransition(shouldReduceMotion: boolean | null) {
+function showcaseSlideTransition(shouldReduceMotion: boolean | null, isMobileShowcase = false) {
   if (shouldReduceMotion) {
     return { duration: 0.12 };
   }
 
+  if (isMobileShowcase) {
+    return {
+      duration: 0.34,
+      ease: [0.2, 0.72, 0.18, 1] as const
+    };
+  }
+
   return {
-    duration: 2.25,
+    duration: 0.52,
     ease: [0.2, 0.72, 0.18, 1] as const
   };
 }
 
 const SHOWCASE_SLIDE_GAP = 18;
 const SHOWCASE_AUTOPLAY_MS = 8500;
+const SHOWCASE_SWIPE_THRESHOLD = 46;
+const SHOWCASE_SWIPE_ACTIVATION_DISTANCE = 10;
+const SHOWCASE_SWIPE_MAX_DRAG_RATIO = 0.34;
+const SHOWCASE_SWIPE_VELOCITY_THRESHOLD = 0.48;
+const SHOWCASE_SWIPE_POWER_THRESHOLD = 24;
+
+type ShowcaseSwipeState = {
+  pointerId: number | null;
+  startX: number;
+  startY: number;
+  lastX: number;
+  lastTime: number;
+  velocityX: number;
+  dragging: boolean;
+};
 
 const capabilityGroups: CapabilityGroup[] = [
   {
@@ -642,12 +681,14 @@ const contactLinks = [
 
 function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'intro' | 'topbar' }) {
   const shouldReduceMotion = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width: 700px)');
+  const shouldSimplifyMotion = shouldReduceMotion || isMobile;
 
   return (
     <>
       {contactLinks.map((link, index) => {
         const Icon = link.icon;
-        const motionProps = shouldReduceMotion
+        const motionProps = shouldSimplifyMotion
           ? {
               initial: { opacity: 0 },
               animate: { opacity: 1 },
@@ -679,6 +720,10 @@ function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'i
 }
 
 function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number; onToggle: (index: number) => void }) {
+  const shouldReduceMotion = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width: 700px)');
+  const shouldSimplifyMotion = shouldReduceMotion || isMobile;
+
   return (
     <section className="technical-range-section" aria-label="Technical range">
       <div className="section-heading technical-range-heading">
@@ -697,8 +742,8 @@ function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number;
             <motion.article
               className={`capability-card ${isActive ? 'active' : ''}`}
               key={group.title}
-              layout
-              transition={{ duration: 0.32, ease: [0.2, 0.72, 0.18, 1] }}
+              layout={!shouldSimplifyMotion}
+              transition={shouldSimplifyMotion ? { duration: 0 } : { duration: 0.32, ease: [0.2, 0.72, 0.18, 1] }}
             >
               <button
                 className="capability-trigger"
@@ -743,17 +788,29 @@ function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number;
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [trackIndex, setTrackIndex] = React.useState(1);
   const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
   const [slideWidth, setSlideWidth] = React.useState(0);
+  const [showcaseDragOffset, setShowcaseDragOffset] = React.useState(0);
+  const [showcaseReleaseDirection, setShowcaseReleaseDirection] = React.useState<-1 | 1 | null>(null);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
-  const [isMobileShowcase, setIsMobileShowcase] = React.useState(false);
   const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
   const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
   const [supportingProjectsOpen, setSupportingProjectsOpen] = React.useState(false);
   const introActionsRef = React.useRef<HTMLDivElement | null>(null);
-  const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
+  const [showcaseSlideElement, setShowcaseSlideElement] = React.useState<HTMLDivElement | null>(null);
+  const showcaseSwipeRef = React.useRef<ShowcaseSwipeState>({
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    lastX: 0,
+    lastTime: 0,
+    velocityX: 0,
+    dragging: false
+  });
+  const ignoreNextShowcaseClickRef = React.useRef(false);
   const shouldReduceMotion = useReducedMotion();
+  const isMobileShowcase = useMediaQuery('(max-width: 700px)');
+  const shouldSimplifyMotion = shouldReduceMotion || isMobileShowcase;
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
   const [selectedExperienceIndex, setSelectedExperienceIndex] = React.useState<number | null>(null);
@@ -763,44 +820,173 @@ function HomePage() {
   const showcaseCount = showcaseProjects.length;
   const trackProjects = React.useMemo(() => {
     if (!showcaseCount) return [];
-    return [showcaseProjects[showcaseCount - 1], ...showcaseProjects, showcaseProjects[0]];
-  }, [showcaseCount]);
-
-  const settleLoopPosition = () => {
-    if (!showcaseCount) return;
-
-    if (trackIndex === 0) {
-      setTrackAnimationEnabled(false);
-      setTrackIndex(showcaseCount);
-      window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
-    }
-
-    if (trackIndex === showcaseCount + 1) {
-      setTrackAnimationEnabled(false);
-      setTrackIndex(1);
-      window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
-    }
-  };
+    const previousIndex = (activeIndex - 1 + showcaseCount) % showcaseCount;
+    const nextIndex = (activeIndex + 1) % showcaseCount;
+    return [
+      { project: showcaseProjects[previousIndex], index: previousIndex, position: 'previous' as const },
+      { project: showcaseProjects[activeIndex], index: activeIndex, position: 'active' as const },
+      { project: showcaseProjects[nextIndex], index: nextIndex, position: 'next' as const }
+    ];
+  }, [activeIndex, showcaseCount]);
 
   const selectProject = (nextIndex: number) => {
     if (nextIndex === activeIndex) return;
     setTrackAnimationEnabled(true);
     setActiveIndex(nextIndex);
-    setTrackIndex(nextIndex + 1);
   };
 
   const setByDirection = (direction: -1 | 1) => {
-    if (!showcaseCount) return;
+    if (!showcaseCount || showcaseReleaseDirection) return;
+    if (!slideWidth) {
+      setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
+      return;
+    }
+
     setTrackAnimationEnabled(true);
+    setShowcaseDragOffset(0);
+    setShowcaseReleaseDirection(direction);
+  };
+
+  const commitShowcaseDirection = (direction: -1 | 1) => {
     setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
-    setTrackIndex((current) => {
-      const normalized = current === 0 ? showcaseCount : current === showcaseCount + 1 ? 1 : current;
-      return normalized + direction;
-    });
+    setTrackAnimationEnabled(false);
+    setShowcaseReleaseDirection(null);
+    setShowcaseDragOffset(0);
+    window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
+  };
+
+  const resetShowcaseSwipe = () => {
+    showcaseSwipeRef.current = {
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      lastX: 0,
+      lastTime: 0,
+      velocityX: 0,
+      dragging: false
+    };
+    setShowcaseDragOffset(0);
+  };
+
+  const suppressNextShowcaseClick = () => {
+    ignoreNextShowcaseClickRef.current = true;
+    window.setTimeout(() => {
+      ignoreNextShowcaseClickRef.current = false;
+    }, 450);
+  };
+
+  const handleShowcasePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!showcaseCount || showcaseReleaseDirection) return;
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if ((event.target as HTMLElement).closest('a')) return;
+
+    const now = performance.now();
+    showcaseSwipeRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastX: event.clientX,
+      lastTime: now,
+      velocityX: 0,
+      dragging: false
+    };
+    setIsShowcaseInteracting(true);
+    if (event.pointerType === 'mouse') {
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        // Synthetic and interrupted pointer streams may not be capturable.
+      }
+    }
+  };
+
+  const handleShowcasePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const swipe = showcaseSwipeRef.current;
+    if (swipe.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - swipe.startX;
+    const deltaY = event.clientY - swipe.startY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    if (!swipe.dragging) {
+      if (absY > SHOWCASE_SWIPE_ACTIVATION_DISTANCE && absY > absX) {
+        resetShowcaseSwipe();
+        return;
+      }
+
+      if (absX < SHOWCASE_SWIPE_ACTIVATION_DISTANCE || absX < absY * 1.15) {
+        return;
+      }
+
+      swipe.dragging = true;
+      setTrackAnimationEnabled(false);
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        // Synthetic and interrupted pointer streams may not be capturable.
+      }
+    }
+
+    const now = performance.now();
+    const elapsed = Math.max(1, now - swipe.lastTime);
+    swipe.velocityX = (event.clientX - swipe.lastX) / elapsed;
+    swipe.lastX = event.clientX;
+    swipe.lastTime = now;
+    const maxDragOffset = Math.max(80, (slideWidth + SHOWCASE_SLIDE_GAP) * SHOWCASE_SWIPE_MAX_DRAG_RATIO);
+    setShowcaseDragOffset(Math.max(-maxDragOffset, Math.min(maxDragOffset, deltaX)));
+    event.preventDefault();
+  };
+
+  const finishShowcaseSwipe = (pointerId: number) => {
+    const swipe = showcaseSwipeRef.current;
+    if (swipe.pointerId !== pointerId) return;
+
+    const deltaX = swipe.lastX - swipe.startX;
+    const velocityX = swipe.velocityX;
+    const swipePower = Math.abs(deltaX) * Math.abs(velocityX);
+    const shouldNavigate =
+      swipe.dragging &&
+      (Math.abs(deltaX) >= SHOWCASE_SWIPE_THRESHOLD ||
+        Math.abs(velocityX) >= SHOWCASE_SWIPE_VELOCITY_THRESHOLD ||
+        swipePower >= SHOWCASE_SWIPE_POWER_THRESHOLD);
+
+    resetShowcaseSwipe();
+    setTrackAnimationEnabled(true);
+
+    if (shouldNavigate) {
+      suppressNextShowcaseClick();
+      setByDirection(deltaX < 0 || velocityX < -SHOWCASE_SWIPE_VELOCITY_THRESHOLD ? 1 : -1);
+    }
+  };
+
+  const handleShowcasePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {
+    const swipe = showcaseSwipeRef.current;
+    if (swipe.pointerId !== event.pointerId) return;
+
+    try {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    } catch {
+      // Pointer capture may already be released by the browser after cancellation.
+    }
+
+    finishShowcaseSwipe(event.pointerId);
+  };
+
+  const handleShowcaseLostPointerCapture = (event: React.PointerEvent<HTMLDivElement>) => {
+    finishShowcaseSwipe(event.pointerId);
+  };
+
+  const handleShowcaseClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!ignoreNextShowcaseClickRef.current) return;
+
+    ignoreNextShowcaseClickRef.current = false;
+    event.preventDefault();
+    event.stopPropagation();
   };
 
   React.useEffect(() => {
-    const slideElement = firstShowcaseSlideRef.current;
+    const slideElement = showcaseSlideElement;
     if (!slideElement) return;
 
     const updateSlideWidth = () => {
@@ -811,19 +997,23 @@ function HomePage() {
     const observer = new ResizeObserver(updateSlideWidth);
     observer.observe(slideElement);
     return () => observer.disconnect();
-  }, []);
+  }, [showcaseSlideElement]);
 
   React.useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 700px)');
-    const updateMobileShowcase = () => setIsMobileShowcase(mediaQuery.matches);
+    const handleWindowPointerEnd = (event: PointerEvent) => {
+      finishShowcaseSwipe(event.pointerId);
+    };
 
-    updateMobileShowcase();
-    mediaQuery.addEventListener('change', updateMobileShowcase);
-    return () => mediaQuery.removeEventListener('change', updateMobileShowcase);
-  }, []);
+    window.addEventListener('pointerup', handleWindowPointerEnd);
+    window.addEventListener('pointercancel', handleWindowPointerEnd);
+    return () => {
+      window.removeEventListener('pointerup', handleWindowPointerEnd);
+      window.removeEventListener('pointercancel', handleWindowPointerEnd);
+    };
+  }, [showcaseCount, showcaseReleaseDirection, slideWidth]);
 
   React.useEffect(() => {
-    if (isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
+    if (isMobileShowcase || isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
 
     const autoplay = window.setInterval(() => {
       if (document.hidden) return;
@@ -831,7 +1021,7 @@ function HomePage() {
     }, SHOWCASE_AUTOPLAY_MS);
 
     return () => window.clearInterval(autoplay);
-  }, [isShowcaseInteracting, selectedContext, selectedExperience, setByDirection, shouldReduceMotion]);
+  }, [isMobileShowcase, isShowcaseInteracting, selectedContext, selectedExperience, setByDirection, shouldReduceMotion]);
 
   React.useEffect(() => {
     const introActionsElement = introActionsRef.current;
@@ -892,7 +1082,7 @@ function HomePage() {
 
   return (
     <main className="page-shell home-shell">
-      <AeroLiquidBackground accent={activeProject.accent} />
+      {isMobileShowcase ? null : <AeroLiquidBackground accent={activeProject.accent} />}
       <header className="site-topbar" aria-label="Portfolio header">
         <Link to="/" className="site-mark">
           <MonitorUp size={18} />
@@ -958,25 +1148,42 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="showcase-viewport">
+        <div
+          className="showcase-viewport"
+          onClickCapture={handleShowcaseClickCapture}
+          onPointerDown={handleShowcasePointerDown}
+          onPointerMove={handleShowcasePointerMove}
+          onPointerUp={handleShowcasePointerEnd}
+          onPointerCancel={handleShowcasePointerEnd}
+          onLostPointerCapture={handleShowcaseLostPointerCapture}
+        >
           <motion.div
             className="showcase-track"
-            animate={{ x: slideWidth ? -trackIndex * (slideWidth + SHOWCASE_SLIDE_GAP) : 0 }}
-            transition={trackAnimationEnabled ? showcaseSlideTransition(shouldReduceMotion) : { duration: 0 }}
-            onAnimationComplete={settleLoopPosition}
+            animate={{
+              x: slideWidth
+                ? -(slideWidth + SHOWCASE_SLIDE_GAP) +
+                  (showcaseReleaseDirection
+                    ? -showcaseReleaseDirection * (slideWidth + SHOWCASE_SLIDE_GAP)
+                    : showcaseDragOffset)
+                : 0
+            }}
+            transition={trackAnimationEnabled ? showcaseSlideTransition(shouldReduceMotion, isMobileShowcase) : { duration: 0 }}
+            onAnimationComplete={() => {
+              if (showcaseReleaseDirection) {
+                commitShowcaseDirection(showcaseReleaseDirection);
+              }
+            }}
           >
-            {trackProjects.map((project, trackPosition) => {
-              const index =
-                trackPosition === 0 ? showcaseCount - 1 : trackPosition === showcaseCount + 1 ? 0 : trackPosition - 1;
+            {trackProjects.map(({ project, index, position }) => {
               const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
-              const isActive = trackPosition === trackIndex;
+              const isActive = position === 'active';
               const projectHref = resolveProjectUrl(project, projectRuntime).url;
 
               return (
                 <motion.div
                   className="showcase-slide"
-                  key={`${project.slug}-${trackPosition}`}
-                  ref={trackPosition === 1 ? firstShowcaseSlideRef : undefined}
+                  key={`${project.slug}-${position}`}
+                  ref={isActive ? setShowcaseSlideElement : undefined}
                   aria-hidden={!isActive}
                   variants={showcaseSlideVariants}
                   animate={isActive ? 'center' : undefined}
@@ -1021,10 +1228,10 @@ function HomePage() {
                     aria-label={isMobileShowcase ? `Open ${project.title} live demo` : `Open details for ${project.title}`}
                     tabIndex={isActive ? 0 : -1}
                     variants={showcaseStageVariants}
-                    whileHover={isActive && !shouldReduceMotion ? { y: -3, scale: 1.006 } : undefined}
-                    transition={{ duration: 0.22, ease: [0.22, 0.8, 0.26, 1] }}
+                    whileHover={isActive && !shouldSimplifyMotion ? { y: -3, scale: 1.006 } : undefined}
+                    transition={shouldSimplifyMotion ? { duration: 0 } : { duration: 0.22, ease: [0.22, 0.8, 0.26, 1] }}
                   >
-                    <ProjectScreenshot project={project} />
+                    <ProjectScreenshot project={project} priority={isActive} />
                     <div className="stage-caption">
                       <span className="rank-kicker">
                         {String(index + 1).padStart(2, '0')} / {String(showcaseProjects.length).padStart(2, '0')}
@@ -1056,30 +1263,32 @@ function HomePage() {
             </span>
           </summary>
 
-          <div className="archive-grid">
-            {moreProjects.map((project) => (
-              <Link
-                className="archive-card"
-                to={`/projects/${project.slug}`}
-                key={project.slug}
-                style={{ '--accent': project.accent } as React.CSSProperties}
-              >
-                <ProjectScreenshot project={project} />
-                <div className="archive-card__body">
-                  <h3>{project.title}</h3>
-                  <p>{project.subtitle}</p>
-                  <div className="tag-row compact">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
+          {supportingProjectsOpen ? (
+            <div className="archive-grid">
+              {moreProjects.map((project) => (
+                <Link
+                  className="archive-card"
+                  to={`/projects/${project.slug}`}
+                  key={project.slug}
+                  style={{ '--accent': project.accent } as React.CSSProperties}
+                >
+                  <ProjectScreenshot project={project} />
+                  <div className="archive-card__body">
+                    <h3>{project.title}</h3>
+                    <p>{project.subtitle}</p>
+                    <div className="tag-row compact">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                <span className="archive-card__arrow" aria-hidden="true">
-                  <ArrowRight size={18} strokeWidth={2.5} />
-                </span>
-              </Link>
-            ))}
-          </div>
+                  <span className="archive-card__arrow" aria-hidden="true">
+                    <ArrowRight size={18} strokeWidth={2.5} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </details>
       </section>
 
@@ -1102,13 +1311,13 @@ function HomePage() {
             >
               <div className="experience-rail">
                 <span className="experience-year">{experience.startYear}</span>
-                <CompanyLogo experience={experience} layoutId={`experience-logo-${index}`} />
+                <CompanyLogo experience={experience} layoutId={isMobileShowcase ? undefined : `experience-logo-${index}`} />
                 <span className="timeline-dot" aria-hidden="true" />
               </div>
 
               <motion.article
                 className="experience-panel crafted-frame"
-                layoutId={`experience-card-${index}`}
+                layoutId={isMobileShowcase ? undefined : `experience-card-${index}`}
                 onClick={() => setSelectedExperienceIndex(index)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
@@ -1120,8 +1329,8 @@ function HomePage() {
                 tabIndex={0}
                 aria-haspopup="dialog"
                 aria-label={`Open details for ${experience.company}`}
-                whileHover={{ y: -4 }}
-                whileTap={{ scale: 0.992 }}
+                whileHover={isMobileShowcase ? undefined : { y: -4 }}
+                whileTap={isMobileShowcase ? undefined : { scale: 0.992 }}
               >
                 <div className="experience-topline">
                   <div>
@@ -1421,6 +1630,7 @@ function ProjectPage() {
   const embedUrl = resolvedProjectUrl.url;
   const embedMode = resolvedProjectUrl.mode;
   const [embedFailed, setEmbedFailed] = React.useState(false);
+  const isMobile = useMediaQuery('(max-width: 700px)');
 
   React.useEffect(() => {
     setEmbedFailed(false);
@@ -1441,7 +1651,7 @@ function ProjectPage() {
 
   return (
     <main className="page-shell detail-shell">
-      <AeroLiquidBackground accent={project.accent} />
+      {isMobile ? null : <AeroLiquidBackground accent={project.accent} />}
       <nav className="top-nav detail-topbar">
         <Link to="/" className="back-action">
           <ArrowLeft size={18} />
@@ -1526,11 +1736,14 @@ function useRuntimeStatus(): RuntimeStatus | null {
   return status;
 }
 
-function ProjectScreenshot({ project }: { project: Pick<Project, 'title' | 'screenshot'> }) {
+function ProjectScreenshot({ project, priority = false }: { project: Pick<Project, 'title' | 'screenshot'>; priority?: boolean }) {
   return (
     <img
       src={project.screenshot}
       alt={`${project.title} screenshot`}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchPriority={priority ? 'high' : 'low'}
       onError={(event) => {
         event.currentTarget.src = '/project-shots/portfolio-placeholder.svg';
       }}

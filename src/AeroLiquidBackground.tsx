@@ -137,10 +137,13 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
     if (!host) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileViewport = window.matchMedia('(max-width: 700px)');
+    if (mobileViewport.matches) return;
+
     const renderer = new Renderer({
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 3)
+      dpr: Math.min(window.devicePixelRatio || 1, 2)
     });
     const gl = renderer.gl;
     gl.canvas.setAttribute('aria-hidden', 'true');
