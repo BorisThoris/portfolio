@@ -214,13 +214,14 @@ const experiences: Experience[] = [
     tenure: 'Feb 2023 - Feb 2024',
     startYear: '2023',
     type: 'Contract/employment engagement - Hospitality software',
-    summary: 'Worked as a senior React engineer on Zonal product interfaces for hospitality operators.',
+    summary: 'Worked as a senior React and React Native engineer on Zonal product interfaces for hospitality operators.',
     bullets: [
-      'Built and improved React/TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
+      'Built and improved React, React Native, and TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
+      'Worked around mobile and tablet hospitality workflows, including handheld ordering surfaces connected to Zonal product ecosystems.',
       'Focused on maintainable UI architecture, component quality, testing, and repeated workflow usability.',
       'Worked closely with PMs, designers, and product stakeholders in a domain where reliability and fast day-to-day operations mattered.'
     ],
-    stack: ['React', 'TypeScript', 'Redux', 'Styled Components', 'Figma', 'Jest', 'React Testing Library'],
+    stack: ['React', 'React Native', 'TypeScript', 'Redux', 'Styled Components', 'Figma', 'Jest', 'React Testing Library'],
     logos: ['/company-logos/expert-allies.jpg', '/company-logos/zonal.jpg'],
     initials: 'Z',
     accent: '#90f0c0',
@@ -242,13 +243,13 @@ const experiences: Experience[] = [
         title: 'iServe / iServe Plus handheld ordering',
         productArea: 'Server tablets, phones, and handheld POS workflows',
         relationshipText:
-          "Worked around mobile/tablet-facing hospitality workflows integrated with Zonal's Aztec EPoS ecosystem; public iServe material shows the staff handheld ordering surface.",
+          "Worked around React Native and mobile/tablet-facing hospitality workflows integrated with Zonal's Aztec EPoS ecosystem; public iServe material shows the staff handheld ordering surface.",
         summary:
           'Zonal positions iServe Plus as an all-in-one handheld order and payment solution for tableside service in hospitality venues.',
         sourceLabel: 'Zonal iServe',
         sourceUrl: 'https://www.zonal.co.uk/products/epos/handheld-ordering/',
         image: '/company-project-shots/zonal/iserve.png',
-        tags: ['iServe', 'Handheld ordering', 'Table service', 'Payments'],
+        tags: ['iServe', 'React Native', 'Handheld ordering', 'Table service', 'Payments'],
         confidence: 'LinkedIn/CV-backed'
       },
       {
@@ -682,16 +683,15 @@ function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number;
     <section className="technical-range-section" aria-label="Technical range">
       <div className="section-heading technical-range-heading">
         <div>
-          <p className="eyebrow">Technical range</p>
-          <h2>Capability Summary</h2>
+          <p className="eyebrow">Capability summary</p>
+          <h2>Technical Range</h2>
         </div>
-        <span>A grouped summary of the tools, platforms, and delivery habits represented above.</span>
+        <span>Practical coverage across shipped product UI, data workflows, delivery systems, and interactive demos.</span>
       </div>
 
       <div className="capability-switchboard">
         {capabilityGroups.map((group, index) => {
           const isActive = activeIndex === index;
-          const hiddenCount = group.skills.length;
 
           return (
             <motion.article
@@ -704,35 +704,35 @@ function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number;
                 className="capability-trigger"
                 type="button"
                 aria-expanded={isActive}
+                aria-pressed={isActive}
                 onClick={() => onToggle(index)}
               >
-                <span className="capability-kicker">{String(index + 1).padStart(2, '0')}</span>
-                <strong>{group.title}</strong>
-                <span>{group.purpose}</span>
+                <span className="capability-titleline">
+                  <span className="capability-kicker">{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{group.title}</strong>
+                </span>
+                <span className="capability-purpose">{group.purpose}</span>
               </button>
 
-              <div className="capability-primary" aria-label={`${group.title} primary skills`}>
-                {group.primary.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-                {!isActive ? <span className="more-skill">+{hiddenCount} more</span> : null}
-              </div>
+              <div className="capability-body">
+                <div className="capability-skill-group" aria-label={`${group.title} core skills`}>
+                  <span className="skill-group-label">Core</span>
+                  <div className="capability-primary">
+                    {group.primary.map((skill) => (
+                      <span key={skill}>{skill}</span>
+                    ))}
+                  </div>
+                </div>
 
-              <AnimatePresence initial={false}>
-                {isActive ? (
-                  <motion.div
-                    className="capability-extra"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.24, ease: [0.2, 0.72, 0.18, 1] }}
-                  >
+                <div className="capability-skill-group" aria-label={`${group.title} supporting skills`}>
+                  <span className="skill-group-label">Applied</span>
+                  <div className="capability-extra">
                     {group.skills.map((skill) => (
                       <span key={skill}>{skill}</span>
                     ))}
-                  </motion.div>
-                ) : null}
-              </AnimatePresence>
+                  </div>
+                </div>
+              </div>
             </motion.article>
           );
         })}
@@ -747,6 +747,7 @@ function HomePage() {
   const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
   const [slideWidth, setSlideWidth] = React.useState(0);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
+  const [isMobileShowcase, setIsMobileShowcase] = React.useState(false);
   const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
   const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
   const [supportingProjectsOpen, setSupportingProjectsOpen] = React.useState(false);
@@ -810,6 +811,15 @@ function HomePage() {
     const observer = new ResizeObserver(updateSlideWidth);
     observer.observe(slideElement);
     return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 700px)');
+    const updateMobileShowcase = () => setIsMobileShowcase(mediaQuery.matches);
+
+    updateMobileShowcase();
+    mediaQuery.addEventListener('change', updateMobileShowcase);
+    return () => mediaQuery.removeEventListener('change', updateMobileShowcase);
   }, []);
 
   React.useEffect(() => {
@@ -989,7 +999,7 @@ function HomePage() {
                         tabIndex={isActive ? 0 : -1}
                       >
                         <Play size={17} />
-                        Open {project.title}
+                        {isMobileShowcase ? 'Open project' : `Open ${project.title}`}
                       </a>
                       <Link className="quiet-action" to={`/projects/${project.slug}`} tabIndex={isActive ? 0 : -1}>
                         Case view
@@ -1000,8 +1010,15 @@ function HomePage() {
 
                   <motion.button
                     className="hero-stage crafted-frame"
-                    onClick={() => navigate(`/projects/${project.slug}`)}
-                    aria-label={`Open details for ${project.title}`}
+                    onClick={() => {
+                      if (isMobileShowcase) {
+                        window.open(projectHref, '_blank', 'noopener,noreferrer');
+                        return;
+                      }
+
+                      navigate(`/projects/${project.slug}`);
+                    }}
+                    aria-label={isMobileShowcase ? `Open ${project.title} live demo` : `Open details for ${project.title}`}
                     tabIndex={isActive ? 0 : -1}
                     variants={showcaseStageVariants}
                     whileHover={isActive && !shouldReduceMotion ? { y: -3, scale: 1.006 } : undefined}
