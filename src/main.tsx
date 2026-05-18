@@ -139,6 +139,12 @@ function toPortfolioProjectContext(project: Project): ProfessionalContext {
   };
 }
 
+const productBuilderProjectSlugs = ['bbeats', 'memory-dungeon', 'gem-dungeon', 'cross-repo-libs'];
+const productBuilderContextProjects = productBuilderProjectSlugs
+  .map((slug) => visibleProjects.find((project) => project.slug === slug))
+  .filter((project): project is Project => Boolean(project))
+  .map(toPortfolioProjectContext);
+
 const experiences: Experience[] = [
   {
     company: 'Man Group',
@@ -493,7 +499,7 @@ const experiences: Experience[] = [
     stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
     initials: 'BB',
     accent: '#ff8fd2',
-    contextProjects: showcaseProjects.map(toPortfolioProjectContext)
+    contextProjects: productBuilderContextProjects
   },
   {
     company: 'Soap Factory',
