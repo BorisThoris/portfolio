@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   CalendarDays,
+  ChevronDown,
   ExternalLink,
   FileText,
   Github,
@@ -748,6 +749,7 @@ function HomePage() {
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
   const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
   const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
+  const [supportingProjectsOpen, setSupportingProjectsOpen] = React.useState(false);
   const introActionsRef = React.useRef<HTMLDivElement | null>(null);
   const firstShowcaseSlideRef = React.useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -1019,36 +1021,49 @@ function HomePage() {
         </div>
       </section>
 
-      <section id="archive" className="archive-section" aria-label="Project archive">
-        <div className="section-heading archive-heading">
-          <div>
-            <p className="eyebrow">Archive</p>
-            <h2>Project Archive</h2>
-          </div>
-          <span>Additional builds, experiments, and supporting interface work.</span>
-        </div>
-
-        <div className="archive-grid">
-          {moreProjects.map((project) => (
-            <Link
-              className="archive-card"
-              to={`/projects/${project.slug}`}
-              key={project.slug}
-              style={{ '--accent': project.accent } as React.CSSProperties}
-            >
-              <ProjectScreenshot project={project} />
+      <section id="archive" className="archive-section" aria-label="Supporting projects">
+        <details
+          className="supporting-projects"
+          onToggle={(event) => setSupportingProjectsOpen(event.currentTarget.open)}
+        >
+          <summary className="supporting-projects__summary">
+            <div className="section-heading archive-heading">
               <div>
-                <h3>{project.title}</h3>
-                <p>{project.subtitle}</p>
-                <div className="tag-row compact">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
+                <p className="eyebrow">Supporting Work</p>
+                <h2>Supporting Projects</h2>
               </div>
-            </Link>
-          ))}
-        </div>
+              <span>Additional demos, experiments, and earlier builds.</span>
+            </div>
+            <span className="supporting-projects__toggle" aria-label={supportingProjectsOpen ? 'Hide projects' : `Show ${moreProjects.length} projects`}>
+              <ChevronDown size={22} strokeWidth={2.4} />
+            </span>
+          </summary>
+
+          <div className="archive-grid">
+            {moreProjects.map((project) => (
+              <Link
+                className="archive-card"
+                to={`/projects/${project.slug}`}
+                key={project.slug}
+                style={{ '--accent': project.accent } as React.CSSProperties}
+              >
+                <ProjectScreenshot project={project} />
+                <div className="archive-card__body">
+                  <h3>{project.title}</h3>
+                  <p>{project.subtitle}</p>
+                  <div className="tag-row compact">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <span className="archive-card__arrow" aria-hidden="true">
+                  <ArrowRight size={18} strokeWidth={2.5} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </details>
       </section>
 
       <section id="experience" className="experience-section" aria-label="Employment and experience">
