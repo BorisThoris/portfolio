@@ -487,9 +487,8 @@ p {
 
 .showcase-track {
   display: flex;
-  gap: 18px;
-  width: max-content;
-  padding-left: max(20px, calc((100vw - 1840px) / 2));
+  width: auto;
+  padding-left: 0;
   will-change: transform;
 }
 
@@ -501,6 +500,7 @@ p {
   flex: 0 0 min(1840px, calc(100vw - 40px));
   width: min(1840px, calc(100vw - 40px));
   min-width: 0;
+  margin-right: 18px;
   border: 1px solid rgba(246, 241, 232, 0.12);
   border-radius: 22px 10px 26px 12px;
   background:
@@ -609,6 +609,8 @@ p {
   object-position: center top;
   filter: saturate(1.08) contrast(1.04);
   transition: transform 380ms ease, filter 380ms ease;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .hero-stage:hover img {

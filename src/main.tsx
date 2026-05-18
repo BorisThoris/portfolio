@@ -17,6 +17,7 @@ import {
   X
 } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import useEmblaCarousel from 'embla-carousel-react';
 import { AeroLiquidBackground } from './AeroLiquidBackground';
 import { getProject, moreProjects, Project, showcaseProjects, visibleProjects } from './projects';
 import './styles.css';
@@ -591,41 +592,7 @@ const showcaseStageVariants = {
   exit: { opacity: 0, y: -8 }
 };
 
-function showcaseSlideTransition(shouldReduceMotion: boolean | null, isMobileShowcase = false) {
-  if (shouldReduceMotion) {
-    return { duration: 0.12 };
-  }
-
-  if (isMobileShowcase) {
-    return {
-      duration: 0.34,
-      ease: [0.2, 0.72, 0.18, 1] as const
-    };
-  }
-
-  return {
-    duration: 0.52,
-    ease: [0.2, 0.72, 0.18, 1] as const
-  };
-}
-
-const SHOWCASE_SLIDE_GAP = 18;
 const SHOWCASE_AUTOPLAY_MS = 8500;
-const SHOWCASE_SWIPE_THRESHOLD = 46;
-const SHOWCASE_SWIPE_ACTIVATION_DISTANCE = 10;
-const SHOWCASE_SWIPE_MAX_DRAG_RATIO = 0.34;
-const SHOWCASE_SWIPE_VELOCITY_THRESHOLD = 0.48;
-const SHOWCASE_SWIPE_POWER_THRESHOLD = 24;
-
-type ShowcaseSwipeState = {
-  pointerId: number | null;
-  startX: number;
-  startY: number;
-  lastX: number;
-  lastTime: number;
-  velocityX: number;
-  dragging: boolean;
-};
 
 const capabilityGroups: CapabilityGroup[] = [
   {
@@ -788,29 +755,25 @@ function CapabilitySwitchboard({ activeIndex, onToggle }: { activeIndex: number;
 
 function HomePage() {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const [trackAnimationEnabled, setTrackAnimationEnabled] = React.useState(true);
-  const [slideWidth, setSlideWidth] = React.useState(0);
-  const [showcaseDragOffset, setShowcaseDragOffset] = React.useState(0);
-  const [showcaseReleaseDirection, setShowcaseReleaseDirection] = React.useState<-1 | 1 | null>(null);
   const [isShowcaseInteracting, setIsShowcaseInteracting] = React.useState(false);
   const [showTopbarContacts, setShowTopbarContacts] = React.useState(false);
   const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
   const [supportingProjectsOpen, setSupportingProjectsOpen] = React.useState(false);
   const introActionsRef = React.useRef<HTMLDivElement | null>(null);
-  const [showcaseSlideElement, setShowcaseSlideElement] = React.useState<HTMLDivElement | null>(null);
-  const showcaseSwipeRef = React.useRef<ShowcaseSwipeState>({
-    pointerId: null,
-    startX: 0,
-    startY: 0,
-    lastX: 0,
-    lastTime: 0,
-    velocityX: 0,
-    dragging: false
-  });
-  const ignoreNextShowcaseClickRef = React.useRef(false);
   const shouldReduceMotion = useReducedMotion();
   const isMobileShowcase = useMediaQuery('(max-width: 700px)');
   const shouldSimplifyMotion = shouldReduceMotion || isMobileShowcase;
+  const [showcaseViewportRef, showcaseApi] = useEmblaCarousel({
+    align: 'center',
+    containScroll: false,
+    dragFree: false,
+    dragThreshold: 8,
+    duration: shouldReduceMotion ? 20 : isMobileShowcase ? 28 : 32,
+    loop: showcaseProjects.length > 2,
+    skipSnaps: true
+  });
+  const showcasePointerRef = React.useRef({ x: 0, y: 0, moved: false });
+  const ignoreNextShowcaseClickRef = React.useRef(false);
   const activeProject = showcaseProjects[activeIndex] ?? visibleProjects[0];
   const runtimeStatus = useRuntimeStatus();
   const [selectedExperienceIndex, setSelectedExperienceIndex] = React.useState<number | null>(null);
@@ -818,163 +781,50 @@ function HomePage() {
   const selectedExperience = selectedExperienceIndex === null ? null : experiences[selectedExperienceIndex];
   const navigate = useNavigate();
   const showcaseCount = showcaseProjects.length;
-  const trackProjects = React.useMemo(() => {
-    if (!showcaseCount) return [];
-    const previousIndex = (activeIndex - 1 + showcaseCount) % showcaseCount;
-    const nextIndex = (activeIndex + 1) % showcaseCount;
-    return [
-      { project: showcaseProjects[previousIndex], index: previousIndex, position: 'previous' as const },
-      { project: showcaseProjects[activeIndex], index: activeIndex, position: 'active' as const },
-      { project: showcaseProjects[nextIndex], index: nextIndex, position: 'next' as const }
-    ];
-  }, [activeIndex, showcaseCount]);
-
-  const selectProject = (nextIndex: number) => {
-    if (nextIndex === activeIndex) return;
-    setTrackAnimationEnabled(true);
-    setActiveIndex(nextIndex);
-  };
-
-  const setByDirection = (direction: -1 | 1) => {
-    if (!showcaseCount || showcaseReleaseDirection) return;
-    if (!slideWidth) {
-      setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
-      return;
-    }
-
-    setTrackAnimationEnabled(true);
-    setShowcaseDragOffset(0);
-    setShowcaseReleaseDirection(direction);
-  };
-
-  const commitShowcaseDirection = (direction: -1 | 1) => {
-    setActiveIndex((current) => (current + direction + showcaseCount) % showcaseCount);
-    setTrackAnimationEnabled(false);
-    setShowcaseReleaseDirection(null);
-    setShowcaseDragOffset(0);
-    window.requestAnimationFrame(() => setTrackAnimationEnabled(true));
-  };
-
-  const resetShowcaseSwipe = () => {
-    showcaseSwipeRef.current = {
-      pointerId: null,
-      startX: 0,
-      startY: 0,
-      lastX: 0,
-      lastTime: 0,
-      velocityX: 0,
-      dragging: false
-    };
-    setShowcaseDragOffset(0);
-  };
 
   const suppressNextShowcaseClick = () => {
     ignoreNextShowcaseClickRef.current = true;
     window.setTimeout(() => {
       ignoreNextShowcaseClickRef.current = false;
-    }, 450);
+    }, 280);
   };
 
-  const handleShowcasePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!showcaseCount || showcaseReleaseDirection) return;
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
-    if ((event.target as HTMLElement).closest('a')) return;
+  const selectProject = React.useCallback(
+    (nextIndex: number) => {
+      if (!showcaseApi || nextIndex === activeIndex) return;
+      showcaseApi.scrollTo(nextIndex);
+    },
+    [activeIndex, showcaseApi]
+  );
 
-    const now = performance.now();
-    showcaseSwipeRef.current = {
-      pointerId: event.pointerId,
-      startX: event.clientX,
-      startY: event.clientY,
-      lastX: event.clientX,
-      lastTime: now,
-      velocityX: 0,
-      dragging: false
-    };
-    setIsShowcaseInteracting(true);
-    if (event.pointerType === 'mouse') {
-      try {
-        event.currentTarget.setPointerCapture(event.pointerId);
-      } catch {
-        // Synthetic and interrupted pointer streams may not be capturable.
+  const setByDirection = React.useCallback(
+    (direction: -1 | 1) => {
+      if (!showcaseApi) return;
+      if (direction < 0) {
+        showcaseApi.scrollPrev();
+      } else {
+        showcaseApi.scrollNext();
       }
-    }
+    },
+    [showcaseApi]
+  );
+
+  const handleShowcasePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    showcasePointerRef.current = { x: event.clientX, y: event.clientY, moved: false };
+    setIsShowcaseInteracting(true);
   };
 
   const handleShowcasePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    const swipe = showcaseSwipeRef.current;
-    if (swipe.pointerId !== event.pointerId) return;
-
-    const deltaX = event.clientX - swipe.startX;
-    const deltaY = event.clientY - swipe.startY;
-    const absX = Math.abs(deltaX);
-    const absY = Math.abs(deltaY);
-
-    if (!swipe.dragging) {
-      if (absY > SHOWCASE_SWIPE_ACTIVATION_DISTANCE && absY > absX) {
-        resetShowcaseSwipe();
-        return;
-      }
-
-      if (absX < SHOWCASE_SWIPE_ACTIVATION_DISTANCE || absX < absY * 1.15) {
-        return;
-      }
-
-      swipe.dragging = true;
-      setTrackAnimationEnabled(false);
-      try {
-        event.currentTarget.setPointerCapture(event.pointerId);
-      } catch {
-        // Synthetic and interrupted pointer streams may not be capturable.
-      }
+    const pointer = showcasePointerRef.current;
+    if (Math.abs(event.clientX - pointer.x) > 8 || Math.abs(event.clientY - pointer.y) > 8) {
+      pointer.moved = true;
     }
-
-    const now = performance.now();
-    const elapsed = Math.max(1, now - swipe.lastTime);
-    swipe.velocityX = (event.clientX - swipe.lastX) / elapsed;
-    swipe.lastX = event.clientX;
-    swipe.lastTime = now;
-    const maxDragOffset = Math.max(80, (slideWidth + SHOWCASE_SLIDE_GAP) * SHOWCASE_SWIPE_MAX_DRAG_RATIO);
-    setShowcaseDragOffset(Math.max(-maxDragOffset, Math.min(maxDragOffset, deltaX)));
-    event.preventDefault();
   };
 
-  const finishShowcaseSwipe = (pointerId: number) => {
-    const swipe = showcaseSwipeRef.current;
-    if (swipe.pointerId !== pointerId) return;
-
-    const deltaX = swipe.lastX - swipe.startX;
-    const velocityX = swipe.velocityX;
-    const swipePower = Math.abs(deltaX) * Math.abs(velocityX);
-    const shouldNavigate =
-      swipe.dragging &&
-      (Math.abs(deltaX) >= SHOWCASE_SWIPE_THRESHOLD ||
-        Math.abs(velocityX) >= SHOWCASE_SWIPE_VELOCITY_THRESHOLD ||
-        swipePower >= SHOWCASE_SWIPE_POWER_THRESHOLD);
-
-    resetShowcaseSwipe();
-    setTrackAnimationEnabled(true);
-
-    if (shouldNavigate) {
+  const handleShowcasePointerEnd = () => {
+    if (showcasePointerRef.current.moved) {
       suppressNextShowcaseClick();
-      setByDirection(deltaX < 0 || velocityX < -SHOWCASE_SWIPE_VELOCITY_THRESHOLD ? 1 : -1);
     }
-  };
-
-  const handleShowcasePointerEnd = (event: React.PointerEvent<HTMLDivElement>) => {
-    const swipe = showcaseSwipeRef.current;
-    if (swipe.pointerId !== event.pointerId) return;
-
-    try {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    } catch {
-      // Pointer capture may already be released by the browser after cancellation.
-    }
-
-    finishShowcaseSwipe(event.pointerId);
-  };
-
-  const handleShowcaseLostPointerCapture = (event: React.PointerEvent<HTMLDivElement>) => {
-    finishShowcaseSwipe(event.pointerId);
   };
 
   const handleShowcaseClickCapture = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -986,42 +836,28 @@ function HomePage() {
   };
 
   React.useEffect(() => {
-    const slideElement = showcaseSlideElement;
-    if (!slideElement) return;
+    if (!showcaseApi) return;
+    const updateSelectedProject = () => setActiveIndex(showcaseApi.selectedScrollSnap());
 
-    const updateSlideWidth = () => {
-      setSlideWidth(slideElement.getBoundingClientRect().width);
-    };
-
-    updateSlideWidth();
-    const observer = new ResizeObserver(updateSlideWidth);
-    observer.observe(slideElement);
-    return () => observer.disconnect();
-  }, [showcaseSlideElement]);
-
-  React.useEffect(() => {
-    const handleWindowPointerEnd = (event: PointerEvent) => {
-      finishShowcaseSwipe(event.pointerId);
-    };
-
-    window.addEventListener('pointerup', handleWindowPointerEnd);
-    window.addEventListener('pointercancel', handleWindowPointerEnd);
+    updateSelectedProject();
+    showcaseApi.on('select', updateSelectedProject);
+    showcaseApi.on('reInit', updateSelectedProject);
     return () => {
-      window.removeEventListener('pointerup', handleWindowPointerEnd);
-      window.removeEventListener('pointercancel', handleWindowPointerEnd);
+      showcaseApi.off('select', updateSelectedProject);
+      showcaseApi.off('reInit', updateSelectedProject);
     };
-  }, [showcaseCount, showcaseReleaseDirection, slideWidth]);
+  }, [showcaseApi]);
 
   React.useEffect(() => {
-    if (isMobileShowcase || isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
+    if (!showcaseApi || isMobileShowcase || isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
 
     const autoplay = window.setInterval(() => {
       if (document.hidden) return;
-      setByDirection(1);
+      showcaseApi.scrollNext();
     }, SHOWCASE_AUTOPLAY_MS);
 
     return () => window.clearInterval(autoplay);
-  }, [isMobileShowcase, isShowcaseInteracting, selectedContext, selectedExperience, setByDirection, shouldReduceMotion]);
+  }, [isMobileShowcase, isShowcaseInteracting, selectedContext, selectedExperience, showcaseApi, shouldReduceMotion]);
 
   React.useEffect(() => {
     const introActionsElement = introActionsRef.current;
@@ -1150,43 +986,24 @@ function HomePage() {
 
         <div
           className="showcase-viewport"
+          ref={showcaseViewportRef}
           onClickCapture={handleShowcaseClickCapture}
           onPointerDown={handleShowcasePointerDown}
           onPointerMove={handleShowcasePointerMove}
           onPointerUp={handleShowcasePointerEnd}
           onPointerCancel={handleShowcasePointerEnd}
-          onLostPointerCapture={handleShowcaseLostPointerCapture}
         >
-          <motion.div
-            className="showcase-track"
-            animate={{
-              x: slideWidth
-                ? -(slideWidth + SHOWCASE_SLIDE_GAP) +
-                  (showcaseReleaseDirection
-                    ? -showcaseReleaseDirection * (slideWidth + SHOWCASE_SLIDE_GAP)
-                    : showcaseDragOffset)
-                : 0
-            }}
-            transition={trackAnimationEnabled ? showcaseSlideTransition(shouldReduceMotion, isMobileShowcase) : { duration: 0 }}
-            onAnimationComplete={() => {
-              if (showcaseReleaseDirection) {
-                commitShowcaseDirection(showcaseReleaseDirection);
-              }
-            }}
-          >
-            {trackProjects.map(({ project, index, position }) => {
+          <div className="showcase-track">
+            {showcaseProjects.map((project, index) => {
               const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
-              const isActive = position === 'active';
+              const isActive = index === activeIndex;
               const projectHref = resolveProjectUrl(project, projectRuntime).url;
 
               return (
-                <motion.div
+                <div
                   className="showcase-slide"
-                  key={`${project.slug}-${position}`}
-                  ref={isActive ? setShowcaseSlideElement : undefined}
+                  key={project.slug}
                   aria-hidden={!isActive}
-                  variants={showcaseSlideVariants}
-                  animate={isActive ? 'center' : undefined}
                 >
                   <motion.div className="hero-copy project-copy" variants={showcaseCopyVariants}>
                     <h2>{project.title}</h2>
@@ -1215,9 +1032,20 @@ function HomePage() {
                     </div>
                   </motion.div>
 
-                  <motion.button
+                  <motion.div
                     className="hero-stage crafted-frame"
+                    role="button"
                     onClick={() => {
+                      if (isMobileShowcase) {
+                        window.open(projectHref, '_blank', 'noopener,noreferrer');
+                        return;
+                      }
+
+                      navigate(`/projects/${project.slug}`);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key !== 'Enter' && event.key !== ' ') return;
+                      event.preventDefault();
                       if (isMobileShowcase) {
                         window.open(projectHref, '_blank', 'noopener,noreferrer');
                         return;
@@ -1237,11 +1065,11 @@ function HomePage() {
                         {String(index + 1).padStart(2, '0')} / {String(showcaseProjects.length).padStart(2, '0')}
                       </span>
                     </div>
-                  </motion.button>
-                </motion.div>
+                  </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1744,6 +1572,8 @@ function ProjectScreenshot({ project, priority = false }: { project: Pick<Projec
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       fetchPriority={priority ? 'high' : 'low'}
+      draggable={false}
+      onDragStart={(event) => event.preventDefault()}
       onError={(event) => {
         event.currentTarget.src = '/project-shots/portfolio-placeholder.svg';
       }}
