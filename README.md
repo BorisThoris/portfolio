@@ -85,14 +85,14 @@ The script reuses one Chromium browser page and writes screenshots under `public
 
 ## Cloudflare Pages
 
-Use Git integration after this repository exists on GitHub.
+Use the Git-backed Cloudflare Pages project for the canonical public portfolio URL.
 
-- Project name: `portfolio`
-- Public URL: `https://portfolio-7d0.pages.dev/`
+- Project name: `portfolio-git`
+- Public URL: `https://portfolio-git-4s6.pages.dev/`
 - Production branch: `master`
 - Root directory: `.`
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Environment variable: `NODE_VERSION=22.16.0`
 
-The first public deployment was created by Wrangler direct upload because the dashboard GitHub importer stayed on the GitHub app connection gate. The `public/_redirects` file keeps direct links such as `/projects/skyfall` working on Cloudflare Pages. Project embeds prefer `deploymentUrl` from `src/project-data.json` and fall back to `localUrl` when a public deployment URL has not been assigned.
+The earlier direct-upload Pages project is no longer the canonical link. The `public/_redirects` file keeps direct links such as `/projects/skyfall` working on Cloudflare Pages. Project embeds prefer `deploymentUrl` from `src/project-data.json` and fall back to `localUrl` when a public deployment URL has not been assigned.
