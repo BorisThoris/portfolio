@@ -760,6 +760,7 @@ function HomePage() {
   const [activeCapabilityIndex, setActiveCapabilityIndex] = React.useState(0);
   const [supportingProjectsOpen, setSupportingProjectsOpen] = React.useState(false);
   const introActionsRef = React.useRef<HTMLDivElement | null>(null);
+  const showcaseDockRef = React.useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const isMobileShowcase = useMediaQuery('(max-width: 700px)');
   const shouldSimplifyMotion = shouldReduceMotion || isMobileShowcase;
@@ -847,6 +848,23 @@ function HomePage() {
       showcaseApi.off('reInit', updateSelectedProject);
     };
   }, [showcaseApi]);
+
+  React.useEffect(() => {
+    if (!isMobileShowcase) return;
+    const dock = showcaseDockRef.current;
+    const activeTab = dock?.querySelector<HTMLButtonElement>('.dock-item.active');
+    if (!dock || !activeTab) return;
+
+    const dockBounds = dock.getBoundingClientRect();
+    const tabBounds = activeTab.getBoundingClientRect();
+    const targetLeft =
+      activeTab.offsetLeft - dock.clientWidth / 2 + activeTab.offsetWidth / 2;
+    const tabOutOfView = tabBounds.left < dockBounds.left + 12 || tabBounds.right > dockBounds.right - 12;
+
+    if (tabOutOfView) {
+      dock.scrollTo({ left: Math.max(0, targetLeft), behavior: shouldReduceMotion ? 'auto' : 'smooth' });
+    }
+  }, [activeIndex, isMobileShowcase, shouldReduceMotion]);
 
   React.useEffect(() => {
     if (!showcaseApi || isMobileShowcase || isShowcaseInteracting || selectedExperience || selectedContext || shouldReduceMotion) return;
@@ -961,6 +979,7 @@ function HomePage() {
         <div
           className="showcase-dock"
           aria-label="Top projects"
+          ref={showcaseDockRef}
           style={{ '--showcase-count': showcaseProjects.length } as React.CSSProperties}
         >
           {showcaseProjects.map((project, index) => (

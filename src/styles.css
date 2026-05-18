@@ -2164,13 +2164,17 @@ iframe,
   .showcase-dock {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(145px, 42vw);
+    grid-auto-columns: clamp(118px, 34vw, 150px);
     gap: 8px;
     margin: 0 0 10px;
     overflow-x: auto;
-    padding: 8px;
+    max-width: 100%;
+    overscroll-behavior-inline: contain;
+    padding: 8px 10px;
+    scroll-padding-inline: 10px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
     backdrop-filter: none;
   }
 
@@ -2180,7 +2184,17 @@ iframe,
 
   .dock-item {
     scroll-snap-align: start;
-    min-height: 64px;
+    min-height: 58px;
+    padding: 8px 9px;
+  }
+
+  .dock-item span {
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .dock-item strong {
+    font-size: 12px;
   }
 
   .dock-controls {
