@@ -87,8 +87,8 @@ The script reuses one Chromium browser page and writes screenshots under `public
 
 Use the Git-backed Cloudflare Pages project for the canonical public portfolio URL.
 
-- Project name: `portfolio-git`
-- Public URL: `https://portfolio-git-4s6.pages.dev/`
+- Project name: `boris-portfolio-git`
+- Public URL: `https://boris-portfolio-git.pages.dev/`
 - Production branch: `master`
 - Root directory: `.`
 - Build command: `npm run build`
@@ -96,3 +96,4 @@ Use the Git-backed Cloudflare Pages project for the canonical public portfolio U
 - Environment variable: `NODE_VERSION=22.16.0`
 
 The earlier direct-upload Pages project is no longer the canonical link. The `public/_redirects` file keeps direct links such as `/projects/skyfall` working on Cloudflare Pages. Project embeds prefer `deploymentUrl` from `src/project-data.json` and fall back to `localUrl` when a public deployment URL has not been assigned.
+
