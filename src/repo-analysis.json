@@ -26,8 +26,8 @@
   {
     "slug": "skyfall",
     "repoName": "skyfall",
-    "showcaseTier": "showcase",
-    "priorityScore": 86,
+    "showcaseTier": "more",
+    "priorityScore": 76,
     "demoabilityScore": 92,
     "depthScore": 88,
     "polishScore": 86,
@@ -74,8 +74,8 @@
   {
     "slug": "cross-repo-libs",
     "repoName": "cross-repo-libs",
-    "showcaseTier": "more",
-    "priorityScore": 75,
+    "showcaseTier": "showcase",
+    "priorityScore": 89,
     "demoabilityScore": 82,
     "depthScore": 80,
     "polishScore": 72,
@@ -110,8 +110,8 @@
   {
     "slug": "runner-score-arcade",
     "repoName": "runner-score-arcade",
-    "showcaseTier": "more",
-    "priorityScore": 68,
+    "showcaseTier": "showcase",
+    "priorityScore": 86,
     "demoabilityScore": 76,
     "depthScore": 66,
     "polishScore": 66,

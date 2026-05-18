@@ -6,6 +6,7 @@ const registryPath = path.resolve('src', 'project-data.json');
 const projects = JSON.parse(await fs.readFile(registryPath, 'utf8'));
 
 const projectArgIndex = process.argv.indexOf('--project');
+const useLocal = process.argv.includes('--local');
 const positionalSlug = process.argv.slice(2).find((arg) => !arg.startsWith('-'));
 const selectedSlug = projectArgIndex >= 0 ? process.argv[projectArgIndex + 1] : positionalSlug;
 const targets = selectedSlug ? projects.filter((project) => project.slug === selectedSlug) : projects;
@@ -22,11 +23,12 @@ for (const project of targets) {
   const outputDir = path.resolve('public', 'project-shots', project.slug);
   const outputPath = path.join(outputDir, 'main.png');
   await fs.mkdir(outputDir, { recursive: true });
+  const captureUrl = useLocal ? project.localUrl : project.deploymentUrl || project.localUrl;
 
   try {
-    const response = await page.goto(project.localUrl, { waitUntil: 'networkidle', timeout: 20000 });
+    const response = await page.goto(captureUrl, { waitUntil: 'networkidle', timeout: 20000 });
     if (!response?.ok()) {
-      console.warn(`[skip] ${project.slug}: ${project.localUrl} returned ${response?.status() ?? 'no response'}`);
+      console.warn(`[skip] ${project.slug}: ${captureUrl} returned ${response?.status() ?? 'no response'}`);
       continue;
     }
 

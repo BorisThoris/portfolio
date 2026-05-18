@@ -33,6 +33,35 @@ type RuntimeStatus = {
   projects: RuntimeProjectStatus[];
 };
 
+const LOCAL_URL_PATTERN = /^https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?\//;
+
+function isLocalUrl(url: string | undefined): boolean {
+  return url ? LOCAL_URL_PATTERN.test(url) : false;
+}
+
+function isPortfolioRunningLocally(): boolean {
+  if (typeof window === 'undefined') return false;
+  return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+}
+
+function resolveProjectUrl(project: Pick<Project, 'deploymentUrl' | 'localUrl'>, runtime?: RuntimeProjectStatus) {
+  const runtimeUrl = runtime?.effectiveUrl;
+
+  if (project.deploymentUrl) {
+    return { mode: 'deployed' as const, url: project.deploymentUrl };
+  }
+
+  if (runtimeUrl && !isLocalUrl(runtimeUrl)) {
+    return { mode: runtime?.mode ?? 'live', url: runtimeUrl };
+  }
+
+  if (isPortfolioRunningLocally()) {
+    return { mode: runtime?.mode ?? 'local', url: runtimeUrl || project.localUrl };
+  }
+
+  return { mode: 'local' as const, url: project.localUrl };
+}
+
 type Experience = {
   company: string;
   role: string;
@@ -929,7 +958,7 @@ function HomePage() {
                 trackPosition === 0 ? showcaseCount - 1 : trackPosition === showcaseCount + 1 ? 0 : trackPosition - 1;
               const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
               const isActive = trackPosition === trackIndex;
-              const projectHref = projectRuntime?.effectiveUrl || project.deploymentUrl || project.localUrl;
+              const projectHref = resolveProjectUrl(project, projectRuntime).url;
 
               return (
                 <motion.div
@@ -1356,14 +1385,9 @@ function ProjectPage() {
   const project = getProject(slug);
   const runtimeStatus = useRuntimeStatus();
   const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
-  const runtimeUrl = projectRuntime?.effectiveUrl;
-  const runtimeIsLocal = runtimeUrl ? /^https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?\//.test(runtimeUrl) : false;
-  const embedUrl = runtimeUrl && !runtimeIsLocal
-    ? runtimeUrl
-    : project.deploymentUrl || project.localUrl;
-  const embedMode = runtimeUrl && !runtimeIsLocal
-    ? projectRuntime?.mode || 'live'
-    : project.deploymentUrl ? 'deployed' : 'local';
+  const resolvedProjectUrl = resolveProjectUrl(project, projectRuntime);
+  const embedUrl = resolvedProjectUrl.url;
+  const embedMode = resolvedProjectUrl.mode;
   const [embedFailed, setEmbedFailed] = React.useState(false);
 
   React.useEffect(() => {
