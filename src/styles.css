@@ -1906,9 +1906,24 @@ iframe,
 }
 
 @media (max-width: 700px) {
-  body::before,
-  .aero-background {
+  body::before {
     display: none;
+  }
+
+  .aero-background {
+    opacity: 0.72;
+    background:
+      radial-gradient(circle at 18% 12%, color-mix(in srgb, var(--aero-accent) 28%, transparent), transparent 34%),
+      linear-gradient(180deg, #06110f, #080908 72%);
+  }
+
+  .aero-background::after {
+    background: linear-gradient(180deg, rgba(4, 6, 5, 0.08), rgba(4, 6, 5, 0.72));
+  }
+
+  .aero-background canvas {
+    opacity: 0.78;
+    filter: saturate(1.24) contrast(1.08);
   }
 
   body {

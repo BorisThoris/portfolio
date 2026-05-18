@@ -3,6 +3,7 @@ import { Color, Mesh, Program, Renderer, Triangle } from 'ogl';
 
 type AeroLiquidBackgroundProps = {
   accent: string;
+  quality?: 'full' | 'mobile';
 };
 
 const vertex = `
@@ -124,7 +125,7 @@ void main() {
 }
 `;
 
-export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
+export function AeroLiquidBackground({ accent, quality = 'full' }: AeroLiquidBackgroundProps) {
   const hostRef = React.useRef<HTMLDivElement | null>(null);
   const accentUniformRef = React.useRef<{ value: Color } | null>(null);
   const accentCurrentRef = React.useRef(new Color(accent));
@@ -137,13 +138,12 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
     if (!host) return;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const mobileViewport = window.matchMedia('(max-width: 700px)');
-    if (mobileViewport.matches) return;
+    const isMobileQuality = quality === 'mobile';
 
     const renderer = new Renderer({
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, isMobileQuality ? 1.25 : 2)
     });
     const gl = renderer.gl;
     gl.canvas.setAttribute('aria-hidden', 'true');
@@ -179,16 +179,23 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
       const tiltTarget = tiltTargetRef.current;
       const accentCurrent = accentCurrentRef.current;
       const accentTarget = accentTargetRef.current;
-      tilt[0] += (tiltTarget[0] - tilt[0]) * 0.045;
-      tilt[1] += (tiltTarget[1] - tilt[1]) * 0.045;
-      accentCurrent.r += (accentTarget.r - accentCurrent.r) * 0.045;
-      accentCurrent.g += (accentTarget.g - accentCurrent.g) * 0.045;
-      accentCurrent.b += (accentTarget.b - accentCurrent.b) * 0.045;
-      program.uniforms.uTime.value = (time - start) * 0.001;
+      const easing = isMobileQuality ? 0.032 : 0.045;
+      tilt[0] += (tiltTarget[0] - tilt[0]) * easing;
+      tilt[1] += (tiltTarget[1] - tilt[1]) * easing;
+      accentCurrent.r += (accentTarget.r - accentCurrent.r) * easing;
+      accentCurrent.g += (accentTarget.g - accentCurrent.g) * easing;
+      accentCurrent.b += (accentTarget.b - accentCurrent.b) * easing;
+      program.uniforms.uTime.value = (time - start) * (isMobileQuality ? 0.00062 : 0.001);
       program.uniforms.uAccent.value = accentCurrent;
       program.uniforms.uTilt.value = tilt;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(render);
+      if (isMobileQuality) {
+        window.setTimeout(() => {
+          frame = requestAnimationFrame(render);
+        }, 50);
+      } else {
+        frame = requestAnimationFrame(render);
+      }
     };
 
     const handleMotionPreference = () => {
@@ -209,13 +216,17 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
     resize();
     render(start);
     window.addEventListener('resize', resize);
-    window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+    if (!isMobileQuality) {
+      window.addEventListener('deviceorientation', handleDeviceOrientation, { passive: true });
+    }
     reducedMotion.addEventListener('change', handleMotionPreference);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('deviceorientation', handleDeviceOrientation);
+      if (!isMobileQuality) {
+        window.removeEventListener('deviceorientation', handleDeviceOrientation);
+      }
       reducedMotion.removeEventListener('change', handleMotionPreference);
       if (gl.canvas.parentNode === host) {
         host.removeChild(gl.canvas);
@@ -223,7 +234,7 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
       accentUniformRef.current = null;
       geometry.remove();
     };
-  }, []);
+  }, [quality]);
 
   React.useEffect(() => {
     accentTargetRef.current = new Color(accent);
@@ -232,7 +243,7 @@ export function AeroLiquidBackground({ accent }: AeroLiquidBackgroundProps) {
   return (
     <div
       ref={hostRef}
-      className="aero-background"
+      className={`aero-background ${quality === 'mobile' ? 'aero-background--mobile' : ''}`}
       style={{ '--aero-accent': accent } as React.CSSProperties}
       aria-hidden="true"
     />

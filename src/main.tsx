@@ -936,7 +936,7 @@ function HomePage() {
 
   return (
     <main className="page-shell home-shell">
-      {isMobileShowcase ? null : <AeroLiquidBackground accent={activeProject.accent} />}
+      <AeroLiquidBackground accent={activeProject.accent} quality={isMobileShowcase ? 'mobile' : 'full'} />
       <header className="site-topbar" aria-label="Portfolio header">
         <Link to="/" className="site-mark">
           <MonitorUp size={18} />
@@ -1498,7 +1498,7 @@ function ProjectPage() {
 
   return (
     <main className="page-shell detail-shell">
-      {isMobile ? null : <AeroLiquidBackground accent={project.accent} />}
+      <AeroLiquidBackground accent={project.accent} quality={isMobile ? 'mobile' : 'full'} />
       <nav className="top-nav detail-topbar">
         <Link to="/" className="back-action">
           <ArrowLeft size={18} />
