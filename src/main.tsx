@@ -13,6 +13,7 @@ import {
   Linkedin,
   Mail,
   MonitorUp,
+  Phone,
   Play,
   X
 } from 'lucide-react';
@@ -546,6 +547,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/cv-print" element={<CvPrintPage />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
       </Routes>
     </BrowserRouter>
@@ -643,7 +645,182 @@ const contactLinks = [
     label: 'Email',
     href: 'mailto:borisbostandzhiev@yahoo.com',
     icon: Mail
+  },
+  {
+    label: '+359 89 702 3731',
+    href: 'tel:+359897023731',
+    icon: Phone
   }
+];
+
+const cvHighlights = [
+  '7+ years full-stack engineering',
+  '18+ active production repositories',
+  '1,350+ attributed recent commits',
+  'React, TypeScript, Python, C#',
+  'AI-assisted risk and reporting workflows',
+  'Games, audio tools, 3D editors'
+];
+
+const cvExperience = [
+  {
+    company: 'Man Group',
+    role: 'Project Owner / Full-stack Risk Software Engineer',
+    tenure: 'Feb 2024 - Present',
+    accent: '#8bd3ff',
+    summary:
+      'Own delivery of enterprise risk analytics platforms used by analysts, portfolio-management teams, and senior stakeholders across frontend, backend, data, reporting, testing, and deployment concerns.',
+    bullets: [
+      'Worked across 18+ active repositories and 1,350+ attributed recent commits spanning React/TypeScript apps, Python dashboards, C# services, APIs, data workflows, and deployment configuration.',
+      'Led multi-codebase modernization including React 17/18/19 upgrades, AG Grid upgrades, TanStack Query and Zustand migrations, design-system adoption, dependency cleanup, Node/tooling upgrades, performance fixes, and CI/build stabilization.',
+      'Integrated AI-assisted workflows into risk tooling, including chart-level commentary, dashboard error summaries, anomaly commentary, report comparison tooling, streaming support dashboards, and structured/auditable model context.',
+      'Delivered data visualization and monitoring for market/liquidity risk workflows with interactive surface views, historical comparisons, configurable drilldown tables, charting workflows, and resilient partial-failure behavior.',
+      'Expanded Playwright, Vitest, pytest, type checks, linting, mocked smoke tests, release checks, and large-scale Python unit-test coverage across frontend and backend systems.',
+      'Led a market-data integration migration from a legacy feed to a compliant real-time subscription feed, validating results across broad UAT coverage and documenting architecture and rollout paths.'
+    ],
+    details: [
+      'Frontend scope: production React applications, risk report drilldowns, custom table formatting, column visibility behavior, chart panels, state migration, accessibility checks, and resilient loading/error states.',
+      'Backend/data scope: Python dashboard services, Flask/FastAPI APIs, asynchronous validation, SQL-heavy workflows, ClickHouse analytics, S3/parquet-style storage, document-store report output, and cached data loaders.',
+      'Infrastructure scope: Dockerized dashboards, Kubernetes/Kustomize-style manifests, continuous deployment workflows, reverse-proxy routing, role-based access integration, secrets-management patterns, and release-readiness checks.',
+      'AI scope: structured chart context, report comparison, anomaly summaries, system-check synthesis, streaming status updates, Slack-style briefing output, browser-assisted inspection, and reviewable fallback behavior.'
+    ],
+    stack: ['React', 'TypeScript', 'Python', 'FastAPI', 'Flask', 'Streamlit', 'C#', 'ClickHouse', 'S3/parquet', 'Kubernetes', 'Playwright', 'pytest']
+  },
+  {
+    company: 'Expert Allies / Zonal',
+    role: 'Senior Software Engineer / Senior React Developer',
+    tenure: 'Feb 2023 - Feb 2024',
+    accent: '#90f0c0',
+    summary: 'Built React and React Native product interfaces for hospitality software used by pubs, hotels, restaurants, and venue operators.',
+    bullets: [
+      'Delivered operational web and mobile/tablet workflows around venue operations, ordering, and EPoS-adjacent product surfaces.',
+      'Focused on maintainable UI architecture, component quality, test coverage, and fast repeated workflow usability.',
+      'Worked in a senior delivery role with PM, design, and product stakeholders in a reliability-sensitive operational domain.'
+    ],
+    stack: ['React', 'React Native', 'TypeScript', 'Redux', 'Styled Components', 'Jest', 'React Testing Library']
+  },
+  {
+    company: 'Quickbase',
+    role: 'Software Engineer II',
+    tenure: 'Aug 2020 - Jan 2023',
+    accent: '#f0d879',
+    summary: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy surfaces.',
+    bullets: [
+      'Led complex visual-programming features including loops, conditionals, nesting, and rich component rendering behavior.',
+      'Expanded unit, end-to-end, functional, and user-flow test coverage in a team without dedicated QA.',
+      'Owned library upgrade research, reusable components, bug escalations, deployment monitoring, and delivery across multiple epics.',
+      'Mentored junior colleagues and received company recognition for delivery impact.'
+    ],
+    stack: ['React', 'Backbone', 'jQuery', 'Python', 'C#', 'Storybook', 'Jest', 'Webpack']
+  },
+  {
+    company: 'Hakomo',
+    role: 'Software Engineer',
+    tenure: 'Jan 2020 - Jun 2020',
+    accent: '#ff9f73',
+    summary: 'Built React Native mobile applications and design-heavy React web interfaces for product stakeholders.',
+    bullets: [
+      'Developed React Native mobile apps including social networking and education product experiences.',
+      'Built a responsive React website for a real-estate appraisal business with strong visual requirements.',
+      'Worked closely with product and design stakeholders on practical UI implementation and delivery.'
+    ],
+    stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#']
+  },
+  {
+    company: 'A1 Bulgaria',
+    role: 'Junior Software Engineer',
+    tenure: 'Mar 2019 - Nov 2019',
+    accent: '#a7d7ff',
+    summary: 'Built React, React Native, and C# applications across public-facing and internal engineering tools.',
+    bullets: [
+      'Led TV-box and internal engineering-support application work with responsive UI and remote-control interaction flows.',
+      'Contributed to SQL-backed operational support tooling and public-facing telecom website work.',
+      'Coordinated with PMs, designers, and engineering/support stakeholders around practical user workflows.'
+    ],
+    stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI']
+  }
+];
+
+const cvProjects = [
+  {
+    title: 'VYB Chess',
+    label: 'Experimental interactive chess book / Early Access',
+    image: '/project-shots/vyb-chess/latest/card.jpg',
+    accent: '#f6d68f',
+    text: 'Premium web-first Bulgarian interactive book preserving a complete seven-part manuscript across 35 reading units, with low-friction decision laboratories, exact return and resume, canonical content validation, accessible input paths, PWA support, Electron packaging, and Steam-oriented release tooling.',
+    tags: ['React 19', 'TypeScript', 'Electron', 'Playwright', 'Vitest', 'Chess.js']
+  },
+  {
+    title: 'Memory Dungeon',
+    label: 'Windows / Steam-targeted desktop game',
+    image: '/project-shots/memory-dungeon/latest/card.jpg',
+    accent: '#8bd3ff',
+    text: 'Electron/React arcade game with local saves, achievements, packaged Windows builds, multiple run modes, relics, mutators, puzzle packs, profile progression, gameplay simulation scripts, Playwright visual/E2E suites, accessibility checks, and release gates.',
+    tags: ['Electron', 'React 19', 'TypeScript', 'Three.js', 'PixiJS', 'steamworks.js']
+  },
+  {
+    title: 'BBeats',
+    label: 'Browser DAW & beat-making editor',
+    image: '/project-shots/bbeats/latest/card.jpg',
+    accent: '#ff8fd2',
+    text: 'Large DAW-style editor with timeline, piano roll, step sequencer, mixer panels, command palette, automation, sample drag/drop, clip editing, bounce/render workflows, arrangement regions, Web Audio, plugin workflows, Electron support, and critical-flow testing.',
+    tags: ['React', 'TypeScript', 'Web Audio', 'Tone.js', 'PixiJS', 'Electron']
+  },
+  {
+    title: 'ThreeJS Gem Dungeon Editor',
+    label: '3D dungeon/editor prototype',
+    image: '/project-shots/threejs-gem-dungeon-editor/latest/card.jpg',
+    accent: '#90f0c0',
+    text: '3D dungeon exploration prototype with room navigation, biome concepts, safe spawn handling, particles, minimap improvements, memory-game elements, embedded scene editor, texture painter, asset viewer, generated textures, and desktop packaging.',
+    tags: ['React 19', 'Three.js', 'React Three Fiber', 'Vite', 'Zustand']
+  },
+  {
+    title: 'Cross Repo Libs',
+    label: 'Reusable npm workspace monorepo',
+    image: '/project-shots/cross-repo-libs/latest/card.jpg',
+    accent: '#f0d879',
+    text: 'Reusable UI/runtime package workspace with accessible toast/confirm notification stack, store, imperative bridge, CSS-variable theming, package exports, example app, focused tests, and cross-project extraction patterns.',
+    tags: ['npm workspaces', 'React', 'TypeScript', 'Zustand', 'Vite', 'Vitest']
+  }
+];
+
+const cvAdditionalProjects = [
+  {
+    title: 'SAAD Print-on-Demand',
+    text: 'Live storefront/product loop with catalog upkeep, storefront presentation, positioning, and real customer-facing commercial proof.',
+    tags: ['E-commerce', 'Storefront', 'Product Ops']
+  },
+  {
+    title: 'Runner Score Arcade',
+    text: 'Playable runner/score arcade demo replacing older portfolio work, wired into the project showcase and deployed links.',
+    tags: ['Game UI', 'Arcade', 'React']
+  },
+  {
+    title: 'Cat World',
+    text: 'Early hardcoded-information project kept as historical evidence of the public project lineage from 2018.',
+    tags: ['Early project', 'Angular/React lineage']
+  },
+  {
+    title: 'Gorilla Gainz',
+    text: 'Early hardcoded-information fitness/project demo kept as historical context for the long-running product-building timeline.',
+    tags: ['Early project', 'Portfolio history']
+  },
+  {
+    title: 'Soap Factory',
+    text: 'Family business support across WordPress storefront upkeep, catalog/content updates, packing, deliveries, event sales, and operational help.',
+    tags: ['WordPress', 'E-commerce', 'Operations']
+  },
+  {
+    title: 'Bean Tapper',
+    text: 'C#/.NET arcade game experiment referenced in the broader LinkedIn/project narrative.',
+    tags: ['C#', '.NET', 's&box', 'Game systems']
+  }
+];
+
+const cvEducation = [
+  'SoftUni - Software Engineering, Sep 2017 - May 2019. C#, JavaScript, React/Angular, databases, advanced programming, and practical team projects.',
+  '127 Ivan N. Denkoglu High School - Higher mathematics, English, IT / introductory C++.',
+  'React Native seminar - practical beginner session on building interactive mobile/game-style experiences with React Native.'
 ];
 
 function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'intro' | 'topbar' }) {
@@ -683,6 +860,157 @@ function ContactLinks({ iconSize, placement }: { iconSize: number; placement: 'i
         );
       })}
     </>
+  );
+}
+
+function CvPrintPage() {
+  const cvAccent = '#8bd3ff';
+
+  return (
+    <main className="cv-print-shell" style={{ '--accent': cvAccent } as React.CSSProperties}>
+      <AeroLiquidBackground accent={cvAccent} quality="mobile" />
+
+      <section className="cv-cover cv-panel">
+        <div className="cv-cover-copy">
+          <p className="eyebrow">Portfolio CV</p>
+          <h1>Boris Bostandzhiev</h1>
+          <strong>Full-stack Technical Lead / Senior Engineer</strong>
+          <p>
+            React, TypeScript, Python, C#, data-heavy platforms, AI-assisted workflows, product UI, automation,
+            interactive systems, and independent product delivery.
+          </p>
+        </div>
+
+        <div className="cv-contact-card">
+          <span>Sofia, Bulgaria</span>
+          <a href="tel:+359897023731">+359 89 702 3731</a>
+          <a href="mailto:borisbostandzhiev@yahoo.com">borisbostandzhiev@yahoo.com</a>
+          <a href="https://www.linkedin.com/in/boris-b-22566b171/">linkedin.com/in/boris-b-22566b171</a>
+          <a href="https://portfolio-7d0.pages.dev">portfolio-7d0.pages.dev</a>
+          <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
+        </div>
+      </section>
+
+      <section className="cv-proof-grid" aria-label="CV highlights">
+        {cvHighlights.map((highlight) => (
+          <span key={highlight}>{highlight}</span>
+        ))}
+      </section>
+
+      <section className="cv-panel">
+        <div className="cv-section-heading">
+          <p className="eyebrow">Experience</p>
+          <h2>Professional Work</h2>
+        </div>
+
+        <div className="cv-timeline">
+          {cvExperience.map((item) => (
+            <article className="cv-experience-card" key={item.company} style={{ '--accent': item.accent } as React.CSSProperties}>
+              <div className="cv-experience-topline">
+                <div>
+                  <span>{item.tenure}</span>
+                  <h3>{item.company}</h3>
+                  <strong>{item.role}</strong>
+                </div>
+                <div className="cv-stack">
+                  {item.stack.map((skill) => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+              <p>{item.summary}</p>
+              <ul>
+                {item.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+              {'details' in item && item.details ? (
+                <div className="cv-detail-grid">
+                  {item.details.map((detail) => (
+                    <span key={detail}>{detail}</span>
+                  ))}
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cv-panel cv-capabilities-panel">
+        <div className="cv-section-heading">
+          <p className="eyebrow">Range</p>
+          <h2>Technical Capability</h2>
+        </div>
+        <div className="cv-capability-grid">
+          {capabilityGroups.map((group) => (
+            <article className="cv-capability-card" key={group.title}>
+              <h3>{group.title}</h3>
+              <p>{group.purpose}</p>
+              <div className="cv-stack primary">
+                {group.primary.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+              <div className="cv-stack">
+                {group.skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="cv-additional-projects">
+          {cvAdditionalProjects.map((project) => (
+            <article key={project.title}>
+              <h3>{project.title}</h3>
+              <p>{project.text}</p>
+              <div className="cv-stack">
+                {project.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cv-panel">
+        <div className="cv-section-heading">
+          <p className="eyebrow">Portfolio</p>
+          <h2>Selected Independent Products</h2>
+        </div>
+        <div className="cv-project-grid">
+          {cvProjects.map((project) => (
+            <article className="cv-project-card" key={project.title} style={{ '--accent': project.accent } as React.CSSProperties}>
+              <img src={project.image} alt={`${project.title} screenshot`} />
+              <div>
+                <span>{project.label}</span>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
+                <div className="cv-stack">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cv-panel cv-education-panel">
+        <div className="cv-section-heading">
+          <p className="eyebrow">Education & Speaking</p>
+          <h2>Foundations</h2>
+        </div>
+        <div className="cv-education-list">
+          {cvEducation.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 
@@ -1538,7 +1866,7 @@ function ProjectPage() {
           </div>
           {embedFailed ? (
             <div className="fallback-frame">
-              <img src={project.screenshot} alt={`${project.title} screenshot fallback`} />
+              <ProjectScreenshot project={project} />
               <div>
                 <h2>Live preview unavailable</h2>
                 <p>Open the app in a new tab or use the screenshot preview here.</p>
@@ -1552,6 +1880,8 @@ function ProjectPage() {
             />
           )}
         </div>
+
+        <CaptureComparison project={project} />
       </section>
     </main>
   );
@@ -1583,21 +1913,75 @@ function useRuntimeStatus(): RuntimeStatus | null {
   return status;
 }
 
-function ProjectScreenshot({ project, priority = false }: { project: Pick<Project, 'title' | 'screenshot'>; priority?: boolean }) {
+function CaptureComparison({ project }: { project: Pick<Project, 'slug' | 'title' | 'screenshot'> }) {
+  return (
+    <section className="capture-comparison" aria-label={`${project.title} stable and latest screenshots`}>
+      <div className="capture-comparison__heading">
+        <div>
+          <span>Automated visual record</span>
+          <h2>Stable deployment / latest workspace</h2>
+        </div>
+        <p>Exact 1600x900 card captures generated by the portfolio image pipeline.</p>
+      </div>
+      <div className="capture-comparison__grid">
+        {(['latest', 'stable'] as const).map((state) => (
+          <figure key={state}>
+            <CaptureImage project={project} state={state} />
+            <figcaption>
+              <strong>{state === 'latest' ? 'Latest workspace' : 'Stable deployment'}</strong>
+              <span>{state === 'latest' ? 'Current local build' : 'Published URL'}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CaptureImage({
+  project,
+  state,
+  priority = false
+}: {
+  project: Pick<Project, 'slug' | 'title' | 'screenshot'>;
+  state: 'latest' | 'stable';
+  priority?: boolean;
+}) {
+  const sources = captureSources(project, state);
   return (
     <img
-      src={project.screenshot}
-      alt={`${project.title} screenshot`}
+      src={sources[0]}
+      alt={`${project.title} ${state} screenshot`}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
       fetchPriority={priority ? 'high' : 'low'}
       draggable={false}
+      data-capture-fallback="1"
       onDragStart={(event) => event.preventDefault()}
       onError={(event) => {
-        event.currentTarget.src = '/project-shots/portfolio-placeholder.svg';
+        const nextIndex = Number(event.currentTarget.dataset.captureFallback || '1');
+        if (nextIndex >= sources.length) return;
+        event.currentTarget.src = sources[nextIndex];
+        event.currentTarget.dataset.captureFallback = String(nextIndex + 1);
       }}
     />
   );
+}
+
+function ProjectScreenshot({ project, priority = false }: { project: Pick<Project, 'slug' | 'title' | 'screenshot'>; priority?: boolean }) {
+  return (
+    <CaptureImage project={project} state="latest" priority={priority} />
+  );
+}
+
+function captureSources(project: Pick<Project, 'slug' | 'screenshot'>, preferredState: 'latest' | 'stable') {
+  const alternateState = preferredState === 'latest' ? 'stable' : 'latest';
+  return [...new Set([
+    `/project-shots/${project.slug}/${preferredState}/card.jpg`,
+    `/project-shots/${project.slug}/${alternateState}/card.jpg`,
+    project.screenshot,
+    '/project-shots/portfolio-placeholder.svg'
+  ])];
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

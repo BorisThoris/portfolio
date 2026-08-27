@@ -11,6 +11,7 @@ type ProjectRecord = {
   deploymentUrl?: string;
   buildCommand: string;
   buildOutput: string;
+  serveBasePath?: string;
   buildCwd?: string;
   fallbackCommand?: string;
   fallbackCwd?: string;

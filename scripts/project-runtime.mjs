@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import http from 'node:http';
 import path from 'node:path';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -126,17 +126,37 @@ export function startCommandServer(project) {
     stdio: 'inherit'
   });
   return {
-    close: () => child.kill(),
+    close: () => closeSpawnedProcess(child),
     label: project.fallbackCommand
   };
 }
 
-export function startStaticServer(project, outputDir) {
+export function startRunCommandServer(project) {
+  const url = parseUrl(project.localUrl);
+  const child = spawn(project.runCommand, {
+    cwd: project.repoPath,
+    env: {
+      ...process.env,
+      PORT: String(url.port)
+    },
+    shell: true,
+    stdio: 'inherit'
+  });
+  return {
+    close: () => closeSpawnedProcess(child),
+    label: project.runCommand
+  };
+}
+
+export function startStaticServer(project, outputDir, options = {}) {
   const url = parseUrl(project.localUrl);
   const server = http.createServer(async (request, response) => {
     const requestUrl = new URL(request.url || '/', project.localUrl);
     const decodedPath = decodeURIComponent(requestUrl.pathname);
-    const normalizedPath = decodedPath === '/' ? '/index.html' : decodedPath;
+    const servedPath = project.serveBasePath && decodedPath.startsWith(project.serveBasePath)
+      ? decodedPath.slice(project.serveBasePath.length) || '/'
+      : decodedPath;
+    const normalizedPath = servedPath === '/' ? '/index.html' : servedPath;
     const candidate = path.normalize(path.join(outputDir, normalizedPath));
     const insideOutput = candidate === outputDir || candidate.startsWith(`${outputDir}${path.sep}`);
     const filePath = insideOutput && fs.existsSync(candidate) && fs.statSync(candidate).isFile()
@@ -153,21 +173,37 @@ export function startStaticServer(project, outputDir) {
     }
   });
 
-  server.listen(url.port, url.host);
+  const ready = new Promise((resolve) => {
+    server.once('listening', () => resolve({ ok: true, url: effectiveServerUrl() }));
+    server.once('error', (error) => resolve({ ok: false, error }));
+  });
+  server.listen(options.port ?? url.port, url.host);
   return {
-    close: () => server.close(),
-    label: outputDir
+    close: () => {
+      if (server.listening) server.close();
+    },
+    label: outputDir,
+    ready,
+    get url() {
+      return effectiveServerUrl();
+    }
   };
+
+  function effectiveServerUrl() {
+    const address = server.address();
+    const port = typeof address === 'object' && address ? address.port : url.port;
+    return `${new URL(project.localUrl).protocol}//${url.host}:${port}${url.pathname}`;
+  }
 }
 
-export async function waitForUrl(url, timeoutMs = 12000) {
+export async function waitForUrl(url, timeoutMs = 12000, probeTimeoutMs = 1000) {
   const startedAt = Date.now();
   while (Date.now() - startedAt < timeoutMs) {
-    const result = await probeUrl(url, 1000);
+    const result = await probeUrl(url, probeTimeoutMs);
     if (result.ok) return result;
     await new Promise((resolve) => setTimeout(resolve, 400));
   }
-  return probeUrl(url, 1000);
+  return probeUrl(url, probeTimeoutMs);
 }
 
 export async function writeRuntimeStatus(statuses) {
@@ -203,4 +239,16 @@ function getContentType(filePath) {
     '.wav': 'audio/wav'
   };
   return map[ext] || 'application/octet-stream';
+}
+
+function closeSpawnedProcess(child) {
+  if (!child.pid) return;
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], {
+      windowsHide: true,
+      stdio: 'ignore'
+    });
+    return;
+  }
+  child.kill('SIGTERM');
 }

@@ -1,5 +1,17 @@
 [
   {
+    "slug": "vyb-chess",
+    "repoName": "VYB-Chess",
+    "showcaseTier": "showcase",
+    "priorityScore": 98,
+    "demoabilityScore": 96,
+    "depthScore": 99,
+    "polishScore": 95,
+    "uniquenessScore": 99,
+    "maintenanceScore": 94,
+    "analysisNotes": "Flagship experimental interactive-book product with the complete seven-part Bulgarian manuscript, schema-validated content, low-friction decision laboratories, PWA and Electron surfaces, Playwright/Vitest/accessibility coverage, Windows packaging, and Steam-oriented release tooling."
+  },
+  {
     "slug": "bbeats",
     "repoName": "BBeats",
     "showcaseTier": "showcase",
@@ -37,7 +49,7 @@
   },
   {
     "slug": "gem-dungeon",
-    "repoName": "gem-dungeon",
+    "repoName": "gem-dungeon-game-prototype",
     "showcaseTier": "more",
     "priorityScore": 76,
     "demoabilityScore": 90,

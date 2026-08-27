@@ -65,6 +65,8 @@ Scoring uses this weighting:
 
 Duplicate families are kept out of the visible portfolio instead of deleted. For example, `BBeats` is the canonical music-app entry over `MusicalAppReactConcept*`, and `skyfall` is the canonical Skyfall entry over `firstNodeProject*`.
 
+The analyzer scans the main `Desktop/Repos` directory plus any absolute local repository paths registered in `src/project-data.json`, so projects such as `VYB-Chess` remain part of the inventory even when they live elsewhere.
+
 ## Preview Build
 
 ```bash
@@ -74,14 +76,53 @@ npm run preview -- --host 127.0.0.1 --port 4110
 
 ## Capture Project Screenshots
 
-Start any project servers you want to refresh, then run:
+The portfolio owns the screenshot pipeline. `scripts/project-capture.config.mjs` is the required registry: every project slug has its own route, readiness selector, and optional timing overrides. Adding a project without a capture target makes the command fail instead of silently skipping it.
+
+One command walks that registry and refreshes every project in both states (`images:refresh` remains an alias):
 
 ```bash
-npm run capture
-npm run capture -- --project skyfall
+npm run images:walk
 ```
 
-The script reuses one Chromium browser page and writes screenshots under `public/project-shots/<project>/main.png`.
+For each project, Playwright generates four exact, named profiles:
+
+| Profile | Output | Purpose |
+| --- | --- | --- |
+| `card` | 1600x900 | Portfolio and printable-CV cards |
+| `desktop` | 1440x900 | Desktop review |
+| `mobile` | 430x932 | Responsive review |
+| `full` | 1440px wide, full page | Long-page archive |
+
+Each profile is written under both `public/project-shots/<project>/stable/` and `public/project-shots/<project>/latest/`:
+
+- `stable` captures the configured public deployment;
+- `latest` builds the current local repository and serves static output on an isolated ephemeral port, so an unrelated process cannot be mistaken for the project;
+- `--reuse-live` is available only when you deliberately want to trust the configured local dev server;
+- remotely managed projects use their public deployment for both states and say so in the manifest.
+
+The resulting structure is stable and URL-safe:
+
+```text
+public/project-shots/
+  capture-manifest.json
+  <project-slug>/
+    stable/{card,desktop,mobile,full}.jpg
+    latest/{card,desktop,mobile,full}.jpg
+```
+
+Useful focused commands:
+
+```bash
+npm run images:refresh -- --project vyb-chess
+npm run images:routes
+npm run images:stable
+npm run images:latest -- --project skyfall --profiles card,mobile
+npm run images:latest -- --no-build
+npm run images:latest -- --project skyfall --reuse-live
+npm run images:check
+```
+
+`public/project-shots/capture-manifest.json` records the project-specific capture route and resolved URL, source URL, capture time, exact dimensions, file size, SHA-256, console errors, and—for local latest captures—the branch, Git SHA, and dirty state. `npm run images:check` validates the route contract as well as the files. The command exits non-zero on incomplete states; use `--allow-partial` only for an intentional best-effort refresh. Run `npm run capture -- --help` for the complete CLI contract.
 
 ## Cloudflare Pages
 

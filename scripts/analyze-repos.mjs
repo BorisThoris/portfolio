@@ -14,9 +14,26 @@ const projectByRepo = new Map(projects.map((project) => [path.basename(project.r
 const analysisByRepo = new Map(analysis.map((entry) => [entry.repoName.toLowerCase(), entry]));
 const groupedAnalysis = analysis.find((entry) => entry.slug === 'non-web-local-folders');
 
-const rows = fs.readdirSync(reposRoot, { withFileTypes: true })
+const discoveredRepos = fs.readdirSync(reposRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
-  .map((entry) => inspectRepo(entry.name))
+  .map((entry) => ({
+    repo: entry.name,
+    repoPath: path.join(reposRoot, entry.name)
+  }));
+const configuredExternalRepos = projects
+  .filter((project) => path.isAbsolute(project.repoPath))
+  .filter((project) => !isInside(project.repoPath, reposRoot))
+  .filter((project) => fs.existsSync(project.repoPath))
+  .map((project) => ({
+    repo: path.basename(project.repoPath),
+    repoPath: project.repoPath
+  }));
+const repoCandidates = new Map(
+  [...discoveredRepos, ...configuredExternalRepos]
+    .map((entry) => [path.resolve(entry.repoPath).toLowerCase(), entry])
+);
+const rows = [...repoCandidates.values()]
+  .map((entry) => inspectRepo(entry.repo, entry.repoPath))
   .sort((left, right) => right.priorityScore - left.priorityScore || left.repo.localeCompare(right.repo));
 
 if (process.argv.includes('--json')) {
@@ -28,8 +45,7 @@ if (process.argv.includes('--json')) {
   console.log(`\nScanned ${rows.length} directories: ${visible} visible portfolio projects, ${excluded} excluded/duplicate/support repos.`);
 }
 
-function inspectRepo(repo) {
-  const repoPath = path.join(reposRoot, repo);
+function inspectRepo(repo, repoPath) {
   const packagePath = path.join(repoPath, 'package.json');
   const packageJson = readJson(packagePath);
   const project = projectByRepo.get(repo.toLowerCase());
@@ -59,6 +75,11 @@ function inspectRepo(repo) {
     hasReadme: metrics.hasReadme,
     analysisNotes: curated?.analysisNotes ?? inferred.analysisNotes
   };
+}
+
+function isInside(candidatePath, rootPath) {
+  const relative = path.relative(rootPath, candidatePath);
+  return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
 }
 
 function inferRepo({ repo, packageJson, scripts, dependencies, metrics }) {

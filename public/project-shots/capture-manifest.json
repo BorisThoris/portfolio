@@ -1,0 +1,2605 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-27T12:19:45.435Z",
+  "profiles": {
+    "card": {
+      "label": "Portfolio card",
+      "width": 1600,
+      "height": 900,
+      "fullPage": false,
+      "format": "jpeg",
+      "quality": 90
+    },
+    "desktop": {
+      "label": "Desktop viewport",
+      "width": 1440,
+      "height": 900,
+      "fullPage": false,
+      "format": "jpeg",
+      "quality": 90
+    },
+    "mobile": {
+      "label": "Mobile viewport",
+      "width": 430,
+      "height": 932,
+      "fullPage": false,
+      "format": "jpeg",
+      "quality": 88
+    },
+    "full": {
+      "label": "Full page",
+      "width": 1440,
+      "height": 900,
+      "fullPage": true,
+      "format": "jpeg",
+      "quality": 86
+    }
+  },
+  "projects": {
+    "bbeats": {
+      "title": "BBeats",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:04:05.616Z",
+          "sourceUrl": "https://bbeats-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/bbeats/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 44938,
+              "sha256": "75e57462cbdf2e18bfeadbe7561af60800d9011f7cdb30a3ddf6b88ecfe81578",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/bbeats/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 43784,
+              "sha256": "82c3727aa3e8637e5004ee8d7dadca8322346c63d2fd9b35ef141f642bce5209",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/bbeats/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 23647,
+              "sha256": "defd6ae0badae7b172ee16ed35ac3ad0e93c596474aa15d27211ad29e5ac49c0",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/bbeats/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 37319,
+              "sha256": "32bcc046d9524a78426ca2549c21a397abe3bbb1f529f437af19b201a2091d2e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://bbeats-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:07:46.039Z",
+          "sourceUrl": "http://127.0.0.1:52143/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "0f34e0c67800c553583bfc4711313c7b01e1c729",
+            "branch": "main",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/bbeats/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 44938,
+              "sha256": "75e57462cbdf2e18bfeadbe7561af60800d9011f7cdb30a3ddf6b88ecfe81578",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/bbeats/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 43784,
+              "sha256": "82c3727aa3e8637e5004ee8d7dadca8322346c63d2fd9b35ef141f642bce5209",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/bbeats/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 23647,
+              "sha256": "defd6ae0badae7b172ee16ed35ac3ad0e93c596474aa15d27211ad29e5ac49c0",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/bbeats/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 37319,
+              "sha256": "32bcc046d9524a78426ca2549c21a397abe3bbb1f529f437af19b201a2091d2e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 166,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:52143/"
+        }
+      }
+    },
+    "cat-world": {
+      "title": "Cat World",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:14:34.635Z",
+          "sourceUrl": "https://cat-world-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/cat-world/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 151052,
+              "sha256": "976aff8775ea3ba9707ebb53e0d2a801a38c76ea7e876136c147def1c435aa14",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://cat-world-git.pages.dev/angular-toastr.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://cat-world-git.pages.dev/angular-toastr.tpls.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/cat-world/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 146273,
+              "sha256": "89426cfb00965f452e64c17374fbe1021c7a4d36bfa3c8e055d7df144acade6c",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://cat-world-git.pages.dev/angular-toastr.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://cat-world-git.pages.dev/angular-toastr.tpls.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/cat-world/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 66602,
+              "sha256": "76c12f08f19abfb912aae937365b81d89c2b336b4c45df668a97089a9d5243cb",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 217,
+                "visibleSurfaceCount": 4
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://cat-world-git.pages.dev/angular-toastr.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://cat-world-git.pages.dev/angular-toastr.tpls.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/cat-world/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 123933,
+              "sha256": "56f50bd044cbcea5b56ee687705ecfb34e7d539e1f3bc2407201447e3e88bc21",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://cat-world-git.pages.dev/angular-toastr.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://cat-world-git.pages.dev/angular-toastr.tpls.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://cat-world-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:14:56.737Z",
+          "sourceUrl": "http://127.0.0.1:56336/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "e1d688fe6dfb63bac34b8ac613c737b96359aa34",
+            "branch": "ai/refine-cat-world-cycle-02",
+            "dirty": false
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/cat-world/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 115246,
+              "sha256": "5b61f7f6254bdcf3986aa786ea3e2e68b52235d4051975dbe84307db77660c14",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Unexpected token '<'"
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/cat-world/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 110506,
+              "sha256": "01596bd1c2696788c1b9a3ec5ede1fb983765d52464f81e2aeb64988141e4be7",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Unexpected token '<'"
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/cat-world/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 52271,
+              "sha256": "55303a26b0c5eff44622fb5b9372793cadd84c00150d9e9f5ad1e3c44d4d02fc",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 217,
+                "visibleSurfaceCount": 4
+              },
+              "consoleErrors": [
+                "Unexpected token '<'"
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/cat-world/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 94322,
+              "sha256": "594a45aa3067416e52283beacb42d2ccdbd9fb19bce938724dc5adaf3dbd36ec",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 252,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": [
+                "Unexpected token '<'"
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:56336/",
+          "warnings": []
+        }
+      }
+    },
+    "cross-repo-libs": {
+      "title": "Cross Repo Libs",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:12:49.981Z",
+          "sourceUrl": "https://cross-repo-libs-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/cross-repo-libs/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 178720,
+              "sha256": "7a59c01e9d2c387663d43aa069813e27f1611565d97924b330d177e1d72c53bf",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/cross-repo-libs/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 167711,
+              "sha256": "562ebe74f375abbc751c682fc5ea3afc34c926e9585602ee3bd857379ea384b4",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/cross-repo-libs/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 44246,
+              "sha256": "9041010693e1b4a0573dc2de097e38bdd01d49e5db2472690a9598168e8be04e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/cross-repo-libs/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 146087,
+              "sha256": "b91fbd5cc30c117d8f48f76a1970995e6ed18e364d059350b5ae6181b3e5b76f",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://cross-repo-libs-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:13:04.182Z",
+          "sourceUrl": "http://127.0.0.1:60092/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "aa0026e89966363dd99067fd50c6ba26a45be76f",
+            "branch": "master",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/cross-repo-libs/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 178754,
+              "sha256": "7b8f5a7470f6bf8da50936091816f582e4c8cd31485c367eebb01e235a76f904",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/cross-repo-libs/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 167739,
+              "sha256": "37646a851e7cd9e4e7e3dbc5ccb47d1816a645c093941c84fceb401d84a8f3e4",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/cross-repo-libs/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 44246,
+              "sha256": "9041010693e1b4a0573dc2de097e38bdd01d49e5db2472690a9598168e8be04e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/cross-repo-libs/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 146155,
+              "sha256": "b2b8cbbd8f81399a3c7d546c2a1bf27537ac9fe571e6b1fdea982168a77a51f9",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1716,
+                "visibleSurfaceCount": 53
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:60092/",
+          "warnings": []
+        }
+      }
+    },
+    "flowforge-configurator": {
+      "title": "Flowforge Configurator",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:16:01.662Z",
+          "sourceUrl": "https://flowforge-configurator-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/flowforge-configurator/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 59621,
+              "sha256": "8a5b163ac750094a42c6bde5fd7360050bb4e7e63e28055bfb7d7bcadd0c42e4",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/flowforge-configurator/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 58386,
+              "sha256": "8c5a935a59709eccf0e01f2e346750043b8b4d4ee131054d2f63d5dc139590f5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/flowforge-configurator/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 40011,
+              "sha256": "82dd79961c5540da8da508eb9be1be6124fa2604c0b4e18201233750f9b6d7b8",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/flowforge-configurator/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 51229,
+              "sha256": "293f7a1fcbab40ee52af8a7df3c15df7daa109c99a3d2c6720d4127912daf85f",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://flowforge-configurator-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:16:22.426Z",
+          "sourceUrl": "http://127.0.0.1:61728/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "38b8e34fd9bb0ffde095182b86a72d381e2e1fd7",
+            "branch": "ai/refine-flowforge-configurator-cycle-02",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/flowforge-configurator/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 59586,
+              "sha256": "25d9ff69bdb83c88930e5a5248807dad9929a4a0c559849d3928511daae14318",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 261,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/flowforge-configurator/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 58347,
+              "sha256": "6ae95d4a1821b080339b99cc52cf02ad15f7fa076806f3d851b1a91db2512988",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 261,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/flowforge-configurator/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 40011,
+              "sha256": "82dd79961c5540da8da508eb9be1be6124fa2604c0b4e18201233750f9b6d7b8",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 261,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/flowforge-configurator/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 51201,
+              "sha256": "5f73209d0c86bf8f818d1025c82e4d4d4d28fed8a579fac0057aeac959c653b8",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 261,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:61728/"
+        }
+      }
+    },
+    "gem-dungeon": {
+      "title": "Gem Dungeon",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:10:53.569Z",
+          "sourceUrl": "https://gem-dungeon-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/gem-dungeon/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 71411,
+              "sha256": "b961242971abf97b03b48aff4a261da6ae47b1da16bead815b5633d1e3e16414",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 654,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/gem-dungeon/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 70358,
+              "sha256": "19fa2ffc96d687edc5e4555264d2069f3387ee1785a44846cfa72b7372d70f4b",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 654,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/gem-dungeon/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 50364,
+              "sha256": "625d8f1bd42bf1d2bf1aaa059c6e00b45bc5d861eba83780ebc2d823919a1769",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 656,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/gem-dungeon/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 94948,
+              "sha256": "206002ca28c1020dd571a988ec80d8bfb57d660e0f8b94f5dfef626dd3f2042d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 653,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://gem-dungeon-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:11:40.202Z",
+          "sourceUrl": "http://127.0.0.1:59283/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/gem-dungeon/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 86042,
+              "sha256": "864e96313683691dbf39c34982b6378b9f47006321f2e42e92dab065613a9111",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 241,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/gem-dungeon/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 83122,
+              "sha256": "c0b182812cd640ed7094fa2f83896cef10bd04ecb730647ad5d63b40e426262d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 241,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/gem-dungeon/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 41011,
+              "sha256": "d0ddcd348ab02fb483395e5d5e578784a67f3be0b993c6c81ee6c4a6b0517686",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 241,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/gem-dungeon/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 70580,
+              "sha256": "8d0a244ebb81851530ef7a3127c092051d7232b87195dfefe87db0b95ca5e5cc",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 241,
+                "visibleSurfaceCount": 5
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "git": {
+            "head": "374362e430296e0bc788e02a58887fc01a9cc16b",
+            "branch": "ai/refine-gem-dungeon-cycle-02",
+            "dirty": true
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:59283/"
+        }
+      }
+    },
+    "gorilla-gainz": {
+      "title": "Gorilla Gainz",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:16:30.152Z",
+          "sourceUrl": "https://gorilla-gainz-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/gorilla-gainz/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 9308,
+              "sha256": "83178f606ded8588f9f692c541b0d1ca64a2eb1103c14bc96a19f75cb49393a8",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/css/main.5ccd8cbb.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/js/main.52e25e36.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/gorilla-gainz/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 8453,
+              "sha256": "f3c66df109afbff003065832c90568a4833bd9cf0b5b2375874ba1809989fa07",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to execute script from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/js/main.52e25e36.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+                "Refused to apply style from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/css/main.5ccd8cbb.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled."
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/gorilla-gainz/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 3147,
+              "sha256": "7f614823cf3af8cabcd3453967f4c1700546e1f25f4311b69b2fc319e6b4a3be",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/css/main.5ccd8cbb.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/js/main.52e25e36.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/gorilla-gainz/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 8453,
+              "sha256": "898f42e39ede4132b6046004ca19f36ac2012d189cc25333ff0cba5d0cacb3bb",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/css/main.5ccd8cbb.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://gorilla-gainz-git.pages.dev/react-fitness-ecommerce-demo/static/js/main.52e25e36.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://gorilla-gainz-git.pages.dev/",
+          "warnings": [
+            "card: the page rendered blank",
+            "desktop: the page rendered blank",
+            "mobile: the page rendered blank",
+            "full: the page rendered blank"
+          ]
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:17:54.869Z",
+          "sourceUrl": "http://127.0.0.1:56005/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "e57cb3202aa69133cf1473ef84e9b5f028c7e800",
+            "branch": "ai/refine-gorilla-gainz-cycle-02",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/gorilla-gainz/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 134574,
+              "sha256": "5bb00d47d2c0259609408adfd04f672c7a49ae54239e57deb760cafbc7349def",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 20,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/gorilla-gainz/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 122605,
+              "sha256": "8605a7531174de3456658b96b80a326b1f55048a5feca20504c213e4937bc0e5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 20,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/gorilla-gainz/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 28786,
+              "sha256": "bc6eb3e537a5311822ad05575c40849dbe430b14ee4e4b9ef16f8bf41dd2a150",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 20,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/gorilla-gainz/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 102334,
+              "sha256": "66d6f89ed5d49fa4473b32872df03460b09e7391e5f0da018c9281da74255b35",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 20,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:56005/"
+        }
+      }
+    },
+    "memory-card-quest": {
+      "title": "Memory Card Quest",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:18:02.459Z",
+          "sourceUrl": "https://memory-card-quest-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/memory-card-quest/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 9308,
+              "sha256": "83178f606ded8588f9f692c541b0d1ca64a2eb1103c14bc96a19f75cb49393a8",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/css/main.abefd2ed.chunk.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/2.ba7c7ca0.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/main.beb6bd19.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/memory-card-quest/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 8453,
+              "sha256": "f3c66df109afbff003065832c90568a4833bd9cf0b5b2375874ba1809989fa07",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/css/main.abefd2ed.chunk.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/2.ba7c7ca0.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/main.beb6bd19.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/memory-card-quest/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 3147,
+              "sha256": "7f614823cf3af8cabcd3453967f4c1700546e1f25f4311b69b2fc319e6b4a3be",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/css/main.abefd2ed.chunk.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/2.ba7c7ca0.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/main.beb6bd19.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/memory-card-quest/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 8453,
+              "sha256": "898f42e39ede4132b6046004ca19f36ac2012d189cc25333ff0cba5d0cacb3bb",
+              "pageHealth": {
+                "status": "blank",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Refused to apply style from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/css/main.abefd2ed.chunk.css' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/2.ba7c7ca0.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled.",
+                "Refused to execute script from 'https://memory-card-quest-git.pages.dev/react-redux-memory-card-game/static/js/main.beb6bd19.chunk.js' because its MIME type ('text/html') is not executable, and strict MIME type checking is enabled."
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://memory-card-quest-git.pages.dev/",
+          "warnings": [
+            "card: the page rendered blank",
+            "desktop: the page rendered blank",
+            "mobile: the page rendered blank",
+            "full: the page rendered blank"
+          ]
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:18:18.021Z",
+          "sourceUrl": "http://127.0.0.1:63203/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "19816c48cd6f6a9ef10fb07d8a5e8aefa7801a66",
+            "branch": "master",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/memory-card-quest/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 278096,
+              "sha256": "6066f4d36bee90c10b0493e3d03c2f611ee59fbe8f7dab5824cd37d39db649dd",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 85,
+                "visibleSurfaceCount": 24
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/memory-card-quest/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 256996,
+              "sha256": "2a21ed0b930293b492c2d85dbe4b31636e92f605d641ed3d3dd8db61939c31a4",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 85,
+                "visibleSurfaceCount": 24
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/memory-card-quest/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 154360,
+              "sha256": "72a57d9047baeebc2dfed0ee0eb265f099abf12b73446dbd7572d1339333f284",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 85,
+                "visibleSurfaceCount": 24
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/memory-card-quest/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 215394,
+              "sha256": "a7a53ca63ef67108dcc2654a87377186c5c795bd83fb9fb618dc346fff477b41",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 85,
+                "visibleSurfaceCount": 24
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:63203/"
+        }
+      }
+    },
+    "memory-dungeon": {
+      "title": "Memory Dungeon",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:08:17.421Z",
+          "sourceUrl": "https://memory-dungeon-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/memory-dungeon/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 156277,
+              "sha256": "aaef8854fbda4a04ee7795b7e6704a36c9e51f1800dc02b63909d02ee1d28f53",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 223,
+                "visibleSurfaceCount": 19
+              },
+              "consoleErrors": [
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'ws://[::1]:*'. It will be ignored.",
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'wss://[::1]:*'. It will be ignored."
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/memory-dungeon/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 146517,
+              "sha256": "847441b1ac0b93df5e85bcb1105d69ec59956d82704578d78c1ba2ba3975ae63",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 223,
+                "visibleSurfaceCount": 19
+              },
+              "consoleErrors": [
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'ws://[::1]:*'. It will be ignored.",
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'wss://[::1]:*'. It will be ignored."
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/memory-dungeon/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 50852,
+              "sha256": "7630f34356736b0efb543918f414188fc289a899c6f0ddf654687af779a41a22",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 223,
+                "visibleSurfaceCount": 19
+              },
+              "consoleErrors": [
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'ws://[::1]:*'. It will be ignored.",
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'wss://[::1]:*'. It will be ignored."
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/memory-dungeon/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 119891,
+              "sha256": "086ec51850f19754bce24f047f82fd56a4e4e81360b30449dfcd68bd9abbdc8b",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 223,
+                "visibleSurfaceCount": 19
+              },
+              "consoleErrors": [
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'ws://[::1]:*'. It will be ignored.",
+                "The source list for the Content Security Policy directive 'connect-src' contains an invalid source: 'wss://[::1]:*'. It will be ignored."
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://memory-dungeon-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:10:18.020Z",
+          "sourceUrl": "http://127.0.0.1:58837/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "0e9876551c8c78a9d92397d1afe292c550bbc99d",
+            "branch": "codex/milestone-meter-feedback",
+            "dirty": false
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/memory-dungeon/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 153615,
+              "sha256": "60cb193a945cbe7a37b722eafb5a523e86868e341a11fafa8972db7e5a7c8b66",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 21
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/memory-dungeon/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 143595,
+              "sha256": "640b4db2fb0c453c6d310e9e20351d42bd753f12e520b98d996dc495d26a3399",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 244,
+                "visibleSurfaceCount": 21
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/memory-dungeon/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 35643,
+              "sha256": "5cdd1400aeb8ac13d43a64ea7cae34d61cd9d8b32e3453f0f7146512e108747b",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 185,
+                "visibleSurfaceCount": 16
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/memory-dungeon/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 114558,
+              "sha256": "3bb9a3ac3aca7f6a74aed3e96d6e5b1527114a4511109d8d0c04a0ddee0900bd",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 223,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:58837/"
+        }
+      }
+    },
+    "org-atlas-directory": {
+      "title": "Org Atlas Directory",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:18:36.361Z",
+          "sourceUrl": "https://org-atlas-directory-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/org-atlas-directory/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 40006,
+              "sha256": "878c7f1990c12b95f38e2c2bbd6d3f3f510e923373280e8a6d0dcad97559e66d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/org-atlas-directory/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 39381,
+              "sha256": "99e72054e0aae93205c57814e53d17e2418d2563d24cbf0bca60221e1e8229f5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/org-atlas-directory/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 22658,
+              "sha256": "962f4219158a10367de67ab6c8c4ed06ed207e0f1444256282272bf78400869a",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/org-atlas-directory/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 29099,
+              "sha256": "b8e57547fee11a7812af1f84f2d6692c312a630ac637d850075527f69e17f7d5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://org-atlas-directory-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:19:00.856Z",
+          "sourceUrl": "http://127.0.0.1:51076/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "b1ae2e3223bf790266ee0a15e619386ea526358d",
+            "branch": "ai/refine-org-atlas-directory-cycle-02",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/org-atlas-directory/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 40006,
+              "sha256": "878c7f1990c12b95f38e2c2bbd6d3f3f510e923373280e8a6d0dcad97559e66d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/org-atlas-directory/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 39381,
+              "sha256": "99e72054e0aae93205c57814e53d17e2418d2563d24cbf0bca60221e1e8229f5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/org-atlas-directory/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 22658,
+              "sha256": "962f4219158a10367de67ab6c8c4ed06ed207e0f1444256282272bf78400869a",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/org-atlas-directory/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 29099,
+              "sha256": "b8e57547fee11a7812af1f84f2d6692c312a630ac637d850075527f69e17f7d5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 37,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": [
+                "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+              ]
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:51076/",
+          "warnings": []
+        }
+      }
+    },
+    "pedal-rush": {
+      "title": "Pedal Rush",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:15:44.083Z",
+          "sourceUrl": "https://pedal-rush-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/pedal-rush/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 131083,
+              "sha256": "bbc77ebcf95990ba63683e188fce9c940cbaace05f4a145becb85f6b43e3b5a5",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/pedal-rush/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 129169,
+              "sha256": "d415d7e9ea6be1ee3da679487fb257b2556c0cefe369d5345119d7402f0f2b88",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/pedal-rush/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 51120,
+              "sha256": "6db8d7d8ec70fe10948815da96ce2307cd37c9d2ad297adfc90eb6e209e76ec3",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/pedal-rush/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 109962,
+              "sha256": "f3c8cb5cadd17dc988b41971f88dcff9b9dc1173a0af442bce757db93549919f",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://pedal-rush-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:15:53.852Z",
+          "sourceUrl": "http://127.0.0.1:64911/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "92ac844486f39b9e938518cd5abf3d4764e5b26b",
+            "branch": "master",
+            "dirty": false
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/pedal-rush/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 131107,
+              "sha256": "61371237469b6ce92535df7373edbd865ae9bde22d722b89dcef83dd11b2ffdd",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/pedal-rush/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 129182,
+              "sha256": "64d54bc606a4b8ec935a0ad15bc1dd8634d97ac7ca8f10e336c160f7d90fc05c",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/pedal-rush/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 51063,
+              "sha256": "8759be86ca6a236c1419888127e60ea103621f04019b9cc5c71e351058b94f80",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/pedal-rush/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 109954,
+              "sha256": "aca12b09e0e3e3907adb21fd8c535c4c18af25e3fe56b24030f65902061edf32",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 116,
+                "visibleSurfaceCount": 18
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:64911/",
+          "warnings": []
+        }
+      }
+    },
+    "roam-rental-dashboard": {
+      "title": "Roam Rental Dashboard",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:13:13.073Z",
+          "sourceUrl": "https://roam-rental-dashboard-git.pages.dev/dashboard",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/roam-rental-dashboard/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 37201,
+              "sha256": "85da5181a0a7842a6d5780e5f19b701a8c0e5c2ed4f201550233ee0633fcbdbc",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/roam-rental-dashboard/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 34235,
+              "sha256": "eeeed36ca4936ff04c563fdb922f72dc7076ba87c80ad5bb4ac68a8491fcd49d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/roam-rental-dashboard/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 25936,
+              "sha256": "0ab92bac29548a3338dde12e5bd484b294c632bf1cd49a26c8e13bc22a621652",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/roam-rental-dashboard/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 30424,
+              "sha256": "07d68208b0710b9819c6c23e6a3a015e405d0c9198e394cc25ed20d32af3cd2d",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/dashboard",
+          "captureUrl": "https://roam-rental-dashboard-git.pages.dev/dashboard",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:13:49.999Z",
+          "sourceUrl": "http://127.0.0.1:4106/dashboard",
+          "sourceKind": "local-dev",
+          "buildMode": "dev-after-build-failure",
+          "git": {
+            "head": "d659583d1d41fde010569eaf37d5d68f15024efb",
+            "branch": "main",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/roam-rental-dashboard/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 30830,
+              "sha256": "801fa60cf5002ed0df2837d9ef1d500fa81b0efa11ff011ce4bffabe8525cf65",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/roam-rental-dashboard/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 28399,
+              "sha256": "d74236dea0f6a3b24dcfdb690feecccd2a96e805d8a735c712d211b021eb0101",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/roam-rental-dashboard/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 13028,
+              "sha256": "437eaa42051f3bf203ae7b4bf7fa25847cc336d29303cecb787aca3c90f1ae24",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/roam-rental-dashboard/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 25787,
+              "sha256": "2c931ee9d169c9de54149894128ba66ef99b52340dedfbbe8dafdaa15d50857b",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 74,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/dashboard",
+          "captureUrl": "http://127.0.0.1:4106/dashboard",
+          "fallbackReason": "npm run build exited 1"
+        }
+      }
+    },
+    "runner-score-arcade": {
+      "title": "Runner Score Arcade",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:14:01.151Z",
+          "sourceUrl": "https://runner-score-arcade-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/runner-score-arcade/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 160781,
+              "sha256": "2ce0e2623bd088563986a2b9c0054a12068414845d6c85d9024823e44329c4c0",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/runner-score-arcade/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 150284,
+              "sha256": "84f28123569f81ab9b7563083c46dd023a5b455c8508455b7ed1f1e903ef1e9e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/runner-score-arcade/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 66399,
+              "sha256": "40195aac1ca18fbef0fcb01a4420fe0512243c5af1481f449697d26f7323ca1c",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/runner-score-arcade/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 132558,
+              "sha256": "f9f48308778ab68c1fee4d17bdd07d32b3942aaa0d0bb37a135c93ed55e300be",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://runner-score-arcade-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:14:23.697Z",
+          "sourceUrl": "http://127.0.0.1:62413/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "5e27784be22c6424c7d55c780309867b9344ab6e",
+            "branch": "master",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/runner-score-arcade/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 159583,
+              "sha256": "17a0a727c5f692952a5ab2fb669b7e1d11c9aeace7d2f7793b096466fd1d71cc",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/runner-score-arcade/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 151295,
+              "sha256": "bf9b061f54948a494932a3fe46f4a21ec1edf2c6bf2b2c487b63901104393820",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/runner-score-arcade/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 65796,
+              "sha256": "38bf5e6b6f19d04d457e69723c9bac09d38342a9fe1d6a49225d8b536e272104",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/runner-score-arcade/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 133267,
+              "sha256": "5ce17904690cb0fcc7490cb25c5a17751d4eb3d10eafa4ded2aff1196ef96d10",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 0,
+                "visibleSurfaceCount": 1
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:62413/"
+        }
+      }
+    },
+    "saad-print-on-demand": {
+      "title": "SAAD Print-on-Demand",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:12:30.094Z",
+          "sourceUrl": "https://saad.printondemand.bg/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/saad-print-on-demand/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 130441,
+              "sha256": "25373a85969cb0991eae6bafa1c17abbc675f21b512fef8fb104f4c26e26fee9",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/saad-print-on-demand/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 123351,
+              "sha256": "334729ddc4f881b3255b1d4de834905b8f5c1ccc0cc18d48f52538bcaac92967",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/saad-print-on-demand/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 48134,
+              "sha256": "b06cf3be6ccd1c5a9944bacb70dc10e71b1180eecd224af65fb279859bdf578a",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2081,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/saad-print-on-demand/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 104616,
+              "sha256": "b67c4a68cd6a53e1e711e394090fa12c75735c869cc1ac9a4b0035795609d90f",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://saad.printondemand.bg/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:12:40.961Z",
+          "sourceUrl": "https://saad.printondemand.bg/",
+          "sourceKind": "managed-deployment",
+          "buildMode": "none",
+          "fallbackReason": "The project is managed remotely rather than from a local repository.",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/saad-print-on-demand/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 130441,
+              "sha256": "25373a85969cb0991eae6bafa1c17abbc675f21b512fef8fb104f4c26e26fee9",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/saad-print-on-demand/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 123351,
+              "sha256": "334729ddc4f881b3255b1d4de834905b8f5c1ccc0cc18d48f52538bcaac92967",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/saad-print-on-demand/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 48134,
+              "sha256": "b06cf3be6ccd1c5a9944bacb70dc10e71b1180eecd224af65fb279859bdf578a",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2081,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/saad-print-on-demand/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 104616,
+              "sha256": "b67c4a68cd6a53e1e711e394090fa12c75735c869cc1ac9a4b0035795609d90f",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 2103,
+                "visibleSurfaceCount": 36
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://saad.printondemand.bg/",
+          "warnings": []
+        }
+      }
+    },
+    "skyfall": {
+      "title": "Skyfall",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:11:53.881Z",
+          "sourceUrl": "https://skyfall-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/skyfall/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 70820,
+              "sha256": "cb3a7d603db74a2ceffb4e447d4daa573653594d5c8bad991bbdcc1b770abab6",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/skyfall/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 69250,
+              "sha256": "3387ef5764437e98d37713463ef30c42827a2cfda88b4f00a1912d5d9207cff8",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/skyfall/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 16078,
+              "sha256": "27bd83a89ba258e5dac5c1c86bc27ced2f3d094c311427156424a209ec224698",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/skyfall/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 60283,
+              "sha256": "5eaa62b0a44ff053e1979ad9c9ed35c4f49dc06f874c2d65527ec1347deb6dc4",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://skyfall-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:12:19.141Z",
+          "sourceUrl": "http://127.0.0.1:58053/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "3296eee737cee9fbf5b973979217631e89771221",
+            "branch": "ai/refine-skyfall-cycle-02",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/skyfall/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 73012,
+              "sha256": "219d7d0209ca2053c969f4920056c32f278c1d0ba2aed9b037a4176da060338b",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/skyfall/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 71467,
+              "sha256": "141c53e65ff62906b01a71b31ef5883e9fb8b426b423f3bc81fcb5321f117f59",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/skyfall/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 16787,
+              "sha256": "3496cc2c59b905e26513ad7c891135e575fa9c106b49ed25f1eb4f9ae5a109d9",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 1,
+                "visibleSurfaceCount": 3
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/skyfall/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 62142,
+              "sha256": "a18a63fee3233a345a5890d2e7961b8152097d44ed6f387f4173fd59a3258fb0",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 64,
+                "visibleSurfaceCount": 2
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:58053/",
+          "warnings": []
+        }
+      }
+    },
+    "threejs-gem-dungeon-editor": {
+      "title": "ThreeJS Gem Dungeon Editor",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:19:15.344Z",
+          "sourceUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 37506,
+              "sha256": "a80d58ab43b3500c002db149cbb6ab0cf8dfdb484a2c594b2ae65a3b7faa1492",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 36692,
+              "sha256": "b7a92bacf704ec6c42c417678629eef3eaebd1ad2d18ce56004f90d32cf1a745",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 27737,
+              "sha256": "dbf429c4f370c1f8f2361be77fb8647b988a226b2d822c49cdbbb5fd343633c6",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 32050,
+              "sha256": "f08e87167658fd257d4a2f72a376126a23b4e994856843947c2df4b8b3aa09db",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:19:45.434Z",
+          "sourceUrl": "http://127.0.0.1:55250/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "81b5a45f5e91595249c4b8c27260a695b931d5cf",
+            "branch": "main",
+            "dirty": true
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 37506,
+              "sha256": "a80d58ab43b3500c002db149cbb6ab0cf8dfdb484a2c594b2ae65a3b7faa1492",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 36692,
+              "sha256": "b7a92bacf704ec6c42c417678629eef3eaebd1ad2d18ce56004f90d32cf1a745",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 27737,
+              "sha256": "dbf429c4f370c1f8f2361be77fb8647b988a226b2d822c49cdbbb5fd343633c6",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/threejs-gem-dungeon-editor/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 32050,
+              "sha256": "f08e87167658fd257d4a2f72a376126a23b4e994856843947c2df4b8b3aa09db",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 53,
+                "visibleSurfaceCount": 0
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:55250/",
+          "warnings": []
+        }
+      }
+    },
+    "user-hub-admin": {
+      "title": "User Hub Admin",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:15:05.254Z",
+          "sourceUrl": "https://user-hub-admin-git.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/user-hub-admin/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 88493,
+              "sha256": "d5fd619ccccbb3181d28db5e9d9d3c3e3e303f52bee34d27826fc7491af8560e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/user-hub-admin/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 82568,
+              "sha256": "2157f1cc4792ed7efca56e8a586e882c3c43e95d1fb9890978e0f24f6e7de3c3",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/user-hub-admin/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 36646,
+              "sha256": "82865442de1bf628b6a55aea05a623ecec2bb2b579c6ac6477b56a83c12be3ea",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/user-hub-admin/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 70878,
+              "sha256": "a1dd0c8820363c606ac94dfa76a21b03c413349a80491ff50d6f388484123863",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "https://user-hub-admin-git.pages.dev/",
+          "warnings": []
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:15:35.776Z",
+          "sourceUrl": "http://127.0.0.1:58087/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "70e1604d1fe3e5b81d1b574fc98625ffc4a68799",
+            "branch": "master",
+            "dirty": false
+          },
+          "images": {
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/user-hub-admin/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 88493,
+              "sha256": "d5fd619ccccbb3181d28db5e9d9d3c3e3e303f52bee34d27826fc7491af8560e",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/user-hub-admin/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 82568,
+              "sha256": "2157f1cc4792ed7efca56e8a586e882c3c43e95d1fb9890978e0f24f6e7de3c3",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/user-hub-admin/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 36646,
+              "sha256": "82865442de1bf628b6a55aea05a623ecec2bb2b579c6ac6477b56a83c12be3ea",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/user-hub-admin/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 70878,
+              "sha256": "a1dd0c8820363c606ac94dfa76a21b03c413349a80491ff50d6f388484123863",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 293,
+                "visibleSurfaceCount": 8
+              },
+              "consoleErrors": []
+            }
+          },
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:58087/",
+          "warnings": []
+        }
+      }
+    },
+    "vyb-chess": {
+      "title": "VYB Chess",
+      "states": {
+        "stable": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:03:27.245Z",
+          "sourceUrl": "https://vyb-chess.pages.dev/",
+          "sourceKind": "deployment",
+          "buildMode": "none",
+          "images": {
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/vyb-chess/stable/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 105021,
+              "sha256": "637805c1882eb1893feb75108fae6abee0d6d8bbe2c279e6969bc5afc5adb642",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/vyb-chess/stable/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 55622,
+              "sha256": "25603de1f6ba03893bcfddf920c9a2c5edf4c3ab62879b7f05e4e5adf3c3ed61",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/vyb-chess/stable/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 87423,
+              "sha256": "aa4fb0e4173176fb61a9c9b20ecb65d79ceede331664a74fae1662869f6f92a0",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/vyb-chess/stable/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 107765,
+              "sha256": "fafcd5d3f2b23f138bd0a89754c68b7aefc443d7e72b448d4d192658fb9810b9",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "https://vyb-chess.pages.dev/"
+        },
+        "latest": {
+          "status": "captured",
+          "capturedAt": "2026-08-27T12:03:51.082Z",
+          "sourceUrl": "http://127.0.0.1:58283/",
+          "sourceKind": "local-build",
+          "buildMode": "rebuilt",
+          "git": {
+            "head": "3dff3990380c07fd8016cea724571e38166c15dd",
+            "branch": "main",
+            "dirty": true
+          },
+          "images": {
+            "desktop": {
+              "label": "Desktop viewport",
+              "path": "public/project-shots/vyb-chess/latest/desktop.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 95537,
+              "sha256": "93441292be2d31852cf0cf777ed49e6a8ccb4d60171c72456a58bb57a3854f86",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "mobile": {
+              "label": "Mobile viewport",
+              "path": "public/project-shots/vyb-chess/latest/mobile.jpg",
+              "width": 430,
+              "height": 932,
+              "bytes": 51157,
+              "sha256": "b0fb9901c1c2e75abf1b58bd9af02dfb997730cf7215bbf0366b87fac5935029",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "full": {
+              "label": "Full page",
+              "path": "public/project-shots/vyb-chess/latest/full.jpg",
+              "width": 1440,
+              "height": 900,
+              "bytes": 80144,
+              "sha256": "c4eab6989aa5b97746a9b9ac3878de929999600111ab928b5217326792f57170",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            },
+            "card": {
+              "label": "Portfolio card",
+              "path": "public/project-shots/vyb-chess/latest/card.jpg",
+              "width": 1600,
+              "height": 900,
+              "bytes": 97762,
+              "sha256": "3325818840f6b36245edaaa4acc91af8eb3e8a85996ff5853b1a7d2b97929f78",
+              "pageHealth": {
+                "status": "rendered",
+                "bodyTextLength": 364,
+                "visibleSurfaceCount": 6
+              },
+              "consoleErrors": []
+            }
+          },
+          "warnings": [],
+          "captureRoute": "/",
+          "captureUrl": "http://127.0.0.1:58283/"
+        }
+      }
+    }
+  }
+}
