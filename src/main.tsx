@@ -886,7 +886,7 @@ function CvPrintPage() {
           <a href="tel:+359897023731">+359 89 702 3731</a>
           <a href="mailto:borisbostandzhiev@yahoo.com">borisbostandzhiev@yahoo.com</a>
           <a href="https://www.linkedin.com/in/boris-b-22566b171/">linkedin.com/in/boris-b-22566b171</a>
-          <a href="https://portfolio-7d0.pages.dev">portfolio-7d0.pages.dev</a>
+          <a href="https://boris-portfolio-git.pages.dev">boris-portfolio-git.pages.dev</a>
           <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
         </div>
       </section>
