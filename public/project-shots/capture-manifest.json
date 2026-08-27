@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "generatedAt": "2026-08-27T12:19:45.435Z",
+  "schemaVersion": 3,
+  "generatedAt": "2026-08-27T13:06:27.700Z",
   "profiles": {
     "card": {
       "label": "Portfolio card",
@@ -41,7 +41,7 @@
       "states": {
         "stable": {
           "status": "captured",
-          "capturedAt": "2026-08-27T12:04:05.616Z",
+          "capturedAt": "2026-08-27T13:06:12.343Z",
           "sourceUrl": "https://bbeats-git.pages.dev/",
           "sourceKind": "deployment",
           "buildMode": "none",
@@ -51,12 +51,12 @@
               "path": "public/project-shots/bbeats/stable/card.jpg",
               "width": 1600,
               "height": 900,
-              "bytes": 44938,
-              "sha256": "75e57462cbdf2e18bfeadbe7561af60800d9011f7cdb30a3ddf6b88ecfe81578",
+              "bytes": 113070,
+              "sha256": "88eddf854e15a2feefd3428b799b9d572cadd45d691ce94c989335fb14537ecf",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 1001,
+                "visibleSurfaceCount": 171
               },
               "consoleErrors": []
             },
@@ -65,12 +65,12 @@
               "path": "public/project-shots/bbeats/stable/desktop.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 43784,
-              "sha256": "82c3727aa3e8637e5004ee8d7dadca8322346c63d2fd9b35ef141f642bce5209",
+              "bytes": 107237,
+              "sha256": "192b9b2b1d7d17676a379861d568c05ad4df11f34bd66766e6f049ed879ebc83",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 957,
+                "visibleSurfaceCount": 154
               },
               "consoleErrors": []
             },
@@ -79,12 +79,12 @@
               "path": "public/project-shots/bbeats/stable/mobile.jpg",
               "width": 430,
               "height": 932,
-              "bytes": 23647,
-              "sha256": "defd6ae0badae7b172ee16ed35ac3ad0e93c596474aa15d27211ad29e5ac49c0",
+              "bytes": 40471,
+              "sha256": "5d3bdcde83a34d3a33a939935eb51357900206506248873040a8b3fc69d09b9f",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 323,
+                "visibleSurfaceCount": 54
               },
               "consoleErrors": []
             },
@@ -93,28 +93,33 @@
               "path": "public/project-shots/bbeats/stable/full.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 37319,
-              "sha256": "32bcc046d9524a78426ca2549c21a397abe3bbb1f529f437af19b201a2091d2e",
+              "bytes": 94477,
+              "sha256": "49b02ffaf495b4bb632770260b498d9aff3ac60de92ea7a6a96ef48d925d22aa",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 957,
+                "visibleSurfaceCount": 154
               },
               "consoleErrors": []
             }
           },
-          "captureRoute": "/",
-          "captureUrl": "https://bbeats-git.pages.dev/",
-          "warnings": []
+          "captureRoute": "/#/editor",
+          "captureUrl": "https://bbeats-git.pages.dev/#/editor",
+          "warnings": [],
+          "captureActions": [
+            "create the starter editor pattern",
+            "wait for the channel rack editor"
+          ],
+          "browserIsolation": "shared"
         },
         "latest": {
           "status": "captured",
-          "capturedAt": "2026-08-27T12:07:46.039Z",
-          "sourceUrl": "http://127.0.0.1:52143/",
+          "capturedAt": "2026-08-27T13:06:27.699Z",
+          "sourceUrl": "http://127.0.0.1:57162/",
           "sourceKind": "local-build",
-          "buildMode": "rebuilt",
+          "buildMode": "existing",
           "git": {
-            "head": "0f34e0c67800c553583bfc4711313c7b01e1c729",
+            "head": "44aef5173c7ac4ac0b9967b2086d0a946e6144b1",
             "branch": "main",
             "dirty": true
           },
@@ -124,12 +129,12 @@
               "path": "public/project-shots/bbeats/latest/card.jpg",
               "width": 1600,
               "height": 900,
-              "bytes": 44938,
-              "sha256": "75e57462cbdf2e18bfeadbe7561af60800d9011f7cdb30a3ddf6b88ecfe81578",
+              "bytes": 113070,
+              "sha256": "88eddf854e15a2feefd3428b799b9d572cadd45d691ce94c989335fb14537ecf",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 1001,
+                "visibleSurfaceCount": 171
               },
               "consoleErrors": []
             },
@@ -138,12 +143,12 @@
               "path": "public/project-shots/bbeats/latest/desktop.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 43784,
-              "sha256": "82c3727aa3e8637e5004ee8d7dadca8322346c63d2fd9b35ef141f642bce5209",
+              "bytes": 107237,
+              "sha256": "192b9b2b1d7d17676a379861d568c05ad4df11f34bd66766e6f049ed879ebc83",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 957,
+                "visibleSurfaceCount": 154
               },
               "consoleErrors": []
             },
@@ -152,12 +157,12 @@
               "path": "public/project-shots/bbeats/latest/mobile.jpg",
               "width": 430,
               "height": 932,
-              "bytes": 23647,
-              "sha256": "defd6ae0badae7b172ee16ed35ac3ad0e93c596474aa15d27211ad29e5ac49c0",
+              "bytes": 40471,
+              "sha256": "5d3bdcde83a34d3a33a939935eb51357900206506248873040a8b3fc69d09b9f",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 323,
+                "visibleSurfaceCount": 54
               },
               "consoleErrors": []
             },
@@ -166,19 +171,24 @@
               "path": "public/project-shots/bbeats/latest/full.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 37319,
-              "sha256": "32bcc046d9524a78426ca2549c21a397abe3bbb1f529f437af19b201a2091d2e",
+              "bytes": 94477,
+              "sha256": "49b02ffaf495b4bb632770260b498d9aff3ac60de92ea7a6a96ef48d925d22aa",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 166,
-                "visibleSurfaceCount": 8
+                "bodyTextLength": 957,
+                "visibleSurfaceCount": 154
               },
               "consoleErrors": []
             }
           },
           "warnings": [],
-          "captureRoute": "/",
-          "captureUrl": "http://127.0.0.1:52143/"
+          "captureRoute": "/#/editor",
+          "captureUrl": "http://127.0.0.1:57162/#/editor",
+          "captureActions": [
+            "create the starter editor pattern",
+            "wait for the channel rack editor"
+          ],
+          "browserIsolation": "shared"
         }
       }
     },
@@ -2168,7 +2178,7 @@
       "states": {
         "stable": {
           "status": "captured",
-          "capturedAt": "2026-08-27T12:19:15.344Z",
+          "capturedAt": "2026-08-27T13:04:15.265Z",
           "sourceUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
           "sourceKind": "deployment",
           "buildMode": "none",
@@ -2178,12 +2188,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/stable/card.jpg",
               "width": 1600,
               "height": 900,
-              "bytes": 37506,
-              "sha256": "a80d58ab43b3500c002db149cbb6ab0cf8dfdb484a2c594b2ae65a3b7faa1492",
+              "bytes": 92799,
+              "sha256": "9b75424be9c61d9995ed46581237c699319f80d2efc7c7d65d10720fc0d97e9f",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2192,12 +2202,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/stable/desktop.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 36692,
-              "sha256": "b7a92bacf704ec6c42c417678629eef3eaebd1ad2d18ce56004f90d32cf1a745",
+              "bytes": 90917,
+              "sha256": "c67ef582728f79e7b195a25a3275d8a8acba3dfe06583715b36e97624457dfcf",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2206,12 +2216,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/stable/mobile.jpg",
               "width": 430,
               "height": 932,
-              "bytes": 27737,
-              "sha256": "dbf429c4f370c1f8f2361be77fb8647b988a226b2d822c49cdbbb5fd343633c6",
+              "bytes": 51247,
+              "sha256": "e8022f4fed6d62a559275c3310a5b3d4fffab7a1b109306ad6a94deb07381459",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2220,24 +2230,29 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/stable/full.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 32050,
-              "sha256": "f08e87167658fd257d4a2f72a376126a23b4e994856843947c2df4b8b3aa09db",
+              "bytes": 78709,
+              "sha256": "dd6f70b5dafd8d7f3afa74f20405622b9ab27865efe103392d31bd32d68d03fe",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             }
           },
-          "captureRoute": "/",
-          "captureUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
-          "warnings": []
+          "captureRoute": "/?editor=true&category=rooms&subcategory=all&componentType=all-breakable&componentProps=%7B%22size%22%3A10%7D",
+          "captureUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/?editor=true&category=rooms&subcategory=all&componentType=all-breakable&componentProps=%7B%22size%22%3A10%7D",
+          "warnings": [],
+          "captureActions": [
+            "hide the player-state overlay",
+            "wait for the loaded 3D scene"
+          ],
+          "browserIsolation": "profile"
         },
         "latest": {
           "status": "captured",
-          "capturedAt": "2026-08-27T12:19:45.434Z",
-          "sourceUrl": "http://127.0.0.1:55250/",
+          "capturedAt": "2026-08-27T13:05:00.736Z",
+          "sourceUrl": "http://127.0.0.1:54871/",
           "sourceKind": "local-build",
           "buildMode": "rebuilt",
           "git": {
@@ -2251,12 +2266,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/latest/card.jpg",
               "width": 1600,
               "height": 900,
-              "bytes": 37506,
-              "sha256": "a80d58ab43b3500c002db149cbb6ab0cf8dfdb484a2c594b2ae65a3b7faa1492",
+              "bytes": 92735,
+              "sha256": "3ebf7dc7a071010ecd142d15b52ffb9e554ec3884f7039bceef19eb2f54ef69d",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2265,12 +2280,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/latest/desktop.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 36692,
-              "sha256": "b7a92bacf704ec6c42c417678629eef3eaebd1ad2d18ce56004f90d32cf1a745",
+              "bytes": 90986,
+              "sha256": "51415fcb302f7ef710036e04d6a72777088b89bf53df1a500a4e05c6aca1b377",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2279,12 +2294,12 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/latest/mobile.jpg",
               "width": 430,
               "height": 932,
-              "bytes": 27737,
-              "sha256": "dbf429c4f370c1f8f2361be77fb8647b988a226b2d822c49cdbbb5fd343633c6",
+              "bytes": 51257,
+              "sha256": "35b85ff52c2e518e764e4f19b1468c7b99783984b463f9134ec27880cbabe01f",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             },
@@ -2293,19 +2308,24 @@
               "path": "public/project-shots/threejs-gem-dungeon-editor/latest/full.jpg",
               "width": 1440,
               "height": 900,
-              "bytes": 32050,
-              "sha256": "f08e87167658fd257d4a2f72a376126a23b4e994856843947c2df4b8b3aa09db",
+              "bytes": 78675,
+              "sha256": "5b3f7b23c8278b8fd3446d62ca9b706add7d73766b034193c3ad7866ff98f597",
               "pageHealth": {
                 "status": "rendered",
-                "bodyTextLength": 53,
-                "visibleSurfaceCount": 0
+                "bodyTextLength": 352,
+                "visibleSurfaceCount": 21
               },
               "consoleErrors": []
             }
           },
-          "captureRoute": "/",
-          "captureUrl": "http://127.0.0.1:55250/",
-          "warnings": []
+          "captureRoute": "/?editor=true&category=rooms&subcategory=all&componentType=all-breakable&componentProps=%7B%22size%22%3A10%7D",
+          "captureUrl": "http://127.0.0.1:54871/?editor=true&category=rooms&subcategory=all&componentType=all-breakable&componentProps=%7B%22size%22%3A10%7D",
+          "warnings": [],
+          "captureActions": [
+            "hide the player-state overlay",
+            "wait for the loaded 3D scene"
+          ],
+          "browserIsolation": "profile"
         }
       }
     },

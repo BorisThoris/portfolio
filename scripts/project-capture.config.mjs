@@ -37,7 +37,8 @@ export const defaultCaptureOptions = {
   waitAfterReadyMs: 1200,
   navigationTimeoutMs: 30000,
   readyTimeoutMs: 15000,
-  colorScheme: 'dark'
+  colorScheme: 'dark',
+  browserIsolation: 'shared'
 };
 
 // Every portfolio project must have one explicit capture target. Routes are
@@ -51,8 +52,22 @@ export const projectCaptureTargets = {
     waitAfterReadyMs: 1800
   },
   bbeats: {
-    route: '/',
-    waitAfterReadyMs: 2400
+    route: '/#/editor',
+    actions: [
+      {
+        type: 'click',
+        target: { role: 'button', name: 'Create starter pattern' },
+        label: 'create the starter editor pattern'
+      },
+      {
+        type: 'waitFor',
+        target: { role: 'heading', name: 'Channel rack' },
+        state: 'visible',
+        label: 'wait for the channel rack editor'
+      }
+    ],
+    hideSelectors: ['[role="region"][aria-label="Notifications"]'],
+    waitAfterReadyMs: 1600
   },
   'memory-dungeon': {
     route: '/',
@@ -100,8 +115,22 @@ export const projectCaptureTargets = {
     route: '/'
   },
   'threejs-gem-dungeon-editor': {
-    route: '/',
-    waitAfterReadyMs: 2800
+    route: '/?editor=true&category=rooms&subcategory=all&componentType=all-breakable&componentProps=%7B%22size%22%3A10%7D',
+    actions: [
+      {
+        type: 'uncheck',
+        target: { role: 'checkbox', name: 'Show Player State' },
+        label: 'hide the player-state overlay'
+      },
+      {
+        type: 'waitFor',
+        target: { css: 'canvas' },
+        state: 'visible',
+        label: 'wait for the loaded 3D scene'
+      }
+    ],
+    browserIsolation: 'profile',
+    waitAfterReadyMs: 2500
   }
 };
 
@@ -127,14 +156,40 @@ export function validateCaptureTargets(projects) {
       .filter((key) => target[key] !== undefined && !isRoute(target[key]))
       .map((key) => `${slug}.${key}`)
   );
+  const invalidActions = Object.entries(projectCaptureTargets).flatMap(([slug, target]) =>
+    (target.actions || []).flatMap((action, index) =>
+      isCaptureAction(action) ? [] : [`${slug}.actions[${index}]`]
+    )
+  );
+  const invalidIsolation = Object.entries(projectCaptureTargets)
+    .filter(([, target]) => target.browserIsolation && !['shared', 'profile'].includes(target.browserIsolation))
+    .map(([slug]) => slug);
 
   const failures = [];
   if (missing.length > 0) failures.push(`missing targets: ${missing.join(', ')}`);
   if (stale.length > 0) failures.push(`unknown target slugs: ${stale.join(', ')}`);
   if (invalidRoutes.length > 0) failures.push(`routes must start with /: ${invalidRoutes.join(', ')}`);
+  if (invalidActions.length > 0) failures.push(`invalid actions: ${invalidActions.join(', ')}`);
+  if (invalidIsolation.length > 0) failures.push(`invalid browser isolation: ${invalidIsolation.join(', ')}`);
   if (failures.length > 0) throw new Error(`Invalid project capture configuration (${failures.join('; ')})`);
 }
 
 function isRoute(value) {
   return typeof value === 'string' && value.startsWith('/') && !value.startsWith('//');
+}
+
+function isCaptureAction(action) {
+  if (!action || typeof action !== 'object') return false;
+  if (action.type === 'wait') return Number.isFinite(action.durationMs) && action.durationMs >= 0;
+  const supported = new Set(['click', 'dblclick', 'check', 'uncheck', 'fill', 'press', 'hover', 'waitFor']);
+  if (!supported.has(action.type) || !isLocatorTarget(action.target)) return false;
+  if (action.type === 'fill' && typeof action.value !== 'string') return false;
+  if (action.type === 'press' && typeof action.key !== 'string') return false;
+  return true;
+}
+
+function isLocatorTarget(target) {
+  if (!target || typeof target !== 'object') return false;
+  const methods = ['css', 'role', 'text', 'label', 'placeholder', 'testId'];
+  return methods.filter((method) => typeof target[method] === 'string' && target[method]).length === 1;
 }

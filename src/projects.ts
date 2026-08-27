@@ -26,6 +26,7 @@ export type RepoAnalysis = {
   slug: string;
   repoName: string;
   showcaseTier: 'showcase' | 'more' | 'excluded';
+  showcaseOrder?: number;
   priorityScore: number;
   demoabilityScore: number;
   depthScore: number;
@@ -72,5 +73,8 @@ export function getProject(slug: string | undefined): Project {
 }
 
 function byPriority(left: Project, right: Project) {
+  const leftOrder = left.showcaseOrder ?? Number.POSITIVE_INFINITY;
+  const rightOrder = right.showcaseOrder ?? Number.POSITIVE_INFINITY;
+  if (leftOrder !== rightOrder) return leftOrder - rightOrder;
   return right.priorityScore - left.priorityScore || left.title.localeCompare(right.title);
 }

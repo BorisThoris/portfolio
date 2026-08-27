@@ -28,7 +28,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const portfolioRoot = path.resolve(scriptDir, '..');
 const outputRoot = path.join(portfolioRoot, 'public', 'project-shots');
 const manifestPath = path.join(outputRoot, 'capture-manifest.json');
-const manifestSchemaVersion = 2;
+const manifestSchemaVersion = 3;
 const arguments_ = parseArguments(process.argv.slice(2));
 const projects = readProjects();
 
@@ -132,7 +132,9 @@ async function captureState(browserInstance, project, state, source, profileName
     const profile = captureProfiles[profileName];
     const outputPath = path.join(stateDirectory, `${profileName}.jpg`);
     const consoleErrors = new Set();
-    const context = await browserInstance.newContext({
+    const ownsBrowser = options.browserIsolation === 'profile';
+    const profileBrowser = ownsBrowser ? await chromium.launch({ headless: true }) : browserInstance;
+    const context = await profileBrowser.newContext({
       viewport: { width: profile.width, height: profile.height },
       deviceScaleFactor: 1,
       colorScheme: options.colorScheme,
@@ -171,6 +173,7 @@ async function captureState(browserInstance, project, state, source, profileName
         timeout: options.readyTimeoutMs
       });
       await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
+      await runCaptureActions(page, options.actions, options.readyTimeoutMs);
       await page.waitForTimeout(options.waitAfterReadyMs);
       await page.addStyleTag({
         content: `
@@ -250,6 +253,7 @@ async function captureState(browserInstance, project, state, source, profileName
       console.error(`[fail] ${project.slug}/${state}/${profileName}: ${message}`);
     } finally {
       await context.close();
+      if (ownsBrowser) await profileBrowser.close();
     }
   }
 
@@ -259,6 +263,8 @@ async function captureState(browserInstance, project, state, source, profileName
     sourceUrl: source.url,
     captureRoute: options.route,
     captureUrl,
+    captureActions: describeCaptureActions(options.actions),
+    browserIsolation: options.browserIsolation,
     sourceKind: source.kind,
     buildMode: source.buildMode,
     fallbackReason: source.fallbackReason,
@@ -416,6 +422,13 @@ async function checkCaptures(selectedProjects, options) {
       }
       if (!stateEntry.captureUrl || !captureUrlUsesRoute(stateEntry.captureUrl, captureOptions.route)) {
         failures.push(`${project.slug}/${state}: capture URL does not match ${captureOptions.route}`);
+      }
+      const expectedActions = describeCaptureActions(captureOptions.actions);
+      if (JSON.stringify(stateEntry.captureActions || []) !== JSON.stringify(expectedActions)) {
+        failures.push(`${project.slug}/${state}: capture setup actions differ from the configured flow`);
+      }
+      if ((stateEntry.browserIsolation || 'shared') !== captureOptions.browserIsolation) {
+        failures.push(`${project.slug}/${state}: browser isolation differs from the configured flow`);
       }
 
       for (const profileName of options.profiles) {
@@ -668,7 +681,10 @@ function printCaptureTargets(selectedProjects) {
     const routes = stable.route === latest.route
       ? stable.route
       : `stable=${stable.route}, latest=${latest.route}`;
-    console.log(`${project.slug.padEnd(30)} ${routes}`);
+    const actions = describeCaptureActions(latest.actions);
+    const actionLabel = actions.length > 0 ? ` | ${actions.join(' -> ')}` : '';
+    const isolationLabel = latest.browserIsolation === 'profile' ? ' | fresh browser/profile' : '';
+    console.log(`${project.slug.padEnd(30)} ${routes}${actionLabel}${isolationLabel}`);
   }
   console.log(`\n${selectedProjects.length} project-specific capture target(s).`);
 }
@@ -702,6 +718,51 @@ branch, and dirty state in public/project-shots/capture-manifest.json.`);
 function resolveCaptureUrl(sourceUrl, route) {
   const source = new URL(sourceUrl);
   return new URL(route, `${source.protocol}//${source.host}/`).href;
+}
+
+async function runCaptureActions(page, actions = [], defaultTimeoutMs) {
+  for (const [index, action] of actions.entries()) {
+    const label = action.label || `${action.type} action ${index + 1}`;
+    try {
+      if (action.type === 'wait') {
+        await page.waitForTimeout(action.durationMs);
+        continue;
+      }
+
+      const locator = captureLocator(page, action.target).first();
+      const timeout = action.timeoutMs || defaultTimeoutMs;
+      if (action.type === 'click') await locator.click({ timeout });
+      else if (action.type === 'dblclick') await locator.dblclick({ timeout });
+      else if (action.type === 'check') await locator.check({ timeout });
+      else if (action.type === 'uncheck') await locator.uncheck({ timeout });
+      else if (action.type === 'fill') await locator.fill(action.value, { timeout });
+      else if (action.type === 'press') await locator.press(action.key, { timeout });
+      else if (action.type === 'hover') await locator.hover({ timeout });
+      else if (action.type === 'waitFor') {
+        await locator.waitFor({ state: action.state || 'visible', timeout });
+      } else {
+        throw new Error(`unsupported action type ${action.type}`);
+      }
+
+      if (action.waitAfterMs) await page.waitForTimeout(action.waitAfterMs);
+    } catch (error) {
+      throw new Error(`${label} failed: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+}
+
+function captureLocator(page, target) {
+  if (target.css) return page.locator(target.css);
+  if (target.role) return page.getByRole(target.role, { name: target.name, exact: target.exact });
+  if (target.text) return page.getByText(target.text, { exact: target.exact });
+  if (target.label) return page.getByLabel(target.label, { exact: target.exact });
+  if (target.placeholder) return page.getByPlaceholder(target.placeholder, { exact: target.exact });
+  if (target.testId) return page.getByTestId(target.testId);
+  throw new Error('capture action has no supported locator target');
+}
+
+function describeCaptureActions(actions = []) {
+  return actions.map((action, index) => action.label || `${index + 1}. ${action.type}`);
 }
 
 function captureUrlUsesRoute(captureUrl, route) {

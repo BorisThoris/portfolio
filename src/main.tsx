@@ -743,12 +743,12 @@ const cvExperience = [
 
 const cvProjects = [
   {
-    title: 'VYB Chess',
-    label: 'Experimental interactive chess book / Early Access',
-    image: '/project-shots/vyb-chess/latest/card.jpg',
-    accent: '#f6d68f',
-    text: 'Premium web-first Bulgarian interactive book preserving a complete seven-part manuscript across 35 reading units, with low-friction decision laboratories, exact return and resume, canonical content validation, accessible input paths, PWA support, Electron packaging, and Steam-oriented release tooling.',
-    tags: ['React 19', 'TypeScript', 'Electron', 'Playwright', 'Vitest', 'Chess.js']
+    title: 'BBeats',
+    label: 'Browser DAW & beat-making editor',
+    image: '/project-shots/bbeats/latest/card.jpg',
+    accent: '#ff8fd2',
+    text: 'Large DAW-style editor with timeline, piano roll, step sequencer, mixer panels, command palette, automation, sample drag/drop, clip editing, bounce/render workflows, arrangement regions, Web Audio, plugin workflows, Electron support, and critical-flow testing.',
+    tags: ['React', 'TypeScript', 'Web Audio', 'Tone.js', 'PixiJS', 'Electron']
   },
   {
     title: 'Memory Dungeon',
@@ -759,12 +759,12 @@ const cvProjects = [
     tags: ['Electron', 'React 19', 'TypeScript', 'Three.js', 'PixiJS', 'steamworks.js']
   },
   {
-    title: 'BBeats',
-    label: 'Browser DAW & beat-making editor',
-    image: '/project-shots/bbeats/latest/card.jpg',
-    accent: '#ff8fd2',
-    text: 'Large DAW-style editor with timeline, piano roll, step sequencer, mixer panels, command palette, automation, sample drag/drop, clip editing, bounce/render workflows, arrangement regions, Web Audio, plugin workflows, Electron support, and critical-flow testing.',
-    tags: ['React', 'TypeScript', 'Web Audio', 'Tone.js', 'PixiJS', 'Electron']
+    title: 'VYB Chess',
+    label: 'Experimental interactive chess book / Early Access',
+    image: '/project-shots/vyb-chess/latest/card.jpg',
+    accent: '#f6d68f',
+    text: 'Premium web-first Bulgarian interactive book preserving a complete seven-part manuscript across 35 reading units, with low-friction decision laboratories, exact return and resume, canonical content validation, accessible input paths, PWA support, Electron packaging, and Steam-oriented release tooling.',
+    tags: ['React 19', 'TypeScript', 'Electron', 'Playwright', 'Vitest', 'Chess.js']
   },
   {
     title: 'ThreeJS Gem Dungeon Editor',

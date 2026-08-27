@@ -76,7 +76,7 @@ npm run preview -- --host 127.0.0.1 --port 4110
 
 ## Capture Project Screenshots
 
-The portfolio owns the screenshot pipeline. `scripts/project-capture.config.mjs` is the required registry: every project slug has its own route, readiness selector, and optional timing overrides. Adding a project without a capture target makes the command fail instead of silently skipping it.
+The portfolio owns the screenshot pipeline. `scripts/project-capture.config.mjs` is the required registry: every project slug has its own route, readiness selector, optional timing overrides, and declarative setup actions for non-default demo states. For example, BBeats opens its editor and creates a starter pattern, while the ThreeJS editor loads its breakable-room component, hides the player overlay, waits for the rendered canvas, and uses a fresh browser per profile to avoid WebGL-context exhaustion. Adding a project without a capture target—or adding an invalid action—makes the command fail instead of silently skipping it.
 
 One command walks that registry and refreshes every project in both states (`images:refresh` remains an alias):
 
@@ -122,7 +122,7 @@ npm run images:latest -- --project skyfall --reuse-live
 npm run images:check
 ```
 
-`public/project-shots/capture-manifest.json` records the project-specific capture route and resolved URL, source URL, capture time, exact dimensions, file size, SHA-256, console errors, and—for local latest captures—the branch, Git SHA, and dirty state. `npm run images:check` validates the route contract as well as the files. The command exits non-zero on incomplete states; use `--allow-partial` only for an intentional best-effort refresh. Run `npm run capture -- --help` for the complete CLI contract.
+`public/project-shots/capture-manifest.json` records the project-specific capture route, setup actions, resolved URL, source URL, capture time, exact dimensions, file size, SHA-256, console errors, and—for local latest captures—the branch, Git SHA, and dirty state. `npm run images:check` validates the route/action contract as well as the files. The command exits non-zero on incomplete states; use `--allow-partial` only for an intentional best-effort refresh. Run `npm run capture -- --help` for the complete CLI contract.
 
 ## Cloudflare Pages
 
