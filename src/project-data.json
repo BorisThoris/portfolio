@@ -4,14 +4,20 @@
     "title": "VYB Chess",
     "subtitle": "Experimental interactive chess book",
     "description": "A premium web-first Bulgarian interactive book that preserves the full seven-part manuscript while turning selected examples into low-friction decision laboratories, exact-return reading flows, and reflective chess learning.",
-    "repoPath": "C:\\Users\\Gaming PC\\VYB-Chess",
+    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\VYB-Chess",
     "localUrl": "http://127.0.0.1:4117/",
     "deploymentUrl": "https://vyb-chess.pages.dev/",
     "buildCommand": "npm run build:web",
     "buildOutput": "build/web",
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4117",
     "screenshot": "/project-shots/vyb-chess/latest/card.jpg",
-    "tags": ["React", "TypeScript", "Electron", "Playwright", "Interactive Book"],
+    "tags": [
+      "React",
+      "TypeScript",
+      "Electron",
+      "Playwright",
+      "Interactive Book"
+    ],
     "accent": "#f6d68f"
   },
   {
@@ -26,7 +32,12 @@
     "buildOutput": "build",
     "runCommand": "yarn dev --host 127.0.0.1 --port 4101",
     "screenshot": "/project-shots/bbeats/main.png",
-    "tags": ["React", "Web Audio", "PixiJS", "Vite"],
+    "tags": [
+      "React",
+      "Web Audio",
+      "PixiJS",
+      "Vite"
+    ],
     "accent": "#2dd4bf"
   },
   {
@@ -41,7 +52,12 @@
     "buildOutput": "dist",
     "runCommand": "yarn dev:renderer --host 127.0.0.1 --port 4102",
     "screenshot": "/project-shots/memory-dungeon/main.png",
-    "tags": ["React", "Three.js", "Electron", "TypeScript"],
+    "tags": [
+      "React",
+      "Three.js",
+      "Electron",
+      "TypeScript"
+    ],
     "accent": "#f59e0b"
   },
   {
@@ -56,7 +72,12 @@
     "buildOutput": "dist",
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4103",
     "screenshot": "/project-shots/gem-dungeon/main.png",
-    "tags": ["React Three Fiber", "Drei", "Rapier", "Zustand"],
+    "tags": [
+      "React Three Fiber",
+      "Drei",
+      "Rapier",
+      "Zustand"
+    ],
     "accent": "#38bdf8"
   },
   {
@@ -71,7 +92,12 @@
     "buildOutput": "dist",
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4104",
     "screenshot": "/project-shots/skyfall/main.png",
-    "tags": ["Phaser", "Vite", "Electron", "Game Systems"],
+    "tags": [
+      "Phaser",
+      "Vite",
+      "Electron",
+      "Game Systems"
+    ],
     "accent": "#ef4444"
   },
   {
@@ -86,7 +112,12 @@
     "buildOutput": "PrintOnDemand hosted storefront",
     "runCommand": "Open https://saad.printondemand.bg/",
     "screenshot": "/company-project-shots/saad/main.png",
-    "tags": ["E-commerce", "Print-on-demand", "Storefront", "Revenue"],
+    "tags": [
+      "E-commerce",
+      "Print-on-demand",
+      "Storefront",
+      "Revenue"
+    ],
     "accent": "#f43f5e"
   },
   {
@@ -101,7 +132,12 @@
     "buildOutput": "apps/example-web/dist",
     "runCommand": "npm run dev --workspace=example-web -- --host 127.0.0.1 --port 4105",
     "screenshot": "/project-shots/cross-repo-libs/main.png",
-    "tags": ["Workspaces", "TypeScript", "React", "Vite"],
+    "tags": [
+      "Workspaces",
+      "TypeScript",
+      "React",
+      "Vite"
+    ],
     "accent": "#a78bfa"
   },
   {
@@ -119,7 +155,12 @@
     "fallbackCwd": "roam-rental-dashboard-app",
     "runCommand": "cd roam-rental-dashboard-app && npm run dev -- -p 4106",
     "screenshot": "/project-shots/roam-rental-dashboard/main.png",
-    "tags": ["Next.js", "TypeScript", "Styled Components", "Jest"],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Styled Components",
+      "Jest"
+    ],
     "accent": "#22c55e"
   },
   {
@@ -133,10 +174,17 @@
     "buildCommand": "npm run build",
     "buildOutput": "dist",
     "fallbackCommand": "npm start",
-    "fallbackEnv": { "PORT": "4107" },
+    "fallbackEnv": {
+      "PORT": "4107"
+    },
     "runCommand": "npm start",
     "screenshot": "/project-shots/runner-score-arcade/main.png",
-    "tags": ["Phaser", "Express", "Webpack", "Archive"],
+    "tags": [
+      "Phaser",
+      "Express",
+      "Webpack",
+      "Archive"
+    ],
     "accent": "#f97316"
   },
   {
@@ -151,7 +199,11 @@
     "buildOutput": "dist",
     "runCommand": "npm start -- --host 127.0.0.1 --port 4108",
     "screenshot": "/project-shots/cat-world/main.png",
-    "tags": ["Angular", "Archive", "Mock Backend"],
+    "tags": [
+      "Angular",
+      "Archive",
+      "Mock Backend"
+    ],
     "accent": "#e11d48"
   },
   {
@@ -165,8 +217,12 @@
     "buildCommand": "npm run build",
     "buildOutput": "dist",
     "runCommand": "npm start -- --host 127.0.0.1 --port 4109",
-    "screenshot": "/project-shots/user-hub-admin/main.png",
-    "tags": ["Angular", "Admin UI", "LocalStorage"],
+    "screenshot": "/project-shots/user-hub-admin/latest/card.jpg",
+    "tags": [
+      "Angular",
+      "Admin UI",
+      "LocalStorage"
+    ],
     "accent": "#06b6d4"
   },
   {
@@ -180,8 +236,12 @@
     "buildCommand": "npm run build",
     "buildOutput": "build",
     "runCommand": "npm start",
-    "screenshot": "/project-shots/pedal-rush/main.png",
-    "tags": ["React", "Hooks", "Archive"],
+    "screenshot": "/project-shots/pedal-rush/latest/card.jpg",
+    "tags": [
+      "React",
+      "Hooks",
+      "Archive"
+    ],
     "accent": "#84cc16"
   },
   {
@@ -195,8 +255,12 @@
     "buildCommand": "npm run build",
     "buildOutput": "build",
     "runCommand": "npm start",
-    "screenshot": "/project-shots/flowforge-configurator/main.png",
-    "tags": ["React", "Redux", "Mock Data"],
+    "screenshot": "/project-shots/flowforge-configurator/latest/card.jpg",
+    "tags": [
+      "React",
+      "Redux",
+      "Mock Data"
+    ],
     "accent": "#14b8a6"
   },
   {
@@ -212,7 +276,11 @@
     "serveBasePath": "/react-fitness-ecommerce-demo",
     "runCommand": "npm start",
     "screenshot": "/project-shots/gorilla-gainz/main.png",
-    "tags": ["React", "Ecommerce", "Archive"],
+    "tags": [
+      "React",
+      "Ecommerce",
+      "Archive"
+    ],
     "accent": "#facc15"
   },
   {
@@ -227,8 +295,12 @@
     "buildOutput": "build",
     "serveBasePath": "/react-redux-memory-card-game",
     "runCommand": "npm start",
-    "screenshot": "/project-shots/memory-card-quest/main.png",
-    "tags": ["React", "Redux", "Game"],
+    "screenshot": "/project-shots/memory-card-quest/latest/card.jpg",
+    "tags": [
+      "React",
+      "Redux",
+      "Game"
+    ],
     "accent": "#c084fc"
   },
   {
@@ -242,8 +314,12 @@
     "buildCommand": "npm run build",
     "buildOutput": "build",
     "runCommand": "npm run demo",
-    "screenshot": "/project-shots/org-atlas-directory/main.png",
-    "tags": ["React", "Redux", "Directory"],
+    "screenshot": "/project-shots/org-atlas-directory/latest/card.jpg",
+    "tags": [
+      "React",
+      "Redux",
+      "Directory"
+    ],
     "accent": "#60a5fa"
   },
   {
@@ -258,7 +334,11 @@
     "buildOutput": "dist",
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4116",
     "screenshot": "/project-shots/threejs-gem-dungeon-editor/main.png",
-    "tags": ["Three.js", "React", "Editor"],
+    "tags": [
+      "Three.js",
+      "React",
+      "Editor"
+    ],
     "accent": "#fb7185"
   }
 ]

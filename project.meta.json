@@ -1,0 +1,144 @@
+{
+  "$schema": "./scripts/project.meta.schema.json",
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-03T20:40:23.292Z",
+  "generatedBy": "scripts/generate-project-meta.mjs",
+  "identity": {
+    "slug": "portfolio",
+    "repoName": "portfolio",
+    "packageName": "portfolio",
+    "version": "0.1.0",
+    "title": "Portfolio",
+    "subtitle": "Local showcase site and demo runner",
+    "description": "The React + Vite portfolio site that indexes every project here: it runs each demo locally on its own port, captures card/desktop/mobile/full screenshots through Playwright, and renders the scored project catalogue from generated metadata.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Playwright",
+      "Tooling"
+    ],
+    "accent": "#7aa2f7",
+    "classification": "web-site",
+    "showcaseTier": "excluded",
+    "excludedReason": "This is the shell that presents the work, not a portfolio project card."
+  },
+  "links": {
+    "localUrl": "http://127.0.0.1:4100/",
+    "repository": "https://github.com/BorisThoris/portfolio"
+  },
+  "runtime": {
+    "packageManager": "npm",
+    "buildCommand": "npm run build",
+    "buildOutput": "dist",
+    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4100",
+    "scripts": [
+      "dev",
+      "build",
+      "preview",
+      "capture",
+      "images:walk",
+      "images:refresh",
+      "images:stable",
+      "images:latest",
+      "images:check",
+      "images:routes",
+      "repos:analyze",
+      "projects:build",
+      "projects:status",
+      "projects:dev",
+      "dev:builds",
+      "dev:live",
+      "meta",
+      "meta:check",
+      "meta:install",
+      "meta:all",
+      "meta:check:all",
+      "meta:sync",
+      "meta:sync:write",
+      "meta:validate"
+    ]
+  },
+  "media": {
+    "source": "portfolio-capture-missing",
+    "directory": "C:/Users/Gaming PC/Desktop/Repos/portfolio/public/project-shots/portfolio/latest"
+  },
+  "stack": {
+    "framework": "React",
+    "language": "TypeScript",
+    "runtimeTargets": [
+      "web"
+    ],
+    "libraries": [
+      {
+        "name": "react",
+        "version": "^19.1.1"
+      },
+      {
+        "name": "react-dom",
+        "version": "^19.1.1"
+      },
+      {
+        "name": "react-router-dom",
+        "version": "^7.8.0"
+      },
+      {
+        "name": "vite",
+        "version": "^7.1.7"
+      },
+      {
+        "name": "typescript",
+        "version": "~5.8.3"
+      }
+    ],
+    "testing": [
+      "@playwright/test"
+    ],
+    "dependencyCount": 9,
+    "devDependencyCount": 5
+  },
+  "metrics": {
+    "sourceFiles": 22,
+    "testFiles": 0,
+    "sourceLines": 9305,
+    "largestDirectories": [
+      {
+        "directory": "scripts",
+        "files": 16
+      },
+      {
+        "directory": "src",
+        "files": 4
+      },
+      {
+        "directory": ".",
+        "files": 2
+      }
+    ],
+    "hasReadme": true,
+    "hasTests": false,
+    "hasCi": false,
+    "hasDocs": false
+  },
+  "scores": {
+    "priorityScore": 0,
+    "demoabilityScore": 0,
+    "depthScore": 0,
+    "polishScore": 0,
+    "uniquenessScore": 0,
+    "maintenanceScore": 0
+  },
+  "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
+  "git": {
+    "branch": "master",
+    "head": "9c9684c",
+    "lastCommitDate": "2026-08-27T16:10:34+03:00",
+    "lastCommitSubject": "Capture meaningful project states and restore showcase order",
+    "commitCount": 57,
+    "remote": "https://github.com/BorisThoris/portfolio.git"
+  },
+  "readme": {
+    "file": "README.md",
+    "heading": "Portfolio"
+  }
+}
