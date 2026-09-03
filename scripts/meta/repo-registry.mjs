@@ -44,7 +44,19 @@ export const repoRegistry = [
   { slug: 'gem-dungeon', dir: repo('gem-dungeon-game-prototype'), classification: 'web-app' },
   { slug: 'skyfall', dir: repo('skyfall'), classification: 'web-app' },
   { slug: 'cross-repo-libs', dir: repo('cross-repo-libs'), classification: 'web-library', appDir: 'apps/example-web' },
-  { slug: 'roam-rental-dashboard', dir: repo('roam-rental-dashboard'), classification: 'web-app', appDir: 'roam-rental-dashboard-app' },
+  {
+    slug: 'roam-rental-dashboard',
+    dir: repo('roam-rental-dashboard'),
+    classification: 'web-app',
+    appDir: 'roam-rental-dashboard-app',
+    // Next renders the head from code, so the preview tags live in a component.
+    social: {
+      renderedFrom: 'roam-rental-dashboard-app/src/components/SocialPreviewHead.tsx',
+      staticDir: 'roam-rental-dashboard-app/public',
+      imageName: 'og-image.jpg',
+      imageUrlPath: '/og-image.jpg'
+    }
+  },
   { slug: 'runner-score-arcade', dir: repo('runner-score-arcade'), classification: 'web-app' },
   { slug: 'cat-world', dir: repo('angular-cat-adoption-app'), classification: 'web-app' },
   { slug: 'user-hub-admin', dir: repo('Demo-Using-Clarity'), classification: 'web-app' },

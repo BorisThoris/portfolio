@@ -47,6 +47,8 @@ const analysisBySlug = new Map(repoAnalysis.map((entry) => [entry.slug, entry]))
 
 const generatorSource = fs.readFileSync(path.join(templateDir, 'generate-project-meta.mjs'), 'utf8');
 const schemaSource = fs.readFileSync(path.join(templateDir, 'project.meta.schema.json'), 'utf8');
+const captureSource = fs.readFileSync(path.join(templateDir, 'capture-project-shots.mjs'), 'utf8');
+const socialSource = fs.readFileSync(path.join(templateDir, 'generate-social-preview.mjs'), 'utf8');
 
 const summary = [];
 
@@ -74,6 +76,8 @@ for (const entry of repoRegistry) {
 
   actions.push(writeIfChanged(path.join(scriptsDir, 'generate-project-meta.mjs'), generatorSource, 'generator'));
   actions.push(writeIfChanged(path.join(scriptsDir, 'project.meta.schema.json'), schemaSource, 'schema'));
+  actions.push(writeIfChanged(path.join(scriptsDir, 'capture-project-shots.mjs'), captureSource, 'capture script'));
+  actions.push(writeIfChanged(path.join(scriptsDir, 'generate-social-preview.mjs'), socialSource, 'social script'));
 
   const packageAction = ensurePackageScripts(entry.dir);
   if (packageAction) actions.push(packageAction);
@@ -172,6 +176,13 @@ function buildConfigFile(entry) {
     lines.push('    ' + quote(analysisNotes) + ',');
     lines.push('');
   }
+  const social = entry.social ?? detectSocial(entry.dir);
+  if (social) {
+    lines.push('  // Where the link-preview card lives: the page head that carries the Open');
+    lines.push('  // Graph tags, and the static directory the image is published from.');
+    lines.push('  social: ' + indentBlock(JSON.stringify(social, null, 2), '  ') + ',');
+    lines.push('');
+  }
   lines.push('  media: {');
   lines.push("    sourceDir: path.join(portfolioRoot, " + shots.split('/').map(quote).join(', ') + '),');
   lines.push('    publicPathPrefix: ' + quote('/project-shots/' + entry.slug + '/latest') + ',');
@@ -180,6 +191,33 @@ function buildConfigFile(entry) {
   lines.push('};');
   lines.push('');
   return lines.join('\n');
+}
+
+// Every project keeps its page head and its static files somewhere different, so
+// find them rather than assume. A registry entry can override with `social`.
+function detectSocial(repoDir) {
+  const candidates = ['index.html', 'app/index.html', 'src/index.html', 'public/index.html', 'apps/example-web/index.html'];
+  const htmlFile = candidates.find((relative) => fs.existsSync(path.join(repoDir, relative)));
+  if (!htmlFile) return null;
+
+  const directory = path.dirname(htmlFile);
+  const isAngularSource = htmlFile === 'src/index.html' && fs.existsSync(path.join(repoDir, 'angular.json'));
+  if (isAngularSource) {
+    return { htmlFile, staticDir: 'src/assets', imageName: 'og-image.jpg', imageUrlPath: '/assets/og-image.jpg' };
+  }
+
+  // A bundler serves the page's sibling `public/` directory, so the image goes
+  // there even when the directory does not exist yet - next to index.html it
+  // would never reach the build output.
+  const nestedPublic = path.join(directory === '.' ? '' : directory, 'public');
+  const staticDir = htmlFile.endsWith('public/index.html') ? directory : nestedPublic;
+
+  return {
+    htmlFile,
+    staticDir: staticDir.split(path.sep).join('/'),
+    imageName: 'og-image.jpg',
+    imageUrlPath: '/og-image.jpg'
+  };
 }
 
 function ensurePackageScripts(repoDir) {
@@ -192,7 +230,10 @@ function ensurePackageScripts(repoDir) {
   const scripts = packageJson.scripts ?? {};
   const wanted = {
     meta: 'node scripts/generate-project-meta.mjs',
-    'meta:check': 'node scripts/generate-project-meta.mjs --check'
+    'meta:check': 'node scripts/generate-project-meta.mjs --check',
+    shots: 'node scripts/capture-project-shots.mjs',
+    social: 'node scripts/generate-social-preview.mjs',
+    'social:check': 'node scripts/generate-social-preview.mjs --check'
   };
   const missing = Object.entries(wanted).filter(([key, value]) => scripts[key] !== value);
   if (missing.length === 0) return '';

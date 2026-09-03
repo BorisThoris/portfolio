@@ -140,7 +140,9 @@ function projectRecordFrom({ entry, meta }) {
     fallbackCwd: runtime.fallbackCwd,
     fallbackEnv: runtime.fallbackEnv,
     runCommand: runtime.runCommand,
-    screenshot: meta.media?.primary,
+    // Only a site-absolute path belongs here. Once a repo keeps its own copies
+    // in project-media/, its primary is repo-relative and would break the card.
+    screenshot: meta.media?.primary?.startsWith('/') ? meta.media.primary : undefined,
     tags: identity.tags,
     accent: identity.accent
   });

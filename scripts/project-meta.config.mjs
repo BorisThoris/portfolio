@@ -48,6 +48,15 @@ export default {
   analysisNotes:
     "Excluded from visible project sections to keep the catalog focused on external demos.",
 
+  // Where the link-preview card lives: the page head that carries the Open
+  // Graph tags, and the static directory the image is published from.
+  social: {
+    "htmlFile": "index.html",
+    "staticDir": "public",
+    "imageName": "og-image.jpg",
+    "imageUrlPath": "/og-image.jpg"
+  },
+
   media: {
     sourceDir: path.join(portfolioRoot, "public", "project-shots", "portfolio", "latest"),
     publicPathPrefix: "/project-shots/portfolio/latest",

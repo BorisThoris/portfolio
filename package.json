@@ -27,7 +27,13 @@
     "meta:check:all": "node scripts/meta/regen-all-meta.mjs --check",
     "meta:sync": "node scripts/meta/sync-project-meta.mjs",
     "meta:sync:write": "node scripts/meta/sync-project-meta.mjs --write",
-    "meta:validate": "node scripts/meta/validate-project-meta.mjs"
+    "meta:validate": "node scripts/meta/validate-project-meta.mjs",
+    "shots": "node scripts/capture-project-shots.mjs",
+    "social": "node scripts/generate-social-preview.mjs",
+    "social:check": "node scripts/generate-social-preview.mjs --check",
+    "meta:shots": "node scripts/meta/capture-all-shots.mjs",
+    "meta:social": "node scripts/meta/apply-social-previews.mjs",
+    "meta:social:check": "node scripts/meta/apply-social-previews.mjs --check"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.3",

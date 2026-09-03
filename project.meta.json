@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/project.meta.schema.json",
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T20:45:33.420Z",
+  "generatedAt": "2026-09-03T21:50:31.998Z",
   "generatedBy": "scripts/generate-project-meta.mjs",
   "identity": {
     "slug": "portfolio",
@@ -56,7 +56,13 @@
       "meta:check:all",
       "meta:sync",
       "meta:sync:write",
-      "meta:validate"
+      "meta:validate",
+      "shots",
+      "social",
+      "social:check",
+      "meta:shots",
+      "meta:social",
+      "meta:social:check"
     ]
   },
   "media": {
@@ -98,13 +104,13 @@
     "devDependencyCount": 5
   },
   "metrics": {
-    "sourceFiles": 22,
+    "sourceFiles": 28,
     "testFiles": 0,
-    "sourceLines": 9323,
+    "sourceLines": 10361,
     "largestDirectories": [
       {
         "directory": "scripts",
-        "files": 16
+        "files": 22
       },
       {
         "directory": "src",
@@ -131,10 +137,10 @@
   "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
   "git": {
     "branch": "master",
-    "head": "d942d78",
-    "lastCommitDate": "2026-09-03T23:40:53+03:00",
-    "lastCommitSubject": "Give every web repo its own metadata and its own regenerator",
-    "commitCount": 58,
+    "head": "5fa61de",
+    "lastCommitDate": "2026-09-03T23:46:26+03:00",
+    "lastCommitSubject": "Keep package.json formatting, add a schema validator",
+    "commitCount": 59,
     "remote": "https://github.com/BorisThoris/portfolio.git"
   },
   "readme": {
