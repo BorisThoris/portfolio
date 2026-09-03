@@ -36,8 +36,10 @@ test file counts, source lines, largest directories, CI/docs/README presence, gi
 branch, head, last commit and commit count, and the screenshot set with real
 pixel dimensions and byte sizes.
 
-Reruns are stable: if only the timestamp would change, the file is left with its
-previous `generatedAt`, so `--check` is meaningful in CI.
+Reruns are stable: if only the timestamp or the git snapshot would change, the
+file keeps its previous `generatedAt`, so `--check` stays meaningful in CI. The
+`git` block is a snapshot of the last regeneration - new commits (including the
+one that records the metadata itself) never make a file stale.
 
 ## Screenshots
 

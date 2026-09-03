@@ -184,6 +184,8 @@ function buildConfigFile(entry) {
 
 function ensurePackageScripts(repoDir) {
   const packagePath = path.join(repoDir, 'package.json');
+  if (!fs.existsSync(packagePath)) return 'no package.json';
+  const original = fs.readFileSync(packagePath, 'utf8');
   const packageJson = readJson(packagePath);
   if (!packageJson) return 'no package.json';
 
@@ -197,8 +199,18 @@ function ensurePackageScripts(repoDir) {
 
   for (const [key, value] of missing) scripts[key] = value;
   packageJson.scripts = scripts;
-  if (!dryRun) fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2) + '\n');
+  // Rewrite in the file's own style, so adding two scripts never shows up as a
+  // whole-file reformat in someone's diff.
+  if (!dryRun) fs.writeFileSync(packagePath, renderPackageJson(packageJson, original));
   return 'package scripts added';
+}
+
+function renderPackageJson(packageJson, original) {
+  const indentMatch = /\n([ \t]+)"/.exec(original);
+  const indent = indentMatch ? indentMatch[1] : '  ';
+  const trailingNewline = /\n$/.test(original) ? '\n' : '';
+  const rendered = JSON.stringify(packageJson, null, indent) + trailingNewline;
+  return original.includes('\r\n') ? rendered.replace(/\n/g, '\r\n') : rendered;
 }
 
 function writeIfChanged(targetPath, contents, label) {
