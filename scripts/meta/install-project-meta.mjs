@@ -12,6 +12,9 @@
 //   scripts/project.meta.schema.json  the schema (kept in sync)
 //   package.json scripts: meta, meta:check, shots, social, social:check,
 //                         icons, icons:check, meta:refresh
+//   .githooks/pre-push                the push gate (card + icons must be current),
+//                                     wired with git config core.hooksPath .githooks
+//   .github/workflows/project-meta.yml the same check in CI (deployed repos only)
 //
 // Repos that format their scripts (a prettier binary in node_modules) get the
 // installed copies run through it, so a reinstall never fights the formatter.
@@ -60,6 +63,9 @@ const captureSource = fs.readFileSync(path.join(templateDir, 'capture-project-sh
 const socialSource = fs.readFileSync(path.join(templateDir, 'generate-social-preview.mjs'), 'utf8');
 const iconsSource = fs.readFileSync(path.join(templateDir, 'generate-app-icons.mjs'), 'utf8');
 const refreshSource = fs.readFileSync(path.join(templateDir, 'refresh-project-meta.mjs'), 'utf8');
+const hookSource = fs.readFileSync(path.join(templateDir, 'pre-push'), 'utf8');
+const workflowSource = fs.readFileSync(path.join(templateDir, 'project-meta.yml'), 'utf8');
+const unmanagedClassifications = new Set(['duplicate', 'archived', 'template', 'hosted-only']);
 
 const installedFiles = {
   'generate-project-meta.mjs': { contents: generatorSource, label: 'generator' },
@@ -101,6 +107,12 @@ for (const entry of repoRegistry) {
 
   const packageAction = ensurePackageScripts(entry.dir);
   if (packageAction) actions.push(packageAction);
+
+  // Only a deployed project has a card to gate; the repo's own config says so.
+  const deployed = await isDeployed(configPath, entry);
+  if (!unmanagedClassifications.has(entry.classification) && deployed) {
+    actions.push(installPushGate(entry.dir));
+  }
 
   summary.push({ slug: entry.slug, status: actions.filter(Boolean).join(', '), detail: path.basename(entry.dir) });
 }
@@ -273,6 +285,45 @@ function ensurePackageScripts(repoDir) {
   // whole-file reformat in someone's diff.
   if (!dryRun) fs.writeFileSync(packagePath, renderPackageJson(packageJson, original));
   return 'package scripts added';
+}
+
+// The gate lives in a committed .githooks/ directory (git's own hooks dir is
+// not versioned) and is switched on per clone with core.hooksPath. The same
+// check runs in CI so a --no-verify push or another machine still gets a red X.
+function installPushGate(repoDir) {
+  const actions = [];
+  const hookPath = path.join(repoDir, '.githooks', 'pre-push');
+  if (!dryRun) fs.mkdirSync(path.dirname(hookPath), { recursive: true });
+  const hookAction = writeIfChanged(hookPath, hookSource.replace(/\r\n/g, '\n'), 'pre-push hook');
+  if (hookAction) actions.push(hookAction);
+  if (!dryRun) {
+    // Stage the hook with its executable bit so the commit carries it; Windows
+    // has no mode bit to read from the file itself.
+    spawnSync('git', ['update-index', '--add', '--chmod=+x', '.githooks/pre-push'], { cwd: repoDir, stdio: 'ignore' });
+    const current = spawnSync('git', ['config', '--get', 'core.hooksPath'], { cwd: repoDir, encoding: 'utf8' });
+    if (current.status !== 0 || current.stdout.trim() === '') {
+      spawnSync('git', ['config', 'core.hooksPath', '.githooks'], { cwd: repoDir, stdio: 'ignore' });
+      actions.push('hooksPath set');
+    } else if (current.stdout.trim() !== '.githooks') {
+      actions.push('hooksPath already ' + current.stdout.trim() + ' (hook not wired)');
+    }
+  }
+  const workflowPath = path.join(repoDir, '.github', 'workflows', 'project-meta.yml');
+  if (!dryRun) fs.mkdirSync(path.dirname(workflowPath), { recursive: true });
+  const workflowAction = writeIfChanged(workflowPath, workflowSource, 'CI workflow');
+  if (workflowAction) actions.push(workflowAction);
+  return actions.join(', ');
+}
+
+async function isDeployed(configPath, entry) {
+  if (entry.curated && entry.curated.deploymentUrl) return true;
+  if (!fs.existsSync(configPath)) return false;
+  try {
+    const module_ = await import(pathToFileURL(configPath).href + '?t=' + Date.now());
+    return Boolean(module_.default && module_.default.curated && module_.default.curated.deploymentUrl);
+  } catch {
+    return false;
+  }
 }
 
 function renderPackageJson(packageJson, original) {

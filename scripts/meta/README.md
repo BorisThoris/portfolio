@@ -126,6 +126,25 @@ already ships its own PWA icon set (BBeats, VYB Chess) sets `mode: 'check'`, and
 the script only verifies that the favicon, Apple icon and manifest links in its
 head resolve to real files.
 
+## Push gate and CI
+
+Every deployed repo gets a committed `.githooks/pre-push` (wired per clone by
+the installer with `git config core.hooksPath .githooks`) and a
+`.github/workflows/project-meta.yml`. Both run
+
+```bash
+node scripts/refresh-project-meta.mjs --check --no-shots --warn-meta
+```
+
+so a push is refused while the Open Graph tags, the published `og-image.jpg`
+or the icon set disagree with the config and `favicon.svg`. A stale
+`project.meta.json` only warns: its source counts move with every commit, so it
+is refreshed on release rather than on every push. Screenshots are never taken
+automatically; the built deployment does not exist yet and the build image has
+no browser. Bypass once with `git push --no-verify` or `SKIP_META_CHECK=1`; CI
+still reports the drift. A fresh clone needs one
+`git config core.hooksPath .githooks` (or a reinstall from here) to arm the hook.
+
 ## Releases
 
 `npm run meta:refresh` sequences the four steps for a release: photograph the
