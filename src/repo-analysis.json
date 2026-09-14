@@ -52,7 +52,7 @@
   },
   {
     "slug": "gem-dungeon",
-    "repoName": "gem-dungeon-epic-1",
+    "repoName": "gem-dungeon",
     "showcaseTier": "more",
     "priorityScore": 76,
     "demoabilityScore": 90,
@@ -115,7 +115,7 @@
   },
   {
     "slug": "org-atlas-directory",
-    "repoName": "tick42_demo",
+    "repoName": "org-atlas-directory",
     "showcaseTier": "more",
     "priorityScore": 70,
     "demoabilityScore": 74,
@@ -140,7 +140,7 @@
   },
   {
     "slug": "user-hub-admin",
-    "repoName": "Demo-Using-Clarity",
+    "repoName": "user-hub-admin",
     "showcaseTier": "more",
     "priorityScore": 66,
     "demoabilityScore": 72,
@@ -152,7 +152,7 @@
   },
   {
     "slug": "cat-world",
-    "repoName": "angular-cat-adoption-app",
+    "repoName": "cat-world",
     "showcaseTier": "showcase",
     "showcaseOrder": 8,
     "priorityScore": 84,
@@ -165,7 +165,7 @@
   },
   {
     "slug": "flowforge-configurator",
-    "repoName": "quick-base-task",
+    "repoName": "flowforge-configurator",
     "showcaseTier": "more",
     "priorityScore": 61,
     "demoabilityScore": 64,
@@ -177,7 +177,7 @@
   },
   {
     "slug": "gorilla-gainz",
-    "repoName": "react-fitness-ecommerce-demo",
+    "repoName": "gorilla-gainz",
     "showcaseTier": "showcase",
     "showcaseOrder": 9,
     "priorityScore": 82,
@@ -190,7 +190,7 @@
   },
   {
     "slug": "memory-card-quest",
-    "repoName": "react-redux-memory-card-game",
+    "repoName": "memory-card-quest",
     "showcaseTier": "more",
     "priorityScore": 55,
     "demoabilityScore": 68,
@@ -202,7 +202,7 @@
   },
   {
     "slug": "pedal-rush",
-    "repoName": "my-hooks-demo",
+    "repoName": "pedal-rush",
     "showcaseTier": "more",
     "priorityScore": 52,
     "demoabilityScore": 66,
