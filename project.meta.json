@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/project.meta.schema.json",
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T20:27:14.924Z",
+  "generatedAt": "2026-09-14T20:52:48.852Z",
   "generatedBy": "scripts/generate-project-meta.mjs",
   "identity": {
     "slug": "portfolio",
@@ -111,7 +111,7 @@
   "metrics": {
     "sourceFiles": 33,
     "testFiles": 0,
-    "sourceLines": 11402,
+    "sourceLines": 11448,
     "largestDirectories": [
       {
         "directory": "scripts",
@@ -142,10 +142,10 @@
   "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
   "git": {
     "branch": "master",
-    "head": "2ee14f8",
-    "lastCommitDate": "2026-09-04T00:53:59+03:00",
-    "lastCommitSubject": "Give each project its own camera and its own link-preview card",
-    "commitCount": 60,
+    "head": "b6ec12f",
+    "lastCommitDate": "2026-09-14T23:34:52+03:00",
+    "lastCommitSubject": "Sync the portfolio cards with the repos that actually deploy",
+    "commitCount": 62,
     "remote": "https://github.com/BorisThoris/portfolio.git"
   },
   "readme": {
