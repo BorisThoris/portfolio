@@ -15,6 +15,8 @@
 //   .githooks/pre-push                the push gate (card + icons must be current),
 //                                     wired with git config core.hooksPath .githooks
 //   .github/workflows/project-meta.yml the same check in CI (deployed repos only)
+//   .github/workflows/project-meta-refresh.yml after each deploy of the production
+//                                     branch: shots, card, icons, meta, commit back
 //
 // Repos that format their scripts (a prettier binary in node_modules) get the
 // installed copies run through it, so a reinstall never fights the formatter.
@@ -65,6 +67,7 @@ const iconsSource = fs.readFileSync(path.join(templateDir, 'generate-app-icons.m
 const refreshSource = fs.readFileSync(path.join(templateDir, 'refresh-project-meta.mjs'), 'utf8');
 const hookSource = fs.readFileSync(path.join(templateDir, 'pre-push'), 'utf8');
 const workflowSource = fs.readFileSync(path.join(templateDir, 'project-meta.yml'), 'utf8');
+const refreshWorkflowSource = fs.readFileSync(path.join(templateDir, 'project-meta-refresh.yml'), 'utf8');
 const unmanagedClassifications = new Set(['duplicate', 'archived', 'template', 'hosted-only']);
 
 const installedFiles = {
@@ -112,6 +115,8 @@ for (const entry of repoRegistry) {
   const deployed = await isDeployed(configPath, entry);
   if (!unmanagedClassifications.has(entry.classification) && deployed) {
     actions.push(installPushGate(entry.dir));
+    if (entry.branch) actions.push(installRefreshWorkflow(entry));
+    else actions.push('no branch in registry, refresh workflow skipped');
   }
 
   summary.push({ slug: entry.slug, status: actions.filter(Boolean).join(', '), detail: path.basename(entry.dir) });
@@ -324,6 +329,15 @@ async function isDeployed(configPath, entry) {
   } catch {
     return false;
   }
+}
+
+// The refresh runs on the branch Cloudflare builds, which the registry records
+// per repo, so the template carries a placeholder for it.
+function installRefreshWorkflow(entry) {
+  const target = path.join(entry.dir, '.github', 'workflows', 'project-meta-refresh.yml');
+  if (!dryRun) fs.mkdirSync(path.dirname(target), { recursive: true });
+  const contents = refreshWorkflowSource.split('__PROD_BRANCH__').join(entry.branch);
+  return writeIfChanged(target, contents, 'refresh workflow');
 }
 
 function renderPackageJson(packageJson, original) {

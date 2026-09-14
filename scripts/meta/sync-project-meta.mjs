@@ -27,9 +27,15 @@ const analysisPath = path.join(portfolioRoot, 'src', 'repo-analysis.json');
 const projectData = readJson(projectDataPath) ?? [];
 const analysis = readJson(analysisPath) ?? [];
 
+// In CI there are no sibling checkouts: PROJECT_META_MIRROR points at a directory
+// holding <slug>/project.meta.json for each repo (see pull-project-media.mjs).
+const mirrorDir = process.env.PROJECT_META_MIRROR ? path.resolve(process.env.PROJECT_META_MIRROR) : null;
+
 const metas = [];
 for (const entry of repoRegistry) {
-  const metaPath = path.join(entry.dir, 'project.meta.json');
+  const metaPath = mirrorDir
+    ? path.join(mirrorDir, entry.slug, 'project.meta.json')
+    : path.join(entry.dir, 'project.meta.json');
   const meta = readJson(metaPath);
   if (!meta) continue;
   metas.push({ entry, meta, metaPath });
@@ -129,7 +135,9 @@ function projectRecordFrom({ entry, meta }) {
     title: identity.title,
     subtitle: identity.subtitle,
     description: identity.description,
-    repoPath: entry.dir,
+    // From a mirror (CI on Linux) the local checkout path is meaningless, so the
+    // portfolio keeps whatever repoPath it already has.
+    repoPath: mirrorDir ? undefined : entry.dir,
     localUrl: links.localUrl,
     deploymentUrl: links.deploymentUrl,
     buildCommand: runtime.buildCommand,

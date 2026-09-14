@@ -1,0 +1,53 @@
+# Keeps the portfolio's project cards in step with what each project last
+# photographed of itself. Every deployed repo refreshes its own
+# project-media/ after each deployment (project-meta-refresh.yml there); this
+# pulls those images and each project.meta.json here, syncs the catalogue data,
+# and commits, which makes Cloudflare rebuild the site.
+name: Sync project shots
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-project-shots
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Pull each project's screenshots and metadata
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull project-media and project.meta.json from every deployed repo
+        env:
+          # A token that can read the private repos (BBeats, VYB Chess); public
+          # repos need none.
+          PORTFOLIO_SYNC_TOKEN: ${{ secrets.PORTFOLIO_SYNC_TOKEN }}
+        run: node scripts/meta/pull-project-media.mjs --mirror=.meta-mirror
+
+      - name: Sync the catalogue data from the mirrored metadata
+        env:
+          PROJECT_META_MIRROR: .meta-mirror
+        run: node scripts/meta/sync-project-meta.mjs --write
+
+      - name: Commit what changed
+        run: |
+          git config user.name "project-meta bot"
+          git config user.email "project-meta-bot@users.noreply.github.com"
+          git add public/project-shots src/project-data.json src/repo-analysis.json
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          git commit -m "Sync project screenshots and metadata from the repos [meta-bot]"
+          git push

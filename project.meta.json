@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/project.meta.schema.json",
   "schemaVersion": 1,
-  "generatedAt": "2026-09-14T20:52:48.852Z",
+  "generatedAt": "2026-09-14T22:10:02.393Z",
   "generatedBy": "scripts/generate-project-meta.mjs",
   "identity": {
     "slug": "portfolio",
@@ -109,13 +109,13 @@
     "devDependencyCount": 5
   },
   "metrics": {
-    "sourceFiles": 33,
+    "sourceFiles": 34,
     "testFiles": 0,
-    "sourceLines": 11448,
+    "sourceLines": 11682,
     "largestDirectories": [
       {
         "directory": "scripts",
-        "files": 27
+        "files": 28
       },
       {
         "directory": "src",
@@ -128,7 +128,7 @@
     ],
     "hasReadme": true,
     "hasTests": false,
-    "hasCi": false,
+    "hasCi": true,
     "hasDocs": false
   },
   "scores": {
@@ -142,10 +142,10 @@
   "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
   "git": {
     "branch": "master",
-    "head": "b6ec12f",
-    "lastCommitDate": "2026-09-14T23:34:52+03:00",
-    "lastCommitSubject": "Sync the portfolio cards with the repos that actually deploy",
-    "commitCount": 62,
+    "head": "3c5d6c9",
+    "lastCommitDate": "2026-09-15T00:37:28+03:00",
+    "lastCommitSubject": "Gate pushes on a current card and icon set, in a hook and in CI",
+    "commitCount": 64,
     "remote": "https://github.com/BorisThoris/portfolio.git"
   },
   "readme": {

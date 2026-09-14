@@ -21,6 +21,10 @@ export const reposRoot = path.resolve(portfolioRoot, '..');
 const repo = (name) => path.join(reposRoot, name);
 
 /**
+ * github / branch: the GitHub repository and the branch Cloudflare Pages builds.
+ *   Deployed repos carry both; the per-project refresh workflow runs on that
+ *   branch and the portfolio's sync pulls project-media from it.
+ *
  * classification:
  *   web-app     a runnable web application
  *   web-site    the portfolio site itself
@@ -34,9 +38,9 @@ export const repoRegistry = [
   // ---- projects the portfolio showcases -------------------------------------
   // BBeats and VYB Chess ship their own PWA icon sets (a manifest, maskable
   // icons, an Apple icon), so the icon script only verifies the head links.
-  { slug: 'bbeats', dir: repo('BBeats'), classification: 'web-app', icons: { mode: 'check' } },
+  { slug: 'bbeats', github: 'BorisThoris/BBeats', branch: 'main', dir: repo('BBeats'), classification: 'web-app', icons: { mode: 'check' } },
   {
-    slug: 'vyb-chess',
+    slug: 'vyb-chess', github: 'BorisThoris/VYB-Chess', branch: 'main',
     dir: repo('VYB-Chess'),
     classification: 'web-app',
     icons: { mode: 'check' }
@@ -44,7 +48,7 @@ export const repoRegistry = [
     // C:\Users\Gaming PC\VYB-Chess path; the repo lives here now.
   },
   {
-    slug: 'memory-dungeon',
+    slug: 'memory-dungeon', github: 'BorisThoris/memory-dungeon', branch: 'main',
     dir: repo('memory-dungeon'),
     classification: 'web-app',
     curated: { deploymentUrl: 'https://memory-dungeon.pages.dev/' }
@@ -52,11 +56,11 @@ export const repoRegistry = [
   // github.com/BorisThoris/gem-dungeon builds gem-dungeon-git.pages.dev from
   // main; gem-dungeon-epic-1 is the checkout that tracks it. The
   // game-prototype folder is the same remote parked on a stale branch.
-  { slug: 'gem-dungeon', dir: repo('gem-dungeon-epic-1'), classification: 'web-app' },
-  { slug: 'skyfall', dir: repo('skyfall'), classification: 'web-app' },
-  { slug: 'cross-repo-libs', dir: repo('cross-repo-libs'), classification: 'web-library', appDir: 'apps/example-web' },
+  { slug: 'gem-dungeon', github: 'BorisThoris/gem-dungeon', branch: 'main', dir: repo('gem-dungeon-epic-1'), classification: 'web-app' },
+  { slug: 'skyfall', github: 'BorisThoris/skyfall', branch: 'master', dir: repo('skyfall'), classification: 'web-app' },
+  { slug: 'cross-repo-libs', github: 'BorisThoris/cross-repo-libs', branch: 'master', dir: repo('cross-repo-libs'), classification: 'web-library', appDir: 'apps/example-web' },
   {
-    slug: 'roam-rental-dashboard',
+    slug: 'roam-rental-dashboard', github: 'BorisThoris/roam-rental-dashboard', branch: 'main',
     dir: repo('roam-rental-dashboard'),
     classification: 'web-app',
     appDir: 'roam-rental-dashboard-app',
@@ -68,18 +72,18 @@ export const repoRegistry = [
       imageUrlPath: '/og-image.jpg'
     }
   },
-  { slug: 'runner-score-arcade', dir: repo('runner-score-arcade'), classification: 'web-app' },
-  { slug: 'cat-world', dir: repo('angular-cat-adoption-app'), classification: 'web-app' },
-  { slug: 'user-hub-admin', dir: repo('Demo-Using-Clarity'), classification: 'web-app' },
-  { slug: 'pedal-rush', dir: repo('my-hooks-demo'), classification: 'web-app' },
-  { slug: 'flowforge-configurator', dir: repo('quick-base-task'), classification: 'web-app' },
-  { slug: 'gorilla-gainz', dir: repo('react-fitness-ecommerce-demo'), classification: 'web-app' },
-  { slug: 'memory-card-quest', dir: repo('react-redux-memory-card-game'), classification: 'web-app' },
-  { slug: 'org-atlas-directory', dir: repo('tick42_demo'), classification: 'web-app' },
+  { slug: 'runner-score-arcade', github: 'BorisThoris/runner-score-arcade', branch: 'master', dir: repo('runner-score-arcade'), classification: 'web-app' },
+  { slug: 'cat-world', github: 'BorisThoris/cat-world', branch: 'master', dir: repo('angular-cat-adoption-app'), classification: 'web-app' },
+  { slug: 'user-hub-admin', github: 'BorisThoris/user-hub-admin', branch: 'master', dir: repo('Demo-Using-Clarity'), classification: 'web-app' },
+  { slug: 'pedal-rush', github: 'BorisThoris/pedal-rush', branch: 'master', dir: repo('my-hooks-demo'), classification: 'web-app' },
+  { slug: 'flowforge-configurator', github: 'BorisThoris/flowforge-configurator', branch: 'master', dir: repo('quick-base-task'), classification: 'web-app' },
+  { slug: 'gorilla-gainz', github: 'BorisThoris/gorilla-gainz', branch: 'master', dir: repo('react-fitness-ecommerce-demo'), classification: 'web-app' },
+  { slug: 'memory-card-quest', github: 'BorisThoris/memory-card-quest', branch: 'master', dir: repo('react-redux-memory-card-game'), classification: 'web-app' },
+  { slug: 'org-atlas-directory', github: 'BorisThoris/org-atlas-directory', branch: 'master', dir: repo('tick42_demo'), classification: 'web-app' },
   // github.com/BorisThoris/threejs-gem-dungeon-editor-live builds
   // threejs-gem-dungeon-editor-git.pages.dev from main: the first-person
   // gem-run game. ThreeJsGem-Fixed is a diverged fork of the same remote.
-  { slug: 'threejs-gem-dungeon-editor', dir: repo('threejs-gem-dungeon-editor-live'), classification: 'web-app' },
+  { slug: 'threejs-gem-dungeon-editor', github: 'BorisThoris/threejs-gem-dungeon-editor-live', branch: 'main', dir: repo('threejs-gem-dungeon-editor-live'), classification: 'web-app' },
 
   // ---- the portfolio site itself --------------------------------------------
   {
