@@ -10,7 +10,7 @@
     "polishScore": 95,
     "uniquenessScore": 99,
     "maintenanceScore": 94,
-    "analysisNotes": "Flagship experimental interactive-book product with the complete seven-part Bulgarian manuscript, schema-validated content, low-friction decision laboratories, PWA and Electron surfaces, Playwright/Vitest/accessibility coverage, Windows packaging, and Steam-oriented release tooling."
+    "analysisNotes": "Flagship experimental interactive-book product with the complete six-part Bulgarian manuscript, schema-validated content, low-friction decision laboratories, PWA and Electron surfaces, Playwright/Vitest/accessibility coverage, Windows packaging, and Steam-oriented release tooling."
   },
   {
     "slug": "bbeats",
@@ -52,7 +52,7 @@
   },
   {
     "slug": "gem-dungeon",
-    "repoName": "gem-dungeon-game-prototype",
+    "repoName": "gem-dungeon-epic-1",
     "showcaseTier": "more",
     "priorityScore": 76,
     "demoabilityScore": 90,
@@ -60,11 +60,11 @@
     "polishScore": 82,
     "uniquenessScore": 88,
     "maintenanceScore": 76,
-    "analysisNotes": "React Three Fiber dungeon prototype with generated spaces, physics-oriented dependencies, and a clean Vite demo path."
+    "analysisNotes": "React Three Fiber dungeon editor with procedural rooms, physics, a component browser and a clean Vite demo path; deployed from main."
   },
   {
     "slug": "threejs-gem-dungeon-editor",
-    "repoName": "ThreeJsGem-Fixed",
+    "repoName": "threejs-gem-dungeon-editor-live",
     "showcaseTier": "showcase",
     "showcaseOrder": 4,
     "priorityScore": 90,
@@ -73,7 +73,7 @@
     "polishScore": 80,
     "uniquenessScore": 86,
     "maintenanceScore": 74,
-    "analysisNotes": "3D dungeon/editor variant with React Three Fiber, asset generation scripts, Storybook dependencies, and a working Vite demo."
+    "analysisNotes": "The Steam-demo gem run: title screen, seeded runs, pursuers and counterplay, controller and touch input; deployed from main."
   },
   {
     "slug": "saad-print-on-demand",

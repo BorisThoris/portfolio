@@ -3,7 +3,7 @@
     "slug": "vyb-chess",
     "title": "VYB Chess",
     "subtitle": "Experimental interactive chess book",
-    "description": "A premium web-first Bulgarian interactive book that preserves the full seven-part manuscript while turning selected examples into low-friction decision laboratories, exact-return reading flows, and reflective chess learning.",
+    "description": "A premium web-first Bulgarian interactive book that preserves the full six-part manuscript while turning selected examples into low-friction decision laboratories, exact-return reading flows, and reflective chess learning.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\VYB-Chess",
     "localUrl": "http://127.0.0.1:4117/",
     "deploymentUrl": "https://vyb-chess.pages.dev/",
@@ -62,23 +62,23 @@
   },
   {
     "slug": "gem-dungeon",
-    "title": "Gem Dungeon",
-    "subtitle": "React Three Fiber dungeon prototype",
-    "description": "A first-person 3D dungeon adventure prototype with generated rooms, puzzles, physics, map state, inventory-style data, and visual effects.",
-    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\gem-dungeon-game-prototype",
+    "title": "Gem Dungeon Editor",
+    "subtitle": "React Three Fiber dungeon explorer and editor",
+    "description": "A React Three Fiber dungeon you can walk through in first person and edit in place: procedural rooms, physics, a component browser, texture and asset generators, and Electron packaging.",
+    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\gem-dungeon-epic-1",
     "localUrl": "http://127.0.0.1:4103/",
     "deploymentUrl": "https://gem-dungeon-git.pages.dev/",
-    "buildCommand": "npm run build",
+    "buildCommand": "yarn build",
     "buildOutput": "dist",
-    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4103",
+    "runCommand": "yarn dev --host 127.0.0.1 --port 4103",
     "screenshot": "/project-shots/gem-dungeon/main.png",
     "tags": [
       "React Three Fiber",
-      "Drei",
-      "Rapier",
-      "Zustand"
+      "Three.js",
+      "Zustand",
+      "Electron"
     ],
-    "accent": "#38bdf8"
+    "accent": "#22d3ee"
   },
   {
     "slug": "skyfall",
@@ -324,21 +324,23 @@
   },
   {
     "slug": "threejs-gem-dungeon-editor",
-    "title": "ThreeJS Gem Dungeon Editor",
-    "subtitle": "3D dungeon tooling build",
-    "description": "A React Three Fiber dungeon exploration and editor project with runtime game systems and desktop packaging experiments.",
-    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\ThreeJsGem-Fixed",
+    "title": "Gem Dungeon",
+    "subtitle": "First-person gem run in a procedural dungeon",
+    "description": "A first-person dungeon run: collect gems, outpace the pursuers, and spend what you carry at the exit. React Three Fiber, Rapier physics and Zustand, with an Electron shell for the Steam demo.",
+    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\threejs-gem-dungeon-editor-live",
     "localUrl": "http://127.0.0.1:4116/",
     "deploymentUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
-    "buildCommand": "npm run build",
+    "buildCommand": "yarn build",
     "buildOutput": "dist",
-    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4116",
+    "runCommand": "yarn dev --host 127.0.0.1 --port 4116",
     "screenshot": "/project-shots/threejs-gem-dungeon-editor/main.png",
     "tags": [
-      "Three.js",
-      "React",
-      "Editor"
+      "React Three Fiber",
+      "Rapier",
+      "Zustand",
+      "Electron",
+      "Steam"
     ],
-    "accent": "#fb7185"
+    "accent": "#a78bfa"
   }
 ]
