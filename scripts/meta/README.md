@@ -145,6 +145,29 @@ no browser. Bypass once with `git push --no-verify` or `SKIP_META_CHECK=1`; CI
 still reports the drift. A fresh clone needs one
 `git config core.hooksPath .githooks` (or a reinstall from here) to arm the hook.
 
+## Fully automatic refresh
+
+Nothing has to be run by hand after a deploy:
+
+1. **In each deployed repo**, `.github/workflows/project-meta-refresh.yml` runs on
+   every push to the production branch (the registry's `branch`). It waits for
+   the "Cloudflare Pages" check on that commit to succeed, installs Chromium,
+   runs `refresh-project-meta.mjs` against the live deployment (shots, card,
+   icons, metadata) and commits the result back with `[meta-bot]` in the
+   message. That commit is pushed with `GITHUB_TOKEN`, so it cannot re-trigger
+   the workflow, but Cloudflare still redeploys it - that is how the new
+   `og-image.jpg` goes live. `workflow_dispatch` runs it on demand.
+2. **In the portfolio**, `.github/workflows/sync-project-shots.yml` runs hourly:
+   `pull-project-media.mjs` downloads each repo's `project-media/` images and
+   `project.meta.json` from its production branch (registry `github` +
+   `branch`; `PORTFOLIO_SYNC_TOKEN` secret for the private repos) into
+   `public/project-shots/<slug>/latest/` and a `.meta-mirror/`, then
+   `sync-project-meta.mjs --write` with `PROJECT_META_MIRROR` set updates the
+   catalogue data, and it commits. The cards prefer `latest/card.jpg`, so they
+   follow each project's newest self-portrait automatically.
+
+Locally the same pull is `node scripts/meta/pull-project-media.mjs`.
+
 ## Releases
 
 `npm run meta:refresh` sequences the four steps for a release: photograph the
