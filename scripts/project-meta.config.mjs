@@ -57,6 +57,14 @@ export default {
     "imageUrlPath": "/og-image.jpg"
   },
 
+  // The icon set is rendered from favicon.svg by scripts/generate-app-icons.mjs.
+  icons: {
+    "background": "#0d0e0c",
+    "themeColor": "#0d0e0c",
+    "name": "Boris Bostandzhiev Portfolio",
+    "shortName": "Portfolio"
+  },
+
   media: {
     sourceDir: path.join(portfolioRoot, "public", "project-shots", "portfolio", "latest"),
     publicPathPrefix: "/project-shots/portfolio/latest",

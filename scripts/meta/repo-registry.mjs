@@ -32,16 +32,27 @@ const repo = (name) => path.join(reposRoot, name);
  */
 export const repoRegistry = [
   // ---- projects the portfolio showcases -------------------------------------
-  { slug: 'bbeats', dir: repo('BBeats'), classification: 'web-app' },
+  // BBeats and VYB Chess ship their own PWA icon sets (a manifest, maskable
+  // icons, an Apple icon), so the icon script only verifies the head links.
+  { slug: 'bbeats', dir: repo('BBeats'), classification: 'web-app', icons: { mode: 'check' } },
   {
     slug: 'vyb-chess',
     dir: repo('VYB-Chess'),
-    classification: 'web-app'
+    classification: 'web-app',
+    icons: { mode: 'check' }
     // Note: src/project-data.json still points at the pre-move
     // C:\Users\Gaming PC\VYB-Chess path; the repo lives here now.
   },
-  { slug: 'memory-dungeon', dir: repo('memory-dungeon'), classification: 'web-app' },
-  { slug: 'gem-dungeon', dir: repo('gem-dungeon-game-prototype'), classification: 'web-app' },
+  {
+    slug: 'memory-dungeon',
+    dir: repo('memory-dungeon'),
+    classification: 'web-app',
+    curated: { deploymentUrl: 'https://memory-dungeon.pages.dev/' }
+  },
+  // github.com/BorisThoris/gem-dungeon builds gem-dungeon-git.pages.dev from
+  // main; gem-dungeon-epic-1 is the checkout that tracks it. The
+  // game-prototype folder is the same remote parked on a stale branch.
+  { slug: 'gem-dungeon', dir: repo('gem-dungeon-epic-1'), classification: 'web-app' },
   { slug: 'skyfall', dir: repo('skyfall'), classification: 'web-app' },
   { slug: 'cross-repo-libs', dir: repo('cross-repo-libs'), classification: 'web-library', appDir: 'apps/example-web' },
   {
@@ -65,7 +76,10 @@ export const repoRegistry = [
   { slug: 'gorilla-gainz', dir: repo('react-fitness-ecommerce-demo'), classification: 'web-app' },
   { slug: 'memory-card-quest', dir: repo('react-redux-memory-card-game'), classification: 'web-app' },
   { slug: 'org-atlas-directory', dir: repo('tick42_demo'), classification: 'web-app' },
-  { slug: 'threejs-gem-dungeon-editor', dir: repo('ThreeJsGem-Fixed'), classification: 'web-app' },
+  // github.com/BorisThoris/threejs-gem-dungeon-editor-live builds
+  // threejs-gem-dungeon-editor-git.pages.dev from main: the first-person
+  // gem-run game. ThreeJsGem-Fixed is a diverged fork of the same remote.
+  { slug: 'threejs-gem-dungeon-editor', dir: repo('threejs-gem-dungeon-editor-live'), classification: 'web-app' },
 
   // ---- the portfolio site itself --------------------------------------------
   {
@@ -245,36 +259,36 @@ export const repoRegistry = [
     analysisNotes: 'Temporary merge copy of Skyfall.'
   },
   {
-    slug: 'gem-dungeon-editor-epic-1',
-    dir: repo('gem-dungeon-epic-1'),
+    slug: 'gem-dungeon-prototype-branch',
+    dir: repo('gem-dungeon-game-prototype'),
     classification: 'duplicate',
     curated: {
-      title: 'ThreeJS Gem Dungeon Editor (epic-1)',
-      subtitle: 'Feature-branch copy of the dungeon editor',
-      description: 'An epic-1 feature checkout of the React Three Fiber dungeon crawler and editor.',
-      tags: ['React Three Fiber', 'Three.js', 'Electron'],
+      title: 'Gem Dungeon (prototype branch)',
+      subtitle: 'Stale branch checkout of the gem-dungeon repo',
+      description: 'The gem-dungeon remote parked on the ai/refine-gem-dungeon-cycle-02 branch, well behind main.',
+      tags: ['React Three Fiber', 'Three.js'],
       accent: '#c084fc',
       showcaseTier: 'excluded',
-      duplicateOf: 'threejs-gem-dungeon-editor',
-      excludedReason: 'Feature-branch copy of the dungeon editor.'
+      duplicateOf: 'gem-dungeon',
+      excludedReason: 'Stale branch of the gem-dungeon repo; gem-dungeon-epic-1 tracks main.'
     },
-    analysisNotes: 'Branch copy; ThreeJsGem-Fixed is the portfolio surface.'
+    analysisNotes: 'Branch checkout; gem-dungeon-epic-1 is the deployed line.'
   },
   {
-    slug: 'gem-dungeon-editor-live',
-    dir: repo('threejs-gem-dungeon-editor-live'),
+    slug: 'threejs-gem-dungeon-editor-fixed',
+    dir: repo('ThreeJsGem-Fixed'),
     classification: 'duplicate',
     curated: {
-      title: 'ThreeJS Gem Dungeon Editor (live)',
-      subtitle: 'Live-demo checkout of the dungeon editor',
-      description: 'The checkout used to serve the live dungeon-editor demo while the main repo is being edited.',
+      title: 'ThreeJS Gem Dungeon Editor (fixed fork)',
+      subtitle: 'Diverged fork of the dungeon editor',
+      description: 'A fork of the threejs-gem-dungeon-editor-live remote that diverged from main before the gem-run rebuild.',
       tags: ['React Three Fiber', 'Three.js', 'Electron'],
       accent: '#c084fc',
       showcaseTier: 'excluded',
       duplicateOf: 'threejs-gem-dungeon-editor',
-      excludedReason: 'Live-demo checkout of the dungeon editor.'
+      excludedReason: 'Diverged fork; threejs-gem-dungeon-editor-live tracks the deployed main.'
     },
-    analysisNotes: 'Serving copy; ThreeJsGem-Fixed is the portfolio surface.'
+    analysisNotes: 'Fork checkout; threejs-gem-dungeon-editor-live is the deployed line.'
   }
 ];
 

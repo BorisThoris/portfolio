@@ -1,0 +1,17 @@
+{
+  "slug": "portfolio",
+  "source": "public/favicon.svg",
+  "sourceHash": "8c087360d0c87671",
+  "outputDir": "public",
+  "urlPrefix": "/",
+  "renderedAt": "2026-09-14T20:12:59.725Z",
+  "files": [
+    "favicon.ico",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "icon-maskable-512.png",
+    "favicon.svg",
+    "site.webmanifest"
+  ]
+}

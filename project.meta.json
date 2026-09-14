@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/project.meta.schema.json",
   "schemaVersion": 1,
-  "generatedAt": "2026-09-03T21:50:31.998Z",
+  "generatedAt": "2026-09-14T20:27:14.924Z",
   "generatedBy": "scripts/generate-project-meta.mjs",
   "identity": {
     "slug": "portfolio",
@@ -62,12 +62,17 @@
       "social:check",
       "meta:shots",
       "meta:social",
-      "meta:social:check"
+      "meta:social:check",
+      "meta:icons",
+      "meta:icons:check",
+      "icons",
+      "icons:check",
+      "meta:refresh"
     ]
   },
   "media": {
-    "source": "portfolio-capture-missing",
-    "directory": "C:/Users/Gaming PC/Desktop/Repos/portfolio/public/project-shots/portfolio/latest"
+    "source": "repo-local",
+    "directory": "C:/Users/Gaming PC/Desktop/Repos/portfolio/project-media"
   },
   "stack": {
     "framework": "React",
@@ -104,13 +109,13 @@
     "devDependencyCount": 5
   },
   "metrics": {
-    "sourceFiles": 28,
+    "sourceFiles": 33,
     "testFiles": 0,
-    "sourceLines": 10361,
+    "sourceLines": 11402,
     "largestDirectories": [
       {
         "directory": "scripts",
-        "files": 22
+        "files": 27
       },
       {
         "directory": "src",
@@ -137,10 +142,10 @@
   "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
   "git": {
     "branch": "master",
-    "head": "5fa61de",
-    "lastCommitDate": "2026-09-03T23:46:26+03:00",
-    "lastCommitSubject": "Keep package.json formatting, add a schema validator",
-    "commitCount": 59,
+    "head": "2ee14f8",
+    "lastCommitDate": "2026-09-04T00:53:59+03:00",
+    "lastCommitSubject": "Give each project its own camera and its own link-preview card",
+    "commitCount": 60,
     "remote": "https://github.com/BorisThoris/portfolio.git"
   },
   "readme": {

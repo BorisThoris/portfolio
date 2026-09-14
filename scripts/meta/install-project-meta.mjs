@@ -5,8 +5,16 @@
 // Each repo receives:
 //   scripts/project-meta.config.mjs   unique to that repo (written once)
 //   scripts/generate-project-meta.mjs the shared generator (kept in sync)
+//   scripts/capture-project-shots.mjs the screenshot run
+//   scripts/generate-social-preview.mjs the link-preview card
+//   scripts/generate-app-icons.mjs    the icon set + web manifest
+//   scripts/refresh-project-meta.mjs  shots -> social -> icons -> meta in one go
 //   scripts/project.meta.schema.json  the schema (kept in sync)
-//   package.json scripts: meta, meta:check
+//   package.json scripts: meta, meta:check, shots, social, social:check,
+//                         icons, icons:check, meta:refresh
+//
+// Repos that format their scripts (a prettier binary in node_modules) get the
+// installed copies run through it, so a reinstall never fights the formatter.
 //
 // Curated fields for repos the portfolio already lists are read out of
 // src/project-data.json, src/repo-analysis.json and
@@ -22,6 +30,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { repoRegistry, portfolioRoot } from './repo-registry.mjs';
@@ -49,6 +58,17 @@ const generatorSource = fs.readFileSync(path.join(templateDir, 'generate-project
 const schemaSource = fs.readFileSync(path.join(templateDir, 'project.meta.schema.json'), 'utf8');
 const captureSource = fs.readFileSync(path.join(templateDir, 'capture-project-shots.mjs'), 'utf8');
 const socialSource = fs.readFileSync(path.join(templateDir, 'generate-social-preview.mjs'), 'utf8');
+const iconsSource = fs.readFileSync(path.join(templateDir, 'generate-app-icons.mjs'), 'utf8');
+const refreshSource = fs.readFileSync(path.join(templateDir, 'refresh-project-meta.mjs'), 'utf8');
+
+const installedFiles = {
+  'generate-project-meta.mjs': { contents: generatorSource, label: 'generator' },
+  'project.meta.schema.json': { contents: schemaSource, label: 'schema' },
+  'capture-project-shots.mjs': { contents: captureSource, label: 'capture script' },
+  'generate-social-preview.mjs': { contents: socialSource, label: 'social script' },
+  'generate-app-icons.mjs': { contents: iconsSource, label: 'icon script' },
+  'refresh-project-meta.mjs': { contents: refreshSource, label: 'refresh script' }
+};
 
 const summary = [];
 
@@ -74,10 +94,10 @@ for (const entry of repoRegistry) {
     actions.push('config kept');
   }
 
-  actions.push(writeIfChanged(path.join(scriptsDir, 'generate-project-meta.mjs'), generatorSource, 'generator'));
-  actions.push(writeIfChanged(path.join(scriptsDir, 'project.meta.schema.json'), schemaSource, 'schema'));
-  actions.push(writeIfChanged(path.join(scriptsDir, 'capture-project-shots.mjs'), captureSource, 'capture script'));
-  actions.push(writeIfChanged(path.join(scriptsDir, 'generate-social-preview.mjs'), socialSource, 'social script'));
+  const formatter = findFormatter(entry.dir);
+  for (const [fileName, file] of Object.entries(installedFiles)) {
+    actions.push(writeIfChanged(path.join(scriptsDir, fileName), file.contents, file.label, formatter));
+  }
 
   const packageAction = ensurePackageScripts(entry.dir);
   if (packageAction) actions.push(packageAction);
@@ -183,6 +203,12 @@ function buildConfigFile(entry) {
     lines.push('  social: ' + indentBlock(JSON.stringify(social, null, 2), '  ') + ',');
     lines.push('');
   }
+  if (entry.icons) {
+    lines.push('  // How scripts/generate-app-icons.mjs treats this project: generate the set');
+    lines.push('  // from favicon.svg, or only check the links of a set the project renders itself.');
+    lines.push('  icons: ' + indentBlock(JSON.stringify(entry.icons, null, 2), '  ') + ',');
+    lines.push('');
+  }
   lines.push('  media: {');
   lines.push("    sourceDir: path.join(portfolioRoot, " + shots.split('/').map(quote).join(', ') + '),');
   lines.push('    publicPathPrefix: ' + quote('/project-shots/' + entry.slug + '/latest') + ',');
@@ -233,7 +259,10 @@ function ensurePackageScripts(repoDir) {
     'meta:check': 'node scripts/generate-project-meta.mjs --check',
     shots: 'node scripts/capture-project-shots.mjs',
     social: 'node scripts/generate-social-preview.mjs',
-    'social:check': 'node scripts/generate-social-preview.mjs --check'
+    'social:check': 'node scripts/generate-social-preview.mjs --check',
+    icons: 'node scripts/generate-app-icons.mjs',
+    'icons:check': 'node scripts/generate-app-icons.mjs --check',
+    'meta:refresh': 'node scripts/refresh-project-meta.mjs'
   };
   const missing = Object.entries(wanted).filter(([key, value]) => scripts[key] !== value);
   if (missing.length === 0) return '';
@@ -254,11 +283,29 @@ function renderPackageJson(packageJson, original) {
   return original.includes('\r\n') ? rendered.replace(/\n/g, '\r\n') : rendered;
 }
 
-function writeIfChanged(targetPath, contents, label) {
+// A repo that formats its scripts holds a prettier-shaped copy of the template.
+// Format the template the same way before comparing, so "unchanged" means the
+// same code, not the same whitespace.
+function writeIfChanged(targetPath, contents, label, formatter) {
   const existing = fs.existsSync(targetPath) ? fs.readFileSync(targetPath, 'utf8') : null;
-  if (existing === contents) return '';
-  if (!dryRun) fs.writeFileSync(targetPath, contents);
+  const next = formatter ? formatter(targetPath, contents) : contents;
+  if (existing === next) return '';
+  if (!dryRun) fs.writeFileSync(targetPath, next);
   return existing === null ? label + ' installed' : label + ' updated';
+}
+
+function findFormatter(repoDir) {
+  const binary = path.join(repoDir, 'node_modules', 'prettier', 'bin', 'prettier.cjs');
+  if (!fs.existsSync(binary)) return null;
+  return (targetPath, contents) => {
+    const run = spawnSync(process.execPath, [binary, '--stdin-filepath', targetPath], {
+      cwd: repoDir,
+      input: contents,
+      encoding: 'utf8'
+    });
+    if (run.status !== 0) return contents;
+    return run.stdout;
+  };
 }
 
 // ------------------------------------------------------------------- helpers
