@@ -2,8 +2,8 @@
   {
     "slug": "vyb-chess",
     "title": "VYB Chess",
-    "subtitle": "Experimental interactive chess book",
-    "description": "A premium web-first Bulgarian interactive book that preserves the full six-part manuscript while turning selected examples into low-friction decision laboratories, exact-return reading flows, and reflective chess learning.",
+    "subtitle": "Живият ум: an interactive chess book in Bulgarian",
+    "description": "A Bulgarian interactive chess book for the browser and the desktop: six parts and 29 reading units of the manuscript, 351 board figures you can step through move by move, and selected positions turned into decision laboratories where you try the move before the author explains it.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\VYB-Chess",
     "localUrl": "http://127.0.0.1:4117/",
     "deploymentUrl": "https://vyb-chess.pages.dev/",
@@ -12,11 +12,12 @@
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4117",
     "screenshot": "/project-shots/vyb-chess/latest/card.jpg",
     "tags": [
+      "Interactive Book",
+      "Chess",
+      "Bulgarian",
       "React",
-      "TypeScript",
       "Electron",
-      "Playwright",
-      "Interactive Book"
+      "PWA"
     ],
     "accent": "#f6d68f"
   },
@@ -45,8 +46,8 @@
   {
     "slug": "memory-dungeon",
     "title": "Memory Dungeon",
-    "subtitle": "Steam-focused memory roguelite",
-    "description": "A Windows-first arcade rebuild with run modes, relics, procedural boards, local saves, Electron shell, and polished long-run gameplay feedback.",
+    "subtitle": "Seeker of Shards: a memory roguelite",
+    "description": "A memory roguelite: read the board, match the pairs and protect the streak while relics bend the rules and every run deals deeper, harder boards. Run modes, a collection to unlock, local saves and an Electron build aimed at Steam.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\memory-dungeon",
     "localUrl": "http://127.0.0.1:4102/",
     "deploymentUrl": "https://memory-dungeon-git.pages.dev/",
@@ -55,10 +56,11 @@
     "runCommand": "yarn dev:renderer --host 127.0.0.1 --port 4102",
     "screenshot": "/project-shots/memory-dungeon/main.png",
     "tags": [
+      "Roguelite",
+      "Memory Game",
       "React",
-      "Three.js",
       "Electron",
-      "TypeScript"
+      "Steam"
     ],
     "accent": "#f59e0b"
   },
@@ -337,8 +339,8 @@
   {
     "slug": "threejs-gem-dungeon-editor",
     "title": "Gem Dungeon",
-    "subtitle": "First-person gem run in a procedural dungeon",
-    "description": "A first-person dungeon run: collect gems, outpace the pursuers, and spend what you carry at the exit. React Three Fiber, Rapier physics and Zustand, with an Electron shell for the Steam demo.",
+    "subtitle": "Three floors down, and every door out has a price",
+    "description": "A first-person gem heist: each floor is a fresh dungeon, the exit charges a toll of three, five, then seven gems, and every gem you pocket wakes the Warden that walks the halls. Shove, sprint, and climb out with what you can carry. React Three Fiber, Rapier and Zustand, with an Electron shell for the Steam demo.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\threejs-gem-dungeon-editor-live",
     "localUrl": "http://127.0.0.1:4116/",
     "deploymentUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
@@ -347,10 +349,10 @@
     "runCommand": "yarn dev --host 127.0.0.1 --port 4116",
     "screenshot": "/project-shots/threejs-gem-dungeon-editor/main.png",
     "tags": [
+      "Game",
+      "First Person",
       "React Three Fiber",
       "Rapier",
-      "Zustand",
-      "Electron",
       "Steam"
     ],
     "accent": "#a78bfa"
