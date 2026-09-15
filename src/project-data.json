@@ -23,8 +23,8 @@
   {
     "slug": "bbeats",
     "title": "BBeats",
-    "subtitle": "Browser music editor",
-    "description": "A deep Web Audio workstation-style editor with timeline, instruments, session controls, beat management, Pixi rendering, and bundled audio assets.",
+    "subtitle": "A DAW in the browser",
+    "description": "A browser DAW: lay down drum patterns and melodies on a step-sequencer timeline, stack instruments and Web Audio Module plugins per channel, mix the session, and export the beat as audio. React, Tone.js and PixiJS, with an Electron desktop build.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\BBeats",
     "localUrl": "http://127.0.0.1:4101/",
     "deploymentUrl": "https://bbeats-git.pages.dev/",
@@ -33,10 +33,12 @@
     "runCommand": "yarn dev --host 127.0.0.1 --port 4101",
     "screenshot": "/project-shots/bbeats/main.png",
     "tags": [
-      "React",
       "Web Audio",
+      "DAW",
+      "React",
+      "Tone.js",
       "PixiJS",
-      "Vite"
+      "Electron"
     ],
     "accent": "#2dd4bf"
   },
@@ -63,8 +65,8 @@
   {
     "slug": "gem-dungeon",
     "title": "Gem Dungeon Editor",
-    "subtitle": "React Three Fiber dungeon explorer and editor",
-    "description": "A React Three Fiber dungeon you can walk through in first person and edit in place: procedural rooms, physics, a component browser, texture and asset generators, and Electron packaging.",
+    "subtitle": "Walk the dungeon, then rebuild it in place",
+    "description": "A first-person dungeon you explore and edit in the same window: procedurally generated rooms and corridors, a component browser of breakable and interactive objects, texture painting and mosaic tools, and Rapier physics under your feet. React Three Fiber and Zustand, packaged with Electron.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\gem-dungeon-epic-1",
     "localUrl": "http://127.0.0.1:4103/",
     "deploymentUrl": "https://gem-dungeon-git.pages.dev/",
@@ -75,7 +77,8 @@
     "tags": [
       "React Three Fiber",
       "Three.js",
-      "Zustand",
+      "Level Editor",
+      "Rapier",
       "Electron"
     ],
     "accent": "#22d3ee"
@@ -83,8 +86,8 @@
   {
     "slug": "skyfall",
     "title": "Skyfall",
-    "subtitle": "Phaser endless dodger",
-    "description": "A Phaser 3 arcade game with heat phases, bosses, perks, achievements, local progression, accessibility options, and Electron packaging.",
+    "subtitle": "An endless dodger with heat, bosses and perk drafts",
+    "description": "A Phaser 3 endless dodger: survive escalating waves as the heat rises, break boss encounters, draft perks between runs, and chase daily contracts, achievements and meta progression, with motion, flash and control options for accessibility. Vite in the browser, Electron on the desktop.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\skyfall",
     "localUrl": "http://127.0.0.1:4104/",
     "deploymentUrl": "https://skyfall-git.pages.dev/",
@@ -93,10 +96,11 @@
     "runCommand": "npm run dev -- --host 127.0.0.1 --port 4104",
     "screenshot": "/project-shots/skyfall/main.png",
     "tags": [
+      "Game",
       "Phaser",
-      "Vite",
+      "Arcade",
       "Electron",
-      "Game Systems"
+      "Accessibility"
     ],
     "accent": "#ef4444"
   },
@@ -123,8 +127,8 @@
   {
     "slug": "cross-repo-libs",
     "title": "Cross Repo Libs",
-    "subtitle": "Reusable workspace packages",
-    "description": "A monorepo of shared packages and an example web app that demonstrates local notifications and reusable runtime utilities.",
+    "subtitle": "Component showcase for the shared packages",
+    "description": "A Storybook-style showcase of the packages shared across these projects: React UI pieces (buttons, cards, HUDs, dialogs, a pixel texture drawer), React Three Fiber props such as torches and braziers, a toast and confirm stack, and the local AI image, music and 3D generation helpers behind them.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\cross-repo-libs",
     "localUrl": "http://127.0.0.1:4105/",
     "deploymentUrl": "https://cross-repo-libs-git.pages.dev/",
@@ -133,18 +137,19 @@
     "runCommand": "npm run dev --workspace=example-web -- --host 127.0.0.1 --port 4105",
     "screenshot": "/project-shots/cross-repo-libs/main.png",
     "tags": [
-      "Workspaces",
-      "TypeScript",
+      "Monorepo",
+      "Component Library",
       "React",
-      "Vite"
+      "React Three Fiber",
+      "Storybook"
     ],
     "accent": "#a78bfa"
   },
   {
     "slug": "roam-rental-dashboard",
     "title": "Roam Rental Dashboard",
-    "subtitle": "Legacy rental search dashboard",
-    "description": "A preserved Next.js portfolio demo for typed rental search, listing previews, reusable hooks, styled components, and local mock data.",
+    "subtitle": "Search and preview rentals from a typed Next.js dashboard",
+    "description": "A Next.js rental dashboard: type a search, watch the listings filter in, and open a preview card for each place. Typed listing models, a reusable data-fetching hook, styled-components and Jest tests, all running on local mock data.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\roam-rental-dashboard",
     "localUrl": "http://127.0.0.1:4106/dashboard",
     "deploymentUrl": "https://roam-rental-dashboard-git.pages.dev/dashboard",
@@ -166,8 +171,8 @@
   {
     "slug": "runner-score-arcade",
     "title": "Runner Score Arcade",
-    "subtitle": "Historical Phaser arcade game",
-    "description": "An early Phaser 3 runner with hazards, power-ups, touch controls, Express hosting, and a demo-safe local leaderboard flow.",
+    "subtitle": "Dodg'Em Up Bro: an early Phaser runner",
+    "description": "An early Phaser 3 runner: dodge the falling hazards, grab power-ups, keep your lives and push the score, on keyboard or touch. Served by a small Express app with a demo-safe local leaderboard in place of the original Kinvey backend.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\runner-score-arcade",
     "localUrl": "http://127.0.0.1:4107/",
     "deploymentUrl": "https://runner-score-arcade-git.pages.dev/",
@@ -180,18 +185,18 @@
     "runCommand": "npm start",
     "screenshot": "/project-shots/runner-score-arcade/main.png",
     "tags": [
+      "Game",
       "Phaser",
-      "Express",
-      "Webpack",
-      "Archive"
+      "Arcade",
+      "Express"
     ],
     "accent": "#f97316"
   },
   {
     "slug": "cat-world",
     "title": "Cat World",
-    "subtitle": "Angular adoption archive",
-    "description": "An archived Angular adoption app preserved as an early full-stack-style portfolio sample with demo-safe backend boundaries.",
+    "subtitle": "An Angular adoption board for cats",
+    "description": "An Angular single-page app for listing cats up for adoption: browse profiles, post and edit your own listings, message other users, and manage accounts from an admin view. An early full-stack-style project preserved with demo-safe backend boundaries.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\angular-cat-adoption-app",
     "localUrl": "http://127.0.0.1:4108/",
     "deploymentUrl": "https://cat-world-git.pages.dev/",
@@ -201,16 +206,17 @@
     "screenshot": "/project-shots/cat-world/main.png",
     "tags": [
       "Angular",
-      "Archive",
-      "Mock Backend"
+      "Adoption",
+      "Messaging",
+      "Archive"
     ],
     "accent": "#e11d48"
   },
   {
     "slug": "user-hub-admin",
     "title": "User Hub Admin",
-    "subtitle": "Angular admin dashboard",
-    "description": "A legacy Angular admin demo using browser-local state for user management and dashboard flows.",
+    "subtitle": "A Clarity-styled admin panel for managing users",
+    "description": "An Angular admin panel built with VMware Clarity: create, view, edit and delete users from a dashboard with reusable form components and avatar fallbacks, with every record kept in the browser so the demo needs no server.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\Demo-Using-Clarity",
     "localUrl": "http://127.0.0.1:4109/",
     "deploymentUrl": "https://user-hub-admin-git.pages.dev/",
@@ -220,16 +226,17 @@
     "screenshot": "/project-shots/user-hub-admin/latest/card.jpg",
     "tags": [
       "Angular",
-      "Admin UI",
-      "LocalStorage"
+      "Clarity UI",
+      "Admin",
+      "Archive"
     ],
     "accent": "#06b6d4"
   },
   {
     "slug": "pedal-rush",
     "title": "Pedal Rush",
-    "subtitle": "React Hooks animation demo",
-    "description": "An early React Hooks project focused on reducer-driven interaction and animated UI state.",
+    "subtitle": "Hold the gas, thread the traffic",
+    "description": "A 2D traffic-dodging game in React: hold gas to accelerate, brake to scrub speed, switch lanes and thread through traffic for score and combo, with collisions costing health and a spinout when it runs out. A requestAnimationFrame game loop with CSS animation, built on Vite.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\my-hooks-demo",
     "localUrl": "http://127.0.0.1:4111/",
     "deploymentUrl": "https://pedal-rush-git.pages.dev/",
@@ -238,17 +245,18 @@
     "runCommand": "npm start",
     "screenshot": "/project-shots/pedal-rush/latest/card.jpg",
     "tags": [
+      "Game",
       "React",
-      "Hooks",
-      "Archive"
+      "Vite",
+      "Arcade"
     ],
     "accent": "#84cc16"
   },
   {
     "slug": "flowforge-configurator",
     "title": "Flowforge Configurator",
-    "subtitle": "Mocked configuration UI",
-    "description": "A React/Redux configuration demo with local mocked save/update flows for a self-contained portfolio build.",
+    "subtitle": "A pipeline configuration form with drafts and tags",
+    "description": "A React and Redux configuration form for pipeline-style records: load channels, edit fields and tags with validation, keep a local draft between visits, switch languages, and save a transformed pipeline object through a mocked API.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\quick-base-task",
     "localUrl": "http://127.0.0.1:4112/",
     "deploymentUrl": "https://flowforge-configurator-git.pages.dev/",
@@ -259,15 +267,16 @@
     "tags": [
       "React",
       "Redux",
-      "Mock Data"
+      "Forms",
+      "i18next"
     ],
     "accent": "#14b8a6"
   },
   {
     "slug": "gorilla-gainz",
     "title": "Gorilla Gainz",
-    "subtitle": "Fitness ecommerce archive",
-    "description": "An archived React ecommerce demo with product browsing and backend calls replaced by demo-safe placeholders.",
+    "subtitle": "A fitness store front with an admin back office",
+    "description": "A React e-commerce demo for fitness gear: browse the catalogue and product pages, log in to manage a profile, and use the admin-only screens to add, update and remove products. An early React Router project preserved with demo-safe placeholders for its backend.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\react-fitness-ecommerce-demo",
     "localUrl": "http://127.0.0.1:4113/",
     "deploymentUrl": "https://gorilla-gainz-git.pages.dev/",
@@ -279,6 +288,7 @@
     "tags": [
       "React",
       "Ecommerce",
+      "React Router",
       "Archive"
     ],
     "accent": "#facc15"
@@ -286,8 +296,8 @@
   {
     "slug": "memory-card-quest",
     "title": "Memory Card Quest",
-    "subtitle": "React Redux memory game",
-    "description": "An early React/Redux card-matching game preserved close to its original implementation.",
+    "subtitle": "Flip, match, and keep your lives",
+    "description": "A card-matching memory game in React and Redux: flip two cards, match the pair, watch the score climb and the lives fall, and replay when they run out. Randomised pairs every game and a Redux store that models each flip.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\react-redux-memory-card-game",
     "localUrl": "http://127.0.0.1:4114/",
     "deploymentUrl": "https://memory-card-quest-git.pages.dev/",
@@ -297,17 +307,18 @@
     "runCommand": "npm start",
     "screenshot": "/project-shots/memory-card-quest/latest/card.jpg",
     "tags": [
+      "Game",
       "React",
       "Redux",
-      "Game"
+      "Archive"
     ],
     "accent": "#c084fc"
   },
   {
     "slug": "org-atlas-directory",
     "title": "Org Atlas Directory",
-    "subtitle": "Enterprise directory demo",
-    "description": "A React/Redux directory app with synthetic relational data for companies, projects, employees, and addresses.",
+    "subtitle": "Browse companies, projects, employees and addresses",
+    "description": "A React and Redux directory for connected enterprise data: pick a company and drill into its projects, employees and addresses with master-detail filtering, backed by a local JSON data source.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\tick42_demo",
     "localUrl": "http://127.0.0.1:4115/",
     "deploymentUrl": "https://org-atlas-directory-git.pages.dev/",
@@ -318,7 +329,8 @@
     "tags": [
       "React",
       "Redux",
-      "Directory"
+      "Directory",
+      "Archive"
     ],
     "accent": "#60a5fa"
   },
