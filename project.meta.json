@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/project.meta.schema.json",
   "schemaVersion": 1,
-  "generatedAt": "2026-09-15T12:25:30.341Z",
+  "generatedAt": "2026-09-17T10:19:58.785Z",
   "generatedBy": "scripts/generate-project-meta.mjs",
   "identity": {
     "slug": "portfolio",
@@ -72,7 +72,55 @@
   },
   "media": {
     "source": "repo-local",
-    "directory": "C:/Users/Gaming PC/Desktop/Repos/portfolio/project-media"
+    "directory": "C:/Users/Gaming PC/Desktop/Repos/portfolio/project-media",
+    "primary": "project-media/card.jpg",
+    "images": [
+      {
+        "profile": "card",
+        "file": "card.jpg",
+        "path": "project-media/card.jpg",
+        "bytes": 185675,
+        "width": 1600,
+        "height": 900,
+        "capturedAt": "2026-09-17T10:19:45.795Z"
+      },
+      {
+        "profile": "desktop",
+        "file": "desktop.jpg",
+        "path": "project-media/desktop.jpg",
+        "bytes": 204718,
+        "width": 1440,
+        "height": 900,
+        "capturedAt": "2026-09-17T10:19:51.579Z"
+      },
+      {
+        "profile": "full",
+        "file": "full.jpg",
+        "path": "project-media/full.jpg",
+        "bytes": 1052745,
+        "width": 1440,
+        "height": 6355,
+        "capturedAt": "2026-09-17T10:19:56.110Z"
+      },
+      {
+        "profile": "mobile",
+        "file": "mobile.jpg",
+        "path": "project-media/mobile.jpg",
+        "bytes": 79407,
+        "width": 430,
+        "height": 932,
+        "capturedAt": "2026-09-17T10:19:53.385Z"
+      },
+      {
+        "profile": "og",
+        "file": "og.jpg",
+        "path": "project-media/og.jpg",
+        "bytes": 147938,
+        "width": 1200,
+        "height": 630,
+        "capturedAt": "2026-09-17T10:19:57.646Z"
+      }
+    ]
   },
   "stack": {
     "framework": "React",
@@ -109,9 +157,9 @@
     "devDependencyCount": 5
   },
   "metrics": {
-    "sourceFiles": 34,
+    "sourceFiles": 35,
     "testFiles": 0,
-    "sourceLines": 11764,
+    "sourceLines": 11767,
     "largestDirectories": [
       {
         "directory": "scripts",
@@ -119,7 +167,7 @@
       },
       {
         "directory": "src",
-        "files": 4
+        "files": 5
       },
       {
         "directory": ".",
@@ -142,10 +190,10 @@
   "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos.",
   "git": {
     "branch": "master",
-    "head": "ec8ed84",
-    "lastCommitDate": "2026-09-15T11:46:28+00:00",
-    "lastCommitSubject": "Sync project screenshots and metadata from the repos [meta-bot]",
-    "commitCount": 70,
+    "head": "d871776",
+    "lastCommitDate": "2026-09-15T15:25:33+03:00",
+    "lastCommitSubject": "Manage the page title and description with the card, and sync the new copy",
+    "commitCount": 71,
     "remote": "https://github.com/BorisThoris/portfolio.git"
   },
   "readme": {

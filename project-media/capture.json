@@ -1,0 +1,49 @@
+{
+  "slug": "portfolio",
+  "capturedAt": "2026-09-17T10:19:57.902Z",
+  "source": "explicit",
+  "url": "http://127.0.0.1:8088/portfolio/",
+  "recipe": {},
+  "profiles": [
+    {
+      "profile": "card",
+      "file": "card.jpg",
+      "width": 1600,
+      "height": 900,
+      "bytes": 185675,
+      "status": "captured"
+    },
+    {
+      "profile": "desktop",
+      "file": "desktop.jpg",
+      "width": 1440,
+      "height": 900,
+      "bytes": 204718,
+      "status": "captured"
+    },
+    {
+      "profile": "mobile",
+      "file": "mobile.jpg",
+      "width": 430,
+      "height": 932,
+      "bytes": 79407,
+      "status": "captured"
+    },
+    {
+      "profile": "full",
+      "file": "full.jpg",
+      "width": 1440,
+      "height": 900,
+      "bytes": 1052745,
+      "status": "captured"
+    },
+    {
+      "profile": "og",
+      "file": "og.jpg",
+      "width": 1200,
+      "height": 630,
+      "bytes": 147938,
+      "status": "captured"
+    }
+  ]
+}
