@@ -544,7 +544,8 @@ function toDisplayContext(experience: Experience, project: ProfessionalContext):
 
 function App() {
   return (
-    <BrowserRouter>
+    // basename follows Vite's base so the site also works hosted under a sub-path.
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cv-print" element={<CvPrintPage />} />
