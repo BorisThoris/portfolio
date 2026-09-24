@@ -116,10 +116,25 @@ if (hostedOnlyProjects.length > 0) {
   console.log('\nHosted-only projects (no local repo, portfolio data is authoritative): ' + hostedOnlyProjects.join(', '));
 }
 
+// The project page shows what a card cannot: the stack, the numbers, the git
+// snapshot, every screenshot, the trailers and videos. That comes straight out
+// of each project.meta.json, keyed by slug, in src/project-details.json.
+const detailsPath = path.join(portfolioRoot, 'src', 'project-details.json');
+const nextDetails = {};
+for (const item of metas) {
+  if (!item.meta.identity?.slug) continue;
+  nextDetails[item.meta.identity.slug] = detailsRecordFrom(item);
+}
+const previousDetails = readJson(detailsPath) ?? {};
+if (JSON.stringify(previousDetails) !== JSON.stringify(nextDetails)) {
+  changes.push('project-details ' + Object.keys(nextDetails).length + ' projects  ' + (Object.keys(previousDetails).length === 0 ? 'created' : 'updated'));
+}
+
 if (write) {
   fs.writeFileSync(projectDataPath, JSON.stringify(nextProjectData, null, 2) + '\n');
   fs.writeFileSync(analysisPath, JSON.stringify(nextAnalysis, null, 2) + '\n');
-  console.log('\nWrote src/project-data.json and src/repo-analysis.json.');
+  fs.writeFileSync(detailsPath, JSON.stringify(nextDetails, null, 2) + '\n');
+  console.log('\nWrote src/project-data.json, src/repo-analysis.json and src/project-details.json.');
 } else {
   console.log('\nRead-only run. Re-run with --write to apply.');
 }
@@ -153,6 +168,79 @@ function projectRecordFrom({ entry, meta }) {
     screenshot: meta.media?.primary?.startsWith('/') ? meta.media.primary : undefined,
     tags: identity.tags,
     accent: identity.accent
+  });
+}
+
+// Everything the project page renders. Image paths are rewritten to where the
+// portfolio serves that project's pulled copies (public/project-shots/<slug>/
+// latest/), so a repo-relative project-media/card.jpg resolves on the site.
+function detailsRecordFrom({ entry, meta }) {
+  const slug = meta.identity?.slug;
+  const media = meta.media ?? {};
+  const publicPrefix = '/project-shots/' + slug + '/latest/';
+  const images = (media.images ?? [])
+    .map((image) => pruneEmpty({
+      profile: image.profile,
+      path: image.path?.startsWith('/') ? image.path : publicPrefix + image.file,
+      width: image.width,
+      height: image.height,
+      bytes: image.bytes
+    }))
+    .filter((image) => publicFileExists(image.path));
+  return pruneEmpty({
+    slug,
+    generatedAt: meta.generatedAt,
+    version: meta.identity?.version,
+    classification: meta.identity?.classification,
+    links: pruneEmpty({ ...(meta.links ?? {}), repository: meta.links?.repository }),
+    runtime: pruneEmpty({
+      packageManager: meta.runtime?.packageManager,
+      nodeEngine: meta.runtime?.nodeEngine,
+      buildCommand: meta.runtime?.buildCommand,
+      runCommand: meta.runtime?.runCommand
+    }),
+    stack: meta.stack ? pruneEmpty({
+      framework: meta.stack.framework,
+      language: meta.stack.language,
+      runtimeTargets: meta.stack.runtimeTargets,
+      libraries: meta.stack.libraries,
+      testing: meta.stack.testing,
+      dependencyCount: meta.stack.dependencyCount,
+      devDependencyCount: meta.stack.devDependencyCount
+    }) : undefined,
+    metrics: meta.metrics ? pruneEmpty({
+      sourceFiles: meta.metrics.sourceFiles,
+      testFiles: meta.metrics.testFiles,
+      sourceLines: meta.metrics.sourceLines,
+      largestDirectories: meta.metrics.largestDirectories,
+      hasTests: meta.metrics.hasTests,
+      hasCi: meta.metrics.hasCi,
+      hasDocs: meta.metrics.hasDocs
+    }) : undefined,
+    git: meta.git ? pruneEmpty({
+      branch: meta.git.branch,
+      head: meta.git.head,
+      lastCommitDate: meta.git.lastCommitDate,
+      lastCommitSubject: meta.git.lastCommitSubject,
+      commitCount: meta.git.commitCount,
+      firstCommitDate: meta.git.firstCommitDate
+    }) : undefined,
+    scores: meta.scores,
+    analysisNotes: meta.analysisNotes,
+    images,
+    trailers: (media.trailers ?? []).map((trailer) => pruneEmpty({
+      id: trailer.id,
+      title: trailer.title,
+      url: trailer.url,
+      poster: trailer.poster,
+      width: trailer.width,
+      height: trailer.height,
+      duration: trailer.duration,
+      orientation: trailer.orientation,
+      builtAt: trailer.builtAt
+    })),
+    videos: media.videos ?? [],
+    source: entry.github ? entry.github + '@' + entry.branch : undefined
   });
 }
 

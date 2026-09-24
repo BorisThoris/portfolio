@@ -14,10 +14,11 @@ installed into each repo, and the fan-out/sync commands.
 <repo>/scripts/capture-project-shots.mjs the screenshot run, using this project's recipe
 <repo>/scripts/generate-social-preview.mjs the link-preview card
 <repo>/scripts/generate-app-icons.mjs    favicon, Apple and PWA icons + web manifest
-<repo>/scripts/refresh-project-meta.mjs  shots -> social -> icons -> meta, in one go
+<repo>/scripts/build-project-trailers.mjs rendered media: trailers and poster sets, rebuilt on input change
+<repo>/scripts/refresh-project-meta.mjs  trailers -> shots -> social -> icons -> meta, in one go
 <repo>/scripts/project.meta.schema.json  JSON schema for the output
 <repo>/package.json                      scripts: meta, meta:check, shots, social, social:check,
-                                         icons, icons:check, meta:refresh
+                                         icons, icons:check, trailers, trailers:check, meta:refresh
 ```
 
 Inside a project repo:
@@ -168,12 +169,58 @@ Nothing has to be run by hand after a deploy:
 
 Locally the same pull is `node scripts/meta/pull-project-media.mjs`.
 
+3. **On the PC's CI chain** (`ci-failover`), the repos whose media needs a GPU
+   (BOBBALL, VYB Chess) carry a `media` step:
+   `node scripts/refresh-project-meta.mjs --no-shots --commit --branch=main`.
+   It rebuilds stale trailers and posters, refreshes the card, icons and
+   metadata, and commits only the toolkit's own files as `[meta-bot]`, pushing
+   when the checkout is on that branch and not behind origin. BOBBALL is a
+   static-assets Worker deployed by the same chain (`workflows: false` in the
+   registry: no GitHub Actions on that private repo), so its `media` step runs
+   before `deploy.sh` assembles `dist/`; VYB Chess pushes to `main` and
+   Cloudflare Pages ships the new web copies.
+
+## Trailers and rendered media
+
+A project whose pictures are rendered rather than photographed describes them
+in the `trailers` block of its config (see the template header of
+`build-project-trailers.mjs`). Each item names the git pathspecs it is rendered
+from (`inputs`), the command that renders it (`build`), where the master lands
+(`output`), the toolchain it needs (`requires`: commands on PATH, or an
+environment variable with known install paths, exported for the build) and,
+optionally, a `prepare` generator with inputs of its own (VYB Chess re-captures
+the app screens its Blender scene composites when `app/src` changes, and only
+renders again if that produced different pictures). `npm run trailers` hashes
+the inputs through git (index plus working tree), rebuilds what changed,
+encodes a web copy (H.264 + AAC, faststart, capped at `maxBytes`, 20 MB by
+default, under Cloudflare's 25 MiB single-file limit) with a poster frame into
+`dir` (`<staticDir>/trailers` by default) and records it in
+`project-media/trailers.json`; `--check` reports what is stale without
+rendering. A `kind: 'stills'` item (BOBBALL's poster set) writes its own images
+into `project-media/` and is only hash-tracked. A machine without the toolchain
+skips the item with a warning, so the pre-push hook and GitHub CI only warn
+about stale trailers (`--strict-trailers` makes them fail); the render happens
+on the PC.
+
+`project.meta.json` carries the result as `media.trailers` (absolute URLs on
+the deployment plus poster, size and duration) and any hand-listed
+`media.videos` (a `videos` list in the config: YouTube links embed, direct
+video URLs play inline). The portfolio's sync writes all of that, with the
+stack, metrics, git snapshot and screenshots, into `src/project-details.json`,
+which the project page renders: the trailer plays in the billboard, "Play" or
+"Launch" opens the project in a new tab, then the trailers, the screenshots and
+the fact sheet. A project can add `afterRefresh` commands (run after the steps,
+before the commit) and `commitPaths` (extra files for that commit); a
+`capture: { skip: 'why' }` opts out of screenshots.
+
 ## Releases
 
-`npm run meta:refresh` sequences the four steps for a release: photograph the
-deployment, publish the card, render the icons, regenerate `project.meta.json`.
-`--no-shots` keeps the current screenshots, `--source=local` photographs the dev
-server, `--check` only verifies. Commit `project.meta.json`, `project-media/`,
+`npm run meta:refresh` sequences the five steps for a release: rebuild stale
+trailers, photograph the deployment, publish the card, render the icons,
+regenerate `project.meta.json`. `--no-shots` keeps the current screenshots,
+`--no-trailers` leaves the rendered media alone, `--source=local` photographs
+the dev server, `--check` only verifies, `--commit --branch=<name>` commits
+and pushes the toolkit's files (what the CI chain runs). Commit `project.meta.json`, `project-media/`,
 the page head and the static icon/image files it touched, and push: the card
 and icons go live with the next deployment.
 

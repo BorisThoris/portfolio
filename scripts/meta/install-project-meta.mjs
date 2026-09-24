@@ -65,6 +65,7 @@ const captureSource = fs.readFileSync(path.join(templateDir, 'capture-project-sh
 const socialSource = fs.readFileSync(path.join(templateDir, 'generate-social-preview.mjs'), 'utf8');
 const iconsSource = fs.readFileSync(path.join(templateDir, 'generate-app-icons.mjs'), 'utf8');
 const refreshSource = fs.readFileSync(path.join(templateDir, 'refresh-project-meta.mjs'), 'utf8');
+const trailersSource = fs.readFileSync(path.join(templateDir, 'build-project-trailers.mjs'), 'utf8');
 const hookSource = fs.readFileSync(path.join(templateDir, 'pre-push'), 'utf8');
 const workflowSource = fs.readFileSync(path.join(templateDir, 'project-meta.yml'), 'utf8');
 const refreshWorkflowSource = fs.readFileSync(path.join(templateDir, 'project-meta-refresh.yml'), 'utf8');
@@ -76,7 +77,8 @@ const installedFiles = {
   'capture-project-shots.mjs': { contents: captureSource, label: 'capture script' },
   'generate-social-preview.mjs': { contents: socialSource, label: 'social script' },
   'generate-app-icons.mjs': { contents: iconsSource, label: 'icon script' },
-  'refresh-project-meta.mjs': { contents: refreshSource, label: 'refresh script' }
+  'refresh-project-meta.mjs': { contents: refreshSource, label: 'refresh script' },
+  'build-project-trailers.mjs': { contents: trailersSource, label: 'trailers script' }
 };
 
 const summary = [];
@@ -112,10 +114,14 @@ for (const entry of repoRegistry) {
   if (packageAction) actions.push(packageAction);
 
   // Only a deployed project has a card to gate; the repo's own config says so.
+  // A repo whose builds run outside GitHub (`workflows: false` in the registry:
+  // a private repo billed per hosted minute, deployed by the PC's CI chain)
+  // gets the hook but no Actions workflows.
   const deployed = await isDeployed(configPath, entry);
   if (!unmanagedClassifications.has(entry.classification) && deployed) {
-    actions.push(installPushGate(entry.dir));
-    if (entry.branch) actions.push(installRefreshWorkflow(entry));
+    actions.push(installPushGate(entry.dir, entry.workflows !== false));
+    if (entry.workflows === false) actions.push('GitHub workflows skipped (registry: workflows: false)');
+    else if (entry.branch) actions.push(installRefreshWorkflow(entry));
     else actions.push('no branch in registry, refresh workflow skipped');
   }
 
@@ -133,7 +139,7 @@ console.log('\n' + summary.length + ' repos processed' + (dryRun ? ' (dry run, n
 function buildConfigFile(entry) {
   const project = projectBySlug.get(entry.slug);
   const analysis = analysisBySlug.get(entry.slug);
-  const capture = captureTargets[entry.slug];
+  const capture = entry.capture ?? captureTargets[entry.slug];
 
   // Registry text is a fallback: where the portfolio already curated a field, its
   // wording wins so installing the toolkit never rewrites existing copy.
@@ -226,6 +232,34 @@ function buildConfigFile(entry) {
     lines.push('  icons: ' + indentBlock(JSON.stringify(entry.icons, null, 2), '  ') + ',');
     lines.push('');
   }
+  if (entry.links) {
+    lines.push('  // Extra links carried into project.meta.json next to the deployment URL.');
+    lines.push('  links: ' + indentBlock(JSON.stringify(entry.links, null, 2), '  ') + ',');
+    lines.push('');
+  }
+  if (entry.trailers) {
+    lines.push('  // Rendered media: scripts/build-project-trailers.mjs rebuilds each item when');
+    lines.push('  // the git pathspecs in `inputs` change, publishes a web copy of a trailer into');
+    lines.push('  // `dir` and records it in project-media/trailers.json.');
+    lines.push('  trailers: ' + indentBlock(JSON.stringify(entry.trailers, null, 2), '  ') + ',');
+    lines.push('');
+  }
+  if (entry.videos) {
+    lines.push('  // Hand-listed videos (YouTube, a gameplay capture) the portfolio shows on this');
+    lines.push('  // project\'s page.');
+    lines.push('  videos: ' + indentBlock(JSON.stringify(entry.videos, null, 2), '  ') + ',');
+    lines.push('');
+  }
+  if (entry.afterRefresh) {
+    lines.push('  // Commands the refresh runs after its steps, before committing.');
+    lines.push('  afterRefresh: ' + indentBlock(JSON.stringify(entry.afterRefresh, null, 2), '  ') + ',');
+    lines.push('');
+  }
+  if (entry.commitPaths) {
+    lines.push('  // Extra paths the refresh commits along with the toolkit\'s own files.');
+    lines.push('  commitPaths: ' + indentBlock(JSON.stringify(entry.commitPaths, null, 2), '  ') + ',');
+    lines.push('');
+  }
   lines.push('  media: {');
   lines.push("    sourceDir: path.join(portfolioRoot, " + shots.split('/').map(quote).join(', ') + '),');
   lines.push('    publicPathPrefix: ' + quote('/project-shots/' + entry.slug + '/latest') + ',');
@@ -279,6 +313,8 @@ function ensurePackageScripts(repoDir) {
     'social:check': 'node scripts/generate-social-preview.mjs --check',
     icons: 'node scripts/generate-app-icons.mjs',
     'icons:check': 'node scripts/generate-app-icons.mjs --check',
+    trailers: 'node scripts/build-project-trailers.mjs',
+    'trailers:check': 'node scripts/build-project-trailers.mjs --check',
     'meta:refresh': 'node scripts/refresh-project-meta.mjs'
   };
   const missing = Object.entries(wanted).filter(([key, value]) => scripts[key] !== value);
@@ -295,7 +331,7 @@ function ensurePackageScripts(repoDir) {
 // The gate lives in a committed .githooks/ directory (git's own hooks dir is
 // not versioned) and is switched on per clone with core.hooksPath. The same
 // check runs in CI so a --no-verify push or another machine still gets a red X.
-function installPushGate(repoDir) {
+function installPushGate(repoDir, withWorkflow = true) {
   const actions = [];
   const hookPath = path.join(repoDir, '.githooks', 'pre-push');
   if (!dryRun) fs.mkdirSync(path.dirname(hookPath), { recursive: true });
@@ -313,6 +349,7 @@ function installPushGate(repoDir) {
       actions.push('hooksPath already ' + current.stdout.trim() + ' (hook not wired)');
     }
   }
+  if (!withWorkflow) return actions.join(', ');
   const workflowPath = path.join(repoDir, '.github', 'workflows', 'project-meta.yml');
   if (!dryRun) fs.mkdirSync(path.dirname(workflowPath), { recursive: true });
   const workflowAction = writeIfChanged(workflowPath, workflowSource, 'CI workflow');

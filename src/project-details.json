@@ -1,0 +1,3233 @@
+{
+  "bobball": {
+    "slug": "bobball",
+    "generatedAt": "2026-09-23T23:12:21.793Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
+      "leaderboardApi": "https://bobball-scores.modaxxx009.workers.dev/",
+      "localUrl": "http://127.0.0.1:8765/game/",
+      "repository": "https://github.com/BorisThoris/bobball"
+    },
+    "runtime": {
+      "packageManager": "none",
+      "buildCommand": "bash deploy.sh",
+      "runCommand": "python -m http.server 8765  (then /game/)"
+    },
+    "stack": {
+      "framework": "Babylon.js",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web",
+        "cloudflare-workers"
+      ],
+      "libraries": [
+        {
+          "name": "@babylonjs/core",
+          "version": "9.27"
+        },
+        {
+          "name": "@babylonjs/havok",
+          "version": "1.x"
+        },
+        {
+          "name": "puppeteer-core",
+          "version": "trailer render"
+        }
+      ],
+      "testing": [
+        "trailer/game_tests.mjs (85 assertions, headless Chrome)"
+      ],
+      "dependencyCount": 2,
+      "devDependencyCount": 1
+    },
+    "metrics": {
+      "sourceFiles": 73,
+      "testFiles": 1,
+      "sourceLines": 11153,
+      "largestDirectories": [
+        {
+          "directory": ".",
+          "files": 39
+        },
+        {
+          "directory": "tools_dev",
+          "files": 12
+        },
+        {
+          "directory": "trailer",
+          "files": 11
+        },
+        {
+          "directory": "game",
+          "files": 5
+        },
+        {
+          "directory": "game/lib",
+          "files": 4
+        },
+        {
+          "directory": "leaderboard",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": false,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "claude/bobball-comedy-trailer-935e5d",
+      "head": "58197f2",
+      "lastCommitDate": "2026-09-24T02:00:41+03:00",
+      "lastCommitSubject": "The head collider's top comes from the skin, not the culling box",
+      "commitCount": 52
+    },
+    "scores": {
+      "priorityScore": 90,
+      "demoabilityScore": 95,
+      "depthScore": 90,
+      "polishScore": 85,
+      "uniquenessScore": 96,
+      "maintenanceScore": 70
+    },
+    "analysisNotes": "A complete shipped browser game plus its own trailer pipeline: photogrammetry of a real person driven as an active ragdoll, a georeferenced rebuild of a real square, deterministic frame-by-frame rendering, synthesised music, sky and narration, all in one repository.",
+    "source": "BorisThoris/bobball@main"
+  },
+  "bbeats": {
+    "slug": "bbeats",
+    "generatedAt": "2026-09-17T10:19:24.288Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://bbeats-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4101/",
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/BBeats"
+    },
+    "runtime": {
+      "packageManager": "yarn",
+      "buildCommand": "yarn build",
+      "runCommand": "yarn dev --host 127.0.0.1 --port 4101"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^7.18.0"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "tone",
+          "version": "^15.0.4"
+        },
+        {
+          "name": "vite",
+          "version": "^6.4.3"
+        },
+        {
+          "name": "electron",
+          "version": "^42.4.1"
+        },
+        {
+          "name": "styled-components",
+          "version": "^6.4.2"
+        },
+        {
+          "name": "typescript",
+          "version": "^5.0.4"
+        },
+        {
+          "name": "zod",
+          "version": "^4.3.6"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 32,
+      "devDependencyCount": 59
+    },
+    "metrics": {
+      "sourceFiles": 6653,
+      "testFiles": 2632,
+      "sourceLines": 1122212,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 6161
+        },
+        {
+          "directory": "public",
+          "files": 216
+        },
+        {
+          "directory": "scripts",
+          "files": 139
+        },
+        {
+          "directory": "e2e",
+          "files": 92
+        },
+        {
+          "directory": "output",
+          "files": 16
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "main",
+      "head": "7374dc36f",
+      "lastCommitDate": "2026-09-15T18:17:08+03:00",
+      "lastCommitSubject": "TASK-929: record the saw-only bounce proof",
+      "commitCount": 3344
+    },
+    "scores": {
+      "priorityScore": 96,
+      "demoabilityScore": 95,
+      "depthScore": 98,
+      "polishScore": 94,
+      "uniquenessScore": 98,
+      "maintenanceScore": 91
+    },
+    "analysisNotes": "Flagship browser music editor with Web Audio, Pixi rendering, asset handling, Electron packaging, deep scripts, tests, and a working local/deployed demo.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/bbeats/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 167918
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/bbeats/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 155979
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/bbeats/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 137777
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/bbeats/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 36554
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/bbeats/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 102979
+      }
+    ],
+    "source": "BorisThoris/BBeats@main"
+  },
+  "vyb-chess": {
+    "slug": "vyb-chess",
+    "generatedAt": "2026-09-17T10:19:40.474Z",
+    "version": "0.2.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://vyb-chess.pages.dev/",
+      "localUrl": "http://127.0.0.1:4117/",
+      "repository": "https://github.com/BorisThoris/VYB-Chess"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "nodeEngine": ">=26.3.1",
+      "buildCommand": "npm run build:web",
+      "runCommand": "npm run dev -- --host 127.0.0.1 --port 4117"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.2.7"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.2.7"
+        },
+        {
+          "name": "vite",
+          "version": "7.3.6"
+        },
+        {
+          "name": "typescript",
+          "version": "6.0.3"
+        },
+        {
+          "name": "zod",
+          "version": "4.4.3"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 8,
+      "devDependencyCount": 23
+    },
+    "metrics": {
+      "sourceFiles": 313,
+      "testFiles": 116,
+      "sourceLines": 78877,
+      "largestDirectories": [
+        {
+          "directory": "app",
+          "files": 178
+        },
+        {
+          "directory": "scripts",
+          "files": 75
+        },
+        {
+          "directory": "tests",
+          "files": 37
+        },
+        {
+          "directory": "output",
+          "files": 15
+        },
+        {
+          "directory": ".",
+          "files": 3
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "main",
+      "head": "131e7fb",
+      "lastCommitDate": "2026-09-15T12:25:43+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 410
+    },
+    "scores": {
+      "priorityScore": 98,
+      "demoabilityScore": 96,
+      "depthScore": 99,
+      "polishScore": 95,
+      "uniquenessScore": 99,
+      "maintenanceScore": 94
+    },
+    "analysisNotes": "Flagship experimental interactive-book product with the complete six-part Bulgarian manuscript, schema-validated content, low-friction decision laboratories, PWA and Electron surfaces, Playwright/Vitest/accessibility coverage, Windows packaging, and Steam-oriented release tooling.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/vyb-chess/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 99273
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/vyb-chess/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 90573
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/vyb-chess/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 78156
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/vyb-chess/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 45768
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/vyb-chess/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 74930
+      }
+    ],
+    "source": "BorisThoris/VYB-Chess@main"
+  },
+  "memory-dungeon": {
+    "slug": "memory-dungeon",
+    "generatedAt": "2026-09-23T20:25:43.263Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://memory-dungeon-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4102/",
+      "repository": "https://github.com/BorisThoris/memory-dungeon"
+    },
+    "runtime": {
+      "packageManager": "yarn",
+      "nodeEngine": ">=22.9.0",
+      "buildCommand": "yarn build:cloudflare",
+      "runCommand": "yarn dev:renderer --host 127.0.0.1 --port 4102"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.2.4"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.2.4"
+        },
+        {
+          "name": "zustand",
+          "version": "5.0.12"
+        },
+        {
+          "name": "three",
+          "version": "^0.183.2"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.5.0"
+        },
+        {
+          "name": "pixi.js",
+          "version": "8.17.1"
+        },
+        {
+          "name": "vite",
+          "version": "6.4.3"
+        },
+        {
+          "name": "electron",
+          "version": "41.10.7"
+        },
+        {
+          "name": "typescript",
+          "version": "6.0.2"
+        },
+        {
+          "name": "zod",
+          "version": "^4.4.3"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 15,
+      "devDependencyCount": 47
+    },
+    "metrics": {
+      "sourceFiles": 1140,
+      "testFiles": 491,
+      "sourceLines": 176916,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 965
+        },
+        {
+          "directory": "scripts",
+          "files": 91
+        },
+        {
+          "directory": "e2e",
+          "files": 64
+        },
+        {
+          "directory": "packages",
+          "files": 14
+        },
+        {
+          "directory": ".",
+          "files": 5
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "main",
+      "head": "b0ea4afd",
+      "lastCommitDate": "2026-09-23T23:20:54+03:00",
+      "lastCommitSubject": "Refresh the repo model after merging main",
+      "commitCount": 1748
+    },
+    "scores": {
+      "priorityScore": 94,
+      "demoabilityScore": 94,
+      "depthScore": 97,
+      "polishScore": 92,
+      "uniquenessScore": 95,
+      "maintenanceScore": 90
+    },
+    "analysisNotes": "Deep game project with renderer build, Electron path, visual/gameplay gates, assets, and stable local/deployed demo flow.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/memory-dungeon/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 167328
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 156764
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/memory-dungeon/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 130994
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 51915
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/memory-dungeon/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 120679
+      }
+    ],
+    "source": "BorisThoris/memory-dungeon@main"
+  },
+  "gem-dungeon": {
+    "slug": "gem-dungeon",
+    "generatedAt": "2026-09-17T10:23:24.904Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://gem-dungeon-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4103/",
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/gem-dungeon"
+    },
+    "runtime": {
+      "packageManager": "yarn",
+      "buildCommand": "yarn build",
+      "runCommand": "yarn dev --host 127.0.0.1 --port 4103"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "three",
+          "version": "^0.180.0"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.3.0"
+        },
+        {
+          "name": "@react-three/drei",
+          "version": "^10.7.6"
+        },
+        {
+          "name": "vite",
+          "version": "^5.4.20"
+        },
+        {
+          "name": "electron",
+          "version": "^38.1.2"
+        },
+        {
+          "name": "typescript",
+          "version": "~5.8.3"
+        }
+      ],
+      "testing": [
+        "vitest"
+      ],
+      "dependencyCount": 9,
+      "devDependencyCount": 32
+    },
+    "metrics": {
+      "sourceFiles": 388,
+      "testFiles": 27,
+      "sourceLines": 79383,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 344
+        },
+        {
+          "directory": "scripts",
+          "files": 32
+        },
+        {
+          "directory": "assets",
+          "files": 4
+        },
+        {
+          "directory": ".",
+          "files": 4
+        },
+        {
+          "directory": "code_examples",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "codex/epic-1-canonical-dungeon",
+      "head": "de0d5de",
+      "lastCommitDate": "2026-09-15T15:19:21+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 140
+    },
+    "scores": {
+      "priorityScore": 76,
+      "demoabilityScore": 90,
+      "depthScore": 84,
+      "polishScore": 82,
+      "uniquenessScore": 88,
+      "maintenanceScore": 76
+    },
+    "analysisNotes": "React Three Fiber dungeon editor with procedural rooms, physics, a component browser and a clean Vite demo path; deployed from main.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/gem-dungeon/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 92647
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/gem-dungeon/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 90907
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/gem-dungeon/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 78746
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/gem-dungeon/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 33327
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/gem-dungeon/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 75622
+      }
+    ],
+    "source": "BorisThoris/gem-dungeon@main"
+  },
+  "skyfall": {
+    "slug": "skyfall",
+    "generatedAt": "2026-09-17T10:21:40.934Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://skyfall-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4104/",
+      "repository": "https://github.com/BorisThoris/skyfall"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm run dev -- --host 127.0.0.1 --port 4104"
+    },
+    "stack": {
+      "framework": "Phaser",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "phaser",
+          "version": "^3.90.0"
+        },
+        {
+          "name": "vite",
+          "version": "^6.4.1"
+        },
+        {
+          "name": "electron",
+          "version": "^28.0.0"
+        }
+      ],
+      "testing": [
+        "@playwright/test"
+      ],
+      "dependencyCount": 2,
+      "devDependencyCount": 4
+    },
+    "metrics": {
+      "sourceFiles": 92,
+      "testFiles": 20,
+      "sourceLines": 15028,
+      "largestDirectories": [
+        {
+          "directory": "app",
+          "files": 58
+        },
+        {
+          "directory": "test",
+          "files": 15
+        },
+        {
+          "directory": "scripts",
+          "files": 7
+        },
+        {
+          "directory": "e2e",
+          "files": 5
+        },
+        {
+          "directory": ".",
+          "files": 5
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "ai/refine-skyfall-cycle-02",
+      "head": "8df83699",
+      "lastCommitDate": "2026-09-15T15:21:41+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 150
+    },
+    "scores": {
+      "priorityScore": 76,
+      "demoabilityScore": 92,
+      "depthScore": 88,
+      "polishScore": 86,
+      "uniquenessScore": 86,
+      "maintenanceScore": 82
+    },
+    "analysisNotes": "Current canonical Phaser arcade game with Vite build, Electron packaging, tests, and a strong immediate gameplay demo.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/skyfall/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 72881
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/skyfall/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 71269
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/skyfall/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 62090
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/skyfall/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 16809
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/skyfall/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 52092
+      }
+    ],
+    "source": "BorisThoris/skyfall@master"
+  },
+  "cross-repo-libs": {
+    "slug": "cross-repo-libs",
+    "generatedAt": "2026-09-17T10:25:31.048Z",
+    "version": "0.0.0",
+    "classification": "web-library",
+    "links": {
+      "deploymentUrl": "https://cross-repo-libs-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4105/",
+      "repository": "https://github.com/BorisThoris/cross-repo-libs"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "nodeEngine": ">=20",
+      "buildCommand": "npm run build --workspace=example-web",
+      "runCommand": "npm run dev --workspace=example-web -- --host 127.0.0.1 --port 4105"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "three",
+          "version": "^0.180.0"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.3.0"
+        },
+        {
+          "name": "vite",
+          "version": "^6.3.3"
+        },
+        {
+          "name": "typescript",
+          "version": "^5.8.3"
+        }
+      ],
+      "testing": [
+        "vitest"
+      ],
+      "dependencyCount": 0,
+      "devDependencyCount": 13
+    },
+    "metrics": {
+      "sourceFiles": 117,
+      "testFiles": 21,
+      "sourceLines": 19059,
+      "largestDirectories": [
+        {
+          "directory": "packages",
+          "files": 89
+        },
+        {
+          "directory": "apps",
+          "files": 13
+        },
+        {
+          "directory": "scripts",
+          "files": 9
+        },
+        {
+          "directory": ".",
+          "files": 3
+        },
+        {
+          "directory": "local-models",
+          "files": 3
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "fedafcf",
+      "lastCommitDate": "2026-09-15T12:25:33+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 29
+    },
+    "scores": {
+      "priorityScore": 89,
+      "demoabilityScore": 82,
+      "depthScore": 80,
+      "polishScore": 72,
+      "uniquenessScore": 84,
+      "maintenanceScore": 80
+    },
+    "analysisNotes": "Reusable package workspace with an example app; less visual than games but valuable as architecture and shared-library evidence.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/cross-repo-libs/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 178726
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/cross-repo-libs/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 167522
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/cross-repo-libs/latest/full.jpg",
+        "width": 1440,
+        "height": 2620,
+        "bytes": 215032
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/cross-repo-libs/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 44246
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/cross-repo-libs/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 128265
+      }
+    ],
+    "source": "BorisThoris/cross-repo-libs@master"
+  },
+  "roam-rental-dashboard": {
+    "slug": "roam-rental-dashboard",
+    "generatedAt": "2026-09-17T10:26:31.972Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://roam-rental-dashboard-git.pages.dev/dashboard",
+      "localUrl": "http://127.0.0.1:4106/dashboard",
+      "repository": "https://github.com/BorisThoris/roam-rental-dashboard"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "cd roam-rental-dashboard-app && npm run dev -- -p 4106"
+    },
+    "stack": {
+      "framework": "Next.js",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "16.13.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "16.13.1"
+        },
+        {
+          "name": "next",
+          "version": "9.5.3"
+        },
+        {
+          "name": "styled-components",
+          "version": "^5.1.0"
+        },
+        {
+          "name": "typescript",
+          "version": "4.9.4"
+        }
+      ],
+      "testing": [
+        "jest"
+      ],
+      "dependencyCount": 0,
+      "devDependencyCount": 0
+    },
+    "metrics": {
+      "sourceFiles": 23,
+      "testFiles": 3,
+      "sourceLines": 2128,
+      "largestDirectories": [
+        {
+          "directory": "roam-rental-dashboard-app",
+          "files": 17
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "main",
+      "head": "c793ec5",
+      "lastCommitDate": "2026-09-15T12:26:18+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 45
+    },
+    "scores": {
+      "priorityScore": 74,
+      "demoabilityScore": 78,
+      "depthScore": 72,
+      "polishScore": 76,
+      "uniquenessScore": 70,
+      "maintenanceScore": 72
+    },
+    "analysisNotes": "Preserved Next.js dashboard demo with typed rental UI and mock data; strong supporting project but not as distinctive as the top showcase.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/roam-rental-dashboard/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 30237
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/roam-rental-dashboard/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 27799
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/roam-rental-dashboard/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 25282
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/roam-rental-dashboard/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 12468
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/roam-rental-dashboard/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 22806
+      }
+    ],
+    "source": "BorisThoris/roam-rental-dashboard@main"
+  },
+  "runner-score-arcade": {
+    "slug": "runner-score-arcade",
+    "generatedAt": "2026-09-17T10:21:59.881Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://runner-score-arcade-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4107/",
+      "repository": "https://github.com/BorisThoris/runner-score-arcade"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start"
+    },
+    "stack": {
+      "framework": "Phaser",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "node-server"
+      ],
+      "libraries": [
+        {
+          "name": "phaser",
+          "version": "^3.15.1"
+        },
+        {
+          "name": "webpack",
+          "version": "^4.30.0"
+        },
+        {
+          "name": "express",
+          "version": "^4.16.4"
+        }
+      ],
+      "testing": [
+        "mocha"
+      ],
+      "dependencyCount": 13,
+      "devDependencyCount": 13
+    },
+    "metrics": {
+      "sourceFiles": 31,
+      "testFiles": 0,
+      "sourceLines": 5106,
+      "largestDirectories": [
+        {
+          "directory": "app",
+          "files": 19
+        },
+        {
+          "directory": ".",
+          "files": 6
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        }
+      ],
+      "hasTests": false,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "d9ea7bb",
+      "lastCommitDate": "2026-09-15T12:28:14+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 42
+    },
+    "scores": {
+      "priorityScore": 86,
+      "demoabilityScore": 76,
+      "depthScore": 66,
+      "polishScore": 66,
+      "uniquenessScore": 68,
+      "maintenanceScore": 58
+    },
+    "analysisNotes": "Historical Phaser runner with Express hosting and leaderboard flow; demoable but older stack and less polished than current games.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/runner-score-arcade/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 160647
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 149931
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/runner-score-arcade/latest/full.jpg",
+        "width": 1440,
+        "height": 916,
+        "bytes": 134384
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 65110
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/runner-score-arcade/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 120185
+      }
+    ],
+    "source": "BorisThoris/runner-score-arcade@master"
+  },
+  "cat-world": {
+    "slug": "cat-world",
+    "generatedAt": "2026-09-17T10:25:43.687Z",
+    "version": "0.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://cat-world-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4108/",
+      "repository": "https://github.com/BorisThoris/cat-world"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start -- --host 127.0.0.1 --port 4108"
+    },
+    "stack": {
+      "framework": "Angular",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "@angular/core",
+          "version": "^6.1.2"
+        },
+        {
+          "name": "bootstrap",
+          "version": "^3.3.7"
+        },
+        {
+          "name": "typescript",
+          "version": "~2.7.2"
+        }
+      ],
+      "testing": [
+        "karma"
+      ],
+      "dependencyCount": 22,
+      "devDependencyCount": 19
+    },
+    "metrics": {
+      "sourceFiles": 143,
+      "testFiles": 30,
+      "sourceLines": 17363,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 134
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "e2e",
+          "files": 3
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "ai/refine-cat-world-cycle-02",
+      "head": "c94e349",
+      "lastCommitDate": "2026-09-15T15:22:04+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 46
+    },
+    "scores": {
+      "priorityScore": 84,
+      "demoabilityScore": 70,
+      "depthScore": 60,
+      "polishScore": 64,
+      "uniquenessScore": 62,
+      "maintenanceScore": 56
+    },
+    "analysisNotes": "Older Angular adoption app, useful as an archive demo but lower priority due to dated framework and narrower surface.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/cat-world/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 115422
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/cat-world/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 110745
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/cat-world/latest/full.jpg",
+        "width": 1440,
+        "height": 910,
+        "bytes": 95058
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/cat-world/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 52516
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/cat-world/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 95098
+      }
+    ],
+    "source": "BorisThoris/cat-world@master"
+  },
+  "user-hub-admin": {
+    "slug": "user-hub-admin",
+    "generatedAt": "2026-09-17T10:25:53.810Z",
+    "version": "0.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://user-hub-admin-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4109/",
+      "repository": "https://github.com/BorisThoris/user-hub-admin"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start -- --host 127.0.0.1 --port 4109"
+    },
+    "stack": {
+      "framework": "Angular",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "@angular/core",
+          "version": "~9.1.9"
+        },
+        {
+          "name": "typescript",
+          "version": "~3.8.3"
+        }
+      ],
+      "testing": [
+        "karma"
+      ],
+      "dependencyCount": 15,
+      "devDependencyCount": 18
+    },
+    "metrics": {
+      "sourceFiles": 52,
+      "testFiles": 8,
+      "sourceLines": 2870,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 32
+        },
+        {
+          "directory": "docs",
+          "files": 10
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "e2e",
+          "files": 3
+        },
+        {
+          "directory": ".",
+          "files": 1
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "master",
+      "head": "63fc342",
+      "lastCommitDate": "2026-09-15T12:29:52+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 26
+    },
+    "scores": {
+      "priorityScore": 66,
+      "demoabilityScore": 72,
+      "depthScore": 64,
+      "polishScore": 68,
+      "uniquenessScore": 62,
+      "maintenanceScore": 62
+    },
+    "analysisNotes": "Legacy Angular admin dashboard with local state; good archive support for CRUD/admin UI experience.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/user-hub-admin/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 87916
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/user-hub-admin/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 82655
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/user-hub-admin/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 70816
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/user-hub-admin/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 36100
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/user-hub-admin/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 64022
+      }
+    ],
+    "source": "BorisThoris/user-hub-admin@master"
+  },
+  "pedal-rush": {
+    "slug": "pedal-rush",
+    "generatedAt": "2026-09-17T10:26:02.669Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://pedal-rush-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4111/",
+      "repository": "https://github.com/BorisThoris/pedal-rush"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "nodeEngine": "20.x",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^18.2.0"
+        },
+        {
+          "name": "react-dom",
+          "version": "^18.2.0"
+        },
+        {
+          "name": "vite",
+          "version": "^5.4.21"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 2,
+      "devDependencyCount": 6
+    },
+    "metrics": {
+      "sourceFiles": 15,
+      "testFiles": 1,
+      "sourceLines": 2639,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 7
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": ".",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "dd8c77f",
+      "lastCommitDate": "2026-09-15T12:30:46+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 31
+    },
+    "scores": {
+      "priorityScore": 52,
+      "demoabilityScore": 66,
+      "depthScore": 50,
+      "polishScore": 50,
+      "uniquenessScore": 50,
+      "maintenanceScore": 44
+    },
+    "analysisNotes": "Early hooks animation/demo project; kept visible as archive material with limited visual emphasis.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/pedal-rush/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 132544
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/pedal-rush/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 130451
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/pedal-rush/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 111017
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/pedal-rush/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 51571
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/pedal-rush/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 99190
+      }
+    ],
+    "source": "BorisThoris/pedal-rush@master"
+  },
+  "flowforge-configurator": {
+    "slug": "flowforge-configurator",
+    "generatedAt": "2026-09-17T10:25:11.314Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://flowforge-configurator-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4112/",
+      "repository": "https://github.com/BorisThoris/flowforge-configurator"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^16.13.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^16.13.1"
+        },
+        {
+          "name": "redux",
+          "version": "^4.0.5"
+        }
+      ],
+      "testing": [
+        "@testing-library/react"
+      ],
+      "dependencyCount": 15,
+      "devDependencyCount": 0
+    },
+    "metrics": {
+      "sourceFiles": 31,
+      "testFiles": 1,
+      "sourceLines": 3087,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 24
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "public",
+          "files": 1
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "ai/refine-flowforge-configurator-cycle-02",
+      "head": "21443c4",
+      "lastCommitDate": "2026-09-15T15:22:29+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 22
+    },
+    "scores": {
+      "priorityScore": 61,
+      "demoabilityScore": 64,
+      "depthScore": 62,
+      "polishScore": 62,
+      "uniquenessScore": 60,
+      "maintenanceScore": 56
+    },
+    "analysisNotes": "React/Redux configuration UI with mock flows; build fallback is reliable while its old CRA dev server is less stable locally.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/flowforge-configurator/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 59589
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/flowforge-configurator/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 58363
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/flowforge-configurator/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 51213
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/flowforge-configurator/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 40006
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/flowforge-configurator/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 58103
+      }
+    ],
+    "source": "BorisThoris/flowforge-configurator@master"
+  },
+  "gorilla-gainz": {
+    "slug": "gorilla-gainz",
+    "generatedAt": "2026-09-17T10:26:12.638Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://gorilla-gainz-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4113/",
+      "homepage": ".",
+      "repository": "https://github.com/BorisThoris/gorilla-gainz"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^16.4.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^16.4.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^4.3.1"
+        },
+        {
+          "name": "bootstrap",
+          "version": "^4.1.1"
+        }
+      ],
+      "dependencyCount": 22,
+      "devDependencyCount": 1
+    },
+    "metrics": {
+      "sourceFiles": 46,
+      "testFiles": 0,
+      "sourceLines": 4072,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 39
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "public",
+          "files": 1
+        }
+      ],
+      "hasTests": false,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "ai/refine-gorilla-gainz-cycle-02",
+      "head": "9cf094e",
+      "lastCommitDate": "2026-09-15T15:22:57+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 31
+    },
+    "scores": {
+      "priorityScore": 82,
+      "demoabilityScore": 66,
+      "depthScore": 58,
+      "polishScore": 58,
+      "uniquenessScore": 54,
+      "maintenanceScore": 52
+    },
+    "analysisNotes": "Archived ecommerce demo with product browsing; kept in the quieter section because it is older and less differentiated.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/gorilla-gainz/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 171683
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/gorilla-gainz/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 162331
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/gorilla-gainz/latest/full.jpg",
+        "width": 1440,
+        "height": 1606,
+        "bytes": 217169
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/gorilla-gainz/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 55751
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/gorilla-gainz/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 121420
+      }
+    ],
+    "source": "BorisThoris/gorilla-gainz@master"
+  },
+  "memory-card-quest": {
+    "slug": "memory-card-quest",
+    "generatedAt": "2026-09-17T10:25:20.954Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://memory-card-quest-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4114/",
+      "homepage": ".",
+      "repository": "https://github.com/BorisThoris/memory-card-quest"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm start"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^16.8.6"
+        },
+        {
+          "name": "react-dom",
+          "version": "^16.8.6"
+        },
+        {
+          "name": "redux",
+          "version": "^4.0.4"
+        }
+      ],
+      "dependencyCount": 6,
+      "devDependencyCount": 1
+    },
+    "metrics": {
+      "sourceFiles": 27,
+      "testFiles": 2,
+      "sourceLines": 3019,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 20
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "public",
+          "files": 1
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "bfa6206",
+      "lastCommitDate": "2026-09-15T15:19:03+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 30
+    },
+    "scores": {
+      "priorityScore": 55,
+      "demoabilityScore": 68,
+      "depthScore": 52,
+      "polishScore": 54,
+      "uniquenessScore": 52,
+      "maintenanceScore": 48
+    },
+    "analysisNotes": "Small React/Redux memory game; demoable and useful as early work, but intentionally lower emphasis.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/memory-card-quest/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 278096
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 256996
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/memory-card-quest/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 215394
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 154360
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/memory-card-quest/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 230206
+      }
+    ],
+    "source": "BorisThoris/memory-card-quest@master"
+  },
+  "org-atlas-directory": {
+    "slug": "org-atlas-directory",
+    "generatedAt": "2026-09-17T10:26:22.743Z",
+    "version": "0.1.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://org-atlas-directory-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4115/",
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/org-atlas-directory"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm run demo"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^16.13.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^16.13.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^5.2.0"
+        },
+        {
+          "name": "redux",
+          "version": "^4.0.5"
+        }
+      ],
+      "testing": [
+        "@testing-library/react"
+      ],
+      "dependencyCount": 13,
+      "devDependencyCount": 4
+    },
+    "metrics": {
+      "sourceFiles": 33,
+      "testFiles": 0,
+      "sourceLines": 2884,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 26
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "public",
+          "files": 1
+        }
+      ],
+      "hasTests": false,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "ai/refine-org-atlas-directory-cycle-02",
+      "head": "ff3c583",
+      "lastCommitDate": "2026-09-15T15:23:33+03:00",
+      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
+      "commitCount": 24
+    },
+    "scores": {
+      "priorityScore": 70,
+      "demoabilityScore": 74,
+      "depthScore": 70,
+      "polishScore": 68,
+      "uniquenessScore": 68,
+      "maintenanceScore": 66
+    },
+    "analysisNotes": "React/Redux directory app with json-server demo flow and synthetic relational data; useful but quieter portfolio material.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/org-atlas-directory/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 37705
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/org-atlas-directory/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 37115
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/org-atlas-directory/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 27266
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/org-atlas-directory/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 21229
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/org-atlas-directory/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 29518
+      }
+    ],
+    "source": "BorisThoris/org-atlas-directory@master"
+  },
+  "threejs-gem-dungeon-editor": {
+    "slug": "threejs-gem-dungeon-editor",
+    "generatedAt": "2026-09-23T20:16:12.747Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "deploymentUrl": "https://threejs-gem-dungeon-editor-git.pages.dev/",
+      "localUrl": "http://127.0.0.1:4116/",
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/threejs-gem-dungeon-editor-live"
+    },
+    "runtime": {
+      "packageManager": "yarn",
+      "buildCommand": "yarn build",
+      "runCommand": "yarn dev --host 127.0.0.1 --port 4116"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "three",
+          "version": "^0.180.0"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.3.0"
+        },
+        {
+          "name": "@react-three/drei",
+          "version": "^10.7.6"
+        },
+        {
+          "name": "vite",
+          "version": "^5.4.20"
+        },
+        {
+          "name": "electron",
+          "version": "^38.1.2"
+        },
+        {
+          "name": "typescript",
+          "version": "~5.8.3"
+        }
+      ],
+      "dependencyCount": 7,
+      "devDependencyCount": 20
+    },
+    "metrics": {
+      "sourceFiles": 394,
+      "testFiles": 1,
+      "sourceLines": 69679,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 276
+        },
+        {
+          "directory": "scripts",
+          "files": 58
+        },
+        {
+          "directory": "output",
+          "files": 55
+        },
+        {
+          "directory": ".",
+          "files": 3
+        },
+        {
+          "directory": "electron",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "main",
+      "head": "d2ab33d",
+      "lastCommitDate": "2026-09-23T23:10:38+03:00",
+      "lastCommitSubject": "Restore dungeon lighting readability and guard brightness",
+      "commitCount": 477
+    },
+    "scores": {
+      "priorityScore": 90,
+      "demoabilityScore": 88,
+      "depthScore": 83,
+      "polishScore": 80,
+      "uniquenessScore": 86,
+      "maintenanceScore": 74
+    },
+    "analysisNotes": "The Steam-demo gem run: title screen, seeded runs, pursuers and counterplay, controller and touch input; deployed from main.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/threejs-gem-dungeon-editor/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 49778
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/threejs-gem-dungeon-editor/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 48879
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/threejs-gem-dungeon-editor/latest/full.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 43698
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/threejs-gem-dungeon-editor/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 27320
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/threejs-gem-dungeon-editor/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 41793
+      }
+    ],
+    "source": "BorisThoris/threejs-gem-dungeon-editor-live@main"
+  },
+  "portfolio": {
+    "slug": "portfolio",
+    "generatedAt": "2026-09-17T10:19:58.785Z",
+    "version": "0.1.0",
+    "classification": "web-site",
+    "links": {
+      "localUrl": "http://127.0.0.1:4100/",
+      "repository": "https://github.com/BorisThoris/portfolio"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm run dev -- --host 127.0.0.1 --port 4100"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^7.8.0"
+        },
+        {
+          "name": "vite",
+          "version": "^7.1.7"
+        },
+        {
+          "name": "typescript",
+          "version": "~5.8.3"
+        }
+      ],
+      "testing": [
+        "@playwright/test"
+      ],
+      "dependencyCount": 9,
+      "devDependencyCount": 5
+    },
+    "metrics": {
+      "sourceFiles": 35,
+      "testFiles": 0,
+      "sourceLines": 11767,
+      "largestDirectories": [
+        {
+          "directory": "scripts",
+          "files": 28
+        },
+        {
+          "directory": "src",
+          "files": 5
+        },
+        {
+          "directory": ".",
+          "files": 2
+        }
+      ],
+      "hasTests": false,
+      "hasCi": true,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "d871776",
+      "lastCommitDate": "2026-09-15T15:25:33+03:00",
+      "lastCommitSubject": "Manage the page title and description with the card, and sync the new copy",
+      "commitCount": 71
+    },
+    "scores": {
+      "priorityScore": 0,
+      "demoabilityScore": 0,
+      "depthScore": 0,
+      "polishScore": 0,
+      "uniquenessScore": 0,
+      "maintenanceScore": 0
+    },
+    "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos."
+  },
+  "system-architecture-cheatsheet": {
+    "slug": "system-architecture-cheatsheet",
+    "generatedAt": "2026-09-14T20:52:49.233Z",
+    "version": "1.0.0",
+    "classification": "web-app",
+    "links": {
+      "localUrl": "http://127.0.0.1:5177/"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "buildCommand": "npm run build",
+      "runCommand": "npm run dev"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.2.0"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.2.0"
+        },
+        {
+          "name": "vite",
+          "version": "6.4.3"
+        }
+      ],
+      "dependencyCount": 3,
+      "devDependencyCount": 2
+    },
+    "metrics": {
+      "sourceFiles": 10,
+      "testFiles": 0,
+      "sourceLines": 3458,
+      "largestDirectories": [
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "src",
+          "files": 3
+        },
+        {
+          "directory": ".",
+          "files": 1
+        }
+      ],
+      "hasTests": false,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "7ca378a",
+      "lastCommitDate": "2026-09-04T00:53:31+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 6
+    },
+    "analysisNotes": "Small but genuine web app; not currently listed in the portfolio catalogue."
+  },
+  "ghost-game-3": {
+    "slug": "ghost-game-3",
+    "generatedAt": "2026-09-14T20:52:49.610Z",
+    "version": "1.0.0",
+    "classification": "archived",
+    "links": {
+      "repository": "https://github.com/Kristinaxoxox/GHOST-GAME-3"
+    },
+    "runtime": {
+      "packageManager": "npm",
+      "runCommand": "npx serve . # then open ghostGame.html"
+    },
+    "stack": {
+      "language": "JavaScript",
+      "dependencyCount": 0,
+      "devDependencyCount": 0
+    },
+    "metrics": {
+      "sourceFiles": 9,
+      "testFiles": 0,
+      "sourceLines": 1648,
+      "largestDirectories": [
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": ".",
+          "files": 3
+        }
+      ],
+      "hasTests": false,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "024bead",
+      "lastCommitDate": "2026-09-04T00:53:31+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 7
+    },
+    "scores": {
+      "priorityScore": 0,
+      "demoabilityScore": 0,
+      "depthScore": 0,
+      "polishScore": 0,
+      "uniquenessScore": 0,
+      "maintenanceScore": 0
+    },
+    "analysisNotes": "Package metadata only exposes a test script."
+  },
+  "electron-boilerplate": {
+    "slug": "electron-boilerplate",
+    "generatedAt": "2026-09-14T20:52:49.998Z",
+    "version": "0.0.0",
+    "classification": "template",
+    "links": {
+      "homepage": "http://example.com",
+      "repository": "https://github.com/szwacz/electron-boilerplate"
+    },
+    "runtime": {
+      "packageManager": "npm"
+    },
+    "stack": {
+      "framework": "Electron",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "webpack",
+          "version": "^5.30.0"
+        },
+        {
+          "name": "electron",
+          "version": "^13.0.1"
+        }
+      ],
+      "testing": [
+        "mocha"
+      ],
+      "dependencyCount": 1,
+      "devDependencyCount": 16
+    },
+    "metrics": {
+      "sourceFiles": 24,
+      "testFiles": 4,
+      "sourceLines": 2241,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 9
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": "temp",
+          "files": 4
+        },
+        {
+          "directory": "app",
+          "files": 3
+        },
+        {
+          "directory": "e2e",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "master",
+      "head": "504c3be",
+      "lastCommitDate": "2026-09-04T00:53:09+03:00",
+      "lastCommitSubject": "Photograph the project and make its link unfurl",
+      "commitCount": 450
+    },
+    "scores": {
+      "priorityScore": 0,
+      "demoabilityScore": 0,
+      "depthScore": 0,
+      "polishScore": 0,
+      "uniquenessScore": 0,
+      "maintenanceScore": 0
+    },
+    "analysisNotes": "Kept out of the portfolio catalog unless promoted with a specific demo later."
+  },
+  "expo-electron-adapter": {
+    "slug": "expo-electron-adapter",
+    "generatedAt": "2026-09-14T20:52:50.379Z",
+    "version": "0.0.55",
+    "classification": "web-library",
+    "links": {
+      "homepage": "https://github.com/expo/expo-electron-adapter",
+      "repository": "https://github.com/expo/expo-electron-adapter"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "language": "TypeScript",
+      "libraries": [
+        {
+          "name": "typescript",
+          "version": "^4.2.4"
+        }
+      ],
+      "dependencyCount": 7,
+      "devDependencyCount": 5
+    },
+    "metrics": {
+      "sourceFiles": 18,
+      "testFiles": 0,
+      "sourceLines": 1971,
+      "largestDirectories": [
+        {
+          "directory": "scripts",
+          "files": 8
+        },
+        {
+          "directory": "example",
+          "files": 3
+        },
+        {
+          "directory": "src",
+          "files": 3
+        },
+        {
+          "directory": "template",
+          "files": 3
+        },
+        {
+          "directory": ".",
+          "files": 1
+        }
+      ],
+      "hasTests": false,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "main",
+      "head": "5794c5c",
+      "lastCommitDate": "2026-09-04T00:53:31+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 11
+    },
+    "scores": {
+      "priorityScore": 0,
+      "demoabilityScore": 0,
+      "depthScore": 0,
+      "polishScore": 0,
+      "uniquenessScore": 0,
+      "maintenanceScore": 0
+    },
+    "analysisNotes": "Useful code, but not a live visual showcase item."
+  },
+  "musical-app-react-concept": {
+    "slug": "musical-app-react-concept",
+    "generatedAt": "2026-09-14T20:52:52.845Z",
+    "version": "0.1.0",
+    "classification": "duplicate",
+    "links": {
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/BBeats"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^7.8.0"
+        },
+        {
+          "name": "@reduxjs/toolkit",
+          "version": "^2.11.2"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "pixi.js",
+          "version": "^8.16.0"
+        },
+        {
+          "name": "tone",
+          "version": "^15.0.4"
+        },
+        {
+          "name": "vite",
+          "version": "^6.3.5"
+        },
+        {
+          "name": "electron",
+          "version": "^38.0.0"
+        },
+        {
+          "name": "styled-components",
+          "version": "6.1.19"
+        },
+        {
+          "name": "typescript",
+          "version": "^5.0.4"
+        },
+        {
+          "name": "zod",
+          "version": "^4.3.6"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 25,
+      "devDependencyCount": 50
+    },
+    "metrics": {
+      "sourceFiles": 5135,
+      "testFiles": 1092,
+      "sourceLines": 1936723,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 3020
+        },
+        {
+          "directory": "build-analyze",
+          "files": 450
+        },
+        {
+          "directory": "build-analyze-latest",
+          "files": 440
+        },
+        {
+          "directory": "build-analyze-more",
+          "files": 439
+        },
+        {
+          "directory": "public",
+          "files": 352
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "main",
+      "head": "6fbe437d",
+      "lastCommitDate": "2026-09-04T00:53:31+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 452
+    },
+    "scores": {
+      "priorityScore": 0,
+      "demoabilityScore": 0,
+      "depthScore": 0,
+      "polishScore": 0,
+      "uniquenessScore": 0,
+      "maintenanceScore": 0
+    },
+    "analysisNotes": "Excluded from display to avoid competing with the current BBeats entry."
+  },
+  "musical-app-react-concept-verified": {
+    "slug": "musical-app-react-concept-verified",
+    "generatedAt": "2026-09-14T20:52:53.709Z",
+    "version": "0.1.0",
+    "classification": "duplicate",
+    "links": {
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/BBeats"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^7.8.0"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "pixi.js",
+          "version": "^8.16.0"
+        },
+        {
+          "name": "tone",
+          "version": "^15.0.4"
+        },
+        {
+          "name": "vite",
+          "version": "^6.3.5"
+        },
+        {
+          "name": "electron",
+          "version": "^38.0.0"
+        },
+        {
+          "name": "styled-components",
+          "version": "6.1.19"
+        },
+        {
+          "name": "typescript",
+          "version": "^5.0.4"
+        },
+        {
+          "name": "zod",
+          "version": "^4.3.6"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 22,
+      "devDependencyCount": 47
+    },
+    "metrics": {
+      "sourceFiles": 1015,
+      "testFiles": 101,
+      "sourceLines": 316705,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 903
+        },
+        {
+          "directory": "public",
+          "files": 60
+        },
+        {
+          "directory": "scripts",
+          "files": 25
+        },
+        {
+          "directory": "e2e",
+          "files": 12
+        },
+        {
+          "directory": ".",
+          "files": 9
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "cohesive/all-features-verified",
+      "head": "6f8da9dc",
+      "lastCommitDate": "2026-09-04T00:53:31+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 231
+    },
+    "analysisNotes": "Snapshot copy; not a separate project."
+  },
+  "bbeats-deploy-mirror": {
+    "slug": "bbeats-deploy-mirror",
+    "generatedAt": "2026-09-14T20:52:55.122Z",
+    "version": "0.1.0",
+    "classification": "duplicate",
+    "links": {
+      "homepage": "./"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "framework": "React",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "19.1.1"
+        },
+        {
+          "name": "react-router-dom",
+          "version": "^7.8.0"
+        },
+        {
+          "name": "@reduxjs/toolkit",
+          "version": "^2.11.2"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "pixi.js",
+          "version": "^8.16.0"
+        },
+        {
+          "name": "tone",
+          "version": "^15.0.4"
+        },
+        {
+          "name": "vite",
+          "version": "^6.3.5"
+        },
+        {
+          "name": "electron",
+          "version": "^38.0.0"
+        },
+        {
+          "name": "styled-components",
+          "version": "6.1.19"
+        },
+        {
+          "name": "typescript",
+          "version": "^5.0.4"
+        },
+        {
+          "name": "zod",
+          "version": "^4.3.6"
+        }
+      ],
+      "testing": [
+        "vitest",
+        "@playwright/test",
+        "@testing-library/react"
+      ],
+      "dependencyCount": 27,
+      "devDependencyCount": 51
+    },
+    "metrics": {
+      "sourceFiles": 3387,
+      "testFiles": 1152,
+      "sourceLines": 622180,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 3126
+        },
+        {
+          "directory": "public",
+          "files": 214
+        },
+        {
+          "directory": "scripts",
+          "files": 43
+        },
+        {
+          "directory": ".",
+          "files": 4
+        }
+      ],
+      "hasTests": true,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "analysisNotes": "Build mirror; source of truth is the BBeats repo."
+  },
+  "skyfall-first-node-project": {
+    "slug": "skyfall-first-node-project",
+    "generatedAt": "2026-09-14T20:52:55.336Z",
+    "version": "1.0.0",
+    "classification": "duplicate",
+    "links": {
+      "repository": "https://github.com/BorisThoris/my-game-demo"
+    },
+    "runtime": {
+      "packageManager": "npm"
+    },
+    "stack": {
+      "framework": "Phaser",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "phaser",
+          "version": "^3.90.0"
+        },
+        {
+          "name": "vite",
+          "version": "^6.4.1"
+        },
+        {
+          "name": "electron",
+          "version": "^28.0.0"
+        }
+      ],
+      "testing": [
+        "@playwright/test"
+      ],
+      "dependencyCount": 2,
+      "devDependencyCount": 4
+    },
+    "metrics": {
+      "sourceFiles": 92,
+      "testFiles": 20,
+      "sourceLines": 14574,
+      "largestDirectories": [
+        {
+          "directory": "app",
+          "files": 58
+        },
+        {
+          "directory": "test",
+          "files": 15
+        },
+        {
+          "directory": "scripts",
+          "files": 7
+        },
+        {
+          "directory": "e2e",
+          "files": 5
+        },
+        {
+          "directory": ".",
+          "files": 5
+        }
+      ],
+      "hasTests": true,
+      "hasCi": true,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "master",
+      "head": "53a7f0a",
+      "lastCommitDate": "2026-09-04T00:53:32+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 138
+    },
+    "analysisNotes": "Historical working copy of Skyfall."
+  },
+  "skyfall-first-node-project-merge": {
+    "slug": "skyfall-first-node-project-merge",
+    "generatedAt": "2026-09-14T20:52:55.766Z",
+    "version": "1.0.0",
+    "classification": "duplicate",
+    "links": {
+      "repository": "https://github.com/BorisThoris/my-game-demo"
+    },
+    "runtime": {
+      "packageManager": "npm"
+    },
+    "stack": {
+      "framework": "Phaser",
+      "language": "JavaScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "phaser",
+          "version": "^3.90.0"
+        },
+        {
+          "name": "vite",
+          "version": "^6.4.1"
+        },
+        {
+          "name": "electron",
+          "version": "^28.0.0"
+        }
+      ],
+      "testing": [
+        "@playwright/test"
+      ],
+      "dependencyCount": 2,
+      "devDependencyCount": 4
+    },
+    "metrics": {
+      "sourceFiles": 79,
+      "testFiles": 18,
+      "sourceLines": 12105,
+      "largestDirectories": [
+        {
+          "directory": "app",
+          "files": 47
+        },
+        {
+          "directory": "test",
+          "files": 15
+        },
+        {
+          "directory": "scripts",
+          "files": 7
+        },
+        {
+          "directory": ".",
+          "files": 5
+        },
+        {
+          "directory": "e2e",
+          "files": 3
+        }
+      ],
+      "hasTests": true,
+      "hasCi": false,
+      "hasDocs": true
+    },
+    "git": {
+      "branch": "codex/merge-open-prs-20260310",
+      "head": "38b7d7a",
+      "lastCommitDate": "2026-09-04T00:53:32+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 115
+    },
+    "analysisNotes": "Temporary merge copy of Skyfall."
+  },
+  "gem-dungeon-prototype-branch": {
+    "slug": "gem-dungeon-prototype-branch",
+    "generatedAt": "2026-09-14T20:52:56.271Z",
+    "version": "0.0.0",
+    "classification": "duplicate",
+    "links": {
+      "repository": "https://github.com/BorisThoris/gem-dungeon"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "three",
+          "version": "^0.180.0"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.3.0"
+        },
+        {
+          "name": "@react-three/drei",
+          "version": "^10.7.6"
+        },
+        {
+          "name": "vite",
+          "version": "^7.1.7"
+        },
+        {
+          "name": "typescript",
+          "version": "~5.8.3"
+        }
+      ],
+      "dependencyCount": 8,
+      "devDependencyCount": 12
+    },
+    "metrics": {
+      "sourceFiles": 113,
+      "testFiles": 0,
+      "sourceLines": 14677,
+      "largestDirectories": [
+        {
+          "directory": "CodingExamples",
+          "files": 66
+        },
+        {
+          "directory": "src",
+          "files": 38
+        },
+        {
+          "directory": "scripts",
+          "files": 6
+        },
+        {
+          "directory": ".",
+          "files": 3
+        }
+      ],
+      "hasTests": false,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "ai/refine-gem-dungeon-cycle-02",
+      "head": "6653bef",
+      "lastCommitDate": "2026-09-04T00:53:29+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 21
+    },
+    "analysisNotes": "Branch checkout; gem-dungeon-epic-1 is the deployed line."
+  },
+  "threejs-gem-dungeon-editor-fixed": {
+    "slug": "threejs-gem-dungeon-editor-fixed",
+    "generatedAt": "2026-09-14T20:52:56.778Z",
+    "version": "1.0.0",
+    "classification": "duplicate",
+    "links": {
+      "homepage": "./",
+      "repository": "https://github.com/BorisThoris/threejs-gem-dungeon-editor"
+    },
+    "runtime": {
+      "packageManager": "yarn"
+    },
+    "stack": {
+      "framework": "React Three Fiber",
+      "language": "TypeScript",
+      "runtimeTargets": [
+        "web",
+        "desktop-electron"
+      ],
+      "libraries": [
+        {
+          "name": "react",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "react-dom",
+          "version": "^19.1.1"
+        },
+        {
+          "name": "zustand",
+          "version": "^5.0.8"
+        },
+        {
+          "name": "three",
+          "version": "^0.180.0"
+        },
+        {
+          "name": "@react-three/fiber",
+          "version": "^9.3.0"
+        },
+        {
+          "name": "@react-three/drei",
+          "version": "^10.7.6"
+        },
+        {
+          "name": "vite",
+          "version": "^5.4.20"
+        },
+        {
+          "name": "electron",
+          "version": "^38.1.2"
+        },
+        {
+          "name": "typescript",
+          "version": "~5.8.3"
+        }
+      ],
+      "dependencyCount": 8,
+      "devDependencyCount": 29
+    },
+    "metrics": {
+      "sourceFiles": 339,
+      "testFiles": 6,
+      "sourceLines": 70817,
+      "largestDirectories": [
+        {
+          "directory": "src",
+          "files": 299
+        },
+        {
+          "directory": "scripts",
+          "files": 29
+        },
+        {
+          "directory": "assets",
+          "files": 4
+        },
+        {
+          "directory": ".",
+          "files": 3
+        },
+        {
+          "directory": "code_examples",
+          "files": 2
+        }
+      ],
+      "hasTests": true,
+      "hasCi": false,
+      "hasDocs": false
+    },
+    "git": {
+      "branch": "main",
+      "head": "db8eba6",
+      "lastCommitDate": "2026-09-04T00:53:30+03:00",
+      "lastCommitSubject": "Wire up the shots and social scripts",
+      "commitCount": 127
+    },
+    "analysisNotes": "Fork checkout; threejs-gem-dungeon-editor-live is the deployed line."
+  }
+}

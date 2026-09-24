@@ -20,6 +20,22 @@ export const reposRoot = path.resolve(portfolioRoot, '..');
 
 const repo = (name) => path.join(reposRoot, name);
 
+// The BOBBALL trailer and posters are rendered from the game's own scene, so
+// they are stale when any of these change (the published outputs - head tags,
+// icons, og-image, trailers - are deliberately not in the list).
+const bobballSceneInputs = [
+  'game/index.html', 'game/environment.js', 'game/sfx.js', 'game/names.js',
+  'game/avatar.json', 'game/ndk_scene.json', 'game/tex', 'game/lib', 'game/music.mp3',
+  'game/backdrop.jpg', 'game/HavokPhysics.wasm', 'game/HavokPhysics_umd.js',
+  'trailer/index.html', 'trailer/trailer.js', 'trailer/render.mjs', 'trailer/build.mjs', 'trailer/mix_audio.mjs',
+  'trailer/timeline.json', 'trailer/timeline_poster.json', 'trailer/assets'
+];
+const chromeRequirement = {
+  name: 'chrome',
+  env: 'CHROME',
+  candidates: ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']
+};
+
 /**
  * github / branch: the GitHub repository and the branch Cloudflare Pages builds.
  *   Deployed repos carry both; the per-project refresh workflow runs on that
@@ -36,6 +52,89 @@ const repo = (name) => path.join(reposRoot, name);
  */
 export const repoRegistry = [
   // ---- projects the portfolio showcases -------------------------------------
+  // BOBBALL is a static-assets Worker deployed by the PC's CI chain
+  // (ci-failover), not by Cloudflare Pages, and the repo is private with billed
+  // hosted minutes: no GitHub workflows, the refresh runs on the PC. Its
+  // pictures are posters rendered from the game's own scene, and its trailer is
+  // rendered frame by frame through Chrome, so both are `trailers` items here
+  // and screenshots are skipped.
+  {
+    slug: 'bobball', github: 'BorisThoris/bobball', branch: 'main',
+    dir: repo('bobball'),
+    classification: 'web-app',
+    workflows: false,
+    curated: {
+      title: 'BOBBALL',
+      subtitle: 'A dodgeball game against a man who did not sign up for this',
+      description:
+        'Sixty seconds, endless balls, one Bob: a free browser dodgeball game with an active ragdoll of a photo-scanned man, on a rebuilt National Palace of Culture square in Sofia. Babylon.js and Havok in the page, a Cloudflare Worker leaderboard with a top five and a name filter, a walk-around mode, and a 25-second comedy trailer rendered frame by frame from the same scene through headless Chrome.',
+      tags: ['Game', 'Babylon.js', 'Havok', 'Ragdoll', 'Photogrammetry', 'Cloudflare Workers', 'Trailer'],
+      accent: '#ff2d95',
+      deploymentUrl: 'https://bobball.modaxxx009.workers.dev/',
+      localUrl: 'http://127.0.0.1:8765/game/',
+      buildCommand: 'bash deploy.sh --assemble',
+      buildOutput: 'dist',
+      runCommand: 'python -m http.server 8765  (then /game/)',
+      devPort: 8765,
+      showcaseTier: 'showcase',
+      showcaseOrder: 0
+    },
+    scores: { priorityScore: 99, demoabilityScore: 97, depthScore: 92, polishScore: 90, uniquenessScore: 99, maintenanceScore: 80 },
+    analysisNotes:
+      'A complete shipped browser game plus its own trailer pipeline: photogrammetry of a real person driven as an active ragdoll, a georeferenced rebuild of a real square, deterministic frame-by-frame rendering, synthesised sky and narration, all in one repository.',
+    links: { leaderboardApi: 'https://bobball-scores.modaxxx009.workers.dev/' },
+    capture: { skip: 'the pictures are posters rendered from the game scene by trailer/timeline_poster.json (npm run trailers)' },
+    social: {
+      htmlFile: 'game/index.html',
+      pageTitle: 'BOBBALL · a dodgeball game against a man who did not sign up for this',
+      staticDir: 'game',
+      imageName: 'og-image.jpg',
+      imageUrlPath: '/og-image.jpg'
+    },
+    icons: {
+      source: 'game/ball.svg',
+      outputDir: 'game',
+      urlPrefix: '/',
+      background: '#0e3a1c',
+      themeColor: '#124a24',
+      name: 'BOBBALL',
+      shortName: 'BOBBALL',
+      manifestName: 'manifest.webmanifest',
+      manifest: {
+        display: 'fullscreen',
+        orientation: 'any',
+        lang: 'en',
+        categories: ['games', 'sports', 'entertainment'],
+        screenshots: [{ src: '/og-image.jpg', sizes: '1200x630', type: 'image/jpeg', form_factor: 'wide', label: 'Bob on the NDK square, mid-hit' }]
+      }
+    },
+    trailers: {
+      dir: 'game/trailers',
+      urlPathPrefix: '/trailers',
+      items: [
+        {
+          id: 'posters',
+          title: 'Poster set',
+          kind: 'stills',
+          inputs: bobballSceneInputs.concat(['tools_dev/render_posters.mjs']),
+          build: 'node tools_dev/render_posters.mjs',
+          outputs: ['project-media/card.jpg', 'project-media/og.jpg', 'project-media/desktop.jpg', 'project-media/mobile.jpg', 'project-media/full.jpg', 'project-media/post.jpg', 'project-media/square.jpg', 'project-media/story.jpg'],
+          requires: ['ffmpeg', chromeRequirement]
+        },
+        {
+          id: 'trailer',
+          title: 'BOBBALL - the trailer',
+          kind: 'trailer',
+          inputs: bobballSceneInputs,
+          build: 'node trailer/build.mjs',
+          output: 'trailer/out/bobball_trailer.mp4',
+          requires: ['ffmpeg', chromeRequirement, 'nvidia-smi'],
+          maxHeight: 1080,
+          posterAt: 0.5
+        }
+      ]
+    }
+  },
   // BBeats and VYB Chess ship their own PWA icon sets (a manifest, maskable
   // icons, an Apple icon), so the icon script only verifies the head links.
   { slug: 'bbeats', github: 'BorisThoris/BBeats', branch: 'main', dir: repo('BBeats'), classification: 'web-app', icons: { mode: 'check' } },

@@ -9,19 +9,23 @@ import {
   ChevronDown,
   ExternalLink,
   FileText,
+  Film,
   Github,
   Linkedin,
   Mail,
   MonitorUp,
   Phone,
   Play,
+  Volume2,
+  VolumeX,
   X
 } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import useEmblaCarousel from 'embla-carousel-react';
 import { AeroLiquidBackground } from './AeroLiquidBackground';
-import { getProject, moreProjects, Project, showcaseProjects, visibleProjects } from './projects';
+import { getProject, getProjectDetails, moreProjects, Project, ProjectImage, showcaseProjects, visibleProjects } from './projects';
 import './styles.css';
+import './project-page.css';
 
 type RuntimeProjectStatus = {
   slug: string;
@@ -1374,7 +1378,7 @@ function HomePage() {
                         {isMobileShowcase ? 'Open project' : `Open ${project.title}`}
                       </a>
                       <Link className="quiet-action" to={`/projects/${project.slug}`} tabIndex={isActive ? 0 : -1}>
-                        Case view
+                        Trailer &amp; details
                         <ArrowUpRight size={17} />
                       </Link>
                     </div>
@@ -1797,36 +1801,61 @@ function ProductContextModal({
   );
 }
 
+// The project page: a billboard with the trailer playing (or the latest
+// capture), one button that opens the project in a new tab, then the trailers
+// and videos, the screenshots and everything project.meta.json knows.
 function ProjectPage() {
   const { slug } = useParams();
   const project = getProject(slug);
+  const details = getProjectDetails(project.slug);
   const runtimeStatus = useRuntimeStatus();
   const projectRuntime = runtimeStatus?.projects.find((item) => item.slug === project.slug);
-  const resolvedProjectUrl = resolveProjectUrl(project, projectRuntime);
-  const embedUrl = resolvedProjectUrl.url;
-  const embedMode = resolvedProjectUrl.mode;
-  const [embedFailed, setEmbedFailed] = React.useState(false);
+  const launchUrl = resolveProjectUrl(project, projectRuntime).url;
   const isMobile = useMediaQuery('(max-width: 700px)');
+  const shouldSimplifyMotion = useReducedMotion();
+
+  const trailers = details?.trailers ?? [];
+  const videos = details?.videos ?? [];
+  const heroTrailer = trailers.find((trailer) => trailer.orientation !== 'portrait') ?? trailers[0];
+  const isGame = project.tags.some((tag) => /game|arcade|roguelite/i.test(tag));
+  const gallery = orderedGallery(details?.images ?? []);
+  const heroVideo = React.useRef<HTMLVideoElement>(null);
+  const [heroMuted, setHeroMuted] = React.useState(true);
+  const [heroFailed, setHeroFailed] = React.useState(false);
+  const showHeroVideo = Boolean(heroTrailer) && !heroFailed && !shouldSimplifyMotion;
 
   React.useEffect(() => {
-    setEmbedFailed(false);
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 2200);
-
-    fetch(embedUrl, { mode: 'no-cors', signal: controller.signal })
-      .catch(() => {
-        setEmbedFailed(true);
-      })
-      .finally(() => window.clearTimeout(timeout));
-
+    const previous = document.title;
+    document.title = `${project.title} · Boris Bostandzhiev`;
+    window.scrollTo({ top: 0 });
+    setHeroMuted(true);
+    setHeroFailed(false);
     return () => {
-      window.clearTimeout(timeout);
-      controller.abort();
+      document.title = previous;
     };
-  }, [embedUrl]);
+  }, [project.slug, project.title]);
+
+  const toggleHeroSound = () => {
+    const video = heroVideo.current;
+    if (!video) return;
+    const next = !heroMuted;
+    video.muted = !next ? true : false;
+    video.muted = !next;
+    setHeroMuted(!next);
+    if (next && video.paused) video.play().catch(() => undefined);
+  };
+
+  const candidateFacts: ({ label: string; value: string } | null)[] = [
+    details?.stack?.framework ? { label: 'Built with', value: details.stack.framework } : null,
+    details?.git?.lastCommitDate ? { label: 'Last commit', value: formatDate(details.git.lastCommitDate) } : null,
+    details?.metrics?.sourceLines ? { label: 'Source', value: `${formatNumber(details.metrics.sourceLines)} lines` } : null,
+    details?.version && details.version !== '0.0.0' ? { label: 'Version', value: details.version } : null,
+    project.deploymentUrl ? { label: 'Runs on', value: hostOf(project.deploymentUrl) } : null
+  ];
+  const facts = candidateFacts.filter((fact): fact is { label: string; value: string } => fact !== null);
 
   return (
-    <main className="page-shell detail-shell">
+    <main className="page-shell detail-shell billboard-shell" style={{ '--accent': project.accent } as React.CSSProperties}>
       <AeroLiquidBackground accent={project.accent} quality={isMobile ? 'mobile' : 'full'} />
       <nav className="top-nav detail-topbar">
         <Link to="/" className="back-action">
@@ -1837,59 +1866,332 @@ function ProjectPage() {
           <MonitorUp size={18} />
           <span>{project.title}</span>
         </div>
-        <a className="quiet-action" href={embedUrl} target="_blank" rel="noreferrer">
+        <a className="quiet-action" href={launchUrl} target="_blank" rel="noreferrer">
           <ExternalLink size={16} />
-          Open app
+          Open in new tab
         </a>
       </nav>
 
-      <section className="detail-panel" style={{ '--accent': project.accent } as React.CSSProperties}>
-        <div className="detail-header">
-          <div>
-            <h1>{project.title}</h1>
-            <p>{project.subtitle}</p>
-            <div className="tag-row detail-tags">
-              {project.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          </div>
-          <p>{project.description}</p>
-        </div>
-
-        <div className="browser-frame crafted-frame">
-          <div className="browser-toolbar">
-            <span />
-            <span />
-            <span />
-            <code>{embedUrl}</code>
-            <RuntimeBadge mode={embedMode} />
-          </div>
-          {embedFailed ? (
-            <div className="fallback-frame">
-              <ProjectScreenshot project={project} />
-              <div>
-                <h2>Live preview unavailable</h2>
-                <p>Open the app in a new tab or use the screenshot preview here.</p>
-              </div>
-            </div>
-          ) : (
-            <iframe
-              title={`${project.title} live preview`}
-              src={embedUrl}
-              onError={() => setEmbedFailed(true)}
+      <section className="billboard crafted-frame" aria-label={`${project.title} overview`}>
+        <div className="billboard__media" aria-hidden="true">
+          {showHeroVideo && heroTrailer ? (
+            <video
+              ref={heroVideo}
+              className="billboard__video"
+              src={heroTrailer.url}
+              poster={heroTrailer.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onError={() => setHeroFailed(true)}
             />
+          ) : (
+            <CaptureImage project={project} state="latest" priority />
           )}
+          <div className="billboard__shade" />
         </div>
 
-        <CaptureComparison project={project} />
+        <div className="billboard__copy">
+          <p className="eyebrow">
+            {showHeroVideo && heroTrailer ? 'Trailer' : 'Latest capture'}
+            {details?.stack?.framework ? ` · ${details.stack.framework}` : ''}
+          </p>
+          <h1>{project.title}</h1>
+          <strong>{project.subtitle}</strong>
+          <p>{project.description}</p>
+          <div className="tag-row billboard__tags">
+            {project.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          <div className="billboard__actions">
+            <a className="primary-action" href={launchUrl} target="_blank" rel="noreferrer">
+              <Play size={17} />
+              {isGame ? 'Play now' : 'Launch app'}
+            </a>
+            {showHeroVideo ? (
+              <button type="button" className="quiet-action" onClick={toggleHeroSound}>
+                {heroMuted ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                {heroMuted ? 'Sound on' : 'Mute'}
+              </button>
+            ) : null}
+            {trailers.length > 0 || videos.length > 0 ? (
+              <a className="quiet-action" href="#watch">
+                <Film size={16} />
+                {trailers.length > 0 ? 'Trailers' : 'Videos'}
+              </a>
+            ) : null}
+            {details?.links?.repository ? (
+              <a className="quiet-action" href={details.links.repository} target="_blank" rel="noreferrer">
+                <Github size={16} />
+                Source
+              </a>
+            ) : null}
+          </div>
+          {facts.length > 0 ? (
+            <dl className="billboard__facts">
+              {facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          ) : null}
+        </div>
+      </section>
+
+      {trailers.length > 0 || videos.length > 0 ? (
+        <section id="watch" className="media-rail" aria-label={`${project.title} trailers and videos`}>
+          <header className="media-rail__heading">
+            <div>
+              <p className="eyebrow">Trailers &amp; videos</p>
+              <h2>Watch</h2>
+            </div>
+            <span>
+              {trailers.length > 0
+                ? `Rendered from the project's own scene and rebuilt whenever it changes. Last render ${formatDate(latestOf(trailers.map((trailer) => trailer.builtAt)))}.`
+                : 'Recorded from the project.'}
+            </span>
+          </header>
+          <div className="media-rail__grid">
+            {trailers.map((trailer) => (
+              <figure key={trailer.id} className={`media-card media-card--${trailer.orientation ?? 'landscape'}`}>
+                <video controls playsInline preload="metadata" poster={trailer.poster} src={trailer.url} />
+                <figcaption>
+                  <strong>{trailer.title ?? 'Trailer'}</strong>
+                  <span>
+                    {formatDuration(trailer.duration)}
+                    {trailer.width && trailer.height ? ` · ${trailer.width}×${trailer.height}` : ''}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+            {videos.map((video) => (
+              <figure key={video.url} className="media-card media-card--landscape">
+                {video.kind === 'youtube' ? (
+                  <iframe
+                    src={youtubeEmbedUrl(video.url)}
+                    title={video.title ?? `${project.title} video`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : video.kind === 'video' ? (
+                  <video controls playsInline preload="metadata" poster={video.poster} src={video.url} />
+                ) : (
+                  <a className="media-card__link" href={video.url} target="_blank" rel="noreferrer">
+                    <Play size={22} />
+                    Open video
+                  </a>
+                )}
+                <figcaption>
+                  <strong>{video.title ?? 'Video'}</strong>
+                  {video.description ? <span>{video.description}</span> : null}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {gallery.length > 0 ? (
+        <section className="shot-gallery" aria-label={`${project.title} screenshots`}>
+          <header className="media-rail__heading">
+            <div>
+              <p className="eyebrow">Screenshots</p>
+              <h2>On desktop and on a phone</h2>
+            </div>
+            <span>
+              {details?.source ? `Photographed by the project itself after each deployment (${details.source}).` : 'Captured by the portfolio image pipeline.'}
+            </span>
+          </header>
+          <div className="shot-gallery__grid">
+            {gallery.map((image) => (
+              <a key={image.profile} className={`shot shot--${image.profile}`} href={image.path} target="_blank" rel="noreferrer">
+                <img src={image.path} alt={`${project.title} ${profileLabel(image.profile)} screenshot`} loading="lazy" decoding="async" />
+                <span>
+                  {profileLabel(image.profile)}
+                  {image.width && image.height ? ` · ${image.width}×${image.height}` : ''}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="fact-sheet" aria-label={`${project.title} facts`}>
+        <div className="fact-sheet__about">
+          <p className="eyebrow">About</p>
+          <h2>What it is</h2>
+          <p>{project.description}</p>
+          {details?.analysisNotes ? <p className="fact-sheet__notes">{details.analysisNotes}</p> : null}
+          {details?.generatedAt ? <small>Metadata generated by the project on {formatDate(details.generatedAt)}.</small> : null}
+        </div>
+        <div className="fact-sheet__grid">
+          <FactGroup title="Stack">
+            <Fact label="Framework" value={details?.stack?.framework} />
+            <Fact label="Language" value={details?.stack?.language} />
+            <Fact label="Targets" value={details?.stack?.runtimeTargets?.join(', ')} />
+            <Fact label="Testing" value={details?.stack?.testing?.join(', ')} />
+            {details?.stack?.libraries && details.stack.libraries.length > 0 ? (
+              <div className="fact fact--wide">
+                <dt>Libraries</dt>
+                <dd className="chip-row">
+                  {details.stack.libraries.slice(0, 10).map((library) => (
+                    <span key={library.name}>
+                      {library.name}
+                      {library.version ? <em>{library.version}</em> : null}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            ) : null}
+          </FactGroup>
+          <FactGroup title="Size">
+            <Fact label="Source files" value={formatNumber(details?.metrics?.sourceFiles)} />
+            <Fact label="Lines" value={formatNumber(details?.metrics?.sourceLines)} />
+            <Fact label="Test files" value={formatNumber(details?.metrics?.testFiles)} />
+            <Fact
+              label="Dependencies"
+              value={
+                details?.stack && (details.stack.dependencyCount || details.stack.devDependencyCount)
+                  ? `${details.stack.dependencyCount ?? 0} + ${details.stack.devDependencyCount ?? 0} dev`
+                  : undefined
+              }
+            />
+            <Fact
+              label="Largest areas"
+              value={details?.metrics?.largestDirectories?.slice(0, 4).map((entry) => `${entry.directory} (${entry.files})`).join(', ')}
+            />
+          </FactGroup>
+          <FactGroup title="History">
+            <Fact label="Last commit" value={details?.git?.lastCommitDate ? formatDate(details.git.lastCommitDate) : undefined} />
+            <Fact label="Subject" value={details?.git?.lastCommitSubject} />
+            <Fact label="Commits" value={formatNumber(details?.git?.commitCount)} />
+            <Fact label="Branch" value={details?.git?.branch && details.git.head ? `${details.git.branch} @ ${details.git.head}` : details?.git?.branch} />
+            <Fact label="Version" value={details?.version && details.version !== '0.0.0' ? details.version : undefined} />
+          </FactGroup>
+          <FactGroup title="Run it">
+            <Fact
+              label="Deployment"
+              value={
+                project.deploymentUrl ? (
+                  <a href={project.deploymentUrl} target="_blank" rel="noreferrer">
+                    {hostOf(project.deploymentUrl)}
+                  </a>
+                ) : undefined
+              }
+            />
+            <Fact label="Build" value={details?.runtime?.buildCommand ? <code>{details.runtime.buildCommand}</code> : undefined} />
+            <Fact label="Run" value={details?.runtime?.runCommand ? <code>{details.runtime.runCommand}</code> : undefined} />
+            <Fact label="Package manager" value={details?.runtime?.packageManager} />
+            {details?.links
+              ? Object.entries(details.links)
+                .filter(([key]) => !['deploymentUrl', 'localUrl', 'repository', 'homepage'].includes(key))
+                .map(([key, url]) => (
+                  <Fact
+                    key={key}
+                    label={humanize(key)}
+                    value={
+                      <a href={url} target="_blank" rel="noreferrer">
+                        {hostOf(url)}
+                      </a>
+                    }
+                  />
+                ))
+              : null}
+          </FactGroup>
+          {details?.scores ? (
+            <FactGroup title="Scores">
+              <div className="score-bars">
+                {Object.entries(details.scores).map(([key, score]) => (
+                  <div key={key} className="score-bar">
+                    <span>{humanize(key.replace(/Score$/, ''))}</span>
+                    <i style={{ '--score': `${Math.max(0, Math.min(100, score))}%` } as React.CSSProperties} />
+                    <b>{score}</b>
+                  </div>
+                ))}
+              </div>
+            </FactGroup>
+          ) : null}
+        </div>
       </section>
     </main>
   );
 }
 
-function RuntimeBadge({ mode }: { mode: string }) {
-  return <strong className={`runtime-badge mode-${mode}`}>{mode}</strong>;
+function FactGroup({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="fact-group">
+      <h3>{title}</h3>
+      <dl>{children}</dl>
+    </section>
+  );
+}
+
+function Fact({ label, value }: { label: string; value: React.ReactNode }) {
+  if (value === undefined || value === null || value === '') return null;
+  return (
+    <div className="fact">
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+    </div>
+  );
+}
+
+// desktop first, then the phone, then the whole page; the card is the fallback
+function orderedGallery(images: ProjectImage[]) {
+  const order = ['desktop', 'mobile', 'full', 'card'];
+  const chosen = images.filter((image) => order.includes(image.profile));
+  const withoutCard = chosen.filter((image) => image.profile !== 'card');
+  return (withoutCard.length > 0 ? withoutCard : chosen).sort((left, right) => order.indexOf(left.profile) - order.indexOf(right.profile));
+}
+
+function profileLabel(profile: string) {
+  return { desktop: 'Desktop', mobile: 'Phone', full: 'Full page', card: 'Card', og: 'Link card' }[profile] ?? humanize(profile);
+}
+
+function humanize(key: string) {
+  return key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[-_]/g, ' ').replace(/^./, (letter) => letter.toUpperCase());
+}
+
+function formatDate(iso: string | undefined) {
+  if (!iso) return '';
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function latestOf(dates: (string | undefined)[]) {
+  const sorted = dates.filter((value): value is string => Boolean(value)).sort();
+  return sorted[sorted.length - 1];
+}
+
+function formatNumber(value: number | undefined) {
+  if (value === undefined || value === null) return undefined;
+  return value.toLocaleString('en-GB');
+}
+
+function formatDuration(seconds: number | undefined) {
+  if (!seconds) return '';
+  const whole = Math.round(seconds);
+  return `${Math.floor(whole / 60)}:${String(whole % 60).padStart(2, '0')}`;
+}
+
+function hostOf(url: string) {
+  try {
+    return new URL(url).host;
+  } catch {
+    return url;
+  }
+}
+
+function youtubeEmbedUrl(url: string) {
+  const match = /(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([A-Za-z0-9_-]{6,})/.exec(url);
+  return match ? `https://www.youtube-nocookie.com/embed/${match[1]}` : url;
 }
 
 function useRuntimeStatus(): RuntimeStatus | null {
@@ -1912,31 +2214,6 @@ function useRuntimeStatus(): RuntimeStatus | null {
   }, []);
 
   return status;
-}
-
-function CaptureComparison({ project }: { project: Pick<Project, 'slug' | 'title' | 'screenshot'> }) {
-  return (
-    <section className="capture-comparison" aria-label={`${project.title} stable and latest screenshots`}>
-      <div className="capture-comparison__heading">
-        <div>
-          <span>Automated visual record</span>
-          <h2>Stable deployment / latest workspace</h2>
-        </div>
-        <p>Exact 1600x900 card captures generated by the portfolio image pipeline.</p>
-      </div>
-      <div className="capture-comparison__grid">
-        {(['latest', 'stable'] as const).map((state) => (
-          <figure key={state}>
-            <CaptureImage project={project} state={state} />
-            <figcaption>
-              <strong>{state === 'latest' ? 'Latest workspace' : 'Stable deployment'}</strong>
-              <span>{state === 'latest' ? 'Current local build' : 'Published URL'}</span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </section>
-  );
 }
 
 function CaptureImage({

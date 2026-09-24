@@ -62,6 +62,18 @@ for (const entry of repoRegistry) {
     const meta = await fetchBytes(entry, 'project.meta.json');
     if (meta) fs.writeFileSync(path.join(metaDir, 'project.meta.json'), meta);
     else missing.push('project.meta.json');
+
+    // The videos stay on the project's own deployment (the page streams them
+    // from there); only the poster frames come here, for the cards.
+    const trailers = await fetchJson(entry, 'project-media/trailers.json');
+    for (const item of trailers?.items ?? []) {
+      if (!item.poster) continue;
+      const bytes = await fetchBytes(entry, item.poster);
+      if (!bytes) continue;
+      const target = path.join(shotsDir, 'trailers', item.id + '.jpg');
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      if (writeIfDifferent(target, bytes)) changed.push('trailers/' + item.id + '.jpg');
+    }
   } catch (error) {
     failed = String(error.message).split('\n')[0];
   }
