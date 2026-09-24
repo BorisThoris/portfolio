@@ -10,6 +10,8 @@
 //   npm run trailers -- --force       # rebuild everything
 //   npm run trailers -- --only=<id>   # one item
 //   npm run trailers -- --list        # what is configured and its state
+//   npm run trailers -- --no-build    # publish and record what the build already produced
+//                                     #   (a render finished by hand after a crash)
 //
 // The `trailers` block of ./project-meta.config.mjs describes the items:
 //
@@ -53,6 +55,7 @@ const args = process.argv.slice(2);
 const checkOnly = args.includes('--check');
 const force = args.includes('--force');
 const listOnly = args.includes('--list');
+const noBuild = args.includes('--no-build');
 const onlyArg = args.find((argument) => argument.startsWith('--only='));
 const only = onlyArg ? new Set(onlyArg.slice('--only='.length).split(',').map((value) => value.trim())) : null;
 
@@ -107,7 +110,7 @@ for (const item of items) {
   }
 
   let prepareHash = previous?.prepareHash;
-  if (item.prepare && (force || state.prepareStale)) {
+  if (item.prepare && (force || state.prepareStale) && !noBuild) {
     // Items sharing a generator (both VYB edits recapture the same screens)
     // run it once per invocation; a second capture could differ by a pixel
     // and make the first item look stale again.
@@ -132,12 +135,16 @@ for (const item of items) {
     continue;
   }
 
-  console.log('\n[trailers] ' + item.id + ': build - ' + item.build);
-  // A render that shares the GPU with another job can lose its encoder pipe
-  // once; a second attempt is cheap next to a stale trailer.
-  if (!attempt(item.build, tools.env)) {
-    console.warn('[trailers] ' + item.id + ': build failed once, retrying.');
-    run(item.build, tools.env);
+  if (noBuild) {
+    console.log('\n[trailers] ' + item.id + ': --no-build, publishing what ' + (item.output ?? 'the build') + ' holds.');
+  } else {
+    console.log('\n[trailers] ' + item.id + ': build - ' + item.build);
+    // A render that shares the GPU with another job can lose its encoder pipe
+    // once; a second attempt is cheap next to a stale trailer.
+    if (!attempt(item.build, tools.env)) {
+      console.warn('[trailers] ' + item.id + ': build failed once, retrying.');
+      run(item.build, tools.env);
+    }
   }
 
   const entry = { id: item.id, title: item.title ?? item.id, kind: item.kind ?? 'trailer', inputsHash, builtAt: new Date().toISOString() };
