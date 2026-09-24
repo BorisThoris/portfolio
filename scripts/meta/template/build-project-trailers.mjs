@@ -75,6 +75,7 @@ const maxBytes = trailers.maxBytes ?? 20 * 1024 * 1024;
 
 const stale = [];
 const missingTools = [];
+const preparedThisRun = new Set();
 let built = 0;
 let recordChanged = false;
 
@@ -107,8 +108,16 @@ for (const item of items) {
 
   let prepareHash = previous?.prepareHash;
   if (item.prepare && (force || state.prepareStale)) {
-    console.log('\n[trailers] ' + item.id + ': prepare - ' + item.prepare.command);
-    run(item.prepare.command, tools.env);
+    // Items sharing a generator (both VYB edits recapture the same screens)
+    // run it once per invocation; a second capture could differ by a pixel
+    // and make the first item look stale again.
+    if (preparedThisRun.has(item.prepare.command)) {
+      console.log('[trailers] ' + item.id + ': prepare already ran this time.');
+    } else {
+      console.log('\n[trailers] ' + item.id + ': prepare - ' + item.prepare.command);
+      run(item.prepare.command, tools.env);
+      preparedThisRun.add(item.prepare.command);
+    }
     prepareHash = hashPathspecs(item.prepare.inputs ?? []);
   }
 
