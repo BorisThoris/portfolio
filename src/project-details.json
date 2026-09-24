@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-24T12:25:17.059Z",
+    "generatedAt": "2026-09-24T13:35:13.337Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -22,7 +22,7 @@
     "metrics": {
       "sourceFiles": 33,
       "testFiles": 0,
-      "sourceLines": 7879,
+      "sourceLines": 7898,
       "largestDirectories": [
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "528eec5",
-      "lastCommitDate": "2026-09-24T14:42:33+03:00",
-      "lastCommitSubject": "CI moves to the failover chain: the PC, the Kinhank, the tablet, no hosted minutes",
-      "commitCount": 61
+      "head": "c8f8793",
+      "lastCommitDate": "2026-09-24T16:04:02+03:00",
+      "lastCommitSubject": "The gameplay loop: a chill piece the local model composed from a measured reference",
+      "commitCount": 64
     },
     "scores": {
       "priorityScore": 99,
@@ -71,28 +71,28 @@
         "path": "/project-shots/bobball/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 564144
+        "bytes": 564150
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bobball/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 509390
+        "bytes": 509388
       },
       {
         "profile": "full",
         "path": "/project-shots/bobball/latest/full.jpg",
         "width": 1920,
         "height": 1080,
-        "bytes": 853684
+        "bytes": 853623
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bobball/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 155462
+        "bytes": 155429
       },
       {
         "profile": "og",
@@ -112,7 +112,7 @@
         "height": 1080,
         "duration": 25.81,
         "orientation": "landscape",
-        "builtAt": "2026-09-24T12:24:10.687Z"
+        "builtAt": "2026-09-24T13:33:13.641Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
@@ -277,7 +277,7 @@
   },
   "vyb-chess": {
     "slug": "vyb-chess",
-    "generatedAt": "2026-09-17T10:19:40.474Z",
+    "generatedAt": "2026-09-24T16:09:07.524Z",
     "version": "0.2.0",
     "classification": "web-app",
     "links": {
@@ -325,32 +325,32 @@
         "@testing-library/react"
       ],
       "dependencyCount": 8,
-      "devDependencyCount": 23
+      "devDependencyCount": 27
     },
     "metrics": {
-      "sourceFiles": 313,
-      "testFiles": 116,
-      "sourceLines": 78877,
+      "sourceFiles": 351,
+      "testFiles": 132,
+      "sourceLines": 89799,
       "largestDirectories": [
         {
           "directory": "app",
-          "files": 178
+          "files": 200
         },
         {
           "directory": "scripts",
-          "files": 75
+          "files": 79
         },
         {
           "directory": "tests",
-          "files": 37
+          "files": 44
         },
         {
           "directory": "output",
           "files": 15
         },
         {
-          "directory": ".",
-          "files": 3
+          "directory": "marketing",
+          "files": 5
         }
       ],
       "hasTests": true,
@@ -359,10 +359,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "131e7fb",
-      "lastCommitDate": "2026-09-15T12:25:43+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 410
+      "head": "067a6d9",
+      "lastCommitDate": "2026-09-23T15:38:01+03:00",
+      "lastCommitSubject": "Trailer: nothing hangs in the air between devices",
+      "commitCount": 480
     },
     "scores": {
       "priorityScore": 98,
@@ -408,6 +408,30 @@
         "width": 1200,
         "height": 630,
         "bytes": 74930
+      }
+    ],
+    "trailers": [
+      {
+        "id": "showcase-bg",
+        "title": "Showcase: the book on phone, tablet and desktop",
+        "url": "https://vyb-chess.pages.dev/trailers/showcase-bg.mp4",
+        "poster": "https://vyb-chess.pages.dev/trailers/showcase-bg.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 23.51,
+        "orientation": "portrait",
+        "builtAt": "2026-09-24T16:08:41.558Z"
+      },
+      {
+        "id": "teaser-bg",
+        "title": "Teaser: the narrator reads the book",
+        "url": "https://vyb-chess.pages.dev/trailers/teaser-bg.mp4",
+        "poster": "https://vyb-chess.pages.dev/trailers/teaser-bg.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 21.01,
+        "orientation": "portrait",
+        "builtAt": "2026-09-24T16:08:54.067Z"
       }
     ],
     "source": "BorisThoris/VYB-Chess@main"
