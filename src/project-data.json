@@ -377,7 +377,8 @@
       "Cloudflare Workers",
       "Trailer"
     ],
-    "accent": "#ff2d95"
+    "accent": "#ff2d95",
+    "screenshot": "/project-shots/bobball/latest/card.jpg"
   },
   {
     "slug": "system-architecture-cheatsheet",
