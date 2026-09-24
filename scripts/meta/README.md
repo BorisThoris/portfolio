@@ -198,7 +198,9 @@ default, under Cloudflare's 25 MiB single-file limit) with a poster frame into
 `project-media/trailers.json`; `--check` reports what is stale without
 rendering. A `kind: 'stills'` item (BOBBALL's poster set) writes its own images
 into `project-media/` and is only hash-tracked. A machine without the toolchain
-skips the item with a warning, so the pre-push hook and GitHub CI only warn
+skips the item with a warning (`freeGpu: true` first unloads whatever Ollama
+holds on the card, because Blender runs out of memory beside a resident
+model), so the pre-push hook and GitHub CI only warn
 about stale trailers (`--strict-trailers` makes them fail); the render happens
 on the PC.
 

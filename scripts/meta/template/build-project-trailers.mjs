@@ -138,6 +138,7 @@ for (const item of items) {
   if (noBuild) {
     console.log('\n[trailers] ' + item.id + ': --no-build, publishing what ' + (item.output ?? 'the build') + ' holds.');
   } else {
+    if (trailers.freeGpu) freeGpu();
     console.log('\n[trailers] ' + item.id + ': build - ' + item.build);
     // A render that shares the GPU with another job can lose its encoder pipe
     // once; a second attempt is cheap next to a stale trailer.
@@ -258,6 +259,20 @@ function onPath(name) {
   // Some tools answer --version on stderr or with a non-zero status; a spawn
   // that produced any output means the executable exists.
   return probe.status === 0 || Boolean((probe.stdout || '').trim() || (probe.stderr || '').trim());
+}
+
+// trailers.freeGpu: a render shares the card with the local LLM on this PC
+// (Ollama keeps a 20 GB model resident for ten minutes after a request), and
+// Blender dies with "LLVM ERROR: out of memory" next to it. Unload whatever
+// Ollama holds before rendering; it reloads on the next request.
+function freeGpu() {
+  const listed = spawnSync('ollama', ['ps'], { encoding: 'utf8', windowsHide: true });
+  if (listed.error || listed.status !== 0) return;
+  const models = listed.stdout.split('\n').slice(1).map((line) => line.trim().split(/\s+/)[0]).filter(Boolean);
+  for (const model of models) {
+    console.log('[trailers] unloading ' + model + ' from the GPU (ollama stop)');
+    spawnSync('ollama', ['stop', model], { stdio: 'ignore', windowsHide: true });
+  }
 }
 
 function attempt(command, env) {

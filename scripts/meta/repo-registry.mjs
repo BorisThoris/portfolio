@@ -111,6 +111,7 @@ export const repoRegistry = [
     trailers: {
       dir: 'game/trailers',
       urlPathPrefix: '/trailers',
+      freeGpu: true,
       items: [
         {
           id: 'posters',
