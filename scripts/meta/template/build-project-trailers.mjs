@@ -230,7 +230,9 @@ function checkRequirements(requires) {
 }
 
 function onPath(name) {
-  const probe = spawnSync(name, ['--version'], { encoding: 'utf8', shell: process.platform === 'win32', windowsHide: true });
+  let probe = spawnSync(name, ['--version'], { encoding: 'utf8', windowsHide: true });
+  // A .cmd shim on Windows (npm, npx) only resolves through the shell.
+  if (probe.error && process.platform === 'win32') probe = spawnSync(name + ' --version', { encoding: 'utf8', shell: true, windowsHide: true });
   if (probe.error) return false;
   // Some tools answer --version on stderr or with a non-zero status; a spawn
   // that produced any output means the executable exists.

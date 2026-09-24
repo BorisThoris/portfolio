@@ -1,97 +1,120 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-23T23:12:21.793Z",
-    "version": "1.0.0",
+    "generatedAt": "2026-09-24T12:25:17.059Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
-      "leaderboardApi": "https://bobball-scores.modaxxx009.workers.dev/",
       "localUrl": "http://127.0.0.1:8765/game/",
-      "repository": "https://github.com/BorisThoris/bobball"
+      "repository": "https://github.com/BorisThoris/bobball",
+      "leaderboardApi": "https://bobball-scores.modaxxx009.workers.dev/"
     },
     "runtime": {
-      "packageManager": "none",
-      "buildCommand": "bash deploy.sh",
+      "packageManager": "npm",
+      "buildCommand": "bash deploy.sh --assemble",
       "runCommand": "python -m http.server 8765  (then /game/)"
     },
     "stack": {
-      "framework": "Babylon.js",
       "language": "JavaScript",
-      "runtimeTargets": [
-        "web",
-        "cloudflare-workers"
-      ],
-      "libraries": [
-        {
-          "name": "@babylonjs/core",
-          "version": "9.27"
-        },
-        {
-          "name": "@babylonjs/havok",
-          "version": "1.x"
-        },
-        {
-          "name": "puppeteer-core",
-          "version": "trailer render"
-        }
-      ],
-      "testing": [
-        "trailer/game_tests.mjs (85 assertions, headless Chrome)"
-      ],
-      "dependencyCount": 2,
-      "devDependencyCount": 1
+      "dependencyCount": 0,
+      "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 73,
-      "testFiles": 1,
-      "sourceLines": 11153,
+      "sourceFiles": 33,
+      "testFiles": 0,
+      "sourceLines": 7879,
       "largestDirectories": [
         {
-          "directory": ".",
-          "files": 39
+          "directory": "game",
+          "files": 9
         },
         {
-          "directory": "tools_dev",
-          "files": 12
+          "directory": "scripts",
+          "files": 7
         },
         {
           "directory": "trailer",
-          "files": 11
+          "files": 7
         },
         {
-          "directory": "game",
-          "files": 5
+          "directory": "tools_dev",
+          "files": 6
         },
         {
-          "directory": "game/lib",
-          "files": 4
-        },
-        {
-          "directory": "leaderboard",
-          "files": 2
+          "directory": "arena",
+          "files": 3
         }
       ],
-      "hasTests": true,
-      "hasCi": false,
-      "hasDocs": true
+      "hasTests": false,
+      "hasCi": true,
+      "hasDocs": false
     },
     "git": {
-      "branch": "claude/bobball-comedy-trailer-935e5d",
-      "head": "58197f2",
-      "lastCommitDate": "2026-09-24T02:00:41+03:00",
-      "lastCommitSubject": "The head collider's top comes from the skin, not the culling box",
-      "commitCount": 52
+      "branch": "main",
+      "head": "528eec5",
+      "lastCommitDate": "2026-09-24T14:42:33+03:00",
+      "lastCommitSubject": "CI moves to the failover chain: the PC, the Kinhank, the tablet, no hosted minutes",
+      "commitCount": 61
     },
     "scores": {
-      "priorityScore": 90,
-      "demoabilityScore": 95,
-      "depthScore": 90,
-      "polishScore": 85,
-      "uniquenessScore": 96,
-      "maintenanceScore": 70
+      "priorityScore": 99,
+      "demoabilityScore": 97,
+      "depthScore": 92,
+      "polishScore": 90,
+      "uniquenessScore": 99,
+      "maintenanceScore": 80
     },
-    "analysisNotes": "A complete shipped browser game plus its own trailer pipeline: photogrammetry of a real person driven as an active ragdoll, a georeferenced rebuild of a real square, deterministic frame-by-frame rendering, synthesised music, sky and narration, all in one repository.",
+    "analysisNotes": "A complete shipped browser game plus its own trailer pipeline: photogrammetry of a real person driven as an active ragdoll, a georeferenced rebuild of a real square, deterministic frame-by-frame rendering, synthesised sky and narration, all in one repository.",
+    "images": [
+      {
+        "profile": "card",
+        "path": "/project-shots/bobball/latest/card.jpg",
+        "width": 1600,
+        "height": 900,
+        "bytes": 564144
+      },
+      {
+        "profile": "desktop",
+        "path": "/project-shots/bobball/latest/desktop.jpg",
+        "width": 1440,
+        "height": 900,
+        "bytes": 509390
+      },
+      {
+        "profile": "full",
+        "path": "/project-shots/bobball/latest/full.jpg",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 853684
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/bobball/latest/mobile.jpg",
+        "width": 430,
+        "height": 932,
+        "bytes": 155462
+      },
+      {
+        "profile": "og",
+        "path": "/project-shots/bobball/latest/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "bytes": 366266
+      }
+    ],
+    "trailers": [
+      {
+        "id": "trailer",
+        "title": "BOBBALL - the trailer",
+        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer.mp4",
+        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer.jpg",
+        "width": 1920,
+        "height": 1080,
+        "duration": 25.81,
+        "orientation": "landscape",
+        "builtAt": "2026-09-24T12:24:10.687Z"
+      }
+    ],
     "source": "BorisThoris/bobball@main"
   },
   "bbeats": {

@@ -165,7 +165,9 @@ function projectRecordFrom({ entry, meta }) {
     runCommand: runtime.runCommand,
     // Only a site-absolute path belongs here. Once a repo keeps its own copies
     // in project-media/, its primary is repo-relative and would break the card.
-    screenshot: meta.media?.primary?.startsWith('/') ? meta.media.primary : undefined,
+    screenshot: meta.media?.primary?.startsWith('/')
+      ? meta.media.primary
+      : (publicFileExists('/project-shots/' + identity.slug + '/latest/card.jpg') ? '/project-shots/' + identity.slug + '/latest/card.jpg' : undefined),
     tags: identity.tags,
     accent: identity.accent
   });

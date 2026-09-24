@@ -356,5 +356,44 @@
       "Steam"
     ],
     "accent": "#a78bfa"
+  },
+  {
+    "slug": "bobball",
+    "title": "BOBBALL",
+    "subtitle": "A dodgeball game against a man who did not sign up for this",
+    "description": "Sixty seconds, endless balls, one Bob: a free browser dodgeball game with an active ragdoll of a photo-scanned man, on a rebuilt National Palace of Culture square in Sofia. Babylon.js and Havok in the page, a Cloudflare Worker leaderboard with a top five and a name filter, a walk-around mode, and a 25-second comedy trailer rendered frame by frame from the same scene through headless Chrome.",
+    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\bobball",
+    "localUrl": "http://127.0.0.1:8765/game/",
+    "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
+    "buildCommand": "bash deploy.sh --assemble",
+    "buildOutput": "dist",
+    "runCommand": "python -m http.server 8765  (then /game/)",
+    "tags": [
+      "Game",
+      "Babylon.js",
+      "Havok",
+      "Ragdoll",
+      "Photogrammetry",
+      "Cloudflare Workers",
+      "Trailer"
+    ],
+    "accent": "#ff2d95"
+  },
+  {
+    "slug": "system-architecture-cheatsheet",
+    "title": "System Architecture Cheatsheet",
+    "subtitle": "Interview reference as a React single-page app",
+    "description": "A React + Vite single-page reference that lays out system-design building blocks - load balancing, caching, sharding, queues, consistency trade-offs - as a browsable interview cheatsheet.",
+    "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\system-architecture-interview-cheatsheet",
+    "localUrl": "http://127.0.0.1:5177/",
+    "buildCommand": "npm run build",
+    "buildOutput": "dist",
+    "runCommand": "npm run dev",
+    "tags": [
+      "React",
+      "Vite",
+      "Reference"
+    ],
+    "accent": "#6ee7b7"
   }
 ]
