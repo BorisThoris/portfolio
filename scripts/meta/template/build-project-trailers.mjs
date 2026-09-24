@@ -169,8 +169,9 @@ if (checkOnly) {
 }
 
 if (recordChanged) {
-  const next = { schemaVersion: 1, items: items.map((item) => recorded.get(item.id)).filter(Boolean) };
-  // Items that were dropped from the config disappear from the record too.
+  // Every configured item keeps its record (a --only run touches one); items
+  // dropped from the config disappear from the record.
+  const next = { schemaVersion: 1, items: (trailers.items ?? []).map((item) => recorded.get(item.id)).filter(Boolean) };
   fs.mkdirSync(path.dirname(recordPath), { recursive: true });
   fs.writeFileSync(recordPath, JSON.stringify(next, null, 2) + '\n');
 }
