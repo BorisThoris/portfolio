@@ -133,7 +133,12 @@ for (const item of items) {
   }
 
   console.log('\n[trailers] ' + item.id + ': build - ' + item.build);
-  run(item.build, tools.env);
+  // A render that shares the GPU with another job can lose its encoder pipe
+  // once; a second attempt is cheap next to a stale trailer.
+  if (!attempt(item.build, tools.env)) {
+    console.warn('[trailers] ' + item.id + ': build failed once, retrying.');
+    run(item.build, tools.env);
+  }
 
   const entry = { id: item.id, title: item.title ?? item.id, kind: item.kind ?? 'trailer', inputsHash, builtAt: new Date().toISOString() };
   if (item.prepare) entry.prepareHash = prepareHash ?? hashPathspecs(item.prepare.inputs ?? []);
@@ -246,6 +251,11 @@ function onPath(name) {
   // Some tools answer --version on stderr or with a non-zero status; a spawn
   // that produced any output means the executable exists.
   return probe.status === 0 || Boolean((probe.stdout || '').trim() || (probe.stderr || '').trim());
+}
+
+function attempt(command, env) {
+  const result = spawnSync(command, { cwd: repoRoot, stdio: 'inherit', shell: true, env });
+  return result.status === 0;
 }
 
 function run(command, env) {
