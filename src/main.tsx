@@ -1872,7 +1872,10 @@ function ProjectPage() {
         </a>
       </nav>
 
-      <section className="billboard crafted-frame" aria-label={`${project.title} overview`}>
+      <section
+        className={`billboard crafted-frame${showHeroVideo && heroTrailer?.orientation === 'portrait' ? ' billboard--portrait' : ''}`}
+        aria-label={`${project.title} overview`}
+      >
         <div className="billboard__media" aria-hidden="true">
           {showHeroVideo && heroTrailer ? (
             <video

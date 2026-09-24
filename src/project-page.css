@@ -31,6 +31,14 @@
   object-position: center top;
 }
 
+/* A 9:16 trailer (the Instagram edits) stands whole on the right instead of
+   being cropped to a strip; the copy keeps the left. */
+.billboard--portrait .billboard__video {
+  object-fit: contain;
+  object-position: right center;
+  background: #050605;
+}
+
 .billboard__shade {
   position: absolute;
   inset: 0;
@@ -488,6 +496,14 @@
   .billboard__media {
     position: relative;
     aspect-ratio: 16 / 9;
+  }
+
+  .billboard--portrait .billboard__media {
+    aspect-ratio: 9 / 12;
+  }
+
+  .billboard--portrait .billboard__video {
+    object-position: center;
   }
 
   .billboard__shade {
