@@ -361,7 +361,7 @@
     "slug": "bobball",
     "title": "BOBBALL",
     "subtitle": "A dodgeball game against a man who did not sign up for this",
-    "description": "Sixty seconds, endless balls, one Bob: a free browser dodgeball game with an active ragdoll of a photo-scanned man, on a rebuilt National Palace of Culture square in Sofia. Babylon.js and Havok in the page, a Cloudflare Worker leaderboard with a top five and a name filter, a walk-around mode, and a 25-second comedy trailer rendered frame by frame from the same scene through headless Chrome.",
+    "description": "Sixty seconds, endless balls, one Bob: a free browser dodgeball game with an active ragdoll of a photo-scanned man, on a rebuilt National Palace of Culture square in Sofia. Babylon.js and Havok in the page, a Cloudflare Worker leaderboard with a top five and a name filter, a walk-around mode, and a 30-second comedy trailer rendered frame by frame from the same scene through headless Chrome.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\bobball",
     "localUrl": "http://127.0.0.1:8765/game/",
     "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
