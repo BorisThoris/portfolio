@@ -473,7 +473,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-25T11:04:03.207Z",
+    "generatedAt": "2026-09-25T11:23:16.632Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -545,21 +545,21 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1153,
-      "testFiles": 491,
-      "sourceLines": 186170,
+      "sourceFiles": 1186,
+      "testFiles": 507,
+      "sourceLines": 191455,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 965
+          "files": 994
         },
         {
           "directory": "scripts",
-          "files": 92
+          "files": 94
         },
         {
           "directory": "e2e",
-          "files": 64
+          "files": 66
         },
         {
           "directory": "packages",
@@ -576,10 +576,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d7d297f9",
-      "lastCommitDate": "2026-09-23T20:25:43+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 1749
+      "head": "acf2250f",
+      "lastCommitDate": "2026-09-25T14:22:45+03:00",
+      "lastCommitSubject": "Toolkit: a showcase order may be 0",
+      "commitCount": 1823
     },
     "scores": {
       "priorityScore": 94,
@@ -596,21 +596,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167328
+        "bytes": 165814
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156764
+        "bytes": 156603
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130994
+        "bytes": 130939
       },
       {
         "profile": "mobile",
@@ -624,7 +624,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120679
+        "bytes": 120810
       }
     ],
     "trailers": [
