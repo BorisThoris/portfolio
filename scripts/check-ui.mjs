@@ -17,9 +17,19 @@ const output = "output/playwright";
 await fs.mkdir(output, { recursive: true });
 const errors = [];
 const report = [];
+const projectData = JSON.parse(
+  await fs.readFile("src/project-data.json", "utf8"),
+);
+const rankings = JSON.parse(
+  await fs.readFile("src/repo-analysis.json", "utf8"),
+);
+
+const visibleProjects = projectData.filter(
+  (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
+);
 async function audit(page, name) {
   const results = await new AxeBuilder({ page })
-    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
     .analyze();
   await fs.writeFile(
     path.join(output, `${name}-accessibility.json`),
@@ -58,6 +68,14 @@ try {
     "Skip link focuses main",
   );
   await audit(page, "home-desktop");
+  const labels = await new AxeBuilder({ page })
+    .withRules(["label-content-name-mismatch", "aria-allowed-role"])
+    .analyze();
+  assert.equal(
+    labels.violations.length,
+    0,
+    "Visible labels and ARIA roles agree",
+  );
   await page.getByRole("button", { name: "Next project", exact: true }).click();
   assert.equal(
     await page
@@ -99,7 +117,10 @@ try {
   );
   await page.getByRole("button", { name: "Clear filters" }).click();
   await page.getByRole("button", { name: /View all .* projects/ }).click();
-  assert.equal(await page.locator(".catalog-card").count(), 19);
+  assert.equal(
+    await page.locator(".catalog-card").count(),
+    visibleProjects.length,
+  );
   await page.getByRole("button", { name: "Show fewer projects" }).click();
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();
@@ -181,12 +202,6 @@ try {
       .evaluate((el) => Math.abs(el.getBoundingClientRect().top) < 150),
     "Work anchor restored",
   );
-  const projectData = JSON.parse(
-    await fs.readFile("src/project-data.json", "utf8"),
-  );
-  const rankings = JSON.parse(
-    await fs.readFile("src/repo-analysis.json", "utf8"),
-  );
   for (const project of projectData.filter(
     (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
   )) {
@@ -225,11 +240,15 @@ try {
       await audit(page, project.slug);
   }
   report.push(
-    "All 19 projects: direct routes, static metadata, valid cover images, no localhost links, no autoplay, mobile/desktop overflow",
+    `All ${visibleProjects.length} projects: direct routes, static metadata, valid cover images, no localhost links, no autoplay, mobile/desktop overflow`,
   );
   await page.goto(`${base}/cv-print/`);
   await page.getByRole("button", { name: "Print / Save PDF" }).waitFor();
   assert.equal(await page.title(), "Résumé | Boris Bostandzhiev");
+  await audit(page, "resume-desktop");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await audit(page, "resume-mobile");
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ media: "print" });
   assert.equal(await page.locator(".cv-toolbar").isVisible(), false);
   await page.pdf({ path: `${output}/resume.pdf`, format: "A4" });

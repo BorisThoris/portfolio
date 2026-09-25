@@ -76,7 +76,10 @@ export function SupportingProjects() {
           <li key={project.slug}>
             <Link className="catalog-card" to={`/projects/${project.slug}`}>
               <div className="catalog-card__image">
-                <CaptureImage project={project} />
+                <CaptureImage
+                  project={project}
+                  sizes="(max-width: 480px) 100vw, (max-width: 760px) 50vw, 33vw"
+                />
                 <span>{categoryFor(project.tags)}</span>
               </div>
               <div className="catalog-card__title">

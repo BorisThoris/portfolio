@@ -69,7 +69,7 @@ export function Showcase({ projects }: { projects: Project[] }) {
       <div className="featured__viewport" ref={viewportRef}>
         <div className="featured__track">
           {projects.map((project, index) => (
-            <article
+            <div
               className="featured__slide"
               key={project.slug}
               id={`project-panel-${project.slug}`}
@@ -120,7 +120,7 @@ export function Showcase({ projects }: { projects: Project[] }) {
                   ) : null}
                 </div>
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>

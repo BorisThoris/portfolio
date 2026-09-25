@@ -105,7 +105,11 @@ function ProjectContent({ project }: { project: Project }) {
           </div>
         </section>
         <div className="project-cover">
-          <CaptureImage project={project} priority />
+          <CaptureImage
+            project={project}
+            priority
+            sizes="(max-width: 760px) 100vw, 1280px"
+          />
         </div>
         <section
           className="project-overview section"

@@ -2,6 +2,7 @@ import { ArrowUpRight, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Experience, experiences } from "../content/profile";
 import { home } from "../content/home";
+import { Disclosure } from "./Disclosure";
 
 export function ExperienceSection() {
   return (
@@ -19,21 +20,26 @@ export function ExperienceSection() {
       </header>
       <div className="experience-list">
         {experiences.map((experience) => (
-          <details className="experience-item" key={experience.company}>
-            <summary>
-              <span className="experience-item__year">
-                {experience.startYear}
-              </span>
-              <CompanyLogo experience={experience} />
-              <span className="experience-item__role">
-                <strong>{experience.company}</strong>
-                <span>{experience.role}</span>
-              </span>
-              <span className="experience-item__tenure">
-                {experience.tenure}
-              </span>
-              <Plus className="experience-item__toggle" size={20} />
-            </summary>
+          <Disclosure
+            className="experience-item"
+            key={experience.company}
+            summary={
+              <>
+                <span className="experience-item__year">
+                  {experience.startYear}
+                </span>
+                <CompanyLogo experience={experience} />
+                <span className="experience-item__role">
+                  <strong>{experience.company}</strong>
+                  <span>{experience.role}</span>
+                </span>
+                <span className="experience-item__tenure">
+                  {experience.tenure}
+                </span>
+                <Plus className="experience-item__toggle" size={20} />
+              </>
+            }
+          >
             <div className="experience-item__body">
               <p>{experience.summary}</p>
               <ul className="bullets">
@@ -69,6 +75,8 @@ export function ExperienceSection() {
                           <img
                             src={context.image}
                             alt={`${context.title} public product screenshot`}
+                            width={1440}
+                            height={900}
                             loading="lazy"
                           />
                         ) : null}
@@ -93,7 +101,7 @@ export function ExperienceSection() {
                 </div>
               ) : null}
             </div>
-          </details>
+          </Disclosure>
         ))}
       </div>
       <Link className="hero__text-link experience-resume" to="/cv-print">
@@ -114,6 +122,8 @@ export function CompanyLogo({
       {experience.logos?.slice(0, 1).map((logo) => (
         <img
           src={logo}
+          width={64}
+          height={64}
           alt=""
           loading="lazy"
           key={logo}

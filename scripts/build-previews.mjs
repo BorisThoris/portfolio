@@ -33,7 +33,7 @@ for (const project of projects) {
     .update("webp-v1-76")
     .digest("hex");
   manifest[project.slug] = digest;
-  for (const width of [480, 960]) {
+  for (const width of [480, 960, 1600]) {
     const destination = path.join(directory, `${project.slug}-${width}.webp`);
     const cached =
       previous[project.slug] === digest &&

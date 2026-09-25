@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "project-meta bot"
           git config user.email "project-meta-bot@users.noreply.github.com"
-          git add public/project-shots src/project-data.json src/repo-analysis.json
+          git add public/project-shots src/project-data.json src/project-details.json src/repo-analysis.json
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0

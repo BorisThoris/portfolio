@@ -1,24 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-  capabilityGroups,
-  cvAdditionalProjects,
-  cvEducation,
-  cvExperience,
-  cvHighlights,
-  cvProjects,
-} from "../content/profile";
+import { capabilityGroups } from "../content/profile";
+import { cvEducation, cvExperience } from "../content/resume";
+import { getProject } from "../projects";
 import "../cv.css";
 
+const selectedProjects = ["bbeats", "memory-dungeon", "vyb-chess"].flatMap(
+  (slug) => {
+    const project = getProject(slug);
+    return project ? [project] : [];
+  },
+);
 export function CvPrintPage() {
-  const cvAccent = "#8bd3ff";
-
   return (
-    <main
-      className="cv-print-shell"
-      tabIndex={-1}
-      style={{ "--accent": cvAccent } as React.CSSProperties}
-    >
+    <main className="resume-shell" tabIndex={-1}>
       <nav className="cv-toolbar" aria-label="Résumé actions">
         <Link className="btn" to="/">
           Back to portfolio
@@ -31,162 +25,93 @@ export function CvPrintPage() {
           Print / Save PDF
         </button>
       </nav>
-
-      <section className="cv-cover cv-panel">
-        <div className="cv-cover-copy">
-          <p className="eyebrow">Portfolio CV</p>
-          <h1>Boris Bostandzhiev</h1>
-          <strong>Full-stack Technical Lead / Senior Engineer</strong>
-          <p>
-            React, TypeScript, Python, C#, data-heavy platforms, AI-assisted
-            workflows, product UI, automation, interactive systems, and
-            independent product delivery.
-          </p>
-        </div>
-
-        <div className="cv-contact-card">
-          <span>Sofia, Bulgaria</span>
-          <a href="tel:+359897023731">+359 89 702 3731</a>
-          <a href="mailto:borisbostandzhiev@yahoo.com">
-            borisbostandzhiev@yahoo.com
-          </a>
-          <a href="https://www.linkedin.com/in/boris-b-22566b171/">
-            linkedin.com/in/boris-b-22566b171
-          </a>
-          <a href="https://boris-portfolio-git.pages.dev">
-            boris-portfolio-git.pages.dev
-          </a>
-          <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
-        </div>
-      </section>
-
-      <section className="cv-proof-grid" aria-label="CV highlights">
-        {cvHighlights.map((highlight) => (
-          <span key={highlight}>{highlight}</span>
-        ))}
-      </section>
-
-      <section className="cv-panel">
-        <div className="cv-section-heading">
-          <p className="eyebrow">Experience</p>
-          <h2>Professional Work</h2>
-        </div>
-
-        <div className="cv-timeline">
-          {cvExperience.map((item) => (
-            <article
-              className="cv-experience-card"
-              key={item.company}
-              style={{ "--accent": item.accent } as React.CSSProperties}
-            >
-              <div className="cv-experience-topline">
-                <div>
-                  <span>{item.tenure}</span>
-                  <h3>{item.company}</h3>
-                  <strong>{item.role}</strong>
-                </div>
-                <div className="cv-stack">
-                  {item.stack.map((skill) => (
-                    <span key={skill}>{skill}</span>
-                  ))}
-                </div>
+      <article className="resume-document">
+        <header className="resume-header">
+          <div>
+            <p className="resume-kicker">
+              Software engineering · Sofia, Bulgaria
+            </p>
+            <h1>Boris Bostandzhiev</h1>
+            <p className="resume-role">
+              Full-stack engineer &amp; product builder
+            </p>
+          </div>
+          <address>
+            <a href="mailto:borisbostandzhiev@yahoo.com">
+              borisbostandzhiev@yahoo.com
+            </a>
+            <a href="tel:+359897023731">+359 89 702 3731</a>
+            <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
+            <a href="https://www.linkedin.com/in/boris-b-22566b171/">
+              LinkedIn profile
+            </a>
+            <a href="https://boris-portfolio-git.pages.dev/">
+              Portfolio &amp; live projects
+            </a>
+          </address>
+        </header>
+        <p className="resume-summary">
+          Full-stack engineer working across React, TypeScript, Python, and C#.
+          Experience in investment technology, visual programming, hospitality,
+          and mobile products, alongside independent music tools, games, and
+          interactive applications.
+        </p>
+        <section className="resume-section" aria-labelledby="resume-experience">
+          <h2 id="resume-experience">Experience</h2>
+          {cvExperience.map((experience, index) => (
+            <section className="resume-job" key={experience.company}>
+              <div className="resume-job__heading">
+                <h3>{experience.company}</h3>
+                <span>{experience.tenure}</span>
               </div>
-              <p>{item.summary}</p>
+              <p className="resume-job__role">{experience.role}</p>
+              <p>{experience.summary}</p>
               <ul>
-                {item.bullets.map((bullet) => (
+                {(index === 0
+                  ? experience.bullets.slice(1, 4)
+                  : experience.bullets.slice(0, 3)
+                ).map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              {"details" in item && item.details ? (
-                <div className="cv-detail-grid">
-                  {item.details.map((detail) => (
-                    <span key={detail}>{detail}</span>
-                  ))}
-                </div>
-              ) : null}
-            </article>
+              <p className="resume-stack">{experience.stack.join(" · ")}</p>
+            </section>
           ))}
-        </div>
-      </section>
-
-      <section className="cv-panel cv-capabilities-panel">
-        <div className="cv-section-heading">
-          <p className="eyebrow">Range</p>
-          <h2>Technical Capability</h2>
-        </div>
-        <div className="cv-capability-grid">
-          {capabilityGroups.map((group) => (
-            <article className="cv-capability-card" key={group.title}>
-              <h3>{group.title}</h3>
-              <p>{group.purpose}</p>
-              <div className="cv-stack primary">
-                {group.primary.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
+        </section>
+        <section className="resume-section" aria-labelledby="resume-projects">
+          <h2 id="resume-projects">Selected independent work</h2>
+          <div className="resume-projects">
+            {selectedProjects.map((project) => (
+              <section className="resume-project" key={project.slug}>
+                <h3>
+                  <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+                </h3>
+                <p>{project.description}</p>
+                <p className="resume-stack">{project.tags.join(" · ")}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+        <section className="resume-section" aria-labelledby="resume-skills">
+          <h2 id="resume-skills">Technical range</h2>
+          <dl className="resume-skills">
+            {capabilityGroups.map((group) => (
+              <div key={group.title}>
+                <dt>{group.title}</dt>
+                <dd>{group.primary.join(", ")}</dd>
               </div>
-              <div className="cv-stack">
-                {group.skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="cv-additional-projects">
-          {cvAdditionalProjects.map((project) => (
-            <article key={project.title}>
-              <h3>{project.title}</h3>
-              <p>{project.text}</p>
-              <div className="cv-stack">
-                {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="cv-panel">
-        <div className="cv-section-heading">
-          <p className="eyebrow">Portfolio</p>
-          <h2>Selected Independent Products</h2>
-        </div>
-        <div className="cv-project-grid">
-          {cvProjects.map((project) => (
-            <article
-              className="cv-project-card"
-              key={project.title}
-              style={{ "--accent": project.accent } as React.CSSProperties}
-            >
-              <img src={project.image} alt={`${project.title} screenshot`} />
-              <div>
-                <span>{project.label}</span>
-                <h3>{project.title}</h3>
-                <p>{project.text}</p>
-                <div className="cv-stack">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="cv-panel cv-education-panel">
-        <div className="cv-section-heading">
-          <p className="eyebrow">Education & Speaking</p>
-          <h2>Foundations</h2>
-        </div>
-        <div className="cv-education-list">
-          {cvEducation.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </div>
-      </section>
+            ))}
+          </dl>
+        </section>
+        <section className="resume-section" aria-labelledby="resume-education">
+          <h2 id="resume-education">Education &amp; speaking</h2>
+          <ul className="resume-education">
+            {cvEducation.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      </article>
     </main>
   );
 }

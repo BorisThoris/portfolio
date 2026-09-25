@@ -22,11 +22,13 @@ export function CaptureImage({
   state = "latest",
   priority = false,
   className,
+  sizes = "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw",
 }: {
   project: Pick<Project, "slug" | "title" | "screenshot">;
   state?: "latest" | "stable";
   priority?: boolean;
   className?: string;
+  sizes?: string;
 }) {
   const sources = captureSources(project, state);
   return (
@@ -35,10 +37,10 @@ export function CaptureImage({
       src={sources[0]}
       srcSet={
         state === "latest"
-          ? `/project-previews/${project.slug}-480.webp 480w, /project-previews/${project.slug}-960.webp 960w`
+          ? `/project-previews/${project.slug}-480.webp 480w, /project-previews/${project.slug}-960.webp 960w, /project-previews/${project.slug}-1600.webp 1600w`
           : undefined
       }
-      sizes="(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw"
+      sizes={sizes}
       alt={`${project.title} screenshot`}
       loading={priority ? "eager" : "lazy"}
       decoding="async"

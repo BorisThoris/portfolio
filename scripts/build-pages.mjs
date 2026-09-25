@@ -46,6 +46,12 @@ for (const { route, title, description, project } of routes) {
     /<title>.*?<\/title>/s,
     `<title>${escape(title)}</title>`,
   );
+  html = html.replace(
+    /<link data-project-preload[^>]*>/,
+    route === "/cv-print"
+      ? ""
+      : `<link rel="preload" as="image" href="/project-previews/${project?.slug ?? "bbeats"}-960.webp" imagesrcset="/project-previews/${project?.slug ?? "bbeats"}-480.webp 480w, /project-previews/${project?.slug ?? "bbeats"}-960.webp 960w, /project-previews/${project?.slug ?? "bbeats"}-1600.webp 1600w" imagesizes="${project ? "(max-width: 760px) 100vw, 1280px" : "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw"}" fetchpriority="high" />`,
+  );
   const setMeta = (attribute, name, content) => {
     const pattern = new RegExp(
       `<meta\\s+${attribute}="${name}"\\s+content="[^"]*"\\s*\\/?>`,

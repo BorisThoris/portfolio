@@ -18,10 +18,19 @@ Validation: production build; browser interaction checks for carousel selection/
 - Correct missing-route screens, page focus, anchor navigation, and history restoration.
 - Consistent project presentation, safe public launch links, visitor-controlled video, media galleries, and next-project navigation.
 - Route-specific static metadata, canonical links, structured data, no-JavaScript fallback, sitemap, robots, real 404 document, and refreshed social preview.
-- Removed unused WebGL/animation code and split secondary pages. The homepage JS is approximately 336 KB (108 KB gzip); project details and CV load on navigation.
-- WebP previews at 480/960px cut the combined 960px preview payload from 2.4 MB to 0.4 MB.
+- Removed unused WebGL/animation code and split secondary pages. The homepage JS is approximately 327 KB (105 KB gzip); project details and CV load on navigation.
+- WebP previews at 480/960/1600px cut the combined 960px preview payload from 2.4 MB to 0.4 MB.
 - Updated vulnerable dependencies; npm audit reports zero vulnerabilities.
-- Repeatable production browser check and CI workflow. All 19 project routes checked on mobile and desktop; six automated WCAG A/AA audits pass with no violations; keyboard, clipboard, print controls, metadata, and error routes pass without runtime exceptions.
+- Repeatable production browser check and CI workflow. All 19 project routes checked on mobile and desktop; eight automated WCAG A/AA audits pass with no violations; keyboard, clipboard, print controls, metadata, and error routes pass without runtime exceptions.
+
+## Delivered: final polish
+
+- Two-page, printer-friendly résumé with live project descriptions from the catalogue; separate résumé data no longer ships in the homepage bundle. Printed pages visually inspected.
+- Reusable native disclosure mounts career details on demand, lowering initial rendering work.
+- Responsive image sizes and route-specific hero preloads.
+- Matching Playwright/browser versions in CI, plus project-detail metadata included in the automatic sync commit.
+- Local mobile Lighthouse lab run: performance 96, accessibility 100, best practices 100, SEO 100; LCP 2.5s, total blocking time 110ms, layout shift 0. These are lab measurements, not field performance guarantees.
+- Public Cloudflare deployment checked: homepage and project-specific metadata served correctly; unknown paths return HTTP 404.
 
 ## Content opportunities that need original evidence
 

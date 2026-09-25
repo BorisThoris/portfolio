@@ -20,7 +20,7 @@ The default typeface uses the system font stack, with no external font request. 
 ## Content ownership
 
 - Personal introduction and editorial selection: `src/content/home.ts`.
-- Career history and résumé content: `src/content/profile.ts`.
+- Career history: `src/content/profile.ts`; résumé content: `src/content/resume.ts`.
 - Project descriptions, tags, and links: generated `src/project-data.json`.
 - Extended project facts and media: generated `src/project-details.json`, loaded with the project route.
 - Rankings: `src/repo-analysis.json`; they determine catalogue visibility, not the editorial shortlist.
@@ -37,7 +37,7 @@ Every page has a single main landmark and heading. Navigation moves focus to the
 
 ## Media and loading
 
-`npm run build` and `npm run dev` generate cached 480px and 960px WebP project previews from the existing screenshots. Original captures remain available on project pages. Preview failures fall back through the original/latest, stable, curated image, then placeholder. Hero imagery has reserved dimensions; other images load lazily. Media is explicitly played by the visitor.
+`npm run build` and `npm run dev` generate cached 480px, 960px, and 1600px WebP project previews from the existing screenshots. Original captures remain available on project pages. Preview failures fall back through the original/latest, stable, curated image, then placeholder. Hero imagery has reserved dimensions; other images load lazily. Media is explicitly played by the visitor.
 
 Project and résumé code are loaded on navigation. The static build writes route-specific titles, descriptions, canonical links, social metadata, structured data, and a no-JavaScript fallback for every known route, plus sitemap, robots, and a 404 page. Cloudflare serves these files directly.
 

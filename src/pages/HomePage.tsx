@@ -21,7 +21,7 @@ export function HomePage() {
         Skip to content
       </a>
       <header className="site-header">
-        <Link to="/" className="wordmark" aria-label="Boris Bostandzhiev home">
+        <Link to="/" className="wordmark">
           <span className="monogram">
             bb<span>.</span>
           </span>
@@ -89,7 +89,10 @@ export function HomePage() {
               className="hero-project hero-project--small"
               to="/projects/memory-dungeon"
             >
-              <CaptureImage project={featured[1]} />
+              <CaptureImage
+                project={featured[1]}
+                sizes="(max-width: 760px) 50vw, 25vw"
+              />
               <span className="hero-project__caption">
                 A little less ordinary.
                 <ArrowUpRight size={15} />
