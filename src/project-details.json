@@ -473,7 +473,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-25T11:23:16.632Z",
+    "generatedAt": "2026-09-25T11:24:21.478Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -576,10 +576,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "acf2250f",
-      "lastCommitDate": "2026-09-25T14:22:45+03:00",
-      "lastCommitSubject": "Toolkit: a showcase order may be 0",
-      "commitCount": 1823
+      "head": "ce87c294",
+      "lastCommitDate": "2026-09-25T14:23:18+03:00",
+      "lastCommitSubject": "Regenerate the metadata after the rebase",
+      "commitCount": 1824
     },
     "scores": {
       "priorityScore": 94,
@@ -650,7 +650,7 @@
         "height": 1920,
         "bytes": 265869,
         "orientation": "portrait",
-        "builtAt": "2026-09-25T11:02:19.285Z"
+        "builtAt": "2026-09-25T11:24:18.911Z"
       },
       {
         "id": "cover-break-the-chain",
@@ -661,7 +661,7 @@
         "height": 1920,
         "bytes": 115513,
         "orientation": "portrait",
-        "builtAt": "2026-09-25T11:02:20.495Z"
+        "builtAt": "2026-09-25T11:24:19.187Z"
       },
       {
         "id": "cover-gameplay",
@@ -672,7 +672,7 @@
         "height": 1920,
         "bytes": 117971,
         "orientation": "portrait",
-        "builtAt": "2026-09-25T11:02:21.071Z"
+        "builtAt": "2026-09-25T11:24:20.180Z"
       },
       {
         "id": "end-card",
@@ -683,7 +683,7 @@
         "height": 1920,
         "bytes": 161582,
         "orientation": "portrait",
-        "builtAt": "2026-09-25T11:02:21.528Z"
+        "builtAt": "2026-09-25T11:24:20.491Z"
       }
     ],
     "source": "BorisThoris/memory-dungeon@main"
