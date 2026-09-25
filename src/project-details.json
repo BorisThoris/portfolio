@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-25T11:04:08.959Z",
+    "generatedAt": "2026-09-24T13:35:13.337Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -22,7 +22,7 @@
     "metrics": {
       "sourceFiles": 33,
       "testFiles": 0,
-      "sourceLines": 8214,
+      "sourceLines": 7898,
       "largestDirectories": [
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5b2fc90",
-      "lastCommitDate": "2026-09-24T19:17:55+03:00",
-      "lastCommitSubject": "Update the trailers script: --only keeps the other records",
-      "commitCount": 84
+      "head": "c8f8793",
+      "lastCommitDate": "2026-09-24T16:04:02+03:00",
+      "lastCommitSubject": "The gameplay loop: a chill piece the local model composed from a measured reference",
+      "commitCount": 64
     },
     "scores": {
       "priorityScore": 99,
@@ -113,41 +113,6 @@
         "duration": 25.81,
         "orientation": "landscape",
         "builtAt": "2026-09-24T13:33:13.641Z"
-      }
-    ],
-    "artwork": [
-      {
-        "id": "story",
-        "title": "BOBBALL - story poster",
-        "role": "wallpaper",
-        "url": "https://bobball.modaxxx009.workers.dev/artwork/story.jpg",
-        "width": 1080,
-        "height": 1920,
-        "bytes": 611605,
-        "orientation": "portrait",
-        "builtAt": "2026-09-25T11:04:06.489Z"
-      },
-      {
-        "id": "square",
-        "title": "BOBBALL - square",
-        "role": "wallpaper",
-        "url": "https://bobball.modaxxx009.workers.dev/artwork/square.jpg",
-        "width": 1080,
-        "height": 1080,
-        "bytes": 383590,
-        "orientation": "square",
-        "builtAt": "2026-09-25T11:04:06.771Z"
-      },
-      {
-        "id": "post",
-        "title": "BOBBALL - key art",
-        "role": "key-art",
-        "url": "https://bobball.modaxxx009.workers.dev/artwork/post.jpg",
-        "width": 1080,
-        "height": 1350,
-        "bytes": 484239,
-        "orientation": "portrait",
-        "builtAt": "2026-09-25T11:04:07.031Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
@@ -473,7 +438,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-25T11:24:21.478Z",
+    "generatedAt": "2026-09-25T17:37:33.609Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -545,13 +510,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1186,
-      "testFiles": 507,
-      "sourceLines": 191455,
+      "sourceFiles": 1183,
+      "testFiles": 511,
+      "sourceLines": 184238,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 994
+          "files": 1001
         },
         {
           "directory": "scripts",
@@ -559,15 +524,15 @@
         },
         {
           "directory": "e2e",
-          "files": 66
+          "files": 68
         },
         {
           "directory": "packages",
           "files": 14
         },
         {
-          "directory": "dist-build",
-          "files": 9
+          "directory": ".",
+          "files": 5
         }
       ],
       "hasTests": true,
@@ -576,10 +541,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "ce87c294",
-      "lastCommitDate": "2026-09-25T14:23:18+03:00",
-      "lastCommitSubject": "Regenerate the metadata after the rebase",
-      "commitCount": 1824
+      "head": "5519871d",
+      "lastCommitDate": "2026-09-25T20:26:31+03:00",
+      "lastCommitSubject": "Refresh the repo model after merging main",
+      "commitCount": 1846
     },
     "scores": {
       "priorityScore": 94,
@@ -596,21 +561,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165814
+        "bytes": 167261
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156603
+        "bytes": 157389
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130939
+        "bytes": 131438
       },
       {
         "profile": "mobile",
@@ -624,7 +589,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120810
+        "bytes": 122399
       }
     ],
     "trailers": [
@@ -690,7 +655,7 @@
   },
   "gem-dungeon": {
     "slug": "gem-dungeon",
-    "generatedAt": "2026-09-17T10:23:24.904Z",
+    "generatedAt": "2026-09-24T16:25:28.995Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -756,9 +721,9 @@
       "devDependencyCount": 32
     },
     "metrics": {
-      "sourceFiles": 388,
+      "sourceFiles": 389,
       "testFiles": 27,
-      "sourceLines": 79383,
+      "sourceLines": 79982,
       "largestDirectories": [
         {
           "directory": "src",
@@ -766,7 +731,7 @@
         },
         {
           "directory": "scripts",
-          "files": 32
+          "files": 33
         },
         {
           "directory": "assets",
@@ -786,11 +751,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "codex/epic-1-canonical-dungeon",
-      "head": "de0d5de",
-      "lastCommitDate": "2026-09-15T15:19:21+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 140
+      "branch": "main",
+      "head": "e00b3ea",
+      "lastCommitDate": "2026-09-24T19:12:47+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 147
     },
     "scores": {
       "priorityScore": 76,
@@ -807,42 +772,42 @@
         "path": "/project-shots/gem-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92647
+        "bytes": 94666
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gem-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 90907
+        "bytes": 92816
       },
       {
         "profile": "full",
         "path": "/project-shots/gem-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 78746
+        "bytes": 80262
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gem-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 33327
+        "bytes": 31581
       },
       {
         "profile": "og",
         "path": "/project-shots/gem-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 75622
+        "bytes": 79333
       }
     ],
     "source": "BorisThoris/gem-dungeon@main"
   },
   "skyfall": {
     "slug": "skyfall",
-    "generatedAt": "2026-09-17T10:21:40.934Z",
+    "generatedAt": "2026-09-24T16:24:32.891Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -883,9 +848,9 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 92,
+      "sourceFiles": 93,
       "testFiles": 20,
-      "sourceLines": 15028,
+      "sourceLines": 15301,
       "largestDirectories": [
         {
           "directory": "app",
@@ -897,7 +862,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 8
         },
         {
           "directory": "e2e",
@@ -913,11 +878,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "ai/refine-skyfall-cycle-02",
-      "head": "8df83699",
-      "lastCommitDate": "2026-09-15T15:21:41+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 150
+      "branch": "master",
+      "head": "ffb9ac24",
+      "lastCommitDate": "2026-09-24T19:12:59+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 156
     },
     "scores": {
       "priorityScore": 76,
@@ -934,42 +899,42 @@
         "path": "/project-shots/skyfall/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 72881
+        "bytes": 68019
       },
       {
         "profile": "desktop",
         "path": "/project-shots/skyfall/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71269
+        "bytes": 66449
       },
       {
         "profile": "full",
         "path": "/project-shots/skyfall/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 62090
+        "bytes": 58250
       },
       {
         "profile": "mobile",
         "path": "/project-shots/skyfall/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 16809
+        "bytes": 15900
       },
       {
         "profile": "og",
         "path": "/project-shots/skyfall/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 52092
+        "bytes": 48842
       }
     ],
     "source": "BorisThoris/skyfall@master"
   },
   "cross-repo-libs": {
     "slug": "cross-repo-libs",
-    "generatedAt": "2026-09-17T10:25:31.048Z",
+    "generatedAt": "2026-09-24T16:25:47.590Z",
     "version": "0.0.0",
     "classification": "web-library",
     "links": {
@@ -1022,13 +987,13 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 117,
-      "testFiles": 21,
-      "sourceLines": 19059,
+      "sourceFiles": 97,
+      "testFiles": 16,
+      "sourceLines": 15009,
       "largestDirectories": [
         {
           "directory": "packages",
-          "files": 89
+          "files": 73
         },
         {
           "directory": "apps",
@@ -1036,14 +1001,10 @@
         },
         {
           "directory": "scripts",
-          "files": 9
+          "files": 8
         },
         {
           "directory": ".",
-          "files": 3
-        },
-        {
-          "directory": "local-models",
           "files": 3
         }
       ],
@@ -1053,10 +1014,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "fedafcf",
-      "lastCommitDate": "2026-09-15T12:25:33+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 29
+      "head": "b2f2c00",
+      "lastCommitDate": "2026-09-24T19:13:12+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 36
     },
     "scores": {
       "priorityScore": 89,
@@ -1073,42 +1034,42 @@
         "path": "/project-shots/cross-repo-libs/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 178726
+        "bytes": 187250
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cross-repo-libs/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 167522
+        "bytes": 176961
       },
       {
         "profile": "full",
         "path": "/project-shots/cross-repo-libs/latest/full.jpg",
         "width": 1440,
-        "height": 2620,
-        "bytes": 215032
+        "height": 2502,
+        "bytes": 214382
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cross-repo-libs/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 44246
+        "bytes": 46876
       },
       {
         "profile": "og",
         "path": "/project-shots/cross-repo-libs/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 128265
+        "bytes": 134061
       }
     ],
     "source": "BorisThoris/cross-repo-libs@master"
   },
   "roam-rental-dashboard": {
     "slug": "roam-rental-dashboard",
-    "generatedAt": "2026-09-17T10:26:31.972Z",
+    "generatedAt": "2026-09-24T16:26:00.729Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1156,17 +1117,17 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 23,
-      "testFiles": 3,
-      "sourceLines": 2128,
+      "sourceFiles": 22,
+      "testFiles": 2,
+      "sourceLines": 2677,
       "largestDirectories": [
         {
           "directory": "roam-rental-dashboard-app",
-          "files": 17
+          "files": 15
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         }
       ],
       "hasTests": true,
@@ -1175,10 +1136,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c793ec5",
-      "lastCommitDate": "2026-09-15T12:26:18+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 45
+      "head": "4f6f11d",
+      "lastCommitDate": "2026-09-24T19:13:23+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 54
     },
     "scores": {
       "priorityScore": 74,
@@ -1195,42 +1156,42 @@
         "path": "/project-shots/roam-rental-dashboard/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 30237
+        "bytes": 13090
       },
       {
         "profile": "desktop",
         "path": "/project-shots/roam-rental-dashboard/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 27799
+        "bytes": 12227
       },
       {
         "profile": "full",
         "path": "/project-shots/roam-rental-dashboard/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 25282
+        "bytes": 11736
       },
       {
         "profile": "mobile",
         "path": "/project-shots/roam-rental-dashboard/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 12468
+        "bytes": 6463
       },
       {
         "profile": "og",
         "path": "/project-shots/roam-rental-dashboard/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 22806
+        "bytes": 8506
       }
     ],
     "source": "BorisThoris/roam-rental-dashboard@main"
   },
   "runner-score-arcade": {
     "slug": "runner-score-arcade",
-    "generatedAt": "2026-09-17T10:21:59.881Z",
+    "generatedAt": "2026-09-24T16:27:28.732Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1270,20 +1231,20 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 31,
+      "sourceFiles": 32,
       "testFiles": 0,
-      "sourceLines": 5106,
+      "sourceLines": 5710,
       "largestDirectories": [
         {
           "directory": "app",
           "files": 19
         },
         {
-          "directory": ".",
-          "files": 6
+          "directory": "scripts",
+          "files": 7
         },
         {
-          "directory": "scripts",
+          "directory": ".",
           "files": 6
         }
       ],
@@ -1293,10 +1254,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "d9ea7bb",
-      "lastCommitDate": "2026-09-15T12:28:14+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 42
+      "head": "fc0b03b",
+      "lastCommitDate": "2026-09-24T19:16:14+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 51
     },
     "scores": {
       "priorityScore": 86,
@@ -1313,42 +1274,42 @@
         "path": "/project-shots/runner-score-arcade/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 160647
+        "bytes": 165002
       },
       {
         "profile": "desktop",
         "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 149931
+        "bytes": 151664
       },
       {
         "profile": "full",
         "path": "/project-shots/runner-score-arcade/latest/full.jpg",
         "width": 1440,
         "height": 916,
-        "bytes": 134384
+        "bytes": 136131
       },
       {
         "profile": "mobile",
         "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 65110
+        "bytes": 65335
       },
       {
         "profile": "og",
         "path": "/project-shots/runner-score-arcade/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120185
+        "bytes": 122532
       }
     ],
     "source": "BorisThoris/runner-score-arcade@master"
   },
   "cat-world": {
     "slug": "cat-world",
-    "generatedAt": "2026-09-17T10:25:43.687Z",
+    "generatedAt": "2026-09-24T16:28:35.200Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1390,15 +1351,15 @@
     "metrics": {
       "sourceFiles": 143,
       "testFiles": 30,
-      "sourceLines": 17363,
+      "sourceLines": 17900,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 134
+          "files": 133
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "e2e",
@@ -1410,11 +1371,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "ai/refine-cat-world-cycle-02",
-      "head": "c94e349",
-      "lastCommitDate": "2026-09-15T15:22:04+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 46
+      "branch": "master",
+      "head": "78e8718",
+      "lastCommitDate": "2026-09-24T19:16:27+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 51
     },
     "scores": {
       "priorityScore": 84,
@@ -1431,42 +1392,42 @@
         "path": "/project-shots/cat-world/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 115422
+        "bytes": 150158
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cat-world/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 110745
+        "bytes": 145426
       },
       {
         "profile": "full",
         "path": "/project-shots/cat-world/latest/full.jpg",
         "width": 1440,
         "height": 910,
-        "bytes": 95058
+        "bytes": 123425
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cat-world/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 52516
+        "bytes": 66209
       },
       {
         "profile": "og",
         "path": "/project-shots/cat-world/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 95098
+        "bytes": 130110
       }
     ],
     "source": "BorisThoris/cat-world@master"
   },
   "user-hub-admin": {
     "slug": "user-hub-admin",
-    "generatedAt": "2026-09-17T10:25:53.810Z",
+    "generatedAt": "2026-09-24T16:30:27.763Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1502,9 +1463,9 @@
       "devDependencyCount": 18
     },
     "metrics": {
-      "sourceFiles": 52,
+      "sourceFiles": 53,
       "testFiles": 8,
-      "sourceLines": 2870,
+      "sourceLines": 3474,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1516,7 +1477,7 @@
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "e2e",
@@ -1533,10 +1494,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "63fc342",
-      "lastCommitDate": "2026-09-15T12:29:52+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 26
+      "head": "bfdd9a7",
+      "lastCommitDate": "2026-09-24T19:16:36+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 33
     },
     "scores": {
       "priorityScore": 66,
@@ -1553,42 +1514,42 @@
         "path": "/project-shots/user-hub-admin/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 87916
+        "bytes": 87469
       },
       {
         "profile": "desktop",
         "path": "/project-shots/user-hub-admin/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82655
+        "bytes": 80938
       },
       {
         "profile": "full",
         "path": "/project-shots/user-hub-admin/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 70816
+        "bytes": 69724
       },
       {
         "profile": "mobile",
         "path": "/project-shots/user-hub-admin/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 36100
+        "bytes": 35193
       },
       {
         "profile": "og",
         "path": "/project-shots/user-hub-admin/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 64022
+        "bytes": 62919
       }
     ],
     "source": "BorisThoris/user-hub-admin@master"
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-17T10:26:02.669Z",
+    "generatedAt": "2026-09-24T16:48:20.888Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1630,17 +1591,17 @@
       "devDependencyCount": 6
     },
     "metrics": {
-      "sourceFiles": 15,
+      "sourceFiles": 16,
       "testFiles": 1,
-      "sourceLines": 2639,
+      "sourceLines": 3243,
       "largestDirectories": [
         {
-          "directory": "src",
+          "directory": "scripts",
           "files": 7
         },
         {
-          "directory": "scripts",
-          "files": 6
+          "directory": "src",
+          "files": 7
         },
         {
           "directory": ".",
@@ -1653,10 +1614,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "dd8c77f",
-      "lastCommitDate": "2026-09-15T12:30:46+00:00",
+      "head": "605afdf",
+      "lastCommitDate": "2026-09-24T16:31:10Z",
       "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 31
+      "commitCount": 39
     },
     "scores": {
       "priorityScore": 52,
@@ -1673,42 +1634,42 @@
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 132544
+        "bytes": 133194
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130451
+        "bytes": 130576
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 111017
+        "bytes": 111109
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 51571
+        "bytes": 52089
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 99190
+        "bytes": 99736
       }
     ],
     "source": "BorisThoris/pedal-rush@master"
   },
   "flowforge-configurator": {
     "slug": "flowforge-configurator",
-    "generatedAt": "2026-09-17T10:25:11.314Z",
+    "generatedAt": "2026-09-24T16:32:11.410Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1748,9 +1709,9 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 31,
+      "sourceFiles": 32,
       "testFiles": 1,
-      "sourceLines": 3087,
+      "sourceLines": 3480,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1758,7 +1719,7 @@
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "public",
@@ -1770,11 +1731,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "ai/refine-flowforge-configurator-cycle-02",
-      "head": "21443c4",
-      "lastCommitDate": "2026-09-15T15:22:29+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 22
+      "branch": "master",
+      "head": "434a2ac",
+      "lastCommitDate": "2026-09-24T19:16:54+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 27
     },
     "scores": {
       "priorityScore": 61,
@@ -1791,42 +1752,42 @@
         "path": "/project-shots/flowforge-configurator/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 59589
+        "bytes": 59810
       },
       {
         "profile": "desktop",
         "path": "/project-shots/flowforge-configurator/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 58363
+        "bytes": 58620
       },
       {
         "profile": "full",
         "path": "/project-shots/flowforge-configurator/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 51213
+        "bytes": 51588
       },
       {
         "profile": "mobile",
         "path": "/project-shots/flowforge-configurator/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 40006
+        "bytes": 38905
       },
       {
         "profile": "og",
         "path": "/project-shots/flowforge-configurator/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 58103
+        "bytes": 57291
       }
     ],
     "source": "BorisThoris/flowforge-configurator@master"
   },
   "gorilla-gainz": {
     "slug": "gorilla-gainz",
-    "generatedAt": "2026-09-17T10:26:12.638Z",
+    "generatedAt": "2026-09-24T16:33:50.394Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1868,9 +1829,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 46,
+      "sourceFiles": 47,
       "testFiles": 0,
-      "sourceLines": 4072,
+      "sourceLines": 4769,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1878,7 +1839,7 @@
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "public",
@@ -1890,11 +1851,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "ai/refine-gorilla-gainz-cycle-02",
-      "head": "9cf094e",
-      "lastCommitDate": "2026-09-15T15:22:57+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 31
+      "branch": "master",
+      "head": "ad517cd",
+      "lastCommitDate": "2026-09-24T19:17:05+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 36
     },
     "scores": {
       "priorityScore": 82,
@@ -1911,42 +1872,42 @@
         "path": "/project-shots/gorilla-gainz/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 171683
+        "bytes": 83622
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gorilla-gainz/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 162331
+        "bytes": 71042
       },
       {
         "profile": "full",
         "path": "/project-shots/gorilla-gainz/latest/full.jpg",
         "width": 1440,
-        "height": 1606,
-        "bytes": 217169
+        "height": 1036,
+        "bytes": 62767
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gorilla-gainz/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 55751
+        "bytes": 24334
       },
       {
         "profile": "og",
         "path": "/project-shots/gorilla-gainz/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 121420
+        "bytes": 47138
       }
     ],
     "source": "BorisThoris/gorilla-gainz@master"
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-09-17T10:25:20.954Z",
+    "generatedAt": "2026-09-24T16:35:34.762Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1984,9 +1945,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 27,
+      "sourceFiles": 28,
       "testFiles": 2,
-      "sourceLines": 3019,
+      "sourceLines": 3623,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1994,7 +1955,7 @@
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "public",
@@ -2007,10 +1968,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "bfa6206",
-      "lastCommitDate": "2026-09-15T15:19:03+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 30
+      "head": "d62412e",
+      "lastCommitDate": "2026-09-24T19:17:13+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 37
     },
     "scores": {
       "priorityScore": 55,
@@ -2027,42 +1988,42 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 278096
+        "bytes": 278363
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 256996
+        "bytes": 257230
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-card-quest/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 215394
+        "bytes": 215569
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 154360
+        "bytes": 154557
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 230206
+        "bytes": 229926
       }
     ],
     "source": "BorisThoris/memory-card-quest@master"
   },
   "org-atlas-directory": {
     "slug": "org-atlas-directory",
-    "generatedAt": "2026-09-17T10:26:22.743Z",
+    "generatedAt": "2026-09-24T16:35:08.764Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2107,9 +2068,9 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 33,
+      "sourceFiles": 34,
       "testFiles": 0,
-      "sourceLines": 2884,
+      "sourceLines": 3475,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2117,7 +2078,7 @@
         },
         {
           "directory": "scripts",
-          "files": 6
+          "files": 7
         },
         {
           "directory": "public",
@@ -2129,11 +2090,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "ai/refine-org-atlas-directory-cycle-02",
-      "head": "ff3c583",
-      "lastCommitDate": "2026-09-15T15:23:33+03:00",
-      "lastCommitSubject": "Say what the app actually is: specific title, blurb and tags for the card",
-      "commitCount": 24
+      "branch": "master",
+      "head": "934d5c7",
+      "lastCommitDate": "2026-09-24T19:17:19+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 34
     },
     "scores": {
       "priorityScore": 70,
@@ -2150,42 +2111,42 @@
         "path": "/project-shots/org-atlas-directory/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 37705
+        "bytes": 41987
       },
       {
         "profile": "desktop",
         "path": "/project-shots/org-atlas-directory/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 37115
+        "bytes": 41395
       },
       {
         "profile": "full",
         "path": "/project-shots/org-atlas-directory/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 27266
+        "bytes": 30815
       },
       {
         "profile": "mobile",
         "path": "/project-shots/org-atlas-directory/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 21229
+        "bytes": 24164
       },
       {
         "profile": "og",
         "path": "/project-shots/org-atlas-directory/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 29518
+        "bytes": 33599
       }
     ],
     "source": "BorisThoris/org-atlas-directory@master"
   },
   "threejs-gem-dungeon-editor": {
     "slug": "threejs-gem-dungeon-editor",
-    "generatedAt": "2026-09-23T20:16:12.747Z",
+    "generatedAt": "2026-09-24T16:38:15.160Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -2248,9 +2209,9 @@
       "devDependencyCount": 20
     },
     "metrics": {
-      "sourceFiles": 394,
+      "sourceFiles": 395,
       "testFiles": 1,
-      "sourceLines": 69679,
+      "sourceLines": 70283,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2258,7 +2219,7 @@
         },
         {
           "directory": "scripts",
-          "files": 58
+          "files": 59
         },
         {
           "directory": "output",
@@ -2279,10 +2240,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d2ab33d",
-      "lastCommitDate": "2026-09-23T23:10:38+03:00",
-      "lastCommitSubject": "Restore dungeon lighting readability and guard brightness",
-      "commitCount": 477
+      "head": "aed4d05",
+      "lastCommitDate": "2026-09-24T19:17:30+03:00",
+      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
+      "commitCount": 483
     },
     "scores": {
       "priorityScore": 90,
@@ -2299,1076 +2260,37 @@
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 49778
+        "bytes": 49804
       },
       {
         "profile": "desktop",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 48879
+        "bytes": 48922
       },
       {
         "profile": "full",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 43698
+        "bytes": 43704
       },
       {
         "profile": "mobile",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 27320
+        "bytes": 27299
       },
       {
         "profile": "og",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 41793
+        "bytes": 41789
       }
     ],
     "source": "BorisThoris/threejs-gem-dungeon-editor-live@main"
-  },
-  "portfolio": {
-    "slug": "portfolio",
-    "generatedAt": "2026-09-17T10:19:58.785Z",
-    "version": "0.1.0",
-    "classification": "web-site",
-    "links": {
-      "localUrl": "http://127.0.0.1:4100/",
-      "repository": "https://github.com/BorisThoris/portfolio"
-    },
-    "runtime": {
-      "packageManager": "npm",
-      "buildCommand": "npm run build",
-      "runCommand": "npm run dev -- --host 127.0.0.1 --port 4100"
-    },
-    "stack": {
-      "framework": "React",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "react-router-dom",
-          "version": "^7.8.0"
-        },
-        {
-          "name": "vite",
-          "version": "^7.1.7"
-        },
-        {
-          "name": "typescript",
-          "version": "~5.8.3"
-        }
-      ],
-      "testing": [
-        "@playwright/test"
-      ],
-      "dependencyCount": 9,
-      "devDependencyCount": 5
-    },
-    "metrics": {
-      "sourceFiles": 35,
-      "testFiles": 0,
-      "sourceLines": 11767,
-      "largestDirectories": [
-        {
-          "directory": "scripts",
-          "files": 28
-        },
-        {
-          "directory": "src",
-          "files": 5
-        },
-        {
-          "directory": ".",
-          "files": 2
-        }
-      ],
-      "hasTests": false,
-      "hasCi": true,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "master",
-      "head": "d871776",
-      "lastCommitDate": "2026-09-15T15:25:33+03:00",
-      "lastCommitSubject": "Manage the page title and description with the card, and sync the new copy",
-      "commitCount": 71
-    },
-    "scores": {
-      "priorityScore": 0,
-      "demoabilityScore": 0,
-      "depthScore": 0,
-      "polishScore": 0,
-      "uniquenessScore": 0,
-      "maintenanceScore": 0
-    },
-    "analysisNotes": "Excluded from visible project sections to keep the catalog focused on external demos."
-  },
-  "system-architecture-cheatsheet": {
-    "slug": "system-architecture-cheatsheet",
-    "generatedAt": "2026-09-14T20:52:49.233Z",
-    "version": "1.0.0",
-    "classification": "web-app",
-    "links": {
-      "localUrl": "http://127.0.0.1:5177/"
-    },
-    "runtime": {
-      "packageManager": "npm",
-      "buildCommand": "npm run build",
-      "runCommand": "npm run dev"
-    },
-    "stack": {
-      "framework": "React",
-      "language": "JavaScript",
-      "runtimeTargets": [
-        "web"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "^19.2.0"
-        },
-        {
-          "name": "react-dom",
-          "version": "^19.2.0"
-        },
-        {
-          "name": "vite",
-          "version": "6.4.3"
-        }
-      ],
-      "dependencyCount": 3,
-      "devDependencyCount": 2
-    },
-    "metrics": {
-      "sourceFiles": 10,
-      "testFiles": 0,
-      "sourceLines": 3458,
-      "largestDirectories": [
-        {
-          "directory": "scripts",
-          "files": 6
-        },
-        {
-          "directory": "src",
-          "files": 3
-        },
-        {
-          "directory": ".",
-          "files": 1
-        }
-      ],
-      "hasTests": false,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "master",
-      "head": "7ca378a",
-      "lastCommitDate": "2026-09-04T00:53:31+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 6
-    },
-    "analysisNotes": "Small but genuine web app; not currently listed in the portfolio catalogue."
-  },
-  "ghost-game-3": {
-    "slug": "ghost-game-3",
-    "generatedAt": "2026-09-14T20:52:49.610Z",
-    "version": "1.0.0",
-    "classification": "archived",
-    "links": {
-      "repository": "https://github.com/Kristinaxoxox/GHOST-GAME-3"
-    },
-    "runtime": {
-      "packageManager": "npm",
-      "runCommand": "npx serve . # then open ghostGame.html"
-    },
-    "stack": {
-      "language": "JavaScript",
-      "dependencyCount": 0,
-      "devDependencyCount": 0
-    },
-    "metrics": {
-      "sourceFiles": 9,
-      "testFiles": 0,
-      "sourceLines": 1648,
-      "largestDirectories": [
-        {
-          "directory": "scripts",
-          "files": 6
-        },
-        {
-          "directory": ".",
-          "files": 3
-        }
-      ],
-      "hasTests": false,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "master",
-      "head": "024bead",
-      "lastCommitDate": "2026-09-04T00:53:31+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 7
-    },
-    "scores": {
-      "priorityScore": 0,
-      "demoabilityScore": 0,
-      "depthScore": 0,
-      "polishScore": 0,
-      "uniquenessScore": 0,
-      "maintenanceScore": 0
-    },
-    "analysisNotes": "Package metadata only exposes a test script."
-  },
-  "electron-boilerplate": {
-    "slug": "electron-boilerplate",
-    "generatedAt": "2026-09-14T20:52:49.998Z",
-    "version": "0.0.0",
-    "classification": "template",
-    "links": {
-      "homepage": "http://example.com",
-      "repository": "https://github.com/szwacz/electron-boilerplate"
-    },
-    "runtime": {
-      "packageManager": "npm"
-    },
-    "stack": {
-      "framework": "Electron",
-      "language": "JavaScript",
-      "runtimeTargets": [
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "webpack",
-          "version": "^5.30.0"
-        },
-        {
-          "name": "electron",
-          "version": "^13.0.1"
-        }
-      ],
-      "testing": [
-        "mocha"
-      ],
-      "dependencyCount": 1,
-      "devDependencyCount": 16
-    },
-    "metrics": {
-      "sourceFiles": 24,
-      "testFiles": 4,
-      "sourceLines": 2241,
-      "largestDirectories": [
-        {
-          "directory": "src",
-          "files": 9
-        },
-        {
-          "directory": "scripts",
-          "files": 6
-        },
-        {
-          "directory": "temp",
-          "files": 4
-        },
-        {
-          "directory": "app",
-          "files": 3
-        },
-        {
-          "directory": "e2e",
-          "files": 2
-        }
-      ],
-      "hasTests": true,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "master",
-      "head": "504c3be",
-      "lastCommitDate": "2026-09-04T00:53:09+03:00",
-      "lastCommitSubject": "Photograph the project and make its link unfurl",
-      "commitCount": 450
-    },
-    "scores": {
-      "priorityScore": 0,
-      "demoabilityScore": 0,
-      "depthScore": 0,
-      "polishScore": 0,
-      "uniquenessScore": 0,
-      "maintenanceScore": 0
-    },
-    "analysisNotes": "Kept out of the portfolio catalog unless promoted with a specific demo later."
-  },
-  "expo-electron-adapter": {
-    "slug": "expo-electron-adapter",
-    "generatedAt": "2026-09-14T20:52:50.379Z",
-    "version": "0.0.55",
-    "classification": "web-library",
-    "links": {
-      "homepage": "https://github.com/expo/expo-electron-adapter",
-      "repository": "https://github.com/expo/expo-electron-adapter"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "language": "TypeScript",
-      "libraries": [
-        {
-          "name": "typescript",
-          "version": "^4.2.4"
-        }
-      ],
-      "dependencyCount": 7,
-      "devDependencyCount": 5
-    },
-    "metrics": {
-      "sourceFiles": 18,
-      "testFiles": 0,
-      "sourceLines": 1971,
-      "largestDirectories": [
-        {
-          "directory": "scripts",
-          "files": 8
-        },
-        {
-          "directory": "example",
-          "files": 3
-        },
-        {
-          "directory": "src",
-          "files": 3
-        },
-        {
-          "directory": "template",
-          "files": 3
-        },
-        {
-          "directory": ".",
-          "files": 1
-        }
-      ],
-      "hasTests": false,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "main",
-      "head": "5794c5c",
-      "lastCommitDate": "2026-09-04T00:53:31+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 11
-    },
-    "scores": {
-      "priorityScore": 0,
-      "demoabilityScore": 0,
-      "depthScore": 0,
-      "polishScore": 0,
-      "uniquenessScore": 0,
-      "maintenanceScore": 0
-    },
-    "analysisNotes": "Useful code, but not a live visual showcase item."
-  },
-  "musical-app-react-concept": {
-    "slug": "musical-app-react-concept",
-    "generatedAt": "2026-09-14T20:52:52.845Z",
-    "version": "0.1.0",
-    "classification": "duplicate",
-    "links": {
-      "homepage": "./",
-      "repository": "https://github.com/BorisThoris/BBeats"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "framework": "React",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-router-dom",
-          "version": "^7.8.0"
-        },
-        {
-          "name": "@reduxjs/toolkit",
-          "version": "^2.11.2"
-        },
-        {
-          "name": "zustand",
-          "version": "^5.0.8"
-        },
-        {
-          "name": "pixi.js",
-          "version": "^8.16.0"
-        },
-        {
-          "name": "tone",
-          "version": "^15.0.4"
-        },
-        {
-          "name": "vite",
-          "version": "^6.3.5"
-        },
-        {
-          "name": "electron",
-          "version": "^38.0.0"
-        },
-        {
-          "name": "styled-components",
-          "version": "6.1.19"
-        },
-        {
-          "name": "typescript",
-          "version": "^5.0.4"
-        },
-        {
-          "name": "zod",
-          "version": "^4.3.6"
-        }
-      ],
-      "testing": [
-        "vitest",
-        "@playwright/test",
-        "@testing-library/react"
-      ],
-      "dependencyCount": 25,
-      "devDependencyCount": 50
-    },
-    "metrics": {
-      "sourceFiles": 5135,
-      "testFiles": 1092,
-      "sourceLines": 1936723,
-      "largestDirectories": [
-        {
-          "directory": "src",
-          "files": 3020
-        },
-        {
-          "directory": "build-analyze",
-          "files": 450
-        },
-        {
-          "directory": "build-analyze-latest",
-          "files": 440
-        },
-        {
-          "directory": "build-analyze-more",
-          "files": 439
-        },
-        {
-          "directory": "public",
-          "files": 352
-        }
-      ],
-      "hasTests": true,
-      "hasCi": true,
-      "hasDocs": true
-    },
-    "git": {
-      "branch": "main",
-      "head": "6fbe437d",
-      "lastCommitDate": "2026-09-04T00:53:31+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 452
-    },
-    "scores": {
-      "priorityScore": 0,
-      "demoabilityScore": 0,
-      "depthScore": 0,
-      "polishScore": 0,
-      "uniquenessScore": 0,
-      "maintenanceScore": 0
-    },
-    "analysisNotes": "Excluded from display to avoid competing with the current BBeats entry."
-  },
-  "musical-app-react-concept-verified": {
-    "slug": "musical-app-react-concept-verified",
-    "generatedAt": "2026-09-14T20:52:53.709Z",
-    "version": "0.1.0",
-    "classification": "duplicate",
-    "links": {
-      "homepage": "./",
-      "repository": "https://github.com/BorisThoris/BBeats"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "framework": "React",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-router-dom",
-          "version": "^7.8.0"
-        },
-        {
-          "name": "zustand",
-          "version": "^5.0.8"
-        },
-        {
-          "name": "pixi.js",
-          "version": "^8.16.0"
-        },
-        {
-          "name": "tone",
-          "version": "^15.0.4"
-        },
-        {
-          "name": "vite",
-          "version": "^6.3.5"
-        },
-        {
-          "name": "electron",
-          "version": "^38.0.0"
-        },
-        {
-          "name": "styled-components",
-          "version": "6.1.19"
-        },
-        {
-          "name": "typescript",
-          "version": "^5.0.4"
-        },
-        {
-          "name": "zod",
-          "version": "^4.3.6"
-        }
-      ],
-      "testing": [
-        "vitest",
-        "@playwright/test",
-        "@testing-library/react"
-      ],
-      "dependencyCount": 22,
-      "devDependencyCount": 47
-    },
-    "metrics": {
-      "sourceFiles": 1015,
-      "testFiles": 101,
-      "sourceLines": 316705,
-      "largestDirectories": [
-        {
-          "directory": "src",
-          "files": 903
-        },
-        {
-          "directory": "public",
-          "files": 60
-        },
-        {
-          "directory": "scripts",
-          "files": 25
-        },
-        {
-          "directory": "e2e",
-          "files": 12
-        },
-        {
-          "directory": ".",
-          "files": 9
-        }
-      ],
-      "hasTests": true,
-      "hasCi": true,
-      "hasDocs": true
-    },
-    "git": {
-      "branch": "cohesive/all-features-verified",
-      "head": "6f8da9dc",
-      "lastCommitDate": "2026-09-04T00:53:31+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 231
-    },
-    "analysisNotes": "Snapshot copy; not a separate project."
-  },
-  "bbeats-deploy-mirror": {
-    "slug": "bbeats-deploy-mirror",
-    "generatedAt": "2026-09-14T20:52:55.122Z",
-    "version": "0.1.0",
-    "classification": "duplicate",
-    "links": {
-      "homepage": "./"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "framework": "React",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "19.1.1"
-        },
-        {
-          "name": "react-router-dom",
-          "version": "^7.8.0"
-        },
-        {
-          "name": "@reduxjs/toolkit",
-          "version": "^2.11.2"
-        },
-        {
-          "name": "zustand",
-          "version": "^5.0.8"
-        },
-        {
-          "name": "pixi.js",
-          "version": "^8.16.0"
-        },
-        {
-          "name": "tone",
-          "version": "^15.0.4"
-        },
-        {
-          "name": "vite",
-          "version": "^6.3.5"
-        },
-        {
-          "name": "electron",
-          "version": "^38.0.0"
-        },
-        {
-          "name": "styled-components",
-          "version": "6.1.19"
-        },
-        {
-          "name": "typescript",
-          "version": "^5.0.4"
-        },
-        {
-          "name": "zod",
-          "version": "^4.3.6"
-        }
-      ],
-      "testing": [
-        "vitest",
-        "@playwright/test",
-        "@testing-library/react"
-      ],
-      "dependencyCount": 27,
-      "devDependencyCount": 51
-    },
-    "metrics": {
-      "sourceFiles": 3387,
-      "testFiles": 1152,
-      "sourceLines": 622180,
-      "largestDirectories": [
-        {
-          "directory": "src",
-          "files": 3126
-        },
-        {
-          "directory": "public",
-          "files": 214
-        },
-        {
-          "directory": "scripts",
-          "files": 43
-        },
-        {
-          "directory": ".",
-          "files": 4
-        }
-      ],
-      "hasTests": true,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "analysisNotes": "Build mirror; source of truth is the BBeats repo."
-  },
-  "skyfall-first-node-project": {
-    "slug": "skyfall-first-node-project",
-    "generatedAt": "2026-09-14T20:52:55.336Z",
-    "version": "1.0.0",
-    "classification": "duplicate",
-    "links": {
-      "repository": "https://github.com/BorisThoris/my-game-demo"
-    },
-    "runtime": {
-      "packageManager": "npm"
-    },
-    "stack": {
-      "framework": "Phaser",
-      "language": "JavaScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "phaser",
-          "version": "^3.90.0"
-        },
-        {
-          "name": "vite",
-          "version": "^6.4.1"
-        },
-        {
-          "name": "electron",
-          "version": "^28.0.0"
-        }
-      ],
-      "testing": [
-        "@playwright/test"
-      ],
-      "dependencyCount": 2,
-      "devDependencyCount": 4
-    },
-    "metrics": {
-      "sourceFiles": 92,
-      "testFiles": 20,
-      "sourceLines": 14574,
-      "largestDirectories": [
-        {
-          "directory": "app",
-          "files": 58
-        },
-        {
-          "directory": "test",
-          "files": 15
-        },
-        {
-          "directory": "scripts",
-          "files": 7
-        },
-        {
-          "directory": "e2e",
-          "files": 5
-        },
-        {
-          "directory": ".",
-          "files": 5
-        }
-      ],
-      "hasTests": true,
-      "hasCi": true,
-      "hasDocs": true
-    },
-    "git": {
-      "branch": "master",
-      "head": "53a7f0a",
-      "lastCommitDate": "2026-09-04T00:53:32+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 138
-    },
-    "analysisNotes": "Historical working copy of Skyfall."
-  },
-  "skyfall-first-node-project-merge": {
-    "slug": "skyfall-first-node-project-merge",
-    "generatedAt": "2026-09-14T20:52:55.766Z",
-    "version": "1.0.0",
-    "classification": "duplicate",
-    "links": {
-      "repository": "https://github.com/BorisThoris/my-game-demo"
-    },
-    "runtime": {
-      "packageManager": "npm"
-    },
-    "stack": {
-      "framework": "Phaser",
-      "language": "JavaScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "phaser",
-          "version": "^3.90.0"
-        },
-        {
-          "name": "vite",
-          "version": "^6.4.1"
-        },
-        {
-          "name": "electron",
-          "version": "^28.0.0"
-        }
-      ],
-      "testing": [
-        "@playwright/test"
-      ],
-      "dependencyCount": 2,
-      "devDependencyCount": 4
-    },
-    "metrics": {
-      "sourceFiles": 79,
-      "testFiles": 18,
-      "sourceLines": 12105,
-      "largestDirectories": [
-        {
-          "directory": "app",
-          "files": 47
-        },
-        {
-          "directory": "test",
-          "files": 15
-        },
-        {
-          "directory": "scripts",
-          "files": 7
-        },
-        {
-          "directory": ".",
-          "files": 5
-        },
-        {
-          "directory": "e2e",
-          "files": 3
-        }
-      ],
-      "hasTests": true,
-      "hasCi": false,
-      "hasDocs": true
-    },
-    "git": {
-      "branch": "codex/merge-open-prs-20260310",
-      "head": "38b7d7a",
-      "lastCommitDate": "2026-09-04T00:53:32+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 115
-    },
-    "analysisNotes": "Temporary merge copy of Skyfall."
-  },
-  "gem-dungeon-prototype-branch": {
-    "slug": "gem-dungeon-prototype-branch",
-    "generatedAt": "2026-09-14T20:52:56.271Z",
-    "version": "0.0.0",
-    "classification": "duplicate",
-    "links": {
-      "repository": "https://github.com/BorisThoris/gem-dungeon"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "framework": "React Three Fiber",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "zustand",
-          "version": "^5.0.8"
-        },
-        {
-          "name": "three",
-          "version": "^0.180.0"
-        },
-        {
-          "name": "@react-three/fiber",
-          "version": "^9.3.0"
-        },
-        {
-          "name": "@react-three/drei",
-          "version": "^10.7.6"
-        },
-        {
-          "name": "vite",
-          "version": "^7.1.7"
-        },
-        {
-          "name": "typescript",
-          "version": "~5.8.3"
-        }
-      ],
-      "dependencyCount": 8,
-      "devDependencyCount": 12
-    },
-    "metrics": {
-      "sourceFiles": 113,
-      "testFiles": 0,
-      "sourceLines": 14677,
-      "largestDirectories": [
-        {
-          "directory": "CodingExamples",
-          "files": 66
-        },
-        {
-          "directory": "src",
-          "files": 38
-        },
-        {
-          "directory": "scripts",
-          "files": 6
-        },
-        {
-          "directory": ".",
-          "files": 3
-        }
-      ],
-      "hasTests": false,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "ai/refine-gem-dungeon-cycle-02",
-      "head": "6653bef",
-      "lastCommitDate": "2026-09-04T00:53:29+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 21
-    },
-    "analysisNotes": "Branch checkout; gem-dungeon-epic-1 is the deployed line."
-  },
-  "threejs-gem-dungeon-editor-fixed": {
-    "slug": "threejs-gem-dungeon-editor-fixed",
-    "generatedAt": "2026-09-14T20:52:56.778Z",
-    "version": "1.0.0",
-    "classification": "duplicate",
-    "links": {
-      "homepage": "./",
-      "repository": "https://github.com/BorisThoris/threejs-gem-dungeon-editor"
-    },
-    "runtime": {
-      "packageManager": "yarn"
-    },
-    "stack": {
-      "framework": "React Three Fiber",
-      "language": "TypeScript",
-      "runtimeTargets": [
-        "web",
-        "desktop-electron"
-      ],
-      "libraries": [
-        {
-          "name": "react",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "react-dom",
-          "version": "^19.1.1"
-        },
-        {
-          "name": "zustand",
-          "version": "^5.0.8"
-        },
-        {
-          "name": "three",
-          "version": "^0.180.0"
-        },
-        {
-          "name": "@react-three/fiber",
-          "version": "^9.3.0"
-        },
-        {
-          "name": "@react-three/drei",
-          "version": "^10.7.6"
-        },
-        {
-          "name": "vite",
-          "version": "^5.4.20"
-        },
-        {
-          "name": "electron",
-          "version": "^38.1.2"
-        },
-        {
-          "name": "typescript",
-          "version": "~5.8.3"
-        }
-      ],
-      "dependencyCount": 8,
-      "devDependencyCount": 29
-    },
-    "metrics": {
-      "sourceFiles": 339,
-      "testFiles": 6,
-      "sourceLines": 70817,
-      "largestDirectories": [
-        {
-          "directory": "src",
-          "files": 299
-        },
-        {
-          "directory": "scripts",
-          "files": 29
-        },
-        {
-          "directory": "assets",
-          "files": 4
-        },
-        {
-          "directory": ".",
-          "files": 3
-        },
-        {
-          "directory": "code_examples",
-          "files": 2
-        }
-      ],
-      "hasTests": true,
-      "hasCi": false,
-      "hasDocs": false
-    },
-    "git": {
-      "branch": "main",
-      "head": "db8eba6",
-      "lastCommitDate": "2026-09-04T00:53:30+03:00",
-      "lastCommitSubject": "Wire up the shots and social scripts",
-      "commitCount": 127
-    },
-    "analysisNotes": "Fork checkout; threejs-gem-dungeon-editor-live is the deployed line."
   }
 }
