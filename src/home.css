@@ -427,6 +427,9 @@
 .catalog-toolbar {
   margin: 24px 0;
 }
+.catalog-shelves {
+  margin-top: 32px;
+}
 .catalog-filters {
   display: flex;
   flex-wrap: wrap;
@@ -471,76 +474,6 @@
 }
 .catalog-search input::placeholder {
   color: var(--text-3);
-}
-.catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px 24px;
-  list-style: none;
-  padding: 0;
-}
-.catalog-card {
-  display: block;
-  text-decoration: none;
-}
-.catalog-card__image {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--surface-1);
-}
-.catalog-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.25s ease;
-}
-.catalog-card:hover img {
-  transform: scale(1.025);
-}
-.catalog-card__image > span {
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  padding: 5px 8px;
-  border: 1px solid #ffffff30;
-  border-radius: 4px;
-  background: #141611eb;
-  color: var(--paper);
-  font-size: 10px;
-}
-.catalog-card__title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin: 16px 0 6px;
-}
-.catalog-card h4 {
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-}
-.catalog-card__title svg {
-  color: var(--text-3);
-}
-.catalog-card:hover .catalog-card__title svg {
-  color: var(--accent);
-}
-.catalog-card > p {
-  color: var(--text-2);
-  font-size: 12px;
-}
-.catalog-more {
-  display: flex;
-  margin: 32px auto 0;
-  min-width: 200px;
-}
-.catalog-more span {
-  margin-left: 12px;
 }
 .catalog-empty {
   padding: 48px 20px;
@@ -936,10 +869,6 @@
   .catalog-search input {
     width: 100%;
   }
-  .catalog-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 16px;
-  }
   .experience-item > summary {
     grid-template-columns: 44px 1fr 20px;
     gap: 16px;
@@ -1036,9 +965,6 @@
   .hero-project--small .hero-project__caption {
     font-size: 8px;
     padding: 8px;
-  }
-  .catalog-grid {
-    grid-template-columns: 1fr;
   }
   .catalog-filters {
     gap: 2px;

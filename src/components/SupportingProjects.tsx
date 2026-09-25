@@ -1,18 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Search, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { visibleProjects } from "../projects";
 import {
   categoryFor,
   projectCategories,
   ProjectCategory,
 } from "../content/home";
-import { CaptureImage } from "./CaptureImage";
+import { ProjectShelf } from "./ProjectShelf";
 
 export function SupportingProjects() {
   const [category, setCategory] = useState<ProjectCategory>("All work");
   const [query, setQuery] = useState("");
-  const [expanded, setExpanded] = useState(false);
   const matches = visibleProjects.filter(
     (project) =>
       (category === "All work" || categoryFor(project.tags) === category) &&
@@ -20,7 +18,22 @@ export function SupportingProjects() {
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   );
-  const shown = expanded ? matches : matches.slice(0, 6);
+  const isFiltered = category !== "All work" || query.trim().length > 0;
+  const shelves = isFiltered
+    ? [
+        {
+          title: query.trim() ? `Results for “${query.trim()}”` : category,
+          projects: matches,
+        },
+      ]
+    : projectCategories
+        .filter((item) => item !== "All work")
+        .map((item) => ({
+          title: item,
+          projects: visibleProjects.filter(
+            (project) => categoryFor(project.tags) === item,
+          ),
+        }));
   return (
     <section
       id="archive"
@@ -45,10 +58,7 @@ export function SupportingProjects() {
               type="button"
               key={item}
               aria-pressed={category === item}
-              onClick={() => {
-                setCategory(item);
-                setExpanded(false);
-              }}
+              onClick={() => setCategory(item)}
             >
               {item}
             </button>
@@ -61,36 +71,13 @@ export function SupportingProjects() {
             type="search"
             placeholder="Find a project…"
             value={query}
-            onChange={(event) => {
-              setQuery(event.target.value);
-              setExpanded(false);
-            }}
+            onChange={(event) => setQuery(event.target.value)}
           />
         </label>
       </div>
       <p className="visually-hidden" role="status">
         {matches.length} projects found
       </p>
-      <ul className="catalog-grid">
-        {shown.map((project) => (
-          <li key={project.slug}>
-            <Link className="catalog-card" to={`/projects/${project.slug}`}>
-              <div className="catalog-card__image">
-                <CaptureImage
-                  project={project}
-                  sizes="(max-width: 480px) 100vw, (max-width: 760px) 50vw, 33vw"
-                />
-                <span>{categoryFor(project.tags)}</span>
-              </div>
-              <div className="catalog-card__title">
-                <h4>{project.title}</h4>
-                <ArrowUpRight size={20} />
-              </div>
-              <p>{project.subtitle}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
       {matches.length === 0 ? (
         <div className="catalog-empty">
           <h4>No projects found</h4>
@@ -107,20 +94,17 @@ export function SupportingProjects() {
             Clear filters
           </button>
         </div>
-      ) : null}
-      {matches.length > 6 ? (
-        <button
-          type="button"
-          className="btn catalog-more"
-          aria-expanded={expanded}
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded
-            ? "Show fewer projects"
-            : `View all ${matches.length} projects`}
-          <span aria-hidden="true">{expanded ? "−" : "+"}</span>
-        </button>
-      ) : null}
+      ) : (
+        <div className="catalog-shelves">
+          {shelves.map((shelf) => (
+            <ProjectShelf
+              key={shelf.title}
+              title={shelf.title}
+              projects={shelf.projects}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

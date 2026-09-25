@@ -280,31 +280,9 @@
   font-size: 13px;
   overflow-wrap: anywhere;
 }
-.next-project {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 40px;
-  background: var(--surface-1);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  text-decoration: none;
-  color: var(--paper);
-}
-.next-project h2 {
-  margin: 16px 0;
-}
-.next-project p {
-  color: var(--text-2);
-  font-size: 14px;
-}
-.next-project > svg {
-  color: var(--accent);
-  flex-shrink: 0;
-}
-.next-project:hover {
-  border-color: var(--accent);
+.project-recommendations {
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
 }
 .project-footer {
   display: flex;
@@ -363,12 +341,6 @@
   .technical-details > summary {
     flex-wrap: wrap;
     gap: 8px;
-  }
-  .next-project {
-    padding: 28px 20px;
-  }
-  .next-project h2 {
-    font-size: 30px;
   }
   .project-footer {
     flex-wrap: wrap;

@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import {
   ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
   ExternalLink,
   Github,
@@ -21,6 +20,8 @@ import {
   youtubeEmbedUrl,
 } from "../lib/format";
 import { CaptureImage } from "../components/CaptureImage";
+import { ProjectShelf } from "../components/ProjectShelf";
+import { categoryFor } from "../content/home";
 import { NotFoundPage } from "./NotFoundPage";
 import "../project-page.css";
 
@@ -37,10 +38,7 @@ function ProjectContent({ project }: { project: Project }) {
   const artwork = details?.artwork ?? [];
   const videos = details?.videos ?? [];
   const gallery = orderedGallery(details?.images ?? []);
-  const next =
-    visibleProjects[
-      (visibleProjects.indexOf(project) + 1) % visibleProjects.length
-    ];
+  const related = relatedProjects(project);
   const repository = details?.links?.repository;
   return (
     <div className="shell shell--project">
@@ -358,14 +356,13 @@ function ProjectContent({ project }: { project: Project }) {
             </div>
           </details>
         ) : null}
-        <Link className="next-project section" to={`/projects/${next.slug}`}>
-          <div>
-            <span className="eyebrow">Next project</span>
-            <h2>{next.title}</h2>
-            <p>{next.subtitle}</p>
-          </div>
-          <ArrowRight size={36} />
-        </Link>
+        <ProjectShelf
+          className="project-recommendations section"
+          eyebrow="Keep browsing"
+          title="More projects"
+          projects={related}
+          headingLevel={2}
+        />
       </main>
       <footer className="project-footer">
         <Link to="/#work">Back to all work</Link>
@@ -374,6 +371,22 @@ function ProjectContent({ project }: { project: Project }) {
     </div>
   );
 }
+
+function relatedProjects(project: Project) {
+  const category = categoryFor(project.tags);
+  const candidates = visibleProjects.filter(
+    (candidate) => candidate.slug !== project.slug,
+  );
+  return [
+    ...candidates.filter(
+      (candidate) => categoryFor(candidate.tags) === category,
+    ),
+    ...candidates.filter(
+      (candidate) => categoryFor(candidate.tags) !== category,
+    ),
+  ].slice(0, 7);
+}
+
 function orderedGallery(images: ProjectImage[]) {
   const order = ["desktop", "mobile", "full"];
   return images

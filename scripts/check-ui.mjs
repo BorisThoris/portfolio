@@ -105,7 +105,7 @@ try {
   assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
   await page.getByRole("button", { name: "Commerce", exact: true }).click();
   assert(
-    (await page.locator(".catalog-card__image > span").allTextContents()).every(
+    (await page.locator(".project-tile__heading > span").allTextContents()).every(
       (text) => text === "Commerce",
     ),
   );
@@ -116,12 +116,29 @@ try {
     await page.getByRole("heading", { name: "No projects found" }).isVisible(),
   );
   await page.getByRole("button", { name: "Clear filters" }).click();
-  await page.getByRole("button", { name: /View all .* projects/ }).click();
   assert.equal(
-    await page.locator(".catalog-card").count(),
+    await page.locator(".project-tile").count(),
     visibleProjects.length,
   );
-  await page.getByRole("button", { name: "Show fewer projects" }).click();
+  const appsShelf = page.locator(".project-shelf").filter({
+    has: page.getByRole("heading", { name: "Apps & tools", exact: true }),
+  });
+  const appsRail = appsShelf.locator(".project-shelf__rail");
+  const appsForward = appsShelf.getByRole("button", {
+    name: "Scroll Apps & tools forward",
+  });
+  assert.equal(await appsForward.isEnabled(), true);
+  await appsForward.click();
+  assert(
+    await appsRail.evaluate((rail) => rail.scrollLeft > 0),
+    "Project shelf moves forward",
+  );
+  assert.equal(
+    await appsShelf
+      .getByRole("button", { name: "Scroll Apps & tools backward" })
+      .isEnabled(),
+    true,
+  );
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();
   await page.keyboard.press("Enter");
@@ -134,7 +151,7 @@ try {
     "borisbostandzhiev@yahoo.com",
   );
   report.push(
-    "Desktop: skip link, carousel controls/focus/wrap, inactive slides, catalogue/filter/search/reset, disclosure, clipboard",
+    "Desktop: featured carousel, shelf controls, catalogue filters/search/reset, disclosure, clipboard",
   );
   // Chromium rounds fractional layout widths to integers; allow one CSS pixel.
   for (const width of [320, 390, 768, 1440]) {
@@ -173,6 +190,9 @@ try {
       });
   }
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator(".project-shelf__rail").evaluateAll((rails) => {
+    rails.forEach((rail) => rail.scrollTo({ left: 0, behavior: "instant" }));
+  });
   await audit(page, "home-mobile");
   await page.evaluate(() => scrollTo({ top: 0, behavior: "instant" }));
   await page.screenshot({
@@ -220,6 +240,30 @@ try {
       0,
     );
     assert.equal(await page.locator("video[autoplay]").count(), 0);
+    const recommendations = page.locator(
+      ".project-recommendations .project-tile",
+    );
+    assert.equal(
+      await recommendations.count(),
+      Math.min(7, visibleProjects.length - 1),
+      `Related shelf: ${project.slug}`,
+    );
+    assert.equal(
+      await page.locator(
+        `.project-recommendations a[href="/projects/${project.slug}"]`,
+      ).count(),
+      0,
+      `Related shelf excludes current project: ${project.slug}`,
+    );
+    await recommendations.first().scrollIntoViewIfNeeded();
+    const relatedImageWidth = await recommendations
+      .first()
+      .locator("img")
+      .evaluate(async (image) => {
+        await image.decode();
+        return image.naturalWidth;
+      });
+    assert(relatedImageWidth > 0, "Related project image rendered");
     const html = await fs.readFile(
       `dist/projects/${project.slug}/index.html`,
       "utf8",
@@ -242,7 +286,7 @@ try {
       await audit(page, project.slug);
   }
   report.push(
-    `All ${visibleProjects.length} projects: direct routes, static metadata, valid cover images, no localhost links, no autoplay, mobile/desktop overflow`,
+    `All ${visibleProjects.length} projects: direct routes, static metadata, valid cover and related-shelf images, seven recommendations excluding the current project, no localhost links, no autoplay, mobile/desktop overflow`,
   );
   await page.goto(`${base}/cv-print/`);
   await page.getByRole("button", { name: "Print / Save PDF" }).waitFor();
