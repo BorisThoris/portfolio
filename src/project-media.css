@@ -15,8 +15,8 @@
   object-fit: contain;
 }
 .project-media--feature { min-height: 420px; }
-.project-media--feature > img,
-.project-media--feature .project-media__still { position: absolute; inset: 0; }
+.project-media > img,
+.project-media__still { position: absolute; inset: 0; }
 .project-media--cover { aspect-ratio: 16 / 9; max-height: 720px; border: 1px solid var(--line); border-radius: 16px; }
 .project-media--card { aspect-ratio: 16 / 9; }
 .project-media--card .project-media__still img { object-fit: cover; object-position: top; }

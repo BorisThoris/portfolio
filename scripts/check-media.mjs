@@ -15,7 +15,7 @@ await fs.mkdir("output/playwright", { recursive: true });
 async function playing(locator) {
   await locator.evaluate((video) => new Promise((resolve, reject) => {
     const started = video.currentTime;
-    const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Video did not advance: ${video.currentSrc}; media error ${video.error?.code}`)); }, 30000);
+    const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Video did not advance: ${video.currentSrc}; paused=${video.paused}; ready=${video.readyState}; time=${video.currentTime}; media error ${video.error?.code}; hidden=${document.hidden}; hovered=${video.closest('.project-tile')?.matches(':hover')}; rect=${JSON.stringify(video.getBoundingClientRect().toJSON())}`)); }, 30000);
     const timer = setInterval(() => {
       if (!video.paused && video.readyState >= 2 && video.currentTime > started + 0.15) {
         clearInterval(timer); clearTimeout(timeout); resolve();
@@ -31,7 +31,7 @@ async function paused(locator) {
 }
 try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
-  const page = await context.newPage();
+  let page = await context.newPage();
   page.setDefaultTimeout(15000);
   page.on("pageerror", (error) => errors.push(error.message));
   for (const [slug, detail] of Object.entries(details).filter(([, item]) => item.trailers?.length)) {
@@ -81,7 +81,14 @@ try {
     await paused(preview);
     await page.setViewportSize({ width: 1440, height: 1000 });
   }
+  await page.close();
+  page = await context.newPage();
+  page.setDefaultTimeout(15000);
+  page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(base);
+  // Screenshot capture restores scroll position; keep that restoration immediate
+  // so it cannot move the page underneath the subsequent hover interaction.
+  await page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
   await page.getByRole("tab", { name: "02 Memory Dungeon" }).click();
   const featured = page.locator("#project-panel-memory-dungeon");
   await featured.scrollIntoViewIfNeeded();
@@ -90,9 +97,15 @@ try {
   await page.getByRole("tab", { name: "03 VYB Chess" }).click();
   await paused(featured.locator("video"));
   const card = page.locator(".project-tile").filter({ has: page.getByRole("link", { name: /BOBBALL Games/ }) });
-  await card.scrollIntoViewIfNeeded();
+  // Finish the page's smooth scroll before placing the pointer over the card.
+  await card.evaluate((el) => el.scrollIntoView({ behavior: "instant", block: "center", inline: "center" }));
   await card.hover();
-  await playing(card.locator("video"));
+  assert(await card.evaluate((el) => el.matches(":hover")), "Pointer is over the project card");
+  await playing(card.locator("video")).catch(async (error) => {
+    await page.screenshot({ path: "output/playwright/card-playback-failure.png" });
+    console.error(await card.evaluate((el) => ({ rect: el.getBoundingClientRect().toJSON(), hovered: [...document.querySelectorAll(":hover")].map((item) => item.className), focus: document.activeElement?.outerHTML })));
+    throw error;
+  });
   await card.getByRole("button", { name: /^Watch video/ }).click();
   await playing(page.getByRole("dialog").locator("video"));
   await page.getByRole("button", { name: "Close video" }).click();
