@@ -44,6 +44,21 @@ npm run projects:dev
 
 Each project has a stable port in `src/project-data.json`; avoid starting multiple apps on the same port.
 
+## Design
+
+The site is one design system: tokens and rules in [docs/DESIGN.md](docs/DESIGN.md),
+enforced by `src/styles.css`. Pages live in `src/pages/`, the pieces they share
+in `src/components/`, the curated copy in `src/content/`, and everything a
+project says about itself comes through the meta sync (below), never by hand.
+
+## Project media
+
+Each repo publishes its own trailers, posters and wallpapers next to its
+screenshots and describes them in `project.meta.json`; the portfolio's project
+page shows whatever arrives: the trailer in the billboard, a Watch rail, a
+Posters & wallpapers rail with downloads, the screenshots and the fact sheet.
+The convention and the commands are in [scripts/meta/README.md](scripts/meta/README.md).
+
 ## Repo Analysis And Ranking
 
 The home page is split into a scored top-six showcase and a quieter supporting project catalog. Ranking metadata lives in `src/repo-analysis.json`; local run/build metadata stays in `src/project-data.json`.

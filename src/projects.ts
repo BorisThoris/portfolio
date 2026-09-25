@@ -16,6 +16,18 @@ export type ProjectTrailer = {
   builtAt?: string;
 };
 
+export type ProjectArtwork = {
+  id: string;
+  title?: string;
+  role?: 'wallpaper' | 'poster' | 'key-art' | 'capsule' | 'social' | 'artwork';
+  url: string;
+  width?: number;
+  height?: number;
+  bytes?: number;
+  orientation?: 'landscape' | 'portrait' | 'square';
+  builtAt?: string;
+};
+
 export type ProjectVideo = {
   title?: string;
   url: string;
@@ -69,6 +81,7 @@ export type ProjectDetails = {
   analysisNotes?: string;
   images?: ProjectImage[];
   trailers?: ProjectTrailer[];
+  artwork?: ProjectArtwork[];
   videos?: ProjectVideo[];
   source?: string;
 };

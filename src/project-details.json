@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-24T13:35:13.337Z",
+    "generatedAt": "2026-09-25T11:04:08.959Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -22,7 +22,7 @@
     "metrics": {
       "sourceFiles": 33,
       "testFiles": 0,
-      "sourceLines": 7898,
+      "sourceLines": 8214,
       "largestDirectories": [
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c8f8793",
-      "lastCommitDate": "2026-09-24T16:04:02+03:00",
-      "lastCommitSubject": "The gameplay loop: a chill piece the local model composed from a measured reference",
-      "commitCount": 64
+      "head": "5b2fc90",
+      "lastCommitDate": "2026-09-24T19:17:55+03:00",
+      "lastCommitSubject": "Update the trailers script: --only keeps the other records",
+      "commitCount": 84
     },
     "scores": {
       "priorityScore": 99,
@@ -113,6 +113,41 @@
         "duration": 25.81,
         "orientation": "landscape",
         "builtAt": "2026-09-24T13:33:13.641Z"
+      }
+    ],
+    "artwork": [
+      {
+        "id": "story",
+        "title": "BOBBALL - story poster",
+        "role": "wallpaper",
+        "url": "https://bobball.modaxxx009.workers.dev/artwork/story.jpg",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 611605,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:04:06.489Z"
+      },
+      {
+        "id": "square",
+        "title": "BOBBALL - square",
+        "role": "wallpaper",
+        "url": "https://bobball.modaxxx009.workers.dev/artwork/square.jpg",
+        "width": 1080,
+        "height": 1080,
+        "bytes": 383590,
+        "orientation": "square",
+        "builtAt": "2026-09-25T11:04:06.771Z"
+      },
+      {
+        "id": "post",
+        "title": "BOBBALL - key art",
+        "role": "key-art",
+        "url": "https://bobball.modaxxx009.workers.dev/artwork/post.jpg",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 484239,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:04:07.031Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
@@ -438,7 +473,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-23T20:25:43.263Z",
+    "generatedAt": "2026-09-25T11:04:03.207Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -510,9 +545,9 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1140,
+      "sourceFiles": 1153,
       "testFiles": 491,
-      "sourceLines": 176916,
+      "sourceLines": 186170,
       "largestDirectories": [
         {
           "directory": "src",
@@ -520,7 +555,7 @@
         },
         {
           "directory": "scripts",
-          "files": 91
+          "files": 92
         },
         {
           "directory": "e2e",
@@ -531,8 +566,8 @@
           "files": 14
         },
         {
-          "directory": ".",
-          "files": 5
+          "directory": "dist-build",
+          "files": 9
         }
       ],
       "hasTests": true,
@@ -541,10 +576,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b0ea4afd",
-      "lastCommitDate": "2026-09-23T23:20:54+03:00",
-      "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 1748
+      "head": "d7d297f9",
+      "lastCommitDate": "2026-09-23T20:25:43+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 1749
     },
     "scores": {
       "priorityScore": 94,
@@ -590,6 +625,65 @@
         "width": 1200,
         "height": 630,
         "bytes": 120679
+      }
+    ],
+    "trailers": [
+      {
+        "id": "reel",
+        "title": "Remember this. Find its pair. Break the chain.",
+        "url": "https://memory-dungeon-git.pages.dev/trailers/reel.mp4",
+        "poster": "https://memory-dungeon-git.pages.dev/trailers/reel.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 10.01,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:03:00.214Z"
+      }
+    ],
+    "artwork": [
+      {
+        "id": "cover-remember-this",
+        "title": "Remember this",
+        "role": "poster",
+        "url": "https://memory-dungeon-git.pages.dev/artwork/cover-remember-this.jpg",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 265869,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:02:19.285Z"
+      },
+      {
+        "id": "cover-break-the-chain",
+        "title": "Break the chain",
+        "role": "poster",
+        "url": "https://memory-dungeon-git.pages.dev/artwork/cover-break-the-chain.jpg",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 115513,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:02:20.495Z"
+      },
+      {
+        "id": "cover-gameplay",
+        "title": "The board",
+        "role": "wallpaper",
+        "url": "https://memory-dungeon-git.pages.dev/artwork/cover-gameplay.jpg",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 117971,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:02:21.071Z"
+      },
+      {
+        "id": "end-card",
+        "title": "The dungeon waits",
+        "role": "key-art",
+        "url": "https://memory-dungeon-git.pages.dev/artwork/end-card.jpg",
+        "width": 1080,
+        "height": 1920,
+        "bytes": 161582,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:02:21.528Z"
       }
     ],
     "source": "BorisThoris/memory-dungeon@main"

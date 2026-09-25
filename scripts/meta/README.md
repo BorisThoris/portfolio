@@ -215,6 +215,37 @@ the fact sheet. A project can add `afterRefresh` commands (run after the steps,
 before the commit) and `commitPaths` (extra files for that commit); a
 `capture: { skip: 'why' }` opts out of screenshots.
 
+## Artwork and wallpapers
+
+Every project keeps its media in one place, so the portfolio can pick all of
+it up without being told:
+
+```
+<repo>/project-media/               masters and generated pictures (committed)
+    card|desktop|mobile|full|og.jpg   the screenshots (capture-project-shots.mjs)
+    <anything>.jpg|png                artwork masters: posters, wallpapers, key art
+    capture.json, icons.json          what the generators recorded
+    trailers.json                     what build-project-trailers.mjs published
+<staticDir>/trailers/<id>.mp4 + .jpg  web copies of the trailers (deployed)
+<staticDir>/artwork/<id>.jpg          web copies of the artwork (deployed)
+<repo>/project.meta.json              media.images, media.trailers, media.artwork, media.videos
+```
+
+An artwork item in the `trailers` block of the config names its master
+(`source`, normally under `project-media/`) and its `role` (`wallpaper`,
+`poster`, `key-art`, `capsule`, `social`); `npm run trailers` publishes a JPEG
+web copy capped at 2560 px on the long side into `artworkDir`
+(`<staticDir>/artwork` by default) and records it. A rendered master uses
+`build` + `output` like a trailer, and is stale with its `inputs`. The
+generator carries the result as `media.artwork` (absolute URLs on the
+deployment, size, dimensions, orientation) and the portfolio's sync writes it
+into `src/project-details.json`, where the project page shows a
+"Posters & wallpapers" rail with a download on each.
+
+Memory Dungeon publishes its Instagram reel (`scripts/reel-pipeline`) as the
+trailer and the reel's four covers as artwork; BOBBALL publishes its rendered
+poster set as artwork beside its trailer.
+
 ## Releases
 
 `npm run meta:refresh` sequences the five steps for a release: rebuild stale

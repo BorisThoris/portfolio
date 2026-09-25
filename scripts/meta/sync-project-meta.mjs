@@ -241,6 +241,17 @@ function detailsRecordFrom({ entry, meta }) {
       orientation: trailer.orientation,
       builtAt: trailer.builtAt
     })),
+    artwork: (media.artwork ?? []).map((art) => pruneEmpty({
+      id: art.id,
+      title: art.title,
+      role: art.role,
+      url: art.url,
+      width: art.width,
+      height: art.height,
+      bytes: art.bytes,
+      orientation: art.orientation,
+      builtAt: art.builtAt
+    })),
     videos: media.videos ?? [],
     source: entry.github ? entry.github + '@' + entry.branch : undefined
   });
