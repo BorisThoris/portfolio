@@ -133,6 +133,12 @@ try {
     await appsRail.evaluate((rail) => rail.scrollLeft > 0),
     "Project shelf moves forward",
   );
+  await page.waitForFunction(() => {
+    const button = document.querySelector(
+      'button[aria-label="Scroll Apps & tools backward"]',
+    );
+    return button instanceof HTMLButtonElement && !button.disabled;
+  });
   assert.equal(
     await appsShelf
       .getByRole("button", { name: "Scroll Apps & tools backward" })
