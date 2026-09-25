@@ -51,10 +51,9 @@ export function CvPrintPage() {
           </address>
         </header>
         <p className="resume-summary">
-          Full-stack engineer working across React, TypeScript, Python, and C#.
-          Experience in investment technology, visual programming, hospitality,
-          and mobile products, alongside independent music tools, games, and
-          interactive applications.
+          Full-stack engineer working mainly with React, TypeScript, Python, and
+          C#. I build investment and product software at work, and music tools,
+          games, and 3D projects in my own time.
         </p>
         <section className="resume-section" aria-labelledby="resume-experience">
           <h2 id="resume-experience">Experience</h2>

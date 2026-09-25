@@ -7,9 +7,9 @@ export function Capabilities() {
       <header className="section__head">
         <div>
           <p className="eyebrow">03 / How I build</p>
-          <h2>From interface to infrastructure.</h2>
+          <h2>What I work with.</h2>
         </div>
-        <p className="section__lede">Comfortable across the stack. Particular about the experience.</p>
+        <p className="section__lede">Mostly React, TypeScript, and Python, plus whatever the project needs.</p>
       </header>
       <div className="capability-grid">
         {capabilityGroups.map((group, index) => (

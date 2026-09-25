@@ -195,7 +195,9 @@ try {
     "Route transition moves focus to content",
   );
   await page.getByRole("link", { name: "All work", exact: true }).click();
-  await page.getByRole("heading", { name: "Made to be used." }).waitFor();
+  await page
+    .getByRole("heading", { name: "Projects I’d show first." })
+    .waitFor();
   assert(
     await page
       .locator("#work")

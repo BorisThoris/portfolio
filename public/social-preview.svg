@@ -5,11 +5,11 @@
     <text x="170" y="83" font-size="17" font-weight="600">BORIS BOSTANDZHIEV</text>
     <text x="170" y="109" font-size="13" fill="#a6a89b">FULL-STACK ENGINEER · CREATIVE DEVELOPER</text>
     <path d="M70 147H1130" stroke="#414536"/>
-    <text x="67" y="282" font-size="78" font-weight="600" letter-spacing="-4">Serious engineering.</text>
-    <text x="67" y="374" font-size="78" font-weight="600" letter-spacing="-4" fill="#d5ef78">A playful streak.</text>
-    <text x="72" y="434" font-size="22" fill="#b9bcb0">Product interfaces. Music tools. Interactive worlds.</text>
+    <text x="67" y="282" font-size="78" font-weight="600" letter-spacing="-4">I build software.</text>
+    <text x="67" y="374" font-size="78" font-weight="600" letter-spacing="-4" fill="#d5ef78">Some of it gets weird.</text>
+    <text x="72" y="434" font-size="22" fill="#b9bcb0">Product software. Music tools. Games. 3D experiments.</text>
     <path d="M70 501H1130" stroke="#414536"/>
-    <text x="72" y="559" font-size="16" fill="#b9bcb0">Selected work &amp; professional experience</text>
+    <text x="72" y="559" font-size="16" fill="#b9bcb0">Selected work by Boris Bostandzhiev</text>
     <circle cx="1095" cy="552" r="30" fill="#d5ef78"/>
     <path d="M1084 563L1106 541M1084 541H1106V563" stroke="#141611" stroke-width="3" fill="none"/>
   </g>

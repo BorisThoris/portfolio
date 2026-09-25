@@ -29,10 +29,10 @@ export function SupportingProjects() {
     >
       <div className="catalog-heading">
         <h3 id="catalog-title">
-          The wider collection{" "}
+          More projects{" "}
           <span>{visibleProjects.length.toString().padStart(2, "0")}</span>
         </h3>
-        <p>Tools, experiments, and earlier chapters.</p>
+        <p>Tools, games, experiments, and older work.</p>
       </div>
       <div className="catalog-toolbar">
         <div

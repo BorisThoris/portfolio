@@ -34,7 +34,6 @@ export type ProfessionalContext = {
   sourceUrl?: string;
   image?: string;
   tags: string[];
-  confidence: 'LinkedIn/CV-backed' | 'Public context';
 };
 
 export type DisplayProfessionalContext = ProfessionalContext & {
@@ -57,27 +56,25 @@ export function toPortfolioProjectContext(project: Project): ProfessionalContext
       title: project.title,
       productArea: project.subtitle,
       relationshipText:
-        'Owned and managed live print-on-demand storefront with catalog upkeep, storefront presentation, product positioning, and real customer-facing operations.',
+        'I run the storefront, maintain the catalogue, and handle the way the products are presented.',
       summary:
-        'SAD Designs is a streetwear, racing, and graphic apparel storefront running on PrintOnDemand infrastructure. It has produced small real earnings, which makes it useful commercial proof alongside the larger engineering demos.',
+        'SAD Designs sells streetwear, racing, and graphic apparel through a print-on-demand setup. It is a small but real shop with paying customers.',
       sourceLabel: 'Live storefront',
       sourceUrl: project.deploymentUrl ?? project.localUrl,
       image: project.screenshot,
       tags: project.tags,
-      confidence: 'Public context'
     };
   }
 
   return {
     title: project.title,
     productArea: project.subtitle,
-    relationshipText: 'Independent portfolio project built, maintained, demo-hardened, and wired into the local/cloud showcase system.',
+    relationshipText: 'An independent project I designed, built, and still maintain.',
     summary: project.description,
     sourceLabel: 'Open project',
     sourceUrl: project.deploymentUrl ?? project.localUrl,
     image: project.screenshot,
     tags: project.tags,
-    confidence: 'Public context'
   };
 }
 
@@ -89,12 +86,12 @@ export const experiences: Experience[] = [
     startYear: '2024',
     type: 'Full-time - Investment technology',
     summary:
-      'Oversee delivery for a global platform supporting Man Group funds, risk workflows, and investment operations across a business reporting $228.7bn AUM as of 31 March 2026, working directly with directors, risk managers, PMs, and senior stakeholders on needs, priorities, and delivery.',
+      'I lead delivery for a global platform used across Man Group funds, risk, and investment operations. The work spans product decisions, hands-on engineering, and direct collaboration with risk managers, portfolio managers, directors, and other senior users.',
     bullets: [
       'Build React/TypeScript frontends, Streamlit/Python dashboards, C# services, APIs, tests, report tooling, and deployment configuration.',
-      'Lead modernization across Python upgrades, React upgrades, state management, grids/tables, design-system adoption, dependency cleanup, performance, and CI/build stability.',
-      'Ship data-heavy interfaces and reporting flows with resilient loading, historical comparisons, interactive visualizations, and graceful partial-failure handling.',
-      'Support production rotations, AI-assisted financial-report analysis, mass-release testing, and hardened dev-to-test-to-prod deployment paths.'
+      'Modernize older applications through Python and React upgrades, state-management changes, design-system work, dependency cleanup, and build fixes.',
+      'Build reporting screens with large data sets, historical comparisons, interactive charts, and useful error states when only part of a request succeeds.',
+      'Take part in production support, release testing, and AI-assisted analysis of financial reports.'
     ],
     stack: [
       'React',
@@ -118,17 +115,17 @@ export const experiences: Experience[] = [
         items: [
           'Oversee delivery for a global platform supporting Man Group funds and connected risk workflows.',
           'Communicate project needs directly with directors, risk managers, PMs, and senior stakeholders, including Chief Risk Officer-level users.',
-          'Translate portfolio, risk, and operations requirements into working product behavior and delivery plans.'
+          'Turn portfolio, risk, and operations requirements into product changes the team can ship.'
         ]
       },
       {
         title: 'Technical scope',
         items: [
-          'React/TypeScript web apps integrated with Streamlit/Python dashboards, plus Python and C# service work across APIs and data-heavy product flows.',
-          'Upgrade Python versions in systems that generate thousands of important financial PDF reports and support dynamic real-time reporting workflows.',
-          'Integrate AI-assisted analysis around financial reporting so users can inspect and reason about report outputs in real time.',
-          'Touch the data loading and calculation layers that drive the platform, including SQL-heavy flows, ClickHouse analytics, S3-backed storage patterns, and Kubernetes deployment concerns.',
-          'Support rotations, mass-release testing, 100% release-check coverage goals, Playwright/Vitest/pytest reliability, CI/build stability, and hardened dev-to-test-to-prod deployment paths.'
+          'Work on React and TypeScript applications, Streamlit dashboards, Python and C# services, and the APIs that connect them.',
+          'Upgrade Python systems that produce thousands of financial PDF reports and support live reporting tools.',
+          'Add AI-assisted report analysis while keeping the source data and model output reviewable.',
+          'Work with SQL, ClickHouse, S3, and Kubernetes where the product reaches into data loading, calculation, storage, and deployment.',
+          'Cover production support, release testing, Playwright, Vitest, pytest, and CI failures.'
         ]
       }
     ],
@@ -140,13 +137,12 @@ export const experiences: Experience[] = [
         title: 'Fund platform, risk analytics, and investment technology',
         productArea: 'Internal fund, risk, data, and investment-operations tooling',
         relationshipText:
-          'LinkedIn/CV-backed work overseeing delivery for a global platform supporting Man Group funds, risk analytics, and internal investment workflows; public source is used as company technology context, not a screenshot of private tools.',
+          'I work on internal fund and risk software. The tools are private, so the link below points to Man Group’s public technology overview.',
         summary:
-          'Man describes technology and data as central to alpha generation, portfolio management, trade execution, operations, compliance, risk management, accounting, and end-user collaboration tooling. Public Q1 2026 reporting listed $228.7bn AUM, giving public context for the fund side of the platform work.',
+          'My part covers risk analytics, reporting, and investment workflows across a business that reported $228.7bn in assets under management on 31 March 2026.',
         sourceLabel: 'Man Technology',
         sourceUrl: 'https://www.man.com/technology',
         tags: ['Fund platform', 'Risk analytics', 'Streamlit', 'React', 'Python', 'C#', 'Reports'],
-        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
@@ -159,9 +155,9 @@ export const experiences: Experience[] = [
     summary: 'Worked as a senior React and React Native engineer on Zonal product interfaces for hospitality operators.',
     bullets: [
       'Built and improved React, React Native, and TypeScript interfaces for software used by pubs, hotels, restaurants, and venues across the UK.',
-      'Worked around mobile and tablet hospitality workflows, including handheld ordering surfaces connected to Zonal product ecosystems.',
-      'Focused on maintainable UI architecture, component quality, testing, and repeated workflow usability.',
-      'Worked closely with PMs, designers, and product stakeholders in a domain where reliability and fast day-to-day operations mattered.'
+      'Worked on mobile and tablet workflows, including handheld ordering connected to Zonal’s EPoS products.',
+      'Improved component structure, tests, and the repeated tasks staff perform throughout a shift.',
+      'Worked with product managers and designers on software that needs to stay quick and reliable during service.'
     ],
     stack: ['React', 'React Native', 'TypeScript', 'Redux', 'Styled Components', 'Figma', 'Jest', 'React Testing Library'],
     logos: ['/company-logos/expert-allies.jpg', '/company-logos/zonal.jpg'],
@@ -169,56 +165,52 @@ export const experiences: Experience[] = [
     accent: '#90f0c0',
     contextProjects: [
       {
-        title: 'Aztec EPoS ecosystem',
+        title: 'Aztec EPoS',
         productArea: 'Core hospitality EPoS and venue operations',
         relationshipText:
-          "LinkedIn/CV-backed senior React work on Zonal product interfaces; Aztec EPoS is the public product ecosystem those hospitality workflows connect around.",
+          'I worked as a senior React engineer on interfaces connected to Zonal’s hospitality products.',
         summary:
-          'Zonal describes its EPoS platform as purpose-built for hospitality, spanning operational control, reporting, stock, integrations, and venue service workflows.',
+          'Aztec is Zonal’s main point-of-sale product for orders, stock, reporting, integrations, and venue operations.',
         sourceLabel: 'Zonal EPoS',
         sourceUrl: 'https://www.zonal.co.uk/products/epos/',
         image: '/company-project-shots/zonal/epos.png',
         tags: ['Aztec', 'EPoS', 'Hospitality SaaS', 'Workflow UI'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'iServe / iServe Plus handheld ordering',
         productArea: 'Server tablets, phones, and handheld POS workflows',
         relationshipText:
-          "Worked around React Native and mobile/tablet-facing hospitality workflows integrated with Zonal's Aztec EPoS ecosystem; public iServe material shows the staff handheld ordering surface.",
+          'My React Native work included mobile and tablet flows around the same ordering system.',
         summary:
-          'Zonal positions iServe Plus as an all-in-one handheld order and payment solution for tableside service in hospitality venues.',
+          'iServe Plus lets staff take orders and payments from a handheld device at the table.',
         sourceLabel: 'Zonal iServe',
         sourceUrl: 'https://www.zonal.co.uk/products/epos/handheld-ordering/',
         image: '/company-project-shots/zonal/iserve.png',
         tags: ['iServe', 'React Native', 'Handheld ordering', 'Table service', 'Payments'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
-        title: 'Order & Pay / iOrder journeys',
+        title: 'Order & Pay / iOrder',
         productArea: 'Guest ordering and payment flows',
         relationshipText:
-          "Public product context for guest-facing Zonal ordering flows connected to the same EPoS ecosystem; not stated as sole ownership.",
+          'A related guest-facing part of the Zonal product suite. I include it to show the wider system around the staff tools I worked on.',
         summary:
-          'Zonal describes Order & Pay as a branded app and web platform for guest ordering and payment journeys integrated with EPoS.',
+          'Guests can order and pay through a venue’s branded app or website, with the order sent into EPoS.',
         sourceLabel: 'Zonal Order & Pay',
         sourceUrl: 'https://www.zonal.co.uk/products/online-ordering-systems/order-and-pay/',
         image: '/company-project-shots/zonal/kiosk.png',
         tags: ['Order & Pay', 'iOrder', 'Guest ordering', 'Web app'],
-        confidence: 'Public context'
       },
       {
         title: 'Kiosk ordering',
         productArea: 'Self-service ordering devices and kiosk flows',
         relationshipText:
-          'Representative public product context for kiosk-facing hospitality ordering scenarios in the Zonal product suite.',
+          'Another related product in the Zonal suite, included for context rather than as a claim of sole ownership.',
         summary:
-          'Zonal presents online ordering systems including kiosks, Order & Pay, click and collect, and digital-first guest ordering experiences.',
+          'The kiosk product covers self-service ordering alongside Order & Pay and click and collect.',
         sourceLabel: 'Zonal online ordering',
         sourceUrl: 'https://www.zonal.co.uk/products/online-ordering-systems/',
         image: '/company-project-shots/zonal/kiosk.png',
         tags: ['Kiosks', 'Self-service', 'Ordering', 'Hospitality'],
-        confidence: 'Public context'
       }
     ]
   },
@@ -228,12 +220,12 @@ export const experiences: Experience[] = [
     tenure: 'Aug 2020 - Jan 2023',
     startYear: '2020',
     type: 'Full-time - Low-code automation',
-    summary: 'Modernized frontend areas of a low-code/no-code automation product while maintaining legacy surfaces.',
+    summary: 'Built new parts of Quickbase’s low-code automation product while gradually replacing older frontend code.',
     bullets: [
-      'Led visual-programming features with loops, conditionals, nesting, and rich component rendering behavior.',
+      'Led visual-programming features for loops, conditions, nested steps, and complex component states.',
       'Expanded unit, end-to-end, functional, and user-flow test coverage in a team without dedicated QA.',
-      'Owned library upgrade research, reusable components, escalations, deployment monitoring, and delivery across multiple epics with PM/product alignment.',
-      'Mentored junior colleagues and received company recognition for delivery impact.'
+      'Owned library upgrades, reusable components, escalated bugs, deployment monitoring, and delivery across several product epics.',
+      'Mentored junior colleagues and received a company award for my work.'
     ],
     stack: [
       'React',
@@ -255,40 +247,37 @@ export const experiences: Experience[] = [
         title: 'Quickbase low-code platform',
         productArea: 'Main low-code application platform',
         relationshipText:
-          'Software Engineer II in the broader Quickbase low-code platform ecosystem, contributing to modernization while working alongside legacy product surfaces.',
+          'I worked across the main product, adding modern React interfaces while still supporting older Backbone and jQuery code.',
         summary:
-          'Quickbase presents its platform as an application platform for dynamic work, bringing data, teams, applications, automation, and reporting into one place.',
+          'Quickbase lets teams build internal applications, workflows, reports, and automations around their own data.',
         sourceLabel: 'Quickbase product',
         sourceUrl: 'https://www.quickbase.com/product',
         image: '/company-project-shots/quickbase/platform.png',
         tags: ['Low-code platform', 'App builder', 'Dashboards', 'Reporting'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'Quickbase Pipelines Designer',
         productArea: 'Low-code workflow automation and visual programming',
         relationshipText:
-          'LinkedIn/CV-backed work on visual-programming features including loops, conditionals, nesting, and rich component rendering behavior.',
+          'I built visual-programming features in Pipelines, including loops, conditions, nested steps, and their component behaviour.',
         summary:
-          'Quickbase describes Pipelines Designer as a drag-and-drop visual builder for orchestrating automated workflows across apps and third-party tools.',
+          'Pipelines is a drag-and-drop editor for automating work across Quickbase and third-party services.',
         sourceLabel: 'Quickbase Pipelines Designer',
         sourceUrl: 'https://www.quickbase.com/product/pipelines-designer',
         image: '/company-project-shots/quickbase/pipelines-designer.png',
         tags: ['Low-code', 'Pipelines', 'Visual builder', 'Automation'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'Legacy platform and API surfaces',
         productArea: 'Mixed legacy and modern engineering environment',
         relationshipText:
-          'Local CV history includes C# alongside Backbone, jQuery, Handlebars, React, and Python; public company profiles list ASP.NET/C# among Quickbase engineering technologies.',
+          'The product mixed newer React and Python work with Backbone, jQuery, Handlebars, C#, and older APIs.',
         summary:
-          'This is framed as product-context around a mixed legacy/modern platform, not as a claim of owning the legacy backend. Quickbase also documents older API surfaces alongside modern REST APIs.',
+          'A lot of the job was careful modernization: improving one area without breaking customers who still depended on the older platform.',
         sourceLabel: 'Built In / API guide',
         sourceUrl: 'https://builtin.com/company/quickbase',
         image: '/company-project-shots/quickbase/platform.png',
         tags: ['C# context', 'Backbone', 'Legacy APIs', 'Modernization'],
-        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
@@ -298,11 +287,11 @@ export const experiences: Experience[] = [
     tenure: 'Jan 2020 - Jun 2020',
     startYear: '2020',
     type: 'Full-time - Mobile and web products',
-    summary: 'Built React Native mobile applications and design-heavy React web interfaces for product stakeholders.',
+    summary: 'Built React Native apps and React websites, working closely with the people designing and managing each product.',
     bullets: [
-      'Developed React Native mobile apps including social networking and education product experiences.',
-      'Built a React website for a real-estate appraisal business with strong visual and responsive requirements.',
-      'Worked closely with PM, product, and design stakeholders on practical UI implementation and delivery.'
+      'Developed React Native apps for social networking and education.',
+      'Built a responsive React website for a real-estate appraisal business.',
+      'Worked directly with product managers and designers from mock-up through delivery.'
     ],
     stack: ['React Native', 'React', 'JavaScript', 'CSS', 'HTML', 'C#'],
     logos: ['/company-logos/hakomo.jpg'],
@@ -313,36 +302,33 @@ export const experiences: Experience[] = [
         title: 'Asko',
         productArea: 'React Native social Q&A app',
         relationshipText:
-          'Local CV sources name Asko as a React Native social networking app worked on at Hakomo; public Hakomo portfolio pages describe the product concept.',
+          'I worked on Asko, a social question-and-answer app built with React Native.',
         summary:
-          'Hakomo describes Asko as a product taken from idea through sketches, design, and development of a complete app experience.',
+          'The team took it from early sketches through design and app development.',
         sourceLabel: 'Hakomo Asko',
         sourceUrl: 'https://www.hakomo.com/portfolio/asko/',
         tags: ['React Native', 'Social app', 'Mobile UX', 'Hakomo'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'Amrita Appraisal System',
         productArea: 'React web appraisal-management product',
         relationshipText:
-          'Local CV sources name Amrita Appraisal System as a design-heavy React website for a real estate appraisal business.',
+          'I built React interfaces for Amrita, a system used by a real-estate appraisal business.',
         summary:
-          'Hakomo describes Amrita as an internal appraisal system that combined documents and Excel calculations into one appraisal-management workflow.',
+          'It brought documents and spreadsheet calculations into one appraisal workflow.',
         sourceLabel: 'Hakomo Amrita',
         sourceUrl: 'https://www.hakomo.com/portfolio/amrita-appraisal-system/',
         tags: ['React', 'Real estate', 'Dashboard UI', 'Workflow'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'Educational mobile platform',
         productArea: 'Undisclosed React Native education app',
         relationshipText:
-          'Local CV/profile sources mention an educational mobile platform, but the public product name is undisclosed.',
+          'I also worked on a React Native education app whose name is not public.',
         summary:
-          'Kept intentionally conservative: this item records the product category and mobile delivery work without inventing a public product name or screenshot.',
-        sourceLabel: 'Local CV-backed',
+          'The work covered the mobile interface and the day-to-day flow for learners.',
+        sourceLabel: 'Private project',
         tags: ['React Native', 'Education', 'Mobile learning', 'Private'],
-        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
@@ -352,11 +338,11 @@ export const experiences: Experience[] = [
     tenure: 'Mar 2019 - Nov 2019',
     startYear: '2019',
     type: 'Full-time - Telecom software',
-    summary: 'Built React, React Native, and C# applications across public-facing and internal engineering tools.',
+    summary: 'Built React, React Native, and C# software for customer-facing products and internal support teams.',
     bullets: [
-      'Worked on TV-box and internal engineering-support software with responsive and remote-control interaction flows.',
-      'Built SQL-backed functionality and coordinated with stakeholders around operational support needs.',
-      'Contributed to public-facing A1 Bulgaria web work and internal tools while coordinating with PMs and engineering/support stakeholders.'
+      'Worked on TV-box software and internal support tools, including interfaces designed for a remote control.',
+      'Built SQL-backed features for operational support teams.',
+      'Contributed to A1 Bulgaria’s public website and worked with product managers, engineers, and support staff.'
     ],
     stack: ['React', 'React Native', 'C#', 'SQL', 'JavaScript', 'Responsive UI'],
     logos: ['/company-logos/a1-bulgaria.jpg'],
@@ -365,42 +351,39 @@ export const experiences: Experience[] = [
     contextProjects: [
       {
         title: 'A1 Xplore TV and TV-box workflows',
-        productArea: 'Interactive TV, remote-control, and mobile TV product context',
+        productArea: 'Interactive TV, remote-control, and mobile TV products',
         relationshipText:
-          'CV-backed TV-box and support-tooling work; public A1 Xplore TV pages provide representative context for the TV product ecosystem.',
+          'I worked on TV-box interfaces and the internal tools used to support them.',
         summary:
-          'A1 presents Xplore TV around 4K channels, video library, personalized recommendations, universal search, mobile viewing, and TV-box setup/help flows.',
+          'Xplore TV combines live channels, a video library, search, recommendations, mobile viewing, and TV-box setup.',
         sourceLabel: 'A1 Xplore TV',
         sourceUrl: 'https://www.a1.bg/a1-xplore-tv',
         image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['TV UX', 'React Native', 'Remote control', 'Support tools'],
-        confidence: 'LinkedIn/CV-backed'
       },
       {
         title: 'A1 Xplore TV GO app',
         productArea: 'Mobile TV companion app',
         relationshipText:
-          'Public product context for the broader A1 television app ecosystem; not stated as sole ownership.',
+          'The mobile companion app was part of the same television product family. I include it to show the system around the TV-box work.',
         summary:
-          "The public app listing identifies A1 Xplore TV GO as A1 Bulgaria's mobile/cable/Wi-Fi TV viewing app.",
+          'A1 Xplore TV GO lets customers watch television from a phone, cable connection, or Wi-Fi.',
         sourceLabel: 'Google Play listing',
         sourceUrl: 'https://play.google.com/store/apps/details?id=bg.a1.android.xploretv',
         image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['Mobile TV', 'A1 Bulgaria', 'App ecosystem'],
-        confidence: 'Public context'
       },
       {
         title: 'A1 Bulgaria main website',
         productArea: 'Public telecom website and customer-facing web flows',
         relationshipText:
-          'CV-backed A1 tenure included a chance to contribute to the main public website alongside TV-box and internal tooling work.',
+          'I also contributed to the main A1 Bulgaria website during my time there.',
         summary:
-          'The A1 Bulgaria website is the primary public surface for telecom plans, devices, TV, internet, support, and customer account journeys.',
+          'The site covers mobile plans, devices, television, internet, support, and customer accounts.',
         sourceLabel: 'A1 Bulgaria website',
         sourceUrl: 'https://www.a1.bg/',
         image: '/company-project-shots/a1/xplore-tv.png',
         tags: ['Public website', 'Responsive UI', 'Telecom', 'Customer flows'],
-        confidence: 'LinkedIn/CV-backed'
       }
     ]
   },
@@ -410,10 +393,10 @@ export const experiences: Experience[] = [
     tenure: 'Jan 2019 - Feb 2019',
     startYear: '2019',
     type: 'Professional training',
-    summary: 'Completed early professional software engineering training before moving into full-time application development.',
+    summary: 'Completed a short professional training programme before moving into my first full-time engineering role.',
     bullets: [
-      'Built foundations across React, practical software delivery, production-oriented habits, and team workflows.',
-      'Used the training period as the bridge into full-time application engineering roles.'
+      'Learned React, team development, and the basics of shipping production software.',
+      'Moved into a full-time application engineering role shortly afterwards.'
     ],
     stack: ['React', 'Engineering Foundations', 'Team Workflows', 'Delivery'],
     logos: ['/company-logos/evolution.jpg'],
@@ -425,13 +408,13 @@ export const experiences: Experience[] = [
     role: 'Full-stack Product Builder',
     tenure: 'Jul 2018 - Present',
     startYear: '2018',
-    type: 'Public GitHub project lineage and product systems',
-    summary: 'Built public and local projects from early React/Angular demos into games, audio tools, 3D editors, and repo automation.',
+    type: 'Independent software projects',
+    summary: 'I’ve kept building my own software alongside work, from early Angular demos to browser games, music tools, and 3D editors.',
     bullets: [
-      'First public project commit found: Cat World on Jul 31, 2018, followed by Gorilla Gainz on Aug 2, 2018.',
-      'Created games, music tools, 3D editors, ecommerce/admin demos, reusable libraries, and local/cloud demo tooling.',
-      'Covered full product loops: UI systems, runtime logic, content pipelines, testing, screenshots, builds, and deployment paths.',
-      'Used the projects as proof of independent execution depth across React, desktop, creative tech, and automation.'
+      'My first public project commit was Cat World on 31 July 2018, followed by Gorilla Gainz two days later.',
+      'Since then I’ve made games, music tools, 3D editors, shops, admin tools, and reusable libraries.',
+      'I handle the whole job myself: interface, application logic, tests, screenshots, builds, and deployment.',
+      'Most projects are available to try from this site.'
     ],
     stack: ['Electron', 'React', 'TypeScript', 'Three.js', 'Web Audio', 'PixiJS', 'Vite', 'Cloudflare'],
     initials: 'BB',
@@ -461,12 +444,11 @@ export const experiences: Experience[] = [
         relationshipText:
           'Family-business work across web maintenance, catalog/content updates, production, packing, delivery, and event sales.',
         summary:
-          'The portfolio treats this as practical business and web-maintenance experience rather than a software-company product role.',
+          'This was hands-on small-business work: maintaining the shop, updating products, making and packing orders, handling deliveries, and selling at events.',
         sourceLabel: 'Soap Factory',
         sourceUrl: 'https://soapfactory.bg/',
         image: '/company-project-shots/soap-factory/storefront.png',
         tags: ['E-commerce', 'Catalog', 'Operations', 'Family business'],
-        confidence: 'LinkedIn/CV-backed'
       }
     ]
   }
@@ -485,25 +467,25 @@ export function toDisplayContext(experience: Experience, project: ProfessionalCo
 export const capabilityGroups: CapabilityGroup[] = [
   {
     title: 'Frontend Product UI',
-    purpose: 'Production-grade interfaces, workflow screens, and app surfaces.',
+    purpose: 'Interfaces for real products, from everyday forms to dense workflow screens.',
     primary: ['React', 'TypeScript', 'React Native', 'Figma'],
     skills: ['Redux', 'Zustand', 'AG Grid', 'Storybook', 'Responsive UI', 'Styled Components', 'Testing Library']
   },
   {
     title: 'Backend & Data',
-    purpose: 'Service work, APIs, and data-heavy product behavior.',
+    purpose: 'APIs, services, reporting, and the data work behind the interface.',
     primary: ['Python', 'C#', 'SQL', 'ClickHouse'],
     skills: ['Flask', 'APIs', 'S3', 'Data modeling', 'Partial-failure handling', 'Dashboards']
   },
   {
     title: 'Platform & Delivery',
-    purpose: 'Build stability, deployment paths, and automated confidence.',
+    purpose: 'Tests, builds, deployments, and production support.',
     primary: ['Kubernetes', 'Cloudflare', 'Playwright', 'pytest'],
     skills: ['Vitest', 'CI/build stability', 'Vite', 'Deployment workflows', 'Monitoring', 'Repo automation']
   },
   {
     title: 'Creative / Demo Systems',
-    purpose: 'Playable demos, editors, games, and media-heavy browser work.',
+    purpose: 'Games, editors, audio tools, and 3D work in the browser.',
     primary: ['Electron', 'Three.js', 'Web Audio', 'Phaser'],
     skills: ['PixiJS', 'Canvas', 'Local demo orchestration', 'Screenshot pipelines', 'Cloud demo routing']
   }

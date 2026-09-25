@@ -23,7 +23,7 @@ const routes = [
     route: "/",
     title: "Boris Bostandzhiev | Full-stack Engineer & Creative Developer",
     description:
-      "Full-stack engineer in Sofia building product interfaces, browser music tools, games, and interactive worlds. Explore selected projects and professional experience.",
+      "Boris Bostandzhiev is a full-stack engineer in Sofia. See his product work, browser music tools, games, and 3D projects.",
   },
   {
     route: "/cv-print",
@@ -73,7 +73,7 @@ for (const { route, title, description, project } of routes) {
       `${prefix}:image:alt`,
       project
         ? `${project.title} screenshot`
-        : "Boris Bostandzhiev — Serious engineering. A playful streak.",
+        : "Selected work by Boris Bostandzhiev",
     );
   }
   setMeta("property", "og:url", `${site}${route}`);

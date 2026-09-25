@@ -1,15 +1,15 @@
 export const home = {
-  role: "Full-stack engineer · Creative developer",
-  headline: ["Serious engineering.", "A playful streak."],
+  role: "Full-stack engineer in Sofia",
+  headline: ["I build software.", "Some of it gets weird."],
   introduction:
-    "I’m Boris, a software engineer in Sofia. I build complex product interfaces by day, and explore what the browser can do through music tools, games, and interactive worlds.",
+    "I’m Boris. At work I build financial and product software. After hours I make browser music tools, games, and 3D experiments.",
   workIntro:
-    "Independent projects. Real interfaces. Open one up and try it for yourself.",
+    "These are the projects I keep coming back to. Most are live, so you can try them.",
   experienceIntro:
-    "From investment technology to visual programming and hospitality. The common thread: making complex workflows feel clear.",
-  contactTitle: "Have something in mind?",
+    "I’ve worked in investment technology, hospitality, low-code tools, and telecoms. Here’s what I did at each.",
+  contactTitle: "Want to talk?",
   contactDescription:
-    "A product to build, a tricky interface to untangle, or a team that cares about the details. Let’s talk.",
+    "If you’re hiring, building something interesting, or just want to compare notes, send me an email.",
 };
 // Editorial selection is independent of generated repo rankings.
 export const featuredSlugs = [

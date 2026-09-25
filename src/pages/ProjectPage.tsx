@@ -116,14 +116,11 @@ function ProjectContent({ project }: { project: Project }) {
           aria-labelledby="overview-title"
         >
           <div>
-            <p className="eyebrow">The idea</p>
-            <h2 id="overview-title">Inside the project.</h2>
+            <p className="eyebrow">Overview</p>
+            <h2 id="overview-title">What it is.</h2>
           </div>
           <div className="project-overview__copy">
             <p>{project.description}</p>
-            {details?.analysisNotes ? (
-              <p className="muted">{details.analysisNotes}</p>
-            ) : null}
             <dl className="project-facts">
               {details?.stack?.framework ? (
                 <div>
@@ -156,10 +153,10 @@ function ProjectContent({ project }: { project: Project }) {
           <section id="watch" className="section" aria-labelledby="watch-title">
             <header className="section__head">
               <div>
-                <p className="eyebrow">In motion</p>
-                <h2 id="watch-title">See it in action.</h2>
+                <p className="eyebrow">Video</p>
+                <h2 id="watch-title">Watch it run.</h2>
               </div>
-              <p className="section__lede">A closer look at the experience.</p>
+              <p className="section__lede">Trailers and recorded demos.</p>
             </header>
             <div
               className="media-rail"
@@ -235,8 +232,8 @@ function ProjectContent({ project }: { project: Project }) {
           >
             <header className="section__head">
               <div>
-                <p className="eyebrow">Visual world</p>
-                <h2 id="artwork-title">Posters &amp; artwork.</h2>
+                <p className="eyebrow">Artwork</p>
+                <h2 id="artwork-title">Posters and key art.</h2>
               </div>
             </header>
             <div
@@ -294,8 +291,8 @@ function ProjectContent({ project }: { project: Project }) {
           <section className="section" aria-labelledby="screenshots-title">
             <header className="section__head">
               <div>
-                <p className="eyebrow">A closer look</p>
-                <h2 id="screenshots-title">The interface.</h2>
+                <p className="eyebrow">Screenshots</p>
+                <h2 id="screenshots-title">Desktop and mobile.</h2>
               </div>
               <p className="section__lede">
                 Open any screenshot to view it at full size.
@@ -363,7 +360,7 @@ function ProjectContent({ project }: { project: Project }) {
         ) : null}
         <Link className="next-project section" to={`/projects/${next.slug}`}>
           <div>
-            <span className="eyebrow">Keep exploring</span>
+            <span className="eyebrow">Next project</span>
             <h2>{next.title}</h2>
             <p>{next.subtitle}</p>
           </div>

@@ -6,7 +6,7 @@ const site = "https://boris-portfolio-git.pages.dev";
 const homeTitle =
   "Boris Bostandzhiev | Full-stack Engineer & Creative Developer";
 const homeDescription =
-  "Full-stack engineer in Sofia building product interfaces, browser music tools, games, and interactive worlds. Explore selected projects and professional experience.";
+  "Boris Bostandzhiev is a full-stack engineer in Sofia. See his product work, browser music tools, games, and 3D projects.";
 
 export function RouteEffects() {
   const location = useLocation();

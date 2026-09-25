@@ -60,14 +60,14 @@ export function HomePage() {
                 Explore my work <ArrowDown size={17} />
               </a>
               <a className="hero__text-link" href="#experience">
-                The professional side <ArrowUpRight size={16} />
+                Work history <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
           <div className="hero__visual">
             <div className="hero__visual-label">
               <Code2 size={15} />
-              <span>Built with curiosity. Shipped with care.</span>
+              <span>A few things I’ve made</span>
             </div>
             <Link
               className="hero-project hero-project--main"
@@ -81,7 +81,7 @@ export function HomePage() {
               </div>
               <CaptureImage project={featured[0]} priority />
               <span className="hero-project__caption">
-                An entire studio. In your browser.
+                Make a beat in the browser.
                 <ArrowUpRight size={17} />
               </span>
             </Link>
@@ -94,25 +94,25 @@ export function HomePage() {
                 sizes="(max-width: 760px) 50vw, 25vw"
               />
               <span className="hero-project__caption">
-                A little less ordinary.
+                A memory game with teeth.
                 <ArrowUpRight size={15} />
               </span>
             </Link>
             <span className="hero__annotation">
-              Logic meets imagination <span aria-hidden="true">↗</span>
+              Built after hours <span aria-hidden="true">↗</span>
             </span>
           </div>
         </section>
         <div className="credentials" aria-label="Professional background">
-          <span>Engineering across</span>
+          <span>I’ve worked at</span>
           <strong>Man Group</strong>
           <strong>Quickbase</strong>
           <strong>Zonal</strong>
           <strong>A1 Bulgaria</strong>
           <span className="credentials__note">
-            Enterprise precision.
+            Since 2019.
             <br />
-            Independent spirit.
+            Based in Sofia.
           </span>
         </div>
         <section
@@ -123,7 +123,7 @@ export function HomePage() {
           <header className="section__head">
             <div>
               <p className="eyebrow">01 / Selected work</p>
-              <h2 id="work-title">Made to be used.</h2>
+              <h2 id="work-title">Projects I’d show first.</h2>
             </div>
             <p className="section__lede">{home.workIntro}</p>
           </header>
@@ -136,7 +136,7 @@ export function HomePage() {
       </main>
       <footer className="site-footer">
         <span>© {new Date().getFullYear()} Boris Bostandzhiev</span>
-        <span>Built in Sofia. Explored everywhere.</span>
+        <span>Based in Sofia. Usually building something.</span>
         <a href="#main-content">Back to top ↑</a>
       </footer>
     </div>
