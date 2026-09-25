@@ -15,11 +15,9 @@ import {
 import { getProjectDetails } from "../projectDetails";
 import {
   formatBytes,
-  formatDuration,
   humanize,
-  youtubeEmbedUrl,
 } from "../lib/format";
-import { CaptureImage } from "../components/CaptureImage";
+import { ProjectMedia } from "../components/ProjectMedia";
 import { ProjectShelf } from "../components/ProjectShelf";
 import { categoryFor } from "../content/home";
 import { NotFoundPage } from "./NotFoundPage";
@@ -34,9 +32,7 @@ export function ProjectPage() {
 
 function ProjectContent({ project }: { project: Project }) {
   const details = getProjectDetails(project.slug);
-  const trailers = details?.trailers ?? [];
   const artwork = details?.artwork ?? [];
-  const videos = details?.videos ?? [];
   const gallery = orderedGallery(details?.images ?? []);
   const related = relatedProjects(project);
   const repository = details?.links?.repository;
@@ -102,12 +98,8 @@ function ProjectContent({ project }: { project: Project }) {
             </div>
           </div>
         </section>
-        <div className="project-cover">
-          <CaptureImage
-            project={project}
-            priority
-            sizes="(max-width: 760px) 100vw, 1280px"
-          />
+        <div className="project-cover" id="watch">
+          <ProjectMedia project={project} mode="cover" />
         </div>
         <section
           className="project-overview section"
@@ -147,81 +139,6 @@ function ProjectContent({ project }: { project: Project }) {
             </dl>
           </div>
         </section>
-        {trailers.length > 0 || videos.length > 0 ? (
-          <section id="watch" className="section" aria-labelledby="watch-title">
-            <header className="section__head">
-              <div>
-                <p className="eyebrow">Video</p>
-                <h2 id="watch-title">Watch it run.</h2>
-              </div>
-              <p className="section__lede">Trailers and recorded demos.</p>
-            </header>
-            <div
-              className="media-rail"
-              tabIndex={0}
-              role="region"
-              aria-label="Trailers and videos, scroll horizontally"
-            >
-              {trailers.map((trailer) => (
-                <figure
-                  className={`media-card media-card--${trailer.orientation ?? "landscape"}`}
-                  key={trailer.id}
-                >
-                  <video
-                    controls
-                    playsInline
-                    preload="none"
-                    poster={trailer.poster}
-                    src={trailer.url}
-                  />
-                  <figcaption>
-                    <strong>{trailer.title ?? "Trailer"}</strong>
-                    <span>{formatDuration(trailer.duration)}</span>
-                  </figcaption>
-                </figure>
-              ))}
-              {videos.map((video) => (
-                <figure
-                  className="media-card media-card--landscape"
-                  key={video.url}
-                >
-                  {video.kind === "youtube" ? (
-                    <iframe
-                      src={youtubeEmbedUrl(video.url)}
-                      title={video.title ?? `${project.title} video`}
-                      loading="lazy"
-                      allow="fullscreen; picture-in-picture"
-                      allowFullScreen
-                    />
-                  ) : video.kind === "video" ? (
-                    <video
-                      controls
-                      playsInline
-                      preload="none"
-                      poster={video.poster}
-                      src={video.url}
-                    />
-                  ) : (
-                    <a
-                      className="media-card__link"
-                      href={video.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Open video <ArrowUpRight />
-                    </a>
-                  )}
-                  <figcaption>
-                    <strong>{video.title ?? "Video"}</strong>
-                    {video.description ? (
-                      <span>{video.description}</span>
-                    ) : null}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </section>
-        ) : null}
         {artwork.length > 0 ? (
           <section
             id="artwork"

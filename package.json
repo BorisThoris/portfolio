@@ -10,6 +10,7 @@
     "build": "tsc -b && vite build && node scripts/build-pages.mjs",
     "preview": "vite preview",
     "check:ui": "node scripts/check-ui.mjs",
+    "check:media": "node scripts/check-media.mjs",
     "capture": "node scripts/capture-projects.mjs",
     "images:walk": "node scripts/capture-projects.mjs --state both",
     "images:refresh": "node scripts/capture-projects.mjs --state both",

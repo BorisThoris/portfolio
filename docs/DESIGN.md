@@ -2,7 +2,7 @@
 
 ## Direction
 
-A personal engineering portfolio with an editorial rhythm: charcoal canvas, warm-white typography, and a restrained lime accent. Real product interfaces supply the visual variety. There are no continuous background animations, automatic slide changes, or autoplay videos.
+A personal engineering portfolio with an editorial rhythm: charcoal canvas, warm-white typography, and a restrained lime accent. Real product interfaces and recordings supply the visual variety. Project videos preview silently while visible; carousel selection stays under the visitor's control.
 
 The home page answers four questions in order: who Boris is, what he has built, where he has worked, and how to contact him. Five projects receive editorial emphasis; the complete public catalogue remains searchable and filterable.
 
@@ -22,7 +22,7 @@ The default typeface uses the system font stack, with no external font request. 
 - Personal introduction and editorial selection: `src/content/home.ts`.
 - Career history: `src/content/profile.ts`; résumé content: `src/content/resume.ts`.
 - Project descriptions, tags, and links: generated `src/project-data.json`.
-- Extended project facts and media: generated `src/project-details.json`, loaded with the project route.
+- Extended project facts and media: generated `src/project-details.json`, shared by the homepage previews and project routes.
 - Rankings: `src/repo-analysis.json`; they determine catalogue visibility, not the editorial shortlist.
 
 Never invent metrics, testimonials, availability, or endorsements. Present public employer context as context, not as proof that Boris built every visible public product. Self-assigned repository scores and lines-of-code totals do not belong in the visitor experience.
@@ -37,10 +37,12 @@ Every page has a single main landmark and heading. Navigation moves focus to the
 
 ## Media and loading
 
-`npm run build` and `npm run dev` generate cached 480px, 960px, and 1600px WebP project previews from the existing screenshots. Original captures remain available on project pages. Preview failures fall back through the original/latest, stable, curated image, then placeholder. Hero imagery has reserved dimensions; other images load lazily. Media is explicitly played by the visitor.
+`npm run build` and `npm run dev` generate cached 480px, 960px, and 1600px WebP project previews from the existing screenshots. Original captures remain available on project pages. Preview failures fall back through the original/latest, stable, curated image, then placeholder. Hero imagery has reserved dimensions; other images load lazily.
+
+`ProjectMedia` uses the synced trailers and videos. Visible, active featured slides and project covers loop muted previews; cards preview on hover or keyboard focus. Offscreen previews, inactive slides, and hidden browser tabs pause. Reduced motion and data saver disable automatic playback. A visitor can pause or unmute a large preview, or open the modal player for native playback controls, fullscreen, and clip selection. The modal pauses background previews and returns focus on close. Preserve the full portrait frame; do not crop recordings to fill landscape covers. Failed media keeps its poster and offers a direct video link.
 
 Project and résumé code are loaded on navigation. The static build writes route-specific titles, descriptions, canonical links, social metadata, structured data, and a no-JavaScript fallback for every known route, plus sitemap, robots, and a 404 page. Cloudflare serves these files directly.
 
 ## Release checks
 
-Run `npm run build`, then `npm run check:ui`. The browser check covers interactions, keyboard focus, all 19 public project routes, selected WCAG A/AA audits, responsive layouts, image loading, print controls, metadata, and error routes. CI runs the same check and saves screenshots and audit results. Automated accessibility checks supplement visual and keyboard review; they are not a full accessibility certification.
+Run `npm run build`, then `npm run check:ui` and `npm run check:media`. The UI check covers interactions, keyboard focus, all 19 public project routes, selected WCAG A/AA audits, responsive layouts, image loading, print controls, metadata, and error routes. The media check also downloads and decodes the published recordings, verifies advancing playback, preview pause/resume, modal focus, mobile sizing, reduced motion, and failed requests. It requires access to the project media hosts. CI runs the UI check and saves screenshots and audit results. Automated accessibility checks supplement visual and keyboard review; they are not a full accessibility certification.

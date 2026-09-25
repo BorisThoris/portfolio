@@ -73,17 +73,7 @@
   align-self: center;
 }
 .project-cover {
-  padding: clamp(16px, 4vw, 48px);
-  border-radius: 16px;
-  background: #252720;
-  border: 1px solid var(--line);
-}
-.project-cover img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  border-radius: 8px;
+  scroll-margin-top: 24px;
 }
 .project-overview {
   display: grid;

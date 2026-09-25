@@ -210,7 +210,7 @@ try {
     path: `${output}/release-desktop.png`,
     fullPage: true,
   });
-  await page.getByRole("link", { name: "Explore BBeats", exact: true }).click();
+  await page.locator(".featured").getByRole("link", { name: "Explore BBeats", exact: true }).click();
   await page
     .getByRole("heading", { level: 1, name: "BBeats", exact: true })
     .waitFor();
@@ -245,7 +245,7 @@ try {
       await page.locator('a[href*="127.0.0.1"],a[href*="localhost"]').count(),
       0,
     );
-    assert.equal(await page.locator("video[autoplay]").count(), 0);
+    assert.equal(await page.locator(".project-media video").count(), 0, "Reduced motion suppresses automatic previews");
     const recommendations = page.locator(
       ".project-recommendations .project-tile",
     );
@@ -292,7 +292,7 @@ try {
       await audit(page, project.slug);
   }
   report.push(
-    `All ${visibleProjects.length} projects: direct routes, static metadata, valid cover and related-shelf images, seven recommendations excluding the current project, no localhost links, no autoplay, mobile/desktop overflow`,
+    `All ${visibleProjects.length} projects: direct routes, static metadata, valid cover and related-shelf images, seven recommendations excluding the current project, no localhost links, no automatic playback with reduced motion, mobile/desktop overflow`,
   );
   await page.goto(`${base}/cv-print/`);
   await page.getByRole("button", { name: "Print / Save PDF" }).waitFor();

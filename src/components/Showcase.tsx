@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { pad2 } from "../lib/format";
-import { CaptureImage } from "./CaptureImage";
+import { ProjectMedia } from "./ProjectMedia";
 import { categoryFor } from "../content/home";
 
 export function Showcase({ projects }: { projects: Project[] }) {
@@ -78,17 +78,7 @@ export function Showcase({ projects }: { projects: Project[] }) {
               aria-hidden={index !== activeIndex}
               inert={index !== activeIndex}
             >
-              <Link
-                className="featured__image"
-                to={`/projects/${project.slug}`}
-                tabIndex={index === activeIndex ? 0 : -1}
-                aria-label={`Explore ${project.title}`}
-              >
-                <CaptureImage project={project} />
-                <span className="featured__image-link">
-                  <ArrowUpRight size={24} />
-                </span>
-              </Link>
+              <ProjectMedia project={project} active={index === activeIndex} />
               <div className="featured__copy">
                 <p className="eyebrow">
                   {pad2(index + 1)} / {categoryFor(project.tags)}

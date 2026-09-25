@@ -1,0 +1,95 @@
+.project-media {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 35%, #34382b, #0c0e0b 75%);
+}
+.project-media > img,
+.project-media__still,
+.project-media__still img,
+.project-media__preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.project-media--feature { min-height: 420px; }
+.project-media--feature > img,
+.project-media--feature .project-media__still { position: absolute; inset: 0; }
+.project-media--cover { aspect-ratio: 16 / 9; max-height: 720px; border: 1px solid var(--line); border-radius: 16px; }
+.project-media--card { aspect-ratio: 16 / 9; }
+.project-media--card .project-media__still img { object-fit: cover; object-position: top; }
+.project-media__preview { position: absolute; inset: 0; pointer-events: none; }
+.project-media--video > img,
+.project-media--video .project-media__preview { padding-bottom: 66px; }
+.project-media--card.project-media--video > img,
+.project-media--card .project-media__preview { padding-bottom: 44px; }
+.project-media__bar {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #10120ff5;
+  border-top: 1px solid #ffffff20;
+}
+.project-media__bar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.project-media__watch { padding: 0 13px; background: var(--accent); color: #151810; font-weight: 600 !important; }
+.project-media__duration { opacity: 0.75; font-size: 10px; }
+.project-media__controls { display: flex; gap: 3px; }
+.project-media__controls button { width: 44px; background: #ffffff0d; color: #fff; }
+.project-media__controls button:hover { background: #ffffff24; }
+.project-media--card .project-media__bar { padding: 0; }
+.project-media--card .project-media__watch { width: 100%; justify-content: start; border-radius: 0; color: #f6f1e8; background: transparent; }
+.project-media--card .project-media__duration { margin-left: auto; }
+.project-media__explore { position: absolute; bottom: 16px; right: 16px; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #10120fe6; color: #f6f1e8; }
+.video-dialog {
+  width: min(1100px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #ffffff30;
+  border-radius: 14px;
+  color: #f6f1e8;
+  background: #151712;
+  box-shadow: 0 30px 120px #000a;
+}
+.video-dialog::backdrop { background: #050604e8; backdrop-filter: blur(8px); }
+.video-dialog__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; }
+.video-dialog__header h2 { margin-top: 6px; font-size: clamp(17px, 2vw, 24px); letter-spacing: -0.025em; }
+.video-dialog__header .icon-button { flex-shrink: 0; }
+.video-dialog__screen { background: #050604; }
+.video-dialog__screen video,
+.video-dialog__screen iframe { display: block; width: 100%; height: min(62dvh, 620px); border: 0; object-fit: contain; }
+.video-dialog__clips { display: flex; gap: 8px; padding: 16px 24px; overflow-x: auto; }
+.video-dialog__clips button { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; max-width: 90%; padding: 12px; min-height: 48px; border: 1px solid #ffffff35; border-radius: 6px; background: transparent; color: #f6f1e8; text-align: left; font: inherit; font-size: 12px; cursor: pointer; }
+.video-dialog__clips button[aria-pressed="true"] { border-color: #d5ef78; background: #d5ef7818; }
+.video-dialog__clips svg { flex-shrink: 0; }
+.video-dialog__fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; min-height: 240px; padding: 32px; }
+.video-dialog__fallback a { display: flex; align-items: center; gap: 8px; }
+@media (max-width: 760px) {
+  .project-media--feature { min-height: 300px; }
+  .project-media--cover.project-media--portrait { aspect-ratio: 4 / 5; max-height: 620px; }
+  .project-media__bar { padding: 8px; gap: 4px; }
+  .project-media__watch { padding-inline: 10px; }
+  .project-media__controls button { width: 40px; }
+  .video-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 10px; }
+  .video-dialog__header { padding: 16px; }
+  .video-dialog__clips { padding: 12px; }
+}
