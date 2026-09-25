@@ -1,14 +1,36 @@
-import React from 'react';
-import { AeroLiquidBackground } from '../AeroLiquidBackground';
-import { capabilityGroups, cvAdditionalProjects, cvEducation, cvExperience, cvHighlights, cvProjects } from '../content/profile';
-import '../cv.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  capabilityGroups,
+  cvAdditionalProjects,
+  cvEducation,
+  cvExperience,
+  cvHighlights,
+  cvProjects,
+} from "../content/profile";
+import "../cv.css";
 
 export function CvPrintPage() {
-  const cvAccent = '#8bd3ff';
+  const cvAccent = "#8bd3ff";
 
   return (
-    <main className="cv-print-shell" style={{ '--accent': cvAccent } as React.CSSProperties}>
-      <AeroLiquidBackground accent={cvAccent} quality="mobile" />
+    <main
+      className="cv-print-shell"
+      tabIndex={-1}
+      style={{ "--accent": cvAccent } as React.CSSProperties}
+    >
+      <nav className="cv-toolbar" aria-label="Résumé actions">
+        <Link className="btn" to="/">
+          Back to portfolio
+        </Link>
+        <button
+          className="btn btn--primary"
+          type="button"
+          onClick={() => window.print()}
+        >
+          Print / Save PDF
+        </button>
+      </nav>
 
       <section className="cv-cover cv-panel">
         <div className="cv-cover-copy">
@@ -16,17 +38,24 @@ export function CvPrintPage() {
           <h1>Boris Bostandzhiev</h1>
           <strong>Full-stack Technical Lead / Senior Engineer</strong>
           <p>
-            React, TypeScript, Python, C#, data-heavy platforms, AI-assisted workflows, product UI, automation,
-            interactive systems, and independent product delivery.
+            React, TypeScript, Python, C#, data-heavy platforms, AI-assisted
+            workflows, product UI, automation, interactive systems, and
+            independent product delivery.
           </p>
         </div>
 
         <div className="cv-contact-card">
           <span>Sofia, Bulgaria</span>
           <a href="tel:+359897023731">+359 89 702 3731</a>
-          <a href="mailto:borisbostandzhiev@yahoo.com">borisbostandzhiev@yahoo.com</a>
-          <a href="https://www.linkedin.com/in/boris-b-22566b171/">linkedin.com/in/boris-b-22566b171</a>
-          <a href="https://boris-portfolio-git.pages.dev">boris-portfolio-git.pages.dev</a>
+          <a href="mailto:borisbostandzhiev@yahoo.com">
+            borisbostandzhiev@yahoo.com
+          </a>
+          <a href="https://www.linkedin.com/in/boris-b-22566b171/">
+            linkedin.com/in/boris-b-22566b171
+          </a>
+          <a href="https://boris-portfolio-git.pages.dev">
+            boris-portfolio-git.pages.dev
+          </a>
           <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
         </div>
       </section>
@@ -45,7 +74,11 @@ export function CvPrintPage() {
 
         <div className="cv-timeline">
           {cvExperience.map((item) => (
-            <article className="cv-experience-card" key={item.company} style={{ '--accent': item.accent } as React.CSSProperties}>
+            <article
+              className="cv-experience-card"
+              key={item.company}
+              style={{ "--accent": item.accent } as React.CSSProperties}
+            >
               <div className="cv-experience-topline">
                 <div>
                   <span>{item.tenure}</span>
@@ -64,7 +97,7 @@ export function CvPrintPage() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              {'details' in item && item.details ? (
+              {"details" in item && item.details ? (
                 <div className="cv-detail-grid">
                   {item.details.map((detail) => (
                     <span key={detail}>{detail}</span>
@@ -122,7 +155,11 @@ export function CvPrintPage() {
         </div>
         <div className="cv-project-grid">
           {cvProjects.map((project) => (
-            <article className="cv-project-card" key={project.title} style={{ '--accent': project.accent } as React.CSSProperties}>
+            <article
+              className="cv-project-card"
+              key={project.title}
+              style={{ "--accent": project.accent } as React.CSSProperties}
+            >
               <img src={project.image} alt={`${project.title} screenshot`} />
               <div>
                 <span>{project.label}</span>

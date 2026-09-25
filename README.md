@@ -61,7 +61,7 @@ The convention and the commands are in [scripts/meta/README.md](scripts/meta/REA
 
 ## Repo Analysis And Ranking
 
-The home page is split into a scored top-six showcase and a quieter supporting project catalog. Ranking metadata lives in `src/repo-analysis.json`; local run/build metadata stays in `src/project-data.json`.
+The home page features five editorially selected projects and a searchable catalogue of all visible projects. The shortlist lives in `src/content/home.ts`. Ranking metadata lives in `src/repo-analysis.json`; local run/build metadata stays in `src/project-data.json`.
 
 Scan every directory under `C:\Users\Gaming PC\Desktop\Repos` and compare it against the curated scoring:
 
@@ -151,5 +151,20 @@ Use the Git-backed Cloudflare Pages project for the canonical public portfolio U
 - Build output directory: `dist`
 - Environment variable: `NODE_VERSION=22.16.0`
 
-The earlier direct-upload Pages project is no longer the canonical link. The `public/_redirects` file keeps direct links such as `/projects/skyfall` working on Cloudflare Pages. Project embeds prefer `deploymentUrl` from `src/project-data.json` and fall back to `localUrl` when a public deployment URL has not been assigned.
+The earlier direct-upload Pages project is no longer the canonical link. The build generates static HTML for direct links such as `/projects/skyfall`. Public launch actions use `deploymentUrl` from `src/project-data.json`; unpublished projects clearly indicate that no live demo is available.
 
+
+## Portfolio release verification
+
+```bash
+npm ci
+npm run build
+npx playwright install chromium
+npm run check:ui
+```
+
+The browser smoke check starts its own production preview on port 4187. On Windows it uses installed Chrome; CI uses bundled Chromium. Screenshots, accessibility results, and a print preview are saved to `output/playwright/`. `.github/workflows/verify.yml` runs the same checks for pushes and pull requests.
+
+Project previews are generated before dev/build into the ignored `public/project-previews/` directory. The cache is keyed by each original image's content. The production build generates static HTML metadata for every known route, a sitemap, robots.txt, and a real 404 page. Cloudflare's native file routing serves these pages; do not add a catch-all rewrite to `/index.html`, which would override their metadata.
+
+See [the improvement audit](docs/PORTFOLIO-AUDIT.md) for the shipped changes and remaining content opportunities.

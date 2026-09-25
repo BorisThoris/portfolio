@@ -573,3 +573,6 @@
     padding: 10px 14px 12px;
   }
 }
+
+.cv-toolbar { position: relative; z-index: 2; display: flex; justify-content: space-between; gap: 16px; }
+@media print { .cv-toolbar { display: none; } }

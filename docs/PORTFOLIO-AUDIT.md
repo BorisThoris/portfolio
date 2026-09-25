@@ -13,13 +13,15 @@
 
 Validation: production build; browser interaction checks for carousel selection/focus, filters, search, no-results reset, show all/fewer, and keyboard experience expansion. No horizontal page overflow at 320, 390, 768, and 1440px. Desktop and mobile screenshots inspected.
 
-## Next delivery: project pages and release quality
+## Delivered: project pages and release quality
 
-- Correct missing-route states and navigation restoration.
-- Consistent project presentation, safer public launch links, and optional media playback.
-- Route-specific metadata and discoverable static page metadata.
-- Remove unused WebGL/animation code and split secondary pages.
-- Production verification and repeatable release checks.
+- Correct missing-route screens, page focus, anchor navigation, and history restoration.
+- Consistent project presentation, safe public launch links, visitor-controlled video, media galleries, and next-project navigation.
+- Route-specific static metadata, canonical links, structured data, no-JavaScript fallback, sitemap, robots, real 404 document, and refreshed social preview.
+- Removed unused WebGL/animation code and split secondary pages. The homepage JS is approximately 336 KB (108 KB gzip); project details and CV load on navigation.
+- WebP previews at 480/960px cut the combined 960px preview payload from 2.4 MB to 0.4 MB.
+- Updated vulnerable dependencies; npm audit reports zero vulnerabilities.
+- Repeatable production browser check and CI workflow. All 19 project routes checked on mobile and desktop; six automated WCAG A/AA audits pass with no violations; keyboard, clipboard, print controls, metadata, and error routes pass without runtime exceptions.
 
 ## Content opportunities that need original evidence
 

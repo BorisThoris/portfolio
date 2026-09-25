@@ -1,6 +1,5 @@
 import projectData from './project-data.json';
 import repoAnalysis from './repo-analysis.json';
-import projectDetails from './project-details.json';
 
 // What each repo's project.meta.json says about itself, synced by
 // scripts/meta/sync-project-meta.mjs into src/project-details.json.
@@ -86,12 +85,6 @@ export type ProjectDetails = {
   source?: string;
 };
 
-const detailsBySlug = projectDetails as Record<string, ProjectDetails>;
-
-export function getProjectDetails(slug: string): ProjectDetails | undefined {
-  return detailsBySlug[slug];
-}
-
 type ProjectRecord = {
   slug: string;
   title: string;
@@ -108,7 +101,7 @@ type ProjectRecord = {
   fallbackCwd?: string;
   fallbackEnv?: Record<string, string>;
   runCommand: string;
-  screenshot: string;
+  screenshot?: string;
   tags: string[];
   accent: string;
 };
@@ -159,8 +152,8 @@ export const visibleProjects = projects.filter((project) => project.showcaseTier
 export const showcaseProjects = visibleProjects.filter((project) => project.showcaseTier === 'showcase');
 export const moreProjects = visibleProjects.filter((project) => project.showcaseTier === 'more');
 
-export function getProject(slug: string | undefined): Project {
-  return visibleProjects.find((project) => project.slug === slug) ?? visibleProjects[0];
+export function getProject(slug: string | undefined): Project | undefined {
+  return visibleProjects.find((project) => project.slug === slug);
 }
 
 function byPriority(left: Project, right: Project) {

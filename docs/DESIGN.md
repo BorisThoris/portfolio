@@ -1,64 +1,46 @@
-# Design rules
+# Portfolio design system
 
-The portfolio is one design system, written down here and enforced by
-`src/styles.css` (tokens and primitives), `src/project-page.css` and
-`src/cv.css`. A change that needs a value not in the tokens is a change to
-the tokens first.
+## Direction
 
-## Scales
+A personal engineering portfolio with an editorial rhythm: charcoal canvas, warm-white typography, and a restrained lime accent. Real product interfaces supply the visual variety. There are no continuous background animations, automatic slide changes, or autoplay videos.
 
-| Scale   | Values                                                          | Token            |
-| ------- | --------------------------------------------------------------- | ---------------- |
-| Space   | 4, 8, 12, 16, 24, 32, 48, 64 px                                 | `--space-1..8`   |
-| Radius  | 8 (chips, images inside cards), 14 (cards), 22 (sections), pill | `--radius-*`     |
-| Type    | 11, 13, 15, 18 px; xl, 2xl and display as clamps                | `--text-*`       |
-| Surface | 1: 4 % paper, 2: 7 % paper, 3: near-black at 82 % (floating)    | `--surface-1..3` |
-| Text    | paper, 72 % paper, 50 % paper                                   | `--text-1..3`    |
-| Motion  | 160 ms ease-out; 240–320 ms only for a picture or a slide       | `--fast`, `--ease` |
+The home page answers four questions in order: who Boris is, what he has built, where he has worked, and how to contact him. Five projects receive editorial emphasis; the complete public catalogue remains searchable and filterable.
 
-## Rules
+## Shared foundation
 
-1. **Corners are symmetric.** One radius per element from the family. No
-   ridge borders, no double frames.
-2. **Depth is flat.** Every card is a 1 px `--line` border on a surface.
-   Shadows and blur belong to what floats: the top bar and dialogs.
-3. **The accent means something.** A project's accent colours its eyebrow,
-   its primary button, its tab mark, focus rings and links, nothing else.
-   Body text is never accent-coloured.
-4. **One primitive per job.** `.btn` (`--primary`, `--quiet`, `--small`,
-   `--large`), `.icon-button`, `.chips`, `.eyebrow`, `.surface`, `.section`
-   with `.section__head`. A new component composes these before it adds a
-   class of its own.
-5. **Type hierarchy is the scale.** `h1` display, `h2` 2xl, `h3` xl, body
-   md, meta sm, eyebrow xs uppercase tracked. Headlines balance; body text
-   measures at most 72 characters.
-6. **Motion is short and optional.** Hover moves 2 px at most. Nothing
-   sweeps, shimmers or loops. `prefers-reduced-motion` turns every transition
-   off and stops the carousel.
-7. **Copy lives in content modules** (`src/content/`), not in components.
-   Project facts live in each repo's `project.meta.json` and reach the site
-   through the meta sync; the site never hand-copies them.
-8. **Every state is reachable by keyboard** and named for assistive
-   technology: tabs are tabs, dialogs are dialogs, the carousel is a
-   carousel with a live region.
+- `src/styles.css`: color, type, spacing, focus, buttons, chips, section headings, fallback logos, and empty states.
+- `src/home.css`: homepage layout, project catalogue, carousel, experience disclosures, and contact section.
+- `src/project-page.css`: project overview, media galleries, technical disclosure, and next-project navigation.
+- `src/cv.css`: screen and print résumé layouts.
 
-## The carousel
+Use shared primitives (`btn`, `icon-button`, `chips`, `eyebrow`, `section`, `section__head`) before introducing new controls. Use flat, outlined surfaces. Save shadows for overlapping product imagery. Prefer spacing and typography to additional containers.
 
-- One slide in view, the neighbours peeking in at the edges so the strip
-  reads as a strip. Every slide has the same shape: a 16:9 picture and the
-  copy beside it (below it under 1100 px).
-- Tabs, arrows, dots and a drag all move the same index; tabs and arrows on
-  a desktop, tabs and dots on a phone.
-- Autoplay only when nothing else is happening: it pauses on hover, focus,
-  a drag, an open dialog and a hidden tab, and never runs with reduced motion
-  or on a phone.
-- The picture opens the project page; the buttons open the app. A drag
-  never counts as a click.
+The default typeface uses the system font stack, with no external font request. Body copy is warm white with explicit secondary and tertiary contrast levels. Lime identifies primary actions and focus states. The contact panel reverses the colors and uses a dark focus ring.
 
-## The project page
+## Content ownership
 
-Billboard (trailer playing muted, or the latest capture), one primary
-action, then the rails: **Watch** (trailers and videos, every card the same
-height, its width from its own aspect), **Posters & wallpapers** (the
-project's published artwork with a download), **Screenshots**, and the
-fact sheet from `project.meta.json`.
+- Personal introduction and editorial selection: `src/content/home.ts`.
+- Career history and résumé content: `src/content/profile.ts`.
+- Project descriptions, tags, and links: generated `src/project-data.json`.
+- Extended project facts and media: generated `src/project-details.json`, loaded with the project route.
+- Rankings: `src/repo-analysis.json`; they determine catalogue visibility, not the editorial shortlist.
+
+Never invent metrics, testimonials, availability, or endorsements. Present public employer context as context, not as proof that Boris built every visible public product. Self-assigned repository scores and lines-of-code totals do not belong in the visitor experience.
+
+## Interaction requirements
+
+The carousel moves only when requested. Tabs, arrows, swipe, and ArrowLeft/ArrowRight/Home/End control the same selection. Keyboard selection moves tab focus. Inactive panels are inert; the selected project is announced. Reduced motion makes movement immediate.
+
+Career history uses native disclosures with all detail available inline. Search has a label, result announcements, and a clear reset state. Contact supports email and clipboard, including an explicit failure message. Touch controls should be at least 40–44px high.
+
+Every page has a single main landmark and heading. Navigation moves focus to the new content; return links reach the work section. Unknown URLs show an honest recovery page. Never send public visitors to localhost.
+
+## Media and loading
+
+`npm run build` and `npm run dev` generate cached 480px and 960px WebP project previews from the existing screenshots. Original captures remain available on project pages. Preview failures fall back through the original/latest, stable, curated image, then placeholder. Hero imagery has reserved dimensions; other images load lazily. Media is explicitly played by the visitor.
+
+Project and résumé code are loaded on navigation. The static build writes route-specific titles, descriptions, canonical links, social metadata, structured data, and a no-JavaScript fallback for every known route, plus sitemap, robots, and a 404 page. Cloudflare serves these files directly.
+
+## Release checks
+
+Run `npm run build`, then `npm run check:ui`. The browser check covers interactions, keyboard focus, all 19 public project routes, selected WCAG A/AA audits, responsive layouts, image loading, print controls, metadata, and error routes. CI runs the same check and saves screenshots and audit results. Automated accessibility checks supplement visual and keyboard review; they are not a full accessibility certification.

@@ -8,6 +8,7 @@ output
 npm-debug.log*
 .portfolio-*.log
 public/runtime-project-status.json
+public/project-previews/
 
 # Metadata mirrored from the repos by scripts/meta/pull-project-media.mjs
 .meta-mirror/
