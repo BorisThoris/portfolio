@@ -1,63 +1,141 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { MonitorUp } from 'lucide-react';
-import { AeroLiquidBackground } from '../AeroLiquidBackground';
-import { Project, showcaseProjects } from '../projects';
-import { useIsPhone, useRuntimeStatus } from '../lib/runtime';
-import { ContactLinks } from '../components/ContactLinks';
-import { Showcase } from '../components/Showcase';
-import { SupportingProjects } from '../components/SupportingProjects';
-import { ExperienceSection } from '../components/Experience';
-import { Capabilities } from '../components/Capabilities';
+import { ArrowDown, ArrowUpRight, Code2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { visibleProjects } from "../projects";
+import { home, featuredSlugs } from "../content/home";
+import { Showcase } from "../components/Showcase";
+import { SupportingProjects } from "../components/SupportingProjects";
+import { ExperienceSection } from "../components/Experience";
+import { Capabilities } from "../components/Capabilities";
+import { ContactSection } from "../components/ContactSection";
+import { CaptureImage } from "../components/CaptureImage";
+import "../home.css";
+
+const featured = featuredSlugs.flatMap((slug) =>
+  visibleProjects.filter((project) => project.slug === slug),
+);
 
 export function HomePage() {
-  const isPhone = useIsPhone();
-  const runtimeStatus = useRuntimeStatus();
-  const [active, setActive] = React.useState<Project>(showcaseProjects[0]);
-  const [dialogOpen, setDialogOpen] = React.useState(false);
-  const [contactsInTopbar, setContactsInTopbar] = React.useState(false);
-  const introActions = React.useRef<HTMLDivElement | null>(null);
-
-  React.useEffect(() => {
-    const element = introActions.current;
-    if (!element || typeof IntersectionObserver === 'undefined') return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setContactsInTopbar(!entry.isIntersecting || entry.intersectionRatio < 0.32),
-      { threshold: [0, 0.32, 0.7], rootMargin: '-68px 0px 0px 0px' }
-    );
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <main className="shell" style={{ '--accent': active.accent } as React.CSSProperties}>
-      <AeroLiquidBackground accent={active.accent} quality={isPhone ? 'mobile' : 'full'} />
-      <header className="topbar" aria-label="Portfolio header">
-        <Link to="/" className="topbar__mark">
-          <MonitorUp size={18} />
-          Boris Bostandzhiev
+    <div className="shell home-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <header className="site-header">
+        <Link to="/" className="wordmark" aria-label="Boris Bostandzhiev home">
+          <span className="monogram">
+            bb<span>.</span>
+          </span>
+          <span>
+            Boris
+            <br />
+            Bostandzhiev
+          </span>
         </Link>
-        <nav className="topbar__links" aria-label="Contact">
-          <AnimatePresence mode="popLayout">{contactsInTopbar ? <ContactLinks iconSize={14} placement="topbar" /> : null}</AnimatePresence>
+        <nav aria-label="Main navigation">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <Link to="/cv-print">
+            Résumé <ArrowUpRight size={13} />
+          </Link>
         </nav>
+        <a className="header-contact" href="#contact">
+          Let’s talk <ArrowUpRight size={16} />
+        </a>
       </header>
-
-      <section className="intro" aria-label="Introduction">
-        <h1>Interactive software with real product depth.</h1>
-        <p>
-          I build playable tools, games, storefronts and enterprise interfaces that show the workflow, the UI craft and
-          the engineering behind them.
-        </p>
-        <div className="intro__actions" ref={introActions} aria-label="Contact and profile">
-          {contactsInTopbar ? null : <ContactLinks iconSize={16} placement="intro" />}
+      <main id="main-content" tabIndex={-1}>
+        <section className="hero" aria-labelledby="intro-title">
+          <div className="hero__copy">
+            <p className="eyebrow">
+              <span className="status-dot" />
+              {home.role}
+            </p>
+            <h1 id="intro-title">
+              {home.headline[0]}
+              <br />
+              <span>{home.headline[1]}</span>
+            </h1>
+            <p className="hero__description">{home.introduction}</p>
+            <div className="hero__actions">
+              <a className="btn btn--primary btn--large" href="#work">
+                Explore my work <ArrowDown size={17} />
+              </a>
+              <a className="hero__text-link" href="#experience">
+                The professional side <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </div>
+          <div className="hero__visual">
+            <div className="hero__visual-label">
+              <Code2 size={15} />
+              <span>Built with curiosity. Shipped with care.</span>
+            </div>
+            <Link
+              className="hero-project hero-project--main"
+              to="/projects/bbeats"
+            >
+              <div className="mini-window" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <span>bbeats / creative tools</span>
+              </div>
+              <CaptureImage project={featured[0]} priority />
+              <span className="hero-project__caption">
+                An entire studio. In your browser.
+                <ArrowUpRight size={17} />
+              </span>
+            </Link>
+            <Link
+              className="hero-project hero-project--small"
+              to="/projects/memory-dungeon"
+            >
+              <CaptureImage project={featured[1]} />
+              <span className="hero-project__caption">
+                A little less ordinary.
+                <ArrowUpRight size={15} />
+              </span>
+            </Link>
+            <span className="hero__annotation">
+              Logic meets imagination <span aria-hidden="true">↗</span>
+            </span>
+          </div>
+        </section>
+        <div className="credentials" aria-label="Professional background">
+          <span>Engineering across</span>
+          <strong>Man Group</strong>
+          <strong>Quickbase</strong>
+          <strong>Zonal</strong>
+          <strong>A1 Bulgaria</strong>
+          <span className="credentials__note">
+            Enterprise precision.
+            <br />
+            Independent spirit.
+          </span>
         </div>
-      </section>
-
-      <Showcase projects={showcaseProjects} runtimeStatus={runtimeStatus} paused={dialogOpen} onActiveChange={setActive} />
-      <SupportingProjects />
-      <ExperienceSection onDialogChange={setDialogOpen} />
-      <Capabilities />
-    </main>
+        <section
+          id="work"
+          className="section work-section"
+          aria-labelledby="work-title"
+        >
+          <header className="section__head">
+            <div>
+              <p className="eyebrow">01 / Selected work</p>
+              <h2 id="work-title">Made to be used.</h2>
+            </div>
+            <p className="section__lede">{home.workIntro}</p>
+          </header>
+          <Showcase projects={featured} />
+        </section>
+        <SupportingProjects />
+        <ExperienceSection />
+        <Capabilities />
+        <ContactSection />
+      </main>
+      <footer className="site-footer">
+        <span>© {new Date().getFullYear()} Boris Bostandzhiev</span>
+        <span>Built in Sofia. Explored everywhere.</span>
+        <a href="#main-content">Back to top ↑</a>
+      </footer>
+    </div>
   );
 }

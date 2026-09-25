@@ -524,7 +524,7 @@ export const contactLinks = [
   },
   {
     label: 'CV',
-    href: '#experience',
+    href: '/cv-print',
     icon: FileText
   },
   {

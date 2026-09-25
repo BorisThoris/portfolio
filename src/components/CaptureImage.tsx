@@ -33,6 +33,8 @@ export function CaptureImage({
       alt={`${project.title} screenshot`}
       loading={priority ? 'eager' : 'lazy'}
       decoding="async"
+      width={1600}
+      height={900}
       fetchPriority={priority ? 'high' : 'low'}
       draggable={false}
       data-capture-fallback="1"

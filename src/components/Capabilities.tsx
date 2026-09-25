@@ -6,10 +6,10 @@ export function Capabilities() {
     <section className="section" aria-label="Technical range">
       <header className="section__head">
         <div>
-          <p className="eyebrow">Capability</p>
-          <h2>Technical range</h2>
+          <p className="eyebrow">03 / How I build</p>
+          <h2>From interface to infrastructure.</h2>
         </div>
-        <p className="section__lede">Practical coverage across shipped product UI, data workflows, delivery systems and interactive demos.</p>
+        <p className="section__lede">Comfortable across the stack. Particular about the experience.</p>
       </header>
       <div className="capability-grid">
         {capabilityGroups.map((group, index) => (
