@@ -43,6 +43,8 @@ Every page has a single main landmark and heading. Navigation moves focus to the
 
 `ProjectMedia` uses the synced trailers and videos. Visible, active featured slides and project covers loop muted previews; cards preview on hover or keyboard focus. Offscreen previews, inactive slides, and hidden browser tabs pause. Reduced motion and data saver disable automatic playback. A visitor can pause or unmute a large preview, or open the modal player for native playback controls, fullscreen, and clip selection. The modal pauses background previews and returns focus on close. Preserve the full portrait frame; do not crop recordings to fill landscape covers. Failed media keeps its poster and offers a direct video link.
 
+Media frames use the published width and height, with orientation as a fallback. Once a video decodes, its actual videoWidth/videoHeight take precedence. Preview controls occupy a separate row, outside the picture. Covers and modal players fit the source ratio within the available viewport; featured slides and cards center that same uncropped frame in a shared stage. The homepage's portrait clip uses its native ratio too. Portrait players stack clip choices so every recording remains easy to find. `check:media` compares decoded dimensions with rendered geometry across desktop, tablet, small phones, and landscape viewports.
+
 Project and résumé code are loaded on navigation. The static build writes route-specific titles, descriptions, canonical links, social metadata, structured data, and a no-JavaScript fallback for every known route, plus sitemap, robots, and a 404 page. Cloudflare serves these files directly.
 
 ## Release checks

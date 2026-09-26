@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
@@ -6,7 +6,7 @@ import type { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { useMotionEnabled } from "../lib/motion";
 import { formatDuration, youtubeEmbedUrl } from "../lib/format";
-import { previewClip, projectClips, type ProjectClip } from "../lib/projectMedia";
+import { mediaRatio, previewClip, projectClips, type ProjectClip } from "../lib/projectMedia";
 import { CaptureImage } from "./CaptureImage";
 import "../project-media.css";
 
@@ -34,6 +34,8 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const [muted, setMuted] = useState(true);
   const [failed, setFailed] = useState(false);
   const [posterFailed, setPosterFailed] = useState(false);
+  const [decodedRatios, setDecodedRatios] = useState<Record<string, number>>({});
+  const ratio = (clip && decodedRatios[clip.url]) || mediaRatio(clip);
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   const canPreview = clip?.kind === "video" && !failed && !reducedMotion && !connection?.saveData;
   const shouldPlay = canPreview && motionEnabled && active && visible && pageVisible && !watching && !paused;
@@ -66,8 +68,11 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
 
   return (
     <div ref={container}
-      className={`project-media project-media--${mode}${clip ? " project-media--video" : ""}${clip?.orientation === "portrait" ? " project-media--portrait" : ""}`}
+      className={`project-media project-media--${mode}${clip ? " project-media--video" : ""}${ratio < 1 ? " project-media--portrait" : ""}`}
+      style={{ "--media-ratio": ratio } as CSSProperties}
     >
+      <div className="project-media__stage">
+      <div className="project-media__frame">
       {clip ? picture : (
         <Link className="project-media__still" to={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}>
           {picture}
@@ -77,8 +82,14 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
       {loaded && canPreview && clip ? (
         <video ref={video} className="project-media__preview" src={clip.url} muted={muted} loop playsInline
           preload="none" aria-hidden="true" tabIndex={-1}
+          onLoadedMetadata={(event) => {
+            const { videoWidth, videoHeight } = event.currentTarget;
+            if (videoWidth && videoHeight) setDecodedRatios((previous) => ({ ...previous, [clip.url]: videoWidth / videoHeight }));
+          }}
           onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
       ) : null}
+      </div>
+      </div>
       {clip ? (
         <div className="project-media__bar">
           <button className="project-media__watch" type="button" onClick={() => setOpen(true)}>
@@ -112,7 +123,9 @@ function VideoDialog({ project, clips, initial, onClose }: {
   const titleId = useId();
   const [selected, setSelected] = useState(initial);
   const [failed, setFailed] = useState(false);
+  const [decodedRatios, setDecodedRatios] = useState<Record<string, number>>({});
   const clip = clips[selected];
+  const ratio = decodedRatios[clip.url] || mediaRatio(clip);
 
   useEffect(() => {
     const element = dialog.current!;
@@ -131,7 +144,8 @@ function VideoDialog({ project, clips, initial, onClose }: {
   }, []);
 
   return createPortal(
-    <dialog ref={dialog} className="video-dialog" aria-labelledby={titleId} onCancel={onClose} onClose={onClose}
+    <dialog ref={dialog} className={`video-dialog${ratio < 1 ? " video-dialog--portrait" : ""}`} aria-labelledby={titleId} onCancel={onClose} onClose={onClose}
+      style={{ "--media-ratio": ratio } as CSSProperties}
       onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <div className="video-dialog__content">
         <header className="video-dialog__header">
@@ -139,6 +153,7 @@ function VideoDialog({ project, clips, initial, onClose }: {
           <button type="button" className="icon-button" aria-label="Close video" onClick={onClose} autoFocus><X size={22} /></button>
         </header>
         <div className="video-dialog__screen" key={clip.url}>
+          <div className="video-dialog__frame">
           {failed ? (
             <div className="video-dialog__fallback" role="status">
               <p>This video couldn’t load.</p>
@@ -146,12 +161,17 @@ function VideoDialog({ project, clips, initial, onClose }: {
             </div>
           ) : clip.kind === "video" ? (
             <video src={clip.url} poster={clip.poster} controls autoPlay playsInline preload="metadata"
+              onLoadedMetadata={(event) => {
+                const { videoWidth, videoHeight } = event.currentTarget;
+                if (videoWidth && videoHeight) setDecodedRatios((previous) => ({ ...previous, [clip.url]: videoWidth / videoHeight }));
+              }}
               aria-label={`${project.title}: ${clip.title}`} onError={() => setFailed(true)} />
           ) : clip.kind === "youtube" ? (
             <iframe src={youtubeEmbedUrl(clip.url)} title={clip.title} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
           ) : (
             <a className="video-dialog__fallback" href={clip.url} target="_blank" rel="noreferrer">Open video <ArrowUpRight /></a>
           )}
+          </div>
         </div>
         {clips.length > 1 ? (
           <div className="video-dialog__clips" role="group" aria-label="Choose video">

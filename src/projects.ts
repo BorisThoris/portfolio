@@ -33,6 +33,9 @@ export type ProjectVideo = {
   kind?: 'youtube' | 'video' | 'link';
   poster?: string;
   description?: string;
+  width?: number;
+  height?: number;
+  orientation?: 'landscape' | 'portrait' | 'square';
 };
 
 export type ProjectImage = {

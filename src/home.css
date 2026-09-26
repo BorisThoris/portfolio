@@ -293,8 +293,9 @@
   transform: rotate(5deg);
   transition: transform 0.2s ease;
 }
-.hero-project--small .project-media { aspect-ratio: 4 / 5; }
-.hero-project--small .project-media > img { height: 100%; aspect-ratio: auto; object-fit: contain; }
+.hero-project--small .project-media { --media-height: 420px; }
+.hero-project--small .project-media__stage { height: auto; }
+.hero-project--small .project-media__frame > img { height: 100%; aspect-ratio: auto; object-fit: contain; }
 .hero-project--small .project-media__duration { display: none; }
 .hero-project--small .project-media__watch { font-size: 11px; }
 .hero-project--small:hover {
