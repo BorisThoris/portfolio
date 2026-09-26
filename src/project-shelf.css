@@ -169,14 +169,6 @@
   white-space: nowrap;
 }
 
-.project-tile__heading > span {
-  flex: 0 0 auto;
-  color: var(--accent);
-  font-size: 9px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
 .project-tile__subtitle {
   min-height: 34px;
   color: var(--text-2);

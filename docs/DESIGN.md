@@ -4,7 +4,7 @@
 
 A personal engineering portfolio with an editorial rhythm: charcoal canvas, warm-white typography, and a restrained lime accent. Real product interfaces and recordings supply the visual variety. Project videos preview silently while visible; carousel selection stays under the visitor's control.
 
-The home page answers four questions in order: who Boris is, what he has built, where he has worked, and how to contact him. Five projects receive editorial emphasis; the complete public catalogue remains searchable and filterable.
+The home page answers four questions in order: who Boris is, what he has built, where he has worked, and how to contact him. Five projects receive editorial emphasis; the complete public catalogue is one searchable grid, without category groups, filters, or badges.
 
 ## Shared foundation
 
@@ -30,6 +30,8 @@ Never invent metrics, testimonials, availability, or endorsements. Present publi
 ## Interaction requirements
 
 The carousel moves only when requested. Tabs, arrows, swipe, and ArrowLeft/ArrowRight/Home/End control the same selection. Keyboard selection moves tab focus. Inactive panels are inert; the selected project is announced. Reduced motion makes movement immediate.
+
+The opening composition combines a real project trailer with moving orbit lines, animated audio bars, and a slow screenshot pan. Pause motion stops decorative animation and automatic previews across the homepage. Reduced motion disables them by default. Hero animations pause offscreen and while the browser tab is hidden. Links and playback buttons remain stationary for reliable interaction.
 
 Career history uses native disclosures with all detail available inline. Search has a label, result announcements, and a clear reset state. Contact supports email and clipboard, including an explicit failure message. Touch controls should be at least 40–44px high.
 

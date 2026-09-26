@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { categoryFor } from "../content/home";
 import { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { ProjectMedia } from "./ProjectMedia";
@@ -108,7 +107,7 @@ export function ProjectShelf({
   );
 }
 
-function ProjectTile({ project }: { project: Project }) {
+export function ProjectTile({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   return (
@@ -127,7 +126,6 @@ function ProjectTile({ project }: { project: Project }) {
       <Link className="project-tile__body" to={`/projects/${project.slug}`}>
         <span className="project-tile__heading">
           <strong>{project.title}</strong>
-          <span>{categoryFor(project.tags)}</span>
         </span>
         <span className="project-tile__subtitle">{project.subtitle}</span>
         <span className="project-tile__tags" aria-hidden="true">

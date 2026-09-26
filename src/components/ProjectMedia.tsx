@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
 import type { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
+import { useMotionEnabled } from "../lib/motion";
 import { formatDuration, youtubeEmbedUrl } from "../lib/format";
 import { previewClip, projectClips, type ProjectClip } from "../lib/projectMedia";
 import { CaptureImage } from "./CaptureImage";
@@ -22,6 +23,7 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const container = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const motionEnabled = useMotionEnabled();
   const [visible, setVisible] = useState(false);
   const [pageVisible, setPageVisible] = useState(!document.hidden);
   const [watching, setWatching] = useState(false);
@@ -34,7 +36,7 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const [posterFailed, setPosterFailed] = useState(false);
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   const canPreview = clip?.kind === "video" && !failed && !reducedMotion && !connection?.saveData;
-  const shouldPlay = canPreview && active && visible && pageVisible && !watching && !paused;
+  const shouldPlay = canPreview && motionEnabled && active && visible && pageVisible && !watching && !paused;
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.2 });
@@ -84,7 +86,7 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
             <span>Watch video<span className="visually-hidden">: {project.title}</span></span>
             <span className="project-media__duration">{clips.length > 1 ? `${clips.length} clips` : formatDuration(clip.duration)}</span>
           </button>
-          {canPreview && mode !== "card" ? (
+          {canPreview && motionEnabled && mode !== "card" ? (
             <div className="project-media__controls">
               <button type="button" aria-label={playing ? "Pause preview" : "Play preview"}
                 onClick={() => {

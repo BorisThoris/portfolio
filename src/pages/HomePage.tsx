@@ -1,4 +1,5 @@
-import { ArrowDown, ArrowUpRight, Code2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowDown, ArrowUpRight, Code2, Pause, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { visibleProjects } from "../projects";
 import { home, featuredSlugs } from "../content/home";
@@ -8,6 +9,9 @@ import { ExperienceSection } from "../components/Experience";
 import { Capabilities } from "../components/Capabilities";
 import { ContactSection } from "../components/ContactSection";
 import { CaptureImage } from "../components/CaptureImage";
+import { ProjectMedia } from "../components/ProjectMedia";
+import { MotionContext } from "../lib/motion";
+import { useMediaQuery } from "../lib/runtime";
 import "../home.css";
 
 const featured = featuredSlugs.flatMap((slug) =>
@@ -15,7 +19,21 @@ const featured = featuredSlugs.flatMap((slug) =>
 );
 
 export function HomePage() {
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const [paused, setPaused] = useState(false);
+  const [pageVisible, setPageVisible] = useState(!document.hidden);
+  const [heroVisible, setHeroVisible] = useState(true);
+  const heroRef = useRef<HTMLElement>(null);
+  const motionEnabled = !paused && !reducedMotion && pageVisible;
+  useEffect(() => {
+    const update = () => setPageVisible(!document.hidden);
+    const observer = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting));
+    if (heroRef.current) observer.observe(heroRef.current);
+    document.addEventListener("visibilitychange", update);
+    return () => { observer.disconnect(); document.removeEventListener("visibilitychange", update); };
+  }, []);
   return (
+    <MotionContext.Provider value={motionEnabled}>
     <div className="shell home-shell">
       <a className="skip-link" href="#main-content">
         Skip to content
@@ -43,7 +61,7 @@ export function HomePage() {
         </a>
       </header>
       <main id="main-content" tabIndex={-1}>
-        <section className="hero" aria-labelledby="intro-title">
+        <section ref={heroRef} className="hero" aria-labelledby="intro-title" data-motion={motionEnabled && heroVisible ? "running" : "paused"}>
           <div className="hero__copy">
             <p className="eyebrow">
               <span className="status-dot" />
@@ -63,8 +81,15 @@ export function HomePage() {
                 Work history <ArrowUpRight size={16} />
               </a>
             </div>
+            {!reducedMotion ? (
+              <button className="motion-toggle" type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>
+                {paused ? <Play size={13} /> : <Pause size={13} />}
+                {paused ? "Resume motion" : "Pause motion"}
+              </button>
+            ) : null}
           </div>
           <div className="hero__visual">
+            <div className="hero__orbits" aria-hidden="true"><i /><i /><i /></div>
             <div className="hero__visual-label">
               <Code2 size={15} />
               <span>A few things I’ve made</span>
@@ -77,7 +102,8 @@ export function HomePage() {
                 <i />
                 <i />
                 <i />
-                <span>bbeats / creative tools</span>
+                <span>bbeats</span>
+                <div className="hero__levels"><b /><b /><b /><b /><b /></div>
               </div>
               <CaptureImage project={featured[0]} priority />
               <span className="hero-project__caption">
@@ -85,19 +111,15 @@ export function HomePage() {
                 <ArrowUpRight size={17} />
               </span>
             </Link>
-            <Link
+            <div
               className="hero-project hero-project--small"
-              to="/projects/memory-dungeon"
             >
-              <CaptureImage
-                project={featured[1]}
-                sizes="(max-width: 760px) 50vw, 25vw"
-              />
-              <span className="hero-project__caption">
+              <ProjectMedia project={featured[1]} mode="card" />
+              <Link to="/projects/memory-dungeon" className="hero-project__caption">
                 A memory game with teeth.
                 <ArrowUpRight size={15} />
-              </span>
-            </Link>
+              </Link>
+            </div>
             <span className="hero__annotation">
               Built after hours <span aria-hidden="true">↗</span>
             </span>
@@ -140,5 +162,6 @@ export function HomePage() {
         <a href="#main-content">Back to top ↑</a>
       </footer>
     </div>
+    </MotionContext.Provider>
   );
 }

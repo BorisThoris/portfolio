@@ -103,47 +103,24 @@ try {
     "true",
   );
   assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
-  await page.getByRole("button", { name: "Commerce", exact: true }).click();
-  assert(
-    (await page.locator(".project-tile__heading > span").allTextContents()).every(
-      (text) => text === "Commerce",
-    ),
-  );
+  assert.equal(await page.locator('.catalog-filters, .catalog-shelves, .project-tile__heading > span').count(), 0, "No category filters, rows, or badges");
+  assert.equal(await page.locator('.project-grid > li').count(), visibleProjects.length);
+  assert.equal(await page.getByRole('heading', { name: /^(Apps & tools|Games|Commerce)$/ }).count(), 0);
+  assert.equal(await page.locator('.hero video').count(), 0, "Hero respects reduced motion");
+  assert.equal(await page.locator('.hero__orbits i').first().evaluate((el) => getComputedStyle(el).animationName), 'none');
+  await page.getByRole("searchbox", { name: "Search projects" }).fill("BBeats");
+  assert.equal(await page.locator('.project-grid > li').count(), 1);
+  assert.equal(await page.locator('.project-grid strong').textContent(), 'BBeats');
   await page
     .getByRole("searchbox", { name: "Search projects" })
     .fill("no-match-xyz");
   assert(
     await page.getByRole("heading", { name: "No projects found" }).isVisible(),
   );
-  await page.getByRole("button", { name: "Clear filters" }).click();
+  await page.getByRole("button", { name: "Clear search" }).click();
   assert.equal(
     await page.locator(".project-tile").count(),
     visibleProjects.length,
-  );
-  const appsShelf = page.locator(".project-shelf").filter({
-    has: page.getByRole("heading", { name: "Apps & tools", exact: true }),
-  });
-  const appsRail = appsShelf.locator(".project-shelf__rail");
-  const appsForward = appsShelf.getByRole("button", {
-    name: "Scroll Apps & tools forward",
-  });
-  assert.equal(await appsForward.isEnabled(), true);
-  await appsForward.click();
-  assert(
-    await appsRail.evaluate((rail) => rail.scrollLeft > 0),
-    "Project shelf moves forward",
-  );
-  await page.waitForFunction(() => {
-    const button = document.querySelector(
-      'button[aria-label="Scroll Apps & tools backward"]',
-    );
-    return button instanceof HTMLButtonElement && !button.disabled;
-  });
-  assert.equal(
-    await appsShelf
-      .getByRole("button", { name: "Scroll Apps & tools backward" })
-      .isEnabled(),
-    true,
   );
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();
@@ -157,7 +134,7 @@ try {
     "borisbostandzhiev@yahoo.com",
   );
   report.push(
-    "Desktop: featured carousel, shelf controls, catalogue filters/search/reset, disclosure, clipboard",
+    "Desktop: featured carousel, all projects in one grid without categories, search/reset, reduced-motion hero, disclosure, clipboard",
   );
   // Chromium rounds fractional layout widths to integers; allow one CSS pixel.
   for (const width of [320, 390, 768, 1440]) {

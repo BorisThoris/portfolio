@@ -19,16 +19,3 @@ export const featuredSlugs = [
   "bobball",
   "cross-repo-libs",
 ];
-export const projectCategories = [
-  "All work",
-  "Apps & tools",
-  "Games",
-  "Commerce",
-] as const;
-export type ProjectCategory = (typeof projectCategories)[number];
-export function categoryFor(tags: string[]): ProjectCategory {
-  if (tags.some((tag) => /e-?commerce|storefront/i.test(tag)))
-    return "Commerce";
-  if (tags.some((tag) => /game|arcade|roguelite/i.test(tag))) return "Games";
-  return "Apps & tools";
-}

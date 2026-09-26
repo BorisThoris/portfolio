@@ -19,7 +19,6 @@ import {
 } from "../lib/format";
 import { ProjectMedia } from "../components/ProjectMedia";
 import { ProjectShelf } from "../components/ProjectShelf";
-import { categoryFor } from "../content/home";
 import { NotFoundPage } from "./NotFoundPage";
 import "../project-page.css";
 
@@ -290,18 +289,10 @@ function ProjectContent({ project }: { project: Project }) {
 }
 
 function relatedProjects(project: Project) {
-  const category = categoryFor(project.tags);
   const candidates = visibleProjects.filter(
     (candidate) => candidate.slug !== project.slug,
   );
-  return [
-    ...candidates.filter(
-      (candidate) => categoryFor(candidate.tags) === category,
-    ),
-    ...candidates.filter(
-      (candidate) => categoryFor(candidate.tags) !== category,
-    ),
-  ].slice(0, 7);
+  return candidates.slice(0, 7);
 }
 
 function orderedGallery(images: ProjectImage[]) {

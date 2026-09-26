@@ -6,7 +6,6 @@ import { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { pad2 } from "../lib/format";
 import { ProjectMedia } from "./ProjectMedia";
-import { categoryFor } from "../content/home";
 
 export function Showcase({ projects }: { projects: Project[] }) {
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
@@ -81,7 +80,7 @@ export function Showcase({ projects }: { projects: Project[] }) {
               <ProjectMedia project={project} active={index === activeIndex} />
               <div className="featured__copy">
                 <p className="eyebrow">
-                  {pad2(index + 1)} / {categoryFor(project.tags)}
+                  {pad2(index + 1)} / Selected project
                 </p>
                 <h3>{project.title}</h3>
                 <p className="featured__subtitle">{project.subtitle}</p>

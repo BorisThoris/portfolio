@@ -89,6 +89,29 @@ try {
   // Screenshot capture restores scroll position; keep that restoration immediate
   // so it cannot move the page underneath the subsequent hover interaction.
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = "auto"; });
+  const hero = page.locator('.hero');
+  const heroVideo = hero.locator('video');
+  await playing(heroVideo);
+  const orbit = hero.locator('.hero__orbits i').first();
+  const transform = await orbit.evaluate((el) => getComputedStyle(el).transform);
+  await page.waitForFunction((previous) => getComputedStyle(document.querySelector('.hero__orbits i')).transform !== previous, transform);
+  await page.getByRole('button', { name: 'Pause motion', exact: true }).click();
+  await paused(heroVideo);
+  assert.equal(await orbit.evaluate((el) => getComputedStyle(el).animationPlayState), 'paused');
+  assert.equal(await page.getByRole('button', { name: 'Resume motion' }).getAttribute('aria-pressed'), 'true');
+  await page.getByRole('button', { name: 'Resume motion' }).click();
+  await playing(heroVideo);
+  await page.screenshot({path:'output/playwright/motion-home-desktop.png'});
+  await page.setViewportSize({width:390,height:844});
+  await heroVideo.scrollIntoViewIfNeeded();
+  await playing(heroVideo);
+  assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+  await page.screenshot({path:'output/playwright/motion-home-mobile.png'});
+  await page.locator('.site-footer').scrollIntoViewIfNeeded();
+  await paused(heroVideo);
+  assert.equal(await hero.getAttribute('data-motion'), 'paused');
+  await page.setViewportSize({width:1440,height:1000});
+  report.push('Homepage hero: real trailer playback on desktop/mobile, changing animation frames, pause/resume controls, offscreen pause');
   await page.getByRole("tab", { name: "02 Memory Dungeon" }).click();
   const featured = page.locator("#project-panel-memory-dungeon");
   await featured.scrollIntoViewIfNeeded();
@@ -96,7 +119,7 @@ try {
   await page.screenshot({ path: "output/playwright/video-featured.png" });
   await page.getByRole("tab", { name: "03 VYB Chess" }).click();
   await paused(featured.locator("video"));
-  const card = page.locator(".project-tile").filter({ has: page.getByRole("link", { name: /BOBBALL Games/ }) });
+  const card = page.locator(".project-tile").filter({ has: page.getByRole("link", { name: /^BOBBALL / }) });
   // Finish the page's smooth scroll before placing the pointer over the card.
   await card.evaluate((el) => el.scrollIntoView({ behavior: "instant", block: "center", inline: "center" }));
   await card.hover();
