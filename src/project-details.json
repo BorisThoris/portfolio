@@ -323,7 +323,7 @@
   },
   "vyb-chess": {
     "slug": "vyb-chess",
-    "generatedAt": "2026-09-27T17:41:46.656Z",
+    "generatedAt": "2026-09-27T18:51:53.603Z",
     "version": "0.2.0",
     "classification": "web-app",
     "links": {
@@ -376,7 +376,7 @@
     "metrics": {
       "sourceFiles": 354,
       "testFiles": 134,
-      "sourceLines": 90966,
+      "sourceLines": 90986,
       "largestDirectories": [
         {
           "directory": "app",
@@ -405,10 +405,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "331af4e",
-      "lastCommitDate": "2026-09-27T20:40:01+03:00",
-      "lastCommitSubject": "Refine reading arrival and cross-device polish",
-      "commitCount": 486
+      "head": "4495048",
+      "lastCommitDate": "2026-09-27T21:51:22+03:00",
+      "lastCommitSubject": "Refresh project metadata after Android verification",
+      "commitCount": 489
     },
     "scores": {
       "priorityScore": 98,
@@ -866,7 +866,7 @@
   },
   "skyfall": {
     "slug": "skyfall",
-    "generatedAt": "2026-09-27T18:12:03.691Z",
+    "generatedAt": "2026-09-27T20:40:20.692Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -907,9 +907,9 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 100,
-      "testFiles": 22,
-      "sourceLines": 16414,
+      "sourceFiles": 103,
+      "testFiles": 23,
+      "sourceLines": 16672,
       "largestDirectories": [
         {
           "directory": "app",
@@ -921,7 +921,7 @@
         },
         {
           "directory": "scripts",
-          "files": 12
+          "files": 14
         },
         {
           "directory": "e2e",
@@ -938,10 +938,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "8b36147d",
-      "lastCommitDate": "2026-09-27T20:47:45+03:00",
-      "lastCommitSubject": "Publish verified advancing gameplay capture",
-      "commitCount": 166
+      "head": "d5cd43f4",
+      "lastCommitDate": "2026-09-27T23:29:46+03:00",
+      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
+      "commitCount": 168
     },
     "scores": {
       "priorityScore": 76,
@@ -958,35 +958,35 @@
         "path": "/project-shots/skyfall/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 52388
+        "bytes": 52442
       },
       {
         "profile": "desktop",
         "path": "/project-shots/skyfall/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 51036
+        "bytes": 49209
       },
       {
         "profile": "full",
         "path": "/project-shots/skyfall/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 44151
+        "bytes": 44048
       },
       {
         "profile": "mobile",
         "path": "/project-shots/skyfall/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 25421
+        "bytes": 25131
       },
       {
         "profile": "og",
         "path": "/project-shots/skyfall/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 38802
+        "bytes": 39159
       }
     ],
     "trailers": [
@@ -1289,7 +1289,7 @@
   },
   "runner-score-arcade": {
     "slug": "runner-score-arcade",
-    "generatedAt": "2026-09-27T18:13:02.990Z",
+    "generatedAt": "2026-09-27T20:39:15.959Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1329,9 +1329,9 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 39,
-      "testFiles": 3,
-      "sourceLines": 6182,
+      "sourceFiles": 42,
+      "testFiles": 4,
+      "sourceLines": 6440,
       "largestDirectories": [
         {
           "directory": "app",
@@ -1339,11 +1339,15 @@
         },
         {
           "directory": "scripts",
-          "files": 11
+          "files": 13
         },
         {
           "directory": ".",
           "files": 6
+        },
+        {
+          "directory": "public",
+          "files": 1
         },
         {
           "directory": "test",
@@ -1356,10 +1360,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "89ada0d",
-      "lastCommitDate": "2026-09-27T20:55:24+03:00",
-      "lastCommitSubject": "Capture original-style arcade gameplay and publish static media",
-      "commitCount": 57
+      "head": "901fb13",
+      "lastCommitDate": "2026-09-27T23:29:46+03:00",
+      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
+      "commitCount": 59
     },
     "scores": {
       "priorityScore": 86,
@@ -1376,35 +1380,35 @@
         "path": "/project-shots/runner-score-arcade/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 130420
+        "bytes": 130436
       },
       {
         "profile": "desktop",
         "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129112
+        "bytes": 129131
       },
       {
         "profile": "full",
         "path": "/project-shots/runner-score-arcade/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 114092
+        "bytes": 114187
       },
       {
         "profile": "mobile",
         "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 47582
+        "bytes": 47613
       },
       {
         "profile": "og",
         "path": "/project-shots/runner-score-arcade/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 94163
+        "bytes": 94105
       }
     ],
     "trailers": [
@@ -1690,7 +1694,7 @@
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-27T20:29:52.745Z",
+    "generatedAt": "2026-09-27T20:34:49.796Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1753,18 +1757,16 @@
           "files": 2
         }
       ],
-      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "codex/pedal-coastal-drive",
+      "branch": "master",
       "head": "309ba37",
-      "lastCommitDate": "2026-09-27T23:29:53+03:00",
-      "lastCommitSubject": "Merge generated metadata while retaining verified release captures",
-      "commitCount": 56,
-      "remote": "https://github.com/BorisThoris/pedal-rush.git"
+      "lastCommitDate": "2026-09-27T23:32:00+03:00",
+      "lastCommitSubject": "Run video delivery regressions in the media verification gate",
+      "commitCount": 57
     },
     "scores": {
       "priorityScore": 52,
@@ -1781,35 +1783,35 @@
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 145127
+        "bytes": 143145
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 133265
+        "bytes": 131271
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 112817
+        "bytes": 110949
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 46807
+        "bytes": 45980
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109903
+        "bytes": 107809
       }
     ],
     "trailers": [
@@ -1960,7 +1962,7 @@
   },
   "gorilla-gainz": {
     "slug": "gorilla-gainz",
-    "generatedAt": "2026-09-27T17:42:52.253Z",
+    "generatedAt": "2026-09-27T20:36:30.985Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2002,9 +2004,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 59,
-      "testFiles": 4,
-      "sourceLines": 5809,
+      "sourceFiles": 62,
+      "testFiles": 5,
+      "sourceLines": 6067,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2012,11 +2014,11 @@
         },
         {
           "directory": "scripts",
-          "files": 13
+          "files": 15
         },
         {
           "directory": "public",
-          "files": 1
+          "files": 2
         }
       ],
       "hasTests": true,
@@ -2025,10 +2027,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "52a0f65",
-      "lastCommitDate": "2026-09-27T20:39:58+03:00",
-      "lastCommitSubject": "Refresh original-design store screenshots and workflow trailer",
-      "commitCount": 43
+      "head": "28594f7",
+      "lastCommitDate": "2026-09-27T23:29:44+03:00",
+      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
+      "commitCount": 45
     },
     "scores": {
       "priorityScore": 82,
@@ -2093,7 +2095,7 @@
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-09-27T18:13:13.672Z",
+    "generatedAt": "2026-09-27T20:39:20.324Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2131,9 +2133,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 33,
-      "testFiles": 4,
-      "sourceLines": 4202,
+      "sourceFiles": 36,
+      "testFiles": 5,
+      "sourceLines": 4460,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2141,11 +2143,11 @@
         },
         {
           "directory": "scripts",
-          "files": 12
+          "files": 14
         },
         {
           "directory": "public",
-          "files": 1
+          "files": 2
         }
       ],
       "hasTests": true,
@@ -2154,10 +2156,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "0c7180b",
-      "lastCommitDate": "2026-09-27T20:59:11+03:00",
-      "lastCommitSubject": "Capture current card gameplay and original-style preview media",
-      "commitCount": 44
+      "head": "2be4665",
+      "lastCommitDate": "2026-09-27T23:29:47+03:00",
+      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
+      "commitCount": 46
     },
     "scores": {
       "priorityScore": 55,
@@ -2174,35 +2176,35 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 98204
+        "bytes": 97918
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 96834
+        "bytes": 96571
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-card-quest/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 80879
+        "bytes": 80723
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 52141
+        "bytes": 52101
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 81643
+        "bytes": 81715
       }
     ],
     "trailers": [
