@@ -78,7 +78,10 @@ const installedFiles = {
   'generate-social-preview.mjs': { contents: socialSource, label: 'social script' },
   'generate-app-icons.mjs': { contents: iconsSource, label: 'icon script' },
   'refresh-project-meta.mjs': { contents: refreshSource, label: 'refresh script' },
-  'build-project-trailers.mjs': { contents: trailersSource, label: 'trailers script' }
+  'build-project-trailers.mjs': { contents: trailersSource, label: 'trailers script' },
+  'project-media-lib.mjs': { contents: fs.readFileSync(path.join(templateDir, 'project-media-lib.mjs'), 'utf8'), label: 'media library' },
+  'project-media.test.mjs': { contents: fs.readFileSync(path.join(templateDir, 'project-media.test.mjs'), 'utf8'), label: 'media unit test' },
+  'project-media.e2e.mjs': { contents: fs.readFileSync(path.join(templateDir, 'project-media.e2e.mjs'), 'utf8'), label: 'media e2e test' }
 };
 
 const summary = [];
@@ -112,6 +115,8 @@ for (const entry of repoRegistry) {
 
   const packageAction = ensurePackageScripts(entry.dir);
   if (packageAction) actions.push(packageAction);
+  const ignoreAction = ensureIgnored(entry.dir, 'project-media/.captures/');
+  if (ignoreAction) actions.push(ignoreAction);
 
   // Only a deployed project has a card to gate; the repo's own config says so.
   // A repo whose builds run outside GitHub (`workflows: false` in the registry:
@@ -313,6 +318,8 @@ function ensurePackageScripts(repoDir) {
     'social:check': 'node scripts/generate-social-preview.mjs --check',
     icons: 'node scripts/generate-app-icons.mjs',
     'icons:check': 'node scripts/generate-app-icons.mjs --check',
+    'test:media': 'node --test scripts/project-media.test.mjs',
+    'test:media:e2e': 'node scripts/project-media.e2e.mjs',
     trailers: 'node scripts/build-project-trailers.mjs',
     'trailers:check': 'node scripts/build-project-trailers.mjs --check',
     'meta:refresh': 'node scripts/refresh-project-meta.mjs'
@@ -326,6 +333,17 @@ function ensurePackageScripts(repoDir) {
   // whole-file reformat in someone's diff.
   if (!dryRun) fs.writeFileSync(packagePath, renderPackageJson(packageJson, original));
   return 'package scripts added';
+}
+
+// Recorded trailer masters (webm) stay out of git; only the web copies ship.
+function ensureIgnored(repoDir, pattern) {
+  const ignorePath = path.join(repoDir, '.gitignore');
+  const existing = fs.existsSync(ignorePath) ? fs.readFileSync(ignorePath, 'utf8') : '';
+  if (existing.split(/\r?\n/).some((line) => line.trim() === pattern)) return '';
+  const eol = existing.includes('\r\n') ? '\r\n' : '\n';
+  const next = existing + (existing.length > 0 && !existing.endsWith('\n') ? eol : '') + '# recorded trailer masters (scripts/build-project-trailers.mjs)' + eol + pattern + eol;
+  if (!dryRun) fs.writeFileSync(ignorePath, next);
+  return '.gitignore updated';
 }
 
 // The gate lives in a committed .githooks/ directory (git's own hooks dir is

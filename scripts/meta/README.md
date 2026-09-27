@@ -246,6 +246,47 @@ Memory Dungeon publishes its Instagram reel (`scripts/reel-pipeline`) as the
 trailer and the reel's four covers as artwork; BOBBALL publishes its rendered
 poster set as artwork beside its trailer.
 
+## The media contract: tests in every repo
+
+Two installed tests make the media a gated part of each project rather than
+something that silently rots:
+
+- `npm run test:media` (`scripts/project-media.test.mjs`, `node --test`, no
+  dependencies) reads what the scripts wrote and fails when the metadata is
+  missing or generic, a screenshot profile failed or skipped a recipe step,
+  a frame's recorded statistics say it is blank, black or a loading screen,
+  a file is missing or not its profile's size, a trailer/capture/artwork item
+  is unrecorded, oversized or outside its duration window, or the card, icons
+  or rendered media are stale. It runs in `project-meta.yml` on every push and
+  in the refresh workflow before the bot commits.
+- `npm run test:media:e2e` (`scripts/project-media.e2e.mjs`) drives the
+  screenshot recipe (card and phone viewports) and every captured-trailer
+  recipe through a real browser against the deployment (`--source=local` or
+  `--url=` for a build) and fails when a recipe cannot reach its state or the
+  frame does not show the app. The refresh workflow runs it against the live
+  deployment before it photographs anything.
+
+Both lean on `scripts/project-media-lib.mjs`, which the screenshot run and the
+captured trailers share: the recipe vocabulary (click, fill, waitFor, wait,
+press, key holds, mouse moves, drags, scrolls; `optional: true` on a step),
+strict settling (a ready selector or required step that fails is an error, not
+a warning), and frame judging (luminance spread, black/white fraction, colour
+count; thresholds in `capture.quality` / `recipe.quality`). The capture script
+now refuses a frame that fails those rules, and records each profile's
+statistics in `project-media/capture.json` for the test.
+
+## Captured trailers
+
+A project without a rendered film gets a `kind: 'capture'` item: a recipe
+(`setup` to reach the state, a `timeline` of key holds, mouse moves, clicks and
+scrolls, `durationMs`, `viewport`) recorded through Playwright from the
+deployment (or `source: 'local'`), mixed with a `music` bed (looped, faded)
+and published like any trailer. Its hash covers `inputs` (the app's source)
+plus the recipe and the music, so it re-records when the app or the shot list
+changes. The webm master stays in `project-media/.captures/` (ignored).
+Music beds are generated locally with ACE-Step (`cross-repo-libs/packages/
+ai-music`), so they are project-owned and need no attribution.
+
 ## Releases
 
 `npm run meta:refresh` sequences the five steps for a release: rebuild stale
