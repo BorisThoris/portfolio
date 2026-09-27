@@ -114,8 +114,18 @@ try {
   assert.equal(await page.locator('.hero video').count(), 0, "Hero respects reduced motion");
   assert.equal(await page.locator('.hero__orbits i').first().evaluate((el) => getComputedStyle(el).animationName), 'none');
   await page.getByRole("searchbox", { name: "Search projects" }).fill("BBeats");
+  assert.deepEqual(
+    (await page.locator('.project-grid strong').allTextContents()).sort(),
+    ['BBeats', 'Soundstage Composer'],
+    'Search matches both the BBeats title and Soundstage\'s BBeats-derived subtitle',
+  );
+  await page.getByRole("searchbox", { name: "Search projects" }).fill("  BBeats   NATIVE  ");
   assert.equal(await page.locator('.project-grid > li').count(), 1);
-  assert.equal(await page.locator('.project-grid strong').textContent(), 'BBeats');
+  assert.equal(
+    await page.locator('.project-grid strong').textContent(),
+    'Soundstage Composer',
+    'Every search term must match, regardless of case or surrounding whitespace',
+  );
   await page
     .getByRole("searchbox", { name: "Search projects" })
     .fill("no-match-xyz");
