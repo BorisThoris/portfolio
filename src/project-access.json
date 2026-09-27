@@ -284,12 +284,19 @@
   "bean-tapper-arena": {
     "kind": "native",
     "label": "S&box game",
-    "status": "Verified in the native S&box engine: claim a station, complete the countdown, register taps, receive results and advance to the next round. Physical keyboard/mouse input and remote multiplayer still need manual checks.",
+    "status": "Verified in the native S&box engine: claim a station, complete a timed round, receive scores and advance to round 2. The refined world scoreboard and camera floor guard were also checked. Physical keyboard/mouse delivery and remote multiplayer remain unverified.",
     "environment": "Windows; Steam and S&box editor (verified with 26.09.22a)",
-    "instructions": "Requires Steam and the S&box editor on Windows. Open the game project (.sbproj), load Assets/test.scene, then press F5. The captures on this page come from a locally repaired build. The latest native recovery and automated capture scripts have not been published to the source repository yet.",
+    "instructions": "Requires Steam and the S&box editor on Windows. Open the game project (.sbproj), load Assets/test.scene, then press F5. In the locally refined build, E uses a nearby station; Space/Enter press an owned station, and Tab toggles the world-scoreboard camera. The latest prepared-project refinements and capture scripts are not published in the source repository yet.",
     "sourceUrl": "https://github.com/BorisThoris/bean-tapper-arena",
     "sourceStatus": "Public repository; latest native recovery changes are pending publication.",
     "images": [
+      {
+        "profile": "native-scores",
+        "path": "/native/bean-tapper-arena/bean-tapper-readable-scores.png",
+        "caption": "Readable world scoreboard in the running native game",
+        "width": 1920,
+        "height": 1080
+      },
       {
         "profile": "native-1",
         "path": "/native/bean-tapper-arena/bean-tapper-station.png",
@@ -306,64 +313,64 @@
       }
     ],
     "videos": [],
-    "captureNote": "Actual running S&box game captured through the native GameEditorSession camera. The native smoke check registered 12 taps, awarded 5 tournament points and advanced to round 2 (Sprint 5). A video trailer has not been recorded."
+    "captureNote": "Actual running S&box game captured through the native GameEditorSession camera. The fresh smoke check invoked the station-use handler, registered 12 taps, awarded 5 tournament points and advanced to round 2 (Sprint 5). This verifies game behavior, not hardware input delivery or network multiplayer. No native video trailer has been recorded."
   },
   "soundstage-composer": {
     "kind": "native",
-    "label": "Unity application",
-    "status": "Verified in the native Unity Windows application: play instruments, record and replay takes, arrange and edit timeline notes, then play or stop a composition.",
+    "label": "Unity music editor",
+    "status": "Verified in the native Windows application: arrange notes, draw/drag/erase piano-roll notes, edit timing and velocity, mix tracks, loop playback, undo edits, and save/load compositions. All 38 native workflow checks passed with no runtime or rendering errors.",
     "environment": "Windows 64-bit; Unity 2022.2.14f1 and the project FMOD integration for source development",
-    "instructions": "A Windows player is built and verified locally; its public download is not hosted yet.\nWith a copy of the Windows player, keep its Data folder, FMOD files and DLLs beside the executable.\nTo work from source, open the project in Unity 2022.2.14f1 and follow the repository setup instructions.",
+    "instructions": "The BBeats-derived Windows player is built locally; a public download is not hosted yet.\nKeep the player Data folder, FMOD files and DLLs beside its executable.\nSource development requires Unity 2022.2.14f1 and the project FMOD integration. The native frontend uses C#, UXML and USS.",
     "sourceUrl": "",
     "sourceStatus": "Private source; no public source download.",
     "images": [
       {
         "profile": "native-1",
-        "path": "/native/soundstage-composer/03-composition-editor.png",
-        "caption": "Composition editor",
-        "width": 1280,
-        "height": 720
+        "path": "/native/soundstage-composer/bbeats/01-classical-arrangement.png",
+        "caption": "BBeats-derived Classical arrangement",
+        "width": 1440,
+        "height": 900
       },
       {
         "profile": "native-2",
-        "path": "/native/soundstage-composer/02-piano-recorded-take.png",
-        "caption": "Recorded piano take",
-        "width": 1280,
-        "height": 720
+        "path": "/native/soundstage-composer/bbeats/02-note-inspector.png",
+        "caption": "Native note timing, velocity and pitch editing",
+        "width": 1440,
+        "height": 900
       },
       {
         "profile": "native-3",
-        "path": "/native/soundstage-composer/04-note-settings.png",
-        "caption": "Note settings",
-        "width": 1280,
-        "height": 720
+        "path": "/native/soundstage-composer/bbeats/03-native-playback.png",
+        "caption": "Original FMOD samples playing in the native editor",
+        "width": 1440,
+        "height": 900
       },
       {
         "profile": "native-4",
-        "path": "/native/soundstage-composer/05-composition-playback.png",
-        "caption": "Composition playback",
-        "width": 1280,
-        "height": 720
+        "path": "/native/soundstage-composer/bbeats/04-studio-theme.png",
+        "caption": "BBeats-derived Studio theme",
+        "width": 1440,
+        "height": 900
       },
       {
         "profile": "native-5",
-        "path": "/native/soundstage-composer/01-starting-screen.png",
-        "caption": "Start screen",
-        "width": 1280,
-        "height": 720
+        "path": "/native/soundstage-composer/bbeats/05-compact-window.png",
+        "caption": "Compact native editor at 1000 × 700",
+        "width": 1000,
+        "height": 700
       }
     ],
     "videos": [
       {
-        "url": "/native/soundstage-composer/soundstage-native-preview.mp4",
+        "url": "/native/soundstage-composer/bbeats/soundstage-bbeats-native-preview.mp4",
         "kind": "video",
-        "title": "Native Unity walkthrough (silent)",
-        "poster": "/native/soundstage-composer/03-composition-editor.png",
-        "width": 1280,
-        "height": 720
+        "title": "Native Unity editor with captured FMOD piano audio",
+        "poster": "/native/soundstage-composer/bbeats/01-classical-arrangement.png",
+        "width": 1440,
+        "height": 900
       }
     ],
-    "captureNote": "Captured from the actual Unity Windows application. The short walkthrough is silent; instrument playback and recording were verified in the native runtime."
+    "captureNote": "Screenshots and walkthrough come from the actual Unity Windows application; the video includes captured FMOD piano audio. This is a native C#/UI Toolkit translation of BBeats Classical and Studio layouts, not an embedded browser or a claim of full browser-editor feature parity. Duration gates playback; original piano samples retain their natural decay."
   },
   "my-musical-app-code": {
     "kind": "archive",
@@ -680,21 +687,24 @@
   "github-csharp-exercises": {
     "kind": "native",
     "label": "C# command line",
-    "status": "Four selected historical exercises verified in the console.",
-    "environment": ".NET SDK 10; PowerShell",
-    "instructions": "./Demo/Run-Demo.ps1",
+    "status": "All 16 historical source entries have runnable native .NET launcher entries. All 16 builds and 61 native process cases passed, including the interactive menu.",
+    "environment": ".NET SDK 10 and PowerShell 7 (pwsh)",
+    "instructions": "Download and extract the source ZIP. Open PowerShell 7 in the extracted folder.\n./Demo/Run-Demo.ps1 -List\n./Demo/Run-Demo.ps1\n./Demo/Run-Demo.ps1 -Exercise menu\n./Demo/Test-Exercises.ps1\nTo capture fresh command output: ./Demo/Capture-Transcript.ps1",
     "sourceUrl": "",
-    "sourceStatus": "Local source; not published.",
+    "sourceStatus": "Recovered source package available below; no public Git repository.",
     "images": [
       {
         "profile": "native-cli-output",
         "path": "/native/github-csharp-exercises/native-output.png",
         "width": 1440,
-        "height": 1362
+        "height": 1426,
+        "caption": "Sixteen-entry catalog and representative native runs"
       }
     ],
     "videos": [],
-    "captureNote": "Verbatim output captured from the real command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
-    "transcriptUrl": "/native/github-csharp-exercises/transcript.txt"
+    "captureNote": "Verbatim output from the real PowerShell 7/.NET programs, formatted for readability; not a GUI screenshot. The package preserves original source and maps recovered implementations explicitly. The incomplete character-array exercise is an inferred completion; two workday sources share one implementation.",
+    "transcriptUrl": "/native/github-csharp-exercises/transcript.txt",
+    "downloadUrl": "/native/github-csharp-exercises/csharp-expanded-source.zip",
+    "downloadLabel": "Download C# source and native launcher"
   }
 }

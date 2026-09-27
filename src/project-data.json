@@ -484,7 +484,7 @@
     "slug": "bean-tapper-arena",
     "title": "Bean Tapper Arena",
     "subtitle": "Race friends at tapping stations in a physical 3D arena.",
-    "description": "A native S&box multiplayer arcade game with physical bean avatars, tapping stations, station ownership and tournament scoring.",
+    "description": "A native S&box tapping game with physical bean avatars, station ownership, timed rounds and tournament scores. A refined world scoreboard, nearby-station action and guarded camera make the prepared local build easier to play and inspect.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bean",
     "localUrl": "http://127.0.0.1:4413/",
     "buildCommand": "",
@@ -500,8 +500,8 @@
   {
     "slug": "soundstage-composer",
     "title": "Soundstage Composer",
-    "subtitle": "Record piano phrases and arrange them on an editable timeline.",
-    "description": "A native Unity and FMOD music composition prototype with piano instruments, recording and replay, and an editable UI Toolkit timeline.",
+    "subtitle": "Arrange piano ideas in a native BBeats-derived music editor.",
+    "description": "A native C#/Unity UI Toolkit music editor derived from the actual BBeats frontend. Classical and Studio themes frame a horizontal arrangement, track mixer, searchable sound library, piano roll and note inspector, with original FMOD piano playback, undo and versioned composition files.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/my-musial-app",
     "localUrl": "http://127.0.0.1:8313/",
     "buildCommand": "",
@@ -509,8 +509,10 @@
     "runCommand": "Open the Unity project using the version in ProjectSettings/ProjectVersion.txt.",
     "tags": [
       "Unity",
+      "C#",
+      "UI Toolkit",
       "FMOD",
-      "Composition"
+      "Music editing"
     ],
     "accent": "#90c7c5"
   },
@@ -751,13 +753,13 @@
   {
     "slug": "github-csharp-exercises",
     "title": "C# Exercise Collection",
-    "subtitle": "Work through original numeric and geometry exercises.",
-    "description": "A collection of original C# exercises covering factorials, digit extraction, trailing zeroes and geometry, with a runnable console launcher.",
+    "subtitle": "Run sixteen recovered numeric, text and geometry exercises.",
+    "description": "A historical C# collection with sixteen native launcher entries, an interactive menu and explicit original-source mappings. Recovered implementations cover arithmetic, geometry, workdays, arrays and command interpreters; original fragments remain available for study.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/GitHub",
     "localUrl": "",
     "buildCommand": "",
     "buildOutput": "",
-    "runCommand": "./Demo/Run-Demo.ps1",
+    "runCommand": "pwsh -File ./Demo/Run-Demo.ps1",
     "tags": [
       "C#",
       ".NET",
