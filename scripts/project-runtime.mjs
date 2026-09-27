@@ -14,6 +14,13 @@ export function readProjects() {
   return JSON.parse(fs.readFileSync(projectDataPath, 'utf8'));
 }
 
+// These helpers launch HTTP demos; native apps and historical archives are
+// presented through curated media and their own runtime instructions.
+export function readBrowserProjects() {
+  const access = JSON.parse(fs.readFileSync(path.join(portfolioRoot, 'src/project-access.json'), 'utf8'));
+  return readProjects().filter(project => (!access[project.slug] || access[project.slug].kind === 'web') && project.localUrl);
+}
+
 export function parseUrl(value) {
   const url = new URL(value);
   return {

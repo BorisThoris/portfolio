@@ -1,6 +1,14 @@
 # Portfolio
 
-Local portfolio showcase for Boris Bostandzhiev's demo-ready projects.
+Git-backed portfolio for Boris Bostandzhiev's projects, published at https://boris-portfolio-git.pages.dev/ from the `master` branch.
+
+## Browser demos and native projects
+
+`src/project-access.json` records each project's runtime, verified availability, setup instructions, and media provenance. It is curated separately from generated repository metadata. Native pages use only actual application captures or clearly labelled CLI transcripts in `public/native`; unavailable captures use an explicit placeholder. The browser build, launch and capture helpers skip native applications and empty historical archives.
+
+Downloadable examples include the Java application and the Unity Recorder Windows player. Private project source is not included in public downloads. Larger native builds are not advertised as public downloads until a download host exists. Newly recovered browser apps remain marked locally verified until a public deployment URL is available.
+
+After changing the catalog or native media, run `npm run build`, `npm run check:ui`, and `npm run check:native`. Keep screenshots, transcript labels and runtime instructions faithful to the original application. Do not substitute a web recreation for native verification.
 
 ## Run
 

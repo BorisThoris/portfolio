@@ -396,5 +396,373 @@
       "Reference"
     ],
     "accent": "#6ee7b7"
+  },
+  {
+    "slug": "portfolio",
+    "title": "Portfolio Website",
+    "subtitle": "Recovered web project",
+    "description": "Project search matches multiple terms; empty results and Escape restore focus.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/portfolio",
+    "localUrl": "http://127.0.0.1:4400/",
+    "buildCommand": "npm run build",
+    "buildOutput": "dist",
+    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4400",
+    "tags": [
+      "Web"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "hosted-failover",
+    "title": "Hosted Failover",
+    "subtitle": "Keep static sites available when their primary origin fails.",
+    "description": "Isolated real origin/failover demo; malformed URL and changed-root refresh fixes.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/hosted-failover",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "npm ci\nnode demo.mjs",
+    "tags": [
+      "Node.js",
+      "HTTP",
+      "Failover"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "portfolio-ai-orchestrator",
+    "title": "Portfolio Refinement Monitor",
+    "subtitle": "Follow task progress through an interactive refinement session.",
+    "description": "A Windows Electron dashboard for task ledgers, worker progress and refinement logs. The native demonstration runs fictional tasks in memory, with start, advance, pause and reset controls.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/portfolio-ai-orchestrator/monitor-app",
+    "localUrl": "http://127.0.0.1:4412/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "cd monitor-app\nnpm ci\nnpm run demo:native",
+    "tags": [
+      "Electron",
+      "React",
+      "Task monitoring"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "automation-assignment",
+    "title": "Browser Automation Assignment",
+    "subtitle": "Export workspace members through repeatable browser automation.",
+    "description": "A browser automation command-line workflow that extracts structured member data. The reproducible local demonstration uses fictional fixtures; live Notion access requires authentication.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/accessowl-browser-automation",
+    "localUrl": "http://127.0.0.1:8311/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Node.js",
+      "Playwright",
+      "Extraction"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "weighted-draw-engine",
+    "title": "Weighted Draw Engine",
+    "subtitle": "Explore weighted probabilities and sample outcomes.",
+    "description": "A Python weighted sampling engine with input validation, duplicate merging and binary-search selection. The command-line demonstration explains probabilities and samples real results.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/Man_Group_Assignment_2023",
+    "localUrl": "http://127.0.0.1:4310/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "python demo.py",
+    "tags": [
+      "Python",
+      "Probability",
+      "Sampling"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "bean-tapper-arena",
+    "title": "Bean Tapper Arena",
+    "subtitle": "Race friends at tapping stations in a physical 3D arena.",
+    "description": "A native S&box multiplayer arcade game with physical bean avatars, tapping stations, station ownership and tournament scoring.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bean",
+    "localUrl": "http://127.0.0.1:4413/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "Open the project in the S&box editor.",
+    "tags": [
+      "S&box",
+      "C#",
+      "Multiplayer"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "soundstage-composer",
+    "title": "Soundstage Composer",
+    "subtitle": "Record piano phrases and arrange them on an editable timeline.",
+    "description": "A native Unity and FMOD music composition prototype with piano instruments, recording and replay, and an editable UI Toolkit timeline.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/my-musial-app",
+    "localUrl": "http://127.0.0.1:8313/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "Open the Unity project using the version in ProjectSettings/ProjectVersion.txt.",
+    "tags": [
+      "Unity",
+      "FMOD",
+      "Composition"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "my-musical-app-code",
+    "title": "My-musical-app-code",
+    "subtitle": "Historical repository",
+    "description": "An empty historical repository retained for provenance. No runnable source was found.",
+    "repoPath": "",
+    "localUrl": "https://github.com/BorisThoris/My-musical-app-code",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Archive"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "unity-audio-recorder",
+    "title": "Unity Audio Recorder",
+    "subtitle": "Load, play, record and export audio in a compact workstation.",
+    "description": "A Unity audio workstation for loading, playing, recording and exporting audio. A sample tone makes the native Windows demonstration usable without a microphone.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\Unity-Audio-Recorder",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "Extract the Windows ZIP and launch RecorderDemo.exe.",
+    "tags": [
+      "Unity",
+      "Audio",
+      "WAV export"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "w-i-p-stop-the-crowns-game-unity",
+    "title": "W.I.P-Stop-The-Crowns-Game-Unity",
+    "subtitle": "Historical repository",
+    "description": "An empty historical repository retained for provenance. No runnable source was found.",
+    "repoPath": "",
+    "localUrl": "https://github.com/BorisThoris/W.I.P-Stop-The-Crowns-Game-Unity",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Archive"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "w-i-p-3d-endless-runner-unity",
+    "title": "W.I.P-3D-Endless-Runner-Unity",
+    "subtitle": "Historical repository",
+    "description": "An empty historical repository retained for provenance. No runnable source was found.",
+    "repoPath": "",
+    "localUrl": "https://github.com/BorisThoris/W.I.P-3D-Endless-Runner-Unity",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Archive"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "keyboard-controlled-website-method",
+    "title": "Keyboard Navigation Lab",
+    "subtitle": "Move focus with directional keys and keyboard shortcuts.",
+    "description": "A keyboard navigation experiment with directional focus movement, uneven rows, Home and End shortcuts, and accessible native controls.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\Keyboard-Controlled-Website-Method",
+    "localUrl": "http://127.0.0.1:4415/",
+    "buildCommand": "npm test",
+    "buildOutput": ".",
+    "runCommand": "npm start",
+    "tags": [
+      "JavaScript",
+      "Keyboard navigation",
+      "Accessibility"
+    ],
+    "accent": "#90c7c5",
+    "screenshot": "/project-shots/keyboard-controlled-website-method/verified-desktop.png"
+  },
+  {
+    "slug": "keyboard-controlled-website",
+    "title": "Keyboard-Controlled-Website",
+    "subtitle": "Historical repository",
+    "description": "An empty historical repository retained for provenance. No runnable source was found.",
+    "repoPath": "",
+    "localUrl": "https://github.com/BorisThoris/Keyboard-Controlled-Website",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Archive"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "my-app",
+    "title": "TV Navigation",
+    "subtitle": "Browse a TV-style interface using only the keyboard.",
+    "description": "A television navigation prototype with image-backed sections and keyboard focus movement, recovered from an early React application.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\my-app",
+    "localUrl": "http://127.0.0.1:4416/",
+    "buildCommand": "npm run build",
+    "buildOutput": "build",
+    "runCommand": "npm start -- --port 4416",
+    "tags": [
+      "React",
+      "TV interface",
+      "Keyboard navigation"
+    ],
+    "accent": "#90c7c5",
+    "screenshot": "/project-shots/my-app/verified-desktop.png"
+  },
+  {
+    "slug": "csharp-backend-websitedemo",
+    "title": "ASP.NET Website Demo",
+    "subtitle": "An early personal website rendered with ASP.NET MVC.",
+    "description": "An early personal website, preserved as historical content and recovered on ASP.NET Core MVC. Explore server-rendered pages, local assets and responsive layout.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\cSharp-backend-websiteDemo",
+    "localUrl": "http://127.0.0.1:4417/",
+    "buildCommand": "dotnet build WebApplication2",
+    "buildOutput": "WebApplication2/bin/Debug/net10.0",
+    "runCommand": "dotnet run --project WebApplication2 --urls http://127.0.0.1:4417",
+    "tags": [
+      "ASP.NET MVC",
+      ".NET",
+      "Razor"
+    ],
+    "accent": "#90c7c5",
+    "fallbackCommand": "dotnet run --project WebApplication2 --urls http://127.0.0.1:4417",
+    "screenshot": "/project-shots/csharp-backend-websitedemo/verified-desktop.png"
+  },
+  {
+    "slug": "myapp",
+    "title": "Greeting & Clock CLI",
+    "subtitle": "Named greetings and a UTC clock, with readable or JSON output.",
+    "description": "A small C# greeting and clock utility with named greetings, UTC output, structured JSON and argument validation.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\myApp",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "dotnet run -- --name Boris --utc --json",
+    "tags": [
+      "C#",
+      ".NET",
+      "CLI"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "helloword",
+    "title": "Donut Studio",
+    "subtitle": "Explore colorful ellipse patterns with a resizable canvas and density controls.",
+    "description": "A Java Swing drawing studio with a resizable Java2D canvas, adjustable ring density, keyboard controls and image export.",
+    "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\HelloWord",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "./Start-Demo.ps1",
+    "tags": [
+      "Java",
+      "Swing",
+      "Generative drawing"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "javapractice",
+    "title": "javaPractice",
+    "subtitle": "Historical repository",
+    "description": "An empty historical repository retained for provenance. No runnable source was found.",
+    "repoPath": "",
+    "localUrl": "https://github.com/BorisThoris/javaPractice",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See repository README for local setup.",
+    "tags": [
+      "Archive"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "boris-rep",
+    "title": "Integer Fit",
+    "subtitle": "Find which C# integer types can hold a number.",
+    "description": "A C# integer range explorer that identifies fitting numeric types, including BigInteger for values outside the standard integer ranges.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/GitHub/Boris-rep",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "dotnet run --project IntegerFit -- --demo",
+    "tags": [
+      "C#",
+      "BigInteger",
+      "Number ranges"
+    ],
+    "accent": "#90c7c5"
+  },
+  {
+    "slug": "practice",
+    "title": "Algorithm Practice",
+    "subtitle": "Experiment with subsequences and searchable offline posts.",
+    "description": "A React practice application combining an interactive nondecreasing subsequence exercise with an offline post search.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/DevWork/Exercise/practice",
+    "localUrl": "http://127.0.0.1:4419/",
+    "buildCommand": "npm run build",
+    "buildOutput": "build",
+    "runCommand": "npm start",
+    "tags": [
+      "React",
+      "Algorithms",
+      "Search"
+    ],
+    "accent": "#90c7c5",
+    "screenshot": "/project-shots/practice/verified-desktop.png"
+  },
+  {
+    "slug": "moviedb",
+    "title": "Film Library",
+    "subtitle": "Browse and search an offline collection of fictional films.",
+    "description": "An Angular film library with fictional offline movies, search, film details, local posters and missing-page recovery.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/movieDb",
+    "localUrl": "http://127.0.0.1:4420/",
+    "buildCommand": "npm run build:demo",
+    "buildOutput": "demo/dist",
+    "runCommand": "npm run demo",
+    "tags": [
+      "Angular",
+      "Offline",
+      "Search"
+    ],
+    "accent": "#90c7c5",
+    "screenshot": "/project-shots/moviedb/verified-desktop.png"
+  },
+  {
+    "slug": "github-csharp-exercises",
+    "title": "C# Exercise Collection",
+    "subtitle": "Work through original numeric and geometry exercises.",
+    "description": "A collection of original C# exercises covering factorials, digit extraction, trailing zeroes and geometry, with a runnable console launcher.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/GitHub",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "./Demo/Run-Demo.ps1",
+    "tags": [
+      "C#",
+      ".NET",
+      "Algorithms"
+    ],
+    "accent": "#90c7c5"
   }
 ]

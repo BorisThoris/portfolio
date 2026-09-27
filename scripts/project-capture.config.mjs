@@ -45,6 +45,15 @@ export const defaultCaptureOptions = {
 // resolved against that project's stable deployment or isolated latest build.
 // stableRoute/latestRoute can override route when the two versions diverge.
 export const projectCaptureTargets = {
+  'bobball': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'system-architecture-cheatsheet': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'portfolio': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'keyboard-controlled-website-method': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'my-app': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'csharp-backend-websitedemo': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'practice': { route: '/', readySelector: 'body', readyState: 'visible' },
+  'moviedb': { route: '/', readySelector: 'body', readyState: 'visible' },
+
   'vyb-chess': {
     route: '/',
     readySelector: '.launch-screen',

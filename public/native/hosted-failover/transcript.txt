@@ -1,0 +1,10 @@
+$ node demo.mjs
+
+Hosted failover demo — actual server, disposable localhost sites
+PASS 1/6: healthy primary receives redirects and serves the page.
+PASS 2/6: byte-range and HEAD responses preserve asset behavior.
+PASS 3/6: malformed URL returns 400 and the server stays healthy.
+PASS 4/6: sync manifest describes both fixture files.
+Primary stopped. Waiting for the real two-miss health policy (~10 seconds)…
+PASS 5/6: offline primary falls back to the synced local copy.
+PASS 6/6: recovered primary resumes redirects. Demo complete.

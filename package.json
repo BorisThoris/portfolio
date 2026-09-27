@@ -44,7 +44,8 @@
     "icons:check": "node scripts/generate-app-icons.mjs --check",
     "meta:refresh": "node scripts/refresh-project-meta.mjs",
     "trailers": "node scripts/build-project-trailers.mjs",
-    "trailers:check": "node scripts/build-project-trailers.mjs --check"
+    "trailers:check": "node scripts/build-project-trailers.mjs --check",
+    "check:native": "node scripts/check-native-showcase.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.3",

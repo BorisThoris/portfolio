@@ -1,0 +1,700 @@
+{
+  "bobball": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "python -m http.server 8765  (then /game/)",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "bbeats": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "yarn dev --host 127.0.0.1 --port 4101",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "portfolio": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public portfolio, deployed from the Git repository.",
+    "environment": "Modern browser",
+    "instructions": "This portfolio is published from the master branch of BorisThoris/portfolio.",
+    "sourceUrl": "https://github.com/BorisThoris/portfolio",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "threejs-gem-dungeon-editor": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "yarn dev --host 127.0.0.1 --port 4116",
+    "sourceUrl": "https://github.com/BorisThoris/threejs-gem-dungeon-editor-live",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "vyb-chess": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm run dev -- --host 127.0.0.1 --port 4117",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "hosted-failover": {
+    "kind": "native",
+    "label": "Node.js command line",
+    "status": "Verified real local origins: primary, outage, fallback and recovery.",
+    "environment": "Node.js 22.12 or newer",
+    "instructions": "node demo.mjs",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/hosted-failover/native-output.png",
+        "caption": "Origin, outage, fallback and recovery verification",
+        "width": 1440,
+        "height": 600
+      }
+    ],
+    "videos": [],
+    "captureNote": "Verbatim output captured from the real Node.js command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
+    "transcriptUrl": "/native/hosted-failover/transcript.txt"
+  },
+  "memory-dungeon": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "yarn dev:renderer --host 127.0.0.1 --port 4102",
+    "sourceUrl": "https://github.com/BorisThoris/memory-dungeon",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "pedal-rush": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "https://github.com/BorisThoris/pedal-rush",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "memory-card-quest": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "https://github.com/BorisThoris/memory-card-quest",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "org-atlas-directory": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm install\nnpm start\nSee the repository README for the published source setup.",
+    "sourceUrl": "https://github.com/BorisThoris/org-atlas-directory",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "gorilla-gainz": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "https://github.com/BorisThoris/gorilla-gainz",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "flowforge-configurator": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "https://github.com/BorisThoris/flowforge-configurator",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "user-hub-admin": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start -- --host 127.0.0.1 --port 4109",
+    "sourceUrl": "https://github.com/BorisThoris/user-hub-admin",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "cat-world": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start -- --host 127.0.0.1 --port 4108",
+    "sourceUrl": "https://github.com/BorisThoris/cat-world",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "runner-score-arcade": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "https://github.com/BorisThoris/runner-score-arcade",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "roam-rental-dashboard": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "cd roam-rental-dashboard-app && npm run dev -- -p 4106",
+    "sourceUrl": "https://github.com/BorisThoris/roam-rental-dashboard",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "cross-repo-libs": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm run dev --workspace=example-web -- --host 127.0.0.1 --port 4105",
+    "sourceUrl": "https://github.com/BorisThoris/cross-repo-libs",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "gem-dungeon": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "yarn dev --host 127.0.0.1 --port 4103",
+    "sourceUrl": "https://github.com/BorisThoris/gem-dungeon",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "skyfall": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm run dev -- --host 127.0.0.1 --port 4104",
+    "sourceUrl": "https://github.com/BorisThoris/skyfall",
+    "sourceStatus": "Public repository",
+    "images": [],
+    "videos": []
+  },
+  "portfolio-ai-orchestrator": {
+    "kind": "native",
+    "label": "Electron desktop",
+    "status": "Verified in the actual Electron application. The demonstration uses fictional in-memory tasks; it does not start agents or modify repositories.",
+    "environment": "Windows; Node.js 22.12 or newer",
+    "instructions": "This page shows the actual Electron desktop application running with fictional demonstration data. The native demo and repeatable screenshot workflow are verified locally. No public application download is currently available.",
+    "sourceUrl": "",
+    "sourceStatus": "Private repository; source code is not published.",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/portfolio-ai-orchestrator/electron-simulation.png",
+        "caption": "Electron simulation",
+        "width": 1224,
+        "height": 795
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the actual Electron desktop application in safe simulation mode. Tasks and activity are fictional demo data."
+  },
+  "automation-assignment": {
+    "kind": "native",
+    "label": "Browser automation CLI",
+    "status": "The original Node.js / Playwright CLI runs against fictional local fixtures. The live Notion workflow requires authentication and has not been claimed as tested.",
+    "environment": "Node.js 22.12 or newer and Playwright Chromium",
+    "instructions": "The native demo was verified locally; its captured output and verification details are shown here. Latest demo commands and source refinements are pending publication. See the public repository README for its currently published setup.",
+    "sourceUrl": "https://github.com/BorisThoris/automation-assignment",
+    "sourceStatus": "Public repository; latest demo refinements are pending publication.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/automation-assignment/native-output.png",
+        "caption": "Actual member export CLI output",
+        "width": 1440,
+        "height": 600
+      }
+    ],
+    "videos": [],
+    "transcriptUrl": "/native/automation-assignment/transcript.txt",
+    "downloadUrl": "/native/automation-assignment/fictional-members.json",
+    "downloadLabel": "Download fictional export JSON",
+    "captureNote": "Verbatim output from the real Node.js / Playwright CLI against fictional local fixtures, formatted for readability. This is command output, not a desktop screenshot or live Notion result."
+  },
+  "weighted-draw-engine": {
+    "kind": "native",
+    "label": "Python command line",
+    "status": "Weighted sampling runs in the original Python environment.",
+    "environment": "Python 3",
+    "instructions": "The native demo was verified locally; its captured output and verification details are shown here. Latest demo commands and source refinements are pending publication. See the public repository README for its currently published setup.",
+    "sourceUrl": "https://github.com/BorisThoris/weighted-draw-engine",
+    "sourceStatus": "Public repository; latest demo refinements are pending publication.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/weighted-draw-engine/native-output.png",
+        "width": 1440,
+        "height": 600
+      }
+    ],
+    "videos": [],
+    "captureNote": "Verbatim output captured from the real command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
+    "transcriptUrl": "/native/weighted-draw-engine/transcript.txt"
+  },
+  "bean-tapper-arena": {
+    "kind": "native",
+    "label": "S&box game",
+    "status": "Verified in the native S&box engine: claim a station, complete the countdown, register taps, receive results and advance to the next round. Physical keyboard/mouse input and remote multiplayer still need manual checks.",
+    "environment": "Windows; Steam and S&box editor (verified with 26.09.22a)",
+    "instructions": "Requires Steam and the S&box editor on Windows. Open the game project (.sbproj), load Assets/test.scene, then press F5. The captures on this page come from a locally repaired build. The latest native recovery and automated capture scripts have not been published to the source repository yet.",
+    "sourceUrl": "https://github.com/BorisThoris/bean-tapper-arena",
+    "sourceStatus": "Public repository; latest native recovery changes are pending publication.",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/bean-tapper-arena/bean-tapper-station.png",
+        "caption": "Station in the running native game",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-2",
+        "path": "/native/bean-tapper-arena/bean-tapper-arena.png",
+        "caption": "Original S&box arena",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "videos": [],
+    "captureNote": "Actual running S&box game captured through the native GameEditorSession camera. The native smoke check registered 12 taps, awarded 5 tournament points and advanced to round 2 (Sprint 5). A video trailer has not been recorded."
+  },
+  "soundstage-composer": {
+    "kind": "native",
+    "label": "Unity application",
+    "status": "Verified in the native Unity Windows application: play instruments, record and replay takes, arrange and edit timeline notes, then play or stop a composition.",
+    "environment": "Windows 64-bit; Unity 2022.2.14f1 and the project FMOD integration for source development",
+    "instructions": "A Windows player is built and verified locally; its public download is not hosted yet.\nWith a copy of the Windows player, keep its Data folder, FMOD files and DLLs beside the executable.\nTo work from source, open the project in Unity 2022.2.14f1 and follow the repository setup instructions.",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/soundstage-composer/03-composition-editor.png",
+        "caption": "Composition editor",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-2",
+        "path": "/native/soundstage-composer/02-piano-recorded-take.png",
+        "caption": "Recorded piano take",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-3",
+        "path": "/native/soundstage-composer/04-note-settings.png",
+        "caption": "Note settings",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-4",
+        "path": "/native/soundstage-composer/05-composition-playback.png",
+        "caption": "Composition playback",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-5",
+        "path": "/native/soundstage-composer/01-starting-screen.png",
+        "caption": "Start screen",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "videos": [
+      {
+        "url": "/native/soundstage-composer/soundstage-native-preview.mp4",
+        "kind": "video",
+        "title": "Native Unity walkthrough (silent)",
+        "poster": "/native/soundstage-composer/03-composition-editor.png",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "captureNote": "Captured from the actual Unity Windows application. The short walkthrough is silent; instrument playback and recording were verified in the native runtime."
+  },
+  "my-musical-app-code": {
+    "kind": "archive",
+    "label": "Historical archive",
+    "status": "No runnable source found; retained for history.",
+    "environment": "No runtime available",
+    "instructions": "",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "unity-audio-recorder": {
+    "kind": "native",
+    "label": "Unity application",
+    "status": "Verified in the native Unity Windows player: load the sample tone, play, stop and export a WAV. Microphone input and subjective audio playback still require a device check.",
+    "environment": "Windows 64-bit; no Unity editor required for the downloadable player",
+    "instructions": "Extract the full ZIP and run RecorderDemo.exe. Keep the Data folder and DLL files alongside the executable.\nLoad sample, play, stop, then export a WAV.\nSource development requires Unity 2020.3.26f1.",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/unity-audio-recorder/recorder-playing.png",
+        "caption": "Sample playing",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "native-2",
+        "path": "/native/unity-audio-recorder/recorder-ready.png",
+        "caption": "Ready to play",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "native-3",
+        "path": "/native/unity-audio-recorder/recorder-exported.png",
+        "caption": "WAV exported",
+        "width": 1600,
+        "height": 900
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the actual Unity Windows player while loading, playing and exporting a sample tone.",
+    "downloadUrl": "/native/unity-audio-recorder/Unity-Audio-Recorder-Windows.zip",
+    "downloadLabel": "Download Windows player (24 MB)"
+  },
+  "w-i-p-stop-the-crowns-game-unity": {
+    "kind": "archive",
+    "label": "Historical archive",
+    "status": "No runnable source found; retained for history.",
+    "environment": "No runtime available",
+    "instructions": "",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "w-i-p-3d-endless-runner-unity": {
+    "kind": "archive",
+    "label": "Historical archive",
+    "status": "No runnable source found; retained for history.",
+    "environment": "No runtime available",
+    "instructions": "",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "keyboard-controlled-website-method": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Node.js 22.12 or newer; modern browser",
+    "instructions": "npm start",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/keyboard-controlled-website-method/verified-desktop.png",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/keyboard-controlled-website-method/verified-mobile.png",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the locally verified browser application."
+  },
+  "keyboard-controlled-website": {
+    "kind": "archive",
+    "label": "Historical archive",
+    "status": "No runnable source found; retained for history.",
+    "environment": "No runtime available",
+    "instructions": "",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "my-app": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Node.js 22.12 or newer; modern browser",
+    "instructions": "npm ci\nnpm start",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/my-app/verified-desktop.png",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/my-app/verified-mobile.png",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the locally verified browser application."
+  },
+  "csharp-backend-websitedemo": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": ".NET SDK 10; modern browser",
+    "instructions": "dotnet run --project WebApplication2 --urls http://127.0.0.1:4417",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/csharp-backend-websitedemo/verified-desktop.png",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/csharp-backend-websitedemo/verified-mobile.png",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the actual ASP.NET MVC application running locally."
+  },
+  "myapp": {
+    "kind": "native",
+    "label": "C# command line",
+    "status": "Actual console greeting and clock; JSON, help and invalid arguments checked.",
+    "environment": ".NET SDK 10",
+    "instructions": "dotnet run -- --name Boris --utc --json",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/myapp/native-output.png",
+        "width": 1440,
+        "height": 600
+      }
+    ],
+    "videos": [],
+    "captureNote": "Verbatim output captured from the real command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
+    "transcriptUrl": "/native/myapp/transcript.txt"
+  },
+  "helloword": {
+    "kind": "native",
+    "label": "Java Swing desktop",
+    "status": "Verified running Java Swing window. Change density using the slider.",
+    "environment": "Java 11 or newer; Windows, macOS or Linux",
+    "instructions": "Extract the ZIP, then run:\njava -jar DonutStudio.jar",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/helloword/donut-spacing-8.png",
+        "caption": "Default ring density",
+        "width": 704,
+        "height": 601
+      },
+      {
+        "profile": "native-2",
+        "path": "/native/helloword/donut-spacing-18.png",
+        "caption": "Wide ring spacing",
+        "width": 704,
+        "height": 601
+      },
+      {
+        "profile": "native-3",
+        "path": "/native/helloword/donut-spacing-4.png",
+        "caption": "Dense ring spacing",
+        "width": 704,
+        "height": 601
+      }
+    ],
+    "videos": [
+      {
+        "url": "/native/helloword/donut-studio-native.mp4",
+        "kind": "video",
+        "title": "Actual Java Swing window — density controls",
+        "poster": "/native/helloword/donut-spacing-8.png",
+        "width": 704,
+        "height": 602
+      }
+    ],
+    "downloadUrl": "/native/helloword/DonutStudio-Java.zip",
+    "downloadLabel": "Download Java application",
+    "captureNote": "Captured from the actual Java Swing application. The video shows the real density slider changing the Java2D canvas."
+  },
+  "javapractice": {
+    "kind": "archive",
+    "label": "Historical archive",
+    "status": "No runnable source found; retained for history.",
+    "environment": "No runtime available",
+    "instructions": "",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": []
+  },
+  "boris-rep": {
+    "kind": "native",
+    "label": "C# command line",
+    "status": "Actual recovered integer exercise.",
+    "environment": ".NET SDK 10",
+    "instructions": "dotnet run --project IntegerFit -- --demo",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/boris-rep/native-output.png",
+        "width": 1440,
+        "height": 978
+      }
+    ],
+    "videos": [],
+    "captureNote": "Verbatim output captured from the real command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
+    "transcriptUrl": "/native/boris-rep/transcript.txt"
+  },
+  "system-architecture-cheatsheet": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Modern browser",
+    "instructions": "npm run dev",
+    "sourceUrl": "",
+    "sourceStatus": "Local source; not published.",
+    "images": [],
+    "videos": []
+  },
+  "practice": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Node.js 22.12 or newer; modern browser",
+    "instructions": "npm ci\nnpm start",
+    "sourceUrl": "",
+    "sourceStatus": "Local source; not published.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/practice/verified-desktop.png",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/practice/verified-mobile.png",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the locally verified browser application."
+  },
+  "moviedb": {
+    "kind": "web",
+    "label": "Web application",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Node.js 22.12 or newer; modern browser",
+    "instructions": "npm run demo:install\nnpm run build:demo\nnpm run demo",
+    "sourceUrl": "",
+    "sourceStatus": "Local source; not published.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/moviedb/verified-desktop.png",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/moviedb/verified-mobile.png",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the locally verified browser application."
+  },
+  "github-csharp-exercises": {
+    "kind": "native",
+    "label": "C# command line",
+    "status": "Four selected historical exercises verified in the console.",
+    "environment": ".NET SDK 10; PowerShell",
+    "instructions": "./Demo/Run-Demo.ps1",
+    "sourceUrl": "",
+    "sourceStatus": "Local source; not published.",
+    "images": [
+      {
+        "profile": "native-cli-output",
+        "path": "/native/github-csharp-exercises/native-output.png",
+        "width": 1440,
+        "height": 1362
+      }
+    ],
+    "videos": [],
+    "captureNote": "Verbatim output captured from the real command-line program, formatted for readability. This is a transcript, not a desktop window screenshot.",
+    "transcriptUrl": "/native/github-csharp-exercises/transcript.txt"
+  }
+}

@@ -1,0 +1,38 @@
+$ ./Demo/Run-Demo.ps1
+
+
+factorial: 20! using arbitrary-precision integers
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.53
+PASS: 2432902008176640000
+
+last-digit: Name the last digit of the smallest signed 64-bit integer
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.31
+PASS: eight
+
+trailing-zeroes: Count trailing zeros of 100! without constructing the factorial
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.80
+PASS: 24
+
+geometry: Area of a 4 by 5 rectangle
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.49
+PASS: 20.00

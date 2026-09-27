@@ -1,6 +1,6 @@
-import { buildProject, readProjects } from './project-runtime.mjs';
+import { buildProject, readBrowserProjects } from './project-runtime.mjs';
 
-const projects = readProjects();
+const projects = readBrowserProjects();
 const selected = getSelectedSlugs();
 const targets = selected.length > 0
   ? projects.filter((project) => selected.includes(project.slug))

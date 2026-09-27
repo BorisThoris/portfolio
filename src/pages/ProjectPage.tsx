@@ -12,6 +12,7 @@ import {
   Project,
   ProjectImage,
 } from "../projects";
+import { getProjectAccess } from "../projectAccess";
 import { getProjectDetails } from "../projectDetails";
 import {
   formatBytes,
@@ -30,11 +31,12 @@ export function ProjectPage() {
 }
 
 function ProjectContent({ project }: { project: Project }) {
+  const access = getProjectAccess(project.slug);
   const details = getProjectDetails(project.slug);
   const artwork = details?.artwork ?? [];
-  const gallery = orderedGallery(details?.images ?? []);
+  const gallery = access && access.kind !== "web" ? access.images : orderedGallery(details?.images ?? []);
   const related = relatedProjects(project);
-  const repository = details?.links?.repository;
+  const repository = access ? access.sourceUrl : details?.links?.repository;
   return (
     <div className="shell shell--project">
       <a className="skip-link" href="#project-content">
@@ -64,7 +66,7 @@ function ProjectContent({ project }: { project: Project }) {
               ))}
             </ul>
             <div className="project-actions">
-              {project.deploymentUrl ? (
+              {project.deploymentUrl && (!access || access.kind === "web") ? (
                 <a
                   className="btn btn--primary"
                   href={project.deploymentUrl}
@@ -80,7 +82,7 @@ function ProjectContent({ project }: { project: Project }) {
                 </a>
               ) : (
                 <span className="project-availability">
-                  Live demo not published
+                  {access?.kind === "native" ? "Native application" : access?.kind === "archive" ? "Historical archive" : "Live demo not published"}
                 </span>
               )}
               {repository ? (
@@ -138,6 +140,14 @@ function ProjectContent({ project }: { project: Project }) {
             </dl>
           </div>
         </section>
+        {access && <section className="section project-access" aria-labelledby="access-title">
+          <p className="eyebrow">{access.label}</p><h2 id="access-title">Run &amp; availability</h2>
+          <p>{access.status}</p><p><strong>Environment:</strong> {access.environment}</p>
+          {access.instructions && <pre><code>{access.instructions}</code></pre>}
+          {access.downloadUrl ? <a className="btn" href={access.downloadUrl} download><Download size={16} />{access.downloadLabel ?? "Download"}</a> : access.kind === "native" ? <p>Packaged download not published yet.</p> : null}
+          {access.transcriptUrl && <p><a href={access.transcriptUrl}>Read the captured console transcript</a></p>}
+          {access.sourceStatus && <p>{access.sourceStatus}</p>}
+        </section>}
         {artwork.length > 0 ? (
           <section
             id="artwork"
@@ -205,11 +215,11 @@ function ProjectContent({ project }: { project: Project }) {
           <section className="section" aria-labelledby="screenshots-title">
             <header className="section__head">
               <div>
-                <p className="eyebrow">Screenshots</p>
-                <h2 id="screenshots-title">Desktop and mobile.</h2>
+                <p className="eyebrow">{access?.transcriptUrl ? "Console output" : "Screenshots"}</p>
+                <h2 id="screenshots-title">{access?.transcriptUrl ? "Captured from the command line." : access?.kind === "native" ? "Captured in the native application." : "Desktop and mobile."}</h2>
               </div>
               <p className="section__lede">
-                Open any screenshot to view it at full size.
+                {access?.captureNote ?? "Open any screenshot to view it at full size."}
               </p>
             </header>
             <div className="shot-grid">
@@ -217,22 +227,22 @@ function ProjectContent({ project }: { project: Project }) {
                 <a
                   className={`shot shot--${shot.profile}`}
                   href={shot.path}
-                  key={shot.profile}
+                  key={shot.path}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <img
                     src={shot.path}
-                    alt={`${project.title} ${shot.profile} screenshot`}
+                    alt={`${project.title}: ${shot.caption ?? shot.profile}`}
                     loading="lazy"
                     decoding="async"
                     width={shot.width}
                     height={shot.height}
                   />
                   <span>
-                    {shot.profile === "mobile"
+                    {shot.caption ?? (shot.profile === "mobile"
                       ? "Mobile"
-                      : humanize(shot.profile)}
+                      : humanize(shot.profile))}
                     <ArrowUpRight size={15} />
                   </span>
                 </a>
@@ -290,7 +300,7 @@ function ProjectContent({ project }: { project: Project }) {
 
 function relatedProjects(project: Project) {
   const candidates = visibleProjects.filter(
-    (candidate) => candidate.slug !== project.slug,
+    (candidate) => candidate.slug !== project.slug && getProjectAccess(candidate.slug)?.kind !== "archive",
   );
   return candidates.slice(0, 7);
 }

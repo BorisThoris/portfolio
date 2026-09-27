@@ -3,12 +3,12 @@ import {
   parseUrl,
   portfolioRoot,
   probeUrl,
-  readProjects,
+  readBrowserProjects,
   waitForUrl,
   writeRuntimeStatus
 } from './project-runtime.mjs';
 
-const projects = readProjects();
+const projects = readBrowserProjects();
 const processes = [];
 const statuses = [];
 

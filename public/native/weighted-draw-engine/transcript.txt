@@ -1,0 +1,10 @@
+$ python demo.py
+
+Weighted Draw Lab | 10,000 draws | seed 42
+Outcome  Expected  Observed   Count  Distribution
+     -1    1.00%    1.04%     104
+      0   30.00%   29.89%    2989  ############
+      1   58.00%   58.41%    5841  #######################
+      2   10.00%    9.59%     959  ####
+      3    1.00%    1.07%     107
+Repeat the same seed to reproduce this result. Try --serve for the interactive lab.

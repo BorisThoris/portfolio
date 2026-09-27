@@ -27,6 +27,8 @@ const rankings = JSON.parse(
 const visibleProjects = projectData.filter(
   (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
 );
+const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
+const activeProjects = visibleProjects.filter(project => access[project.slug]?.kind !== "archive");
 async function audit(page, name) {
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
@@ -104,7 +106,10 @@ try {
   );
   assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
   assert.equal(await page.locator('.catalog-filters, .catalog-shelves, .project-tile__heading > span').count(), 0, "No category filters, rows, or badges");
+  assert.equal(await page.locator('.project-grid > li').count(), activeProjects.length);
+  await page.getByRole('checkbox', {name: /Include historical archives/}).check();
   assert.equal(await page.locator('.project-grid > li').count(), visibleProjects.length);
+  await page.getByRole('checkbox', {name: /Include historical archives/}).uncheck();
   assert.equal(await page.getByRole('heading', { name: /^(Apps & tools|Games|Commerce)$/ }).count(), 0);
   assert.equal(await page.locator('.hero video').count(), 0, "Hero respects reduced motion");
   assert.equal(await page.locator('.hero__orbits i').first().evaluate((el) => getComputedStyle(el).animationName), 'none');
@@ -120,7 +125,7 @@ try {
   await page.getByRole("button", { name: "Clear search" }).click();
   assert.equal(
     await page.locator(".project-tile").count(),
-    visibleProjects.length,
+    activeProjects.length,
   );
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();
@@ -134,7 +139,7 @@ try {
     "borisbostandzhiev@yahoo.com",
   );
   report.push(
-    "Desktop: featured carousel, all projects in one grid without categories, search/reset, reduced-motion hero, disclosure, clipboard",
+    "Desktop: featured carousel, source projects with optional historical archives, search/reset, reduced-motion hero, disclosure, clipboard",
   );
   // Chromium rounds fractional layout widths to integers; allow one CSS pixel.
   for (const width of [320, 390, 768, 1440]) {
@@ -187,7 +192,8 @@ try {
     path: `${output}/release-desktop.png`,
     fullPage: true,
   });
-  await page.locator(".featured").getByRole("link", { name: "Explore BBeats", exact: true }).click();
+  // The preview can be a trailer; the project action remains available in either media state.
+  await page.locator("#project-panel-bbeats").getByRole("link", { name: "Explore project", exact: true }).click();
   await page
     .getByRole("heading", { level: 1, name: "BBeats", exact: true })
     .waitFor();
@@ -210,14 +216,23 @@ try {
   for (const project of projectData.filter(
     (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
   )) {
+    console.log(`Checking project: ${project.slug}`);
     await page.goto(`${base}/projects/${project.slug}`);
     await page
       .getByRole("heading", { level: 1, name: project.title, exact: true })
       .waitFor();
     assert.equal(await page.title(), `${project.title} | Boris Bostandzhiev`);
-    await page.locator(".project-cover img").evaluate(async (img) => {
-      await img.decode();
-    });
+    try {
+      // A failed remote poster is replaced by the local capture; wait for the final image.
+      await page.waitForFunction(() => {
+        const img = document.querySelector(".project-cover img");
+        return img instanceof HTMLImageElement && img.complete && img.naturalWidth > 0;
+      });
+    } catch (error) {
+      const imageSource = await page.locator(".project-cover img").getAttribute("src");
+      await page.screenshot({ path: `${output}/failed-${project.slug}.png` });
+      throw new Error(`${project.slug}: cover image failed (${imageSource})`, { cause: error });
+    }
     assert.equal(
       await page.locator('a[href*="127.0.0.1"],a[href*="localhost"]').count(),
       0,
@@ -239,14 +254,10 @@ try {
       `Related shelf excludes current project: ${project.slug}`,
     );
     await recommendations.first().scrollIntoViewIfNeeded();
-    const relatedImageWidth = await recommendations
-      .first()
-      .locator("img")
-      .evaluate(async (image) => {
-        await image.decode();
-        return image.naturalWidth;
-      });
-    assert(relatedImageWidth > 0, "Related project image rendered");
+    await page.waitForFunction(() => {
+      const image = document.querySelector(".project-recommendations .project-tile img");
+      return image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0;
+    });
     const html = await fs.readFile(
       `dist/projects/${project.slug}/index.html`,
       "utf8",

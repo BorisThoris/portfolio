@@ -39,6 +39,7 @@ export type ProjectVideo = {
 };
 
 export type ProjectImage = {
+  caption?: string;
   profile: string;
   path: string;
   width?: number;

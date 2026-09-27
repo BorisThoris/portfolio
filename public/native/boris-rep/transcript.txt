@@ -1,0 +1,26 @@
+$ dotnet run --project IntegerFit -- --demo
+
+INTEGER FIT | Explore the boundaries of C# integer types
+
+-129
+  Fits: short, int, long
+
+127
+  Fits: sbyte, byte, short, ushort, int, uint, long, ulong
+
+255
+  Fits: byte, short, ushort, int, uint, long, ulong
+
+65536
+  Fits: int, uint, long, ulong
+
+2147483648
+  Fits: uint, long, ulong
+
+9223372036854775808
+  Fits: ulong
+
+18446744073709551616
+  Does not fit a built-in integer type. Use BigInteger.
+
+Try your own values: dotnet run --project IntegerFit -- -42 1000

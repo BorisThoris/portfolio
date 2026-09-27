@@ -6,7 +6,7 @@ import {
   parseUrl,
   portfolioRoot,
   probeUrl,
-  readProjects,
+  readBrowserProjects,
   removeRuntimeStatus,
   startCommandServer,
   startStaticServer,
@@ -15,7 +15,7 @@ import {
 } from './project-runtime.mjs';
 
 const mode = process.argv.includes('--builds') ? 'builds' : 'live';
-const projects = readProjects();
+const projects = readBrowserProjects();
 const servers = [];
 const statuses = [];
 

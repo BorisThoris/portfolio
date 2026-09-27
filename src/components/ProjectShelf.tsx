@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getProjectAccess } from "../projectAccess";
 import { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { ProjectMedia } from "./ProjectMedia";
@@ -127,6 +128,7 @@ export function ProjectTile({ project }: { project: Project }) {
         <span className="project-tile__heading">
           <strong>{project.title}</strong>
         </span>
+        <span className="project-tile__tags">{getProjectAccess(project.slug)?.label ?? "Web application"}</span>
         <span className="project-tile__subtitle">{project.subtitle}</span>
         <span className="project-tile__tags" aria-hidden="true">
           {project.tags.slice(0, 3).join(" · ")}

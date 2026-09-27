@@ -1,3 +1,4 @@
+import { getProjectAccess } from "../projectAccess";
 import { Project } from "../projects";
 
 // A project's card picture: the project's own latest self-portrait, then the
@@ -6,6 +7,8 @@ export function captureSources(
   project: Pick<Project, "slug" | "screenshot">,
   preferredState: "latest" | "stable",
 ) {
+  const access = getProjectAccess(project.slug);
+  if (access && access.kind !== "web") return [...access.images.map(image => image.path), "/project-shots/native-placeholder.svg"];
   const alternateState = preferredState === "latest" ? "stable" : "latest";
   return [
     ...new Set([
@@ -30,18 +33,20 @@ export function CaptureImage({
   className?: string;
   sizes?: string;
 }) {
+  const access = getProjectAccess(project.slug);
+  const nonWeb = access && access.kind !== "web";
   const sources = captureSources(project, state);
   return (
     <img
       className={className}
       src={sources[0]}
       srcSet={
-        state === "latest"
+        !nonWeb && state === "latest"
           ? `/project-previews/${project.slug}-480.webp 480w, /project-previews/${project.slug}-960.webp 960w, /project-previews/${project.slug}-1600.webp 1600w`
           : undefined
       }
       sizes={sizes}
-      alt={`${project.title} screenshot`}
+      alt={access?.transcriptUrl ? `${project.title}: captured console output` : nonWeb && !access.images.length ? `${project.title}: capture not available` : `${project.title} screenshot`}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       width={1600}

@@ -7,6 +7,7 @@ import { useMediaQuery } from "../lib/runtime";
 import { useMotionEnabled } from "../lib/motion";
 import { formatDuration, youtubeEmbedUrl } from "../lib/format";
 import { mediaRatio, previewClip, projectClips, type ProjectClip } from "../lib/projectMedia";
+import { getProjectAccess } from "../projectAccess";
 import { CaptureImage } from "./CaptureImage";
 import "../project-media.css";
 
@@ -35,7 +36,9 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const [failed, setFailed] = useState(false);
   const [posterFailed, setPosterFailed] = useState(false);
   const [decodedRatios, setDecodedRatios] = useState<Record<string, number>>({});
-  const ratio = (clip && decodedRatios[clip.url]) || mediaRatio(clip);
+  const access = getProjectAccess(project.slug);
+  const nativeImage = access?.kind === "native" ? access.images[0] : undefined;
+  const ratio = (clip && decodedRatios[clip.url]) || mediaRatio(clip ?? nativeImage);
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   const canPreview = clip?.kind === "video" && !failed && !reducedMotion && !connection?.saveData;
   const shouldPlay = canPreview && motionEnabled && active && visible && pageVisible && !watching && !paused;

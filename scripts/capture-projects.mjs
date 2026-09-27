@@ -30,7 +30,8 @@ const outputRoot = path.join(portfolioRoot, 'public', 'project-shots');
 const manifestPath = path.join(outputRoot, 'capture-manifest.json');
 const manifestSchemaVersion = 3;
 const arguments_ = parseArguments(process.argv.slice(2));
-const projects = readProjects();
+const access = JSON.parse(await fs.readFile(path.join(portfolioRoot, "src/project-access.json"), "utf8"));
+const projects = readProjects().filter(project => !access[project.slug] || access[project.slug].kind === "web");
 
 if (arguments_.help) {
   printHelp();

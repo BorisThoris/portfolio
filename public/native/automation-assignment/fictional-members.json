@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Ada Lovelace",
+    "email": "ada@example.com",
+    "role": "Workspace owner"
+  },
+  {
+    "name": "Alan Turing",
+    "email": "alan@example.com",
+    "role": "Guest"
+  },
+  {
+    "name": "Grace Hopper",
+    "email": "GRACE@example.com",
+    "role": "Member"
+  },
+  {
+    "name": "Katherine Johnson",
+    "email": "katherine@example.com",
+    "role": "Membership admin"
+  }
+]

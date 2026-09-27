@@ -2,10 +2,10 @@ import {
   findBuildOutput,
   hasUsableBuild,
   probeUrl,
-  readProjects
+  readBrowserProjects
 } from './project-runtime.mjs';
 
-const projects = readProjects();
+const projects = readBrowserProjects();
 const rows = [];
 
 for (const project of projects) {

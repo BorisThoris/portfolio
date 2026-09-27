@@ -336,3 +336,5 @@
     flex-wrap: wrap;
   }
 }
+
+.project-access pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 1.2rem; background: #15232b; color: #e5efef; border-radius: 12px; }

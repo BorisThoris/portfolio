@@ -4,6 +4,7 @@ const root = path.resolve("dist");
 const site = "https://boris-portfolio-git.pages.dev";
 const template = await fs.readFile(path.join(root, "index.html"), "utf8");
 const projects = JSON.parse(await fs.readFile("src/project-data.json", "utf8"));
+const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
 const analysis = JSON.parse(
   await fs.readFile("src/repo-analysis.json", "utf8"),
 );
@@ -39,8 +40,10 @@ const routes = [
   })),
 ];
 for (const { route, title, description, project } of routes) {
-  const image = project?.screenshot
-    ? `${site}/project-shots/${project.slug}/latest/card.jpg`
+  const entry = access[project?.slug];
+  const availability = entry ? `<section><h2>${escape(entry.label)}</h2><p>${escape(entry.status)}</p><p>Environment: ${escape(entry.environment)}</p><pre>${escape(entry.instructions)}</pre>${entry.downloadUrl ? `<p><a href="${escape(entry.downloadUrl)}">${escape(entry.downloadLabel || "Download")}</a></p>` : ""}</section>` : "";
+  const image = entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/project-shots/native-placeholder.svg"}` : project?.screenshot
+    ? `${site}${project.screenshot}`
     : `${site}/social-preview-v3.png`;
   let html = template.replace(
     /<title>.*?<\/title>/s,
@@ -50,7 +53,9 @@ for (const { route, title, description, project } of routes) {
     /<link data-project-preload[^>]*>/,
     route === "/cv-print"
       ? ""
-      : `<link rel="preload" as="image" href="/project-previews/${project?.slug ?? "bbeats"}-960.webp" imagesrcset="/project-previews/${project?.slug ?? "bbeats"}-480.webp 480w, /project-previews/${project?.slug ?? "bbeats"}-960.webp 960w, /project-previews/${project?.slug ?? "bbeats"}-1600.webp 1600w" imagesizes="${project ? "(max-width: 760px) 100vw, 1280px" : "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw"}" fetchpriority="high" />`,
+      : entry && entry.kind !== "web"
+        ? `<link rel="preload" as="image" href="${escape(entry.images[0]?.path ?? "/project-shots/native-placeholder.svg")}" fetchpriority="high" />`
+        : `<link rel="preload" as="image" href="/project-previews/${project?.slug ?? "bbeats"}-960.webp" imagesrcset="/project-previews/${project?.slug ?? "bbeats"}-480.webp 480w, /project-previews/${project?.slug ?? "bbeats"}-960.webp 960w, /project-previews/${project?.slug ?? "bbeats"}-1600.webp 1600w" imagesizes="${project ? "(max-width: 760px) 100vw, 1280px" : "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw"}" fetchpriority="high" />`,
   );
   const setMeta = (attribute, name, content) => {
     const pattern = new RegExp(
@@ -72,7 +77,7 @@ for (const { route, title, description, project } of routes) {
       attr,
       `${prefix}:image:alt`,
       project
-        ? `${project.title} screenshot`
+        ? entry?.transcriptUrl ? `${project.title}: captured console output` : entry && entry.kind !== "web" && !entry.images.length ? `${project.title}: capture unavailable` : `${project.title} screenshot`
         : "Selected work by Boris Bostandzhiev",
     );
   }
@@ -112,7 +117,7 @@ for (const { route, title, description, project } of routes) {
   );
   html = html.replace(
     /<noscript>[\s\S]*?<\/noscript>/,
-    `<noscript><main style="max-width:60rem;margin:3rem auto;padding:1rem;font-family:system-ui"><h1>${escape(project?.title ?? "Boris Bostandzhiev")}</h1><p>${escape(description)}</p>${project?.deploymentUrl ? `<p><a href="${escape(project.deploymentUrl)}">Open live project</a></p>` : ""}<p>This portfolio uses JavaScript for interactive browsing.</p><a href="/">Portfolio</a> · <a href="mailto:borisbostandzhiev@yahoo.com">Contact Boris</a><ul>${visible.map((p) => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul></main></noscript>`,
+    `<noscript><main style="max-width:60rem;margin:3rem auto;padding:1rem;font-family:system-ui"><h1>${escape(project?.title ?? "Boris Bostandzhiev")}</h1><p>${escape(description)}</p>${availability}${project?.deploymentUrl && (!entry || entry.kind === "web") ? `<p><a href="${escape(project.deploymentUrl)}">Open live project</a></p>` : ""}<p>This portfolio uses JavaScript for interactive browsing.</p><a href="/">Portfolio</a> · <a href="mailto:borisbostandzhiev@yahoo.com">Contact Boris</a><ul>${visible.filter(p => access[p.slug]?.kind !== "archive").map((p) => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul><details><summary>Historical archives</summary><ul>${visible.filter(p => access[p.slug]?.kind === "archive").map(p => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul></details></main></noscript>`,
   );
   const directory = path.join(root, route);
   await fs.mkdir(directory, { recursive: true });

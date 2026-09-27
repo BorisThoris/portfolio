@@ -1,0 +1,13 @@
+$ npm run demo:export
+
+Local member-export demo (fictional fixture data)
+┌─────────┬─────────────────────┬─────────────────────────┬────────────────────┐
+│ (index) │ name                │ email                   │ role               │
+├─────────┼─────────────────────┼─────────────────────────┼────────────────────┤
+│ 0       │ 'Ada Lovelace'      │ 'ada@example.com'       │ 'Workspace owner'  │
+│ 1       │ 'Alan Turing'       │ 'alan@example.com'      │ 'Guest'            │
+│ 2       │ 'Grace Hopper'      │ 'GRACE@example.com'     │ 'Member'           │
+│ 3       │ 'Katherine Johnson' │ 'katherine@example.com' │ 'Membership admin' │
+└─────────┴─────────────────────┴─────────────────────────┴────────────────────┘
+4 unique members saved to C:\Users\Gaming PC\Desktop\Repos\accessowl-browser-automation\results\demo\members.json
+Fixture export complete. Run npm run verify to check types and extraction behavior.
