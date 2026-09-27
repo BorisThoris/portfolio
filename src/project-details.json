@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-26T23:36:11.696Z",
+    "generatedAt": "2026-09-27T11:52:33.810Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -20,13 +20,13 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 42,
+      "sourceFiles": 43,
       "testFiles": 1,
-      "sourceLines": 13109,
+      "sourceLines": 13959,
       "largestDirectories": [
         {
           "directory": "trailer",
-          "files": 13
+          "files": 14
         },
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "73b0d50",
-      "lastCommitDate": "2026-09-27T01:17:53+03:00",
-      "lastCommitSubject": "aim_accuracy waits for a live drawing buffer before it aims",
-      "commitCount": 171
+      "head": "159caa5",
+      "lastCommitDate": "2026-09-27T02:23:12+00:00",
+      "lastCommitSubject": "Juggle: a walker's brush does not end it; the suite waits for him to stand before the second one",
+      "commitCount": 175
     },
     "scores": {
       "priorityScore": 99,
@@ -71,21 +71,21 @@
         "path": "/project-shots/bobball/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 619745
+        "bytes": 619722
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bobball/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 555823
+        "bytes": 556015
       },
       {
         "profile": "full",
         "path": "/project-shots/bobball/latest/full.jpg",
         "width": 1920,
         "height": 1080,
-        "bytes": 942715
+        "bytes": 942639
       },
       {
         "profile": "mobile",
@@ -112,7 +112,7 @@
         "height": 1080,
         "duration": 30.02,
         "orientation": "landscape",
-        "builtAt": "2026-09-26T23:10:57.452Z"
+        "builtAt": "2026-09-27T11:31:21.904Z"
       },
       {
         "id": "trailer-story",
@@ -123,7 +123,7 @@
         "height": 1920,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-26T23:22:04.205Z"
+        "builtAt": "2026-09-27T11:40:18.706Z"
       },
       {
         "id": "trailer-post",
@@ -134,7 +134,7 @@
         "height": 1350,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-26T23:30:31.522Z"
+        "builtAt": "2026-09-27T11:47:54.029Z"
       },
       {
         "id": "trailer-square",
@@ -145,7 +145,7 @@
         "height": 1080,
         "duration": 30.02,
         "orientation": "square",
-        "builtAt": "2026-09-26T23:35:49.307Z"
+        "builtAt": "2026-09-27T11:52:19.934Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
@@ -310,7 +310,7 @@
   },
   "vyb-chess": {
     "slug": "vyb-chess",
-    "generatedAt": "2026-09-24T16:09:07.524Z",
+    "generatedAt": "2026-09-27T13:10:46.359Z",
     "version": "0.2.0",
     "classification": "web-app",
     "links": {
@@ -361,9 +361,9 @@
       "devDependencyCount": 27
     },
     "metrics": {
-      "sourceFiles": 351,
-      "testFiles": 132,
-      "sourceLines": 89799,
+      "sourceFiles": 354,
+      "testFiles": 134,
+      "sourceLines": 91076,
       "largestDirectories": [
         {
           "directory": "app",
@@ -371,7 +371,7 @@
         },
         {
           "directory": "scripts",
-          "files": 79
+          "files": 82
         },
         {
           "directory": "tests",
@@ -392,10 +392,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "067a6d9",
-      "lastCommitDate": "2026-09-23T15:38:01+03:00",
-      "lastCommitSubject": "Trailer: nothing hangs in the air between devices",
-      "commitCount": 480
+      "head": "a4f0c8f",
+      "lastCommitDate": "2026-09-25T14:16:09+03:00",
+      "lastCommitSubject": "Toolkit: a showcase order may be 0",
+      "commitCount": 483
     },
     "scores": {
       "priorityScore": 98,
@@ -412,35 +412,35 @@
         "path": "/project-shots/vyb-chess/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 99273
+        "bytes": 104493
       },
       {
         "profile": "desktop",
         "path": "/project-shots/vyb-chess/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 90573
+        "bytes": 98585
       },
       {
         "profile": "full",
         "path": "/project-shots/vyb-chess/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 78156
+        "bytes": 82814
       },
       {
         "profile": "mobile",
         "path": "/project-shots/vyb-chess/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 45768
+        "bytes": 50226
       },
       {
         "profile": "og",
         "path": "/project-shots/vyb-chess/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 74930
+        "bytes": 82243
       }
     ],
     "trailers": [
@@ -471,7 +471,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-25T17:37:33.609Z",
+    "generatedAt": "2026-09-27T13:29:44.517Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -543,9 +543,9 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1183,
-      "testFiles": 511,
-      "sourceLines": 184238,
+      "sourceFiles": 1186,
+      "testFiles": 513,
+      "sourceLines": 184902,
       "largestDirectories": [
         {
           "directory": "src",
@@ -553,7 +553,7 @@
         },
         {
           "directory": "scripts",
-          "files": 94
+          "files": 97
         },
         {
           "directory": "e2e",
@@ -574,10 +574,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5519871d",
-      "lastCommitDate": "2026-09-25T20:26:31+03:00",
-      "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 1846
+      "head": "e4859edf",
+      "lastCommitDate": "2026-09-27T16:21:49+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 1848
     },
     "scores": {
       "priorityScore": 94,
@@ -594,21 +594,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167261
+        "bytes": 166104
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157389
+        "bytes": 157702
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131438
+        "bytes": 129482
       },
       {
         "profile": "mobile",
@@ -622,7 +622,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122399
+        "bytes": 123016
       }
     ],
     "trailers": [
@@ -840,7 +840,7 @@
   },
   "skyfall": {
     "slug": "skyfall",
-    "generatedAt": "2026-09-24T16:24:32.891Z",
+    "generatedAt": "2026-09-27T13:17:07.410Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -881,9 +881,9 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 93,
-      "testFiles": 20,
-      "sourceLines": 15301,
+      "sourceFiles": 96,
+      "testFiles": 22,
+      "sourceLines": 16131,
       "largestDirectories": [
         {
           "directory": "app",
@@ -895,7 +895,7 @@
         },
         {
           "directory": "scripts",
-          "files": 8
+          "files": 11
         },
         {
           "directory": "e2e",
@@ -912,10 +912,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "ffb9ac24",
-      "lastCommitDate": "2026-09-24T19:12:59+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 156
+      "head": "3271e0f0",
+      "lastCommitDate": "2026-09-27T16:05:44+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 158
     },
     "scores": {
       "priorityScore": 76,
@@ -932,42 +932,55 @@
         "path": "/project-shots/skyfall/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 68019
+        "bytes": 67931
       },
       {
         "profile": "desktop",
         "path": "/project-shots/skyfall/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 66449
+        "bytes": 66291
       },
       {
         "profile": "full",
         "path": "/project-shots/skyfall/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 58250
+        "bytes": 58199
       },
       {
         "profile": "mobile",
         "path": "/project-shots/skyfall/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 15900
+        "bytes": 15890
       },
       {
         "profile": "og",
         "path": "/project-shots/skyfall/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 48842
+        "bytes": 48780
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Skyfall: the menu and the drop",
+        "url": "https://skyfall-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://skyfall-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:04:16.677Z"
       }
     ],
     "source": "BorisThoris/skyfall@master"
   },
   "cross-repo-libs": {
     "slug": "cross-repo-libs",
-    "generatedAt": "2026-09-24T16:25:47.590Z",
+    "generatedAt": "2026-09-27T13:26:42.027Z",
     "version": "0.0.0",
     "classification": "web-library",
     "links": {
@@ -1020,9 +1033,9 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 97,
-      "testFiles": 16,
-      "sourceLines": 15009,
+      "sourceFiles": 100,
+      "testFiles": 18,
+      "sourceLines": 15892,
       "largestDirectories": [
         {
           "directory": "packages",
@@ -1034,7 +1047,7 @@
         },
         {
           "directory": "scripts",
-          "files": 8
+          "files": 11
         },
         {
           "directory": ".",
@@ -1047,10 +1060,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "b2f2c00",
-      "lastCommitDate": "2026-09-24T19:13:12+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 36
+      "head": "34ac557",
+      "lastCommitDate": "2026-09-27T16:23:26+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 38
     },
     "scores": {
       "priorityScore": 89,
@@ -1067,35 +1080,48 @@
         "path": "/project-shots/cross-repo-libs/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 187250
+        "bytes": 121945
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cross-repo-libs/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 176961
+        "bytes": 119109
       },
       {
         "profile": "full",
         "path": "/project-shots/cross-repo-libs/latest/full.jpg",
         "width": 1440,
         "height": 2502,
-        "bytes": 214382
+        "bytes": 163348
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cross-repo-libs/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 46876
+        "bytes": 41638
       },
       {
         "profile": "og",
         "path": "/project-shots/cross-repo-libs/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 134061
+        "bytes": 95145
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Cross Repo Libs: the component storybook",
+        "url": "https://cross-repo-libs-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://cross-repo-libs-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:21:15.432Z"
       }
     ],
     "source": "BorisThoris/cross-repo-libs@master"
@@ -1460,7 +1486,7 @@
   },
   "user-hub-admin": {
     "slug": "user-hub-admin",
-    "generatedAt": "2026-09-24T16:30:27.763Z",
+    "generatedAt": "2026-09-27T13:31:51.420Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1496,9 +1522,9 @@
       "devDependencyCount": 18
     },
     "metrics": {
-      "sourceFiles": 53,
-      "testFiles": 8,
-      "sourceLines": 3474,
+      "sourceFiles": 56,
+      "testFiles": 10,
+      "sourceLines": 4326,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1510,7 +1536,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "e2e",
@@ -1527,10 +1553,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "bfdd9a7",
-      "lastCommitDate": "2026-09-24T19:16:36+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 33
+      "head": "538e677",
+      "lastCommitDate": "2026-09-27T16:28:14+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 35
     },
     "scores": {
       "priorityScore": 66,
@@ -1547,42 +1573,55 @@
         "path": "/project-shots/user-hub-admin/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 87469
+        "bytes": 74231
       },
       {
         "profile": "desktop",
         "path": "/project-shots/user-hub-admin/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 80938
+        "bytes": 68011
       },
       {
         "profile": "full",
         "path": "/project-shots/user-hub-admin/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 69724
+        "bytes": 58071
       },
       {
         "profile": "mobile",
         "path": "/project-shots/user-hub-admin/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 35193
+        "bytes": 25949
       },
       {
         "profile": "og",
         "path": "/project-shots/user-hub-admin/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 62919
+        "bytes": 49647
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "User Hub Admin: create, review, manage",
+        "url": "https://user-hub-admin-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://user-hub-admin-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:26:44.764Z"
       }
     ],
     "source": "BorisThoris/user-hub-admin@master"
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-24T16:48:20.888Z",
+    "generatedAt": "2026-09-27T13:05:32.231Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1624,13 +1663,13 @@
       "devDependencyCount": 6
     },
     "metrics": {
-      "sourceFiles": 16,
-      "testFiles": 1,
-      "sourceLines": 3243,
+      "sourceFiles": 19,
+      "testFiles": 3,
+      "sourceLines": 4094,
       "largestDirectories": [
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "src",
@@ -1647,10 +1686,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "605afdf",
-      "lastCommitDate": "2026-09-24T16:31:10Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 39
+      "head": "54c9c23",
+      "lastCommitDate": "2026-09-27T16:02:33+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 41
     },
     "scores": {
       "priorityScore": 52,
@@ -1667,42 +1706,55 @@
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 133194
+        "bytes": 129335
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130576
+        "bytes": 130523
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 111109
+        "bytes": 111481
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 52089
+        "bytes": 52649
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 99736
+        "bytes": 99871
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Pedal Rush: hold the gas, thread the traffic",
+        "url": "https://pedal-rush-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://pedal-rush-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 22,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:01:03.994Z"
       }
     ],
     "source": "BorisThoris/pedal-rush@master"
   },
   "flowforge-configurator": {
     "slug": "flowforge-configurator",
-    "generatedAt": "2026-09-24T16:32:11.410Z",
+    "generatedAt": "2026-09-27T13:35:51.155Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1742,9 +1794,9 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 32,
-      "testFiles": 1,
-      "sourceLines": 3480,
+      "sourceFiles": 35,
+      "testFiles": 3,
+      "sourceLines": 4350,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1752,7 +1804,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "public",
@@ -1765,10 +1817,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "434a2ac",
-      "lastCommitDate": "2026-09-24T19:16:54+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 27
+      "head": "c10c5e4",
+      "lastCommitDate": "2026-09-27T16:32:31+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 29
     },
     "scores": {
       "priorityScore": 61,
@@ -1785,42 +1837,55 @@
         "path": "/project-shots/flowforge-configurator/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 59810
+        "bytes": 60505
       },
       {
         "profile": "desktop",
         "path": "/project-shots/flowforge-configurator/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 58620
+        "bytes": 60274
       },
       {
         "profile": "full",
         "path": "/project-shots/flowforge-configurator/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 51588
+        "bytes": 53296
       },
       {
         "profile": "mobile",
         "path": "/project-shots/flowforge-configurator/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 38905
+        "bytes": 45345
       },
       {
         "profile": "og",
         "path": "/project-shots/flowforge-configurator/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 57291
+        "bytes": 58856
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Flowforge Configurator: a pipeline, saved",
+        "url": "https://flowforge-configurator-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://flowforge-configurator-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:28:48.750Z"
       }
     ],
     "source": "BorisThoris/flowforge-configurator@master"
   },
   "gorilla-gainz": {
     "slug": "gorilla-gainz",
-    "generatedAt": "2026-09-24T16:33:50.394Z",
+    "generatedAt": "2026-09-27T13:38:26.311Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1862,9 +1927,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 47,
-      "testFiles": 0,
-      "sourceLines": 4769,
+      "sourceFiles": 50,
+      "testFiles": 2,
+      "sourceLines": 5602,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1872,23 +1937,23 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "public",
           "files": 1
         }
       ],
-      "hasTests": false,
+      "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
       "branch": "master",
-      "head": "ad517cd",
-      "lastCommitDate": "2026-09-24T19:17:05+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 36
+      "head": "b178273",
+      "lastCommitDate": "2026-09-27T16:35:29+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 38
     },
     "scores": {
       "priorityScore": 82,
@@ -1936,11 +2001,24 @@
         "bytes": 47138
       }
     ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Gorilla Gainz: the store front",
+        "url": "https://gorilla-gainz-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://gorilla-gainz-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:33:27.504Z"
+      }
+    ],
     "source": "BorisThoris/gorilla-gainz@master"
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-09-24T16:35:34.762Z",
+    "generatedAt": "2026-09-27T13:22:11.739Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1978,9 +2056,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 28,
-      "testFiles": 2,
-      "sourceLines": 3623,
+      "sourceFiles": 31,
+      "testFiles": 4,
+      "sourceLines": 4517,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1988,7 +2066,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "public",
@@ -2001,10 +2079,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "d62412e",
-      "lastCommitDate": "2026-09-24T19:17:13+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 37
+      "head": "d7d859a",
+      "lastCommitDate": "2026-09-27T16:15:10+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 39
     },
     "scores": {
       "priorityScore": 55,
@@ -2021,42 +2099,55 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 278363
+        "bytes": 274830
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 257230
+        "bytes": 254838
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-card-quest/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 215569
+        "bytes": 213424
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 154557
+        "bytes": 152154
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 229926
+        "bytes": 229329
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Memory Card Quest: flip, match, keep your lives",
+        "url": "https://memory-card-quest-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://memory-card-quest-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:11:59.910Z"
       }
     ],
     "source": "BorisThoris/memory-card-quest@master"
   },
   "org-atlas-directory": {
     "slug": "org-atlas-directory",
-    "generatedAt": "2026-09-24T16:35:08.764Z",
+    "generatedAt": "2026-09-27T13:19:53.282Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2101,9 +2192,9 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 34,
-      "testFiles": 0,
-      "sourceLines": 3475,
+      "sourceFiles": 37,
+      "testFiles": 2,
+      "sourceLines": 4226,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2111,23 +2202,23 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "public",
           "files": 1
         }
       ],
-      "hasTests": false,
+      "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
       "branch": "master",
-      "head": "934d5c7",
-      "lastCommitDate": "2026-09-24T19:17:19+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 34
+      "head": "5e79892",
+      "lastCommitDate": "2026-09-27T16:13:09+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 36
     },
     "scores": {
       "priorityScore": 70,
@@ -2179,7 +2270,7 @@
   },
   "threejs-gem-dungeon-editor": {
     "slug": "threejs-gem-dungeon-editor",
-    "generatedAt": "2026-09-26T23:24:22.176Z",
+    "generatedAt": "2026-09-27T12:52:26.383Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -2242,21 +2333,21 @@
       "devDependencyCount": 20
     },
     "metrics": {
-      "sourceFiles": 454,
-      "testFiles": 2,
-      "sourceLines": 76613,
+      "sourceFiles": 869,
+      "testFiles": 5,
+      "sourceLines": 167515,
       "largestDirectories": [
+        {
+          "directory": "output",
+          "files": 464
+        },
         {
           "directory": "src",
           "files": 295
         },
         {
           "directory": "scripts",
-          "files": 99
-        },
-        {
-          "directory": "output",
-          "files": 55
+          "files": 105
         },
         {
           "directory": ".",
@@ -2273,10 +2364,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b4cbb33",
-      "lastCommitDate": "2026-09-27T02:20:29+03:00",
-      "lastCommitSubject": "Install ripgrep required by CI layout checks",
-      "commitCount": 491
+      "head": "047fb48",
+      "lastCommitDate": "2026-09-27T15:52:27+03:00",
+      "lastCommitSubject": "Screenshots show a run, a recorded trailer, and a media contract that gates both",
+      "commitCount": 494
     },
     "scores": {
       "priorityScore": 90,
@@ -2293,35 +2384,48 @@
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 49768
+        "bytes": 172175
       },
       {
         "profile": "desktop",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 48913
+        "bytes": 217242
       },
       {
         "profile": "full",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 43721
+        "bytes": 136606
       },
       {
         "profile": "mobile",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 27290
+        "bytes": 47574
       },
       {
         "profile": "og",
         "path": "/project-shots/threejs-gem-dungeon-editor/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 41782
+        "bytes": 122360
+      }
+    ],
+    "trailers": [
+      {
+        "id": "run",
+        "title": "Gem Dungeon: the first gallery",
+        "url": "https://threejs-gem-dungeon-editor-git.pages.dev/trailers/run.mp4",
+        "poster": "https://threejs-gem-dungeon-editor-git.pages.dev/trailers/run.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T12:45:33.797Z"
       }
     ],
     "source": "BorisThoris/threejs-gem-dungeon-editor-live@main"
