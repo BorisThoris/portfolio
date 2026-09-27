@@ -252,9 +252,14 @@ try {
   await page.locator('.project-cover').getByRole('button', {name:'Pause preview',exact:true}).click();
   await page.locator('.project-recommendations a[href="/projects/bbeats"]').first().click();
   await page.waitForURL('**/projects/bbeats');
-  await page.locator('.project-cover').scrollIntoViewIfNeeded();
-  await playing(page.locator('.project-cover video'));
-  assert((await page.locator('.project-cover video').getAttribute('src')).includes('/bbeats/'));
+  // The URL changes before React commits the keyed destination content.
+  await page.getByRole('heading', {level:1, name:'BBeats', exact:true}).waitFor();
+  const bbeatsCover = page.locator('.project-cover').filter({has:page.locator('img[alt="BBeats video preview"]')});
+  await bbeatsCover.scrollIntoViewIfNeeded();
+  const bbeatsPreview = bbeatsCover.locator('video[src*="/bbeats/"]');
+  await bbeatsPreview.waitFor();
+  await playing(bbeatsPreview);
+  assert((await bbeatsPreview.getAttribute('src')).includes('/bbeats/'));
   report.push('In-app navigation: a paused BOBBALL cover does not suppress the next BBeats preview');
   await page.close();
   page = await context.newPage();
