@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-17T10:19:24.288Z",
+    "generatedAt": "2026-09-27T14:26:13.030Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -220,33 +220,33 @@
         "@playwright/test",
         "@testing-library/react"
       ],
-      "dependencyCount": 32,
-      "devDependencyCount": 59
+      "dependencyCount": 31,
+      "devDependencyCount": 62
     },
     "metrics": {
-      "sourceFiles": 6653,
-      "testFiles": 2632,
-      "sourceLines": 1122212,
+      "sourceFiles": 6737,
+      "testFiles": 2814,
+      "sourceLines": 1156353,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6161
+          "files": 6163
         },
         {
           "directory": "public",
           "files": 216
         },
         {
-          "directory": "scripts",
-          "files": 139
-        },
-        {
           "directory": "e2e",
-          "files": 92
+          "files": 183
         },
         {
-          "directory": "output",
-          "files": 16
+          "directory": "scripts",
+          "files": 146
+        },
+        {
+          "directory": ".",
+          "files": 10
         }
       ],
       "hasTests": true,
@@ -254,11 +254,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "main",
-      "head": "7374dc36f",
-      "lastCommitDate": "2026-09-15T18:17:08+03:00",
-      "lastCommitSubject": "TASK-929: record the saw-only bounce proof",
-      "commitCount": 3344
+      "branch": "HEAD",
+      "head": "014c01da3",
+      "lastCommitDate": "2026-09-27T13:04:46+00:00",
+      "lastCommitSubject": "TASK-1061: editors, dialogs and menus read in every theme, a selected clip's label included",
+      "commitCount": 3937
     },
     "scores": {
       "priorityScore": 96,
@@ -275,35 +275,48 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167918
+        "bytes": 130701
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 155979
+        "bytes": 136641
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137777
+        "bytes": 120775
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 36554
+        "bytes": 36551
       },
       {
         "profile": "og",
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102979
+        "bytes": 104776
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "BBeats: a starter pattern, played",
+        "url": "https://bbeats-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://bbeats-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:21:15.246Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -688,7 +701,7 @@
   },
   "gem-dungeon": {
     "slug": "gem-dungeon",
-    "generatedAt": "2026-09-24T16:25:28.995Z",
+    "generatedAt": "2026-09-27T14:12:44.088Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -754,9 +767,9 @@
       "devDependencyCount": 32
     },
     "metrics": {
-      "sourceFiles": 389,
-      "testFiles": 27,
-      "sourceLines": 79982,
+      "sourceFiles": 392,
+      "testFiles": 29,
+      "sourceLines": 80896,
       "largestDirectories": [
         {
           "directory": "src",
@@ -764,7 +777,7 @@
         },
         {
           "directory": "scripts",
-          "files": 33
+          "files": 36
         },
         {
           "directory": "assets",
@@ -785,10 +798,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e00b3ea",
-      "lastCommitDate": "2026-09-24T19:12:47+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 147
+      "head": "3aa0f84",
+      "lastCommitDate": "2026-09-27T17:07:42+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 149
     },
     "scores": {
       "priorityScore": 76,
@@ -805,35 +818,48 @@
         "path": "/project-shots/gem-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 94666
+        "bytes": 94611
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gem-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 92816
+        "bytes": 92838
       },
       {
         "profile": "full",
         "path": "/project-shots/gem-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 80262
+        "bytes": 80112
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gem-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 31581
+        "bytes": 31995
       },
       {
         "profile": "og",
         "path": "/project-shots/gem-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 79333
+        "bytes": 79371
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Gem Dungeon Editor: rooms, textures and mosaics",
+        "url": "https://gem-dungeon-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://gem-dungeon-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:01:47.393Z"
       }
     ],
     "source": "BorisThoris/gem-dungeon@main"
@@ -1128,7 +1154,7 @@
   },
   "roam-rental-dashboard": {
     "slug": "roam-rental-dashboard",
-    "generatedAt": "2026-09-24T16:26:00.729Z",
+    "generatedAt": "2026-09-27T14:30:00.925Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1176,9 +1202,9 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 22,
-      "testFiles": 2,
-      "sourceLines": 2677,
+      "sourceFiles": 25,
+      "testFiles": 4,
+      "sourceLines": 3566,
       "largestDirectories": [
         {
           "directory": "roam-rental-dashboard-app",
@@ -1186,7 +1212,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         }
       ],
       "hasTests": true,
@@ -1194,11 +1220,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "main",
-      "head": "4f6f11d",
-      "lastCommitDate": "2026-09-24T19:13:23+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 54
+      "branch": "HEAD",
+      "head": "a3da899",
+      "lastCommitDate": "2026-09-24T16:26:00+00:00",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 55
     },
     "scores": {
       "priorityScore": 74,
@@ -1215,42 +1241,55 @@
         "path": "/project-shots/roam-rental-dashboard/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 13090
+        "bytes": 21144
       },
       {
         "profile": "desktop",
         "path": "/project-shots/roam-rental-dashboard/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 12227
+        "bytes": 25752
       },
       {
         "profile": "full",
         "path": "/project-shots/roam-rental-dashboard/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 11736
+        "bytes": 17997
       },
       {
         "profile": "mobile",
         "path": "/project-shots/roam-rental-dashboard/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 6463
+        "bytes": 9063
       },
       {
         "profile": "og",
         "path": "/project-shots/roam-rental-dashboard/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 8506
+        "bytes": 15002
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Roam Rental Dashboard: search the listings",
+        "url": "https://roam-rental-dashboard-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://roam-rental-dashboard-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:29:23.264Z"
       }
     ],
     "source": "BorisThoris/roam-rental-dashboard@main"
   },
   "runner-score-arcade": {
     "slug": "runner-score-arcade",
-    "generatedAt": "2026-09-24T16:27:28.732Z",
+    "generatedAt": "2026-09-27T14:15:41.691Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1290,9 +1329,9 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 32,
-      "testFiles": 0,
-      "sourceLines": 5710,
+      "sourceFiles": 35,
+      "testFiles": 2,
+      "sourceLines": 6587,
       "largestDirectories": [
         {
           "directory": "app",
@@ -1300,23 +1339,23 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": ".",
           "files": 6
         }
       ],
-      "hasTests": false,
+      "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
       "branch": "master",
-      "head": "fc0b03b",
-      "lastCommitDate": "2026-09-24T19:16:14+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 51
+      "head": "989e4ef",
+      "lastCommitDate": "2026-09-27T17:10:52+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 53
     },
     "scores": {
       "priorityScore": 86,
@@ -1333,35 +1372,48 @@
         "path": "/project-shots/runner-score-arcade/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165002
+        "bytes": 167557
       },
       {
         "profile": "desktop",
         "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 151664
+        "bytes": 155306
       },
       {
         "profile": "full",
         "path": "/project-shots/runner-score-arcade/latest/full.jpg",
         "width": 1440,
         "height": 916,
-        "bytes": 136131
+        "bytes": 139759
       },
       {
         "profile": "mobile",
         "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 65335
+        "bytes": 68627
       },
       {
         "profile": "og",
         "path": "/project-shots/runner-score-arcade/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122532
+        "bytes": 125111
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Dodg'Em Up Bro: a run",
+        "url": "https://runner-score-arcade-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://runner-score-arcade-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:09:31.502Z"
       }
     ],
     "source": "BorisThoris/runner-score-arcade@master"
