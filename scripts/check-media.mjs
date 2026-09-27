@@ -73,7 +73,28 @@ async function paused(locator) {
     const timer = setInterval(() => { if (video.paused) { clearInterval(timer); clearTimeout(timeout); resolve(); } }, 50);
   }));
 }
+async function unloaded(locator) {
+  await locator.evaluate((video) => new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Offscreen video retained its source: ${video.currentSrc}; ready=${video.readyState}`)); }, 5000);
+    const timer = setInterval(() => {
+      if (!video.getAttribute('src') && video.readyState === 0) {
+        clearInterval(timer); clearTimeout(timeout); resolve();
+      }
+    }, 25);
+  }));
+}
 async function checkRatio(locator, label, expected) {
+  // Visibility changes intentionally unload media. Read fresh decoded metadata,
+  // not the zero dimensions between load() and loadedmetadata.
+  await locator.evaluate((video) => new Promise((resolve, reject) => {
+    const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Video metadata unavailable: ${video.currentSrc}; ready=${video.readyState}; error=${video.error?.code}`)); }, 15000);
+    const timer = setInterval(() => {
+      if (video.readyState >= 1 && video.videoWidth > 0 && video.videoHeight > 0) {
+        clearInterval(timer); clearTimeout(timeout);
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+      }
+    }, 25);
+  }));
   const dimensions = await locator.evaluate((video) => {
     const style = getComputedStyle(video);
     const frame = video.parentElement;
@@ -193,7 +214,13 @@ try {
       assert.equal(await page.getByRole('dialog').count(), 0);
     }
     for (const viewport of viewports) {
+      // Exercise a real unload/reload at every breakpoint, including immediately
+      // after the modal releases its source. No cached metadata is assumed.
+      await page.locator(".project-footer").scrollIntoViewIfNeeded();
+      await unloaded(preview);
       await page.setViewportSize(viewport);
+      await cover.scrollIntoViewIfNeeded();
+      await playing(preview);
       await checkRatio(preview, `${slug} cover ${viewport.width}x${viewport.height}`);
     }
     await page.setViewportSize({width:390,height:844});
@@ -216,6 +243,7 @@ try {
       report.push(`${slug}/${artwork.id}: artwork decoded at ${geometry.width}x${geometry.height}, uncropped`);
     }
   }
+  report.push('Every project cover: explicit offscreen unload, viewport resize and genuine playback reload at all five breakpoints');
   // React Router reuses ProjectPage: a paused/failed previous cover must not
   // leak its state into the next project's video during real link navigation.
   await page.goto(`${base}/projects/bobball`);
