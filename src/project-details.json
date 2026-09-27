@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-26T21:28:19.822Z",
+    "generatedAt": "2026-09-26T23:36:11.696Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -22,7 +22,7 @@
     "metrics": {
       "sourceFiles": 42,
       "testFiles": 1,
-      "sourceLines": 13102,
+      "sourceLines": 13109,
       "largestDirectories": [
         {
           "directory": "trailer",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5cfc5d8",
-      "lastCommitDate": "2026-09-26T23:06:58+03:00",
-      "lastCommitSubject": "CI leaves GitHub for good: the Kinhank builds every push, the PC only ships",
-      "commitCount": 168
+      "head": "73b0d50",
+      "lastCommitDate": "2026-09-27T01:17:53+03:00",
+      "lastCommitSubject": "aim_accuracy waits for a live drawing buffer before it aims",
+      "commitCount": 171
     },
     "scores": {
       "priorityScore": 99,
@@ -71,21 +71,21 @@
         "path": "/project-shots/bobball/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 619722
+        "bytes": 619745
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bobball/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 556015
+        "bytes": 555823
       },
       {
         "profile": "full",
         "path": "/project-shots/bobball/latest/full.jpg",
         "width": 1920,
         "height": 1080,
-        "bytes": 942639
+        "bytes": 942715
       },
       {
         "profile": "mobile",
@@ -112,7 +112,7 @@
         "height": 1080,
         "duration": 30.02,
         "orientation": "landscape",
-        "builtAt": "2026-09-26T21:03:44.989Z"
+        "builtAt": "2026-09-26T23:10:57.452Z"
       },
       {
         "id": "trailer-story",
@@ -123,7 +123,7 @@
         "height": 1920,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-26T21:14:16.683Z"
+        "builtAt": "2026-09-26T23:22:04.205Z"
       },
       {
         "id": "trailer-post",
@@ -134,7 +134,7 @@
         "height": 1350,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-26T21:22:39.052Z"
+        "builtAt": "2026-09-26T23:30:31.522Z"
       },
       {
         "id": "trailer-square",
@@ -145,7 +145,7 @@
         "height": 1080,
         "duration": 30.02,
         "orientation": "square",
-        "builtAt": "2026-09-26T21:27:59.627Z"
+        "builtAt": "2026-09-26T23:35:49.307Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
@@ -2179,7 +2179,7 @@
   },
   "threejs-gem-dungeon-editor": {
     "slug": "threejs-gem-dungeon-editor",
-    "generatedAt": "2026-09-26T14:22:55.942Z",
+    "generatedAt": "2026-09-26T23:24:22.176Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -2242,17 +2242,17 @@
       "devDependencyCount": 20
     },
     "metrics": {
-      "sourceFiles": 436,
+      "sourceFiles": 454,
       "testFiles": 2,
-      "sourceLines": 74529,
+      "sourceLines": 76613,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 290
+          "files": 295
         },
         {
           "directory": "scripts",
-          "files": 86
+          "files": 99
         },
         {
           "directory": "output",
@@ -2273,10 +2273,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "4bf320a",
-      "lastCommitDate": "2026-09-26T17:18:48+03:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main'",
-      "commitCount": 488
+      "head": "b4cbb33",
+      "lastCommitDate": "2026-09-27T02:20:29+03:00",
+      "lastCommitSubject": "Install ripgrep required by CI layout checks",
+      "commitCount": 491
     },
     "scores": {
       "priorityScore": 90,
