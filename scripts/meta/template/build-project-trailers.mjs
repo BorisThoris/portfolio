@@ -242,10 +242,23 @@ function describeState(item, previous) {
 }
 
 // An artwork item with no inputs of its own is rendered from its source file.
+// Whatever this toolkit publishes into the static directory (trailers,
+// artwork, the card image, the icon set) is never an input, or a build would
+// invalidate itself.
 function itemInputs(item) {
-  if (Array.isArray(item.inputs)) return item.inputs;
-  if (item.kind === 'artwork' && item.source) return [item.source];
-  return [];
+  let inputs = [];
+  if (Array.isArray(item.inputs)) inputs = item.inputs;
+  else if (item.kind === 'artwork' && item.source) inputs = [item.source];
+  if (inputs.length === 0) return inputs;
+  const staticDir = toPosix(config.social?.staticDir ?? 'public');
+  const iconDir = toPosix(config.icons?.outputDir ?? staticDir);
+  const generated = [
+    publishDirRelative, artworkDirRelative,
+    path.posix.join(staticDir, config.social?.imageName ?? 'og-image.jpg'),
+    ...['favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', config.icons?.manifestName ?? 'site.webmanifest']
+      .map((name) => path.posix.join(iconDir, name))
+  ];
+  return [...inputs, ...generated.map((relative) => ':(exclude)' + relative)];
 }
 
 // A captured trailer is also a function of its recipe and its music bed.
