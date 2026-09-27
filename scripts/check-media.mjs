@@ -93,7 +93,7 @@ try {
     const violations = (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations;
     assert.deepEqual(violations.map((item) => item.id), [], `Player accessibility: ${slug}`);
     for (const trailer of detail.trailers) {
-      if (detail.trailers.length > 1) await dialog.getByRole("button", { name: new RegExp(trailer.title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")) }).click();
+      if (detail.trailers.length > 1) await dialog.getByRole("group", { name: "Choose video" }).getByRole("button").filter({ has: page.getByText(trailer.title, { exact: true }) }).click();
       await playing(dialog.locator("video"));
       assert.equal(await dialog.locator("video").evaluate((video) => video.videoWidth > 0), true);
       for (const viewport of viewports) {
@@ -140,6 +140,15 @@ try {
       assert.equal(geometry.fit, 'contain', `${artwork.id}: artwork is uncropped`);
       report.push(`${slug}/${artwork.id}: artwork decoded at ${geometry.width}x${geometry.height}, uncropped`);
     }
+  }
+  for (const slug of ['bbeats', 'cat-world', 'user-hub-admin']) {
+    await page.goto(`${base}/projects/${slug}`);
+    const cover = page.locator('.project-cover');
+    await cover.scrollIntoViewIfNeeded();
+    assert.equal(await cover.locator('video').count(), 0, `${slug}: screenshot-only cover`);
+    assert.equal(await cover.getByRole('button', { name: /^Watch video/ }).count(), 0, `${slug}: no unavailable video action`);
+    assert(await cover.locator('img').evaluate(async (img) => { await img.decode(); return img.naturalWidth > 0 && img.naturalHeight > 0; }), `${slug}: genuine project screenshot decodes`);
+    report.push(`${slug}: verified still cover without a broken trailer link`);
   }
   await page.close();
   page = await context.newPage();

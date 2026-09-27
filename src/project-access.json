@@ -89,9 +89,9 @@
   "pedal-rush": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined build is live. Public desktop, phone-layout and walkthrough input checks pass; screenshots and footage come from the running application.",
     "environment": "Modern browser",
-    "instructions": "npm start",
+    "instructions": "npm start -- --host 127.0.0.1 --port 4111",
     "sourceUrl": "https://github.com/BorisThoris/pedal-rush",
     "sourceStatus": "Public repository",
     "images": [],
@@ -100,9 +100,9 @@
   "memory-card-quest": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined build is live. Public desktop, phone-layout and walkthrough input checks pass; screenshots and footage come from the running application.",
     "environment": "Modern browser",
-    "instructions": "npm start",
+    "instructions": "node scripts/serve-demo.cjs build 4512",
     "sourceUrl": "https://github.com/BorisThoris/memory-card-quest",
     "sourceStatus": "Public repository",
     "images": [],
@@ -122,9 +122,9 @@
   "gorilla-gainz": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined build is live. Public desktop, phone-layout and walkthrough input checks pass; screenshots and footage come from the running application.",
     "environment": "Modern browser",
-    "instructions": "npm start",
+    "instructions": "node scripts/serve-demo.cjs build 4514",
     "sourceUrl": "https://github.com/BorisThoris/gorilla-gainz",
     "sourceStatus": "Public repository",
     "images": [],
@@ -166,9 +166,9 @@
   "runner-score-arcade": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined build is live. Public desktop, phone-layout and walkthrough input checks pass; screenshots and footage come from the running application.",
     "environment": "Modern browser",
-    "instructions": "npm start",
+    "instructions": "node scripts/serve-demo.cjs dist 4511",
     "sourceUrl": "https://github.com/BorisThoris/runner-score-arcade",
     "sourceStatus": "Public repository",
     "images": [],
@@ -199,9 +199,9 @@
   "gem-dungeon": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined exploration and editor build is live. Public keyboard/mouse walkthrough checks pass; phone captures demonstrate layout. Screenshots and footage come from actual play.",
     "environment": "Modern browser",
-    "instructions": "yarn dev --host 127.0.0.1 --port 4103",
+    "instructions": "npm run preview -- --host 127.0.0.1 --port 26110",
     "sourceUrl": "https://github.com/BorisThoris/gem-dungeon",
     "sourceStatus": "Public repository",
     "images": [],
@@ -210,9 +210,9 @@
   "skyfall": {
     "kind": "web",
     "label": "Web application",
-    "status": "Public demo link available.",
+    "status": "Refined build is live. Public desktop, phone-layout and walkthrough input checks pass; screenshots and footage come from the running application.",
     "environment": "Modern browser",
-    "instructions": "npm run dev -- --host 127.0.0.1 --port 4104",
+    "instructions": "node scripts/serve-demo.cjs dist 4513",
     "sourceUrl": "https://github.com/BorisThoris/skyfall",
     "sourceStatus": "Public repository",
     "images": [],
@@ -706,5 +706,63 @@
     "transcriptUrl": "/native/github-csharp-exercises/transcript.txt",
     "downloadUrl": "/native/github-csharp-exercises/csharp-expanded-source.zip",
     "downloadLabel": "Download C# source and native launcher"
+  },
+  "miata-lights": {
+    "kind": "native",
+    "label": "Native Android application",
+    "status": "Verified in an Android emulator with the original 3D model and working headlight controls. A debug APK is available locally; no public application download is hosted.",
+    "environment": "Android; Android Studio, SDK 35 and JDK 17–21 for source development",
+    "instructions": "Use the Android project’s Run-Demo.ps1 to start its explicit emulator and install the app. Build-Demo.ps1 rebuilds the APK; Capture-Demo.ps1 reproduces the native interaction and screenshot workflow.",
+    "sourceUrl": "",
+    "sourceStatus": "Local Android Studio project; source is not published.",
+    "creditsUrl": "/native/miata-lights/CREDITS.md",
+    "images": [
+      {
+        "profile": "native-1",
+        "path": "/native/miata-lights/01-open.png",
+        "caption": "Open headlights in the original parking scene",
+        "width": 1080,
+        "height": 2400
+      },
+      {
+        "profile": "native-2",
+        "path": "/native/miata-lights/02-wink.png",
+        "caption": "Wink with the original headlight joints",
+        "width": 1080,
+        "height": 2400
+      },
+      {
+        "profile": "native-3",
+        "path": "/native/miata-lights/03-sleepy-front.png",
+        "caption": "Adjustable sleepy headlights from the front",
+        "width": 1080,
+        "height": 2400
+      },
+      {
+        "profile": "native-4",
+        "path": "/native/miata-lights/04-safe-return.png",
+        "caption": "Power remains off after returning to the app",
+        "width": 1080,
+        "height": 2400
+      },
+      {
+        "profile": "native-5",
+        "path": "/native/miata-lights/05-landscape.png",
+        "caption": "Original side controls in landscape",
+        "width": 2400,
+        "height": 1080
+      }
+    ],
+    "videos": [
+      {
+        "url": "/native/miata-lights/Miata-Lights-native.mp4",
+        "kind": "video",
+        "title": "Actual Android pop-up headlight animation",
+        "poster": "/native/miata-lights/01-open.png",
+        "width": 720,
+        "height": 1600
+      }
+    ],
+    "captureNote": "Captured from the actual Android/Filament application, with original side controls preserved. The clip is silent. Miata model: antoineallardchoquette, CC BY 4.0. Parking environment: Nico Perry, CC BY-NC 4.0. Full attribution is included with the local project. Physical phone flashlight behavior has not been tested."
   }
 }

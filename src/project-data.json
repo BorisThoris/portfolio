@@ -67,15 +67,15 @@
   {
     "slug": "gem-dungeon",
     "title": "Gem Dungeon Editor",
-    "subtitle": "Walk the dungeon, then rebuild it in place",
-    "description": "A first-person dungeon you explore and edit in the same window: procedurally generated rooms and corridors, a component browser of breakable and interactive objects, texture painting and mosaic tools, and Rapier physics under your feet. React Three Fiber and Zustand, packaged with Electron.",
+    "subtitle": "Explore connected rooms, save progress, and playtest your own",
+    "description": "Explore a generated first-person dungeon with real room discovery, progression keys, connected corridors and a floor map. Save a chamber checkpoint, then open the original room, texture and mosaic tools. Edit a room and playtest it with the same keyboard and mouse controls. React Three Fiber, Rapier physics and Electron packaging.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\gem-dungeon-epic-1",
-    "localUrl": "http://127.0.0.1:4103/",
+    "localUrl": "http://127.0.0.1:26110/",
     "deploymentUrl": "https://gem-dungeon-git.pages.dev/",
     "buildCommand": "yarn build",
     "buildOutput": "dist",
-    "runCommand": "yarn dev --host 127.0.0.1 --port 4103",
-    "screenshot": "/project-shots/gem-dungeon/main.png",
+    "runCommand": "npm run preview -- --host 127.0.0.1 --port 26110",
+    "screenshot": "/project-shots/gem-dungeon/latest/card.jpg",
     "tags": [
       "React Three Fiber",
       "Three.js",
@@ -83,20 +83,20 @@
       "Rapier",
       "Electron"
     ],
-    "accent": "#22d3ee"
+    "accent": "#54d88b"
   },
   {
     "slug": "skyfall",
     "title": "Skyfall",
     "subtitle": "An endless dodger with heat, bosses and perk drafts",
-    "description": "A Phaser 3 endless dodger: survive escalating waves as the heat rises, break boss encounters, draft perks between runs, and chase daily contracts, achievements and meta progression, with motion, flash and control options for accessibility. Vite in the browser, Electron on the desktop.",
+    "description": "Survive the drop and reach the exit in Classic, Boss Rush or Draft. Keep the original skeleton character and procedural arena, choose a loadout, chase daily contracts, and spend earned rewards. Responsive menus and readable touch run controls complement the keyboard game.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\skyfall",
-    "localUrl": "http://127.0.0.1:4104/",
+    "localUrl": "http://127.0.0.1:4513/",
     "deploymentUrl": "https://skyfall-git.pages.dev/",
     "buildCommand": "npm run build",
     "buildOutput": "dist",
-    "runCommand": "npm run dev -- --host 127.0.0.1 --port 4104",
-    "screenshot": "/project-shots/skyfall/main.png",
+    "runCommand": "node scripts/serve-demo.cjs dist 4513",
+    "screenshot": "/project-shots/skyfall/latest/card.jpg",
     "tags": [
       "Game",
       "Phaser",
@@ -173,10 +173,10 @@
   {
     "slug": "runner-score-arcade",
     "title": "Runner Score Arcade",
-    "subtitle": "Dodg'Em Up Bro: an early Phaser runner",
-    "description": "An early Phaser 3 runner: dodge the falling hazards, grab power-ups, keep your lives and push the score, on keyboard or touch. Served by a small Express app with a demo-safe local leaderboard in place of the original Kinvey backend.",
+    "subtitle": "Dodge, collect, survive — the original stickman arcade",
+    "description": "Dodge falling spikes with the original animated stickman and brick arena. Read drop warnings, collect six-second power-ups, survive escalating waves, and save genuine personal records on this device. Keyboard and touch controls, pause and replay.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\runner-score-arcade",
-    "localUrl": "http://127.0.0.1:4107/",
+    "localUrl": "http://127.0.0.1:4511/",
     "deploymentUrl": "https://runner-score-arcade-git.pages.dev/",
     "buildCommand": "npm run build",
     "buildOutput": "dist",
@@ -184,8 +184,8 @@
     "fallbackEnv": {
       "PORT": "4107"
     },
-    "runCommand": "npm start",
-    "screenshot": "/project-shots/runner-score-arcade/main.png",
+    "runCommand": "node scripts/serve-demo.cjs dist 4511",
+    "screenshot": "/project-shots/runner-score-arcade/latest/card.jpg",
     "tags": [
       "Game",
       "Phaser",
@@ -237,22 +237,22 @@
   {
     "slug": "pedal-rush",
     "title": "Pedal Rush",
-    "subtitle": "Hold the gas, thread the traffic",
-    "description": "A 2D traffic-dodging game in React: hold gas to accelerate, brake to scrub speed, switch lanes and thread through traffic for score and combo, with collisions costing health and a spinout when it runs out. A requestAnimationFrame game loop with CSS animation, built on Vite.",
+    "subtitle": "A multilane endless traffic run",
+    "description": "An endless four-lane driving game with modeled cars and a coastal road. Steer through fair traffic waves, hold gas for a burst, brake to make space and build a score from overtakes and close calls. Includes keyboard and touch controls, pause, collision results, retry and a saved personal best.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\my-hooks-demo",
     "localUrl": "http://127.0.0.1:4111/",
     "deploymentUrl": "https://pedal-rush-git.pages.dev/",
     "buildCommand": "npm run build",
     "buildOutput": "build",
-    "runCommand": "npm start",
+    "runCommand": "npm start -- --host 127.0.0.1 --port 4111",
     "screenshot": "/project-shots/pedal-rush/latest/card.jpg",
     "tags": [
       "Game",
+      "Three.js",
       "React",
-      "Vite",
-      "Arcade"
+      "Endless Driving"
     ],
-    "accent": "#84cc16"
+    "accent": "#398cd1"
   },
   {
     "slug": "flowforge-configurator",
@@ -277,36 +277,34 @@
   {
     "slug": "gorilla-gainz",
     "title": "Gorilla Gainz",
-    "subtitle": "A fitness store front with an admin back office",
-    "description": "A React e-commerce demo for fitness gear: browse the catalogue and product pages, log in to manage a profile, and use the admin-only screens to add, update and remove products. An early React Router project preserved with demo-safe placeholders for its backend.",
+    "subtitle": "Fitness gear, with the original Gorilla Gainz character",
+    "description": "A React fitness store with its original gorilla imagery, green backdrop and sidebar catalogue. Browse and filter six illustrated products, inspect details, keep a shopping bag and try a clearly marked demo checkout. A local editor session supports product creation, updates and removal with persistent drafts and catalogue data.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\react-fitness-ecommerce-demo",
-    "localUrl": "http://127.0.0.1:4113/",
+    "localUrl": "http://127.0.0.1:4514/",
     "deploymentUrl": "https://gorilla-gainz-git.pages.dev/",
     "buildCommand": "npm run build",
     "buildOutput": "build",
-    "serveBasePath": "/react-fitness-ecommerce-demo",
-    "runCommand": "npm start",
-    "screenshot": "/project-shots/gorilla-gainz/main.png",
+    "runCommand": "node scripts/serve-demo.cjs build 4514",
+    "screenshot": "/project-shots/gorilla-gainz/latest/card.jpg",
     "tags": [
       "React",
       "Ecommerce",
       "React Router",
-      "Archive"
+      "Local data"
     ],
-    "accent": "#facc15"
+    "accent": "#2f6f4e"
   },
   {
     "slug": "memory-card-quest",
     "title": "Memory Card Quest",
     "subtitle": "Flip, match, and keep your lives",
-    "description": "A card-matching memory game in React and Redux: flip two cards, match the pair, watch the score climb and the lives fall, and replay when they run out. Randomised pairs every game and a Redux store that models each flip.",
+    "description": "A React and Redux memory game with 6, 8 or 10 pairs. Match named symbols, earn hearts back, use keyboard grid controls, and improve the best move count saved for each board size.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\react-redux-memory-card-game",
-    "localUrl": "http://127.0.0.1:4114/",
+    "localUrl": "http://127.0.0.1:4512/",
     "deploymentUrl": "https://memory-card-quest-git.pages.dev/",
     "buildCommand": "npm run build",
     "buildOutput": "build",
-    "serveBasePath": "/react-redux-memory-card-game",
-    "runCommand": "npm start",
+    "runCommand": "node scripts/serve-demo.cjs build 4512",
     "screenshot": "/project-shots/memory-card-quest/latest/card.jpg",
     "tags": [
       "Game",
@@ -314,7 +312,7 @@
       "Redux",
       "Archive"
     ],
-    "accent": "#c084fc"
+    "accent": "#dec184"
   },
   {
     "slug": "org-atlas-directory",
@@ -766,5 +764,24 @@
       "Algorithms"
     ],
     "accent": "#90c7c5"
+  },
+  {
+    "slug": "miata-lights",
+    "title": "Miata Lights",
+    "subtitle": "Pop-up headlights in a native Android playground",
+    "description": "The original teal Miata and parking scene, with amber side controls for Open, Wink, Sleepy and Blink. A native Kotlin/Compose app uses the model’s real headlight joints, front and three-quarter views, saved preferences and an optional phone flashlight link.",
+    "repoPath": "C:/Users/Gaming PC/AndroidStudioProjects/MyApplication2",
+    "buildCommand": "./Build-Demo.ps1",
+    "buildOutput": "app/build/outputs/apk/debug",
+    "runCommand": "./Run-Demo.ps1",
+    "screenshot": "/native/miata-lights/01-open.png",
+    "tags": [
+      "Android",
+      "Kotlin",
+      "Jetpack Compose",
+      "Filament",
+      "3D"
+    ],
+    "accent": "#ffc447"
   }
 ]

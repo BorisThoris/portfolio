@@ -60,7 +60,7 @@
     "polishScore": 82,
     "uniquenessScore": 88,
     "maintenanceScore": 76,
-    "analysisNotes": "React Three Fiber dungeon editor with procedural rooms, physics, a component browser and a clean Vite demo path; deployed from main."
+    "analysisNotes": "Original colored dungeon rooms, gem markers, night HDR and authoring tools retained. Verified keyboard exploration through five rooms, key acquisition and matching gate traversal, pause/save/restore and room edit/play/return. Desktop keyboard/mouse controls; native Electron packaging has not been reverified in this pass."
   },
   {
     "slug": "threejs-gem-dungeon-editor",
@@ -186,7 +186,7 @@
     "polishScore": 58,
     "uniquenessScore": 54,
     "maintenanceScore": 52,
-    "analysisNotes": "Archived ecommerce demo with product browsing; kept in the quieter section because it is older and less differentiated."
+    "analysisNotes": "Original visual identity and product-management flow preserved, with durable bag, demo checkout, responsive catalogue filters and local illustration assets. Verified complete browser workflow and accessible page structure."
   },
   {
     "slug": "memory-card-quest",
@@ -210,7 +210,7 @@
     "polishScore": 50,
     "uniquenessScore": 50,
     "maintenanceScore": 44,
-    "analysisNotes": "Early hooks animation/demo project; kept visible as archive material with limited visual emphasis."
+    "analysisNotes": "Playable modeled traffic runner, preserving the original blue car, navy dashboard, gas/brake and lane-control identity. Verified real keyboard/touch runs, collision/retry and persisted best."
   },
   {
     "slug": "portfolio",
@@ -468,5 +468,17 @@
     "analysisNotes": "Fork checkout; threejs-gem-dungeon-editor-live is the deployed line.",
     "duplicateOf": "threejs-gem-dungeon-editor",
     "excludedReason": "Diverged fork; threejs-gem-dungeon-editor-live tracks the deployed main."
+  },
+  {
+    "slug": "miata-lights",
+    "repoName": "Miata Lights",
+    "showcaseTier": "more",
+    "priorityScore": 60,
+    "demoabilityScore": 65,
+    "depthScore": 60,
+    "polishScore": 60,
+    "uniquenessScore": 65,
+    "maintenanceScore": 55,
+    "analysisNotes": "Recovered local Android app, retaining original models and side-control design. Actual native screenshots and footage, reproducible emulator launch, no web substitute."
   }
 ]

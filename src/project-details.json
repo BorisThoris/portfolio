@@ -306,19 +306,7 @@
         "bytes": 104776
       }
     ],
-    "trailers": [
-      {
-        "id": "tour",
-        "title": "BBeats: a starter pattern, played",
-        "url": "https://bbeats-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://bbeats-git.pages.dev/trailers/tour.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 24,
-        "orientation": "landscape",
-        "builtAt": "2026-09-27T14:21:15.246Z"
-      }
-    ],
+    "trailers": [],
     "source": "BorisThoris/BBeats@main"
   },
   "vyb-chess": {
@@ -701,19 +689,58 @@
   },
   "gem-dungeon": {
     "slug": "gem-dungeon",
-    "generatedAt": "2026-09-27T14:12:44.088Z",
+    "generatedAt": "2026-09-27T18:12:07.839Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://gem-dungeon-git.pages.dev/",
-      "localUrl": "http://127.0.0.1:4103/",
+      "localUrl": "http://127.0.0.1:26110/",
       "homepage": "./",
       "repository": "https://github.com/BorisThoris/gem-dungeon"
     },
     "runtime": {
       "packageManager": "yarn",
       "buildCommand": "yarn build",
-      "runCommand": "yarn dev --host 127.0.0.1 --port 4103"
+      "buildOutput": "dist",
+      "runCommand": "npm run preview -- --host 127.0.0.1 --port 26110",
+      "devPort": 26110,
+      "scripts": [
+        "start",
+        "dev",
+        "build",
+        "lint",
+        "test",
+        "test:dungeon",
+        "test:dungeon:watch",
+        "test:dungeon:property",
+        "test:dungeon:sweep",
+        "test:dungeon:stress",
+        "analyze:dungeon",
+        "benchmark:dungeon:techniques",
+        "test:browser:cdp",
+        "typecheck:dungeon",
+        "preview",
+        "electron",
+        "electron-dev",
+        "electron-pack",
+        "electron-dist",
+        "generate-config",
+        "generate-assets",
+        "scan-components",
+        "generate-textures",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "React Three Fiber",
@@ -767,17 +794,17 @@
       "devDependencyCount": 32
     },
     "metrics": {
-      "sourceFiles": 392,
-      "testFiles": 29,
-      "sourceLines": 80896,
+      "sourceFiles": 397,
+      "testFiles": 31,
+      "sourceLines": 81123,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 344
+          "files": 348
         },
         {
           "directory": "scripts",
-          "files": 36
+          "files": 37
         },
         {
           "directory": "assets",
@@ -792,16 +819,18 @@
           "files": 2
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": true
     },
     "git": {
-      "branch": "main",
-      "head": "3aa0f84",
-      "lastCommitDate": "2026-09-27T17:07:42+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 149
+      "branch": "codex/gem-exploration-workflow",
+      "head": "752022c",
+      "lastCommitDate": "2026-09-27T21:10:43+03:00",
+      "lastCommitSubject": "Improve dungeon exploration, checkpoints and room playtesting",
+      "commitCount": 151,
+      "remote": "https://github.com/BorisThoris/gem-dungeon.git"
     },
     "scores": {
       "priorityScore": 76,
@@ -811,73 +840,109 @@
       "uniquenessScore": 88,
       "maintenanceScore": 76
     },
-    "analysisNotes": "React Three Fiber dungeon editor with procedural rooms, physics, a component browser and a clean Vite demo path; deployed from main.",
+    "analysisNotes": "Original colored dungeon rooms, gem markers, night HDR and authoring tools retained. Verified keyboard exploration through five rooms, key acquisition and matching gate traversal, pause/save/restore and room edit/play/return. Desktop keyboard/mouse controls; native Electron packaging has not been reverified in this pass.",
     "images": [
       {
         "profile": "card",
         "path": "/project-shots/gem-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 94611
+        "bytes": 82544
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gem-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 92838
+        "bytes": 78430
       },
       {
         "profile": "full",
         "path": "/project-shots/gem-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 80112
+        "bytes": 66628
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gem-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 31995
+        "bytes": 38221
       },
       {
         "profile": "og",
         "path": "/project-shots/gem-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 79371
+        "bytes": 69612
       }
     ],
     "trailers": [
       {
         "id": "tour",
-        "title": "Gem Dungeon Editor: rooms, textures and mosaics",
-        "url": "https://gem-dungeon-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://gem-dungeon-git.pages.dev/trailers/tour.jpg",
+        "title": "Gem Dungeon: explore, save and playtest",
+        "url": "/project-shots/gem-dungeon/latest/tour.mp4",
+        "poster": "/project-shots/gem-dungeon/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 1498323,
         "width": 1280,
         "height": 720,
-        "duration": 24,
+        "duration": 36,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T14:01:47.393Z"
+        "builtAt": "2026-09-27T18:10:44.827Z"
       }
     ],
-    "source": "BorisThoris/gem-dungeon@main"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/gem-dungeon"
   },
   "skyfall": {
     "slug": "skyfall",
-    "generatedAt": "2026-09-27T13:17:07.410Z",
+    "generatedAt": "2026-09-27T17:47:14.588Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://skyfall-git.pages.dev/",
-      "localUrl": "http://127.0.0.1:4104/",
+      "localUrl": "http://127.0.0.1:4513/",
       "repository": "https://github.com/BorisThoris/skyfall"
     },
     "runtime": {
       "packageManager": "npm",
       "buildCommand": "npm run build",
-      "runCommand": "npm run dev -- --host 127.0.0.1 --port 4104"
+      "buildOutput": "dist",
+      "runCommand": "node scripts/serve-demo.cjs dist 4513",
+      "devPort": 4513,
+      "scripts": [
+        "test",
+        "test:e2e",
+        "agents:plan",
+        "agents:launch",
+        "agents:wave01",
+        "agents:wave01:plan",
+        "agents:wave02",
+        "agents:wave02:plan",
+        "agents:wave05:plan",
+        "dev",
+        "dev:3000",
+        "build",
+        "preview",
+        "electron:dev",
+        "electron:build",
+        "telemetry:aggregate",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "Phaser",
@@ -907,13 +972,13 @@
       "devDependencyCount": 4
     },
     "metrics": {
-      "sourceFiles": 96,
+      "sourceFiles": 100,
       "testFiles": 22,
-      "sourceLines": 16131,
+      "sourceLines": 16414,
       "largestDirectories": [
         {
           "directory": "app",
-          "files": 58
+          "files": 61
         },
         {
           "directory": "test",
@@ -921,7 +986,7 @@
         },
         {
           "directory": "scripts",
-          "files": 11
+          "files": 12
         },
         {
           "directory": "e2e",
@@ -932,16 +997,18 @@
           "files": 5
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": true
     },
     "git": {
-      "branch": "master",
-      "head": "3271e0f0",
-      "lastCommitDate": "2026-09-27T16:05:44+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 158
+      "branch": "codex/product-polish-release",
+      "head": "60488202",
+      "lastCommitDate": "2026-09-27T20:43:40+03:00",
+      "lastCommitSubject": "Trim browser setup from recorded gameplay trailers",
+      "commitCount": 165,
+      "remote": "https://github.com/BorisThoris/skyfall.git"
     },
     "scores": {
       "priorityScore": 76,
@@ -958,51 +1025,55 @@
         "path": "/project-shots/skyfall/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 67931
+        "bytes": 51618
       },
       {
         "profile": "desktop",
         "path": "/project-shots/skyfall/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 66291
+        "bytes": 49174
       },
       {
         "profile": "full",
         "path": "/project-shots/skyfall/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 58199
+        "bytes": 43255
       },
       {
         "profile": "mobile",
         "path": "/project-shots/skyfall/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 15890
+        "bytes": 25476
       },
       {
         "profile": "og",
         "path": "/project-shots/skyfall/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 48780
+        "bytes": 38962
       }
     ],
     "trailers": [
       {
         "id": "tour",
         "title": "Skyfall: the menu and the drop",
-        "url": "https://skyfall-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://skyfall-git.pages.dev/trailers/tour.jpg",
+        "url": "/project-shots/skyfall/latest/tour.mp4",
+        "poster": "/project-shots/skyfall/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 579282,
         "width": 1280,
         "height": 720,
         "duration": 20,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T13:04:16.677Z"
+        "builtAt": "2026-09-27T17:44:20.130Z"
       }
     ],
-    "source": "BorisThoris/skyfall@master"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/skyfall"
   },
   "cross-repo-libs": {
     "slug": "cross-repo-libs",
@@ -1289,18 +1360,44 @@
   },
   "runner-score-arcade": {
     "slug": "runner-score-arcade",
-    "generatedAt": "2026-09-27T14:15:41.691Z",
+    "generatedAt": "2026-09-27T17:54:31.783Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://runner-score-arcade-git.pages.dev/",
-      "localUrl": "http://127.0.0.1:4107/",
+      "localUrl": "http://127.0.0.1:4511/",
       "repository": "https://github.com/BorisThoris/runner-score-arcade"
     },
     "runtime": {
       "packageManager": "npm",
       "buildCommand": "npm run build",
-      "runCommand": "npm start"
+      "buildOutput": "dist",
+      "runCommand": "node scripts/serve-demo.cjs dist 4511",
+      "devPort": 4511,
+      "fallbackCommand": "npm start",
+      "fallbackEnv": {
+        "PORT": "4107"
+      },
+      "scripts": [
+        "test",
+        "build",
+        "start",
+        "your-custom-script",
+        "deploy",
+        "publish-demo",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "Phaser",
@@ -1329,33 +1426,39 @@
       "devDependencyCount": 13
     },
     "metrics": {
-      "sourceFiles": 35,
-      "testFiles": 2,
-      "sourceLines": 6587,
+      "sourceFiles": 39,
+      "testFiles": 3,
+      "sourceLines": 6182,
       "largestDirectories": [
         {
           "directory": "app",
-          "files": 19
+          "files": 21
         },
         {
           "directory": "scripts",
-          "files": 10
+          "files": 11
         },
         {
           "directory": ".",
           "files": 6
+        },
+        {
+          "directory": "test",
+          "files": 1
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "master",
-      "head": "989e4ef",
-      "lastCommitDate": "2026-09-27T17:10:52+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 53
+      "branch": "codex/product-polish-release",
+      "head": "c28d27b",
+      "lastCommitDate": "2026-09-27T20:52:57+03:00",
+      "lastCommitSubject": "Include nested public media in static builds",
+      "commitCount": 56,
+      "remote": "https://github.com/BorisThoris/runner-score-arcade.git"
     },
     "scores": {
       "priorityScore": 86,
@@ -1372,51 +1475,55 @@
         "path": "/project-shots/runner-score-arcade/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167557
+        "bytes": 132382
       },
       {
         "profile": "desktop",
         "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 155306
+        "bytes": 131654
       },
       {
         "profile": "full",
         "path": "/project-shots/runner-score-arcade/latest/full.jpg",
         "width": 1440,
-        "height": 916,
-        "bytes": 139759
+        "height": 900,
+        "bytes": 115820
       },
       {
         "profile": "mobile",
         "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 68627
+        "bytes": 49489
       },
       {
         "profile": "og",
         "path": "/project-shots/runner-score-arcade/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 125111
+        "bytes": 96338
       }
     ],
     "trailers": [
       {
         "id": "tour",
         "title": "Dodg'Em Up Bro: a run",
-        "url": "https://runner-score-arcade-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://runner-score-arcade-git.pages.dev/trailers/tour.jpg",
+        "url": "/project-shots/runner-score-arcade/latest/tour.mp4",
+        "poster": "/project-shots/runner-score-arcade/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 1033622,
         "width": 1280,
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T14:09:31.502Z"
+        "builtAt": "2026-09-27T17:50:32.217Z"
       }
     ],
-    "source": "BorisThoris/runner-score-arcade@master"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/runner-score-arcade"
   },
   "cat-world": {
     "slug": "cat-world",
@@ -1534,19 +1641,7 @@
         "bytes": 101829
       }
     ],
-    "trailers": [
-      {
-        "id": "tour",
-        "title": "Cat World: the adoption board",
-        "url": "https://cat-world-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://cat-world-git.pages.dev/trailers/tour.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 20,
-        "orientation": "landscape",
-        "builtAt": "2026-09-27T13:54:59.580Z"
-      }
-    ],
+    "trailers": [],
     "source": "BorisThoris/cat-world@master"
   },
   "user-hub-admin": {
@@ -1669,24 +1764,12 @@
         "bytes": 49647
       }
     ],
-    "trailers": [
-      {
-        "id": "tour",
-        "title": "User Hub Admin: create, review, manage",
-        "url": "https://user-hub-admin-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://user-hub-admin-git.pages.dev/trailers/tour.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 20,
-        "orientation": "landscape",
-        "builtAt": "2026-09-27T13:26:44.764Z"
-      }
-    ],
+    "trailers": [],
     "source": "BorisThoris/user-hub-admin@master"
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-27T13:05:32.231Z",
+    "generatedAt": "2026-09-27T17:30:20.034Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1698,7 +1781,27 @@
       "packageManager": "npm",
       "nodeEngine": "20.x",
       "buildCommand": "npm run build",
-      "runCommand": "npm start"
+      "buildOutput": "build",
+      "runCommand": "npm start -- --host 127.0.0.1 --port 4111",
+      "devPort": 4111,
+      "scripts": [
+        "start",
+        "build",
+        "preview",
+        "test",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "React",
@@ -1716,6 +1819,10 @@
           "version": "^18.2.0"
         },
         {
+          "name": "three",
+          "version": "0.180.0"
+        },
+        {
           "name": "vite",
           "version": "^5.4.21"
         }
@@ -1724,13 +1831,13 @@
         "vitest",
         "@testing-library/react"
       ],
-      "dependencyCount": 2,
+      "dependencyCount": 3,
       "devDependencyCount": 6
     },
     "metrics": {
-      "sourceFiles": 19,
-      "testFiles": 3,
-      "sourceLines": 4094,
+      "sourceFiles": 23,
+      "testFiles": 4,
+      "sourceLines": 3782,
       "largestDirectories": [
         {
           "directory": "scripts",
@@ -1738,23 +1845,29 @@
         },
         {
           "directory": "src",
-          "files": 7
+          "files": 10
         },
         {
           "directory": ".",
           "files": 2
+        },
+        {
+          "directory": "public",
+          "files": 1
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "master",
-      "head": "54c9c23",
-      "lastCommitDate": "2026-09-27T16:02:33+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 41
+      "branch": "codex/pedal-coastal-drive",
+      "head": "96fc940",
+      "lastCommitDate": "2026-09-27T20:29:42+03:00",
+      "lastCommitSubject": "Complete modeled four-lane driving while retaining original game identity",
+      "commitCount": 45,
+      "remote": "https://github.com/BorisThoris/pedal-rush.git"
     },
     "scores": {
       "priorityScore": 52,
@@ -1764,58 +1877,62 @@
       "uniquenessScore": 50,
       "maintenanceScore": 44
     },
-    "analysisNotes": "Early hooks animation/demo project; kept visible as archive material with limited visual emphasis.",
+    "analysisNotes": "Playable modeled traffic runner, preserving the original blue car, navy dashboard, gas/brake and lane-control identity. Verified real keyboard/touch runs, collision/retry and persisted best.",
     "images": [
       {
         "profile": "card",
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 129335
+        "bytes": 151280
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130523
+        "bytes": 145270
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 111481
+        "bytes": 126083
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 52649
+        "bytes": 50185
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 99871
+        "bytes": 118852
       }
     ],
     "trailers": [
       {
         "id": "tour",
-        "title": "Pedal Rush: hold the gas, thread the traffic",
-        "url": "https://pedal-rush-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://pedal-rush-git.pages.dev/trailers/tour.jpg",
+        "title": "Pedal Rush: a real four-lane traffic run",
+        "url": "/project-shots/pedal-rush/latest/tour.mp4",
+        "poster": "/project-shots/pedal-rush/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 1412025,
         "width": 1280,
         "height": 720,
-        "duration": 22,
+        "duration": 14,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T13:01:03.994Z"
+        "builtAt": "2026-09-27T17:29:44.615Z"
       }
     ],
-    "source": "BorisThoris/pedal-rush@master"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/pedal-rush"
   },
   "flowforge-configurator": {
     "slug": "flowforge-configurator",
@@ -1950,19 +2067,41 @@
   },
   "gorilla-gainz": {
     "slug": "gorilla-gainz",
-    "generatedAt": "2026-09-27T13:38:26.311Z",
+    "generatedAt": "2026-09-27T17:38:37.334Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://gorilla-gainz-git.pages.dev/",
-      "localUrl": "http://127.0.0.1:4113/",
-      "homepage": ".",
+      "localUrl": "http://127.0.0.1:4514/",
+      "homepage": "/",
       "repository": "https://github.com/BorisThoris/gorilla-gainz"
     },
     "runtime": {
       "packageManager": "npm",
       "buildCommand": "npm run build",
-      "runCommand": "npm start"
+      "buildOutput": "build",
+      "runCommand": "node scripts/serve-demo.cjs build 4514",
+      "devPort": 4514,
+      "scripts": [
+        "start",
+        "build",
+        "predeploy",
+        "deploy",
+        "test",
+        "eject",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "React",
@@ -1992,33 +2131,35 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 50,
-      "testFiles": 2,
-      "sourceLines": 5602,
+      "sourceFiles": 59,
+      "testFiles": 4,
+      "sourceLines": 5809,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 39
+          "files": 45
         },
         {
           "directory": "scripts",
-          "files": 10
+          "files": 13
         },
         {
           "directory": "public",
           "files": 1
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "master",
-      "head": "b178273",
-      "lastCommitDate": "2026-09-27T16:35:29+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 38
+      "branch": "codex/gorilla-storefront",
+      "head": "34e4193",
+      "lastCommitDate": "2026-09-27T20:37:32+03:00",
+      "lastCommitSubject": "Complete local storefront flows while preserving Gorilla Gainz design",
+      "commitCount": 42,
+      "remote": "https://github.com/BorisThoris/gorilla-gainz.git"
     },
     "scores": {
       "priorityScore": 82,
@@ -2028,74 +2169,100 @@
       "uniquenessScore": 54,
       "maintenanceScore": 52
     },
-    "analysisNotes": "Archived ecommerce demo with product browsing; kept in the quieter section because it is older and less differentiated.",
+    "analysisNotes": "Original visual identity and product-management flow preserved, with durable bag, demo checkout, responsive catalogue filters and local illustration assets. Verified complete browser workflow and accessible page structure.",
     "images": [
       {
         "profile": "card",
         "path": "/project-shots/gorilla-gainz/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 83622
+        "bytes": 180588
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gorilla-gainz/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71042
+        "bytes": 173249
       },
       {
         "profile": "full",
         "path": "/project-shots/gorilla-gainz/latest/full.jpg",
         "width": 1440,
-        "height": 1036,
-        "bytes": 62767
+        "height": 1693,
+        "bytes": 252454
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gorilla-gainz/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 24334
+        "bytes": 55961
       },
       {
         "profile": "og",
         "path": "/project-shots/gorilla-gainz/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 47138
+        "bytes": 107957
       }
     ],
     "trailers": [
       {
         "id": "tour",
-        "title": "Gorilla Gainz: the store front",
-        "url": "https://gorilla-gainz-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://gorilla-gainz-git.pages.dev/trailers/tour.jpg",
+        "title": "Gorilla Gainz: catalogue, product and demo bag",
+        "url": "/project-shots/gorilla-gainz/latest/tour.mp4",
+        "poster": "/project-shots/gorilla-gainz/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 916712,
         "width": 1280,
         "height": 720,
-        "duration": 20,
+        "duration": 18,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T13:33:27.504Z"
+        "builtAt": "2026-09-27T17:37:35.915Z"
       }
     ],
-    "source": "BorisThoris/gorilla-gainz@master"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/gorilla-gainz"
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-09-27T13:22:11.739Z",
+    "generatedAt": "2026-09-27T17:58:46.140Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://memory-card-quest-git.pages.dev/",
-      "localUrl": "http://127.0.0.1:4114/",
+      "localUrl": "http://127.0.0.1:4512/",
       "homepage": ".",
       "repository": "https://github.com/BorisThoris/memory-card-quest"
     },
     "runtime": {
       "packageManager": "npm",
       "buildCommand": "npm run build",
-      "runCommand": "npm start"
+      "buildOutput": "build",
+      "runCommand": "node scripts/serve-demo.cjs build 4512",
+      "devPort": 4512,
+      "scripts": [
+        "start",
+        "build",
+        "test",
+        "eject",
+        "predeploy",
+        "deploy",
+        "meta",
+        "meta:check",
+        "shots",
+        "social",
+        "social:check",
+        "icons",
+        "icons:check",
+        "meta:refresh",
+        "trailers",
+        "trailers:check",
+        "test:media",
+        "test:media:e2e"
+      ]
     },
     "stack": {
       "framework": "React",
@@ -2121,9 +2288,9 @@
       "devDependencyCount": 1
     },
     "metrics": {
-      "sourceFiles": 31,
+      "sourceFiles": 33,
       "testFiles": 4,
-      "sourceLines": 4517,
+      "sourceLines": 4202,
       "largestDirectories": [
         {
           "directory": "src",
@@ -2131,23 +2298,25 @@
         },
         {
           "directory": "scripts",
-          "files": 10
+          "files": 12
         },
         {
           "directory": "public",
           "files": 1
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "master",
-      "head": "d7d859a",
-      "lastCommitDate": "2026-09-27T16:15:10+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 39
+      "branch": "codex/product-polish-release",
+      "head": "48f89c1",
+      "lastCommitDate": "2026-09-27T20:57:48+03:00",
+      "lastCommitSubject": "Refine original card game with complete responsive play and records",
+      "commitCount": 43,
+      "remote": "https://github.com/BorisThoris/memory-card-quest.git"
     },
     "scores": {
       "priorityScore": 55,
@@ -2164,51 +2333,55 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 274830
+        "bytes": 100929
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 254838
+        "bytes": 99497
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-card-quest/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 213424
+        "bytes": 83406
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 152154
+        "bytes": 54470
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 229329
+        "bytes": 85138
       }
     ],
     "trailers": [
       {
         "id": "tour",
         "title": "Memory Card Quest: flip, match, keep your lives",
-        "url": "https://memory-card-quest-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://memory-card-quest-git.pages.dev/trailers/tour.jpg",
+        "url": "/project-shots/memory-card-quest/latest/tour.mp4",
+        "poster": "/project-shots/memory-card-quest/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 799430,
         "width": 1280,
         "height": 720,
         "duration": 20,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T13:11:59.910Z"
+        "builtAt": "2026-09-27T17:58:01.986Z"
       }
     ],
-    "source": "BorisThoris/memory-card-quest@master"
+    "videos": [],
+    "artwork": [],
+    "source": "https://github.com/BorisThoris/memory-card-quest"
   },
   "org-atlas-directory": {
     "slug": "org-atlas-directory",

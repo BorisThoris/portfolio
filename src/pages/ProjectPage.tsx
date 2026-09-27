@@ -147,6 +147,7 @@ function ProjectContent({ project }: { project: Project }) {
           {access.downloadUrl ? <a className="btn" href={access.downloadUrl} download><Download size={16} />{access.downloadLabel ?? "Download"}</a> : access.kind === "native" ? <p>Packaged download not published yet.</p> : null}
           {access.transcriptUrl && <p><a href={access.transcriptUrl}>Read the captured console transcript</a></p>}
           {access.sourceStatus && <p>{access.sourceStatus}</p>}
+          {access.creditsUrl && <p><a href={access.creditsUrl}>Artwork credits and licenses</a></p>}
         </section>}
         {artwork.length > 0 ? (
           <section
