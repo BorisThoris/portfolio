@@ -100,7 +100,7 @@ function ProjectContent({ project }: { project: Project }) {
           </div>
         </section>
         <div className="project-cover" id="watch">
-          <ProjectMedia project={project} mode="cover" />
+          <ProjectMedia key={project.slug} project={project} mode="cover" />
         </div>
         <section
           className="project-overview section"

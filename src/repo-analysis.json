@@ -210,7 +210,7 @@
     "polishScore": 50,
     "uniquenessScore": 50,
     "maintenanceScore": 44,
-    "analysisNotes": "Playable modeled traffic runner, preserving the original blue car, navy dashboard, gas/brake and lane-control identity. Verified real keyboard/touch runs, collision/retry and persisted best."
+    "analysisNotes": "Original side-view MX-5 and scenery restored from authored assets. Three lanes, real acceleration/coasting/braking, fair traffic, health and retry. Keyboard, simultaneous touch controls, pause and saved best verified in a real browser."
   },
   {
     "slug": "portfolio",

@@ -237,8 +237,8 @@
   {
     "slug": "pedal-rush",
     "title": "Pedal Rush",
-    "subtitle": "A multilane endless traffic run",
-    "description": "An endless four-lane driving game with modeled cars and a coastal road. Steer through fair traffic waves, hold gas for a burst, brake to make space and build a score from overtakes and close calls. Includes keyboard and touch controls, pause, collision results, retry and a saved personal best.",
+    "subtitle": "The original blue MX-5, with an endless road ahead",
+    "description": "A side-view endless driving game with the original blue MX-5, spinning wheels, illustrated scenery and gas/brake pedals. Accelerate from rest, coast or brake, change between three lanes, avoid traffic and chase a saved personal best. Includes keyboard and touch controls, health, pause and retry.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\my-hooks-demo",
     "localUrl": "http://127.0.0.1:4111/",
     "deploymentUrl": "https://pedal-rush-git.pages.dev/",
@@ -248,7 +248,6 @@
     "screenshot": "/project-shots/pedal-rush/latest/card.jpg",
     "tags": [
       "Game",
-      "Three.js",
       "React",
       "Endless Driving"
     ],

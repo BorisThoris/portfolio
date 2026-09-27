@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { effectiveMedia } from "./lib/effective-media.mjs";
 const root = path.resolve("dist");
 const site = "https://boris-portfolio-git.pages.dev";
 const template = await fs.readFile(path.join(root, "index.html"), "utf8");
@@ -153,3 +154,15 @@ await fs.writeFile(
       '<noscript><h1>Page not found</h1><p><a href="/">Return to the portfolio</a></p></noscript>',
     ),
 );
+
+// A public inventory of the exact effective media exposed by the React UI.
+const media = effectiveMedia(
+  JSON.parse(await fs.readFile("src/project-details.json", "utf8")),
+  JSON.parse(await fs.readFile("src/project-media-overrides.json", "utf8")),
+  access);
+await fs.writeFile(path.join(root, "project-media.json"), JSON.stringify(Object.fromEntries(
+  Object.entries(media).map(([slug, details]) => [slug,
+    [...(details.trailers ?? []), ...(details.videos ?? [])]
+      .filter((clip, index, clips) => clips.findIndex(other => other.url === clip.url) === index)
+  ]).filter(([, clips]) => clips.length)
+), null, 2));

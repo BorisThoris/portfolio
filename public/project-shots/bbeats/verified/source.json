@@ -1,0 +1,18 @@
+{
+  "recordedAt": "2026-09-27T20:09:04.528Z",
+  "sourceUrl": "https://bbeats-git.pages.dev/#/editor",
+  "capture": "Playwright recording of the actual public editor at 1440x900",
+  "actions": [
+    "Create starter pattern",
+    "Play pattern",
+    "18 seconds of real pattern playback",
+    "Stop pattern"
+  ],
+  "audio": "Actual running Web Audio output captured through an additional MediaStream destination; original audible output left connected. No soundtrack or synthetic audio added.",
+  "durationSeconds": 20,
+  "videoCodec": "H.264",
+  "audioCodec": "AAC",
+  "audioMeanDb": -34.2,
+  "audioPeakDb": -11.1,
+  "sha256": "363bd4f8a6496a2e7a30cf3c531b40062899b9d21651872a8505f8a22349a1bd"
+}

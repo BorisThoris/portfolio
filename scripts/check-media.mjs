@@ -3,22 +3,65 @@ import fs from "node:fs/promises";
 import { preview } from "vite";
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
+import { effectiveMedia } from "./lib/effective-media.mjs";
 
-const server = await preview({ preview: { host: "127.0.0.1", port: 4188, strictPort: true } });
-const base = "http://127.0.0.1:4188";
+const server = process.env.MEDIA_BASE_URL ? null : await preview({ preview: { host: "127.0.0.1", port: 4188, strictPort: true } });
+const base = (process.env.MEDIA_BASE_URL ?? "http://127.0.0.1:4188").replace(/\/$/, "");
 const browser = await chromium.launch({ headless: true, ...(process.platform === "win32" ? { channel: "chrome" } : {}) });
-const details = JSON.parse(await fs.readFile("src/project-details.json", "utf8"));
+const details = effectiveMedia(
+  JSON.parse(await fs.readFile("src/project-details.json", "utf8")),
+  JSON.parse(await fs.readFile("src/project-media-overrides.json", "utf8")),
+  JSON.parse(await fs.readFile("src/project-access.json", "utf8")));
+if (process.env.MEDIA_BASE_URL) {
+  const response = await fetch(`${base}/project-media.json`);
+  assert(response.ok, 'Published effective media manifest is available');
+  const published = await response.json();
+  assert(Object.values(published).flat().length > 0, 'Published media inventory is nonempty');
+  for (const detail of Object.values(details)) { detail.trailers = []; detail.videos = []; }
+  for (const [slug, clips] of Object.entries(published)) {
+    details[slug] = { ...details[slug], trailers: clips, videos: [] };
+  }
+}
+for (const detail of Object.values(details)) {
+  detail.trailers = [...(detail.trailers ?? []), ...(detail.videos ?? []).filter(video => video.kind === 'video')]
+    .filter((clip, index, clips) => clips.findIndex(other => other.url === clip.url) === index)
+    .map((clip, index) => ({ ...clip, id: clip.id ?? `native-${index}` }));
+}
 const errors = [];
 const report = [];
 const ratios = [];
+const network = [];
+function observeMediaRequests(page) {
+  page.on('response', async response => {
+    if (!response.url().includes('.mp4')) return;
+    try {
+    const headers = await response.allHeaders();
+    const request = await response.request().allHeaders();
+    network.push({ url: response.url(), status: response.status(), range: request.range,
+      contentRange: headers['content-range'], contentLength: headers['content-length'],
+      type: headers['content-type'], encoding: headers['content-encoding'], cfRay: headers['cf-ray'], server: headers.server,
+      errorBody: response.status() >= 400 ? (await response.text()).slice(0,8000) : undefined });
+    } catch (error) { network.push({url:response.url(), status:response.status(), diagnosticError:String(error)}); }
+  });
+  page.on('requestfailed', request => {
+    if (request.url().includes('.mp4')) network.push({url:request.url(), failure:request.failure()});
+  });
+}
 await fs.mkdir("output/playwright", { recursive: true });
 
 async function playing(locator) {
   await locator.evaluate((video) => new Promise((resolve, reject) => {
-    const started = video.currentTime;
+    let previous = video.currentTime;
+    let advanced = 0;
     const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Video did not advance: ${video.currentSrc}; paused=${video.paused}; ready=${video.readyState}; network=${video.networkState}; time=${video.currentTime}; media error ${video.error?.code}; hidden=${document.hidden}; hovered=${video.closest('.project-tile')?.matches(':hover')}; rect=${JSON.stringify(video.getBoundingClientRect().toJSON())}`)); }, 30000);
     const timer = setInterval(() => {
-      if (!video.paused && video.readyState >= 2 && video.currentTime > started + 0.15) {
+      if (!video.paused && video.readyState >= 2) {
+        // Looped clips can wrap while an assertion starts near their end.
+        const delta = video.currentTime - previous;
+        if (delta > 0 && delta < 1) advanced += delta;
+        previous = video.currentTime;
+      }
+      if (advanced > 0.15) {
         clearInterval(timer); clearTimeout(timeout); resolve();
       }
     }, 100);
@@ -61,6 +104,7 @@ async function checkRatio(locator, label, expected) {
 const viewports = [{width:1440,height:1000}, {width:768,height:1024}, {width:390,height:844}, {width:320,height:568}, {width:844,height:390}];
 try {
   const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+  context.on("page", observeMediaRequests);
   let page = await context.newPage();
   page.setDefaultTimeout(15000);
   page.on("pageerror", (error) => errors.push(error.message));
@@ -86,6 +130,7 @@ try {
     const dialog = page.getByRole("dialog");
     await playing(dialog.locator("video"));
     await paused(preview);
+    assert.equal(await preview.getAttribute("src"), null, `${slug}: modal releases preview source`);
     for (let step = 0; step < 5; step++) {
       await page.keyboard.press("Tab");
       assert(await dialog.evaluate((el) => el.contains(document.activeElement)), "Keyboard focus stays inside player");
@@ -93,7 +138,14 @@ try {
     const violations = (await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations;
     assert.deepEqual(violations.map((item) => item.id), [], `Player accessibility: ${slug}`);
     for (const trailer of detail.trailers) {
-      if (detail.trailers.length > 1) await dialog.getByRole("group", { name: "Choose video" }).getByRole("button").filter({ has: page.getByText(trailer.title, { exact: true }) }).click();
+      console.log(`  Playing, seeking and ending: ${slug}/${trailer.id}`);
+      if (detail.trailers.length > 1) {
+        const previous = await dialog.locator("video").elementHandle();
+        await dialog.getByRole("group", { name: "Choose video" }).getByRole("button").filter({ has: page.getByText(trailer.title, { exact: true }) }).click();
+        const detached = await previous.evaluate(video => !video.isConnected);
+        if (detached) assert.deepEqual(await previous.evaluate(video => ({paused:video.paused, src:video.getAttribute("src")})), {paused:true,src:null}, `${slug}: switching clips releases the detached player`);
+        await previous.dispose();
+      }
       await playing(dialog.locator("video"));
       assert.equal(await dialog.locator("video").evaluate((video) => video.videoWidth > 0), true);
       for (const viewport of viewports) {
@@ -107,6 +159,22 @@ try {
         }), `${slug}/${trailer.id}: entire player frame fits viewport`);
       }
       await page.setViewportSize({width:1440,height:1000});
+      await dialog.locator('video').evaluate(video => new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error(`Video seek did not finish: ${video.currentSrc}; time=${video.currentTime}; duration=${video.duration}; paused=${video.paused}; seeking=${video.seeking}; ready=${video.readyState}; error=${video.error?.code}`)), 10000);
+        const target = Math.min(video.duration * .6, video.duration - .2);
+        video.addEventListener('seeked', () => {
+          clearTimeout(timer);
+          if (Math.abs(video.currentTime - target) > .6) reject(new Error(`Seek clamped: ${video.currentSrc}; requested=${target}; actual=${video.currentTime}`));
+          else resolve();
+        }, { once: true });
+        video.currentTime = target;
+      }));
+      await playing(dialog.locator('video'));
+      await dialog.locator('video').evaluate(video => new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error(`Video did not reach its ending: ${video.currentSrc}; time=${video.currentTime}; duration=${video.duration}; paused=${video.paused}; seeking=${video.seeking}; ready=${video.readyState}; error=${video.error?.code}`)), 10000);
+        video.addEventListener('ended', () => { clearTimeout(timer); resolve(); }, { once: true });
+        video.currentTime = Math.max(0, video.duration - .3);
+      }));
       report.push(`${slug}/${trailer.id}: real media decoded and playback time advanced`);
     }
     await page.screenshot({ path: `output/playwright/video-${slug}-desktop.png` });
@@ -118,6 +186,12 @@ try {
     assert.equal(await watch.evaluate((el) => el === document.activeElement), true);
     await cover.scrollIntoViewIfNeeded();
     await playing(preview);
+    for (let reopen = 0; reopen < 2; reopen++) {
+      await watch.click();
+      await playing(page.getByRole('dialog').locator('video'));
+      await page.keyboard.press('Escape');
+      assert.equal(await page.getByRole('dialog').count(), 0);
+    }
     for (const viewport of viewports) {
       await page.setViewportSize(viewport);
       await checkRatio(preview, `${slug} cover ${viewport.width}x${viewport.height}`);
@@ -127,6 +201,7 @@ try {
     await page.screenshot({ path: `output/playwright/cover-${slug}-mobile.png` });
     await page.locator(".project-footer").scrollIntoViewIfNeeded();
     await paused(preview);
+    assert.equal(await preview.getAttribute("src"), null, `${slug}: offscreen preview releases source`);
     await page.setViewportSize({ width: 1440, height: 1000 });
     for (const artwork of detail.artwork ?? []) {
       const asset = page.locator(`.artwork__image img[src="${artwork.url}"]`);
@@ -141,15 +216,18 @@ try {
       report.push(`${slug}/${artwork.id}: artwork decoded at ${geometry.width}x${geometry.height}, uncropped`);
     }
   }
-  for (const slug of ['bbeats', 'cat-world', 'user-hub-admin']) {
-    await page.goto(`${base}/projects/${slug}`);
-    const cover = page.locator('.project-cover');
-    await cover.scrollIntoViewIfNeeded();
-    assert.equal(await cover.locator('video').count(), 0, `${slug}: screenshot-only cover`);
-    assert.equal(await cover.getByRole('button', { name: /^Watch video/ }).count(), 0, `${slug}: no unavailable video action`);
-    assert(await cover.locator('img').evaluate(async (img) => { await img.decode(); return img.naturalWidth > 0 && img.naturalHeight > 0; }), `${slug}: genuine project screenshot decodes`);
-    report.push(`${slug}: verified still cover without a broken trailer link`);
-  }
+  // React Router reuses ProjectPage: a paused/failed previous cover must not
+  // leak its state into the next project's video during real link navigation.
+  await page.goto(`${base}/projects/bobball`);
+  await page.locator('.project-cover').scrollIntoViewIfNeeded();
+  await playing(page.locator('.project-cover video'));
+  await page.locator('.project-cover').getByRole('button', {name:'Pause preview',exact:true}).click();
+  await page.locator('.project-recommendations a[href="/projects/bbeats"]').first().click();
+  await page.waitForURL('**/projects/bbeats');
+  await page.locator('.project-cover').scrollIntoViewIfNeeded();
+  await playing(page.locator('.project-cover video'));
+  assert((await page.locator('.project-cover video').getAttribute('src')).includes('/bbeats/'));
+  report.push('In-app navigation: a paused BOBBALL cover does not suppress the next BBeats preview');
   await page.close();
   page = await context.newPage();
   page.setDefaultTimeout(15000);
@@ -255,12 +333,28 @@ try {
   report.push("Data saver: no automatic video request, Watch video remains available");
 
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.route("**/trailers/*.mp4", (route) => route.abort());
+  let interrupted = false;
+  const transientPattern = '**/project-shots/bobball/latest/trailers/trailer.mp4*';
+  await page.route(transientPattern, route => {
+    if (!interrupted) { interrupted = true; return route.fulfill({status:503,body:'Temporary media interruption'}); }
+    return route.continue();
+  });
+  await page.goto(`${base}/projects/bobball`);
+  await page.locator('.project-cover').scrollIntoViewIfNeeded();
+  await playing(page.locator('.project-cover video'));
+  assert(interrupted, 'Actual simulated 503 was delivered');
+  await page.unroute(transientPattern);
+  report.push('Transient network failure: preview automatically recovers after one actual 503');
+  await page.route("**/trailers/*.mp4*", (route) => route.abort());
   await page.goto(`${base}/projects/bobball`);
   await page.locator(".project-cover").scrollIntoViewIfNeeded();
   await page.locator(".project-cover").getByRole("button", { name: /^Watch video/ }).click();
   await page.getByText("This video couldn’t load.").waitFor();
   assert(await page.getByRole("link", { name: "Open video directly" }).isVisible());
+  await page.unroute("**/trailers/*.mp4*");
+  await page.getByRole('button', {name:'Retry video',exact:true}).click();
+  await playing(page.getByRole('dialog').locator('video'));
+  report.push('Exhausted retries: visible Retry video restores real playback once delivery returns');
   await page.keyboard.press("Escape");
   assert(await page.locator(".project-cover img").evaluate(async (img) => { await img.decode(); return img.naturalWidth > 0; }));
   report.push("Media failure: poster remains visible, direct link provided, player closes");
@@ -269,6 +363,7 @@ try {
   await fs.writeFile("output/playwright/media-verification.json", JSON.stringify({ checkedAt: new Date().toISOString(), report, ratios }, null, 2));
   console.log(report.join("\n"));
 } finally {
+  await fs.writeFile("output/playwright/media-network.json", JSON.stringify({ base, checkedAt:new Date().toISOString(), report, ratios, network }, null, 2));
   await browser.close();
-  await new Promise((resolve) => server.httpServer.close(resolve));
+  if (server) await new Promise((resolve) => server.httpServer.close(resolve));
 }

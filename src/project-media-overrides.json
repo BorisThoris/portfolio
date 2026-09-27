@@ -1,0 +1,309 @@
+{
+  "gem-dungeon": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Gem Dungeon: explore, save and playtest",
+        "url": "/project-shots/gem-dungeon/latest/tour.mp4",
+        "poster": "/project-shots/gem-dungeon/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 1498323,
+        "width": 1280,
+        "height": 720,
+        "duration": 36,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T18:10:44.827Z"
+      }
+    ],
+    "videos": []
+  },
+  "skyfall": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Skyfall: the menu and the drop",
+        "url": "/project-shots/skyfall/latest/tour.mp4",
+        "poster": "/project-shots/skyfall/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 579282,
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T17:44:20.130Z"
+      }
+    ],
+    "videos": []
+  },
+  "runner-score-arcade": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Dodg'Em Up Bro: a run",
+        "url": "/project-shots/runner-score-arcade/latest/tour.mp4",
+        "poster": "/project-shots/runner-score-arcade/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 1033622,
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T17:50:32.217Z"
+      }
+    ],
+    "videos": []
+  },
+  "pedal-rush": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Pedal Rush: original MX-5, three-lane drive",
+        "url": "/project-shots/pedal-rush/latest/tour.mp4",
+        "poster": "/project-shots/pedal-rush/latest/tour.jpg",
+        "width": 1440,
+        "height": 900,
+        "duration": 18.97,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T20:27:44.127Z"
+      }
+    ],
+    "videos": []
+  },
+  "gorilla-gainz": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Gorilla Gainz: catalogue, product and demo bag",
+        "url": "/project-shots/gorilla-gainz/latest/tour.mp4",
+        "poster": "/project-shots/gorilla-gainz/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 916712,
+        "width": 1280,
+        "height": 720,
+        "duration": 18,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T17:37:35.915Z"
+      }
+    ],
+    "videos": []
+  },
+  "memory-card-quest": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Memory Card Quest: flip, match, keep your lives",
+        "url": "/project-shots/memory-card-quest/latest/tour.mp4",
+        "poster": "/project-shots/memory-card-quest/latest/tour.jpg",
+        "file": "public/trailers/tour.mp4",
+        "bytes": 799430,
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T17:58:01.986Z"
+      }
+    ],
+    "videos": []
+  },
+  "bobball": {
+    "trailers": [
+      {
+        "id": "trailer",
+        "title": "BOBBALL - the trailer",
+        "url": "/project-shots/bobball/latest/trailers/trailer.mp4",
+        "poster": "/project-shots/bobball/latest/trailers/trailer.jpg",
+        "width": 1920,
+        "height": 1080,
+        "duration": 30.02,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:26:23.958Z"
+      },
+      {
+        "id": "trailer-story",
+        "title": "BOBBALL - the trailer, vertical (9:16)",
+        "url": "/project-shots/bobball/latest/trailers/trailer-story.mp4",
+        "poster": "/project-shots/bobball/latest/trailers/trailer-story.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 30.02,
+        "orientation": "portrait",
+        "builtAt": "2026-09-27T14:38:04.893Z"
+      },
+      {
+        "id": "trailer-post",
+        "title": "BOBBALL - the trailer, 4:5",
+        "url": "/project-shots/bobball/latest/trailers/trailer-post.mp4",
+        "poster": "/project-shots/bobball/latest/trailers/trailer-post.jpg",
+        "width": 1080,
+        "height": 1350,
+        "duration": 30.02,
+        "orientation": "portrait",
+        "builtAt": "2026-09-27T14:46:56.973Z"
+      },
+      {
+        "id": "trailer-square",
+        "title": "BOBBALL - the trailer, square",
+        "url": "/project-shots/bobball/latest/trailers/trailer-square.mp4",
+        "poster": "/project-shots/bobball/latest/trailers/trailer-square.jpg",
+        "width": 1080,
+        "height": 1080,
+        "duration": 30.02,
+        "orientation": "square",
+        "builtAt": "2026-09-27T14:52:32.519Z"
+      }
+    ],
+    "videos": []
+  },
+  "bbeats": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "BBeats: actual starter-pattern playback and audio",
+        "url": "/project-shots/bbeats/verified/tour.mp4",
+        "poster": "/project-shots/bbeats/verified/tour.png",
+        "width": 1440,
+        "height": 900,
+        "duration": 20,
+        "orientation": "landscape"
+      }
+    ],
+    "videos": []
+  },
+  "cat-world": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Cat World: browse, search and inspect a cat (silent)",
+        "url": "/project-shots/cat-world/verified/tour.mp4",
+        "poster": "/project-shots/cat-world/verified/tour.png",
+        "width": 1280,
+        "height": 720,
+        "duration": 22.12,
+        "orientation": "landscape"
+      }
+    ],
+    "videos": []
+  },
+  "vyb-chess": {
+    "trailers": [
+      {
+        "id": "showcase-bg",
+        "title": "Showcase: the book on phone, tablet and desktop",
+        "url": "/project-shots/vyb-chess/verified/showcase-bg.mp4",
+        "poster": "/project-shots/vyb-chess/verified/showcase-bg.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 23.51,
+        "orientation": "portrait",
+        "builtAt": "2026-09-27T17:27:51.992Z"
+      },
+      {
+        "id": "teaser-bg",
+        "title": "Teaser: the narrator reads the book",
+        "url": "/project-shots/vyb-chess/verified/teaser-bg.mp4",
+        "poster": "/project-shots/vyb-chess/verified/teaser-bg.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 21.01,
+        "orientation": "portrait",
+        "builtAt": "2026-09-27T17:28:14.688Z"
+      }
+    ],
+    "videos": []
+  },
+  "memory-dungeon": {
+    "trailers": [
+      {
+        "id": "reel",
+        "title": "Remember this. Find its pair. Break the chain.",
+        "url": "/project-shots/memory-dungeon/verified/reel.mp4",
+        "poster": "/project-shots/memory-dungeon/verified/reel.jpg",
+        "width": 1080,
+        "height": 1920,
+        "duration": 10.01,
+        "orientation": "portrait",
+        "builtAt": "2026-09-25T11:03:00.214Z"
+      }
+    ],
+    "videos": []
+  },
+  "cross-repo-libs": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Cross Repo Libs: the component storybook",
+        "url": "/project-shots/cross-repo-libs/verified/tour.mp4",
+        "poster": "/project-shots/cross-repo-libs/verified/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:21:15.432Z"
+      }
+    ],
+    "videos": []
+  },
+  "roam-rental-dashboard": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Roam Rental Dashboard: search the listings",
+        "url": "/project-shots/roam-rental-dashboard/verified/tour.mp4",
+        "poster": "/project-shots/roam-rental-dashboard/verified/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T14:29:23.264Z"
+      }
+    ],
+    "videos": []
+  },
+  "flowforge-configurator": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Flowforge Configurator: a pipeline, saved",
+        "url": "/project-shots/flowforge-configurator/verified/tour.mp4",
+        "poster": "/project-shots/flowforge-configurator/verified/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:28:48.750Z"
+      }
+    ],
+    "videos": []
+  },
+  "threejs-gem-dungeon-editor": {
+    "trailers": [
+      {
+        "id": "run",
+        "title": "Gem Dungeon: the first gallery",
+        "url": "/project-shots/threejs-gem-dungeon-editor/verified/run.mp4",
+        "poster": "/project-shots/threejs-gem-dungeon-editor/verified/run.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 24,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T12:45:33.797Z"
+      }
+    ],
+    "videos": []
+  },
+  "user-hub-admin": {
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "User Hub Admin: create and view a fictional demo user (silent)",
+        "url": "/project-shots/user-hub-admin/verified/tour.mp4",
+        "poster": "/project-shots/user-hub-admin/verified/tour.png",
+        "width": 1280,
+        "height": 720,
+        "duration": 19.52,
+        "orientation": "landscape"
+      }
+    ],
+    "videos": []
+  }
+}

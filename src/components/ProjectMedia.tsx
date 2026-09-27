@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Pause, Play, Volume2, VolumeX, X } from "lucide-react";
@@ -12,6 +12,35 @@ import { CaptureImage } from "./CaptureImage";
 import "../project-media.css";
 
 const watchEvent = "portfolio:watch";
+
+// Retry short-lived delivery failures, then offer an explicit recovery action.
+// Changing projects or clips starts a fresh recovery cycle.
+function useMediaRecovery(url?: string) {
+  const [failed, setFailed] = useState(false);
+  const [version, setVersion] = useState(0);
+  const attempts = useRef(0);
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => {
+    setFailed(false); setVersion(0); attempts.current = 0;
+    return () => { if (timer.current) clearTimeout(timer.current); timer.current = undefined; };
+  }, [url]);
+  const retry = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = undefined; attempts.current = 0;
+    setFailed(false); setVersion(value => value + 1);
+  };
+  const onError = () => {
+    if (timer.current) return;
+    if (attempts.current >= 2) { setFailed(true); return; }
+    attempts.current += 1;
+    timer.current = setTimeout(() => {
+      timer.current = undefined;
+      setVersion(value => value + 1);
+    }, attempts.current * 750);
+  };
+  const src = !url || version === 0 ? url : `${url}${url.includes('?') ? '&' : '?'}media_retry=${version}`;
+  return { failed, src, onError, retry };
+}
 
 /** Shared motion cover. Only visible, active previews may play; full playback is explicit. */
 export function ProjectMedia({ project, active = true, mode = "feature" }: {
@@ -33,7 +62,8 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const [playing, setPlaying] = useState(false);
   const [paused, setPaused] = useState(false);
   const [muted, setMuted] = useState(true);
-  const [failed, setFailed] = useState(false);
+  const recovery = useMediaRecovery(clip?.url);
+  const failed = recovery.failed;
   const [posterFailed, setPosterFailed] = useState(false);
   const [decodedRatios, setDecodedRatios] = useState<Record<string, number>>({});
   const access = getProjectAccess(project.slug);
@@ -41,7 +71,8 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const ratio = (clip && decodedRatios[clip.url]) || mediaRatio(clip ?? nativeImage);
   const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   const canPreview = clip?.kind === "video" && !failed && !reducedMotion && !connection?.saveData;
-  const shouldPlay = canPreview && motionEnabled && active && visible && pageVisible && !watching && !paused;
+  const shouldLoad = canPreview && motionEnabled && active && visible && pageVisible && !watching;
+  const shouldPlay = shouldLoad && !paused;
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.2 });
@@ -58,11 +89,24 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   }, []);
 
   useEffect(() => {
-    if (shouldPlay) setLoaded(true);
-    if (!video.current) return;
-    if (shouldPlay) void video.current.play().catch(() => setPlaying(false));
-    else video.current.pause();
-  }, [shouldPlay, loaded]);
+    if (shouldLoad) setLoaded(true);
+    const element = video.current;
+    if (!element) return;
+    if (!shouldLoad) {
+      element.pause();
+      element.removeAttribute("src");
+      element.load(); // Cancels the request and releases its decoder, not just its clock.
+      setPlaying(false);
+    } else if (shouldPlay) void element.play().catch(() => setPlaying(false));
+    else element.pause();
+  }, [shouldLoad, shouldPlay, loaded, recovery.src]);
+
+  useEffect(() => {
+    const element = video.current;
+    return () => {
+      if (element) { element.pause(); element.removeAttribute("src"); element.load(); }
+    };
+  }, [loaded]);
 
   const picture = clip?.poster && !posterFailed ? (
     <img className="project-media__poster" src={clip.poster} alt={`${project.title} video preview`}
@@ -83,13 +127,13 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
         </Link>
       )}
       {loaded && canPreview && clip ? (
-        <video ref={video} className="project-media__preview" src={clip.url} muted={muted} loop playsInline
+        <video ref={video} className="project-media__preview" src={shouldLoad ? recovery.src : undefined} muted={muted} loop playsInline
           preload="none" aria-hidden="true" tabIndex={-1}
           onLoadedMetadata={(event) => {
             const { videoWidth, videoHeight } = event.currentTarget;
             if (videoWidth && videoHeight) setDecodedRatios((previous) => ({ ...previous, [clip.url]: videoWidth / videoHeight }));
           }}
-          onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
+          onPlaying={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={(event) => { if (event.currentTarget.getAttribute("src")) recovery.onError(); }} />
       ) : null}
       </div>
       </div>
@@ -100,6 +144,7 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
             <span>Watch video<span className="visually-hidden">: {project.title}</span></span>
             <span className="project-media__duration">{clips.length > 1 ? `${clips.length} clips` : formatDuration(clip.duration)}</span>
           </button>
+          {failed ? <button type="button" className="project-media__retry" onClick={recovery.retry}>Retry preview</button> : null}
           {canPreview && motionEnabled && mode !== "card" ? (
             <div className="project-media__controls">
               <button type="button" aria-label={playing ? "Pause preview" : "Play preview"}
@@ -123,11 +168,20 @@ function VideoDialog({ project, clips, initial, onClose }: {
   project: Project; clips: ProjectClip[]; initial: number; onClose: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const playback = useRef<HTMLVideoElement | null>(null);
+  const attachPlayback = useCallback((node: HTMLVideoElement | null) => {
+    const previous = playback.current;
+    if (previous && previous !== node) {
+      previous.pause(); previous.removeAttribute("src"); previous.load();
+    }
+    playback.current = node;
+  }, []);
   const titleId = useId();
   const [selected, setSelected] = useState(initial);
-  const [failed, setFailed] = useState(false);
   const [decodedRatios, setDecodedRatios] = useState<Record<string, number>>({});
   const clip = clips[selected];
+  const recovery = useMediaRecovery(clip.url);
+  const failed = recovery.failed;
   const ratio = decodedRatios[clip.url] || mediaRatio(clip);
 
   useEffect(() => {
@@ -136,9 +190,11 @@ function VideoDialog({ project, clips, initial, onClose }: {
     const overflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     document.dispatchEvent(new CustomEvent(watchEvent, { detail: true }));
+    const currentVideo = element.querySelector("video");
+    if (currentVideo && !currentVideo.getAttribute("src")) currentVideo.src = clip.url;
     element.showModal();
     return () => {
-      element.querySelectorAll("video").forEach((video) => video.pause());
+      element.querySelectorAll("video").forEach((video) => { video.pause(); video.removeAttribute("src"); video.load(); });
       element.close();
       document.body.style.overflow = overflow;
       document.dispatchEvent(new CustomEvent(watchEvent, { detail: false }));
@@ -160,15 +216,16 @@ function VideoDialog({ project, clips, initial, onClose }: {
           {failed ? (
             <div className="video-dialog__fallback" role="status">
               <p>This video couldn’t load.</p>
+              <button type="button" onClick={recovery.retry}>Retry video</button>
               <a href={clip.url} target="_blank" rel="noreferrer">Open video directly <ArrowUpRight size={16} /></a>
             </div>
           ) : clip.kind === "video" ? (
-            <video src={clip.url} poster={clip.poster} controls autoPlay playsInline preload="metadata"
+            <video ref={attachPlayback} src={recovery.src} poster={clip.poster} controls autoPlay playsInline preload="metadata"
               onLoadedMetadata={(event) => {
                 const { videoWidth, videoHeight } = event.currentTarget;
                 if (videoWidth && videoHeight) setDecodedRatios((previous) => ({ ...previous, [clip.url]: videoWidth / videoHeight }));
               }}
-              aria-label={`${project.title}: ${clip.title}`} onError={() => setFailed(true)} />
+              aria-label={`${project.title}: ${clip.title}`} onError={recovery.onError} />
           ) : clip.kind === "youtube" ? (
             <iframe src={youtubeEmbedUrl(clip.url)} title={clip.title} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen />
           ) : (
@@ -180,7 +237,7 @@ function VideoDialog({ project, clips, initial, onClose }: {
           <div className="video-dialog__clips" role="group" aria-label="Choose video">
             {clips.map((item, index) => (
               <button type="button" key={item.url} aria-pressed={selected === index}
-                onClick={() => { setSelected(index); setFailed(false); }}>
+                onClick={() => { setSelected(index); }}>
                 <Play size={14} /><span>{item.title}</span><span>{formatDuration(item.duration)}</span>
               </button>
             ))}

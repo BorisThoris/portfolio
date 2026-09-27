@@ -1690,7 +1690,7 @@
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-27T17:36:27.450Z",
+    "generatedAt": "2026-09-27T20:29:52.745Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1720,10 +1720,6 @@
           "version": "^18.2.0"
         },
         {
-          "name": "three",
-          "version": "0.180.0"
-        },
-        {
           "name": "vite",
           "version": "^5.4.21"
         }
@@ -1732,21 +1728,21 @@
         "vitest",
         "@testing-library/react"
       ],
-      "dependencyCount": 3,
+      "dependencyCount": 2,
       "devDependencyCount": 6
     },
     "metrics": {
-      "sourceFiles": 23,
-      "testFiles": 4,
-      "sourceLines": 3782,
+      "sourceFiles": 25,
+      "testFiles": 5,
+      "sourceLines": 3669,
       "largestDirectories": [
         {
           "directory": "scripts",
-          "files": 10
+          "files": 12
         },
         {
           "directory": "src",
-          "files": 10
+          "files": 9
         },
         {
           "directory": ".",
@@ -1754,19 +1750,21 @@
         },
         {
           "directory": "public",
-          "files": 1
+          "files": 2
         }
       ],
+      "hasReadme": true,
       "hasTests": true,
       "hasCi": true,
       "hasDocs": false
     },
     "git": {
-      "branch": "master",
-      "head": "7e3c461",
-      "lastCommitDate": "2026-09-27T20:30:45+03:00",
-      "lastCommitSubject": "Capture current driving footage and refresh project showcase",
-      "commitCount": 46
+      "branch": "codex/pedal-coastal-drive",
+      "head": "309ba37",
+      "lastCommitDate": "2026-09-27T23:29:53+03:00",
+      "lastCommitSubject": "Merge generated metadata while retaining verified release captures",
+      "commitCount": 56,
+      "remote": "https://github.com/BorisThoris/pedal-rush.git"
     },
     "scores": {
       "priorityScore": 52,
@@ -1776,55 +1774,55 @@
       "uniquenessScore": 50,
       "maintenanceScore": 44
     },
-    "analysisNotes": "Playable modeled traffic runner, preserving the original blue car, navy dashboard, gas/brake and lane-control identity. Verified real keyboard/touch runs, collision/retry and persisted best.",
+    "analysisNotes": "Original side-view MX-5 and scenery restored from authored assets. Three lanes, real acceleration/coasting/braking, fair traffic, health and retry. Keyboard, simultaneous touch controls, pause and saved best verified in a real browser.",
     "images": [
       {
         "profile": "card",
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 147607
+        "bytes": 145127
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 140946
+        "bytes": 133265
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 117891
+        "bytes": 112817
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 50605
+        "bytes": 46807
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 112360
+        "bytes": 109903
       }
     ],
     "trailers": [
       {
         "id": "tour",
-        "title": "Pedal Rush: a real four-lane traffic run",
+        "title": "Pedal Rush: original MX-5, three-lane drive",
         "url": "https://pedal-rush-git.pages.dev/trailers/tour.mp4",
         "poster": "https://pedal-rush-git.pages.dev/trailers/tour.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 14,
+        "width": 1440,
+        "height": 900,
+        "duration": 18.97,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T17:29:44.615Z"
+        "builtAt": "2026-09-27T20:27:44.127Z"
       }
     ],
     "source": "BorisThoris/pedal-rush@master"
