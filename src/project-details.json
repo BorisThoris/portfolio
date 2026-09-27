@@ -1368,7 +1368,7 @@
   },
   "cat-world": {
     "slug": "cat-world",
-    "generatedAt": "2026-09-24T16:28:35.200Z",
+    "generatedAt": "2026-09-27T14:00:39.653Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1408,9 +1408,9 @@
       "devDependencyCount": 19
     },
     "metrics": {
-      "sourceFiles": 143,
-      "testFiles": 30,
-      "sourceLines": 17900,
+      "sourceFiles": 146,
+      "testFiles": 32,
+      "sourceLines": 18766,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1418,7 +1418,7 @@
         },
         {
           "directory": "scripts",
-          "files": 7
+          "files": 10
         },
         {
           "directory": "e2e",
@@ -1431,10 +1431,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "78e8718",
-      "lastCommitDate": "2026-09-24T19:16:27+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 51
+      "head": "528af54",
+      "lastCommitDate": "2026-09-27T16:57:03+03:00",
+      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
+      "commitCount": 53
     },
     "scores": {
       "priorityScore": 84,
@@ -1451,35 +1451,48 @@
         "path": "/project-shots/cat-world/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 150158
+        "bytes": 128525
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cat-world/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 145426
+        "bytes": 123441
       },
       {
         "profile": "full",
         "path": "/project-shots/cat-world/latest/full.jpg",
         "width": 1440,
         "height": 910,
-        "bytes": 123425
+        "bytes": 107321
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cat-world/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 66209
+        "bytes": 66090
       },
       {
         "profile": "og",
         "path": "/project-shots/cat-world/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 130110
+        "bytes": 101829
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "Cat World: the adoption board",
+        "url": "https://cat-world-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://cat-world-git.pages.dev/trailers/tour.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 20,
+        "orientation": "landscape",
+        "builtAt": "2026-09-27T13:54:59.580Z"
       }
     ],
     "source": "BorisThoris/cat-world@master"
