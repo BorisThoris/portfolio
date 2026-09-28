@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-27T14:52:54.307Z",
+    "generatedAt": "2026-09-28T21:49:41.020Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -20,41 +20,41 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 46,
+      "sourceFiles": 122,
       "testFiles": 3,
-      "sourceLines": 14730,
+      "sourceLines": 85080,
       "largestDirectories": [
         {
+          "directory": "output",
+          "files": 52
+        },
+        {
           "directory": "trailer",
+          "files": 29
+        },
+        {
+          "directory": "tools_dev",
           "files": 14
         },
         {
           "directory": "game",
-          "files": 11
+          "files": 12
         },
         {
           "directory": "scripts",
           "files": 10
-        },
-        {
-          "directory": "tools_dev",
-          "files": 6
-        },
-        {
-          "directory": "arena",
-          "files": 3
         }
       ],
       "hasTests": true,
       "hasCi": false,
-      "hasDocs": false
+      "hasDocs": true
     },
     "git": {
       "branch": "main",
-      "head": "1804cad",
-      "lastCommitDate": "2026-09-27T16:38:38+03:00",
-      "lastCommitSubject": "Media contract tests; posters, trailer and artwork re-rendered for the current scene",
-      "commitCount": 182
+      "head": "4b756fc",
+      "lastCommitDate": "2026-09-28T23:58:18+03:00",
+      "lastCommitSubject": "Suspend hidden location physics transforms",
+      "commitCount": 209
     },
     "scores": {
       "priorityScore": 99,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-27T23:09:10.150Z",
+    "generatedAt": "2026-09-28T20:42:29.637Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1186,
-      "testFiles": 513,
-      "sourceLines": 185017,
+      "sourceFiles": 1194,
+      "testFiles": 517,
+      "sourceLines": 186517,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1001
+          "files": 1008
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 68
+          "files": 69
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "03555d6d",
-      "lastCommitDate": "2026-09-28T01:58:06+03:00",
-      "lastCommitSubject": "Clarify cascade progression and improve phone board readability",
-      "commitCount": 1851
+      "head": "b04f8294",
+      "lastCommitDate": "2026-09-28T23:39:16+03:00",
+      "lastCommitSubject": "Add responsive rim trails and perimeter match sweeps",
+      "commitCount": 1858
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 166820
+        "bytes": 165508
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157768
+        "bytes": 156578
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131813
+        "bytes": 129665
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 121873
+        "bytes": 120210
       }
     ],
     "trailers": [
