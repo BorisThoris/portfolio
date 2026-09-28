@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-27T13:29:44.517Z",
+    "generatedAt": "2026-09-27T23:09:10.150Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1186,
       "testFiles": 513,
-      "sourceLines": 184902,
+      "sourceLines": 185017,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e4859edf",
-      "lastCommitDate": "2026-09-27T16:21:49+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 1848
+      "head": "03555d6d",
+      "lastCommitDate": "2026-09-28T01:58:06+03:00",
+      "lastCommitSubject": "Clarify cascade progression and improve phone board readability",
+      "commitCount": 1851
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 166104
+        "bytes": 166820
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157702
+        "bytes": 157768
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129482
+        "bytes": 131813
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 123016
+        "bytes": 121873
       }
     ],
     "trailers": [
