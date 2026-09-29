@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-29T15:21:58.707Z",
+    "generatedAt": "2026-09-29T19:57:53.388Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -220,13 +220,13 @@
         "@playwright/test",
         "@testing-library/react"
       ],
-      "dependencyCount": 31,
+      "dependencyCount": 32,
       "devDependencyCount": 59
     },
     "metrics": {
       "sourceFiles": 6781,
       "testFiles": 2845,
-      "sourceLines": 1166733,
+      "sourceLines": 1166960,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "5fbd80f34",
-      "lastCommitDate": "2026-09-29T15:22:01+00:00",
-      "lastCommitSubject": "TASK-859: the dock's tabs, buttons, grips and split handles carry tooltips, not titles",
-      "commitCount": 3931
+      "head": "908766be9",
+      "lastCommitDate": "2026-09-29T19:57:55+00:00",
+      "lastCommitSubject": "TASK-859: the selection toolbar's actions, swatches and render badge carry tooltips, not titles",
+      "commitCount": 3937
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-29T14:13:31.994Z",
+    "generatedAt": "2026-09-29T19:44:07.303Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,17 +556,17 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1205,
-      "testFiles": 522,
-      "sourceLines": 188463,
+      "sourceFiles": 1219,
+      "testFiles": 526,
+      "sourceLines": 190305,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1019
+          "files": 1032
         },
         {
           "directory": "scripts",
-          "files": 97
+          "files": 98
         },
         {
           "directory": "e2e",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b12c21d5",
-      "lastCommitDate": "2026-09-29T17:11:15+03:00",
-      "lastCommitSubject": "Stamp the losses and the prizes like the ranks, in the anime register, and deploy from here",
-      "commitCount": 1866
+      "head": "bd37e32e",
+      "lastCommitDate": "2026-09-29T22:40:13+03:00",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into claude/group-effects-combo-ccb75d",
+      "commitCount": 1875
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165946
+        "bytes": 165532
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157630
+        "bytes": 154613
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131717
+        "bytes": 130115
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120843
+        "bytes": 122494
       }
     ],
     "trailers": [
