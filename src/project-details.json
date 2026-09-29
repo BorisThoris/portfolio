@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-28T21:49:41.020Z",
+    "generatedAt": "2026-09-28T23:50:02.859Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -20,9 +20,9 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 122,
+      "sourceFiles": 124,
       "testFiles": 3,
-      "sourceLines": 85080,
+      "sourceLines": 85508,
       "largestDirectories": [
         {
           "directory": "output",
@@ -34,7 +34,7 @@
         },
         {
           "directory": "tools_dev",
-          "files": 14
+          "files": 16
         },
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "4b756fc",
-      "lastCommitDate": "2026-09-28T23:58:18+03:00",
-      "lastCommitSubject": "Suspend hidden location physics transforms",
-      "commitCount": 209
+      "head": "aa432e9",
+      "lastCommitDate": "2026-09-29T02:39:27+03:00",
+      "lastCommitSubject": "Record verified NPC bag fit deployment",
+      "commitCount": 214
     },
     "scores": {
       "priorityScore": 99,
@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-27T14:26:13.030Z",
+    "generatedAt": "2026-09-29T01:09:09.709Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -221,16 +221,16 @@
         "@testing-library/react"
       ],
       "dependencyCount": 31,
-      "devDependencyCount": 62
+      "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6737,
-      "testFiles": 2814,
-      "sourceLines": 1156353,
+      "sourceFiles": 6770,
+      "testFiles": 2838,
+      "sourceLines": 1164078,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6163
+          "files": 6186
         },
         {
           "directory": "public",
@@ -238,11 +238,11 @@
         },
         {
           "directory": "e2e",
-          "files": 183
+          "files": 195
         },
         {
           "directory": "scripts",
-          "files": 146
+          "files": 144
         },
         {
           "directory": ".",
@@ -254,11 +254,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "HEAD",
-      "head": "014c01da3",
-      "lastCommitDate": "2026-09-27T13:04:46+00:00",
-      "lastCommitSubject": "TASK-1061: editors, dialogs and menus read in every theme, a selected clip's label included",
-      "commitCount": 3937
+      "branch": "claude/trusting-gauss-fzcu3b",
+      "head": "4756f2852",
+      "lastCommitDate": "2026-09-29T00:14:10+00:00",
+      "lastCommitSubject": "TASK-1066: the grid scrolls with the content, and the arrangement scrolls on the compositor",
+      "commitCount": 3908
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-28T20:42:29.637Z",
+    "generatedAt": "2026-09-28T22:45:29.000Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1194,
-      "testFiles": 517,
-      "sourceLines": 186517,
+      "sourceFiles": 1196,
+      "testFiles": 518,
+      "sourceLines": 186650,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1008
+          "files": 1010
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b04f8294",
-      "lastCommitDate": "2026-09-28T23:39:16+03:00",
-      "lastCommitSubject": "Add responsive rim trails and perimeter match sweeps",
-      "commitCount": 1858
+      "head": "1fc0d1bd",
+      "lastCommitDate": "2026-09-29T01:42:26+03:00",
+      "lastCommitSubject": "Add flame auras and match impact ripples",
+      "commitCount": 1860
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165508
+        "bytes": 167370
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156578
+        "bytes": 156393
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129665
+        "bytes": 129881
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120210
+        "bytes": 120553
       }
     ],
     "trailers": [
