@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-28T23:50:02.859Z",
+    "generatedAt": "2026-09-29T09:45:55.914Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -20,21 +20,21 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 124,
+      "sourceFiles": 131,
       "testFiles": 3,
-      "sourceLines": 85508,
+      "sourceLines": 85869,
       "largestDirectories": [
         {
           "directory": "output",
-          "files": 52
+          "files": 54
         },
         {
           "directory": "trailer",
-          "files": 29
+          "files": 31
         },
         {
           "directory": "tools_dev",
-          "files": 16
+          "files": 19
         },
         {
           "directory": "game",
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "aa432e9",
-      "lastCommitDate": "2026-09-29T02:39:27+03:00",
-      "lastCommitSubject": "Record verified NPC bag fit deployment",
-      "commitCount": 214
+      "head": "5f64f21",
+      "lastCommitDate": "2026-09-29T12:22:42+03:00",
+      "lastCommitSubject": "Rebuild NDK hedges with rounded geometry and baked foliage",
+      "commitCount": 219
     },
     "scores": {
       "priorityScore": 99,
@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-29T08:11:41.493Z",
+    "generatedAt": "2026-09-29T15:21:58.707Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6780,
-      "testFiles": 2844,
-      "sourceLines": 1166320,
+      "sourceFiles": 6781,
+      "testFiles": 2845,
+      "sourceLines": 1166733,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6192
+          "files": 6193
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "4ff0b6ff2",
-      "lastCommitDate": "2026-09-29T07:25:49+00:00",
-      "lastCommitSubject": "CI: a preview server a previous job left on port 4101 is stopped, and a taken port fails loudly",
-      "commitCount": 3919
+      "head": "5fbd80f34",
+      "lastCommitDate": "2026-09-29T15:22:01+00:00",
+      "lastCommitSubject": "TASK-859: the dock's tabs, buttons, grips and split handles carry tooltips, not titles",
+      "commitCount": 3931
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-28T22:45:29.000Z",
+    "generatedAt": "2026-09-29T14:13:31.994Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1196,
-      "testFiles": 518,
-      "sourceLines": 186650,
+      "sourceFiles": 1205,
+      "testFiles": 522,
+      "sourceLines": 188463,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1010
+          "files": 1019
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "1fc0d1bd",
-      "lastCommitDate": "2026-09-29T01:42:26+03:00",
-      "lastCommitSubject": "Add flame auras and match impact ripples",
-      "commitCount": 1860
+      "head": "b12c21d5",
+      "lastCommitDate": "2026-09-29T17:11:15+03:00",
+      "lastCommitSubject": "Stamp the losses and the prizes like the ranks, in the anime register, and deploy from here",
+      "commitCount": 1866
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167370
+        "bytes": 165946
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156393
+        "bytes": 157630
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129881
+        "bytes": 131717
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 120553
+        "bytes": 120843
       }
     ],
     "trailers": [
