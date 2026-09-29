@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-29T01:09:09.709Z",
+    "generatedAt": "2026-09-29T08:11:41.493Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6770,
-      "testFiles": 2838,
-      "sourceLines": 1164078,
+      "sourceFiles": 6780,
+      "testFiles": 2844,
+      "sourceLines": 1166320,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6186
+          "files": 6192
         },
         {
           "directory": "public",
@@ -238,11 +238,11 @@
         },
         {
           "directory": "e2e",
-          "files": 195
+          "files": 197
         },
         {
           "directory": "scripts",
-          "files": 144
+          "files": 146
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "4756f2852",
-      "lastCommitDate": "2026-09-29T00:14:10+00:00",
-      "lastCommitSubject": "TASK-1066: the grid scrolls with the content, and the arrangement scrolls on the compositor",
-      "commitCount": 3908
+      "head": "4ff0b6ff2",
+      "lastCommitDate": "2026-09-29T07:25:49+00:00",
+      "lastCommitSubject": "CI: a preview server a previous job left on port 4101 is stopped, and a taken port fails loudly",
+      "commitCount": 3919
     },
     "scores": {
       "priorityScore": 96,
