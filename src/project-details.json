@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-30T05:45:32.437Z",
+    "generatedAt": "2026-09-30T13:12:12.721Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6781,
-      "testFiles": 2845,
-      "sourceLines": 1167543,
+      "sourceFiles": 6786,
+      "testFiles": 2848,
+      "sourceLines": 1168499,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6193
+          "files": 6197
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "5866d7cec",
-      "lastCommitDate": "2026-09-30T04:38:39+00:00",
-      "lastCommitSubject": "TASK-859: the dock drawer's handle and buttons, the export button and the WAM preset panel carry tooltips, not titles",
-      "commitCount": 3946
+      "head": "69498dd25",
+      "lastCommitDate": "2026-09-30T11:35:27+00:00",
+      "lastCommitSubject": "TASK-859: the channel rack's chrome, the command bar's sections, the inline piano roll header and the clip tool control carry tooltips, not titles",
+      "commitCount": 3951
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-29T19:44:07.303Z",
+    "generatedAt": "2026-09-30T12:58:52.889Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,17 +556,17 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1219,
-      "testFiles": 526,
-      "sourceLines": 190305,
+      "sourceFiles": 1252,
+      "testFiles": 538,
+      "sourceLines": 194168,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1032
+          "files": 1064
         },
         {
           "directory": "scripts",
-          "files": 98
+          "files": 99
         },
         {
           "directory": "e2e",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "bd37e32e",
-      "lastCommitDate": "2026-09-29T22:40:13+03:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into claude/group-effects-combo-ccb75d",
-      "commitCount": 1875
+      "head": "4707a29a",
+      "lastCommitDate": "2026-09-30T15:55:54+03:00",
+      "lastCommitSubject": "Weather on every run, from its first turn: embers for ember runs, a floor under frost and storm",
+      "commitCount": 1889
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165532
+        "bytes": 166051
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 154613
+        "bytes": 156820
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130115
+        "bytes": 130748
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122494
+        "bytes": 123001
       }
     ],
     "trailers": [
