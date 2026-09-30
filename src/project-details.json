@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-29T19:57:53.388Z",
+    "generatedAt": "2026-09-29T23:29:18.646Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 6781,
       "testFiles": 2845,
-      "sourceLines": 1166960,
+      "sourceLines": 1167255,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "908766be9",
-      "lastCommitDate": "2026-09-29T19:57:55+00:00",
-      "lastCommitSubject": "TASK-859: the selection toolbar's actions, swatches and render badge carry tooltips, not titles",
-      "commitCount": 3937
+      "head": "e6d104cfa",
+      "lastCommitDate": "2026-09-29T22:33:50+00:00",
+      "lastCommitSubject": "TASK-859: the Commands menu, the Beat menu, the sidebar header and the library card grip carry tooltips, not titles",
+      "commitCount": 3940
     },
     "scores": {
       "priorityScore": 96,
