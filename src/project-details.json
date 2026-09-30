@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-29T23:29:18.646Z",
+    "generatedAt": "2026-09-30T05:45:32.437Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -220,13 +220,13 @@
         "@playwright/test",
         "@testing-library/react"
       ],
-      "dependencyCount": 32,
+      "dependencyCount": 33,
       "devDependencyCount": 59
     },
     "metrics": {
       "sourceFiles": 6781,
       "testFiles": 2845,
-      "sourceLines": 1167255,
+      "sourceLines": 1167543,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "e6d104cfa",
-      "lastCommitDate": "2026-09-29T22:33:50+00:00",
-      "lastCommitSubject": "TASK-859: the Commands menu, the Beat menu, the sidebar header and the library card grip carry tooltips, not titles",
-      "commitCount": 3940
+      "head": "5866d7cec",
+      "lastCommitDate": "2026-09-30T04:38:39+00:00",
+      "lastCommitSubject": "TASK-859: the dock drawer's handle and buttons, the export button and the WAM preset panel carry tooltips, not titles",
+      "commitCount": 3946
     },
     "scores": {
       "priorityScore": 96,
