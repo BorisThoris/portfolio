@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-30T17:17:09.106Z",
+    "generatedAt": "2026-09-30T21:57:43.916Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6798,
-      "testFiles": 2851,
-      "sourceLines": 1169745,
+      "sourceFiles": 6802,
+      "testFiles": 2853,
+      "sourceLines": 1170493,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6207
+          "files": 6210
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "6dc91a094",
-      "lastCommitDate": "2026-09-30T16:51:23+00:00",
-      "lastCommitSubject": "A tooltip's and a popover's content are positioned, so their layer is a layer",
-      "commitCount": 3958
+      "head": "f5ea9315b",
+      "lastCommitDate": "2026-09-30T22:03:54+00:00",
+      "lastCommitSubject": "Radix's Slot ships once: the direct react-slot dependency is pinned to the version Radix pins",
+      "commitCount": 3962
     },
     "scores": {
       "priorityScore": 96,
