@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-30T13:12:12.721Z",
+    "generatedAt": "2026-09-30T17:17:09.106Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6786,
-      "testFiles": 2848,
-      "sourceLines": 1168499,
+      "sourceFiles": 6798,
+      "testFiles": 2851,
+      "sourceLines": 1169745,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6197
+          "files": 6207
         },
         {
           "directory": "public",
@@ -238,7 +238,7 @@
         },
         {
           "directory": "e2e",
-          "files": 197
+          "files": 198
         },
         {
           "directory": "scripts",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "69498dd25",
-      "lastCommitDate": "2026-09-30T11:35:27+00:00",
-      "lastCommitSubject": "TASK-859: the channel rack's chrome, the command bar's sections, the inline piano roll header and the clip tool control carry tooltips, not titles",
-      "commitCount": 3951
+      "head": "6dc91a094",
+      "lastCommitDate": "2026-09-30T16:51:23+00:00",
+      "lastCommitSubject": "A tooltip's and a popover's content are positioned, so their layer is a layer",
+      "commitCount": 3958
     },
     "scores": {
       "priorityScore": 96,
