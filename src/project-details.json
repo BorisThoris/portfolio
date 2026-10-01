@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-09-30T21:57:43.916Z",
+    "generatedAt": "2026-10-01T04:46:18.116Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6802,
-      "testFiles": 2853,
-      "sourceLines": 1170493,
+      "sourceFiles": 6806,
+      "testFiles": 2855,
+      "sourceLines": 1170896,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6210
+          "files": 6213
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "f5ea9315b",
-      "lastCommitDate": "2026-09-30T22:03:54+00:00",
-      "lastCommitSubject": "Radix's Slot ships once: the direct react-slot dependency is pinned to the version Radix pins",
-      "commitCount": 3962
+      "head": "e2855af58",
+      "lastCommitDate": "2026-10-01T02:14:35+00:00",
+      "lastCommitSubject": "The store-field check follows useRetainedSelector, so the converted hooks stay checked",
+      "commitCount": 3966
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-09-30T12:58:52.889Z",
+    "generatedAt": "2026-10-01T01:37:23.210Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1252,
-      "testFiles": 538,
-      "sourceLines": 194168,
+      "sourceFiles": 1264,
+      "testFiles": 541,
+      "sourceLines": 197631,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1064
+          "files": 1076
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "4707a29a",
-      "lastCommitDate": "2026-09-30T15:55:54+03:00",
-      "lastCommitSubject": "Weather on every run, from its first turn: embers for ember runs, a floor under frost and storm",
-      "commitCount": 1889
+      "head": "13329b4b",
+      "lastCommitDate": "2026-10-01T01:16:57Z",
+      "lastCommitSubject": "Refresh the repo model after merging main",
+      "commitCount": 1896
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 166051
+        "bytes": 165343
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156820
+        "bytes": 156790
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130748
+        "bytes": 130038
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 123001
+        "bytes": 122804
       }
     ],
     "trailers": [
