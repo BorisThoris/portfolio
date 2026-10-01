@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-01T04:46:18.116Z",
+    "generatedAt": "2026-10-01T08:13:51.982Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6806,
-      "testFiles": 2855,
-      "sourceLines": 1170896,
+      "sourceFiles": 6807,
+      "testFiles": 2856,
+      "sourceLines": 1170408,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6213
+          "files": 6214
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "e2855af58",
-      "lastCommitDate": "2026-10-01T02:14:35+00:00",
-      "lastCommitSubject": "The store-field check follows useRetainedSelector, so the converted hooks stay checked",
-      "commitCount": 3966
+      "head": "eed22ae05",
+      "lastCommitDate": "2026-10-01T07:58:01+00:00",
+      "lastCommitSubject": "The suppression budget records the exhaustive-deps disable TASK-943 removed",
+      "commitCount": 3970
     },
     "scores": {
       "priorityScore": 96,
