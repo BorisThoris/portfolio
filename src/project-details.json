@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-01T08:13:51.982Z",
+    "generatedAt": "2026-10-01T17:25:15.063Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6807,
-      "testFiles": 2856,
-      "sourceLines": 1170408,
+      "sourceFiles": 6803,
+      "testFiles": 2864,
+      "sourceLines": 1170267,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6214
+          "files": 6207
         },
         {
           "directory": "public",
@@ -238,7 +238,7 @@
         },
         {
           "directory": "e2e",
-          "files": 198
+          "files": 199
         },
         {
           "directory": "scripts",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "eed22ae05",
-      "lastCommitDate": "2026-10-01T07:58:01+00:00",
-      "lastCommitSubject": "The suppression budget records the exhaustive-deps disable TASK-943 removed",
-      "commitCount": 3970
+      "head": "32c1cdedb",
+      "lastCommitDate": "2026-10-01T17:16:51+00:00",
+      "lastCommitSubject": "TASK-1070: a reload after restoring a backup once never navigated",
+      "commitCount": 4000
     },
     "scores": {
       "priorityScore": 96,
