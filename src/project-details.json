@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-01T01:37:23.210Z",
+    "generatedAt": "2026-10-02T18:13:50.053Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1264,
-      "testFiles": 541,
-      "sourceLines": 197631,
+      "sourceFiles": 1304,
+      "testFiles": 557,
+      "sourceLines": 204636,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1076
+          "files": 1114
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 69
+          "files": 71
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "13329b4b",
-      "lastCommitDate": "2026-10-01T01:16:57Z",
-      "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 1896
+      "head": "6c0f4f8c",
+      "lastCommitDate": "2026-10-02T21:09:56+03:00",
+      "lastCommitSubject": "Add persistent dev option for combo pop visuals",
+      "commitCount": 1915
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165343
+        "bytes": 165687
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 156790
+        "bytes": 154807
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130038
+        "bytes": 131560
       },
       {
         "profile": "mobile",
