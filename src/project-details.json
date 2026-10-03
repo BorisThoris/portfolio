@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-03T17:29:44.532Z",
+    "generatedAt": "2026-10-03T18:35:09.769Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1308,
-      "testFiles": 558,
-      "sourceLines": 203212,
+      "sourceFiles": 1312,
+      "testFiles": 560,
+      "sourceLines": 203490,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1118
+          "files": 1122
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "40732556",
-      "lastCommitDate": "2026-10-03T20:25:30+03:00",
-      "lastCommitSubject": "Give elemental particles distinct materials and reliable cast priority",
-      "commitCount": 1924
+      "head": "ff308185",
+      "lastCommitDate": "2026-10-03T21:30:41+03:00",
+      "lastCommitSubject": "Clarify between-floor decisions and render lasting elemental terrain",
+      "commitCount": 1926
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 168178
+        "bytes": 166234
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157134
+        "bytes": 157085
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131754
+        "bytes": 130350
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122929
+        "bytes": 122885
       }
     ],
     "trailers": [
