@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-04T17:05:52.644Z",
+    "generatedAt": "2026-10-04T18:59:08.492Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6878,
-      "testFiles": 2917,
-      "sourceLines": 1188334,
+      "sourceFiles": 6895,
+      "testFiles": 2924,
+      "sourceLines": 1190310,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6274
+          "files": 6291
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "bb4aab418",
-      "lastCommitDate": "2026-10-04T19:57:12+03:00",
-      "lastCommitSubject": "TASK-1080: the ruler owns its presses again, and the round is recorded",
-      "commitCount": 4273
+      "head": "61f434884",
+      "lastCommitDate": "2026-10-04T21:50:13+03:00",
+      "lastCommitSubject": "TASK-1092: FL's Split by channel on the pattern card, and the pattern-tools model",
+      "commitCount": 4281
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 133416
+        "bytes": 133499
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 139772
+        "bytes": 139860
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123742
+        "bytes": 123731
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 105327
+        "bytes": 105366
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-04T17:04:18.889Z"
+        "builtAt": "2026-10-04T18:57:23.990Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-04T16:34:07.560Z",
+    "generatedAt": "2026-10-04T21:20:48.789Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1315,
-      "testFiles": 564,
-      "sourceLines": 203752,
+      "sourceFiles": 1324,
+      "testFiles": 568,
+      "sourceLines": 204505,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1124
+          "files": 1132
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 72
+          "files": 73
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "9e890598",
-      "lastCommitDate": "2026-10-04T19:30:59+03:00",
-      "lastCommitSubject": "Replace arena choices and elemental purchases with camp upgrades",
-      "commitCount": 1931
+      "head": "7e8eb62b",
+      "lastCommitDate": "2026-10-05T00:16:44+03:00",
+      "lastCommitSubject": "Restore original cards with streamed late boards and manual meteor pickups",
+      "commitCount": 1935
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 167295
+        "bytes": 165997
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157549
+        "bytes": 155313
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131547
+        "bytes": 129545
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122982
+        "bytes": 121829
       }
     ],
     "trailers": [
