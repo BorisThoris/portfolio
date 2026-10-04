@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-01T17:25:15.063Z",
+    "generatedAt": "2026-10-04T17:05:52.644Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6803,
-      "testFiles": 2864,
-      "sourceLines": 1170267,
+      "sourceFiles": 6878,
+      "testFiles": 2917,
+      "sourceLines": 1188334,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6207
+          "files": 6274
         },
         {
           "directory": "public",
@@ -238,11 +238,11 @@
         },
         {
           "directory": "e2e",
-          "files": 199
+          "files": 205
         },
         {
           "directory": "scripts",
-          "files": 146
+          "files": 148
         },
         {
           "directory": ".",
@@ -254,11 +254,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "claude/trusting-gauss-fzcu3b",
-      "head": "32c1cdedb",
-      "lastCommitDate": "2026-10-01T17:16:51+00:00",
-      "lastCommitSubject": "TASK-1070: a reload after restoring a backup once never navigated",
-      "commitCount": 4000
+      "branch": "main",
+      "head": "bb4aab418",
+      "lastCommitDate": "2026-10-04T19:57:12+03:00",
+      "lastCommitSubject": "TASK-1080: the ruler owns its presses again, and the round is recorded",
+      "commitCount": 4273
     },
     "scores": {
       "priorityScore": 96,
@@ -275,35 +275,35 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 130701
+        "bytes": 133416
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 136641
+        "bytes": 139772
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 120775
+        "bytes": 123742
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 36551
+        "bytes": 37671
       },
       {
         "profile": "og",
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 104776
+        "bytes": 105327
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T14:21:15.246Z"
+        "builtAt": "2026-10-04T17:04:18.889Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-03T18:35:09.769Z",
+    "generatedAt": "2026-10-04T16:34:07.560Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1312,
-      "testFiles": 560,
-      "sourceLines": 203490,
+      "sourceFiles": 1315,
+      "testFiles": 564,
+      "sourceLines": 203752,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1122
+          "files": 1124
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 71
+          "files": 72
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "ff308185",
-      "lastCommitDate": "2026-10-03T21:30:41+03:00",
-      "lastCommitSubject": "Clarify between-floor decisions and render lasting elemental terrain",
-      "commitCount": 1926
+      "head": "9e890598",
+      "lastCommitDate": "2026-10-04T19:30:59+03:00",
+      "lastCommitSubject": "Replace arena choices and elemental purchases with camp upgrades",
+      "commitCount": 1931
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 166234
+        "bytes": 167295
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157085
+        "bytes": 157549
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 130350
+        "bytes": 131547
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122885
+        "bytes": 122982
       }
     ],
     "trailers": [
