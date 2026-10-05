@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-04T18:59:08.492Z",
+    "generatedAt": "2026-10-05T22:25:17.170Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6895,
-      "testFiles": 2924,
-      "sourceLines": 1190310,
+      "sourceFiles": 6919,
+      "testFiles": 2936,
+      "sourceLines": 1193980,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6291
+          "files": 6313
         },
         {
           "directory": "public",
@@ -238,11 +238,11 @@
         },
         {
           "directory": "e2e",
-          "files": 205
+          "files": 206
         },
         {
           "directory": "scripts",
-          "files": 148
+          "files": 149
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "61f434884",
-      "lastCommitDate": "2026-10-04T21:50:13+03:00",
-      "lastCommitSubject": "TASK-1092: FL's Split by channel on the pattern card, and the pattern-tools model",
-      "commitCount": 4281
+      "head": "e8b8fc9e9",
+      "lastCommitDate": "2026-10-06T01:14:06+03:00",
+      "lastCommitSubject": "EPIC-053: the gap inventory, from FL's change log and Photoshop's workspace files",
+      "commitCount": 4307
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-04T18:57:23.990Z"
+        "builtAt": "2026-10-05T22:23:33.045Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
