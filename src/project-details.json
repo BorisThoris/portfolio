@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-04T21:20:48.789Z",
+    "generatedAt": "2026-10-04T22:59:16.102Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1324,
       "testFiles": 568,
-      "sourceLines": 204505,
+      "sourceLines": 204683,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7e8eb62b",
-      "lastCommitDate": "2026-10-05T00:16:44+03:00",
-      "lastCommitSubject": "Restore original cards with streamed late boards and manual meteor pickups",
-      "commitCount": 1935
+      "head": "7e919039",
+      "lastCommitDate": "2026-10-05T01:56:30+03:00",
+      "lastCommitSubject": "Polish mobile UI, motion, and arcane effects",
+      "commitCount": 1937
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 165997
+        "bytes": 168109
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 155313
+        "bytes": 157638
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129545
+        "bytes": 131723
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 121829
+        "bytes": 122836
       }
     ],
     "trailers": [
