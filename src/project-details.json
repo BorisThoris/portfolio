@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-06T15:52:40.293Z",
+    "generatedAt": "2026-10-06T20:52:16.701Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6997,
-      "testFiles": 2997,
-      "sourceLines": 1215325,
+      "sourceFiles": 6999,
+      "testFiles": 2998,
+      "sourceLines": 1215656,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6390
+          "files": 6392
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d13ccf74c",
-      "lastCommitDate": "2026-10-06T18:42:03+03:00",
-      "lastCommitSubject": "TASK-1101: the song-map scroll selector reads a missing scroll as 0 under strict",
-      "commitCount": 4567
+      "head": "38f30c73e",
+      "lastCommitDate": "2026-10-06T23:43:38+03:00",
+      "lastCommitSubject": "TASK-1083: Photoshop's workspace switcher, in the status bar; the Arrange spec docks two panels first",
+      "commitCount": 4571
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 132181
+        "bytes": 132953
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 138380
+        "bytes": 139134
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122545
+        "bytes": 123230
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 104656
+        "bytes": 105446
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-06T15:51:05.164Z"
+        "builtAt": "2026-10-06T20:50:39.370Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-06T11:16:48.744Z",
+    "generatedAt": "2026-10-06T21:22:09.054Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1339,
+      "sourceFiles": 1338,
       "testFiles": 573,
-      "sourceLines": 203256,
+      "sourceLines": 204723,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1147
+          "files": 1146
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7865564b",
-      "lastCommitDate": "2026-10-06T14:10:06+03:00",
-      "lastCommitSubject": "Show elemental reaction outcomes and teach advanced interactions",
-      "commitCount": 1945
+      "head": "b0b1ffe4",
+      "lastCommitDate": "2026-10-07T00:10:54+03:00",
+      "lastCommitSubject": "Balance card spacing and reclaim desktop play space",
+      "commitCount": 1954
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 163352
+        "bytes": 163104
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 151486
+        "bytes": 153551
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 127365
+        "bytes": 127270
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39354
+        "bytes": 39518
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 117478
+        "bytes": 117944
       }
     ],
     "trailers": [
