@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-06T10:10:32.160Z",
+    "generatedAt": "2026-10-06T15:52:40.293Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6966,
-      "testFiles": 2971,
-      "sourceLines": 1205725,
+      "sourceFiles": 6997,
+      "testFiles": 2997,
+      "sourceLines": 1215325,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6359
+          "files": 6390
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "0dd1ca7d7",
-      "lastCommitDate": "2026-10-06T13:02:00+03:00",
-      "lastCommitSubject": "TASK-1088: Photoshop's first-float explainer",
-      "commitCount": 4451
+      "head": "d13ccf74c",
+      "lastCommitDate": "2026-10-06T18:42:03+03:00",
+      "lastCommitSubject": "TASK-1101: the song-map scroll selector reads a missing scroll as 0 under strict",
+      "commitCount": 4567
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 132143
+        "bytes": 132181
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 138317
+        "bytes": 138380
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122487
+        "bytes": 122545
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 104613
+        "bytes": 104656
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-06T10:08:49.339Z"
+        "builtAt": "2026-10-06T15:51:05.164Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-05T23:47:44.137Z",
+    "generatedAt": "2026-10-06T11:16:48.744Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1335,
-      "testFiles": 571,
-      "sourceLines": 202977,
+      "sourceFiles": 1339,
+      "testFiles": 573,
+      "sourceLines": 203256,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1143
+          "files": 1147
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "86573b88",
-      "lastCommitDate": "2026-10-06T02:44:19+03:00",
-      "lastCommitSubject": "Teach elemental combinations in an interactive Tutorial Hall",
-      "commitCount": 1943
+      "head": "7865564b",
+      "lastCommitDate": "2026-10-06T14:10:06+03:00",
+      "lastCommitSubject": "Show elemental reaction outcomes and teach advanced interactions",
+      "commitCount": 1945
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 162307
+        "bytes": 163352
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 153336
+        "bytes": 151486
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 128085
+        "bytes": 127365
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 118933
+        "bytes": 117478
       }
     ],
     "trailers": [
