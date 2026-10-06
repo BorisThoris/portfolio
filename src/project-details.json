@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-05T22:25:17.170Z",
+    "generatedAt": "2026-10-05T23:35:57.553Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6919,
-      "testFiles": 2936,
-      "sourceLines": 1193980,
+      "sourceFiles": 6959,
+      "testFiles": 2969,
+      "sourceLines": 1205020,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6313
+          "files": 6352
         },
         {
           "directory": "public",
@@ -238,7 +238,7 @@
         },
         {
           "directory": "e2e",
-          "files": 206
+          "files": 207
         },
         {
           "directory": "scripts",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e8b8fc9e9",
-      "lastCommitDate": "2026-10-06T01:14:06+03:00",
-      "lastCommitSubject": "EPIC-053: the gap inventory, from FL's change log and Photoshop's workspace files",
-      "commitCount": 4307
+      "head": "29653d9cf",
+      "lastCommitDate": "2026-10-06T02:25:37+03:00",
+      "lastCommitSubject": "TASK-1093: Colour gradient for the selected channels; the editor's timeline strings off the boot path",
+      "commitCount": 4447
     },
     "scores": {
       "priorityScore": 96,
@@ -275,35 +275,35 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 133499
+        "bytes": 132149
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 139860
+        "bytes": 138317
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123731
+        "bytes": 122491
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 37671
+        "bytes": 38489
       },
       {
         "profile": "og",
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 105366
+        "bytes": 104613
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-05T22:23:33.045Z"
+        "builtAt": "2026-10-05T23:34:11.557Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-04T22:59:16.102Z",
+    "generatedAt": "2026-10-05T23:47:44.137Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1324,
-      "testFiles": 568,
-      "sourceLines": 204683,
+      "sourceFiles": 1335,
+      "testFiles": 571,
+      "sourceLines": 202977,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1132
+          "files": 1143
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7e919039",
-      "lastCommitDate": "2026-10-05T01:56:30+03:00",
-      "lastCommitSubject": "Polish mobile UI, motion, and arcane effects",
-      "commitCount": 1937
+      "head": "86573b88",
+      "lastCommitDate": "2026-10-06T02:44:19+03:00",
+      "lastCommitSubject": "Teach elemental combinations in an interactive Tutorial Hall",
+      "commitCount": 1943
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 168109
+        "bytes": 162307
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 157638
+        "bytes": 153336
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131723
+        "bytes": 128085
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 51915
+        "bytes": 39354
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 122836
+        "bytes": 118933
       }
     ],
     "trailers": [
