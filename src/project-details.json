@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-05T23:35:57.553Z",
+    "generatedAt": "2026-10-06T10:10:32.160Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6959,
-      "testFiles": 2969,
-      "sourceLines": 1205020,
+      "sourceFiles": 6966,
+      "testFiles": 2971,
+      "sourceLines": 1205725,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6352
+          "files": 6359
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "29653d9cf",
-      "lastCommitDate": "2026-10-06T02:25:37+03:00",
-      "lastCommitSubject": "TASK-1093: Colour gradient for the selected channels; the editor's timeline strings off the boot path",
-      "commitCount": 4447
+      "head": "0dd1ca7d7",
+      "lastCommitDate": "2026-10-06T13:02:00+03:00",
+      "lastCommitSubject": "TASK-1088: Photoshop's first-float explainer",
+      "commitCount": 4451
     },
     "scores": {
       "priorityScore": 96,
@@ -275,7 +275,7 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 132149
+        "bytes": 132143
       },
       {
         "profile": "desktop",
@@ -289,7 +289,7 @@
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122491
+        "bytes": 122487
       },
       {
         "profile": "mobile",
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-05T23:34:11.557Z"
+        "builtAt": "2026-10-06T10:08:49.339Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
