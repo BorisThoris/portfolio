@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-06T20:52:16.701Z",
+    "generatedAt": "2026-10-06T23:24:44.501Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 6999,
-      "testFiles": 2998,
-      "sourceLines": 1215656,
+      "sourceFiles": 7029,
+      "testFiles": 3014,
+      "sourceLines": 1219275,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6392
+          "files": 6422
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "38f30c73e",
-      "lastCommitDate": "2026-10-06T23:43:38+03:00",
-      "lastCommitSubject": "TASK-1083: Photoshop's workspace switcher, in the status bar; the Arrange spec docks two panels first",
-      "commitCount": 4571
+      "head": "ecd87dc7b",
+      "lastCommitDate": "2026-10-07T01:01:06+03:00",
+      "lastCommitSubject": "Merge commit 'e0ee60ea7' into claude/bbeats-task-completion-ec8913",
+      "commitCount": 4588
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-06T20:50:39.370Z"
+        "builtAt": "2026-10-06T23:23:00.171Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-06T21:22:09.054Z",
+    "generatedAt": "2026-10-06T23:37:06.518Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1338,
-      "testFiles": 573,
-      "sourceLines": 204723,
+      "sourceFiles": 1351,
+      "testFiles": 579,
+      "sourceLines": 205636,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1146
+          "files": 1159
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b0b1ffe4",
-      "lastCommitDate": "2026-10-07T00:10:54+03:00",
-      "lastCommitSubject": "Balance card spacing and reclaim desktop play space",
-      "commitCount": 1954
+      "head": "acf18010",
+      "lastCommitDate": "2026-10-07T02:34:23+03:00",
+      "lastCommitSubject": "Paint live elemental combinations and give reactions distinct particle materials",
+      "commitCount": 1960
     },
     "scores": {
       "priorityScore": 94,
@@ -607,21 +607,21 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 163104
+        "bytes": 162182
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 153551
+        "bytes": 153713
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 127270
+        "bytes": 126228
       },
       {
         "profile": "mobile",
@@ -635,7 +635,7 @@
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 117944
+        "bytes": 118166
       }
     ],
     "trailers": [
