@@ -80,17 +80,13 @@ try {
   );
   await page.getByRole("button", { name: "Next project", exact: true }).click();
   assert.equal(
-    await page
-      .getByRole("tab", { name: "02 Memory Dungeon" })
-      .getAttribute("aria-selected"),
+    await page.getByRole("tab").nth(1).getAttribute("aria-selected"),
     "true",
   );
-  await page.getByRole("tab", { name: "02 Memory Dungeon" }).focus();
+  await page.getByRole("tab").nth(1).focus();
   await page.keyboard.press("End");
   assert.equal(
-    await page
-      .getByRole("tab", { name: "05 Cross Repo Libs" })
-      .evaluate(
+    await page.getByRole("tab").last().evaluate(
         (el) =>
           el === document.activeElement &&
           el.getAttribute("aria-selected") === "true",
@@ -99,9 +95,7 @@ try {
   );
   await page.keyboard.press("ArrowRight");
   assert.equal(
-    await page
-      .getByRole("tab", { name: "01 BBeats" })
-      .getAttribute("aria-selected"),
+    await page.getByRole("tab").first().getAttribute("aria-selected"),
     "true",
   );
   assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
@@ -202,12 +196,16 @@ try {
     path: `${output}/release-desktop.png`,
     fullPage: true,
   });
-  // The preview can be a trailer; the project action remains available in either media state.
-  await page.locator("#project-panel-bbeats").getByRole("link", { name: "Explore project", exact: true }).click();
+  // The active featured project can change without invalidating navigation.
+  const activeFeaturedLink = page.locator('.featured [role="tabpanel"]:not([inert])').getByRole('link', { name: 'Explore project' });
+  const featuredHref = await activeFeaturedLink.getAttribute('href');
+  const featuredProject = projectData.find(project => featuredHref === `/projects/${project.slug}`);
+  assert(featuredProject, 'Active featured card links to a listed project');
+  await activeFeaturedLink.click();
   await page
-    .getByRole("heading", { level: 1, name: "BBeats", exact: true })
+    .getByRole("heading", { level: 1, name: featuredProject.title, exact: true })
     .waitFor();
-  assert.equal(await page.title(), "BBeats | Boris Bostandzhiev");
+  assert.equal(await page.title(), `${featuredProject.title} | Boris Bostandzhiev`);
   assert.equal(
     await page.locator("main").evaluate((el) => el === document.activeElement),
     true,
