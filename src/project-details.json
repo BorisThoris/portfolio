@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-07T19:47:07.319Z",
+    "generatedAt": "2026-10-07T23:01:49.286Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1365,
       "testFiles": 589,
-      "sourceLines": 210226,
+      "sourceLines": 210382,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "adc940b9",
-      "lastCommitDate": "2026-10-07T22:15:48+03:00",
-      "lastCommitSubject": "Add the Colossus boss card, the Turncoat and the Hourglass (rules 62)",
-      "commitCount": 1973
+      "head": "8f5bad7f",
+      "lastCommitDate": "2026-10-08T01:42:10+03:00",
+      "lastCommitSubject": "Refine the painted scenes: real falling gold, sharp backdrops, no light seams",
+      "commitCount": 1975
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 157609
+        "bytes": 155210
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 147283
+        "bytes": 144775
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 121659
+        "bytes": 120064
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39794
+        "bytes": 39240
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 114126
+        "bytes": 110114
       }
     ],
     "trailers": [
