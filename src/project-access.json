@@ -764,5 +764,144 @@
       }
     ],
     "captureNote": "Captured from the actual Android/Filament application, with original side controls preserved. The clip is silent. Miata model: antoineallardchoquette, CC BY 4.0. Parking environment: Nico Perry, CC BY-NC 4.0. Full attribution is included with the local project. Physical phone flashlight behavior has not been tested."
+  },
+  "gta-sa-mod": {
+    "kind": "native",
+    "label": "GTA San Andreas mod",
+    "status": "Personal Fleet and Personal Wardrobe releases; requires GTA San Andreas 1.0 US for Windows.",
+    "environment": "GTA San Andreas 1.0 US on Windows",
+    "instructions": "Follow each mod's installation guide in the repository.",
+    "sourceUrl": "https://github.com/BorisThoris/bobMods",
+    "sourceStatus": "Public source repository",
+    "images": [
+      {
+        "profile": "native-poster",
+        "path": "/native/gta-sa-mod/poster.jpg",
+        "caption": "Personal Fleet gameplay",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "videos": [
+      {
+        "kind": "video",
+        "url": "/native/gta-sa-mod/personal-fleet-film.mp4",
+        "title": "Personal Fleet: One Call Away",
+        "poster": "/native/gta-sa-mod/poster.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "captureNote": "The original Personal Fleet trailer from the project's Nexus publishing folder. The trailer demonstrates Personal Fleet; Personal Wardrobe is a separate mod."
+  },
+  "skillball": {
+    "kind": "web",
+    "label": "Browser game",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Modern browser; Node.js for local development",
+    "instructions": "npm run dev -- --port 4121",
+    "sourceUrl": "",
+    "sourceStatus": "Local source; not published.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/skillball/arena.jpg",
+        "caption": "SkillBall arena",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "gameplay",
+        "path": "/project-shots/skillball/gameplay.jpg",
+        "caption": "Recoil movement gameplay",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "videos": [
+      {
+        "kind": "video",
+        "url": "/videos/skillball/skillball-film.mp4",
+        "title": "SkillBall gameplay film",
+        "poster": "/project-shots/skillball/arena.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "captureNote": "Edited from real SkillBall browser gameplay recordings."
+  },
+  "marketcheck": {
+    "kind": "web",
+    "label": "Installable dashboard",
+    "status": "Verified locally; public demo not published yet.",
+    "environment": "Node.js 22 or newer; modern browser. Optional Windows Electron tray app.",
+    "instructions": "npm start  (then open http://127.0.0.1:3000/)",
+    "sourceUrl": "",
+    "sourceStatus": "Public source access not verified.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/marketcheck/dashboard.jpg",
+        "caption": "Dashboard with fictional sample values",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "compact",
+        "path": "/project-shots/marketcheck/compact.jpg",
+        "caption": "Compact view with fictional sample values",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "videos": [
+      {
+        "kind": "video",
+        "url": "/videos/marketcheck/marketcheck-film.mp4",
+        "title": "marketCheck interface film",
+        "description": "Motion montage of verified UI captures using fictional sample values.",
+        "poster": "/project-shots/marketcheck/dashboard.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "captureNote": "Screenshots come from the isolated browser UI regression using fictional sample values. The film is a motion montage, not a live data recording."
+  },
+  "terraria-depth": {
+    "kind": "native",
+    "label": "Terraria tModLoader experiment",
+    "status": "Highly experimental alpha prototype; combat and progression are incomplete.",
+    "environment": "Terraria with tModLoader on Windows",
+    "instructions": "See companion/Terra3D setup and release notes.",
+    "sourceUrl": "",
+    "sourceStatus": "Public Nexus alpha release; repository source is local.",
+    "images": [
+      {
+        "profile": "native-travel",
+        "path": "/native/terraria-depth/travel.jpg",
+        "caption": "Verified 3D world scene",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-map",
+        "path": "/native/terraria-depth/map.jpg",
+        "caption": "Experimental native 3D scene",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "videos": [
+      {
+        "kind": "video",
+        "url": "/native/terraria-depth/terra3d-film.mp4",
+        "title": "Terraria Depth scene montage",
+        "description": "Motion edit of verified screenshots, not real-time gameplay footage.",
+        "poster": "/native/terraria-depth/travel.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "captureNote": "The montage uses verified native scene screenshots captured on 2026-10-08. It is not real-time gameplay footage."
   }
 }

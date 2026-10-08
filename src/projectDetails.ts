@@ -9,6 +9,10 @@ export function getProjectDetails(slug: string): ProjectDetails | undefined {
   const details = override ? { ...detailsBySlug[slug], ...override, slug } : detailsBySlug[slug];
   const access = getProjectAccess(slug);
   if (!access) return details;
-  if (access.kind === "web") return access.images.length ? { ...details, slug, images: access.images } : details;
+  if (access.kind === "web") return {
+    ...details, slug,
+    images: access.images.length ? access.images : details?.images,
+    videos: [...(details?.videos ?? []), ...access.videos],
+  };
   return { ...details, slug, images: access.images, videos: access.videos, trailers: [], artwork: [], links: access.sourceUrl ? { repository: access.sourceUrl } : {}, runtime: access.kind === "archive" ? undefined : { runCommand: access.instructions }, stack: access.kind === "archive" ? undefined : { runtimeTargets: [access.environment] } };
 }

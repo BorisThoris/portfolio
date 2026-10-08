@@ -67,6 +67,14 @@ page shows whatever arrives: the trailer in the billboard, a Watch rail, a
 Posters & wallpapers rail with downloads, the screenshots and the fact sheet.
 The convention and the commands are in [scripts/meta/README.md](scripts/meta/README.md).
 
+The feature films for GTA San Andreas Mods, SkillBall, Terraria Depth Experiment,
+and marketCheck are generated locally with `python scripts/build-feature-media.py`.
+`public/feature-media-manifest.json` records each project's source hashes, recipe,
+and final media hash. Unchanged projects keep their existing video and stills.
+Render intermediates stay under `D:\agent-work`; only compact final assets are
+published. The Personal Fleet video is copied unchanged from its Nexus release.
+The Terraria and marketCheck films are labelled screenshot montages.
+
 ## Repo Analysis And Ranking
 
 The home page features five editorially selected projects and a searchable catalogue of all visible projects. The shortlist lives in `src/content/home.ts`. Ranking metadata lives in `src/repo-analysis.json`; local run/build metadata stays in `src/project-data.json`.

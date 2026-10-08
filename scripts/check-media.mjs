@@ -297,23 +297,22 @@ try {
   assert.equal(await hero.getAttribute('data-motion'), 'paused');
   await page.setViewportSize({width:1440,height:1000});
   report.push('Homepage hero: real trailer playback on desktop/mobile, changing animation frames, pause/resume controls, offscreen pause');
-  await page.getByRole("tab", { name: "02 Memory Dungeon" }).click();
-  const featured = page.locator("#project-panel-memory-dungeon");
-  await featured.scrollIntoViewIfNeeded();
-  await playing(featured.locator("video"));
-  await checkRatio(featured.locator('video'), 'Memory Dungeon featured');
-  await page.screenshot({ path: "output/playwright/video-featured.png" });
-  await page.getByRole("tab", { name: "03 VYB Chess" }).click();
-  await paused(featured.locator("video"));
-  for (const [tabName, slug] of [['03 VYB Chess', 'vyb-chess'], ['04 BOBBALL', 'bobball']]) {
-    await page.getByRole('tab', {name:tabName}).click();
-    const slide = page.locator(`#project-panel-${slug}`);
+  let previousFeatured = null;
+  for (const tabIndex of [1, 2, 4]) {
+    const tab = page.getByRole('tab').nth(tabIndex);
+    const panelId = await tab.getAttribute('aria-controls');
+    assert(panelId, 'Featured tab identifies its panel');
+    await tab.click();
+    const slide = page.locator(`#${panelId}`);
     await slide.scrollIntoViewIfNeeded();
     await playing(slide.locator('video'));
-    await checkRatio(slide.locator('video'), `${slug} featured desktop`);
+    await checkRatio(slide.locator('video'), `${panelId} featured desktop`);
+    if (previousFeatured) await paused(previousFeatured.locator('video'));
+    if (tabIndex === 1) await page.screenshot({ path: 'output/playwright/video-featured.png' });
     await page.setViewportSize({width:390,height:844});
-    await checkRatio(slide.locator('video'), `${slug} featured mobile`);
+    await checkRatio(slide.locator('video'), `${panelId} featured mobile`);
     await page.setViewportSize({width:1440,height:1000});
+    previousFeatured = slide;
   }
   const card = page.locator(".project-tile").filter({ has: page.getByRole("link", { name: /^BOBBALL / }) });
   // Finish the page's smooth scroll before placing the pointer over the card.
@@ -354,6 +353,14 @@ try {
   await playing(page.getByRole("dialog").locator("video"));
   await page.keyboard.press("Escape");
   report.push("Reduced motion: still cover, explicit playback available");
+
+  await page.goto(`${base}/projects/marketcheck`);
+  await page.locator('.project-cover').getByRole('button', { name: /^Watch video/ }).click();
+  const marketVideo = page.getByRole('dialog').locator('video');
+  await playing(marketVideo);
+  assert((await marketVideo.getAttribute('src')).includes('/videos/marketcheck/marketcheck-film.mp4'));
+  await page.keyboard.press('Escape');
+  report.push('marketCheck: sample-data interface film decoded and played on its project page');
 
   const saverContext = await browser.newContext();
   await saverContext.addInitScript(() => Object.defineProperty(navigator, "connection", { value: { saveData: true }, configurable: true }));

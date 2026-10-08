@@ -782,5 +782,77 @@
       "3D"
     ],
     "accent": "#ffc447"
+  },
+  {
+    "slug": "gta-sa-mod",
+    "title": "GTA San Andreas Mods",
+    "subtitle": "A personal fleet and wardrobe for San Andreas.",
+    "description": "Two GTA San Andreas 1.0 US mods: Personal Fleet adds persistent vehicle ownership, mechanic delivery and garages; Personal Wardrobe adds custom garments and NPC outfit variants.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bobMods",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See the Personal Fleet and Personal Wardrobe installation guides",
+    "tags": [
+      "GTA San Andreas",
+      "Game mod",
+      "CLEO"
+    ],
+    "accent": "#dab77c",
+    "screenshot": "/native/gta-sa-mod/poster.jpg"
+  },
+  {
+    "slug": "skillball",
+    "title": "SkillBall",
+    "subtitle": "Move by firing in a momentum arena shooter.",
+    "description": "A browser arena FPS where weapon recoil drives movement instead of WASD. Four weapons, multiple modes and maps, and local and WebRTC multiplayer experiments.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/SkillBall",
+    "localUrl": "http://127.0.0.1:4121/",
+    "buildCommand": "npm run build",
+    "buildOutput": "dist",
+    "runCommand": "npm run dev -- --port 4121",
+    "tags": [
+      "Game",
+      "FPS",
+      "WebRTC"
+    ],
+    "accent": "#d9f464",
+    "screenshot": "/project-shots/skillball/arena.jpg"
+  },
+  {
+    "slug": "marketcheck",
+    "title": "marketCheck",
+    "subtitle": "A transparent dashboard for European bank signals.",
+    "description": "An installable dashboard that brings banking, macro, credit and EXV1 market indicators into one graded view. It shows source history and data freshness, lets users edit thresholds, and has a compact tray view; its grades are illustrative context, not predictions.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/marketCheck",
+    "localUrl": "http://127.0.0.1:3000/",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "npm start",
+    "tags": [
+      "Dashboard",
+      "PWA",
+      "Electron"
+    ],
+    "accent": "#8acfa4",
+    "screenshot": "/project-shots/marketcheck/dashboard.jpg"
+  },
+  {
+    "slug": "terraria-depth",
+    "title": "Terraria Depth Experiment",
+    "subtitle": "A highly experimental native 3D Terraria mod.",
+    "description": "A tModLoader experiment that renders Terraria in a native 3D scene. It is an unfinished alpha prototype with incomplete combat and progression; the film uses verified scene screenshots.",
+    "repoPath": "C:/Users/Gaming PC/Documents/ChatGPT/Terraria Minecraft",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "See companion/Terra3D setup and release notes",
+    "tags": [
+      "Terraria",
+      "tModLoader",
+      "3D experiment"
+    ],
+    "accent": "#60d88b",
+    "screenshot": "/native/terraria-depth/travel.jpg"
   }
 ]
