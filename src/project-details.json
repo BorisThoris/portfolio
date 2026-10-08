@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-07T23:01:49.286Z",
+    "generatedAt": "2026-10-08T21:40:47.711Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1365,
-      "testFiles": 589,
-      "sourceLines": 210382,
+      "sourceFiles": 1381,
+      "testFiles": 594,
+      "sourceLines": 212362,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1173
+          "files": 1189
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8f5bad7f",
-      "lastCommitDate": "2026-10-08T01:42:10+03:00",
-      "lastCommitSubject": "Refine the painted scenes: real falling gold, sharp backdrops, no light seams",
-      "commitCount": 1975
+      "head": "8bc39c31",
+      "lastCommitDate": "2026-10-09T00:35:49+03:00",
+      "lastCommitSubject": "Make the item pickup a small balloon that launches and lands above the dock",
+      "commitCount": 1996
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 155210
+        "bytes": 154688
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 144775
+        "bytes": 145032
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 120064
+        "bytes": 119830
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39240
+        "bytes": 39276
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 110114
+        "bytes": 110098
       }
     ],
     "trailers": [
