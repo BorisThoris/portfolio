@@ -298,7 +298,7 @@ try {
   await page.setViewportSize({width:1440,height:1000});
   report.push('Homepage hero: real trailer playback on desktop/mobile, changing animation frames, pause/resume controls, offscreen pause');
   let previousFeatured = null;
-  for (const tabIndex of [1, 2, 4]) {
+  for (const tabIndex of [0, 1, 2, 4]) {
     const tab = page.getByRole('tab').nth(tabIndex);
     const panelId = await tab.getAttribute('aria-controls');
     assert(panelId, 'Featured tab identifies its panel');
@@ -314,7 +314,10 @@ try {
     await page.setViewportSize({width:1440,height:1000});
     previousFeatured = slide;
   }
-  const card = page.locator(".project-tile").filter({ has: page.getByRole("link", { name: /^BOBBALL / }) });
+  await page.getByRole('tab').nth(3).click();
+  const skillballPanel = page.locator(`#${await page.getByRole('tab').nth(3).getAttribute('aria-controls')}`);
+  assert(await skillballPanel.locator('img').first().evaluate(async img => { await img.decode(); return img.naturalWidth > 0; }));
+  const card = page.locator('.project-tile').filter({ has: page.locator('.project-tile__heading strong', { hasText: 'GTA San Andreas Mods' }) });
   // Finish the page's smooth scroll before placing the pointer over the card.
   await card.evaluate((el) => el.scrollIntoView({ behavior: "instant", block: "center", inline: "center" }));
   await card.hover();
@@ -324,8 +327,8 @@ try {
     console.error(await card.evaluate((el) => ({ rect: el.getBoundingClientRect().toJSON(), hovered: [...document.querySelectorAll(":hover")].map((item) => item.className), focus: document.activeElement?.outerHTML })));
     throw error;
   });
-  await checkRatio(card.locator('video'), 'BOBBALL card');
-  for (const name of ['Memory Dungeon', 'VYB Chess']) {
+  await checkRatio(card.locator('video'), 'GTA San Andreas Mods supporting card');
+  for (const name of ['Cross Repo Libs']) {
     const tile = page.locator('.project-tile').filter({has:page.locator('.project-tile__heading strong', {hasText:name})});
     await tile.evaluate((el) => el.scrollIntoView({behavior:'instant', block:'center'}));
     await tile.hover();
@@ -342,7 +345,7 @@ try {
   await page.getByRole("heading", { level: 1 }).focus();
   await page.getByRole("heading", { level: 1 }).hover();
   await paused(card.locator("video"));
-  report.push("Homepage: featured playback, inactive slide pauses, card hover and full player");
+  report.push("Homepage: original featured playback, SkillBall screenshot, supporting card hover and full player");
 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });
@@ -355,12 +358,9 @@ try {
   report.push("Reduced motion: still cover, explicit playback available");
 
   await page.goto(`${base}/projects/marketcheck`);
-  await page.locator('.project-cover').getByRole('button', { name: /^Watch video/ }).click();
-  const marketVideo = page.getByRole('dialog').locator('video');
-  await playing(marketVideo);
-  assert((await marketVideo.getAttribute('src')).includes('/videos/marketcheck/marketcheck-film.mp4'));
-  await page.keyboard.press('Escape');
-  report.push('marketCheck: sample-data interface film decoded and played on its project page');
+  assert.equal(await page.locator('.project-cover').getByRole('button', { name: /^Watch video/ }).count(), 0);
+  assert(await page.locator('.project-cover img').evaluate(async img => { await img.decode(); return img.naturalWidth > 0; }));
+  report.push('marketCheck: verified sample-data screenshot loads without a generated film');
 
   const saverContext = await browser.newContext();
   await saverContext.addInitScript(() => Object.defineProperty(navigator, "connection", { value: { saveData: true }, configurable: true }));

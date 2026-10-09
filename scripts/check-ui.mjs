@@ -4,7 +4,9 @@ import path from "node:path";
 import { preview } from "vite";
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
+import { assertBrowserIsolation } from "./browser-safety.mjs";
 
+assertBrowserIsolation();
 const server = await preview({
   preview: { host: "127.0.0.1", port: 4187, strictPort: true },
 });
@@ -28,7 +30,9 @@ const visibleProjects = projectData.filter(
   (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
 );
 const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
-const activeProjects = visibleProjects.filter(project => access[project.slug]?.kind !== "archive");
+const featuredSlugs = ["bobball", "memory-dungeon", "bbeats", "skillball", "vyb-chess"];
+const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug));
+const activeProjects = supportingProjects.filter(project => access[project.slug]?.kind !== "archive");
 async function audit(page, name) {
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
@@ -100,20 +104,25 @@ try {
   );
   assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
   assert.equal(await page.locator('.catalog-filters, .catalog-shelves, .project-tile__heading > span').count(), 0, "No category filters, rows, or badges");
-  assert.equal(await page.locator('.project-grid > li').count(), activeProjects.length);
+  assert.equal(await page.getByRole('heading', { name: /Supporting projects/ }).count(), 1);
+  assert.equal(await page.locator('.project-grid > li').count(), Math.min(6, activeProjects.length));
   await page.getByRole('checkbox', {name: /Include historical archives/}).check();
-  assert.equal(await page.locator('.project-grid > li').count(), visibleProjects.length);
+  assert.equal(await page.locator('.project-grid > li').count(), Math.min(6, supportingProjects.length));
+  await page.getByRole('button', { name: /View all .* supporting projects/ }).click();
+  assert.equal(await page.locator('.project-grid > li').count(), supportingProjects.length);
   await page.getByRole('checkbox', {name: /Include historical archives/}).uncheck();
+  assert.equal(await page.locator('.project-grid > li').count(), activeProjects.length);
+  await page.getByRole('button', { name: 'Show fewer supporting projects' }).click();
   assert.equal(await page.getByRole('heading', { name: /^(Apps & tools|Games|Commerce)$/ }).count(), 0);
   assert.equal(await page.locator('.hero video').count(), 0, "Hero respects reduced motion");
   assert.equal(await page.locator('.hero__orbits i').first().evaluate((el) => getComputedStyle(el).animationName), 'none');
-  await page.getByRole("searchbox", { name: "Search projects" }).fill("BBeats");
+  await page.getByRole("searchbox", { name: "Search supporting projects" }).fill("BBeats");
   assert.deepEqual(
     (await page.locator('.project-grid strong').allTextContents()).sort(),
-    ['BBeats', 'Soundstage Composer'],
-    'Search matches both the BBeats title and Soundstage\'s BBeats-derived subtitle',
+    ['Soundstage Composer'],
+    'Featured work stays out of the supporting catalog',
   );
-  await page.getByRole("searchbox", { name: "Search projects" }).fill("  BBeats   NATIVE  ");
+  await page.getByRole("searchbox", { name: "Search supporting projects" }).fill("  BBeats   NATIVE  ");
   assert.equal(await page.locator('.project-grid > li').count(), 1);
   assert.equal(
     await page.locator('.project-grid strong').textContent(),
@@ -121,7 +130,7 @@ try {
     'Every search term must match, regardless of case or surrounding whitespace',
   );
   await page
-    .getByRole("searchbox", { name: "Search projects" })
+    .getByRole("searchbox", { name: "Search supporting projects" })
     .fill("no-match-xyz");
   assert(
     await page.getByRole("heading", { name: "No projects found" }).isVisible(),
@@ -129,7 +138,7 @@ try {
   await page.getByRole("button", { name: "Clear search" }).click();
   assert.equal(
     await page.locator(".project-tile").count(),
-    activeProjects.length,
+    Math.min(6, activeProjects.length),
   );
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();

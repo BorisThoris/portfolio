@@ -96,18 +96,18 @@ export function HomePage() {
             </div>
             <Link
               className="hero-project hero-project--main"
-              to="/projects/bbeats"
+              to="/projects/bobball"
             >
               <div className="mini-window" aria-hidden="true">
                 <i />
                 <i />
                 <i />
-                <span>bbeats</span>
+                <span>bobball</span>
                 <div className="hero__levels"><b /><b /><b /><b /><b /></div>
               </div>
               <CaptureImage project={featured[0]} priority />
               <span className="hero-project__caption">
-                Make a beat in the browser.
+                Dodge, throw, and climb the arena.
                 <ArrowUpRight size={17} />
               </span>
             </Link>
