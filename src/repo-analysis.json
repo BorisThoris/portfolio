@@ -3,7 +3,7 @@
     "slug": "vyb-chess",
     "repoName": "VYB-Chess",
     "showcaseTier": "showcase",
-    "showcaseOrder": 4,
+    "showcaseOrder": 3,
     "priorityScore": 98,
     "demoabilityScore": 96,
     "depthScore": 99,
@@ -16,7 +16,7 @@
     "slug": "bbeats",
     "repoName": "BBeats",
     "showcaseTier": "showcase",
-    "showcaseOrder": 2,
+    "showcaseOrder": 1,
     "priorityScore": 96,
     "demoabilityScore": 95,
     "depthScore": 98,
@@ -29,7 +29,7 @@
     "slug": "memory-dungeon",
     "repoName": "memory-dungeon",
     "showcaseTier": "showcase",
-    "showcaseOrder": 1,
+    "showcaseOrder": 2,
     "priorityScore": 94,
     "demoabilityScore": 94,
     "depthScore": 97,
@@ -65,14 +65,15 @@
   {
     "slug": "threejs-gem-dungeon-editor",
     "repoName": "threejs-gem-dungeon-editor-live",
-    "showcaseTier": "more",
+    "showcaseTier": "showcase",
     "priorityScore": 90,
     "demoabilityScore": 88,
     "depthScore": 83,
     "polishScore": 80,
     "uniquenessScore": 86,
     "maintenanceScore": 74,
-    "analysisNotes": "The Steam-demo gem run: title screen, seeded runs, pursuers and counterplay, controller and touch input; deployed from main."
+    "analysisNotes": "The Steam-demo gem run: title screen, seeded runs, pursuers and counterplay, controller and touch input; deployed from main.",
+    "showcaseOrder": 4
   },
   {
     "slug": "saad-print-on-demand",
@@ -89,14 +90,15 @@
   {
     "slug": "cross-repo-libs",
     "repoName": "cross-repo-libs",
-    "showcaseTier": "more",
+    "showcaseTier": "showcase",
     "priorityScore": 89,
     "demoabilityScore": 82,
     "depthScore": 80,
     "polishScore": 72,
     "uniquenessScore": 84,
     "maintenanceScore": 80,
-    "analysisNotes": "Reusable package workspace with an example app; less visual than games but valuable as architecture and shared-library evidence."
+    "analysisNotes": "Reusable package workspace with an example app; less visual than games but valuable as architecture and shared-library evidence.",
+    "showcaseOrder": 5
   },
   {
     "slug": "roam-rental-dashboard",
@@ -125,14 +127,15 @@
   {
     "slug": "runner-score-arcade",
     "repoName": "runner-score-arcade",
-    "showcaseTier": "more",
+    "showcaseTier": "showcase",
     "priorityScore": 86,
     "demoabilityScore": 76,
     "depthScore": 66,
     "polishScore": 66,
     "uniquenessScore": 68,
     "maintenanceScore": 58,
-    "analysisNotes": "Historical Phaser runner with Express hosting and leaderboard flow; demoable but older stack and less polished than current games."
+    "analysisNotes": "Historical Phaser runner with Express hosting and leaderboard flow; demoable but older stack and less polished than current games.",
+    "showcaseOrder": 7
   },
   {
     "slug": "user-hub-admin",
@@ -149,14 +152,15 @@
   {
     "slug": "cat-world",
     "repoName": "cat-world",
-    "showcaseTier": "more",
+    "showcaseTier": "showcase",
     "priorityScore": 84,
     "demoabilityScore": 70,
     "depthScore": 60,
     "polishScore": 64,
     "uniquenessScore": 62,
     "maintenanceScore": 56,
-    "analysisNotes": "Older Angular adoption app, useful as an archive demo but lower priority due to dated framework and narrower surface."
+    "analysisNotes": "Older Angular adoption app, useful as an archive demo but lower priority due to dated framework and narrower surface.",
+    "showcaseOrder": 8
   },
   {
     "slug": "flowforge-configurator",
@@ -173,14 +177,15 @@
   {
     "slug": "gorilla-gainz",
     "repoName": "gorilla-gainz",
-    "showcaseTier": "more",
+    "showcaseTier": "showcase",
     "priorityScore": 82,
     "demoabilityScore": 66,
     "depthScore": 58,
     "polishScore": 58,
     "uniquenessScore": 54,
     "maintenanceScore": 52,
-    "analysisNotes": "Original visual identity and product-management flow preserved, with durable bag, demo checkout, responsive catalogue filters and local illustration assets. Verified complete browser workflow and accessible page structure."
+    "analysisNotes": "Original visual identity and product-management flow preserved, with durable bag, demo checkout, responsive catalogue filters and local illustration assets. Verified complete browser workflow and accessible page structure.",
+    "showcaseOrder": 9
   },
   {
     "slug": "memory-card-quest",

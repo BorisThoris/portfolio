@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-09T03:35:25.312Z",
+    "generatedAt": "2026-10-09T14:27:27.336Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1397,
-      "testFiles": 601,
-      "sourceLines": 214148,
+      "sourceFiles": 1399,
+      "testFiles": 602,
+      "sourceLines": 215166,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1205
+          "files": 1207
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "49d333a9",
-      "lastCommitDate": "2026-10-09T03:26:56Z",
+      "head": "51622d07",
+      "lastCommitDate": "2026-10-09T17:22:20+03:00",
       "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 2019
+      "commitCount": 2030
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 155583
+        "bytes": 155703
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 146040
+        "bytes": 146146
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 120599
+        "bytes": 119836
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39323
+        "bytes": 39308
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109821
+        "bytes": 109873
       }
     ],
     "trailers": [
