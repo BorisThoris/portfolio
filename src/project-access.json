@@ -776,23 +776,44 @@
     "images": [
       {
         "profile": "native-poster",
-        "path": "/native/gta-sa-mod/poster.jpg",
-        "caption": "Personal Fleet gameplay",
+        "path": "/native/gta-sa-mod/nexus-cover.jpg",
+        "caption": "Personal Fleet Nexus release cover",
         "width": 1280,
         "height": 720
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/gta-sa-mod/collection-gallery.jpg",
+        "caption": "A personal vehicle collection in the gallery garage",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/gta-sa-mod/collection-tuners.jpg",
+        "caption": "Tuner collection and garage mechanic",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/gta-sa-mod/exterior-haulage.jpg",
+        "caption": "The haulage garage location",
+        "width": 1920,
+        "height": 1080
       }
     ],
     "videos": [
       {
         "kind": "video",
-        "url": "/native/gta-sa-mod/personal-fleet-film.mp4",
-        "title": "Personal Fleet: One Call Away",
-        "poster": "/native/gta-sa-mod/poster.jpg",
-        "width": 1280,
-        "height": 720
+        "url": "/native/gta-sa-mod/personal-fleet-action-cut-web.mp4",
+        "title": "Personal Fleet: Nexus action cut",
+        "poster": "/native/gta-sa-mod/nexus-cover.jpg",
+        "width": 1920,
+        "height": 1080
       }
     ],
-    "captureNote": "The original Personal Fleet trailer from the project's Nexus publishing folder. The trailer demonstrates Personal Fleet; Personal Wardrobe is a separate mod."
+    "captureNote": "The action cut and screenshots come from the published Personal Fleet Nexus release. Personal Wardrobe is a separate mod."
   },
   "skillball": {
     "kind": "web",
@@ -818,17 +839,8 @@
         "height": 720
       }
     ],
-    "videos": [
-      {
-        "kind": "video",
-        "url": "/videos/skillball/skillball-film.mp4",
-        "title": "SkillBall gameplay film",
-        "poster": "/project-shots/skillball/arena.jpg",
-        "width": 1280,
-        "height": 720
-      }
-    ],
-    "captureNote": "Edited from real SkillBall browser gameplay recordings."
+    "videos": [],
+    "captureNote": "Screenshots from the SkillBall browser game."
   },
   "marketcheck": {
     "kind": "web",
@@ -854,18 +866,8 @@
         "height": 720
       }
     ],
-    "videos": [
-      {
-        "kind": "video",
-        "url": "/videos/marketcheck/marketcheck-film.mp4",
-        "title": "marketCheck interface film",
-        "description": "Motion montage of verified UI captures using fictional sample values.",
-        "poster": "/project-shots/marketcheck/dashboard.jpg",
-        "width": 1280,
-        "height": 720
-      }
-    ],
-    "captureNote": "Screenshots come from the isolated browser UI regression using fictional sample values. The film is a motion montage, not a live data recording."
+    "videos": [],
+    "captureNote": "Screenshots come from the isolated browser UI regression using fictional sample values."
   },
   "terraria-depth": {
     "kind": "native",
@@ -891,17 +893,7 @@
         "height": 720
       }
     ],
-    "videos": [
-      {
-        "kind": "video",
-        "url": "/native/terraria-depth/terra3d-film.mp4",
-        "title": "Terraria Depth scene montage",
-        "description": "Motion edit of verified screenshots, not real-time gameplay footage.",
-        "poster": "/native/terraria-depth/travel.jpg",
-        "width": 1280,
-        "height": 720
-      }
-    ],
-    "captureNote": "The montage uses verified native scene screenshots captured on 2026-10-08. It is not real-time gameplay footage."
+    "videos": [],
+    "captureNote": "Verified native scene screenshots captured on 2026-10-08."
   }
 }

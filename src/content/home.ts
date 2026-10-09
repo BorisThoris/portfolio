@@ -14,8 +14,8 @@ export const home = {
 // Editorial selection is independent of generated repo rankings.
 export const featuredSlugs = [
   "bobball",
-  "skillball",
-  "gta-sa-mod",
+  "memory-dungeon",
   "bbeats",
-  "terraria-depth",
+  "skillball",
+  "vyb-chess",
 ];
