@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-09T14:27:27.336Z",
+    "generatedAt": "2026-10-09T20:56:43.603Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1399,
-      "testFiles": 602,
-      "sourceLines": 215166,
+      "sourceFiles": 1405,
+      "testFiles": 605,
+      "sourceLines": 216894,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1207
+          "files": 1213
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "51622d07",
-      "lastCommitDate": "2026-10-09T17:22:20+03:00",
-      "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 2030
+      "head": "f0655ed3",
+      "lastCommitDate": "2026-10-09T23:37:29+03:00",
+      "lastCommitSubject": "Refresh the repo model",
+      "commitCount": 2057
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 155703
+        "bytes": 155710
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 146146
+        "bytes": 145031
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 119836
+        "bytes": 120158
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39308
+        "bytes": 39386
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109873
+        "bytes": 109851
       }
     ],
     "trailers": [
