@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-09T20:56:43.603Z",
+    "generatedAt": "2026-10-09T23:59:42.334Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1405,
-      "testFiles": 605,
-      "sourceLines": 216894,
+      "sourceFiles": 1410,
+      "testFiles": 608,
+      "sourceLines": 217226,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1213
+          "files": 1217
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 73
+          "files": 74
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "f0655ed3",
-      "lastCommitDate": "2026-10-09T23:37:29+03:00",
-      "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2057
+      "head": "e7540c5d",
+      "lastCommitDate": "2026-10-10T02:42:40+03:00",
+      "lastCommitSubject": "Bound card departures and release GPU resources",
+      "commitCount": 2065
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 155710
+        "bytes": 154612
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 145031
+        "bytes": 145612
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 120158
+        "bytes": 119570
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39386
+        "bytes": 39319
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109851
+        "bytes": 110246
       }
     ],
     "trailers": [
