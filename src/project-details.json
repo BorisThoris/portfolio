@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-10T03:18:02.659Z",
+    "generatedAt": "2026-10-10T14:40:42.816Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1410,
-      "testFiles": 608,
-      "sourceLines": 217573,
+      "sourceFiles": 1417,
+      "testFiles": 611,
+      "sourceLines": 218559,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1217
+          "files": 1223
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 74
+          "files": 75
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8ac7fedc",
-      "lastCommitDate": "2026-10-10T05:54:48+03:00",
-      "lastCommitSubject": "Skip unused card art and prepare first-turn status textures",
-      "commitCount": 2069
+      "head": "54961cab",
+      "lastCommitDate": "2026-10-10T17:37:23+03:00",
+      "lastCommitSubject": "Refresh repository model after upstream metadata merge",
+      "commitCount": 2073
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 154481
+        "bytes": 154937
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 144967
+        "bytes": 146244
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 119985
+        "bytes": 119763
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39560
+        "bytes": 39609
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 110464
+        "bytes": 111206
       }
     ],
     "trailers": [
