@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-09T23:59:42.334Z",
+    "generatedAt": "2026-10-10T03:18:02.659Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1410,
       "testFiles": 608,
-      "sourceLines": 217226,
+      "sourceLines": 217573,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e7540c5d",
-      "lastCommitDate": "2026-10-10T02:42:40+03:00",
-      "lastCommitSubject": "Bound card departures and release GPU resources",
-      "commitCount": 2065
+      "head": "8ac7fedc",
+      "lastCommitDate": "2026-10-10T05:54:48+03:00",
+      "lastCommitSubject": "Skip unused card art and prepare first-turn status textures",
+      "commitCount": 2069
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 154612
+        "bytes": 154481
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 145612
+        "bytes": 144967
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 119570
+        "bytes": 119985
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39319
+        "bytes": 39560
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 110246
+        "bytes": 110464
       }
     ],
     "trailers": [
