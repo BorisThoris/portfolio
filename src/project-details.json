@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-10T20:48:35.125Z",
+    "generatedAt": "2026-10-11T01:15:39.312Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1417,
-      "testFiles": 611,
-      "sourceLines": 218654,
+      "sourceFiles": 1426,
+      "testFiles": 614,
+      "sourceLines": 218963,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1223
+          "files": 1229
         },
         {
           "directory": "scripts",
@@ -570,7 +570,7 @@
         },
         {
           "directory": "e2e",
-          "files": 75
+          "files": 76
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "f1dc36c2",
-      "lastCommitDate": "2026-10-10T23:45:09+03:00",
-      "lastCommitSubject": "Merge main metadata and refresh repository model",
-      "commitCount": 2076
+      "head": "ceda1a44",
+      "lastCommitDate": "2026-10-11T03:57:04+03:00",
+      "lastCommitSubject": "Add the beta Dungeon Master global record and remove combo music overlays",
+      "commitCount": 2078
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 154939
+        "bytes": 157269
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 144922
+        "bytes": 146544
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 119905
+        "bytes": 120948
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 39604
+        "bytes": 40479
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 110400
+        "bytes": 112402
       }
     ],
     "trailers": [
