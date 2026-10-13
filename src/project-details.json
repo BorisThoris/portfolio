@@ -1006,7 +1006,7 @@
   },
   "cross-repo-libs": {
     "slug": "cross-repo-libs",
-    "generatedAt": "2026-09-27T14:43:17.182Z",
+    "generatedAt": "2026-10-13T01:04:16.531Z",
     "version": "0.0.0",
     "classification": "web-library",
     "links": {
@@ -1086,10 +1086,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "d566d68",
-      "lastCommitDate": "2026-09-27T17:32:20+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 40
+      "head": "06a0f20",
+      "lastCommitDate": "2026-10-13T01:43:30+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 42
     },
     "scores": {
       "priorityScore": 89,
@@ -1106,35 +1106,35 @@
         "path": "/project-shots/cross-repo-libs/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 121945
+        "bytes": 110038
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cross-repo-libs/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 119109
+        "bytes": 111426
       },
       {
         "profile": "full",
         "path": "/project-shots/cross-repo-libs/latest/full.jpg",
         "width": 1440,
         "height": 2502,
-        "bytes": 163348
+        "bytes": 156685
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cross-repo-libs/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 41638
+        "bytes": 40585
       },
       {
         "profile": "og",
         "path": "/project-shots/cross-repo-libs/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 95145
+        "bytes": 88699
       }
     ],
     "trailers": [
@@ -1428,7 +1428,7 @@
   },
   "cat-world": {
     "slug": "cat-world",
-    "generatedAt": "2026-09-27T14:00:39.653Z",
+    "generatedAt": "2026-10-13T01:05:07.449Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1491,10 +1491,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "528af54",
-      "lastCommitDate": "2026-09-27T16:57:03+03:00",
-      "lastCommitSubject": "A media strategy with tests: screenshots that show the app, a recorded trailer, a gated refresh",
-      "commitCount": 53
+      "head": "ec5b4e0",
+      "lastCommitDate": "2026-10-13T01:43:25+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 55
     },
     "scores": {
       "priorityScore": 84,
@@ -1511,35 +1511,35 @@
         "path": "/project-shots/cat-world/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 128525
+        "bytes": 122112
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cat-world/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123441
+        "bytes": 117037
       },
       {
         "profile": "full",
         "path": "/project-shots/cat-world/latest/full.jpg",
         "width": 1440,
         "height": 910,
-        "bytes": 107321
+        "bytes": 102833
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cat-world/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 66090
+        "bytes": 64528
       },
       {
         "profile": "og",
         "path": "/project-shots/cat-world/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 101829
+        "bytes": 94626
       }
     ],
     "trailers": [
