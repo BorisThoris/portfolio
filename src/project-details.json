@@ -1559,7 +1559,7 @@
   },
   "user-hub-admin": {
     "slug": "user-hub-admin",
-    "generatedAt": "2026-09-27T14:45:35.771Z",
+    "generatedAt": "2026-10-13T19:50:41.628Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1626,10 +1626,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "3c451b6",
-      "lastCommitDate": "2026-09-27T17:33:33+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 37
+      "head": "f49de1d",
+      "lastCommitDate": "2026-10-13T01:44:48+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 39
     },
     "scores": {
       "priorityScore": 66,
@@ -1646,35 +1646,35 @@
         "path": "/project-shots/user-hub-admin/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 73914
+        "bytes": 71826
       },
       {
         "profile": "desktop",
         "path": "/project-shots/user-hub-admin/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 68265
+        "bytes": 65735
       },
       {
         "profile": "full",
         "path": "/project-shots/user-hub-admin/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 58110
+        "bytes": 56889
       },
       {
         "profile": "mobile",
         "path": "/project-shots/user-hub-admin/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 25828
+        "bytes": 25917
       },
       {
         "profile": "og",
         "path": "/project-shots/user-hub-admin/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 49418
+        "bytes": 48886
       }
     ],
     "trailers": [
@@ -1831,7 +1831,7 @@
   },
   "flowforge-configurator": {
     "slug": "flowforge-configurator",
-    "generatedAt": "2026-09-27T14:46:45.022Z",
+    "generatedAt": "2026-10-13T01:08:34.525Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1894,10 +1894,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "207d135",
-      "lastCommitDate": "2026-09-27T17:33:48+03:00",
-      "lastCommitSubject": "Update the metadata toolkit scripts: trailers step, refresh --commit, capture.skip",
-      "commitCount": 31
+      "head": "6088b64",
+      "lastCommitDate": "2026-10-13T01:43:35+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 33
     },
     "scores": {
       "priorityScore": 61,
@@ -1914,35 +1914,35 @@
         "path": "/project-shots/flowforge-configurator/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 60505
+        "bytes": 59941
       },
       {
         "profile": "desktop",
         "path": "/project-shots/flowforge-configurator/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 60274
+        "bytes": 59712
       },
       {
         "profile": "full",
         "path": "/project-shots/flowforge-configurator/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 53296
+        "bytes": 53157
       },
       {
         "profile": "mobile",
         "path": "/project-shots/flowforge-configurator/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 45345
+        "bytes": 44669
       },
       {
         "profile": "og",
         "path": "/project-shots/flowforge-configurator/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 58856
+        "bytes": 56997
       }
     ],
     "trailers": [
@@ -1962,7 +1962,7 @@
   },
   "gorilla-gainz": {
     "slug": "gorilla-gainz",
-    "generatedAt": "2026-09-27T20:36:30.985Z",
+    "generatedAt": "2026-10-13T01:07:36.879Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2027,10 +2027,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "28594f7",
-      "lastCommitDate": "2026-09-27T23:29:44+03:00",
-      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
-      "commitCount": 45
+      "head": "96e6b25",
+      "lastCommitDate": "2026-10-13T01:43:45+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 47
     },
     "scores": {
       "priorityScore": 82,
@@ -2047,35 +2047,35 @@
         "path": "/project-shots/gorilla-gainz/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 176530
+        "bytes": 170181
       },
       {
         "profile": "desktop",
         "path": "/project-shots/gorilla-gainz/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 170311
+        "bytes": 164122
       },
       {
         "profile": "full",
         "path": "/project-shots/gorilla-gainz/latest/full.jpg",
         "width": 1440,
         "height": 1693,
-        "bytes": 247928
+        "bytes": 241100
       },
       {
         "profile": "mobile",
         "path": "/project-shots/gorilla-gainz/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 54790
+        "bytes": 52750
       },
       {
         "profile": "og",
         "path": "/project-shots/gorilla-gainz/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 105465
+        "bytes": 100699
       }
     ],
     "trailers": [
@@ -2095,7 +2095,7 @@
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-09-27T20:39:20.324Z",
+    "generatedAt": "2026-10-13T01:11:25.006Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2156,10 +2156,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "2be4665",
-      "lastCommitDate": "2026-09-27T23:29:47+03:00",
-      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
-      "commitCount": 46
+      "head": "f5a2750",
+      "lastCommitDate": "2026-10-13T01:43:56+03:00",
+      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
+      "commitCount": 48
     },
     "scores": {
       "priorityScore": 55,
@@ -2176,35 +2176,35 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 97918
+        "bytes": 96899
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 96571
+        "bytes": 95508
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-card-quest/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 80723
+        "bytes": 80232
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 52101
+        "bytes": 51409
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 81715
+        "bytes": 79769
       }
     ],
     "trailers": [
