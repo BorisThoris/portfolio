@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-14T16:50:56.932Z",
+    "generatedAt": "2026-10-14T20:06:52.586Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7232,
       "testFiles": 3129,
-      "sourceLines": 1266990,
+      "sourceLines": 1267267,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "db4b5e01a35",
-      "lastCommitDate": "2026-10-14T15:05:40+03:00",
-      "lastCommitSubject": "Handover addendum: TASK-1294 and TASK-1295 landed, the 09:22Z reds were a cancellation",
-      "commitCount": 5058
+      "head": "2159a20d53a",
+      "lastCommitDate": "2026-10-14T22:47:48+03:00",
+      "lastCommitSubject": "Claim TASK-1298 (Float All keeps remembered positions)",
+      "commitCount": 5066
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-14T16:48:15.745Z"
+        "builtAt": "2026-10-14T20:04:08.009Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-14T13:30:39.935Z",
+    "generatedAt": "2026-10-14T20:34:18.991Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1431,
       "testFiles": 617,
-      "sourceLines": 219619,
+      "sourceLines": 219623,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7e53833c",
-      "lastCommitDate": "2026-10-14T16:19:39+03:00",
-      "lastCommitSubject": "Fix rematch pace comparison for incomplete floors",
-      "commitCount": 2087
+      "head": "3d5c1561",
+      "lastCommitDate": "2026-10-14T23:00:02+03:00",
+      "lastCommitSubject": "Refresh the repo model",
+      "commitCount": 2092
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 140004
+        "bytes": 139626
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83635
+        "bytes": 89815
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72339
+        "bytes": 72311
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43335
+        "bytes": 43357
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72343
+        "bytes": 72474
       }
     ],
     "trailers": [
