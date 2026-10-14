@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-14T04:05:52.398Z",
+    "generatedAt": "2026-10-14T10:20:42.966Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,9 +224,9 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7231,
-      "testFiles": 3128,
-      "sourceLines": 1266446,
+      "sourceFiles": 7232,
+      "testFiles": 3129,
+      "sourceLines": 1266840,
       "largestDirectories": [
         {
           "directory": "src",
@@ -234,7 +234,7 @@
         },
         {
           "directory": "e2e",
-          "files": 230
+          "files": 231
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "9fc9478338c",
-      "lastCommitDate": "2026-10-14T03:54:41Z",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into integ5",
-      "commitCount": 5047
+      "head": "11c6a01d7ab",
+      "lastCommitDate": "2026-10-14T09:48:08Z",
+      "lastCommitSubject": "Handover note for 2026-10-14, and TASK-1240's CI progress",
+      "commitCount": 5053
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-14T04:03:12.450Z"
+        "builtAt": "2026-10-14T10:17:59.512Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
