@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-14T21:14:39.503Z",
+    "generatedAt": "2026-10-15T04:09:54.143Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7232,
       "testFiles": 3129,
-      "sourceLines": 1267315,
+      "sourceLines": 1267439,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "03024a53e9c",
-      "lastCommitDate": "2026-10-14T23:38:07+03:00",
-      "lastCommitSubject": "Point the round-six and round-seven checklists at TASK-1296, TASK-1297 and TASK-1298",
-      "commitCount": 5069
+      "head": "44601965647",
+      "lastCommitDate": "2026-10-15T03:04:49+03:00",
+      "lastCommitSubject": "Claim TASK-1301 (piano roll autoscroll zone is the visible grid)",
+      "commitCount": 5076
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-14T21:11:56.119Z"
+        "builtAt": "2026-10-15T04:07:08.599Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-14T21:28:58.275Z",
+    "generatedAt": "2026-10-15T00:13:35.570Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1431,
       "testFiles": 617,
-      "sourceLines": 219625,
+      "sourceLines": 219740,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5ef82f28",
-      "lastCommitDate": "2026-10-15T00:04:22+03:00",
+      "head": "c8a742b6",
+      "lastCommitDate": "2026-10-15T02:39:49+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2096
+      "commitCount": 2105
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 161404
+        "bytes": 93069
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83598
+        "bytes": 83650
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72382
+        "bytes": 72384
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43364
+        "bytes": 43354
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72445
+        "bytes": 72334
       }
     ],
     "trailers": [
