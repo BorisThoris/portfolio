@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-15T04:09:54.143Z",
+    "generatedAt": "2026-10-15T14:40:06.981Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7232,
       "testFiles": 3129,
-      "sourceLines": 1267439,
+      "sourceLines": 1267881,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "44601965647",
-      "lastCommitDate": "2026-10-15T03:04:49+03:00",
-      "lastCommitSubject": "Claim TASK-1301 (piano roll autoscroll zone is the visible grid)",
-      "commitCount": 5076
+      "head": "3f7c6c8bf60",
+      "lastCommitDate": "2026-10-15T15:13:44+03:00",
+      "lastCommitSubject": "Handover 2026-10-15: TASK-1304 and TASK-1305",
+      "commitCount": 5092
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-15T04:07:08.599Z"
+        "builtAt": "2026-10-15T14:37:19.760Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-15T09:51:52.440Z",
+    "generatedAt": "2026-10-15T14:51:00.663Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1431,
-      "testFiles": 617,
-      "sourceLines": 219793,
+      "sourceFiles": 1433,
+      "testFiles": 619,
+      "sourceLines": 220076,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1233
+          "files": 1235
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e2257326",
-      "lastCommitDate": "2026-10-15T11:50:04+03:00",
+      "head": "bc70d1fe",
+      "lastCommitDate": "2026-10-15T17:24:39+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2109
+      "commitCount": 2160
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92911
+        "bytes": 92888
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83654
+        "bytes": 83582
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72303
+        "bytes": 72260
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43549
+        "bytes": 43336
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72461
+        "bytes": 72383
       }
     ],
     "trailers": [
