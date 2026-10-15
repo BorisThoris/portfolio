@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-15T14:51:00.663Z",
+    "generatedAt": "2026-10-15T16:03:16.592Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1433,
       "testFiles": 619,
-      "sourceLines": 220076,
+      "sourceLines": 220103,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "bc70d1fe",
-      "lastCommitDate": "2026-10-15T17:24:39+03:00",
+      "head": "ee3637e4",
+      "lastCommitDate": "2026-10-15T18:41:50+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2160
+      "commitCount": 2172
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92888
+        "bytes": 92621
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83582
+        "bytes": 83550
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72260
+        "bytes": 72360
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43336
+        "bytes": 43365
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72383
+        "bytes": 72400
       }
     ],
     "trailers": [
