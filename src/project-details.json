@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "900bced69d6",
-      "lastCommitDate": "2026-10-16T00:45:05+03:00",
-      "lastCommitSubject": "Round-six and round-seven checklists: tick what is fixed, point at TASK-1307..1310, step doubling to the owner",
-      "commitCount": 5101
+      "head": "0db2b2482fe",
+      "lastCommitDate": "2026-10-16T05:15:36Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 5102
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-16T11:36:15.236Z",
+    "generatedAt": "2026-10-16T16:07:51.085Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1433,
       "testFiles": 619,
-      "sourceLines": 220149,
+      "sourceLines": 220718,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "708cef8c",
-      "lastCommitDate": "2026-10-16T14:20:03+03:00",
+      "head": "bacb6184",
+      "lastCommitDate": "2026-10-16T18:54:57+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2176
+      "commitCount": 2197
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88803
+        "bytes": 93164
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83628
+        "bytes": 83521
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72293
+        "bytes": 72204
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43346
+        "bytes": 43348
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72426
+        "bytes": 72462
       }
     ],
     "trailers": [
