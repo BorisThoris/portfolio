@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-15T14:40:06.981Z",
+    "generatedAt": "2026-10-16T05:15:23.769Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7232,
       "testFiles": 3129,
-      "sourceLines": 1267881,
+      "sourceLines": 1268057,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "3f7c6c8bf60",
-      "lastCommitDate": "2026-10-15T15:13:44+03:00",
-      "lastCommitSubject": "Handover 2026-10-15: TASK-1304 and TASK-1305",
-      "commitCount": 5092
+      "head": "900bced69d6",
+      "lastCommitDate": "2026-10-16T00:45:05+03:00",
+      "lastCommitSubject": "Round-six and round-seven checklists: tick what is fixed, point at TASK-1307..1310, step doubling to the owner",
+      "commitCount": 5101
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-15T14:37:19.760Z"
+        "builtAt": "2026-10-16T05:12:39.740Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
