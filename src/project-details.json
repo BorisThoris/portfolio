@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-16T05:15:23.769Z",
+    "generatedAt": "2026-10-16T21:58:10.206Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,9 +224,9 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7232,
+      "sourceFiles": 7234,
       "testFiles": 3129,
-      "sourceLines": 1268057,
+      "sourceLines": 1268315,
       "largestDirectories": [
         {
           "directory": "src",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 154
+          "files": 156
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "0db2b2482fe",
-      "lastCommitDate": "2026-10-16T05:15:36Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5102
+      "head": "b1299ad2e80",
+      "lastCommitDate": "2026-10-17T00:08:19+03:00",
+      "lastCommitSubject": "Triple-A report: the clipped controls are scrolled content, not bugs (re-measured)",
+      "commitCount": 5115
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 147764
+        "bytes": 147760
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137636
+        "bytes": 137618
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122915
+        "bytes": 122926
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102455
+        "bytes": 102521
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-16T05:12:39.740Z"
+        "builtAt": "2026-10-16T21:55:09.614Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-16T20:49:44.425Z",
+    "generatedAt": "2026-10-16T23:18:01.629Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1436,
-      "testFiles": 620,
-      "sourceLines": 221265,
+      "sourceFiles": 1438,
+      "testFiles": 621,
+      "sourceLines": 221536,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1238
+          "files": 1240
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "afc4c1d8",
-      "lastCommitDate": "2026-10-16T23:32:03+03:00",
+      "head": "459623ac",
+      "lastCommitDate": "2026-10-17T01:54:02+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2221
+      "commitCount": 2237
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92581
+        "bytes": 93289
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 89711
+        "bytes": 83616
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72146
+        "bytes": 76197
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43369
+        "bytes": 43380
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72395
+        "bytes": 72416
       }
     ],
     "trailers": [
