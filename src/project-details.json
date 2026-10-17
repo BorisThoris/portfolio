@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-16T21:58:10.206Z",
+    "generatedAt": "2026-10-17T02:03:09.194Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7234,
-      "testFiles": 3129,
-      "sourceLines": 1268315,
+      "sourceFiles": 7243,
+      "testFiles": 3135,
+      "sourceLines": 1270840,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6594
+          "files": 6603
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b1299ad2e80",
-      "lastCommitDate": "2026-10-17T00:08:19+03:00",
-      "lastCommitSubject": "Triple-A report: the clipped controls are scrolled content, not bugs (re-measured)",
-      "commitCount": 5115
+      "head": "405c1f56d7b",
+      "lastCommitDate": "2026-10-17T03:11:52+03:00",
+      "lastCommitSubject": "A finger tap right after carrying a palette is no longer dropped (TASK-1318)",
+      "commitCount": 5134
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-16T21:55:09.614Z"
+        "builtAt": "2026-10-17T02:00:24.186Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-16T23:18:01.629Z",
+    "generatedAt": "2026-10-16T23:49:46.847Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1438,
       "testFiles": 621,
-      "sourceLines": 221536,
+      "sourceLines": 221580,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "459623ac",
-      "lastCommitDate": "2026-10-17T01:54:02+03:00",
+      "head": "3d7c97a7",
+      "lastCommitDate": "2026-10-17T02:42:45+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2237
+      "commitCount": 2241
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 93289
+        "bytes": 92699
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83616
+        "bytes": 83625
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 76197
+        "bytes": 72318
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43380
+        "bytes": 43573
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72416
+        "bytes": 72337
       }
     ],
     "trailers": [
