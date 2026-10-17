@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-17T07:40:44.557Z",
+    "generatedAt": "2026-10-17T19:23:08.892Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7243,
-      "testFiles": 3135,
-      "sourceLines": 1270903,
+      "sourceFiles": 7248,
+      "testFiles": 3138,
+      "sourceLines": 1271639,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6603
+          "files": 6608
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a72282aab08",
-      "lastCommitDate": "2026-10-17T07:40:59Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5142
+      "head": "58f52bcdb61",
+      "lastCommitDate": "2026-10-17T22:06:05+03:00",
+      "lastCommitSubject": "A window dragged out of a dock lands exactly where its preview was (TASK-1333)",
+      "commitCount": 5166
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-17T07:37:53.569Z"
+        "builtAt": "2026-10-17T19:20:21.134Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-17T17:13:13.797Z",
+    "generatedAt": "2026-10-17T19:05:42.686Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1440,
-      "testFiles": 622,
-      "sourceLines": 221873,
+      "sourceFiles": 1441,
+      "testFiles": 623,
+      "sourceLines": 221965,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1242
+          "files": 1243
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "36b0138d",
-      "lastCommitDate": "2026-10-17T20:06:16+03:00",
+      "head": "4f6d0e30",
+      "lastCommitDate": "2026-10-17T21:56:23+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2283
+      "commitCount": 2297
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92338
+        "bytes": 88379
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 89403
+        "bytes": 83167
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71925
+        "bytes": 71733
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43150
+        "bytes": 43132
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72054
+        "bytes": 72119
       }
     ],
     "trailers": [
