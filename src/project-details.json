@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "ee478f31133",
-      "lastCommitDate": "2026-10-18T02:45:36+03:00",
-      "lastCommitSubject": "Audio-integrity reads one hat as one onset, so the re-roll and off-grid tests hold (TASK-1337)",
-      "commitCount": 5172
+      "head": "20f26cba957",
+      "lastCommitDate": "2026-10-18T02:31:17Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 5173
     },
     "scores": {
       "priorityScore": 96,
