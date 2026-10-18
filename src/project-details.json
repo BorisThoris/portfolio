@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-18T02:31:03.146Z",
+    "generatedAt": "2026-10-18T16:13:36.891Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7251,
-      "testFiles": 3140,
-      "sourceLines": 1271831,
+      "sourceFiles": 7264,
+      "testFiles": 3147,
+      "sourceLines": 1273525,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6611
+          "files": 6623
         },
         {
           "directory": "e2e",
-          "files": 231
+          "files": 232
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "20f26cba957",
-      "lastCommitDate": "2026-10-18T02:31:17Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5173
+      "head": "b2e748c3d7c",
+      "lastCommitDate": "2026-10-18T19:02:35+03:00",
+      "lastCommitSubject": "A track's own height is saved with the project (TASK-1340)",
+      "commitCount": 5185
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-18T02:28:17.993Z"
+        "builtAt": "2026-10-18T16:10:45.785Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-18T14:14:06.811Z",
+    "generatedAt": "2026-10-18T17:25:19.824Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1445,
-      "testFiles": 625,
-      "sourceLines": 222499,
+      "sourceFiles": 1450,
+      "testFiles": 627,
+      "sourceLines": 223508,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1247
+          "files": 1252
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a52d548b",
-      "lastCommitDate": "2026-10-18T17:04:51+03:00",
+      "head": "47b419b4",
+      "lastCommitDate": "2026-10-18T19:52:43+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2331
+      "commitCount": 2354
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92491
+        "bytes": 88454
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83241
+        "bytes": 83239
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71896
+        "bytes": 71809
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43154
+        "bytes": 43107
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72087
+        "bytes": 72058
       }
     ],
     "trailers": [
