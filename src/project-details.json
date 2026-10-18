@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-17T19:23:08.892Z",
+    "generatedAt": "2026-10-18T02:31:03.146Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7248,
-      "testFiles": 3138,
-      "sourceLines": 1271639,
+      "sourceFiles": 7251,
+      "testFiles": 3140,
+      "sourceLines": 1271831,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6608
+          "files": 6611
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "58f52bcdb61",
-      "lastCommitDate": "2026-10-17T22:06:05+03:00",
-      "lastCommitSubject": "A window dragged out of a dock lands exactly where its preview was (TASK-1333)",
-      "commitCount": 5166
+      "head": "ee478f31133",
+      "lastCommitDate": "2026-10-18T02:45:36+03:00",
+      "lastCommitSubject": "Audio-integrity reads one hat as one onset, so the re-roll and off-grid tests hold (TASK-1337)",
+      "commitCount": 5172
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 147760
+        "bytes": 147838
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137618
+        "bytes": 137620
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122926
+        "bytes": 122893
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102521
+        "bytes": 102410
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-17T19:20:21.134Z"
+        "builtAt": "2026-10-18T02:28:17.993Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
