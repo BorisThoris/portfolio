@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-18T18:36:36.012Z",
+    "generatedAt": "2026-10-19T09:04:20.370Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7275,
-      "testFiles": 3151,
-      "sourceLines": 1274752,
+      "sourceFiles": 7282,
+      "testFiles": 3155,
+      "sourceLines": 1275748,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6634
+          "files": 6641
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "070137c6496",
-      "lastCommitDate": "2026-10-18T21:23:38+03:00",
-      "lastCommitSubject": "Ctrl+Shift+Space moves the edit cursor to the playhead; Paste Time reads the playhead (TASK-1347)",
-      "commitCount": 5194
+      "head": "f64fd87b4ca",
+      "lastCommitDate": "2026-10-18T23:38:50+03:00",
+      "lastCommitSubject": "Alt+Shift+M brings the Mixer up and keeps it up, as Live's Move Focus to Mixer (TASK-1355)",
+      "commitCount": 5204
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-18T18:33:48.879Z"
+        "builtAt": "2026-10-19T09:00:53.500Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-18T19:01:18.976Z",
+    "generatedAt": "2026-10-19T14:30:37.182Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1455,
-      "testFiles": 629,
-      "sourceLines": 224377,
+      "sourceFiles": 1462,
+      "testFiles": 632,
+      "sourceLines": 226011,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1257
+          "files": 1264
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "62e05938",
-      "lastCommitDate": "2026-10-18T21:35:49+03:00",
+      "head": "c447f6ba",
+      "lastCommitDate": "2026-10-19T17:21:10+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2362
+      "commitCount": 2420
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88449
+        "bytes": 92391
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83189
+        "bytes": 83047
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71940
+        "bytes": 71691
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43205
+        "bytes": 42741
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72185
+        "bytes": 71891
       }
     ],
     "trailers": [
