@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-19T09:04:20.370Z",
+    "generatedAt": "2026-10-19T18:42:44.549Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7282,
-      "testFiles": 3155,
-      "sourceLines": 1275748,
+      "sourceFiles": 7342,
+      "testFiles": 3181,
+      "sourceLines": 1285914,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6641
+          "files": 6697
         },
         {
           "directory": "e2e",
-          "files": 232
+          "files": 235
         },
         {
           "directory": "public",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 156
+          "files": 157
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "f64fd87b4ca",
-      "lastCommitDate": "2026-10-18T23:38:50+03:00",
-      "lastCommitSubject": "Alt+Shift+M brings the Mixer up and keeps it up, as Live's Move Focus to Mixer (TASK-1355)",
-      "commitCount": 5204
+      "head": "7b793732a15",
+      "lastCommitDate": "2026-10-19T20:43:53+03:00",
+      "lastCommitSubject": "Right reaches a held clip edge and a selected clip, not the stage's scroll (EPIC-050)",
+      "commitCount": 5225
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 147838
+        "bytes": 148049
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137620
+        "bytes": 137847
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 122893
+        "bytes": 123136
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102410
+        "bytes": 102683
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-19T09:00:53.500Z"
+        "builtAt": "2026-10-19T18:39:54.812Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-19T14:30:37.182Z",
+    "generatedAt": "2026-10-19T18:10:54.720Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1462,
-      "testFiles": 632,
-      "sourceLines": 226011,
+      "sourceFiles": 1463,
+      "testFiles": 633,
+      "sourceLines": 226179,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1264
+          "files": 1265
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c447f6ba",
-      "lastCommitDate": "2026-10-19T17:21:10+03:00",
+      "head": "48826fbb",
+      "lastCommitDate": "2026-10-19T20:34:57+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2420
+      "commitCount": 2442
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 92391
+        "bytes": 85311
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83047
+        "bytes": 82857
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71691
+        "bytes": 71750
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42741
+        "bytes": 42784
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71891
+        "bytes": 72012
       }
     ],
     "trailers": [
