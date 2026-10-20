@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-19T18:42:44.549Z",
+    "generatedAt": "2026-10-20T04:20:19.728Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7342,
-      "testFiles": 3181,
-      "sourceLines": 1285914,
+      "sourceFiles": 7381,
+      "testFiles": 3197,
+      "sourceLines": 1293557,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6697
+          "files": 6735
         },
         {
           "directory": "e2e",
-          "files": 235
+          "files": 236
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7b793732a15",
-      "lastCommitDate": "2026-10-19T20:43:53+03:00",
-      "lastCommitSubject": "Right reaches a held clip edge and a selected clip, not the stage's scroll (EPIC-050)",
-      "commitCount": 5225
+      "head": "71b64fd6c04",
+      "lastCommitDate": "2026-10-20T04:20:36Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 5247
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-19T18:39:54.812Z"
+        "builtAt": "2026-10-20T04:17:31.886Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
