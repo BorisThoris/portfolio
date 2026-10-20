@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-19T23:33:12.677Z",
+    "generatedAt": "2026-10-20T11:25:22.704Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1469,
-      "testFiles": 636,
-      "sourceLines": 227058,
+      "sourceFiles": 1475,
+      "testFiles": 639,
+      "sourceLines": 227567,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1271
+          "files": 1277
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "ff41ce32",
-      "lastCommitDate": "2026-10-20T01:50:18+03:00",
+      "head": "cc9b7084",
+      "lastCommitDate": "2026-10-20T13:57:19+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2461
+      "commitCount": 2469
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88245
+        "bytes": 92260
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82821
+        "bytes": 83049
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71681
+        "bytes": 71604
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42868
+        "bytes": 42872
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71934
+        "bytes": 71883
       }
     ],
     "trailers": [
