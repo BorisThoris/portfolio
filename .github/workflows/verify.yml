@@ -3,6 +3,11 @@ on:
   push:
     branches: [master, main]
   pull_request:
+  # The hourly metadata sync commits with GITHUB_TOKEN, and GitHub does not
+  # start workflows for those pushes, so the tip of master is often a bot
+  # commit with no verification of its own. This makes any commit checkable
+  # on demand: Actions -> Verify portfolio -> Run workflow.
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
