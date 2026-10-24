@@ -75,6 +75,21 @@ export const caseStudies: CaseStudy[] = [
     // No projectSlug: this site is not one of its own cards.
   },
   {
+    slug: 'first-person-core',
+    title: 'Putting a first-person camera into games that never had one',
+    kicker: 'A game-agnostic rig, plus thin per-game adapters',
+    problem:
+      'Plenty of third-person games would be better from inside the character’s head, and modders rebuild that from scratch for every title. The naive version is unplayable: copy the animated head rotation into the view and, in the design notes’ own word, it is nauseating.',
+    approach:
+      'A dependency-free C++17 rig that knows nothing about any particular game, and a thin adapter per game. The adapter reads memory and fills a snapshot each frame; the rig decides the state, the blend weight, where the eye belongs and what the field of view should be; the adapter writes the result back. The core never touches game memory itself, which is what makes the next game an adapter rather than a rewrite.',
+    hardPart:
+      'Everything is a timing or frame-of-reference problem. The hook has to overwrite the camera after the game has updated it but before the view matrix is used — wrong order is one frame of lag and jitter. Vehicle seats are built from basis vectors rather than Euler angles, which flip past 90 degrees of roll. Aim stays slightly off because of parallax between the game’s aim origin, behind the player, and the eye. And the current adapter can only reach per-clip joint matrices rather than the blended pose, so it places the eye at a fixed height instead of on the real head bone — which is written down as a known limitation, not hidden.',
+    outcome:
+      'The rig is tested on its own with no game attached, which is the only way to test this kind of code honestly: the suite bounds how much error the camera may introduce, and reports a worst pose-interpolation error of 0.027 m and 0.0004 rad. Adapters check code bytes before hooking and refuse builds they do not recognise, so a game update cannot silently turn the mod into a crash.',
+    tags: ['C++17', 'Game modding', '3D maths', 'Reverse engineering'],
+    projectSlug: 'first-person-core',
+  },
+  {
     slug: 'local-model-toolkit',
     title: 'Running the generative work locally instead of paying for it',
     kicker: 'Shared tooling for a dozen side projects',

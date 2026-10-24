@@ -4,7 +4,7 @@ export const home = {
   introduction:
     "I’m Boris. At work I build financial and product software — risk tools, the dashboards on top of them, and the data underneath. After hours I make browser music tools, games and 3D experiments, then build the infrastructure that keeps them online: failover hosting, continuous integration on spare Android hardware, and local AI models instead of API bills.",
   problemsIntro:
-    "Five problems worth writing down: what was wrong, what I built, and how I know it works.",
+    "Six problems worth writing down: what was wrong, what I built, and how I know it works.",
   workIntro:
     "These are the projects I keep coming back to. Most are live, so you can try them.",
   experienceIntro:

@@ -1,0 +1,7 @@
+$ cl /nologo /EHsc /W4 /std:c++17 /Iinclude src\rig.cpp tests\rig_tests.cpp /Fe:rig_tests.exe && rig_tests.exe
+
+rig.cpp
+rig_tests.cpp
+Generating Code...
+pose interp worst move error 0.027 m, worst turn error 0.0004 rad
+all tests passed

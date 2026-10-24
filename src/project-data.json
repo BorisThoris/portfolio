@@ -872,5 +872,23 @@
       "Windows audio"
     ],
     "accent": "#c9a7ff"
+  },
+  {
+    "slug": "first-person-core",
+    "title": "First-Person Core",
+    "subtitle": "A reusable first-person camera for games that only ship a third-person one.",
+    "description": "A game-agnostic C++17 camera rig with no dependencies, plus thin per-game adapters. The core never touches game memory: an adapter fills a snapshot each frame, the rig decides where the eye belongs, and the adapter writes the result back. Built for Driver: Parallel Lines, with cockpit calibration for 82 vehicles.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/first-person-core",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "cl /nologo /EHsc /W4 /std:c++17 /Iinclude src\rig.cpp tests\rig_tests.cpp /Fe:rig_tests.exe\nrig_tests.exe",
+    "tags": [
+      "C++17",
+      "Game modding",
+      "3D maths",
+      "Reverse engineering"
+    ],
+    "accent": "#ffb470"
   }
 ]

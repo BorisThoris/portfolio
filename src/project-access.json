@@ -908,5 +908,18 @@
     "videos": [],
     "captureNote": "No desktop window screenshot: this project is audio, and its behaviour is only meaningful as measurements. The transcript is verbatim output from the real signal-processing suite, which asserts that pitch shifting leaves the formants in place and that a whisper keeps the vowel.",
     "transcriptUrl": "/native/voxshift/transcript.txt"
+  },
+  "first-person-core": {
+    "kind": "native",
+    "label": "C++ library and game plug-in",
+    "status": "Verified by building the rig at /W4 and running its test suite: all tests pass, worst pose-interpolation error 0.027 m and 0.0004 rad.",
+    "environment": "Windows with the MSVC v143 toolset (Visual Studio 2022, x86 developer prompt)",
+    "instructions": "cl /nologo /EHsc /W4 /std:c++17 /Iinclude src\rig.cpp tests\rig_tests.cpp /Fe:rig_tests.exe\nrig_tests.exe",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": [],
+    "captureNote": "No screenshot: showing the view from inside a game would be a picture of that game, not of this work. The transcript is verbatim output from building the game-agnostic rig and running its tests, which bound the interpolation error the camera is allowed to introduce. The rig is tested on its own, with no game attached.",
+    "transcriptUrl": "/native/first-person-core/transcript.txt"
   }
 }
