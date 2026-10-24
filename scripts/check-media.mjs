@@ -55,13 +55,21 @@ async function playing(locator) {
     let advanced = 0;
     const timeout = setTimeout(() => { clearInterval(timer); reject(new Error(`Video did not advance: ${video.currentSrc}; paused=${video.paused}; ready=${video.readyState}; network=${video.networkState}; time=${video.currentTime}; media error ${video.error?.code}; hidden=${document.hidden}; hovered=${video.closest('.project-tile')?.matches(':hover')}; rect=${JSON.stringify(video.getBoundingClientRect().toJSON())}`)); }, 30000);
     const timer = setInterval(() => {
+      // A seek can leave the element paused, and the caller seeks before
+      // asserting playback. Ask it to resume rather than waiting out the
+      // timeout on a video that is merely stopped: a clip that cannot decode
+      // still fails, because it will not accumulate any playback time.
+      if (video.paused && !video.ended) video.play().catch(() => {});
       if (!video.paused && video.readyState >= 2) {
         // Looped clips can wrap while an assertion starts near their end.
         const delta = video.currentTime - previous;
         if (delta > 0 && delta < 1) advanced += delta;
         previous = video.currentTime;
       }
-      if (advanced > 0.15) {
+      // Reaching the end is proof the clip played, and an ended video reports
+      // paused=true and can never advance again. Short clips on slow hardware
+      // get there before this interval's first tick.
+      if (advanced > 0.15 || (video.ended && video.currentTime > 0)) {
         clearInterval(timer); clearTimeout(timeout); resolve();
       }
     }, 100);
