@@ -94,16 +94,12 @@ type ProjectRecord = {
   title: string;
   subtitle: string;
   description: string;
-  repoPath: string;
+  // Where the repo lives locally, and how it is built there, are stripped from the
+  // published bundle by the strip-local-paths-from-catalogue plugin in
+  // vite.config.ts; the UI only ever wanted the bare directory name.
+  repoName?: string;
   localUrl: string;
   deploymentUrl?: string;
-  buildCommand: string;
-  buildOutput: string;
-  serveBasePath?: string;
-  buildCwd?: string;
-  fallbackCommand?: string;
-  fallbackCwd?: string;
-  fallbackEnv?: Record<string, string>;
   runCommand: string;
   screenshot?: string;
   tags: string[];
@@ -142,12 +138,12 @@ const fallbackAnalysis = {
 } satisfies Omit<RepoAnalysis, 'slug' | 'repoName'>;
 
 export const repoAnalyses: RepoAnalysis[] = typedRepoAnalysis;
-export const projects: Project[] = (projectData as ProjectRecord[])
+export const projects: Project[] = (projectData as unknown as ProjectRecord[])
   .map((project) => ({
     ...project,
     ...(analysisBySlug.get(project.slug) ?? {
       slug: project.slug,
-      repoName: project.repoPath.split('\\').pop() || project.slug,
+      repoName: project.repoName || project.slug,
       ...fallbackAnalysis
     })
   }))
