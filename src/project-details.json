@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-24T12:27:21.677Z",
+    "generatedAt": "2026-10-24T16:00:59.277Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -196,7 +196,7 @@
         },
         {
           "name": "vite",
-          "version": "^6.4.3"
+          "version": "^6.4.4"
         },
         {
           "name": "electron",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d197763f323",
-      "lastCommitDate": "2026-10-24T13:59:31+03:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into HEAD",
-      "commitCount": 5414
+      "head": "869f1b0b9d2",
+      "lastCommitDate": "2026-10-24T16:29:46+03:00",
+      "lastCommitSubject": "TASK-1433: record the dependency audit; all 27 alerts cleared by patch upgrades",
+      "commitCount": 5422
     },
     "scores": {
       "priorityScore": 96,
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-20T19:35:42.169Z",
+    "generatedAt": "2026-10-24T14:29:42.663Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,21 +556,21 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1488,
-      "testFiles": 644,
-      "sourceLines": 229726,
+      "sourceFiles": 1547,
+      "testFiles": 670,
+      "sourceLines": 236647,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1290
+          "files": 1345
         },
         {
           "directory": "scripts",
-          "files": 99
+          "files": 102
         },
         {
           "directory": "e2e",
-          "files": 77
+          "files": 78
         },
         {
           "directory": "packages",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b593cd6e",
-      "lastCommitDate": "2026-10-20T22:07:49+03:00",
+      "head": "9ea075ee",
+      "lastCommitDate": "2026-10-24T16:54:21+03:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2500
+      "commitCount": 2598
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 89503
+        "bytes": 88426
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82862
+        "bytes": 82777
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71640
+        "bytes": 71629
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42875
+        "bytes": 42901
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71617
+        "bytes": 72009
       }
     ],
     "trailers": [
@@ -648,7 +648,7 @@
         "height": 1920,
         "duration": 10.01,
         "orientation": "portrait",
-        "builtAt": "2026-09-25T11:03:00.214Z"
+        "builtAt": "2026-10-24T13:53:13.329Z"
       }
     ],
     "artwork": [
