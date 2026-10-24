@@ -259,7 +259,7 @@
     "transcriptUrl": "/native/automation-assignment/transcript.txt",
     "downloadUrl": "/native/automation-assignment/fictional-members.json",
     "downloadLabel": "Download fictional export JSON",
-    "captureNote": "Verbatim output from the real Node.js / Playwright CLI against fictional local fixtures, formatted for readability. This is command output, not a desktop screenshot or live Notion result."
+    "captureNote": "Verbatim output from the real Node.js / Playwright CLI against fictional local fixtures, formatted for readability. This is command output, not a desktop screenshot or live Notion result. The output path has been shortened to drop the home directory the run wrote under; nothing else about the output is changed."
   },
   "weighted-draw-engine": {
     "kind": "native",
