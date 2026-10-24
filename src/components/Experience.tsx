@@ -13,7 +13,7 @@ export function ExperienceSection() {
     >
       <header className="section__head">
         <div>
-          <p className="eyebrow">02 / Work history</p>
+          <p className="eyebrow">03 / Work history</p>
           <h2 id="experience-title">Where I’ve worked.</h2>
         </div>
         <p className="section__lede">{home.experienceIntro}</p>

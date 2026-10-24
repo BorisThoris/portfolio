@@ -1,0 +1,164 @@
+/* The "Problems solved" section: long-form engineering write-ups. Two columns
+   of prose on wide screens, one on narrow, with the deeper detail behind a
+   native disclosure so the section stays skimmable. */
+
+.case-study-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.case-study {
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.case-study__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.case-study__head .eyebrow {
+  margin: 0;
+  padding-top: 2px;
+  color: var(--accent);
+}
+
+.case-study__head h3 {
+  margin: 0;
+  font-size: var(--text-xl);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.case-study__kicker {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-sm);
+}
+
+.case-study__body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.case-study__block h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.case-study__block p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.case-study__detail {
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+}
+
+.case-study__detail > summary {
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--text-1);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.case-study__detail > summary::-webkit-details-marker {
+  display: none;
+}
+
+.case-study__detail > summary::before {
+  content: "+";
+  display: grid;
+  place-items: center;
+  inline-size: 20px;
+  block-size: 20px;
+  flex: none;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+
+.case-study__detail[open] > summary::before {
+  content: "\2212";
+}
+
+.case-study__detail[open] > summary {
+  margin-bottom: var(--space-4);
+}
+
+.case-study__detail > div + div {
+  margin-top: var(--space-4);
+}
+
+.case-study__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+}
+
+.case-study__foot .chips {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.case-study__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: none;
+  font-size: var(--text-sm);
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.case-study__link:hover,
+.case-study__link:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .case-study__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 540px) {
+  .case-study {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+  .case-study__head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+  .case-study__head .eyebrow {
+    padding-top: 0;
+  }
+}

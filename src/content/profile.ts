@@ -479,15 +479,15 @@ export const capabilityGroups: CapabilityGroup[] = [
   },
   {
     title: 'Platform & Delivery',
-    purpose: 'Tests, builds, deployments, and production support.',
-    primary: ['Kubernetes', 'Cloudflare', 'Playwright', 'pytest'],
-    skills: ['Vitest', 'CI/build stability', 'Vite', 'Deployment workflows', 'Monitoring', 'Repo automation']
+    purpose: 'Tests, builds, deployments, and keeping things up when a machine is not.',
+    primary: ['Kubernetes', 'GitHub Actions', 'Cloudflare', 'Playwright'],
+    skills: ['Self-hosted runner fleets', 'Failover hosting', 'CI/build stability', 'Deployment workflows', 'Monitoring', 'Repo automation', 'pytest', 'Vitest']
   },
   {
     title: 'Creative / Demo Systems',
-    purpose: 'Games, editors, audio tools, and 3D work in the browser.',
-    primary: ['Electron', 'Three.js', 'Web Audio', 'Phaser'],
-    skills: ['PixiJS', 'Canvas', 'Local demo orchestration', 'Screenshot pipelines', 'Cloud demo routing']
+    purpose: 'Games, editors, audio tools, and 3D work — in the browser and natively.',
+    primary: ['Electron', 'Three.js', 'Web Audio', 'C++ DSP'],
+    skills: ['Phaser', 'PixiJS', 'Canvas', 'Local AI models', 'MCP tooling', 'Screenshot pipelines', 'Local demo orchestration']
   }
 ];
 

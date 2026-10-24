@@ -5,6 +5,7 @@ import { visibleProjects } from "../projects";
 import { home, featuredSlugs } from "../content/home";
 import { Showcase } from "../components/Showcase";
 import { SupportingProjects } from "../components/SupportingProjects";
+import { CaseStudies } from "../components/CaseStudies";
 import { ExperienceSection } from "../components/Experience";
 import { Capabilities } from "../components/Capabilities";
 import { ContactSection } from "../components/ContactSection";
@@ -51,6 +52,7 @@ export function HomePage() {
         </Link>
         <nav aria-label="Main navigation">
           <a href="#work">Work</a>
+          <a href="#problems">Problems</a>
           <a href="#experience">Experience</a>
           <Link to="/cv-print">
             Résumé <ArrowUpRight size={13} />
@@ -151,6 +153,7 @@ export function HomePage() {
           </header>
           <Showcase projects={featured} />
         </section>
+        <CaseStudies />
         <SupportingProjects />
         <ExperienceSection />
         <Capabilities />

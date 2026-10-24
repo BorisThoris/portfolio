@@ -24,7 +24,7 @@ export function ContactSection() {
       id="contact"
       aria-labelledby="contact-title"
     >
-      <p className="eyebrow">04 / Say hello</p>
+      <p className="eyebrow">05 / Say hello</p>
       <div className="contact-section__body">
         <div>
           <h2 id="contact-title">{home.contactTitle}</h2>
