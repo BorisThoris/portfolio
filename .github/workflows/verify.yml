@@ -11,7 +11,13 @@ jobs:
     # account's Actions billing is suspended, so Linux jobs run on the owner's own ARM64 boxes
     # (the Kinhank and the tablet, Debian in proot, one runner per repo on each).
     runs-on: [self-hosted, Linux]
-    timeout-minutes: 15
+    # 15 was too tight for this hardware and silently became the failure mode:
+    # GitHub reports a job it cancels for timeout as "cancelled", not "failed",
+    # so the runs just stopped going green with no error to read. Measured on
+    # the self-hosted nodes: 4, 5, 9 and 14 minutes when it passed, then 15, 17
+    # and 20 once two more projects joined the route sweep. 45 leaves real
+    # headroom while still catching a run that has genuinely hung.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
