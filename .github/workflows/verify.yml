@@ -28,6 +28,26 @@ jobs:
       - run: node node_modules/playwright/cli.js install --with-deps chromium
       - run: npm run build
       - run: npm run test:media
+      # TEMPORARY (2026-10-24): the Android runners fail to launch a browser with
+      # `env: .../chromium-browser: No such file or directory`, while the very same
+      # wrapper runs fine in a fresh container session with identical binds. This
+      # prints what the job itself can see. Remove once the cause is known.
+      - name: Diagnose the browser the job can actually reach
+        if: always()
+        continue-on-error: true
+        run: |
+          echo "runner=$RUNNER_NAME  PLAYWRIGHT_BROWSERS_PATH=${PLAYWRIGHT_BROWSERS_PATH:-unset}"
+          T=/data/data/com.termux/files
+          for f in "$T/usr/bin/chromium-browser" "$T/usr/bin/sh" "$T/usr/lib/chromium/chromium-launcher.sh" "$T/usr/lib/chromium/chrome" /opt/gha-fleet/termux-chrome; do
+            printf '%-62s exists=%s executable=%s
+' "$f" "$([ -e "$f" ] && echo y || echo N)" "$([ -x "$f" ] && echo y || echo N)"
+          done
+          echo "--- ls of the playwright shell ---"
+          ls -l "${PLAYWRIGHT_BROWSERS_PATH:-/root/gha/ms-playwright}"/chromium_headless_shell-*/chrome-headless-shell-linux-arm64/chrome-headless-shell || true
+          echo "--- invoke it directly ---"
+          "${PLAYWRIGHT_BROWSERS_PATH:-/root/gha/ms-playwright}"/chromium_headless_shell-*/chrome-headless-shell-linux-arm64/chrome-headless-shell --version 2>&1 | head -3 || echo "direct invocation failed rc=$?"
+          echo "--- id / namespace ---"
+          id; echo "mnt=$(readlink /proc/self/ns/mnt 2>/dev/null || echo n/a)"
       - run: npm run check:ui
       - run: npm run check:native
       - run: npm run check:media
