@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-23T23:54:04.520Z",
+    "generatedAt": "2026-10-24T12:27:21.677Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7495,
-      "testFiles": 3250,
-      "sourceLines": 1314507,
+      "sourceFiles": 7506,
+      "testFiles": 3253,
+      "sourceLines": 1317654,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6835
+          "files": 6846
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "54e9b875f74",
-      "lastCommitDate": "2026-10-24T02:38:00+03:00",
+      "head": "d197763f323",
+      "lastCommitDate": "2026-10-24T13:59:31+03:00",
       "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into HEAD",
-      "commitCount": 5401
+      "commitCount": 5414
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 148435
+        "bytes": 147437
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 138286
+        "bytes": 137801
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123512
+        "bytes": 123220
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 103126
+        "bytes": 102452
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-23T23:51:09.247Z"
+        "builtAt": "2026-10-24T12:24:34.993Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
