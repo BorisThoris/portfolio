@@ -53,4 +53,19 @@ jobs:
             exit 0
           fi
           git commit -m "Sync project screenshots and metadata from the repos [meta-bot]"
-          git push
+          # Something else may have pushed while this run was working: a hand
+          # edit to the site, or the previous hourly run finishing late. A bare
+          # push then fails with "fetch first" and the whole sync is lost until
+          # the next hour. Replay this commit on top of theirs instead. All four
+          # staged paths are generated from the mirror, so where the two sides
+          # disagree the freshly synced content is the correct one to keep.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected; replaying onto origin/master (attempt $attempt)"
+            git fetch origin master
+            git rebase -X theirs origin/master || { git rebase --abort; exit 1; }
+          done
+          echo "could not push after three attempts"
+          exit 1
