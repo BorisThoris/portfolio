@@ -895,5 +895,18 @@
     ],
     "videos": [],
     "captureNote": "Verified native scene screenshots captured on 2026-10-08."
+  },
+  "voxshift": {
+    "kind": "native",
+    "label": "Windows desktop app and audio plug-in",
+    "status": "Verified by running the signal-processing suite: 14 of 14 tests pass.",
+    "environment": "Windows 10 or 11, Node.js 22.12 or newer; the microphone plug-in additionally needs MSVC to build",
+    "instructions": "npm ci\nnode --test test/dsp.test.mjs",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; no public source download.",
+    "images": [],
+    "videos": [],
+    "captureNote": "No desktop window screenshot: this project is audio, and its behaviour is only meaningful as measurements. The transcript is verbatim output from the real signal-processing suite, which asserts that pitch shifting leaves the formants in place and that a whisper keeps the vowel.",
+    "transcriptUrl": "/native/voxshift/transcript.txt"
   }
 }

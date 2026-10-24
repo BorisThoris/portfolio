@@ -854,5 +854,23 @@
     ],
     "accent": "#60d88b",
     "screenshot": "/native/terraria-depth/travel.jpg"
+  },
+  {
+    "slug": "voxshift",
+    "title": "VoxShift",
+    "subtitle": "Real-time voice changer that runs inside the Windows audio engine.",
+    "description": "Pitch and formant move independently, so the voice shifts without turning into a chipmunk. Ships as an Electron app and as a Windows audio processing object, so apps hear the altered voice through the ordinary microphone with no virtual cable.",
+    "repoPath": "C:/Users/Gaming PC/Desktop/Repos/voxshift",
+    "localUrl": "",
+    "buildCommand": "",
+    "buildOutput": "",
+    "runCommand": "npm ci\nnpm test",
+    "tags": [
+      "C++",
+      "Electron",
+      "DSP",
+      "Windows audio"
+    ],
+    "accent": "#c9a7ff"
   }
 ]

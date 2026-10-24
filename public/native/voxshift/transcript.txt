@@ -1,0 +1,20 @@
+$ node --test test/dsp.test.mjs
+
+✔ unity settings keep the pitch and add a fixed delay (200.4047ms)
+✔ pitch x1.500 from 140 Hz (281.5693ms)
+✔ pitch x1.498 from 120 Hz (167.5253ms)
+✔ pitch x0.700 from 200 Hz (177.4792ms)
+✔ pitch x0.500 from 220 Hz (152.3707ms)
+✔ pitch x2.000 from 110 Hz (293.9415ms)
+✔ pitch shift keeps the formants (no chipmunk) (491.8681ms)
+✔ formant shift moves the formants and keeps the pitch (365.6862ms)
+✔ robot mode is monotone at the requested pitch (178.5224ms)
+✔ level is preserved and output is finite (575.0958ms)
+✔ gate silences noise below the threshold (107.2529ms)
+✔ voice range trades the lowest pitch for latency (111.5112ms)
+✔ changing the range mid-stream stays finite and keeps working (324.4791ms)
+✔ whisper removes the pitch and keeps the vowel (363.716ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0

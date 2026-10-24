@@ -57,6 +57,7 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       'The same audio is rendered through the JavaScript core and the C++ core and has to match sample for sample, so the two implementations cannot quietly drift apart. A COM host test drives the plug-in exactly as the audio engine does. A heartbeat returns the microphone to normal within two seconds if the app dies, and the smoke test refuses to run when the virtual cable is missing, so test audio can never reach the speakers.',
     tags: ['C++', 'Electron', 'DSP', 'Windows audio', 'Native addons'],
+    projectSlug: 'voxshift',
   },
   {
     slug: 'self-updating-portfolio',
