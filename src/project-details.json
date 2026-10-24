@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-20T04:20:19.728Z",
+    "generatedAt": "2026-10-23T23:54:04.520Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7381,
-      "testFiles": 3197,
-      "sourceLines": 1293557,
+      "sourceFiles": 7495,
+      "testFiles": 3250,
+      "sourceLines": 1314507,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6735
+          "files": 6835
         },
         {
           "directory": "e2e",
-          "files": 236
+          "files": 246
         },
         {
           "directory": "public",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 157
+          "files": 160
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "71b64fd6c04",
-      "lastCommitDate": "2026-10-20T04:20:36Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5247
+      "head": "54e9b875f74",
+      "lastCommitDate": "2026-10-24T02:38:00+03:00",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into HEAD",
+      "commitCount": 5401
     },
     "scores": {
       "priorityScore": 96,
@@ -275,35 +275,35 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 148049
+        "bytes": 148435
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137847
+        "bytes": 138286
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123136
+        "bytes": 123512
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 44082
+        "bytes": 44160
       },
       {
         "profile": "og",
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102683
+        "bytes": 103126
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-20T04:17:31.886Z"
+        "builtAt": "2026-10-23T23:51:09.247Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
