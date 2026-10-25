@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-24T16:00:59.277Z",
+    "generatedAt": "2026-10-25T01:39:52.787Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7506,
       "testFiles": 3253,
-      "sourceLines": 1317654,
+      "sourceLines": 1317720,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "869f1b0b9d2",
-      "lastCommitDate": "2026-10-24T16:29:46+03:00",
-      "lastCommitSubject": "TASK-1433: record the dependency audit; all 27 alerts cleared by patch upgrades",
-      "commitCount": 5422
+      "head": "e2ebeee753d",
+      "lastCommitDate": "2026-10-24T23:23:36+03:00",
+      "lastCommitSubject": "TASK-1427: a device rack is as wide as its devices",
+      "commitCount": 5426
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-24T12:24:34.993Z"
+        "builtAt": "2026-10-25T01:37:44.340Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-25T01:10:46.740Z",
+    "generatedAt": "2026-10-25T02:23:10.696Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1552,
       "testFiles": 672,
-      "sourceLines": 236988,
+      "sourceLines": 237016,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "2b091d30",
-      "lastCommitDate": "2026-10-25T03:28:00+03:00",
+      "head": "7dd2b946",
+      "lastCommitDate": "2026-10-25T03:55:46+02:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2608
+      "commitCount": 2612
     },
     "scores": {
       "priorityScore": 94,
@@ -607,28 +607,28 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 89141
+        "bytes": 88317
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83658
+        "bytes": 82735
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72287
+        "bytes": 71544
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43216
+        "bytes": 42783
       },
       {
         "profile": "og",
