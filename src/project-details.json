@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-25T01:39:52.787Z",
+    "generatedAt": "2026-10-25T15:55:54.310Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -200,7 +200,7 @@
         },
         {
           "name": "electron",
-          "version": "^42.10.0"
+          "version": "^42.11.16"
         },
         {
           "name": "styled-components",
@@ -212,7 +212,7 @@
         },
         {
           "name": "zod",
-          "version": "^4.3.6"
+          "version": "^4.6.6"
         }
       ],
       "testing": [
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7506,
       "testFiles": 3253,
-      "sourceLines": 1317720,
+      "sourceLines": 1317736,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e2ebeee753d",
-      "lastCommitDate": "2026-10-24T23:23:36+03:00",
-      "lastCommitSubject": "TASK-1427: a device rack is as wide as its devices",
-      "commitCount": 5426
+      "head": "56a82e60f11",
+      "lastCommitDate": "2026-10-25T17:32:57+02:00",
+      "lastCommitSubject": "TASK-1435: record the build and browser checks",
+      "commitCount": 5434
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-25T01:37:44.340Z"
+        "builtAt": "2026-10-25T15:53:49.232Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
