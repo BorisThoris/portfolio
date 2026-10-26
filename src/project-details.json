@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-25T15:55:54.310Z",
+    "generatedAt": "2026-10-25T17:44:26.816Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7506,
       "testFiles": 3253,
-      "sourceLines": 1317736,
+      "sourceLines": 1317735,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "56a82e60f11",
-      "lastCommitDate": "2026-10-25T17:32:57+02:00",
-      "lastCommitSubject": "TASK-1435: record the build and browser checks",
-      "commitCount": 5434
+      "head": "86ebd4b68ac",
+      "lastCommitDate": "2026-10-25T19:11:05+02:00",
+      "lastCommitSubject": "Merge branch 'deps/task-1435' into HEAD",
+      "commitCount": 5437
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-25T15:53:49.232Z"
+        "builtAt": "2026-10-25T17:42:20.658Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-25T02:23:10.696Z",
+    "generatedAt": "2026-10-25T19:38:27.153Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1552,
-      "testFiles": 672,
-      "sourceLines": 237016,
+      "sourceFiles": 1556,
+      "testFiles": 674,
+      "sourceLines": 237717,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1350
+          "files": 1354
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "7dd2b946",
-      "lastCommitDate": "2026-10-25T03:55:46+02:00",
+      "head": "544d2058",
+      "lastCommitDate": "2026-10-25T21:05:24+02:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2612
+      "commitCount": 2624
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88317
+        "bytes": 88749
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82735
+        "bytes": 82740
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71544
+        "bytes": 71560
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42783
+        "bytes": 42759
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71843
+        "bytes": 71825
       }
     ],
     "trailers": [
