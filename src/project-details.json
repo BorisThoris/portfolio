@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-25T17:44:26.816Z",
+    "generatedAt": "2026-10-27T12:00:12.787Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7506,
       "testFiles": 3253,
-      "sourceLines": 1317735,
+      "sourceLines": 1317784,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "86ebd4b68ac",
-      "lastCommitDate": "2026-10-25T19:11:05+02:00",
-      "lastCommitSubject": "Merge branch 'deps/task-1435' into HEAD",
-      "commitCount": 5437
+      "head": "5b4401594fd",
+      "lastCommitDate": "2026-10-27T13:50:41+02:00",
+      "lastCommitSubject": "Regenerate task views after closing TASK-1435",
+      "commitCount": 5443
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-25T17:42:20.658Z"
+        "builtAt": "2026-10-27T11:57:53.433Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-26T17:56:49.173Z",
+    "generatedAt": "2026-10-27T12:05:17.655Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1556,
       "testFiles": 674,
-      "sourceLines": 237887,
+      "sourceLines": 238230,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a782ffe7",
-      "lastCommitDate": "2026-10-26T19:08:01+02:00",
+      "head": "5da4fd94",
+      "lastCommitDate": "2026-10-27T02:37:48+02:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2628
+      "commitCount": 2633
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88520
+        "bytes": 88467
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82825
+        "bytes": 82776
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71629
+        "bytes": 71654
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42862
+        "bytes": 42827
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72017
+        "bytes": 71756
       }
     ],
     "trailers": [
