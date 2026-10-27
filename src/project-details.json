@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-27T12:00:12.787Z",
+    "generatedAt": "2026-10-27T15:32:11.879Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7506,
-      "testFiles": 3253,
-      "sourceLines": 1317784,
+      "sourceFiles": 7507,
+      "testFiles": 3254,
+      "sourceLines": 1318043,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6846
+          "files": 6847
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5b4401594fd",
-      "lastCommitDate": "2026-10-27T13:50:41+02:00",
-      "lastCommitSubject": "Regenerate task views after closing TASK-1435",
-      "commitCount": 5443
+      "head": "836c549eed3",
+      "lastCommitDate": "2026-10-27T16:49:02+02:00",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into fix/task-1438-write-pass",
+      "commitCount": 5450
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-27T11:57:53.433Z"
+        "builtAt": "2026-10-27T15:30:04.416Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-27T12:05:17.655Z",
+    "generatedAt": "2026-10-27T17:10:15.044Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1556,
       "testFiles": 674,
-      "sourceLines": 238230,
+      "sourceLines": 238410,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5da4fd94",
-      "lastCommitDate": "2026-10-27T02:37:48+02:00",
-      "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2633
+      "head": "d63cb313",
+      "lastCommitDate": "2026-10-27T18:46:32+02:00",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into claude/gracious-elbakyan-cbdfc0",
+      "commitCount": 2641
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88467
+        "bytes": 88361
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82776
+        "bytes": 82701
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71654
+        "bytes": 71524
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42827
+        "bytes": 42733
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71756
+        "bytes": 71843
       }
     ],
     "trailers": [
