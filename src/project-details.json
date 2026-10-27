@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-27T15:32:11.879Z",
+    "generatedAt": "2026-10-27T22:57:02.114Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7507,
       "testFiles": 3254,
-      "sourceLines": 1318043,
+      "sourceLines": 1318213,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "836c549eed3",
-      "lastCommitDate": "2026-10-27T16:49:02+02:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into fix/task-1438-write-pass",
-      "commitCount": 5450
+      "head": "0f76aae767f",
+      "lastCommitDate": "2026-10-28T00:07:20+02:00",
+      "lastCommitSubject": "TASK-1437: the stand-in keeps the plugin's own label and stays module-private",
+      "commitCount": 5457
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-27T15:30:04.416Z"
+        "builtAt": "2026-10-27T22:54:30.390Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-27T17:10:15.044Z",
+    "generatedAt": "2026-10-27T20:58:13.531Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1556,
-      "testFiles": 674,
-      "sourceLines": 238410,
+      "sourceFiles": 1558,
+      "testFiles": 675,
+      "sourceLines": 238805,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1354
+          "files": 1356
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d63cb313",
-      "lastCommitDate": "2026-10-27T18:46:32+02:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into claude/gracious-elbakyan-cbdfc0",
-      "commitCount": 2641
+      "head": "308a3edb",
+      "lastCommitDate": "2026-10-27T22:27:52+02:00",
+      "lastCommitSubject": "Threes keep the floor's recipe from rules 99",
+      "commitCount": 2650
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88361
+        "bytes": 88689
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82701
+        "bytes": 82717
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71524
+        "bytes": 71558
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42733
+        "bytes": 42759
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71843
+        "bytes": 71884
       }
     ],
     "trailers": [
