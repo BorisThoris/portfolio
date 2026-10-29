@@ -55,6 +55,16 @@ Capture records created before `captureSettingsHash` must be genuinely refreshed
 does not infer an old recording's recipe from today's config. `--no-build` retains the recording's
 previous settings hash and cannot establish new recipe provenance.
 
+To record a pinned deployment without changing its configured visual recipe, use
+`node scripts/build-project-trailers.mjs --only=tour --force --url=https://immutable-preview/ --source-commit=<full-sha> --mute-audio`.
+The explicit HTTP(S) URL takes precedence over deployment/local selection; invalid URLs fail
+without fallback. The claimed source commit must be the capture checkout's HEAD with clean
+application inputs. This checks the checkout, not the remote deployment: verify the hosting
+deployment's commit independently. Fresh records retain the actual URL, source commit, mute flag
+and a hash of both executing helper files. Runtime deployment selection does not change the
+configured recipe/settings hash. `--no-build` preserves original provenance and rejects these
+overrides. `--mute-audio` mutes Chromium playback only; the configured music bed is still encoded.
+
 Run the bounded, non-rendering regression fixtures with
 `node --test scripts/meta/build-project-trailers.test.mjs`. To check an installed copy, set
 `PROJECT_TRAILERS_SCRIPT` to its absolute script path before running the same tests.

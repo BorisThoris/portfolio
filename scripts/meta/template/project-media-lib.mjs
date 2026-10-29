@@ -74,8 +74,14 @@ export async function loadChromium(repoRoot, config) {
 // Where to photograph: 'deployment' (default when the project has one),
 // 'local' (start the dev server) or an explicit URL.
 export async function resolveBaseUrl(config, repoRoot, { source, url, log = console.log } = {}) {
-  const chosen = source ?? (url ? 'explicit' : config.curated?.deploymentUrl ? 'deployment' : 'local');
-  if (chosen === 'explicit') return { url, source: chosen, stop: async () => {} };
+  const chosen = url !== undefined ? 'explicit' : source ?? (config.curated?.deploymentUrl ? 'deployment' : 'local');
+  if (chosen === 'explicit') {
+    let parsed;
+    try { parsed = new URL(url); } catch { throw new Error('Invalid explicit capture URL.'); }
+    if (!['http:', 'https:'].includes(parsed.protocol) || parsed.username || parsed.password)
+      throw new Error('Explicit capture URL must use HTTP(S) without credentials.');
+    return { url: parsed.href, source: chosen, stop: async () => {} };
+  }
   if (chosen === 'deployment') {
     if (!config.curated?.deploymentUrl) throw new Error('this project has no deploymentUrl; use --source=local or --url=...');
     return { url: config.curated.deploymentUrl, source: chosen, stop: async () => {} };
@@ -333,10 +339,10 @@ export function assessFrame(stats, quality = {}) {
 // Records the recipe as a video: the page is opened in a context that
 // records, settled, then the timeline actions run for `durationMs`; the webm
 // Playwright wrote is returned with the frame statistics taken mid-way.
-export async function recordRecipe(chromium, { url, recipe, outDir, log = console.log }) {
+export async function recordRecipe(chromium, { url, recipe, outDir, muteAudio = false, log = console.log }) {
   const viewport = recipe.viewport ?? { width: 1280, height: 720 };
   fs.mkdirSync(outDir, { recursive: true });
-  const browser = await chromium.launch({ headless: true, args: recipe.browserArgs ?? [] });
+  const browser = await chromium.launch({ headless: true, args: [...(recipe.browserArgs ?? []), ...(muteAudio ? ['--mute-audio'] : [])] });
   let videoPath = null;
   let stats = null;
   const skipped = [];

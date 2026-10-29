@@ -11,6 +11,7 @@
 //   npm run trailers -- --check --defer-deployment-freshness # push gate: source-only drift waits for deployment
 //   npm run trailers -- --force       # rebuild everything
 //   npm run trailers -- --only=<id>   # one item
+//   npm run trailers -- --url=https://immutable-preview/ --source-commit=<full-sha> --mute-audio
 //   npm run trailers -- --list        # what is configured and its state
 //   npm run trailers -- --no-build    # publish and record what the build already produced
 //                                     #   (a render finished by hand after a crash)
@@ -92,6 +93,16 @@ const checkOnly = args.includes('--check');
 const force = args.includes('--force');
 const listOnly = args.includes('--list');
 const noBuild = args.includes('--no-build');
+const captureUrlOverride = args.find(value => value.startsWith('--url='))?.slice('--url='.length);
+const captureSourceCommit = args.find(value => value.startsWith('--source-commit='))?.slice('--source-commit='.length);
+const muteAudio = args.includes('--mute-audio');
+if (noBuild && (captureUrlOverride !== undefined || captureSourceCommit !== undefined))
+  throw new Error('Capture provenance overrides require a fresh recording, not --no-build.');
+if (captureUrlOverride !== undefined)
+  await resolveBaseUrl(config, repoRoot, { url: captureUrlOverride });
+if (captureSourceCommit !== undefined &&
+    (!/^[a-f0-9]{40}$/i.test(captureSourceCommit) || git(['rev-parse', 'HEAD']).trim() !== captureSourceCommit))
+  throw new Error('--source-commit must match the full HEAD of the captured application checkout.');
 // --check --buildable-only: a stale item whose toolchain (Blender, NVENC) is
 // not on this machine is a warning, not a failure - it is rebuilt where it is.
 const buildableOnly = args.includes('--buildable-only');
@@ -455,17 +466,28 @@ async function publishCapture(item, previous) {
   const master = path.join(capturesDir, item.id + '.webm');
   fs.mkdirSync(capturesDir, { recursive: true });
   let stats = null;
+  let captureProvenance = previous?.captureProvenance;
 
   const reuseRecording = noBuild && fs.existsSync(master);
   if (reuseRecording) {
     console.log('\n[trailers] ' + item.id + ': --no-build, re-publishing the last recording.');
   } else {
+    if (captureSourceCommit && git(['status', '--porcelain', '--', ...itemInputs(item)]).trim())
+      throw new Error('Captured application inputs differ from --source-commit.');
     const chromium = await loadChromium(repoRoot, config);
-    const base = await resolveBaseUrl(config, repoRoot, { source: item.source ?? 'deployment', url: item.url, log: (line) => console.log(line.replace('[media]', '[trailers]')) });
+    const base = await resolveBaseUrl(config, repoRoot, { source: item.source ?? 'deployment', url: captureUrlOverride ?? item.url, log: (line) => console.log(line.replace('[media]', '[trailers]')) });
     try {
       console.log('\n[trailers] ' + item.id + ': recording ' + (recipe.durationMs ?? 20000) / 1000 + ' s of ' + base.url + ' (' + base.source + ')');
-      const recording = await recordRecipe(chromium, { url: base.url, recipe, outDir: capturesDir, log: (line) => console.log(line.replace('[media]', '[trailers]')) });
+      const recording = await recordRecipe(chromium, { url: base.url, recipe, outDir: capturesDir, muteAudio, log: (line) => console.log(line.replace('[media]', '[trailers]')) });
       stats = recording.stats;
+      captureProvenance = {
+        url: base.url,
+        sourceCommit: captureSourceCommit ?? null,
+        muted: muteAudio,
+        toolHash: crypto.createHash('sha256')
+          .update(fs.readFileSync(fileURLToPath(import.meta.url)))
+          .update(fs.readFileSync(path.join(scriptDir, 'project-media-lib.mjs'))).digest('hex')
+      };
       const problems = assessFrame(stats, recipe.quality);
       if (problems.length > 0) {
         fs.rmSync(recording.videoPath, { force: true });
@@ -517,6 +539,7 @@ async function publishCapture(item, previous) {
     music: item.music,
     // Re-encoding an old recording cannot prove a changed recipe was executed.
     captureSettingsHash: reuseRecording ? previous?.captureSettingsHash : captureSettingsHash(item),
+    captureProvenance,
     stats
   };
 }
