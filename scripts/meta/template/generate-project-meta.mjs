@@ -436,7 +436,7 @@ function collectMedia() {
   const primary = images.find((image) => image.profile === primaryProfile) ?? images[0];
   return {
     source: found.source,
-    directory: toPosix(directory),
+    directory: found.source === 'repo-local' ? toPosix(path.relative(repoRoot, directory)) : toPosix(directory),
     images,
     primary: primary?.path ?? ''
   };
