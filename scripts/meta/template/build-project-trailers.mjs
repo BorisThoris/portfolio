@@ -8,6 +8,7 @@
 //   npm run trailers                  # rebuild whatever is stale, publish, record
 //   npm run trailers -- --check       # non-zero exit if anything is stale or unpublished
 //   npm run trailers -- --check --buildable-only   # ...ignoring items this machine cannot render
+//   npm run trailers -- --check --defer-deployment-freshness # push gate: source-only drift waits for deployment
 //   npm run trailers -- --force       # rebuild everything
 //   npm run trailers -- --only=<id>   # one item
 //   npm run trailers -- --list        # what is configured and its state
@@ -94,6 +95,7 @@ const noBuild = args.includes('--no-build');
 // --check --buildable-only: a stale item whose toolchain (Blender, NVENC) is
 // not on this machine is a warning, not a failure - it is rebuilt where it is.
 const buildableOnly = args.includes('--buildable-only');
+const deferDeploymentFreshness = args.includes('--defer-deployment-freshness');
 const onlyArg = args.find((argument) => argument.startsWith('--only='));
 const only = onlyArg ? new Set(onlyArg.slice('--only='.length).split(',').map((value) => value.trim())) : null;
 
@@ -122,6 +124,7 @@ const missingTools = [];
 const preparedThisRun = new Set();
 let built = 0;
 let recordChanged = false;
+let deferred = 0;
 
 for (const item of items) {
   const previous = recorded.get(item.id);
@@ -133,7 +136,14 @@ for (const item of items) {
   }
 
   if (checkOnly) {
-    if (state.stale && buildableOnly && checkRequirements(item.requires ?? []).missing.length > 0) {
+    if (state.unpublished || state.corrupt || (deferDeploymentFreshness && state.captureSettingsStale)) {
+      stale.push(item.id + ' (' + state.reason + ')');
+    } else if (state.stale && deferDeploymentFreshness && item.kind === 'capture' &&
+      (item.source ?? 'deployment') === 'deployment' && previous?.builtAt && previous?.inputsHash &&
+      !state.captureSettingsStale && !state.prepareStale) {
+      deferred += 1;
+      console.warn('[trailers] ' + item.id + ': source inputs changed; freshness deferred until the post-deployment refresh.');
+    } else if (state.stale && buildableOnly && checkRequirements(item.requires ?? []).missing.length > 0) {
       console.warn('[trailers] ' + item.id + ': stale (' + state.reason + ') but needs ' + checkRequirements(item.requires ?? []).missing.join(', ') + ' - rebuilt where the toolchain is.');
     } else if (state.stale) stale.push(item.id + ' (' + state.reason + ')');
     else console.log('[trailers] ' + item.id + ': current' + (previous?.builtAt ? ' (built ' + previous.builtAt + ')' : ''));
@@ -169,7 +179,7 @@ for (const item of items) {
 
   // The build hash is taken after prepare so regenerated inputs are part of it.
   const inputsHash = hashPathspecs(itemInputs(item), itemExtraInput(item));
-  const needsBuild = force || !previous || previous.inputsHash !== inputsHash || state.unpublished;
+  const needsBuild = force || !previous || previous.inputsHash !== inputsHash || state.unpublished || state.corrupt || state.captureSettingsStale;
   if (!needsBuild) {
     // prepare ran but produced identical inputs: the render is still valid.
     recorded.set(item.id, { ...previous, prepareHash });
@@ -196,7 +206,7 @@ for (const item of items) {
   const entry = { id: item.id, title: item.title ?? item.id, kind: item.kind ?? 'trailer', inputsHash, builtAt: new Date().toISOString() };
   if (item.prepare) entry.prepareHash = prepareHash ?? hashPathspecs(item.prepare.inputs ?? []);
   if ((item.kind ?? 'trailer') === 'trailer') Object.assign(entry, publishTrailer(item));
-  else if (item.kind === 'capture') Object.assign(entry, await publishCapture(item));
+  else if (item.kind === 'capture') Object.assign(entry, await publishCapture(item, previous));
   else if (item.kind === 'artwork') Object.assign(entry, publishArtwork(item));
   else if (item.outputs) entry.outputs = item.outputs.map((relative) => describeFile(relative));
   recorded.set(item.id, entry);
@@ -211,7 +221,9 @@ if (checkOnly) {
     console.error('[trailers] ' + slug + ': stale - ' + stale.join('; ') + '. Run: npm run trailers');
     process.exit(1);
   }
-  console.log('[trailers] ' + slug + ': all rendered media is current.');
+  console.log('[trailers] ' + slug + (deferred > 0
+    ? ': media checks passed; ' + deferred + ' deployment capture(s) await refresh.'
+    : ': all rendered media is current.'));
   process.exit(0);
 }
 
@@ -233,15 +245,22 @@ function describeState(item, previous) {
   const prepareStale = Boolean(item.prepare) && previous.prepareHash !== hashPathspecs(item.prepare.inputs ?? []);
   const inputsStale = previous.inputsHash !== hashPathspecs(itemInputs(item), itemExtraInput(item));
   const unpublished = publishes && !(previous.file && fs.existsSync(path.join(repoRoot, previous.file)));
+  const publishedStat = publishes && !unpublished ? fs.statSync(path.join(repoRoot, previous.file)) : null;
+  const corrupt = Boolean(publishedStat) && (!publishedStat.isFile() || publishedStat.size <= 0 || publishedStat.size !== previous.bytes);
+  const captureSettingsStale = kind === 'capture' && previous.captureSettingsHash !== captureSettingsHash(item);
   const reasons = [];
   if (prepareStale) reasons.push('generator inputs changed');
   if (inputsStale) reasons.push('inputs changed');
   if (unpublished) reasons.push('web copy missing');
+  if (corrupt) reasons.push('web copy size differs from its build record');
+  if (captureSettingsStale) reasons.push('capture settings changed or not yet recorded');
   const stale = reasons.length > 0;
   return {
     stale,
     prepareStale,
     unpublished,
+    corrupt,
+    captureSettingsStale,
     reason: reasons.join(', '),
     summary: stale ? 'STALE: ' + reasons.join(', ') : 'current (built ' + previous.builtAt + (previous.file ? ', ' + previous.file : '') + ')'
   };
@@ -271,6 +290,19 @@ function itemInputs(item) {
 function itemExtraInput(item) {
   if (item.kind !== 'capture') return '';
   return JSON.stringify({ recipe: item.recipe ?? null, music: item.music ?? null, source: item.source ?? 'deployment' });
+}
+
+// Separate capture settings from application-source freshness: a push gate may defer only
+// the latter. Legacy records must be refreshed once rather than guessing their old recipe.
+function captureSettingsHash(item) {
+  const settings = { ...item };
+  delete settings.inputs;
+  return crypto.createHash('sha256').update(JSON.stringify({
+    settings,
+    deploymentUrl: config.curated?.deploymentUrl ?? null,
+    publishDirRelative, urlPathPrefix, maxBytes,
+    musicHash: item.music ? hashPathspecs([item.music]) : null
+  })).digest('hex');
 }
 
 // The hash covers every tracked file under the pathspecs (its blob id from the
@@ -417,14 +449,15 @@ function publishTrailer(item) {
 // master under project-media/.captures/ (ignored), then publishes it like any
 // trailer: H.264 + AAC with the music bed looped and faded underneath, capped
 // in size, with a poster frame. --no-build re-encodes the last recording.
-async function publishCapture(item) {
+async function publishCapture(item, previous) {
   const recipe = item.recipe ?? {};
   const capturesDir = path.join(repoRoot, 'project-media', '.captures');
   const master = path.join(capturesDir, item.id + '.webm');
   fs.mkdirSync(capturesDir, { recursive: true });
   let stats = null;
 
-  if (noBuild && fs.existsSync(master)) {
+  const reuseRecording = noBuild && fs.existsSync(master);
+  if (reuseRecording) {
     console.log('\n[trailers] ' + item.id + ': --no-build, re-publishing the last recording.');
   } else {
     const chromium = await loadChromium(repoRoot, config);
@@ -482,6 +515,8 @@ async function publishCapture(item) {
     fps: published.fps,
     orientation: published.height > published.width ? 'portrait' : published.height === published.width ? 'square' : 'landscape',
     music: item.music,
+    // Re-encoding an old recording cannot prove a changed recipe was executed.
+    captureSettingsHash: reuseRecording ? previous?.captureSettingsHash : captureSettingsHash(item),
     stats
   };
 }

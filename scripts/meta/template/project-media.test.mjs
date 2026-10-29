@@ -113,6 +113,7 @@ test('every rendered media item is recorded and published', { skip: items.length
     }
     assert.ok(entry.file && fs.existsSync(path.join(repoRoot, entry.file)), item.id + ': ' + entry.file + ' is missing');
     assert.ok(entry.bytes > 0 && entry.bytes <= maxBytes, item.id + ': ' + entry.bytes + ' bytes exceeds the cap');
+    assert.equal(fs.statSync(path.join(repoRoot, entry.file)).size, entry.bytes, item.id + ': web copy differs from its build record');
     assert.ok(entry.urlPath, item.id + ' has no URL');
     if (kind === 'trailer' || kind === 'capture') {
       assert.ok(entry.poster && fs.existsSync(path.join(repoRoot, entry.poster)), item.id + ': poster is missing');
@@ -141,6 +142,9 @@ test('the link-preview card, icons and rendered media are current', () => {
     if (label === 'trailers' && items.length === 0) continue;
     // A rendered item that needs Blender or a GPU is rebuilt on the PC's CI chain; here only items this machine could render are held to being current.
     const checkArgs = label === 'trailers' ? ['--check', '--buildable-only'] : ['--check'];
+    // Only the push workflow opts in; post-deployment refresh and local checks stay strict.
+    if (label === 'trailers' && process.env.PROJECT_MEDIA_DEFER_DEPLOYMENT_FRESHNESS === 'true')
+      checkArgs.push('--defer-deployment-freshness');
     const run = spawnSync(process.execPath, [path.join(scriptDir, script), ...checkArgs], { cwd: repoRoot, encoding: 'utf8' });
     assert.equal(run.status, 0, label + ' --check: ' + (run.stderr || run.stdout).trim().split('\n').slice(-2).join(' '));
   }

@@ -25,3 +25,7 @@ jobs:
       # The media contract: screenshots that show the app, trailers recorded
       # and within their limits, metadata that lists them.
       - run: node --test scripts/project-media.test.mjs
+        env:
+          # Deployed captures cannot include this push until it deploys. Missing media,
+          # changed recipes and all other media checks still fail. Refresh checks strictly.
+          PROJECT_MEDIA_DEFER_DEPLOYMENT_FRESHNESS: 'true'

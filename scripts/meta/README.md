@@ -46,6 +46,19 @@ installed copies already run through it, so a reinstall never fights the
 formatter, and the social and icon scripts treat a re-wrapped head block as the
 same markup.
 
+The push/PR media-contract workflow sets `PROJECT_MEDIA_DEFER_DEPLOYMENT_FRESHNESS=true`.
+This adds `--defer-deployment-freshness` to the trailer check: an existing deployment capture
+may wait for its deployment when only application-source inputs changed. Missing or truncated
+published files, changed capture settings/recipes/music, and stale local captures still fail.
+The post-deployment refresh and ordinary local checks do not set this flag and remain strict.
+Capture records created before `captureSettingsHash` must be genuinely refreshed once; the check
+does not infer an old recording's recipe from today's config. `--no-build` retains the recording's
+previous settings hash and cannot establish new recipe provenance.
+
+Run the bounded, non-rendering regression fixtures with
+`node --test scripts/meta/build-project-trailers.test.mjs`. To check an installed copy, set
+`PROJECT_TRAILERS_SCRIPT` to its absolute script path before running the same tests.
+
 ## What is curated vs derived
 
 `scripts/project-meta.config.mjs` is hand-owned and holds the things a machine
