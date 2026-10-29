@@ -200,7 +200,7 @@ test('a source commit cannot label modified application inputs as that commit', 
 
 test('invalid runtime provenance fails before recording or replacing published media', t => {
   const { root, capture } = captureFixture(t);
-  for (const args of [ ['--url='], ['--url=file:///private'], [`--source-commit=${'0'.repeat(40)}`],
+  for (const args of [ ['--url'], ['--source-commit'], ['--url='], ['--url=file:///private'], [`--source-commit=${'0'.repeat(40)}`],
     ['--no-build', '--url=https://preview.example/'] ]) {
     const result = capture(...args);
     assert.notEqual(result.status, 0, result.stdout);

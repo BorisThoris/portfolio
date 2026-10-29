@@ -93,6 +93,8 @@ const checkOnly = args.includes('--check');
 const force = args.includes('--force');
 const listOnly = args.includes('--list');
 const noBuild = args.includes('--no-build');
+if (args.includes('--url') || args.includes('--source-commit'))
+  throw new Error('Use --url=<URL> and --source-commit=<full-sha>; a missing value cannot fall back.');
 const captureUrlOverride = args.find(value => value.startsWith('--url='))?.slice('--url='.length);
 const captureSourceCommit = args.find(value => value.startsWith('--source-commit='))?.slice('--source-commit='.length);
 const muteAudio = args.includes('--mute-audio');
