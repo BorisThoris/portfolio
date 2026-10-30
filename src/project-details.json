@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-29T13:26:37.113Z",
+    "generatedAt": "2026-10-30T18:47:51.045Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -220,33 +220,33 @@
         "@playwright/test",
         "@testing-library/react"
       ],
-      "dependencyCount": 33,
+      "dependencyCount": 34,
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7513,
-      "testFiles": 3257,
-      "sourceLines": 1318875,
+      "sourceFiles": 7613,
+      "testFiles": 3312,
+      "sourceLines": 1333762,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6853
+          "files": 6920
         },
         {
           "directory": "e2e",
-          "files": 246
+          "files": 267
         },
         {
           "directory": "public",
-          "files": 216
+          "files": 217
         },
         {
           "directory": "scripts",
-          "files": 160
+          "files": 166
         },
         {
           "directory": ".",
-          "files": 10
+          "files": 11
         }
       ],
       "hasTests": true,
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "21a124700e4",
-      "lastCommitDate": "2026-10-29T14:33:48+02:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main' into fix/task-1438-write-pass",
-      "commitCount": 5460
+      "head": "9ba66b94b68",
+      "lastCommitDate": "2026-10-30T19:29:29+02:00",
+      "lastCommitSubject": "Declare the locked Sentry core type dependency",
+      "commitCount": 5647
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-29T13:23:59.781Z"
+        "builtAt": "2026-10-30T16:57:01.874Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-28T20:55:58.819Z",
+    "generatedAt": "2026-10-30T16:27:59.871Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1567,
-      "testFiles": 677,
-      "sourceLines": 240413,
+      "sourceFiles": 1563,
+      "testFiles": 676,
+      "sourceLines": 239875,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1365
+          "files": 1361
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d6efee5a",
-      "lastCommitDate": "2026-10-28T22:28:46+02:00",
+      "head": "685121d2",
+      "lastCommitDate": "2026-10-30T17:40:31+02:00",
       "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2669
+      "commitCount": 2680
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88682
+        "bytes": 88638
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82714
+        "bytes": 82766
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71631
+        "bytes": 71546
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42806
+        "bytes": 42864
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71843
+        "bytes": 71854
       }
     ],
     "trailers": [
