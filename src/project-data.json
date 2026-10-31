@@ -1,8 +1,8 @@
 [
   {
     "slug": "vyb-chess",
-    "title": "VYB Chess",
-    "subtitle": "Живият ум: an interactive chess book in Bulgarian",
+    "title": "Живият ум",
+    "subtitle": "An interactive chess book in Bulgarian",
     "description": "A Bulgarian interactive chess book for the browser and the desktop: six parts and 29 reading units of the manuscript, 351 board figures you can step through move by move, and selected positions turned into decision laboratories where you try the move before the author explains it.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\VYB-Chess",
     "localUrl": "http://127.0.0.1:4117/",
