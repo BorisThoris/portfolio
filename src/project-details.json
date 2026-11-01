@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "fbac1aed78b",
-      "lastCommitDate": "2026-10-31T23:25:35+02:00",
-      "lastCommitSubject": "Record current browser release and storefront acceptance",
-      "commitCount": 5676
+      "head": "60f06367327",
+      "lastCommitDate": "2026-11-01T00:05:28+02:00",
+      "lastCommitSubject": "Withhold older Windows download and point storefront to cleared release",
+      "commitCount": 5678
     },
     "scores": {
       "priorityScore": 96,
