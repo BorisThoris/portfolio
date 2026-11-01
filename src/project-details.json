@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-10-31T20:59:23.698Z",
+    "generatedAt": "2026-11-01T22:27:18.450Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7635,
-      "testFiles": 3327,
-      "sourceLines": 1338110,
+      "sourceFiles": 7645,
+      "testFiles": 3333,
+      "sourceLines": 1342938,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6935
+          "files": 6944
         },
         {
           "directory": "e2e",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 171
+          "files": 172
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "60f06367327",
-      "lastCommitDate": "2026-11-01T00:05:28+02:00",
-      "lastCommitSubject": "Withhold older Windows download and point storefront to cleared release",
-      "commitCount": 5678
+      "head": "5bf3de9da7d",
+      "lastCommitDate": "2026-11-01T22:11:03+02:00",
+      "lastCommitSubject": "Fix release check regressions and stream unit failures early",
+      "commitCount": 5696
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-10-31T20:56:49.051Z"
+        "builtAt": "2026-11-01T22:24:43.380Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-10-31T14:32:48.671Z",
+    "generatedAt": "2026-11-01T21:54:40.216Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -556,13 +556,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1567,
-      "testFiles": 677,
-      "sourceLines": 240449,
+      "sourceFiles": 1573,
+      "testFiles": 680,
+      "sourceLines": 241227,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1363
+          "files": 1369
         },
         {
           "directory": "scripts",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8e53cb86",
-      "lastCommitDate": "2026-10-31T16:00:20+02:00",
-      "lastCommitSubject": "Refresh the repo model",
-      "commitCount": 2694
+      "head": "a47f1a0a",
+      "lastCommitDate": "2026-11-01T23:41:51+02:00",
+      "lastCommitSubject": "Combo cash-in prototype behind ?combo2=1 (push your luck)",
+      "commitCount": 2700
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88563
+        "bytes": 88133
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 83045
+        "bytes": 82851
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71697
+        "bytes": 71535
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42849
+        "bytes": 42838
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71741
+        "bytes": 71707
       }
     ],
     "trailers": [
