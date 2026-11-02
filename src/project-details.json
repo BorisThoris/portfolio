@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-02T00:40:28.803Z",
+    "generatedAt": "2026-11-02T14:24:22.821Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,9 +224,9 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7647,
+      "sourceFiles": 7648,
       "testFiles": 3334,
-      "sourceLines": 1344215,
+      "sourceLines": 1344327,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "f9403cb543b",
-      "lastCommitDate": "2026-11-02T02:12:26+02:00",
-      "lastCommitSubject": "Record the focused CI-policy discovery replay without inferring a cause",
-      "commitCount": 5707
+      "head": "b59657ecaf0",
+      "lastCommitDate": "2026-11-02T15:56:40+02:00",
+      "lastCommitSubject": "Merge remote-tracking branch 'origin/main'",
+      "commitCount": 5718
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-02T00:37:08.696Z"
+        "builtAt": "2026-11-02T14:23:14.719Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
