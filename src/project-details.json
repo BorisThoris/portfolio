@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-01T22:27:18.450Z",
+    "generatedAt": "2026-11-02T00:40:28.803Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 59
     },
     "metrics": {
-      "sourceFiles": 7645,
-      "testFiles": 3333,
-      "sourceLines": 1342938,
+      "sourceFiles": 7647,
+      "testFiles": 3334,
+      "sourceLines": 1344215,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6944
+          "files": 6945
         },
         {
           "directory": "e2e",
-          "files": 269
+          "files": 270
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5bf3de9da7d",
-      "lastCommitDate": "2026-11-01T22:11:03+02:00",
-      "lastCommitSubject": "Fix release check regressions and stream unit failures early",
-      "commitCount": 5696
+      "head": "f9403cb543b",
+      "lastCommitDate": "2026-11-02T02:12:26+02:00",
+      "lastCommitSubject": "Record the focused CI-policy discovery replay without inferring a cause",
+      "commitCount": 5707
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-01T22:24:43.380Z"
+        "builtAt": "2026-11-02T00:37:08.696Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
