@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-02T14:24:22.821Z",
+    "generatedAt": "2026-11-02T23:17:22.348Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -221,20 +221,20 @@
         "@testing-library/react"
       ],
       "dependencyCount": 34,
-      "devDependencyCount": 59
+      "devDependencyCount": 60
     },
     "metrics": {
-      "sourceFiles": 7648,
-      "testFiles": 3334,
-      "sourceLines": 1344327,
+      "sourceFiles": 7657,
+      "testFiles": 3338,
+      "sourceLines": 1345875,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6945
+          "files": 6949
         },
         {
           "directory": "e2e",
-          "files": 270
+          "files": 274
         },
         {
           "directory": "public",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 172
+          "files": 173
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b59657ecaf0",
-      "lastCommitDate": "2026-11-02T15:56:40+02:00",
-      "lastCommitSubject": "Merge remote-tracking branch 'origin/main'",
-      "commitCount": 5718
+      "head": "5fbd155a558",
+      "lastCommitDate": "2026-11-02T23:17:54Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 5769
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 147437
+        "bytes": 148094
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 137801
+        "bytes": 138139
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123220
+        "bytes": 123392
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102452
+        "bytes": 102804
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-02T14:23:14.719Z"
+        "builtAt": "2026-11-02T21:41:22.490Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
