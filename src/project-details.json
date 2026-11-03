@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-03T00:49:12.939Z",
+    "generatedAt": "2026-11-03T13:41:24.287Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 60
     },
     "metrics": {
-      "sourceFiles": 7660,
-      "testFiles": 3340,
-      "sourceLines": 1346142,
+      "sourceFiles": 7663,
+      "testFiles": 3343,
+      "sourceLines": 1346723,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6951
+          "files": 6954
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "adce9700291",
-      "lastCommitDate": "2026-11-03T00:59:15Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5782
+      "head": "c08bfbbd886",
+      "lastCommitDate": "2026-11-03T15:22:17+02:00",
+      "lastCommitSubject": "Serve the CI accessibility lane on its own preview port",
+      "commitCount": 5799
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 148094
+        "bytes": 148532
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 138139
+        "bytes": 138576
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123392
+        "bytes": 123764
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102804
+        "bytes": 103284
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-03T00:46:33.569Z"
+        "builtAt": "2026-11-03T13:38:40.611Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
