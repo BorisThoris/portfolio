@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-02T23:17:22.348Z",
+    "generatedAt": "2026-11-03T00:49:12.939Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 60
     },
     "metrics": {
-      "sourceFiles": 7657,
-      "testFiles": 3338,
-      "sourceLines": 1345875,
+      "sourceFiles": 7660,
+      "testFiles": 3340,
+      "sourceLines": 1346142,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6949
+          "files": 6951
         },
         {
           "directory": "e2e",
-          "files": 274
+          "files": 275
         },
         {
           "directory": "public",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5fbd155a558",
-      "lastCommitDate": "2026-11-02T23:17:54Z",
+      "head": "adce9700291",
+      "lastCommitDate": "2026-11-03T00:59:15Z",
       "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5769
+      "commitCount": 5782
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-02T21:41:22.490Z"
+        "builtAt": "2026-11-03T00:46:33.569Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-01T21:54:40.216Z",
+    "generatedAt": "2026-11-03T00:24:22.727Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1573,
       "testFiles": 680,
-      "sourceLines": 241227,
+      "sourceLines": 241383,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a47f1a0a",
-      "lastCommitDate": "2026-11-01T23:41:51+02:00",
-      "lastCommitSubject": "Combo cash-in prototype behind ?combo2=1 (push your luck)",
-      "commitCount": 2700
+      "head": "37418f8d",
+      "lastCommitDate": "2026-11-03T02:15:05+02:00",
+      "lastCommitSubject": "Cash-in prototype: hall room, a soak player who banks, and the banked line",
+      "commitCount": 2705
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88133
+        "bytes": 88648
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82851
+        "bytes": 82958
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71535
+        "bytes": 71605
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42838
+        "bytes": 42756
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71707
+        "bytes": 71863
       }
     ],
     "trailers": [
