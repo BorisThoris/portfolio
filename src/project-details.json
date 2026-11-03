@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-03T13:41:24.287Z",
+    "generatedAt": "2026-11-03T20:04:23.694Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,17 +224,17 @@
       "devDependencyCount": 60
     },
     "metrics": {
-      "sourceFiles": 7663,
-      "testFiles": 3343,
-      "sourceLines": 1346723,
+      "sourceFiles": 7671,
+      "testFiles": 3348,
+      "sourceLines": 1347710,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6954
+          "files": 6959
         },
         {
           "directory": "e2e",
-          "files": 275
+          "files": 276
         },
         {
           "directory": "public",
@@ -242,7 +242,7 @@
         },
         {
           "directory": "scripts",
-          "files": 173
+          "files": 175
         },
         {
           "directory": ".",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c08bfbbd886",
-      "lastCommitDate": "2026-11-03T15:22:17+02:00",
-      "lastCommitSubject": "Serve the CI accessibility lane on its own preview port",
-      "commitCount": 5799
+      "head": "a8a9def4beb",
+      "lastCommitDate": "2026-11-03T20:04:59Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 5853
     },
     "scores": {
       "priorityScore": 96,
@@ -275,35 +275,35 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 148532
+        "bytes": 153663
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 138576
+        "bytes": 140559
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 123764
+        "bytes": 125512
       },
       {
         "profile": "mobile",
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 44160
+        "bytes": 44344
       },
       {
         "profile": "og",
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 103284
+        "bytes": 105753
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-03T13:38:40.611Z"
+        "builtAt": "2026-11-03T20:01:41.607Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-03T00:24:22.727Z",
+    "generatedAt": "2026-11-03T19:55:24.055Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -532,7 +532,7 @@
         },
         {
           "name": "vite",
-          "version": "6.4.3"
+          "version": "6.4.5"
         },
         {
           "name": "electron",
@@ -544,7 +544,7 @@
         },
         {
           "name": "zod",
-          "version": "^4.4.3"
+          "version": "^4.6.7"
         }
       ],
       "testing": [
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1573,
       "testFiles": 680,
-      "sourceLines": 241383,
+      "sourceLines": 241504,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "37418f8d",
-      "lastCommitDate": "2026-11-03T02:15:05+02:00",
-      "lastCommitSubject": "Cash-in prototype: hall room, a soak player who banks, and the banked line",
-      "commitCount": 2705
+      "head": "fe1607fb",
+      "lastCommitDate": "2026-11-03T20:32:15+02:00",
+      "lastCommitSubject": "Give gate-changed's cold first spawn the budget ai-repo-model has",
+      "commitCount": 2715
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88648
+        "bytes": 88877
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82958
+        "bytes": 82685
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71605
+        "bytes": 71569
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42756
+        "bytes": 42844
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71863
+        "bytes": 71884
       }
     ],
     "trailers": [
