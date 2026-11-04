@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-04T15:25:52.703Z",
+    "generatedAt": "2026-11-04T19:18:58.542Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7677,
-      "testFiles": 3350,
-      "sourceLines": 1348552,
+      "sourceFiles": 7679,
+      "testFiles": 3352,
+      "sourceLines": 1349206,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6962
+          "files": 6964
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "1b30196bb50",
-      "lastCommitDate": "2026-11-04T15:59:07+02:00",
-      "lastCommitSubject": "fix: preserve full arrangement length in mix and stem exports",
-      "commitCount": 5898
+      "head": "2ec6a2feaaf",
+      "lastCommitDate": "2026-11-04T20:49:59+02:00",
+      "lastCommitSubject": "test: verify fresh and remembered Mixer placement explicitly",
+      "commitCount": 5912
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 153663
+        "bytes": 153506
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 140559
+        "bytes": 140404
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 125512
+        "bytes": 125340
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 105753
+        "bytes": 105663
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-04T15:23:11.796Z"
+        "builtAt": "2026-11-04T19:16:18.435Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
