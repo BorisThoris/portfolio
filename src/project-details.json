@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-03T22:02:33.394Z",
+    "generatedAt": "2026-11-04T15:25:52.703Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -221,16 +221,16 @@
         "@testing-library/react"
       ],
       "dependencyCount": 34,
-      "devDependencyCount": 60
+      "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7671,
-      "testFiles": 3348,
-      "sourceLines": 1347850,
+      "sourceFiles": 7677,
+      "testFiles": 3350,
+      "sourceLines": 1348552,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6959
+          "files": 6962
         },
         {
           "directory": "e2e",
@@ -238,15 +238,15 @@
         },
         {
           "directory": "public",
-          "files": 217
+          "files": 218
         },
         {
           "directory": "scripts",
-          "files": 175
+          "files": 176
         },
         {
           "directory": ".",
-          "files": 11
+          "files": 12
         }
       ],
       "hasTests": true,
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8269dae973a",
-      "lastCommitDate": "2026-11-03T23:32:31+02:00",
-      "lastCommitSubject": "docs: record Mixer identity acceptance and compact summary follow-up",
-      "commitCount": 5878
+      "head": "1b30196bb50",
+      "lastCommitDate": "2026-11-04T15:59:07+02:00",
+      "lastCommitSubject": "fix: preserve full arrangement length in mix and stem exports",
+      "commitCount": 5898
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-03T21:59:48.016Z"
+        "builtAt": "2026-11-04T15:23:11.796Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
