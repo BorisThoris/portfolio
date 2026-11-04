@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-03T20:04:23.694Z",
+    "generatedAt": "2026-11-03T22:02:33.394Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7671,
       "testFiles": 3348,
-      "sourceLines": 1347710,
+      "sourceLines": 1347850,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a8a9def4beb",
-      "lastCommitDate": "2026-11-03T20:04:59Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 5853
+      "head": "8269dae973a",
+      "lastCommitDate": "2026-11-03T23:32:31+02:00",
+      "lastCommitSubject": "docs: record Mixer identity acceptance and compact summary follow-up",
+      "commitCount": 5878
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-03T20:01:41.607Z"
+        "builtAt": "2026-11-03T21:59:48.016Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
