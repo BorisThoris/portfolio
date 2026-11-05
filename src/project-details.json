@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-05T01:25:12.676Z",
+    "generatedAt": "2026-11-05T14:21:11.651Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7680,
-      "testFiles": 3353,
-      "sourceLines": 1350033,
+      "sourceFiles": 7681,
+      "testFiles": 3354,
+      "sourceLines": 1350508,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6965
+          "files": 6966
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "d17a4e92c5e",
-      "lastCommitDate": "2026-11-05T01:48:07+02:00",
-      "lastCommitSubject": "fix: reveal selected rack row after disclosure resize",
-      "commitCount": 5928
+      "head": "8a20645c5ae",
+      "lastCommitDate": "2026-11-05T16:05:05+02:00",
+      "lastCommitSubject": "Restore named contextual panels from the Window menu",
+      "commitCount": 5934
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-05T01:22:15.613Z"
+        "builtAt": "2026-11-05T14:18:15.025Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
