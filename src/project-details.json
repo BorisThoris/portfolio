@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-05T14:21:11.651Z",
+    "generatedAt": "2026-11-05T21:38:15.218Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,13 +224,13 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7681,
+      "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1350508,
+      "sourceLines": 1351654,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6966
+          "files": 6968
         },
         {
           "directory": "e2e",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8a20645c5ae",
-      "lastCommitDate": "2026-11-05T16:05:05+02:00",
-      "lastCommitSubject": "Restore named contextual panels from the Window menu",
-      "commitCount": 5934
+      "head": "8cb117a08b0",
+      "lastCommitDate": "2026-11-05T23:20:57+02:00",
+      "lastCommitSubject": "Record the live short tablet Rack replay",
+      "commitCount": 5985
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 153506
+        "bytes": 153514
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 140404
+        "bytes": 140410
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 125340
+        "bytes": 125332
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 102784
+        "bytes": 109239
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-05T14:18:15.025Z"
+        "builtAt": "2026-11-05T21:35:26.123Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
