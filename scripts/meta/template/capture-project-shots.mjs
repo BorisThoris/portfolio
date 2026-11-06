@@ -274,6 +274,7 @@ async function deployedFingerprint(url, extraAssets) {
   const html = page.bytes.toString('utf8');
   const references = [
     ...htmlAttributes(html, 'script|link|img', 'src|href'),
+    ...htmlAttributes(html, 'video', 'poster'),
     ...htmlAttributes(html, 'img|source', 'srcset').flatMap(srcsetUrls)
   ];
   // The browser resolves the page's own references against <base href>, when it has one.

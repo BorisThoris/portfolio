@@ -586,3 +586,17 @@ test('CSS comments, fragments and data URLs are not fetched', async t => {
   await print(shotsFixture(t, {}));
   assert.deepEqual(requests, ['/', '/site.css']);
 });
+
+test('a video poster is part of the deployed fingerprint', async t => {
+  let poster = 'one';
+  const print = await fingerprintServer(t, (request, response) => {
+    if (request.url === '/') return response.end('<video poster="/poster.jpg" preload="none"></video>');
+    if (request.url === '/poster.jpg') return response.end(poster);
+    response.writeHead(404);
+    response.end();
+  });
+  const root = shotsFixture(t, {});
+  const first = (await print(root)).stdout;
+  poster = 'two';
+  assert.notEqual((await print(root)).stdout, first);
+});
