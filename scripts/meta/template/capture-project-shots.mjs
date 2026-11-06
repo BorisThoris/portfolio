@@ -273,8 +273,12 @@ async function deployedFingerprint(url, extraAssets) {
   const finalUrl = new URL(page.url);
   const html = page.bytes.toString('utf8');
   const references = [...html.matchAll(/<(?:script|link|img)\b[^>]*?\b(?:src|href)=["']([^"']+)["']/gi)].map((match) => match[1]);
-  const assets = [...new Set([...references, ...extraAssets]
-    .map((reference) => new URL(reference, finalUrl))
+  // The browser resolves the page's own references against <base href>, when it has one.
+  const documentBase = documentBaseUrl(html, finalUrl);
+  const assets = [...new Set([
+    ...references.map((reference) => new URL(reference, documentBase)),
+    ...extraAssets.map((reference) => new URL(reference, finalUrl))
+  ]
     .filter((asset) => asset.origin === finalUrl.origin && /^https?:$/.test(asset.protocol))
     .map((asset) => asset.href))].sort();
   const hash = crypto.createHash('sha256');
@@ -287,6 +291,12 @@ async function deployedFingerprint(url, extraAssets) {
     hash.update((await fetchDependency(asset, { allowMissing: true })).bytes);
   }
   return hash.digest('hex');
+}
+
+function documentBaseUrl(html, pageUrl) {
+  const href = html.match(/<base\b[^>]*?\bhref=["']([^"']+)["']/i)?.[1];
+  if (!href) return pageUrl;
+  try { return new URL(href, pageUrl); } catch { return pageUrl; }
 }
 
 async function fetchDependency(url, { allowMissing = false } = {}) {

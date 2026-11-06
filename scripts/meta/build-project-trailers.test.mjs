@@ -449,3 +449,17 @@ test('a missing asset changes the fingerprint without stopping it, a missing pag
   pageMissing = true;
   await assert.rejects(print(root));
 });
+
+test('deployed assets resolve against the document base when the page has one', async t => {
+  let bundle = 'one';
+  const print = await fingerprintServer(t, (request, response) => {
+    if (request.url === '/nested/page') return response.end('<base href="/"><script src="bundle.js"></script>');
+    if (request.url === '/bundle.js') return response.end(bundle);
+    response.writeHead(404);
+    response.end();
+  });
+  const root = shotsFixture(t, { route: '/nested/page' });
+  const first = (await print(root)).stdout;
+  bundle = 'two';
+  assert.notEqual((await print(root)).stdout, first, 'the bundle under the base is what was hashed');
+});
