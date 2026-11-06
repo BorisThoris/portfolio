@@ -10,6 +10,8 @@
 // Usage:
 //   node scripts/meta/sync-project-meta.mjs             # report drift only
 //   node scripts/meta/sync-project-meta.mjs --write      # apply to portfolio data
+//   node scripts/meta/sync-project-meta.mjs --write --only=bobball
+//                                                       # refresh one local project
 //   node scripts/meta/sync-project-meta.mjs --write --add-new
 //                                                       # also add unlisted projects
 
@@ -21,6 +23,8 @@ import { repoRegistry, portfolioRoot, hostedOnlyProjects } from './repo-registry
 const args = process.argv.slice(2);
 const write = args.includes('--write');
 const addNew = args.includes('--add-new');
+const only = args.find(arg => arg.startsWith('--only='))?.slice(7);
+if (only && !repoRegistry.some(entry => entry.slug === only)) throw new Error('Unknown project: ' + only);
 
 const projectDataPath = path.join(portfolioRoot, 'src', 'project-data.json');
 const analysisPath = path.join(portfolioRoot, 'src', 'repo-analysis.json');
@@ -33,6 +37,7 @@ const mirrorDir = process.env.PROJECT_META_MIRROR ? path.resolve(process.env.PRO
 
 const metas = [];
 for (const entry of repoRegistry) {
+  if (only && entry.slug !== only) continue;
   const metaPath = mirrorDir
     ? path.join(mirrorDir, entry.slug, 'project.meta.json')
     : path.join(entry.dir, 'project.meta.json');
@@ -93,7 +98,7 @@ if (!addNew) {
   }
 }
 
-const missingMeta = repoRegistry.filter((entry) => !metas.some((item) => item.entry.slug === entry.slug));
+const missingMeta = repoRegistry.filter((entry) => (!only || entry.slug === only) && !metas.some((item) => item.entry.slug === entry.slug));
 if (missingMeta.length > 0) {
   console.log('\nRegistered repos without project.meta.json:');
   for (const entry of missingMeta) console.log('  ' + entry.slug + '  ' + entry.dir);
@@ -120,20 +125,20 @@ if (hostedOnlyProjects.length > 0) {
 // snapshot, every screenshot, the trailers and videos. That comes straight out
 // of each project.meta.json, keyed by slug, in src/project-details.json.
 const detailsPath = path.join(portfolioRoot, 'src', 'project-details.json');
-const nextDetails = {};
+const previousDetails = readJson(detailsPath) ?? {};
+const nextDetails = only ? { ...previousDetails } : {};
 for (const item of metas) {
   if (!item.meta.identity?.slug) continue;
   nextDetails[item.meta.identity.slug] = detailsRecordFrom(item);
 }
-const previousDetails = readJson(detailsPath) ?? {};
 if (JSON.stringify(previousDetails) !== JSON.stringify(nextDetails)) {
   changes.push('project-details ' + Object.keys(nextDetails).length + ' projects  ' + (Object.keys(previousDetails).length === 0 ? 'created' : 'updated'));
 }
 
 if (write) {
-  fs.writeFileSync(projectDataPath, JSON.stringify(nextProjectData, null, 2) + '\n');
-  fs.writeFileSync(analysisPath, JSON.stringify(nextAnalysis, null, 2) + '\n');
-  fs.writeFileSync(detailsPath, JSON.stringify(nextDetails, null, 2) + '\n');
+  writeJson(projectDataPath, nextProjectData);
+  writeJson(analysisPath, nextAnalysis);
+  writeJson(detailsPath, nextDetails);
   console.log('\nWrote src/project-data.json, src/repo-analysis.json and src/project-details.json.');
 } else {
   console.log('\nRead-only run. Re-run with --write to apply.');
@@ -239,7 +244,8 @@ function detailsRecordFrom({ entry, meta }) {
       height: trailer.height,
       duration: trailer.duration,
       orientation: trailer.orientation,
-      builtAt: trailer.builtAt
+      builtAt: trailer.builtAt,
+      audioUpdatedAt: trailer.audioUpdatedAt
     })),
     artwork: (media.artwork ?? []).map((art) => pruneEmpty({
       id: art.id,
@@ -287,6 +293,13 @@ function diffRecord(file, slug, before, after) {
 }
 
 // ------------------------------------------------------------------- helpers
+
+function writeJson(file, value) {
+  const text = JSON.stringify(value, null, 2) + '\n';
+  if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === text) return;
+  fs.writeFileSync(file + '.tmp', text);
+  fs.renameSync(file + '.tmp', file);
+}
 
 function pruneEmpty(value) {
   const result = {};

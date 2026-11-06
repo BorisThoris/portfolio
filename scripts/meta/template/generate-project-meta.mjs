@@ -19,6 +19,7 @@
 
 import { Buffer } from 'node:buffer';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, URL } from 'node:url';
@@ -467,6 +468,15 @@ function describeImages(directory, prefix) {
 // project-media/trailers.json is the record build-project-trailers.mjs keeps of
 // what it published; the deployment origin turns its site paths into URLs the
 // portfolio can play from anywhere.
+function versionedMediaUrl(url, relativeFile) {
+  const file = relativeFile && path.join(repoRoot, relativeFile);
+  if (!file || !fs.existsSync(file)) return url;
+  const revision = createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 16);
+  const parsed = new URL(url, 'https://media.invalid');
+  parsed.searchParams.set('v', revision);
+  return /^[a-z]+:/i.test(url) ? parsed.href : parsed.pathname + parsed.search + parsed.hash;
+}
+
 function collectTrailers() {
   const record = readJson(path.join(repoRoot, 'project-media', 'trailers.json'));
   if (!record || !Array.isArray(record.items)) return [];
@@ -476,14 +486,15 @@ function collectTrailers() {
     .map((item) => pruneEmpty({
       id: item.id,
       title: item.title,
-      url: origin ? origin + item.urlPath : item.urlPath,
-      poster: item.posterUrlPath ? (origin ? origin + item.posterUrlPath : item.posterUrlPath) : undefined,
+      url: versionedMediaUrl(origin ? origin + item.urlPath : item.urlPath, item.file),
+      poster: item.posterUrlPath ? versionedMediaUrl(origin ? origin + item.posterUrlPath : item.posterUrlPath, item.poster) : undefined,
       file: item.file,
       bytes: item.bytes,
       width: item.width,
       height: item.height,
       duration: item.duration,
       orientation: item.orientation,
+      audioUpdatedAt: item.audioUpdatedAt,
       builtAt: item.builtAt
     }));
 }
@@ -498,7 +509,7 @@ function collectArtwork() {
       id: item.id,
       title: item.title,
       role: item.role,
-      url: origin ? origin + item.urlPath : item.urlPath,
+      url: versionedMediaUrl(origin ? origin + item.urlPath : item.urlPath, item.file),
       file: item.file,
       bytes: item.bytes,
       width: item.width,

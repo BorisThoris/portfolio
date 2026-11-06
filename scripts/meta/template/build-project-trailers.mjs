@@ -136,6 +136,7 @@ const stale = [];
 const missingTools = [];
 const preparedThisRun = new Set();
 let built = 0;
+let republished = 0;
 let recordChanged = false;
 let deferred = 0;
 
@@ -164,6 +165,13 @@ for (const item of items) {
   }
 
   if (!state.stale && !force) {
+    // Migrate older Git-index fingerprints without touching the render.
+    if (!previous.settingsHash || previous.inputsHash !== state.inputsHash ||
+        (item.prepare && previous.prepareHash !== state.prepareHash)) {
+      recorded.set(item.id, { ...previous, inputsHash: state.inputsHash,
+        ...(item.prepare ? { prepareHash: state.prepareHash } : {}), settingsHash: settingsHash(item) });
+      recordChanged = true;
+    }
     console.log('[trailers] ' + item.id + ': current, nothing to do.');
     continue;
   }
@@ -192,10 +200,21 @@ for (const item of items) {
 
   // The build hash is taken after prepare so regenerated inputs are part of it.
   const inputsHash = hashPathspecs(itemInputs(item), itemExtraInput(item));
-  const needsBuild = force || !previous || previous.inputsHash !== inputsHash || state.unpublished || state.corrupt || state.captureSettingsStale;
-  if (!needsBuild) {
+  const legacyInputsHash = legacyHashPathspecs(itemInputs(item), itemExtraInput(item));
+  const inputsCurrent = Boolean(previous) && (previous.inputsHash === inputsHash || previous.inputsHash === legacyInputsHash);
+  const master = item.kind === 'capture'
+    ? path.join(repoRoot, 'project-media', '.captures', item.id + '.webm')
+    : item.output ? path.join(repoRoot, item.output) : null;
+  // A missing or damaged web copy of an unchanged render only needs re-encoding.
+  // A provenance override always asks for a fresh recording.
+  const webCopyBad = state.unpublished || state.corrupt;
+  const republishOnly = !force && webCopyBad && inputsCurrent && !state.settingsStale && !state.captureSettingsStale &&
+    captureUrlOverride === undefined && captureSourceCommit === undefined && Boolean(master) && fs.existsSync(master);
+  const needsBuild = force || !inputsCurrent || (webCopyBad && !republishOnly) ||
+    state.settingsStale || state.captureSettingsStale || state.outputsMissing;
+  if (!needsBuild && !republishOnly) {
     // prepare ran but produced identical inputs: the render is still valid.
-    recorded.set(item.id, { ...previous, prepareHash });
+    recorded.set(item.id, { ...previous, prepareHash, settingsHash: settingsHash(item) });
     recordChanged = true;
     console.log('[trailers] ' + item.id + ': inputs unchanged after prepare, render kept.');
     continue;
@@ -203,8 +222,8 @@ for (const item of items) {
 
   if (item.kind === 'capture') {
     // recorded and published in one go below
-  } else if (noBuild || !item.build) {
-    console.log('\n[trailers] ' + item.id + ': ' + (item.build ? '--no-build, ' : '') + 'publishing ' + (item.output ?? item.source ?? 'the build') + '.');
+  } else if (republishOnly || noBuild || !item.build) {
+    console.log('\n[trailers] ' + item.id + ': ' + (item.build ? (republishOnly ? 'master current, ' : '--no-build, ') : '') + 'publishing ' + (item.output ?? item.source ?? 'the build') + '.');
   } else {
     if (trailers.freeGpu) freeGpu();
     console.log('\n[trailers] ' + item.id + ': build - ' + item.build);
@@ -216,15 +235,16 @@ for (const item of items) {
     }
   }
 
-  const entry = { id: item.id, title: item.title ?? item.id, kind: item.kind ?? 'trailer', inputsHash, builtAt: new Date().toISOString() };
+  const entry = { id: item.id, title: item.title ?? item.id, kind: item.kind ?? 'trailer', inputsHash, settingsHash: settingsHash(item), builtAt: new Date().toISOString() };
   if (item.prepare) entry.prepareHash = prepareHash ?? hashPathspecs(item.prepare.inputs ?? []);
   if ((item.kind ?? 'trailer') === 'trailer') Object.assign(entry, publishTrailer(item));
-  else if (item.kind === 'capture') Object.assign(entry, await publishCapture(item, previous));
+  else if (item.kind === 'capture') Object.assign(entry, await publishCapture(item, previous, republishOnly));
   else if (item.kind === 'artwork') Object.assign(entry, publishArtwork(item));
   else if (item.outputs) entry.outputs = item.outputs.map((relative) => describeFile(relative));
   recorded.set(item.id, entry);
   recordChanged = true;
-  built += 1;
+  if (republishOnly) republished += 1;
+  else built += 1;
 }
 
 if (listOnly) process.exit(0);
@@ -247,7 +267,7 @@ if (recordChanged) {
   fs.mkdirSync(path.dirname(recordPath), { recursive: true });
   fs.writeFileSync(recordPath, JSON.stringify(next, null, 2) + '\n');
 }
-console.log('\n[trailers] ' + slug + ': ' + built + ' built' + (missingTools.length > 0 ? ', ' + missingTools.length + ' skipped for missing tools' : '') + '.');
+console.log('\n[trailers] ' + slug + ': ' + built + ' built, ' + republished + ' republished' + (missingTools.length > 0 ? ', ' + missingTools.length + ' skipped for missing tools' : '') + '.');
 
 // ------------------------------------------------------------------ state
 
@@ -255,28 +275,52 @@ function describeState(item, previous) {
   const kind = item.kind ?? 'trailer';
   const publishes = kind === 'trailer' || kind === 'artwork' || kind === 'capture';
   if (!previous) return { stale: true, reason: 'never built', prepareStale: true, unpublished: publishes, summary: 'never built' };
-  const prepareStale = Boolean(item.prepare) && previous.prepareHash !== hashPathspecs(item.prepare.inputs ?? []);
-  const inputsStale = previous.inputsHash !== hashPathspecs(itemInputs(item), itemExtraInput(item));
-  const unpublished = publishes && !(previous.file && fs.existsSync(path.join(repoRoot, previous.file)));
+  const prepareHash = item.prepare ? hashPathspecs(item.prepare.inputs ?? []) : undefined;
+  const inputsHash = hashPathspecs(itemInputs(item), itemExtraInput(item));
+  const legacyPrepareHash = item.prepare ? legacyHashPathspecs(item.prepare.inputs ?? []) : undefined;
+  const legacyInputsHash = legacyHashPathspecs(itemInputs(item), itemExtraInput(item));
+  const prepareStale = Boolean(item.prepare) && previous.prepareHash !== prepareHash && previous.prepareHash !== legacyPrepareHash;
+  const inputsStale = previous.inputsHash !== inputsHash && previous.inputsHash !== legacyInputsHash;
+  // Captures have captureSettingsHash, which the push gate treats separately.
+  const settingsStale = kind !== 'capture' && Boolean(previous.settingsHash) && previous.settingsHash !== settingsHash(item);
+  const unpublished = publishes && !(previous.file && fs.existsSync(path.join(repoRoot, previous.file))
+    && (!previous.poster || fs.existsSync(path.join(repoRoot, previous.poster))));
   const publishedStat = publishes && !unpublished ? fs.statSync(path.join(repoRoot, previous.file)) : null;
   const corrupt = Boolean(publishedStat) && (!publishedStat.isFile() || publishedStat.size <= 0 || publishedStat.size !== previous.bytes);
   const captureSettingsStale = kind === 'capture' && previous.captureSettingsHash !== captureSettingsHash(item);
+  const outputsMissing = (item.outputs ?? []).some((relative) => !fs.existsSync(path.join(repoRoot, relative)));
   const reasons = [];
   if (prepareStale) reasons.push('generator inputs changed');
   if (inputsStale) reasons.push('inputs changed');
+  if (settingsStale) reasons.push('render settings changed');
   if (unpublished) reasons.push('web copy missing');
   if (corrupt) reasons.push('web copy size differs from its build record');
   if (captureSettingsStale) reasons.push('capture settings changed or not yet recorded');
+  if (outputsMissing) reasons.push('rendered output missing');
   const stale = reasons.length > 0;
   return {
     stale,
     prepareStale,
+    prepareHash,
+    inputsHash,
+    settingsStale,
     unpublished,
     corrupt,
     captureSettingsStale,
+    outputsMissing,
     reason: reasons.join(', '),
     summary: stale ? 'STALE: ' + reasons.join(', ') : 'current (built ' + previous.builtAt + (previous.file ? ', ' + previous.file : '') + ')'
   };
+}
+
+function settingsHash(item) {
+  const { title, inputs, requires, ...renderSettings } = item;
+  return crypto.createHash('sha256').update(JSON.stringify({
+    item: renderSettings,
+    ...(item.music ? { musicHash: hashPathspecs([item.music]) } : {}),
+    publishDirRelative, artworkDirRelative,
+    maxBytes, urlPathPrefix, artworkUrlPathPrefix
+  })).digest('hex');
 }
 
 // An artwork item with no inputs of its own is rendered from its source file.
@@ -307,6 +351,8 @@ function itemExtraInput(item) {
 
 // Separate capture settings from application-source freshness: a push gate may defer only
 // the latter. Legacy records must be refreshed once rather than guessing their old recipe.
+// The music hash stays on the legacy algorithm: moving it would mark every recorded capture
+// as having changed settings, which the push gate refuses.
 function captureSettingsHash(item) {
   const settings = { ...item };
   delete settings.inputs;
@@ -314,14 +360,43 @@ function captureSettingsHash(item) {
     settings,
     deploymentUrl: config.curated?.deploymentUrl ?? null,
     publishDirRelative, urlPathPrefix, maxBytes,
-    musicHash: item.music ? hashPathspecs([item.music]) : null
+    musicHash: item.music ? legacyHashPathspecs([item.music]) : null
   })).digest('hex');
 }
 
-// The hash covers every tracked file under the pathspecs (its blob id from the
-// index) plus the content of anything modified or untracked in the working
-// tree, so an unstaged edit counts as a change too. Ignored files do not.
+// Hash each file's Git blob id, computed from the working tree with the repo's
+// filters applied. Stage, commit and reset do not change it, and neither does a
+// CRLF checkout, so Windows and the Linux runners agree on the same content.
 function hashPathspecs(pathspecs, extra = '') {
+  if (pathspecs.length === 0 && !extra) return 'none';
+  const hash = crypto.createHash('sha256');
+  hash.update(extra);
+  if (pathspecs.length === 0) return hash.digest('hex');
+  const listed = git(['ls-files', '-z', '--', ...pathspecs]);
+  const untracked = git(['ls-files', '--others', '--exclude-standard', '-z', '--', ...pathspecs]);
+  const files = [...new Set([...listed.split('\0'), ...untracked.split('\0')].filter(Boolean))].sort();
+  const present = files.filter((file) => {
+    const full = path.join(repoRoot, file);
+    return fs.existsSync(full) && fs.statSync(full).isFile();
+  });
+  const blobs = new Map();
+  for (let start = 0; start < present.length; start += 200) {
+    const chunk = present.slice(start, start + 200);
+    const ids = git(['hash-object', '--', ...chunk]).trim().split('\n');
+    chunk.forEach((file, index) => blobs.set(file, ids[index]));
+  }
+  for (const file of files) {
+    const full = path.join(repoRoot, file);
+    hash.update('\0' + file + '\0');
+    if (!fs.existsSync(full)) { hash.update('deleted'); continue; }
+    if (blobs.has(file)) hash.update(blobs.get(file));
+  }
+  return hash.digest('hex');
+}
+
+// Read old records during migration so an unchanged trailer is not rebuilt
+// just because the fingerprint algorithm changed.
+function legacyHashPathspecs(pathspecs, extra = '') {
   if (pathspecs.length === 0 && !extra) return 'none';
   const hash = crypto.createHash('sha256');
   hash.update(extra);
@@ -462,17 +537,17 @@ function publishTrailer(item) {
 // master under project-media/.captures/ (ignored), then publishes it like any
 // trailer: H.264 + AAC with the music bed looped and faded underneath, capped
 // in size, with a poster frame. --no-build re-encodes the last recording.
-async function publishCapture(item, previous) {
+async function publishCapture(item, previous, republishOnly = false) {
   const recipe = item.recipe ?? {};
   const capturesDir = path.join(repoRoot, 'project-media', '.captures');
   const master = path.join(capturesDir, item.id + '.webm');
   fs.mkdirSync(capturesDir, { recursive: true });
-  let stats = null;
+  let stats = republishOnly ? previous?.stats ?? null : null;
   let captureProvenance = previous?.captureProvenance;
 
-  const reuseRecording = noBuild && fs.existsSync(master);
+  const reuseRecording = (noBuild || republishOnly) && fs.existsSync(master);
   if (reuseRecording) {
-    console.log('\n[trailers] ' + item.id + ': --no-build, re-publishing the last recording.');
+    console.log('\n[trailers] ' + item.id + ': ' + (republishOnly ? 'master current' : '--no-build') + ', re-publishing the last recording.');
   } else {
     if (captureSourceCommit && git(['status', '--porcelain', '--', ...itemInputs(item)]).trim())
       throw new Error('Captured application inputs differ from --source-commit.');

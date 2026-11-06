@@ -12,3 +12,6 @@ public/project-previews/
 
 # Metadata mirrored from the repos by scripts/meta/pull-project-media.mjs
 .meta-mirror/
+.cache/
+# recorded trailer masters (scripts/build-project-trailers.mjs)
+project-media/.captures/

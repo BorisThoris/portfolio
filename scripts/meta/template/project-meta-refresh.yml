@@ -75,6 +75,19 @@ jobs:
           echo "::warning::gave up waiting for the deployment; refreshing without new screenshots"
           echo "deployed=false" >> "$GITHUB_OUTPUT"
 
+      # Only once this commit is live: the check compares what the deployment serves
+      # with what was photographed. Run earlier it sees the previous release, reports
+      # "current", and the new release is never photographed.
+      - name: Check whether the deployed page changed
+        id: media
+        if: steps.deploy.outputs.deployed == 'true'
+        run: |
+          if node scripts/capture-project-shots.mjs --check; then
+            echo "shots=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "shots=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install a browser for the screenshots
         if: steps.deploy.outputs.deployed == 'true'
         run: |
@@ -87,7 +100,7 @@ jobs:
       # is photographed: a loading screen or a moved button fails here, loudly,
       # instead of becoming the project's card.
       - name: Drive the screenshot and trailer recipes against the deployment
-        if: steps.deploy.outputs.deployed == 'true'
+        if: steps.deploy.outputs.deployed == 'true' && steps.media.outputs.shots == 'true'
         env:
           PORTFOLIO_ROOT: ${{ runner.temp }}/pw
         run: node scripts/project-media.e2e.mjs --only=shots
@@ -100,7 +113,11 @@ jobs:
           PORTFOLIO_ROOT: ${{ runner.temp }}/pw
         run: |
           if [ "${{ steps.deploy.outputs.deployed }}" = "true" ]; then
-            node scripts/refresh-project-meta.mjs
+            if [ "${{ steps.media.outputs.shots }}" = "true" ]; then
+              node scripts/refresh-project-meta.mjs
+            else
+              node scripts/refresh-project-meta.mjs --no-shots
+            fi
           else
             node scripts/refresh-project-meta.mjs --no-trailers --no-shots
           fi
