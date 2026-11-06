@@ -38,6 +38,9 @@ const capture = readJson(path.join(mediaDir, 'capture.json'));
 const trailers = readJson(path.join(mediaDir, 'trailers.json'));
 const skipsShots = Boolean(config.capture?.skip);
 const curated = config.curated ?? {};
+const excludedDuplicate = config.classification === 'duplicate' && curated.showcaseTier === 'excluded';
+const screenshotSkip = excludedDuplicate ? 'excluded duplicate has no separate screenshot set' :
+  skipsShots && 'this project renders its pictures';
 
 test('project.meta.json exists and matches the config identity', () => {
   assert.ok(meta, 'project.meta.json is missing - run: npm run meta');
@@ -59,7 +62,7 @@ test('the curated identity is specific to this project', () => {
   if (curated.deploymentUrl) assert.match(curated.deploymentUrl, /^https:\/\//, 'deployment URL is https');
 });
 
-test('every screenshot profile was captured cleanly', { skip: skipsShots && 'this project renders its pictures' }, () => {
+test('every screenshot profile was captured cleanly', { skip: screenshotSkip }, () => {
   assert.ok(capture, 'project-media/capture.json is missing - run: npm run shots');
   const byProfile = new Map((capture.profiles ?? []).map((entry) => [entry.profile, entry]));
   for (const name of Object.keys(PROFILES)) {
@@ -75,7 +78,7 @@ test('every screenshot profile was captured cleanly', { skip: skipsShots && 'thi
   }
 });
 
-test('every screenshot file is present at its profile size', { skip: skipsShots && 'this project renders its pictures' }, () => {
+test('every screenshot file is present at its profile size', { skip: screenshotSkip }, () => {
   for (const [name, profile] of Object.entries(PROFILES)) {
     const file = path.join(mediaDir, name + '.jpg');
     assert.ok(fs.existsSync(file), name + '.jpg is missing');
@@ -87,7 +90,8 @@ test('every screenshot file is present at its profile size', { skip: skipsShots 
   }
 });
 
-test('the metadata lists the screenshots it has', () => {
+test('the metadata lists the screenshots it has',
+  { skip: excludedDuplicate && 'excluded duplicate has no separate screenshot set' }, () => {
   assert.ok(meta);
   const images = meta.media?.images ?? [];
   const expected = skipsShots ? ['card', 'og'] : Object.keys(PROFILES);

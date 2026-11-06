@@ -108,6 +108,17 @@ sees; `--source=local` starts the project's own dev server instead, and
 `--url=...` photographs anything you point it at. Playwright is resolved from the
 repo, else from `PORTFOLIO_ROOT`, so no project needs the dependency.
 
+For a deployed page, the capture script fingerprints its HTML and same-origin
+scripts, styles, and images; `capture.remoteAssets` can name additional assets
+that affect the picture but are loaded dynamically. For a local capture,
+`capture.inputs` lists Git pathspecs for the source and assets that affect the
+picture. Without an explicit local list, conventional app directories are used
+and generated output, tests, and documentation are excluded. The recipe, URL,
+and each profile's settings are also dependencies. A changed or missing profile
+is the only one recaptured; `--check` reports stale profiles without opening a
+browser, and `--force` deliberately recaptures. Older manifests get one fresh
+capture when their dependencies cannot be verified.
+
 `project-media/capture.json` records the source URL, the recipe used and the
 result per profile. Because the images live in the repo, they travel with a clone
 and `media.source` reads `repo-local`; the portfolio's own

@@ -208,3 +208,170 @@ test('invalid runtime provenance fails before recording or replacing published m
     assert.equal(fs.readFileSync(path.join(root, 'public/trailers/tour.mp4'), 'utf8'), 'data');
   }
 });
+
+// ---- Reconciled behaviour: portable hashing, republish without re-render, incremental shots
+
+const commitAll = (root, message) => {
+  execFileSync('git', ['add', '.'], { cwd: root, stdio: 'pipe' });
+  execFileSync('git', ['-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
+    'commit', '--quiet', '-m', message], { cwd: root, stdio: 'pipe' });
+};
+const trailers = (root, ...extra) => spawnSync(process.execPath, ['--import', './fake-encoder.mjs',
+  'scripts/build-project-trailers.mjs', ...extra], { cwd: root, encoding: 'utf8', timeout: 30000 });
+
+test('a CRLF checkout of the same content keeps a record written from LF current', t => {
+  const { root, capture } = captureFixture(t);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'line one\nline two\n');
+  commitAll(root, 'two lines');
+  const built = capture();
+  assert.equal(built.status, 0, built.stderr);
+  execFileSync('git', ['config', 'core.autocrlf', 'true'], { cwd: root });
+  fs.writeFileSync(path.join(root, 'app.txt'), 'line one\r\nline two\r\n');
+  const result = check(root, false);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
+
+test('committing an unchanged input does not make its render stale', t => {
+  const { root, capture } = captureFixture(t);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'edited, not yet committed\n');
+  const built = capture();
+  assert.equal(built.status, 0, built.stderr);
+  commitAll(root, 'commit the edit');
+  const result = check(root, false);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
+
+test('a real content change still makes the render stale', t => {
+  const { root, capture } = captureFixture(t);
+  assert.equal(capture().status, 0);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'a different application\n');
+  assert.notEqual(check(root, false).status, 0);
+});
+
+test('a missing web copy is re-encoded from the master without recording again', t => {
+  const { root, capture } = captureFixture(t);
+  assert.equal(capture().status, 0);
+  const before = JSON.parse(fs.readFileSync(path.join(root, 'project-media/trailers.json'))).items[0];
+  fs.rmSync(path.join(root, before.file));
+  fs.rmSync(path.join(root, 'capture-options.json'));
+  const result = trailers(root);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(fs.existsSync(path.join(root, 'capture-options.json')), false, 'no new recording');
+  assert.ok(fs.existsSync(path.join(root, before.file)));
+  assert.match(result.stdout, /1 republished/);
+  const after = JSON.parse(fs.readFileSync(path.join(root, 'project-media/trailers.json'))).items[0];
+  assert.deepEqual(after.stats, before.stats);
+  assert.deepEqual(after.captureProvenance, before.captureProvenance);
+});
+
+test('a provenance override records afresh even when the master could be republished', t => {
+  const { root, capture } = captureFixture(t);
+  assert.equal(capture().status, 0);
+  const before = JSON.parse(fs.readFileSync(path.join(root, 'project-media/trailers.json'))).items[0];
+  fs.rmSync(path.join(root, before.file));
+  fs.rmSync(path.join(root, 'capture-options.json'));
+  const result = trailers(root, '--url=https://preview.example/');
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(root, 'capture-options.json'))).url, 'https://preview.example/');
+});
+
+test('a render-setting change makes a non-capture item stale, a record without one is not', t => {
+  const { root, item, record, writeConfig, writeRecord } = fixture(t);
+  const output = 'out/tour.mp4';
+  Object.assign(item, { kind: 'trailer', output, build: 'node build.mjs', fps: 30 });
+  delete item.recipe;
+  writeConfig();
+  record.inputsHash = 'none';
+  delete record.captureSettingsHash;
+  record.settingsHash = undefined;
+  writeRecord();
+  const quiet = spawnSync(process.execPath, ['scripts/build-project-trailers.mjs', '--list'], { cwd: root, encoding: 'utf8', timeout: 30000 });
+  assert.equal(quiet.status, 0, quiet.stderr);
+  record.settingsHash = 'from-another-configuration';
+  writeRecord();
+  const listed = spawnSync(process.execPath, ['scripts/build-project-trailers.mjs', '--list'], { cwd: root, encoding: 'utf8', timeout: 30000 });
+  assert.match(listed.stdout + listed.stderr, /render settings changed/);
+});
+
+function shotsFixture(t, capture = { inputs: ['app.txt'] }) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'shots-check-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(root, 'scripts'));
+  fs.copyFileSync(path.join(template, 'capture-project-shots.mjs'), path.join(root, 'scripts/capture-project-shots.mjs'));
+  fs.copyFileSync(library, path.join(root, 'scripts/project-media-lib.mjs'));
+  fs.writeFileSync(path.join(root, 'scripts/project-meta.config.mjs'),
+    `export default ${JSON.stringify({ slug: 'fixture', curated: {}, capture })};`);
+  execFileSync('git', ['init', '--quiet'], { cwd: root, stdio: 'pipe' });
+  return root;
+}
+const shots = (root, ...extra) => spawnSync(process.execPath, ['scripts/capture-project-shots.mjs', ...extra],
+  { cwd: root, encoding: 'utf8', timeout: 30000 });
+
+test('a local screenshot fingerprint is the same for LF and CRLF checkouts of one file', t => {
+  const root = shotsFixture(t);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'line one\nline two\n');
+  commitAll(root, 'app');
+  const lf = shots(root, '--source=local', '--fingerprint');
+  assert.equal(lf.status, 0, lf.stderr);
+  execFileSync('git', ['config', 'core.autocrlf', 'true'], { cwd: root });
+  fs.writeFileSync(path.join(root, 'app.txt'), 'line one\r\nline two\r\n');
+  assert.equal(shots(root, '--source=local', '--fingerprint').stdout, lf.stdout);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'changed\r\n');
+  assert.notEqual(shots(root, '--source=local', '--fingerprint').stdout, lf.stdout);
+});
+
+test('a deployed screenshot fingerprint follows the assets the page serves', async t => {
+  const { createServer } = await import('node:http');
+  const { promisify } = await import('node:util');
+  const { execFile } = await import('node:child_process');
+  let asset = 'one';
+  const server = createServer((request, response) => response.end(request.url.endsWith('.js') ? asset : '<script src="/app.js"></script>'));
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => server.close());
+  const root = shotsFixture(t, {});
+  const url = '--url=http://127.0.0.1:' + server.address().port + '/';
+  const print = async () => (await promisify(execFile)(process.execPath,
+    ['scripts/capture-project-shots.mjs', url, '--fingerprint'], { cwd: root })).stdout;
+  const first = await print();
+  assert.equal(await print(), first);
+  asset = 'two';
+  assert.notEqual(await print(), first);
+});
+
+test('a rendered trailer recorded by the previous hash is current and is not rendered again', t => {
+  const { root, item, writeConfig } = captureFixture(t);
+  const scriptPath = path.join(root, 'scripts/build-project-trailers.mjs');
+  const current = fs.readFileSync(scriptPath, 'utf8');
+  // The same script, hashing with the previous algorithm: what an existing record was written by.
+  fs.writeFileSync(scriptPath, current.replace('function hashPathspecs(', 'function portableHash(') +
+    '\nfunction hashPathspecs(pathspecs, extra) { return legacyHashPathspecs(pathspecs, extra); }\n');
+  fs.mkdirSync(path.join(root, 'out'));
+  fs.writeFileSync(path.join(root, 'render.mjs'),
+    "import fs from 'node:fs'; fs.writeFileSync('rendered.marker', 'x'); fs.writeFileSync('out/tour.mp4', 'video');");
+  delete item.recipe;
+  delete item.source;
+  Object.assign(item, { kind: 'trailer', output: 'out/tour.mp4', build: 'node render.mjs', inputs: ['app.txt'] });
+  writeConfig();
+  fs.writeFileSync(path.join(root, '.gitignore'), 'rendered.marker\nout/\npublic/\nproject-media/\nscripts/\nfake-encoder.mjs\nrender.mjs\n');
+  commitAll(root, 'a rendered trailer');
+  fs.rmSync(path.join(root, 'project-media/trailers.json'));
+  const built = trailers(root);
+  assert.equal(built.status, 0, built.stdout + built.stderr);
+  assert.ok(fs.existsSync(path.join(root, 'rendered.marker')), 'the fixture really rendered once');
+  const recordPath = path.join(root, 'project-media/trailers.json');
+  const record = JSON.parse(fs.readFileSync(recordPath));
+  const legacyHash = record.items[0].inputsHash;
+  delete record.items[0].settingsHash;
+  fs.writeFileSync(recordPath, JSON.stringify(record));
+
+  fs.writeFileSync(scriptPath, current);
+  fs.rmSync(path.join(root, 'rendered.marker'));
+  const strict = check(root, false);
+  assert.equal(strict.status, 0, strict.stdout + strict.stderr);
+  const migrated = trailers(root);
+  assert.equal(migrated.status, 0, migrated.stdout + migrated.stderr);
+  assert.equal(fs.existsSync(path.join(root, 'rendered.marker')), false, 'no second render');
+  const after = JSON.parse(fs.readFileSync(recordPath)).items[0];
+  assert.notEqual(after.inputsHash, legacyHash, 'the record moved to the portable hash');
+  assert.match(after.settingsHash, /^[a-f0-9]{64}$/);
+});
