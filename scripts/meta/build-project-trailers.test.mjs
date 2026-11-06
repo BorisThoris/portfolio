@@ -375,3 +375,77 @@ test('a rendered trailer recorded by the previous hash is current and is not ren
   assert.notEqual(after.inputsHash, legacyHash, 'the record moved to the portable hash');
   assert.match(after.settingsHash, /^[a-f0-9]{64}$/);
 });
+
+test('a lenient screenshot never satisfies a strict run', async t => {
+  const { PROFILES, joinUrl } = await import(pathToFileURL(library).href);
+  const capture = { inputs: ['app.txt'] };
+  const root = shotsFixture(t, capture);
+  fs.writeFileSync(path.join(root, 'app.txt'), 'app\n');
+  commitAll(root, 'app');
+  const fingerprint = shots(root, '--source=local', '--fingerprint').stdout.trim();
+  const target = joinUrl('http://127.0.0.1:5173/', '/');
+  fs.mkdirSync(path.join(root, 'project-media'));
+  const profiles = Object.entries(PROFILES).map(([name, profile]) => {
+    fs.writeFileSync(path.join(root, 'project-media', name + '.jpg'), 'picture');
+    return { profile: name, file: name + '.jpg', status: 'captured',
+      dependencyHash: hash({ version: 1, fingerprint, source: 'local', target, capture, profile }) };
+  });
+  const write = () => fs.writeFileSync(path.join(root, 'project-media/capture.json'),
+    JSON.stringify({ dependencySchema: 1, source: 'local', url: target, recipe: capture, profiles }));
+  write();
+  const clean = shots(root, '--source=local', '--check');
+  assert.equal(clean.status, 0, clean.stdout + clean.stderr);
+  profiles[0].lenient = true;
+  write();
+  const flagged = shots(root, '--source=local', '--check');
+  assert.equal(flagged.status, 1, flagged.stdout + flagged.stderr);
+  assert.match(flagged.stderr, new RegExp('stale profiles: ' + profiles[0].profile));
+  delete profiles[0].lenient;
+  profiles[1].problems = ['frame is blank'];
+  write();
+  assert.equal(shots(root, '--source=local', '--check').status, 1);
+});
+
+async function fingerprintServer(t, routes) {
+  const { createServer } = await import('node:http');
+  const { promisify } = await import('node:util');
+  const { execFile } = await import('node:child_process');
+  const server = createServer((request, response) => routes(request, response));
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => server.close());
+  return (root) => promisify(execFile)(process.execPath, ['scripts/capture-project-shots.mjs',
+    '--url=http://127.0.0.1:' + server.address().port + '/', '--fingerprint'], { cwd: root });
+}
+
+test('deployed assets resolve against the page after a redirect', async t => {
+  let bundle = 'one';
+  const print = await fingerprintServer(t, (request, response) => {
+    if (request.url === '/app') { response.writeHead(302, { location: '/app/' }); return response.end(); }
+    if (request.url === '/app/') return response.end('<script src="./bundle.js"></script>');
+    if (request.url === '/app/bundle.js') return response.end(bundle);
+    response.writeHead(404);
+    response.end();
+  });
+  const root = shotsFixture(t, { route: '/app' });
+  const first = (await print(root)).stdout;
+  assert.equal((await print(root)).stdout, first);
+  bundle = 'two';
+  assert.notEqual((await print(root)).stdout, first, 'the redirected bundle is what was hashed');
+});
+
+test('a missing asset changes the fingerprint without stopping it, a missing page still fails', async t => {
+  let broken = true;
+  let pageMissing = false;
+  const print = await fingerprintServer(t, (request, response) => {
+    if (pageMissing) { response.writeHead(500); return response.end(); }
+    if (request.url === '/') return response.end('<img src="/gone.png">');
+    if (broken) { response.writeHead(404); return response.end(); }
+    response.end('image');
+  });
+  const root = shotsFixture(t, {});
+  const missing = (await print(root)).stdout;
+  broken = false;
+  assert.notEqual((await print(root)).stdout, missing);
+  pageMissing = true;
+  await assert.rejects(print(root));
+});

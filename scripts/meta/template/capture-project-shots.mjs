@@ -65,10 +65,6 @@ const target = sourceUrl ? joinUrl(sourceUrl, route) : null;
 const fingerprint = source === 'deployment' || source === 'explicit'
   ? await deployedFingerprint(target, capture.remoteAssets ?? [])
   : inputFingerprint(capture.inputs ?? defaultCaptureInputs());
-if (process.argv.includes('--fingerprint')) {
-  console.log(fingerprint ?? 'unconfigured');
-  process.exit(0);
-}
 const previous = readManifest(path.join(outputDir, 'capture.json'));
 const legacyCurrent = fingerprint && !lenient && !process.argv.includes('--force') && !previous?.dependencySchema &&
   previous?.inputFingerprint === fingerprint && previous.source === source && previous.url === target &&
@@ -80,6 +76,9 @@ const currentProfile = (name) => {
   const entry = previous?.profiles?.find((profile) => profile.profile === name);
   if (!entry || entry.status !== 'captured' ||
       (!legacyCurrent && entry.dependencyHash !== dependencyHash(name))) return false;
+  // --lenient keeps rejected frames and skipped steps for debugging. Such a
+  // picture must not satisfy a strict run just because its inputs are unchanged.
+  if (entry.lenient || entry.problems?.length > 0) return false;
   const file = path.join(outputDir, entry.file ?? name + '.jpg');
   if (!fs.existsSync(file)) return false;
   if (entry.bytes && fs.statSync(file).size !== entry.bytes) return false;
@@ -87,99 +86,104 @@ const currentProfile = (name) => {
   return true;
 };
 const pending = requested.filter((name) => lenient || process.argv.includes('--force') || !currentProfile(name));
-if (pending.length === 0) {
+// Every path ends by finishing normally, with process.exitCode for a failure.
+// process.exit() straight after fetch aborts Node on Windows (a libuv assertion
+// on a closing handle), and a crashed --check would read as stale media.
+if (process.argv.includes('--fingerprint')) {
+  console.log(fingerprint ?? 'unconfigured');
+} else if (pending.length === 0) {
   console.log('[shots] ' + config.slug + ': capture inputs and recipe unchanged; keeping existing profiles.');
-  process.exit(0);
-}
-if (process.argv.includes('--check')) {
+} else if (process.argv.includes('--check')) {
   console.error('[shots] ' + config.slug + ': stale profiles: ' + pending.join(', ') + '.');
-  process.exit(1);
+  process.exitCode = 1;
+} else {
+  await captureProfiles();
 }
 
-const chromium = await loadChromium(repoRoot, config).catch((error) => {
-  console.error('[shots] ' + error.message);
-  process.exit(2);
-});
-
-let base;
-try {
-  base = await resolveBaseUrl(config, repoRoot, { source: valueOf('--source'), url: valueOf('--url'), log: (line) => console.log(line.replace('[media]', '[shots]')) });
-} catch (error) {
-  console.error('[shots] ' + error.message);
-  process.exit(2);
-}
-
-try {
-  const target = joinUrl(base.url, route);
-  console.log('[shots] ' + config.slug + ': capturing ' + target + ' (' + base.source + ')');
-  fs.mkdirSync(outputDir, { recursive: true });
-
-  const browser = await chromium.launch({ headless: true, args: capture.browserArgs ?? [] });
-  const results = [];
-
+async function captureProfiles() {
+  let chromium;
+  let base;
   try {
-    for (const name of pending) {
-      const profile = PROFILES[name];
-      const context = await browser.newContext({
-        viewport: { width: profile.width, height: profile.height },
-        deviceScaleFactor: 1,
-        isMobile: profile.isMobile ?? false,
-        hasTouch: profile.hasTouch ?? false,
-        colorScheme: capture.colorScheme ?? 'dark'
-      });
-      const page = await context.newPage();
-
-      try {
-        await page.goto(target, { waitUntil: 'load', timeout: capture.loadTimeoutMs ?? 60000 });
-        const skipped = await settle(page, capture, { strict: !lenient, log: (line) => console.log(line.replace('[media]', '[shots]')) });
-        const stats = await frameStats(page);
-        const problems = assessFrame(stats, capture.quality);
-        if (problems.length > 0 && !lenient) throw new Error('frame rejected: ' + problems.join('; '));
-
-        const file = path.join(outputDir, name + '.jpg');
-        await page.screenshot({ path: file, type: 'jpeg', quality: profile.quality, fullPage: profile.fullPage ?? false });
-        const bytes = fs.statSync(file).size;
-        results.push({
-          profile: name, file: path.basename(file), width: profile.width, height: profile.height, bytes,
-          sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),
-          dependencyHash: dependencyHash(name), status: 'captured', stats,
-          skipped: skipped.length > 0 ? skipped : undefined, problems: problems.length > 0 ? problems : undefined
-        });
-        console.log('[shots]   ' + name.padEnd(8) + ' ' + profile.width + 'x' + profile.height + '  ' + Math.round(bytes / 1024) + ' KB' +
-          '  (spread ' + stats.std + ', ' + stats.colours + ' colours' + (problems.length > 0 ? '; ' + problems.join('; ') : '') + ')');
-      } catch (error) {
-        results.push({ profile: name, status: 'failed', error: String(error.message).split('\n')[0] });
-        console.error('[shots]   ' + name.padEnd(8) + ' FAILED: ' + String(error.message).split('\n')[0]);
-      } finally {
-        await context.close();
-      }
-    }
-  } finally {
-    await browser.close();
+    chromium = await loadChromium(repoRoot, config);
+    base = await resolveBaseUrl(config, repoRoot, { source: valueOf('--source'), url: valueOf('--url'), log: (line) => console.log(line.replace('[media]', '[shots]')) });
+  } catch (error) {
+    console.error('[shots] ' + error.message);
+    process.exitCode = 2;
+    return;
   }
 
-  const kept = (previous?.profiles ?? []).filter((profile) => !pending.includes(profile.profile)).map((profile) =>
-    legacyCurrent && currentProfile(profile.profile)
-      ? { ...profile, dependencyHash: dependencyHash(profile.profile) }
-      : profile);
-  const manifest = {
-    slug: config.slug,
-    dependencySchema: 1,
-    capturedAt: new Date().toISOString(),
-    source: base.source,
-    url: target,
-    recipe: capture,
-    ...(fingerprint ? { inputFingerprint: fingerprint } : {}),
-    profiles: [...kept, ...results]
-  };
-  fs.writeFileSync(path.join(outputDir, 'capture.json'), JSON.stringify(manifest, null, 2) + '\n');
+  try {
+    const target = joinUrl(base.url, route);
+    console.log('[shots] ' + config.slug + ': capturing ' + target + ' (' + base.source + ')');
+    fs.mkdirSync(outputDir, { recursive: true });
 
-  const failed = results.filter((entry) => entry.status !== 'captured');
-  console.log('[shots] ' + config.slug + ': ' + (results.length - failed.length) + '/' + results.length +
-    ' profiles into ' + path.relative(repoRoot, outputDir) + '/');
-  if (failed.length > 0) process.exitCode = 1;
-} finally {
-  await base.stop();
+    const browser = await chromium.launch({ headless: true, args: capture.browserArgs ?? [] });
+    const results = [];
+
+    try {
+      for (const name of pending) {
+        const profile = PROFILES[name];
+        const context = await browser.newContext({
+          viewport: { width: profile.width, height: profile.height },
+          deviceScaleFactor: 1,
+          isMobile: profile.isMobile ?? false,
+          hasTouch: profile.hasTouch ?? false,
+          colorScheme: capture.colorScheme ?? 'dark'
+        });
+        const page = await context.newPage();
+
+        try {
+          await page.goto(target, { waitUntil: 'load', timeout: capture.loadTimeoutMs ?? 60000 });
+          const skipped = await settle(page, capture, { strict: !lenient, log: (line) => console.log(line.replace('[media]', '[shots]')) });
+          const stats = await frameStats(page);
+          const problems = assessFrame(stats, capture.quality);
+          if (problems.length > 0 && !lenient) throw new Error('frame rejected: ' + problems.join('; '));
+
+          const file = path.join(outputDir, name + '.jpg');
+          await page.screenshot({ path: file, type: 'jpeg', quality: profile.quality, fullPage: profile.fullPage ?? false });
+          const bytes = fs.statSync(file).size;
+          results.push({
+            profile: name, file: path.basename(file), width: profile.width, height: profile.height, bytes,
+            sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'),
+            dependencyHash: dependencyHash(name), status: 'captured', stats, lenient: lenient || undefined,
+            skipped: skipped.length > 0 ? skipped : undefined, problems: problems.length > 0 ? problems : undefined
+          });
+          console.log('[shots]   ' + name.padEnd(8) + ' ' + profile.width + 'x' + profile.height + '  ' + Math.round(bytes / 1024) + ' KB' +
+            '  (spread ' + stats.std + ', ' + stats.colours + ' colours' + (problems.length > 0 ? '; ' + problems.join('; ') : '') + ')');
+        } catch (error) {
+          results.push({ profile: name, status: 'failed', error: String(error.message).split('\n')[0] });
+          console.error('[shots]   ' + name.padEnd(8) + ' FAILED: ' + String(error.message).split('\n')[0]);
+        } finally {
+          await context.close();
+        }
+      }
+    } finally {
+      await browser.close();
+    }
+
+    const kept = (previous?.profiles ?? []).filter((profile) => !pending.includes(profile.profile)).map((profile) =>
+      legacyCurrent && currentProfile(profile.profile)
+        ? { ...profile, dependencyHash: dependencyHash(profile.profile) }
+        : profile);
+    const manifest = {
+      slug: config.slug,
+      dependencySchema: 1,
+      capturedAt: new Date().toISOString(),
+      source: base.source,
+      url: target,
+      recipe: capture,
+      ...(fingerprint ? { inputFingerprint: fingerprint } : {}),
+      profiles: [...kept, ...results]
+    };
+    fs.writeFileSync(path.join(outputDir, 'capture.json'), JSON.stringify(manifest, null, 2) + '\n');
+
+    const failed = results.filter((entry) => entry.status !== 'captured');
+    console.log('[shots] ' + config.slug + ': ' + (results.length - failed.length) + '/' + results.length +
+      ' profiles into ' + path.relative(repoRoot, outputDir) + '/');
+    if (failed.length > 0) process.exitCode = 1;
+  } finally {
+    await base.stop();
+  }
 }
 
 function valueOf(flag) {
@@ -265,28 +269,33 @@ async function deployedFingerprint(url, extraAssets) {
   if (!url) throw new Error('cannot fingerprint a deployment without a URL');
   const pageUrl = new URL(url);
   const page = await fetchDependency(pageUrl);
-  const html = page.toString('utf8');
+  // Relative references resolve against the page after any redirect.
+  const finalUrl = new URL(page.url);
+  const html = page.bytes.toString('utf8');
   const references = [...html.matchAll(/<(?:script|link|img)\b[^>]*?\b(?:src|href)=["']([^"']+)["']/gi)].map((match) => match[1]);
   const assets = [...new Set([...references, ...extraAssets]
-    .map((reference) => new URL(reference, pageUrl))
-    .filter((asset) => asset.origin === pageUrl.origin && /^https?:$/.test(asset.protocol))
+    .map((reference) => new URL(reference, finalUrl))
+    .filter((asset) => asset.origin === finalUrl.origin && /^https?:$/.test(asset.protocol))
     .map((asset) => asset.href))].sort();
   const hash = crypto.createHash('sha256');
-  hash.update(pageUrl.href);
-  hash.update(page);
+  hash.update(finalUrl.href);
+  hash.update(page.bytes);
   for (const asset of assets) {
     hash.update('\0' + asset + '\0');
-    hash.update(await fetchDependency(asset));
+    // A page can work with a broken image, so a missing asset changes the
+    // fingerprint instead of stopping the capture. The page itself must load.
+    hash.update((await fetchDependency(asset, { allowMissing: true })).bytes);
   }
   return hash.digest('hex');
 }
 
-async function fetchDependency(url) {
+async function fetchDependency(url, { allowMissing = false } = {}) {
   const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
+  if (!response.ok && allowMissing) return { url: response.url || String(url), bytes: Buffer.from('HTTP ' + response.status) };
   if (!response.ok) throw new Error('cannot fingerprint ' + url + ': HTTP ' + response.status);
   const length = Number(response.headers.get('content-length') || 0);
   if (length > 16 * 1024 * 1024) throw new Error('capture dependency too large: ' + url);
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length > 16 * 1024 * 1024) throw new Error('capture dependency too large: ' + url);
-  return bytes;
+  return { url: response.url || String(url), bytes };
 }
