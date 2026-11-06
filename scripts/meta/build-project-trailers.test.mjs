@@ -497,3 +497,27 @@ test('a data attribute is not an asset reference', async t => {
   await print(shotsFixture(t, {}));
   assert.equal(requests, 0);
 });
+
+test('character references in an asset URL are decoded as the browser decodes them', async t => {
+  const pages = {
+    '/bundle.js?v=1&lang=en': ['<script src="/bundle.js?v=1&amp;lang=en"></script>', '<script src="/bundle.js?v=1&#38;lang=en"></script>',
+      '<script src="/bundle.js?v=1&#x26;lang=en"></script>'],
+    '/bundle.js?a=1&lt=2': ['<script src="/bundle.js?a=1&lt=2"></script>'],
+    '/bundle.js?q=&lt;': ['<script src="/bundle.js?q=&amp;lt;"></script>']
+  };
+  for (const [url, variants] of Object.entries(pages)) {
+    for (const html of variants) {
+      let bundle = 'one';
+      const print = await fingerprintServer(t, (request, response) => {
+        if (request.url === '/') return response.end(html);
+        if (request.url === url) return response.end(bundle);
+        response.writeHead(404);
+        response.end();
+      });
+      const root = shotsFixture(t, {});
+      const first = (await print(root)).stdout;
+      bundle = 'two';
+      assert.notEqual((await print(root)).stdout, first, html);
+    }
+  }
+});

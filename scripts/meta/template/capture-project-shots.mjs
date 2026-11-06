@@ -298,7 +298,18 @@ async function deployedFingerprint(url, extraAssets) {
 function htmlAttributes(html, tags, attributes) {
   const pattern = new RegExp('<(?:' + tags + ')\\b[^>]*?\\s(?:' + attributes + ')\\s*=\\s*' +
     '(?:"([^"]*)"|\'([^\']*)\'|([^\\s"\'>]+))', 'gi');
-  return [...html.matchAll(pattern)].map((match) => match[1] ?? match[2] ?? match[3]).filter(Boolean);
+  return [...html.matchAll(pattern)].map((match) => decodeCharacterReferences(match[1] ?? match[2] ?? match[3])).filter(Boolean);
+}
+
+// The references a URL can hold. One pass, so &amp;lt; stays &lt;, and the semicolon
+// is required, so a query such as ?a=1&lt=2 keeps its text as the browser does.
+function decodeCharacterReferences(value) {
+  const named = { amp: '&', quot: '"', apos: "'", lt: '<', gt: '>' };
+  return value.replace(/&(?:#(\d+)|#x([0-9a-f]+)|(amp|quot|apos|lt|gt));/gi, (reference, decimal, hex, name) => {
+    if (name) return named[name.toLowerCase()];
+    const code = decimal ? Number(decimal) : Number.parseInt(hex, 16);
+    return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : reference;
+  });
 }
 
 function documentBaseUrl(html, pageUrl) {
