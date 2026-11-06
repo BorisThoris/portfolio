@@ -545,3 +545,44 @@ test('responsive image candidates are part of the deployed fingerprint', async t
     }
   }
 });
+
+test('assets reached through CSS are part of the deployed fingerprint', async t => {
+  const sites = {
+    'linked stylesheet': { '/': '<link rel=stylesheet href=/site.css>', '/site.css': 'a { background: url("/watched.png") }' },
+    'path relative to the stylesheet': { '/': '<link rel=stylesheet href=/css/site.css>',
+      '/css/site.css': 'a { background: url(../watched.png) }' },
+    'nested import, with a cycle': { '/': '<link rel=stylesheet href=/a.css>', '/a.css': '@import "b.css";',
+      '/b.css': '@import url(a.css); a { background: url(watched.png) }' },
+    'style block': { '/': '<style>a { background: url(/watched.png) }</style>' },
+    'style attribute': { '/': '<div style="background: url(&quot;/watched.png&quot;)"></div>' }
+  };
+  for (const [name, files] of Object.entries(sites)) {
+    let image = 'one';
+    const print = await fingerprintServer(t, (request, response) => {
+      if (request.url === '/watched.png') return response.end(image);
+      if (request.url in files) {
+        if (request.url.endsWith('.css')) response.setHeader('content-type', 'text/css');
+        return response.end(files[request.url]);
+      }
+      response.writeHead(404);
+      response.end();
+    });
+    const root = shotsFixture(t, {});
+    const first = (await print(root)).stdout;
+    assert.equal((await print(root)).stdout, first, name + ' is stable');
+    image = 'two';
+    assert.notEqual((await print(root)).stdout, first, name);
+  }
+});
+
+test('CSS comments, fragments and data URLs are not fetched', async t => {
+  const requests = [];
+  const print = await fingerprintServer(t, (request, response) => {
+    requests.push(request.url);
+    if (request.url === '/') return response.end('<link rel=stylesheet href=/site.css>');
+    response.setHeader('content-type', 'text/css');
+    response.end('/* url(/commented.png) */ a { filter: url(#blur); background: url(data:image/png;base64,AA==) }');
+  });
+  await print(shotsFixture(t, {}));
+  assert.deepEqual(requests, ['/', '/site.css']);
+});

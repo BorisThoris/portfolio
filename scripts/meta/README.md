@@ -109,7 +109,7 @@ sees; `--source=local` starts the project's own dev server instead, and
 repo, else from `PORTFOLIO_ROOT`, so no project needs the dependency.
 
 For a deployed page, the capture script fingerprints its HTML and same-origin
-scripts, styles, and images; `capture.remoteAssets` can name additional assets
+scripts, styles, images, and what those styles reference; `capture.remoteAssets` can name additional assets
 that affect the picture but are loaded dynamically. For a local capture,
 `capture.inputs` lists Git pathspecs for the source and assets that affect the
 picture. Without an explicit local list, conventional app directories are used

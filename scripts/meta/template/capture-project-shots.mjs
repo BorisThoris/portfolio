@@ -278,20 +278,34 @@ async function deployedFingerprint(url, extraAssets) {
   ];
   // The browser resolves the page's own references against <base href>, when it has one.
   const documentBase = documentBaseUrl(html, finalUrl);
-  const assets = [...new Set([
-    ...references.map((reference) => new URL(reference, documentBase)),
-    ...extraAssets.map((reference) => new URL(reference, finalUrl))
-  ]
-    .filter((asset) => asset.origin === finalUrl.origin && /^https?:$/.test(asset.protocol))
-    .map((asset) => asset.href))].sort();
+  const inlineCss = [
+    ...[...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map((match) => match[1]),
+    ...htmlAttributes(html, '[a-z][a-z0-9-]*', 'style')
+  ].flatMap(cssReferences);
+  const assets = new Set([
+    ...[...references, ...inlineCss].map((reference) => sameOriginAsset(reference, documentBase, finalUrl.origin)),
+    ...extraAssets.map((reference) => sameOriginAsset(reference, finalUrl, finalUrl.origin))
+  ].filter(Boolean));
+  // A Set visits what is added during iteration, so nested @imports are followed
+  // and an import cycle ends. A stylesheet's references resolve against its own URL.
+  const bodies = new Map();
+  for (const asset of assets) {
+    // A page can work with a broken image, so a missing asset changes the
+    // fingerprint instead of stopping the capture. The page itself must load.
+    const dependency = await fetchDependency(asset, { allowMissing: true });
+    bodies.set(asset, dependency.bytes);
+    if (!dependency.stylesheet) continue;
+    for (const reference of cssReferences(dependency.bytes.toString('utf8'))) {
+      const nested = sameOriginAsset(reference, dependency.url, finalUrl.origin);
+      if (nested) assets.add(nested);
+    }
+  }
   const hash = crypto.createHash('sha256');
   hash.update(finalUrl.href);
   hash.update(page.bytes);
-  for (const asset of assets) {
+  for (const asset of [...assets].sort()) {
     hash.update('\0' + asset + '\0');
-    // A page can work with a broken image, so a missing asset changes the
-    // fingerprint instead of stopping the capture. The page itself must load.
-    hash.update((await fetchDependency(asset, { allowMissing: true })).bytes);
+    hash.update(bodies.get(asset));
   }
   return hash.digest('hex');
 }
@@ -329,6 +343,20 @@ function srcsetUrls(value) {
   return urls;
 }
 
+function cssReferences(css) {
+  const source = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  const pattern = /(?:url\(\s*(?:"([^"]*)"|'([^']*)'|([^)\s"']+))\s*\))|(?:@import\s+(?:"([^"]*)"|'([^']*)'))/gi;
+  return [...source.matchAll(pattern)].map((match) => match.slice(1).find(Boolean)).filter(Boolean);
+}
+
+function sameOriginAsset(reference, base, origin) {
+  let asset;
+  try { asset = new URL(reference, base); } catch { return null; }
+  if (asset.origin !== origin || !/^https?:$/.test(asset.protocol)) return null;
+  asset.hash = '';
+  return asset.href;
+}
+
 function documentBaseUrl(html, pageUrl) {
   const href = htmlAttributes(html, 'base', 'href')[0];
   if (!href) return pageUrl;
@@ -343,5 +371,7 @@ async function fetchDependency(url, { allowMissing = false } = {}) {
   if (length > 16 * 1024 * 1024) throw new Error('capture dependency too large: ' + url);
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length > 16 * 1024 * 1024) throw new Error('capture dependency too large: ' + url);
-  return { url: response.url || String(url), bytes };
+  const finalUrl = response.url || String(url);
+  const stylesheet = /\bcss\b/i.test(response.headers.get('content-type') ?? '') || new URL(finalUrl).pathname.endsWith('.css');
+  return { url: finalUrl, bytes, stylesheet };
 }
