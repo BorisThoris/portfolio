@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-05T22:01:19.929Z",
+    "generatedAt": "2026-11-06T17:48:49.773Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1351668,
+      "sourceLines": 1352113,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "cce7e22cdbe",
-      "lastCommitDate": "2026-11-05T23:40:27+02:00",
-      "lastCommitSubject": "Record the measured Arrangement height-fit verification",
-      "commitCount": 5989
+      "head": "c18227fd9d0",
+      "lastCommitDate": "2026-11-06T19:26:56+02:00",
+      "lastCommitSubject": "Keep focus in the Rack and its inline Piano Roll",
+      "commitCount": 6007
     },
     "scores": {
       "priorityScore": 96,
@@ -275,21 +275,21 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 153514
+        "bytes": 153502
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 140410
+        "bytes": 140302
       },
       {
         "profile": "full",
         "path": "/project-shots/bbeats/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 125332
+        "bytes": 125309
       },
       {
         "profile": "mobile",
@@ -303,7 +303,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109239
+        "bytes": 109210
       }
     ],
     "trailers": [
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-05T21:58:35.719Z"
+        "builtAt": "2026-11-06T17:45:39.324Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
