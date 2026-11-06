@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-05T21:38:15.218Z",
+    "generatedAt": "2026-11-05T22:01:19.929Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1351654,
+      "sourceLines": 1351668,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "8cb117a08b0",
-      "lastCommitDate": "2026-11-05T23:20:57+02:00",
-      "lastCommitSubject": "Record the live short tablet Rack replay",
-      "commitCount": 5985
+      "head": "cce7e22cdbe",
+      "lastCommitDate": "2026-11-05T23:40:27+02:00",
+      "lastCommitSubject": "Record the measured Arrangement height-fit verification",
+      "commitCount": 5989
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-05T21:35:26.123Z"
+        "builtAt": "2026-11-05T21:58:35.719Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
