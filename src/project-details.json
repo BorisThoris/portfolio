@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-06T17:48:49.773Z",
+    "generatedAt": "2026-11-06T22:41:21.269Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1352113,
+      "sourceLines": 1352406,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c18227fd9d0",
-      "lastCommitDate": "2026-11-06T19:26:56+02:00",
-      "lastCommitSubject": "Keep focus in the Rack and its inline Piano Roll",
-      "commitCount": 6007
+      "head": "2a0b4d391ff",
+      "lastCommitDate": "2026-11-07T00:27:15+02:00",
+      "lastCommitSubject": "Preserve panel and transport focus across the dock breakpoint",
+      "commitCount": 6028
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-06T17:45:39.324Z"
+        "builtAt": "2026-11-06T22:38:26.907Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -484,7 +484,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-03T19:55:24.055Z",
+    "generatedAt": "2026-11-06T22:06:47.934Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -558,7 +558,7 @@
     "metrics": {
       "sourceFiles": 1573,
       "testFiles": 680,
-      "sourceLines": 241504,
+      "sourceLines": 242099,
       "largestDirectories": [
         {
           "directory": "src",
@@ -587,10 +587,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "fe1607fb",
-      "lastCommitDate": "2026-11-03T20:32:15+02:00",
-      "lastCommitSubject": "Give gate-changed's cold first spawn the budget ai-repo-model has",
-      "commitCount": 2715
+      "head": "b44039f3",
+      "lastCommitDate": "2026-11-06T18:37:46+02:00",
+      "lastCommitSubject": "Fit the store's shelves at a laptop's height and stop the clear ghosting through the doors",
+      "commitCount": 2725
     },
     "scores": {
       "priorityScore": 94,
@@ -607,35 +607,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88877
+        "bytes": 88960
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 82685
+        "bytes": 89984
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 71569
+        "bytes": 72254
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 42844
+        "bytes": 43378
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 71884
+        "bytes": 76127
       }
     ],
     "trailers": [
