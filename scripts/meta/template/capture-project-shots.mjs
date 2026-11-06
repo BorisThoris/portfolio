@@ -272,7 +272,10 @@ async function deployedFingerprint(url, extraAssets) {
   // Relative references resolve against the page after any redirect.
   const finalUrl = new URL(page.url);
   const html = page.bytes.toString('utf8');
-  const references = htmlAttributes(html, 'script|link|img', 'src|href');
+  const references = [
+    ...htmlAttributes(html, 'script|link|img', 'src|href'),
+    ...htmlAttributes(html, 'img|source', 'srcset').flatMap(srcsetUrls)
+  ];
   // The browser resolves the page's own references against <base href>, when it has one.
   const documentBase = documentBaseUrl(html, finalUrl);
   const assets = [...new Set([
@@ -310,6 +313,20 @@ function decodeCharacterReferences(value) {
     const code = decimal ? Number(decimal) : Number.parseInt(hex, 16);
     return code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : reference;
   });
+}
+
+// A URL is a run of non-whitespace and may hold commas (image CDNs use them), so
+// a comma only separates candidates at the end of a URL or after its descriptor.
+function srcsetUrls(value) {
+  const urls = [];
+  let rest = value;
+  while ((rest = rest.replace(/^[\s,]+/, ''))) {
+    const url = rest.match(/^\S+/)[0];
+    rest = rest.slice(url.length);
+    urls.push(url.replace(/,+$/, ''));
+    if (!url.endsWith(',')) rest = rest.replace(/^[^,]*/, '');
+  }
+  return urls;
 }
 
 function documentBaseUrl(html, pageUrl) {

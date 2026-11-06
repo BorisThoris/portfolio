@@ -521,3 +521,27 @@ test('character references in an asset URL are decoded as the browser decodes th
     }
   }
 });
+
+test('responsive image candidates are part of the deployed fingerprint', async t => {
+  const pages = {
+    '/actual.png': ['<img src="/fallback.png" srcset="/actual.png 1x">',
+      '<picture><source srcset="/small.png 1x, /actual.png 2x"><img src="/fallback.png"></picture>',
+      '<img srcset="/small.png, /actual.png">',
+      '<img srcset="/small.png 480w,/actual.png 800w">'],
+    '/w_100,h_100/actual.png': ['<img srcset="/w_100,h_100/actual.png 1x, /small.png 2x">']
+  };
+  for (const [url, variants] of Object.entries(pages)) {
+    for (const html of variants) {
+      let image = 'one';
+      const print = await fingerprintServer(t, (request, response) => {
+        if (request.url === '/') return response.end(html);
+        if (request.url === url) return response.end(image);
+        response.end('unchanged');
+      });
+      const root = shotsFixture(t, {});
+      const first = (await print(root)).stdout;
+      image = 'two';
+      assert.notEqual((await print(root)).stdout, first, html);
+    }
+  }
+});
