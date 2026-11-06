@@ -463,3 +463,37 @@ test('deployed assets resolve against the document base when the page has one', 
   bundle = 'two';
   assert.notEqual((await print(root)).stdout, first, 'the bundle under the base is what was hashed');
 });
+
+test('asset references count however the HTML quotes them', async t => {
+  const pages = {
+    unquoted: '<script src=/bundle.js></script>',
+    single: "<script src='/bundle.js'></script>",
+    spaced: '<script src = "/bundle.js"></script>',
+    multiline: '<link rel=preload\n  href=/bundle.js>',
+    'unquoted base': '<base href=/assets/><script src=bundle.js></script>'
+  };
+  for (const [name, html] of Object.entries(pages)) {
+    let bundle = 'one';
+    const print = await fingerprintServer(t, (request, response) => {
+      if (request.url === '/') return response.end(html);
+      if (request.url.endsWith('/bundle.js')) return response.end(bundle);
+      response.writeHead(404);
+      response.end();
+    });
+    const root = shotsFixture(t, {});
+    const first = (await print(root)).stdout;
+    bundle = 'two';
+    assert.notEqual((await print(root)).stdout, first, name);
+  }
+});
+
+test('a data attribute is not an asset reference', async t => {
+  let requests = 0;
+  const print = await fingerprintServer(t, (request, response) => {
+    if (request.url === '/') return response.end('<img data-src="/lazy.png" src="/real.png">');
+    if (request.url === '/lazy.png') requests += 1;
+    response.end('image');
+  });
+  await print(shotsFixture(t, {}));
+  assert.equal(requests, 0);
+});

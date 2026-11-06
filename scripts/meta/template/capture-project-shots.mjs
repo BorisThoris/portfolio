@@ -272,7 +272,7 @@ async function deployedFingerprint(url, extraAssets) {
   // Relative references resolve against the page after any redirect.
   const finalUrl = new URL(page.url);
   const html = page.bytes.toString('utf8');
-  const references = [...html.matchAll(/<(?:script|link|img)\b[^>]*?\b(?:src|href)=["']([^"']+)["']/gi)].map((match) => match[1]);
+  const references = htmlAttributes(html, 'script|link|img', 'src|href');
   // The browser resolves the page's own references against <base href>, when it has one.
   const documentBase = documentBaseUrl(html, finalUrl);
   const assets = [...new Set([
@@ -293,8 +293,16 @@ async function deployedFingerprint(url, extraAssets) {
   return hash.digest('hex');
 }
 
+// Attribute values quoted either way or not at all: minifiers strip the quotes.
+// A function, not a module constant: it runs before the module body reaches the end.
+function htmlAttributes(html, tags, attributes) {
+  const pattern = new RegExp('<(?:' + tags + ')\\b[^>]*?\\s(?:' + attributes + ')\\s*=\\s*' +
+    '(?:"([^"]*)"|\'([^\']*)\'|([^\\s"\'>]+))', 'gi');
+  return [...html.matchAll(pattern)].map((match) => match[1] ?? match[2] ?? match[3]).filter(Boolean);
+}
+
 function documentBaseUrl(html, pageUrl) {
-  const href = html.match(/<base\b[^>]*?\bhref=["']([^"']+)["']/i)?.[1];
+  const href = htmlAttributes(html, 'base', 'href')[0];
   if (!href) return pageUrl;
   try { return new URL(href, pageUrl); } catch { return pageUrl; }
 }
