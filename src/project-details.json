@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-07T15:07:48.838Z",
+    "generatedAt": "2026-11-07T20:49:57.326Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1352774,
+      "sourceLines": 1352943,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "0aea16d03f1",
-      "lastCommitDate": "2026-11-07T15:08:32Z",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 6040
+      "head": "166be9e4513",
+      "lastCommitDate": "2026-11-07T22:28:49+02:00",
+      "lastCommitSubject": "Keep pattern names readable in Arrange",
+      "commitCount": 6054
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-07T15:05:01.449Z"
+        "builtAt": "2026-11-07T20:47:05.349Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
