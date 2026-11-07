@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-06T22:41:21.269Z",
+    "generatedAt": "2026-11-07T01:24:13.499Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1352406,
+      "sourceLines": 1352687,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "2a0b4d391ff",
-      "lastCommitDate": "2026-11-07T00:27:15+02:00",
-      "lastCommitSubject": "Preserve panel and transport focus across the dock breakpoint",
-      "commitCount": 6028
+      "head": "bd21fe8a539",
+      "lastCommitDate": "2026-11-07T01:24:51Z",
+      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
+      "commitCount": 6036
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-06T22:38:26.907Z"
+        "builtAt": "2026-11-07T01:21:21.582Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
