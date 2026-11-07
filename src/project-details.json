@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-07T01:24:13.499Z",
+    "generatedAt": "2026-11-07T15:07:48.838Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1352687,
+      "sourceLines": 1352774,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "bd21fe8a539",
-      "lastCommitDate": "2026-11-07T01:24:51Z",
+      "head": "0aea16d03f1",
+      "lastCommitDate": "2026-11-07T15:08:32Z",
       "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 6036
+      "commitCount": 6040
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-07T01:21:21.582Z"
+        "builtAt": "2026-11-07T15:05:01.449Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
