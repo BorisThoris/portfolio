@@ -152,7 +152,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-07T20:49:57.326Z",
+    "generatedAt": "2026-11-07T21:56:02.094Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -226,7 +226,7 @@
     "metrics": {
       "sourceFiles": 7683,
       "testFiles": 3354,
-      "sourceLines": 1352943,
+      "sourceLines": 1353001,
       "largestDirectories": [
         {
           "directory": "src",
@@ -255,10 +255,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "166be9e4513",
-      "lastCommitDate": "2026-11-07T22:28:49+02:00",
-      "lastCommitSubject": "Keep pattern names readable in Arrange",
-      "commitCount": 6054
+      "head": "086c392f75c",
+      "lastCommitDate": "2026-11-07T23:15:42+02:00",
+      "lastCommitSubject": "Preserve panel drafts when collapsing a dock edge",
+      "commitCount": 6056
     },
     "scores": {
       "priorityScore": 96,
@@ -316,7 +316,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-07T20:47:05.349Z"
+        "builtAt": "2026-11-07T21:53:06.160Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
