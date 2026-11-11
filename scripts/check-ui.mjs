@@ -31,7 +31,9 @@ const visibleProjects = projectData.filter(
 );
 const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
 const featuredSlugs = ["bobball", "memory-dungeon", "bbeats", "skillball", "vyb-chess"];
-const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug));
+// Released mods have their own homepage section, so they stay out of the catalog too.
+const modSlugs = JSON.parse(await fs.readFile("src/project-traction.json", "utf8")).summary.projects;
+const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug) && !modSlugs.includes(project.slug));
 const activeProjects = supportingProjects.filter(project => access[project.slug]?.kind !== "archive");
 async function audit(page, name) {
   const results = await new AxeBuilder({ page })
@@ -137,7 +139,7 @@ try {
   );
   await page.getByRole("button", { name: "Clear search" }).click();
   assert.equal(
-    await page.locator(".project-tile").count(),
+    await page.locator(".project-grid .project-tile").count(),
     Math.min(6, activeProjects.length),
   );
   const job = page.locator(".experience-item").first();

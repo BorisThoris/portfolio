@@ -2,6 +2,8 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getProjectAccess } from "../projectAccess";
+import { getProjectTraction } from "../projectTraction";
+import "../traction.css";
 import { Project } from "../projects";
 import { useMediaQuery } from "../lib/runtime";
 import { ProjectMedia } from "./ProjectMedia";
@@ -111,6 +113,7 @@ export function ProjectShelf({
 export function ProjectTile({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
+  const headline = getProjectTraction(project.slug)?.headline;
   return (
     <div
       className="project-tile"
@@ -129,6 +132,7 @@ export function ProjectTile({ project }: { project: Project }) {
           <strong>{project.title}</strong>
         </span>
         <span className="project-tile__tags">{getProjectAccess(project.slug)?.label ?? "Web application"}</span>
+        {headline ? <span className="project-tile__traction">{headline}</span> : null}
         <span className="project-tile__subtitle">{project.subtitle}</span>
         <span className="project-tile__tags" aria-hidden="true">
           {project.tags.slice(0, 3).join(" · ")}

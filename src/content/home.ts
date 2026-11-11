@@ -2,7 +2,7 @@ export const home = {
   role: "Full-stack engineer in Sofia",
   headline: ["I build software.", "Some of it gets weird."],
   introduction:
-    "I’m Boris. At work I build financial and product software — risk tools, the dashboards on top of them, and the data underneath. After hours I make browser music tools, games and 3D experiments, then build the infrastructure that keeps them online: failover hosting, continuous integration on spare Android hardware, and local AI models instead of API bills.",
+    "I’m Boris. At work I build financial and product software — risk tools, the dashboards on top of them, and the data underneath. After hours I make browser music tools, games, 3D experiments and PC game mods that people actually download, then build the infrastructure that keeps them online: failover hosting, continuous integration on spare Android hardware, and local AI models instead of API bills.",
   problemsIntro:
     "Six problems worth writing down: what was wrong, what I built, and how I know it works.",
   workIntro:

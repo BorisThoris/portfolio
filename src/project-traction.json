@@ -1,0 +1,347 @@
+{
+  "asOf": "2026-11-11",
+  "note": "Counted from the public Nexus Mods, YouTube and Reddit pages and the itch.io dashboard on the date shown. Nothing is projected or rounded up; YouTube counts above a thousand are YouTube’s own rounding.",
+  "summary": {
+    "title": "Mods people actually downloaded.",
+    "lede": "Since October I have been releasing PC game mods: real crash damage and first-person cameras for games from the 2000s. These are the counts so far, from the platforms themselves.",
+    "stats": [
+      {
+        "value": "536",
+        "label": "downloads on Nexus Mods across 13 mods"
+      },
+      {
+        "value": "6.8K",
+        "label": "views on the mod trailers on YouTube"
+      },
+      {
+        "value": "250",
+        "label": "upvotes and 34 comments on the r/needforspeed launch post"
+      },
+      {
+        "value": "1,538",
+        "label": "views of the mod pages on itch.io"
+      }
+    ],
+    "projects": [
+      "dynamic-damage",
+      "first-person-mods",
+      "gta-sa-mod"
+    ]
+  },
+  "projects": {
+    "dynamic-damage": {
+      "headline": "250 upvotes on r/needforspeed",
+      "stats": [
+        {
+          "value": "250",
+          "label": "upvotes and 34 comments on the Most Wanted launch post in r/needforspeed",
+          "url": "https://www.reddit.com/r/needforspeed/comments/1xi6112/"
+        },
+        {
+          "value": "4.9K",
+          "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 1.7K)",
+          "url": "https://www.youtube.com/watch?v=ijG2ohXj3T4"
+        },
+        {
+          "value": "200",
+          "label": "Nexus downloads across the five games (Most Wanted: 129)",
+          "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349"
+        },
+        {
+          "value": "1,193",
+          "label": "views and 94 downloads of the NFS bundle page on itch.io",
+          "url": "https://boristhoris.itch.io/nfsmw-dynamic-damage"
+        }
+      ],
+      "links": [
+        {
+          "label": "NFS Most Wanted on Nexus",
+          "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349"
+        },
+        {
+          "label": "NFS Carbon on Nexus",
+          "url": "https://www.nexusmods.com/needforspeedcarbon/mods/74"
+        },
+        {
+          "label": "NFS ProStreet on Nexus",
+          "url": "https://www.nexusmods.com/needforspeedprostreet/mods/17"
+        },
+        {
+          "label": "Hit & Run on Nexus",
+          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/71"
+        },
+        {
+          "label": "Driver: Parallel Lines on Nexus",
+          "url": "https://www.nexusmods.com/driverparrallellines/mods/14"
+        },
+        {
+          "label": "NFS bundle with settings app on itch.io",
+          "url": "https://boristhoris.itch.io/nfsmw-dynamic-damage"
+        },
+        {
+          "label": "Most Wanted trailer",
+          "url": "https://www.youtube.com/watch?v=GmHsk_AN90w"
+        },
+        {
+          "label": "Carbon 1.2 trailer",
+          "url": "https://www.youtube.com/watch?v=0dDv0iSMMjE"
+        },
+        {
+          "label": "Most Wanted, Carbon & ProStreet together",
+          "url": "https://www.youtube.com/watch?v=4-6-hNEtwwQ"
+        }
+      ]
+    },
+    "first-person-mods": {
+      "headline": "93 upvotes on r/driver",
+      "stats": [
+        {
+          "value": "93",
+          "label": "upvotes and 11 comments on the Driver: Parallel Lines cockpit-camera post in r/driver",
+          "url": "https://www.reddit.com/r/driver/comments/1x9wgps/"
+        },
+        {
+          "value": "1.2K",
+          "label": "views across the first-person trailers on YouTube (Hit & Run: 599)",
+          "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg"
+        },
+        {
+          "value": "132",
+          "label": "Nexus downloads across the five mods (Hit & Run First Person: 49)",
+          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67"
+        }
+      ],
+      "links": [
+        {
+          "label": "Driver: Parallel Lines Cockpit View on Nexus",
+          "url": "https://www.nexusmods.com/driverparrallellines/mods/12"
+        },
+        {
+          "label": "Hit & Run First Person on Nexus",
+          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67"
+        },
+        {
+          "label": "Hit & Run Car Interiors on Nexus",
+          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/68"
+        },
+        {
+          "label": "Family Guy First Person on Nexus",
+          "url": "https://www.nexusmods.com/familyguybacktothemultiverse/mods/8"
+        },
+        {
+          "label": "Wheelman First Person on Nexus",
+          "url": "https://www.nexusmods.com/wheelman/mods/3"
+        },
+        {
+          "label": "Driver cockpit trailer",
+          "url": "https://www.youtube.com/watch?v=OjZO3vWzLWs"
+        },
+        {
+          "label": "Hit & Run first-person trailer",
+          "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg"
+        }
+      ]
+    },
+    "gta-sa-mod": {
+      "headline": "180 Nexus downloads",
+      "stats": [
+        {
+          "value": "180",
+          "label": "Nexus downloads of Personal Fleet",
+          "url": "https://www.nexusmods.com/gtasanandreas/mods/3106"
+        },
+        {
+          "value": "38",
+          "label": "itch.io downloads of Personal Fleet and LA Frontend",
+          "url": "https://boristhoris.itch.io/personal-fleet"
+        }
+      ],
+      "links": [
+        {
+          "label": "Personal Fleet on Nexus",
+          "url": "https://www.nexusmods.com/gtasanandreas/mods/3106"
+        },
+        {
+          "label": "LA Frontend on Nexus",
+          "url": "https://www.nexusmods.com/gtasanandreas/mods/3199"
+        },
+        {
+          "label": "LA Frontend on itch.io",
+          "url": "https://boristhoris.itch.io/la-frontend-gta-san-andreas"
+        },
+        {
+          "label": "LA Frontend video",
+          "url": "https://www.youtube.com/watch?v=zmS1hgDq2V4"
+        }
+      ]
+    },
+    "terraria-depth": {
+      "stats": [
+        {
+          "value": "24",
+          "label": "Nexus downloads",
+          "url": "https://www.nexusmods.com/terraria/mods/256"
+        }
+      ],
+      "links": [
+        {
+          "label": "On Nexus Mods",
+          "url": "https://www.nexusmods.com/terraria/mods/256"
+        }
+      ]
+    },
+    "skillball": {
+      "headline": "2.2K video views",
+      "stats": [
+        {
+          "value": "2.2K",
+          "label": "views across the SkillBall videos on YouTube (two above 900)",
+          "url": "https://www.youtube.com/watch?v=m4G49IVnNWo"
+        }
+      ],
+      "links": [
+        {
+          "label": "SkillBall on itch.io",
+          "url": "https://boristhoris.itch.io/skillball"
+        },
+        {
+          "label": "Video: tiny ball, huge arena",
+          "url": "https://www.youtube.com/watch?v=m4G49IVnNWo"
+        }
+      ]
+    },
+    "vyb-chess": {
+      "stats": [
+        {
+          "value": "785",
+          "label": "views across the Живият ум videos on YouTube",
+          "url": "https://www.youtube.com/watch?v=IPUH1nCi_x0"
+        }
+      ],
+      "links": [
+        {
+          "label": "On itch.io",
+          "url": "https://boristhoris.itch.io/zhiviyat-um"
+        }
+      ]
+    },
+    "bobball": {
+      "stats": [
+        {
+          "value": "1K",
+          "label": "views of the BOBBALL video on YouTube",
+          "url": "https://www.youtube.com/watch?v=ZP736LfwFbs"
+        },
+        {
+          "value": "51",
+          "label": "browser plays from itch.io",
+          "url": "https://boristhoris.itch.io/bob-ball"
+        }
+      ],
+      "links": [
+        {
+          "label": "On itch.io",
+          "url": "https://boristhoris.itch.io/bob-ball"
+        }
+      ]
+    },
+    "bbeats": {
+      "stats": [
+        {
+          "value": "737",
+          "label": "views across the BBeats videos on YouTube",
+          "url": "https://www.youtube.com/watch?v=qQDQNXWILys"
+        },
+        {
+          "value": "46",
+          "label": "browser plays from itch.io",
+          "url": "https://boristhoris.itch.io/bbeats"
+        }
+      ],
+      "links": [
+        {
+          "label": "On itch.io",
+          "url": "https://boristhoris.itch.io/bbeats"
+        }
+      ]
+    },
+    "memory-dungeon": {
+      "stats": [
+        {
+          "value": "618",
+          "label": "views across the Memory Dungeon videos on YouTube",
+          "url": "https://www.youtube.com/watch?v=h_TPONTVh_g"
+        },
+        {
+          "value": "91",
+          "label": "views of the itch.io page",
+          "url": "https://boristhoris.itch.io/memory-dungeon"
+        }
+      ],
+      "links": [
+        {
+          "label": "On itch.io",
+          "url": "https://boristhoris.itch.io/memory-dungeon"
+        }
+      ]
+    },
+    "cat-world": {
+      "stats": [
+        {
+          "value": "1.1K",
+          "label": "views of the Cat World video on YouTube",
+          "url": "https://www.youtube.com/watch?v=3jXmvPtLKHU"
+        }
+      ]
+    },
+    "bostan": {
+      "stats": [
+        {
+          "value": "525",
+          "label": "views across the Bostan Teddy Hoodie videos on YouTube",
+          "url": "https://www.youtube.com/watch?v=-v-D8zpNiTE"
+        }
+      ]
+    },
+    "voxshift": {
+      "stats": [
+        {
+          "value": "125",
+          "label": "views of the VoiceDrift video on YouTube",
+          "url": "https://www.youtube.com/watch?v=YhVkVr9sEl0"
+        },
+        {
+          "value": "50",
+          "label": "views of the VoiceDrift page on itch.io",
+          "url": "https://boristhoris.itch.io/voicedrift"
+        }
+      ],
+      "links": [
+        {
+          "label": "VoiceDrift on itch.io",
+          "url": "https://boristhoris.itch.io/voicedrift"
+        }
+      ]
+    },
+    "ringer3d": {
+      "links": [
+        {
+          "label": "On itch.io",
+          "url": "https://boristhoris.itch.io/ringer-3d"
+        },
+        {
+          "label": "Marble Forge asset pack on itch.io",
+          "url": "https://boristhoris.itch.io/marble-forge-vol1"
+        }
+      ]
+    },
+    "spherecam": {
+      "links": [
+        {
+          "label": "Download on itch.io",
+          "url": "https://boristhoris.itch.io/spherecam"
+        }
+      ]
+    }
+  }
+}

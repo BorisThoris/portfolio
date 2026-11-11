@@ -786,8 +786,8 @@
   {
     "slug": "gta-sa-mod",
     "title": "GTA San Andreas Mods",
-    "subtitle": "A personal fleet and wardrobe for San Andreas.",
-    "description": "Two GTA San Andreas 1.0 US mods: Personal Fleet adds persistent vehicle ownership, mechanic delivery and garages; Personal Wardrobe adds custom garments and NPC outfit variants.",
+    "subtitle": "A personal fleet, a wardrobe and a Midnight Club-style pause menu for San Andreas.",
+    "description": "Three GTA San Andreas 1.0 US mods: Personal Fleet adds persistent vehicle ownership, mechanic delivery and specialist garages; Personal Wardrobe adds custom garments and NPC outfit variants; LA Frontend replaces the pause menu with one inspired by Midnight Club: Los Angeles.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bobMods",
     "localUrl": "",
     "buildCommand": "",
@@ -890,5 +890,107 @@
       "Reverse engineering"
     ],
     "accent": "#ffb470"
+  },
+  {
+    "slug": "dynamic-damage",
+    "title": "Dynamic Damage",
+    "subtitle": "Real-time crash deformation for five racing and driving games from the 2000s.",
+    "description": "One shared C++ damage engine, ported into games that only ever had painted-on scratches: Need for Speed Most Wanted, Carbon and ProStreet, The Simpsons: Hit & Run and Driver: Parallel Lines. Bodywork dents where it is hit, wheels bend and tear off, and in Carbon loose parts fly. The Most Wanted port checks the exact game bytes at every hook site and hooks nothing on a mismatch, and a fault inside the mod switches the mod off instead of crashing the game.",
+    "repoName": "damage-engine",
+    "localUrl": "",
+    "runCommand": "Copy the .asi and its .ini into the game folder (needs an ASI loader); the NFS bundle includes a settings app.",
+    "tags": [
+      "Game mod",
+      "C++",
+      "Reverse engineering",
+      "Direct3D"
+    ],
+    "accent": "#ff7a45",
+    "screenshot": "/native/dynamic-damage/nfs-magazine.jpg"
+  },
+  {
+    "slug": "first-person-mods",
+    "title": "First-Person Mods",
+    "subtitle": "Cockpit and on-foot first-person views for games that only shipped a chase camera.",
+    "description": "Four first-person camera mods: a cockpit view for Driver: Parallel Lines, mouse-look and cockpit driving for The Simpsons: Hit & Run (plus car interiors and clear windows so there is something to sit in), a see-your-body view for Family Guy: Back to the Multiverse, and Wheelman in first person. Each one hooks the game’s own camera after it updates and moves the eye into the character’s head or the driver’s seat, with F6 to switch back.",
+    "repoName": "fp-mods",
+    "localUrl": "",
+    "runCommand": "Copy the .asi and its .ini into the game folder (needs the Ultimate ASI Loader); F6 toggles the view.",
+    "tags": [
+      "Game mod",
+      "C++",
+      "Reverse engineering",
+      "3D maths"
+    ],
+    "accent": "#7fd1ff",
+    "screenshot": "/native/first-person-mods/driver-cockpit.jpg"
+  },
+  {
+    "slug": "ringer3d",
+    "title": "Ringer 3D",
+    "subtitle": "A cel-shaded 3D marble game: knock marbles out of the ring, keep what you win.",
+    "description": "Marbles on a desk, a cul-de-sac, grass, sand, ice and a mini-golf course, with generated maps, bots, pass-and-play and online rooms. Every marble is procedural glass from Marble Forge, the generator behind it, which also ships on its own as an itch.io asset pack.",
+    "repoName": "ringer3d",
+    "localUrl": "",
+    "deploymentUrl": "https://ringer3d.modaxxx009.workers.dev/",
+    "runCommand": "npm ci\nnpm run dev",
+    "tags": [
+      "Browser game",
+      "Three.js",
+      "TypeScript",
+      "Physics"
+    ],
+    "accent": "#ffb347"
+  },
+  {
+    "slug": "last-levee",
+    "title": "Last Levee",
+    "subtitle": "Hold the coast against a storm surge, one sandbag at a time.",
+    "description": "A storm-surge defence game with a sandbox underneath: a campaign of eight storms, generated coasts in endless mode, a daily storm and an archive of real surge heights with sourced notes. Which wall fails, and how, depends on the soil it stands on; bots replay every storm to keep the balance honest, and a test makes sure a storm left to play itself never earns full marks.",
+    "repoName": "last-levee",
+    "localUrl": "",
+    "deploymentUrl": "https://last-levee.pages.dev/",
+    "runCommand": "npm ci\nnpm run dev",
+    "tags": [
+      "Browser game",
+      "TypeScript",
+      "Simulation",
+      "Canvas"
+    ],
+    "accent": "#4fb3d9"
+  },
+  {
+    "slug": "bostan",
+    "title": "Bostan",
+    "subtitle": "A Bulgarian streetwear label from car culture, with its own storefront and 3D showroom.",
+    "description": "The site for my clothing brand: drops and lines in Bulgarian and English, a 3D showroom where the garments are real models under studio lights, and an outfit builder. Orders go to a print-on-demand partner; the static site, the 3D work and the product photography pipeline are mine.",
+    "repoName": "SAD-launch",
+    "localUrl": "",
+    "deploymentUrl": "https://bostan.pages.dev/",
+    "runCommand": "node tools/build-site-v2.mjs",
+    "tags": [
+      "Web",
+      "Three.js",
+      "E-commerce",
+      "Brand"
+    ],
+    "accent": "#f2b33d"
+  },
+  {
+    "slug": "spherecam",
+    "title": "SphereCam",
+    "subtitle": "Turns a 360° camera into an ordinary webcam any app can pick.",
+    "description": "Pick a view out of the full panorama and every video app sees it as a normal camera. SphereCam registers its own Windows virtual camera through Media Foundation, so apps that only list Media Foundation devices (where OBS’s DirectShow camera never appears) can use it, at up to 4K.",
+    "repoName": "SphereCam",
+    "localUrl": "",
+    "runCommand": "Install SphereCam Camera.cmd (one UAC prompt), then Start SphereCam.cmd",
+    "tags": [
+      "Windows",
+      "C++",
+      "Python",
+      "Media Foundation"
+    ],
+    "accent": "#9be37a",
+    "screenshot": "/native/spherecam/app-window.jpg"
   }
 ]

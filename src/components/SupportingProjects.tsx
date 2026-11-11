@@ -2,13 +2,14 @@ import { useRef, useState } from "react";
 import { Search, X } from "lucide-react";
 import { getProjectAccess } from "../projectAccess";
 import { featuredSlugs } from "../content/home";
+import { tractionSummary } from "../projectTraction";
 import { visibleProjects } from "../projects";
 import { ProjectTile } from "./ProjectShelf";
 
 export function SupportingProjects() {
   const [includeArchives, setIncludeArchives] = useState(false);
   const [showAll, setShowAll] = useState(false);
-  const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug));
+  const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug) && !tractionSummary.projects.includes(project.slug));
   const archiveCount = supportingProjects.filter(project => getProjectAccess(project.slug)?.kind === "archive").length;
   const catalogProjects = supportingProjects.filter(project => includeArchives || getProjectAccess(project.slug)?.kind !== "archive");
   const [query, setQuery] = useState("");

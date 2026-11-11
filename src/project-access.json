@@ -768,7 +768,7 @@
   "gta-sa-mod": {
     "kind": "native",
     "label": "GTA San Andreas mod",
-    "status": "Personal Fleet and Personal Wardrobe releases; requires GTA San Andreas 1.0 US for Windows.",
+    "status": "Personal Fleet, Personal Wardrobe and LA Frontend releases; require GTA San Andreas 1.0 US for Windows.",
     "environment": "GTA San Andreas 1.0 US on Windows",
     "instructions": "Follow each mod's installation guide in the repository.",
     "sourceUrl": "https://github.com/BorisThoris/bobMods",
@@ -921,5 +921,223 @@
     "videos": [],
     "captureNote": "No screenshot: showing the view from inside a game would be a picture of that game, not of this work. The transcript is verbatim output from building the game-agnostic rig and running its tests, which bound the interpolation error the camera is allowed to introduce. The rig is tested on its own, with no game attached.",
     "transcriptUrl": "/native/first-person-core/transcript.txt"
+  },
+  "dynamic-damage": {
+    "kind": "native",
+    "label": "PC game mods",
+    "status": "Published on Nexus Mods and itch.io: Most Wanted 5.5, Carbon 1.3, ProStreet 1.2, Hit & Run 1.1, Driver: Parallel Lines 1.2.",
+    "environment": "Windows PC copies of each game (NFS Most Wanted v1.3 exactly; the mods refuse other builds) with an ASI loader",
+    "instructions": "Drop the .asi and .ini into the game folder.\nOptional: run DynamicDamageSettings.exe (itch bundle) to switch individual effects on and off.",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; the releases are free downloads on Nexus Mods and itch.io.",
+    "images": [
+      {
+        "profile": "native-poster",
+        "path": "/native/dynamic-damage/nfs-magazine.jpg",
+        "caption": "Most Wanted, Carbon and ProStreet with Dynamic Damage",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/dynamic-damage/prostreet-mod.jpg",
+        "caption": "ProStreet: a crushed nose and a torn-off wheel",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/dynamic-damage/prostreet-stock.jpg",
+        "caption": "ProStreet: the same hit without the mod",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/dynamic-damage/mw-shot.jpg",
+        "caption": "Most Wanted: front-corner damage",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/dynamic-damage/shar-crumpled.jpg",
+        "caption": "The Simpsons: Hit & Run: a crumpled front end",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/dynamic-damage/driver-severe.jpg",
+        "caption": "Driver: Parallel Lines: severe front damage",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "videos": [],
+    "captureNote": "In-game screenshots from the published releases. Trailers are on YouTube; see the numbers above."
+  },
+  "first-person-mods": {
+    "kind": "native",
+    "label": "PC game mods",
+    "status": "Published on Nexus Mods and itch.io: Driver: Parallel Lines Cockpit View 1.0.1, Hit & Run First Person 1.3.1 and Car Interiors 1.1, Family Guy First Person 1.3.0, Wheelman First Person 1.4.",
+    "environment": "Windows PC copies of each game with the Ultimate ASI Loader",
+    "instructions": "Drop the .asi and .ini into the game folder.\nF6 switches between first person and the original camera.",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; the releases are free downloads on Nexus Mods and itch.io.",
+    "images": [
+      {
+        "profile": "native-poster",
+        "path": "/native/first-person-mods/driver-cockpit.jpg",
+        "caption": "Driver: Parallel Lines from the driver’s seat",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/first-person-mods/shar-first-person.jpg",
+        "caption": "The Simpsons: Hit & Run in first person",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/first-person-mods/shar-interiors.jpg",
+        "caption": "Hit & Run car interiors with clear windows",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/first-person-mods/family-guy.jpg",
+        "caption": "Family Guy: Back to the Multiverse in first person",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/first-person-mods/wheelman-cockpit.jpg",
+        "caption": "Wheelman cockpit view",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "videos": [],
+    "captureNote": "In-game screenshots from the published releases. The camera maths behind the Driver mod is the First-Person Core project."
+  },
+  "spherecam": {
+    "kind": "native",
+    "label": "Windows desktop app and virtual camera",
+    "status": "Released on itch.io.",
+    "environment": "Windows 10 or 11 and a 360° camera",
+    "instructions": "Install SphereCam Camera.cmd   (one UAC prompt)\nStart SphereCam.cmd\nThen pick “SphereCam” as the camera in any video app.",
+    "sourceUrl": "",
+    "sourceStatus": "Private source; the packaged app is on itch.io.",
+    "images": [
+      {
+        "profile": "native-poster",
+        "path": "/native/spherecam/app-window.jpg",
+        "caption": "The SphereCam window: panorama, reframed view and output settings",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/spherecam/in-a-call.jpg",
+        "caption": "A video-call app using the SphereCam camera",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "native-gallery",
+        "path": "/native/spherecam/every-seat.jpg",
+        "caption": "One 360° camera, every seat at the table",
+        "width": 1600,
+        "height": 830
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captures of the real app with a rendered 360° test scene as the input."
+  },
+  "ringer3d": {
+    "kind": "web",
+    "label": "Browser game",
+    "status": "Public demo link available; also on itch.io.",
+    "environment": "Modern browser with WebGL",
+    "instructions": "npm ci\nnpm run dev",
+    "sourceUrl": "",
+    "sourceStatus": "Private source.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/ringer3d/stable/card.jpg",
+        "caption": "Ringer 3D main menu, desktop",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/ringer3d/stable/mobile.jpg",
+        "caption": "Ringer 3D main menu, mobile",
+        "width": 860,
+        "height": 1864
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the public deployment."
+  },
+  "last-levee": {
+    "kind": "web",
+    "label": "Browser game",
+    "status": "Public demo link available.",
+    "environment": "Modern browser",
+    "instructions": "npm ci\nnpm run dev",
+    "sourceUrl": "",
+    "sourceStatus": "Private source.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/last-levee/stable/card.jpg",
+        "caption": "Last Levee, first storm, desktop",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/last-levee/stable/mobile.jpg",
+        "caption": "Last Levee, first storm, mobile",
+        "width": 860,
+        "height": 1864
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the public deployment."
+  },
+  "bostan": {
+    "kind": "web",
+    "label": "Storefront",
+    "status": "Live site.",
+    "environment": "Modern browser",
+    "instructions": "node tools/build-site-v2.mjs",
+    "sourceUrl": "",
+    "sourceStatus": "Private source.",
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-shots/bostan/stable/card.jpg",
+        "caption": "Bostan home page, desktop",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/bostan/stable/mobile.jpg",
+        "caption": "Bostan home page, mobile",
+        "width": 860,
+        "height": 1864
+      }
+    ],
+    "videos": [],
+    "captureNote": "Captured from the live site."
   }
 }

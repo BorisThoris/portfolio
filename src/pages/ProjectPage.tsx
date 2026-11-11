@@ -14,6 +14,8 @@ import {
 } from "../projects";
 import { getProjectAccess } from "../projectAccess";
 import { getProjectDetails } from "../projectDetails";
+import { formatAsOf, getProjectTraction } from "../projectTraction";
+import { TractionStats } from "../components/TractionStats";
 import {
   formatBytes,
   humanize,
@@ -37,6 +39,7 @@ function ProjectContent({ project }: { project: Project }) {
   const gallery = access && access.kind !== "web" ? access.images : orderedGallery(details?.images ?? []);
   const related = relatedProjects(project);
   const repository = access ? access.sourceUrl : details?.links?.repository;
+  const traction = getProjectTraction(project.slug);
   return (
     <div className="shell shell--project">
       <a className="skip-link" href="#project-content">
@@ -140,6 +143,22 @@ function ProjectContent({ project }: { project: Project }) {
             </dl>
           </div>
         </section>
+        {traction && (traction.stats?.length || traction.links?.length) ? (
+          <section className="section project-traction" aria-labelledby="traction-title">
+            <p className="eyebrow">{traction.stats?.length ? `Counted ${formatAsOf()}` : "Elsewhere"}</p>
+            <h2 id="traction-title">{traction.stats?.length ? "How it has been received." : "Where to find it."}</h2>
+            {traction.stats?.length ? <TractionStats stats={traction.stats} label={`${project.title} numbers`} /> : null}
+            {traction.links?.length ? (
+              <ul className="traction-links" aria-label={`${project.title} release pages and videos`}>
+                {traction.links.map((link) => (
+                  <li key={link.url}>
+                    <a href={link.url} target="_blank" rel="noreferrer">{link.label}<ArrowUpRight size={13} aria-hidden="true" /></a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </section>
+        ) : null}
         {access && <section className="section project-access" aria-labelledby="access-title">
           <p className="eyebrow">{access.label}</p><h2 id="access-title">Run &amp; availability</h2>
           <p>{access.status}</p><p><strong>Environment:</strong> {access.environment}</p>

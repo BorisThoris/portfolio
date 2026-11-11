@@ -6,6 +6,7 @@ import { home, featuredSlugs } from "../content/home";
 import { Showcase } from "../components/Showcase";
 import { SupportingProjects } from "../components/SupportingProjects";
 import { CaseStudies } from "../components/CaseStudies";
+import { ModTraction } from "../components/ModTraction";
 import { ExperienceSection } from "../components/Experience";
 import { Capabilities } from "../components/Capabilities";
 import { ContactSection } from "../components/ContactSection";
@@ -153,6 +154,7 @@ export function HomePage() {
           </header>
           <Showcase projects={featured} />
         </section>
+        <ModTraction />
         <CaseStudies />
         <SupportingProjects />
         <ExperienceSection />

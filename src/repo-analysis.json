@@ -528,5 +528,77 @@
     "uniquenessScore": 96,
     "maintenanceScore": 55,
     "analysisNotes": "Highly experimental native 3D Terraria mod. Screenshot-based montage accurately presents current alpha state."
+  },
+  {
+    "slug": "dynamic-damage",
+    "repoName": "damage-engine",
+    "showcaseTier": "more",
+    "priorityScore": 97,
+    "demoabilityScore": 93,
+    "depthScore": 97,
+    "polishScore": 91,
+    "uniquenessScore": 97,
+    "maintenanceScore": 89,
+    "analysisNotes": "Published game mods with measured traction: the most-downloaded and most-discussed work outside the day job."
+  },
+  {
+    "slug": "first-person-mods",
+    "repoName": "fp-mods",
+    "showcaseTier": "more",
+    "priorityScore": 94,
+    "demoabilityScore": 90,
+    "depthScore": 94,
+    "polishScore": 88,
+    "uniquenessScore": 94,
+    "maintenanceScore": 86,
+    "analysisNotes": "Published first-person camera mods for four games; the r/driver launch post is the second-best received post."
+  },
+  {
+    "slug": "last-levee",
+    "repoName": "last-levee",
+    "showcaseTier": "more",
+    "priorityScore": 90,
+    "demoabilityScore": 86,
+    "depthScore": 90,
+    "polishScore": 84,
+    "uniquenessScore": 90,
+    "maintenanceScore": 82,
+    "analysisNotes": "Live simulation game with campaign, endless, daily and sandbox modes and bot-driven balance tests."
+  },
+  {
+    "slug": "ringer3d",
+    "repoName": "ringer3d",
+    "showcaseTier": "more",
+    "priorityScore": 89,
+    "demoabilityScore": 85,
+    "depthScore": 89,
+    "polishScore": 83,
+    "uniquenessScore": 89,
+    "maintenanceScore": 81,
+    "analysisNotes": "Live 3D marble game with generated maps and procedural glass marbles."
+  },
+  {
+    "slug": "bostan",
+    "repoName": "SAD-launch",
+    "showcaseTier": "more",
+    "priorityScore": 86,
+    "demoabilityScore": 82,
+    "depthScore": 86,
+    "polishScore": 80,
+    "uniquenessScore": 86,
+    "maintenanceScore": 78,
+    "analysisNotes": "Live brand storefront with a 3D showroom."
+  },
+  {
+    "slug": "spherecam",
+    "repoName": "SphereCam",
+    "showcaseTier": "more",
+    "priorityScore": 80,
+    "demoabilityScore": 76,
+    "depthScore": 80,
+    "polishScore": 74,
+    "uniquenessScore": 80,
+    "maintenanceScore": 72,
+    "analysisNotes": "Released Windows app with its own Media Foundation virtual camera."
   }
 ]
