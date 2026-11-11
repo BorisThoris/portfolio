@@ -12,7 +12,7 @@ export function Problems() {
     <section id="problems" className="sec" aria-labelledby="problems-title">
       <header className="sec__head">
         <p className="label">03 / Problems solved</p>
-        <h2 id="problems-title">The parts that were actually hard.</h2>
+        <h2 id="problems-title"><span className="sweep">The parts that were actually hard.</span></h2>
         <p>{home.problemsIntro}</p>
         <p className="hand sec__aside" aria-hidden="true">open a card for the hard part</p>
       </header>

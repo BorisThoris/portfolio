@@ -7,7 +7,7 @@ import { useMediaQuery } from "../lib/runtime";
  */
 export function useReveal(deps: unknown[] = []) {
   useEffect(() => {
-    const elements = [...document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)")];
+    const elements = [...document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in), .sweep:not(.is-in)")];
     if (!("IntersectionObserver" in window)) { elements.forEach((el) => el.classList.add("is-in")); return; }
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {

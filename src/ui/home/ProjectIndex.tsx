@@ -1,3 +1,4 @@
+import type React from "react";
 import { useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -38,6 +39,16 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
   const [query, setQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
+  // The print that floats beside the cursor while a row is hovered (mouse only).
+  const [preview, setPreview] = useState<Project | undefined>();
+  const previewRef = useRef<HTMLDivElement>(null);
+  const followPointer = (event: React.PointerEvent) => {
+    if (event.pointerType !== "mouse" || !previewRef.current) return;
+    const x = Math.min(event.clientX + 28, window.innerWidth - 310);
+    const y = Math.max(12, Math.min(event.clientY - 90, window.innerHeight - 230));
+    previewRef.current.style.setProperty("--px", `${x}px`);
+    previewRef.current.style.setProperty("--py", `${y}px`);
+  };
   const counts = useMemo(() => {
     const result: Record<string, number> = { all: 0, live: 0 };
     for (const project of projects) {
@@ -63,7 +74,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
     <section id="index" className="sec" aria-labelledby="index-title">
       <header className="sec__head">
         <p className="label">04 / Index</p>
-        <h2 id="index-title">All work <span className="num index__count">{counts.all}</span></h2>
+        <h2 id="index-title"><span className="sweep">All work</span> <span className="num index__count">{counts.all}</span></h2>
         <p>Every project, filterable. A green light means its live demo answered today’s check; archives hold older work, kept for the record.</p>
       </header>
       <div className="index__tools">
@@ -103,10 +114,17 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
           </button>
         </div>
       ) : (
-        <ul className="project-grid" aria-label="Projects">
-          {shown.map((project) => <li key={project.slug}><IndexRow project={project} /></li>)}
+        <ul className="project-grid" aria-label="Projects" onPointerMove={followPointer} onPointerLeave={() => setPreview(undefined)}>
+          {shown.map((project) => (
+            <li key={project.slug} onPointerEnter={(event) => { if (event.pointerType === "mouse") setPreview(project); }}>
+              <IndexRow project={project} />
+            </li>
+          ))}
         </ul>
       )}
+      </div>
+      <div ref={previewRef} className={`index__preview${preview ? " is-on" : ""}`} aria-hidden="true">
+        {preview ? <><CaptureImage project={preview} sizes="280px" /><span>{preview.title}</span></> : null}
       </div>
       {limited && matches.length > initialRows ? (
         <button className="index__more" type="button" aria-expanded={false} onClick={() => setShowAll(true)}>

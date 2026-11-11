@@ -15,7 +15,7 @@ export function SelectedWork({ projects, intro }: { projects: Project[]; intro: 
     <section id="work" className="sec" aria-labelledby="work-title">
       <header className="sec__head">
         <p className="label">01 / Selected work</p>
-        <h2 id="work-title">Projects I’d show first.</h2>
+        <h2 id="work-title"><span className="sweep">Projects I’d show first.</span></h2>
         <p>{intro}</p>
         <p className="hand sec__aside" aria-hidden="true">hover one, it plays →</p>
       </header>
