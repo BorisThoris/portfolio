@@ -1,0 +1,28 @@
+/* Shared parts: counted figures as post-its, project tiles as polaroids. */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: var(--s5); padding-top: 12px; }
+.stats li { min-width: 0; }
+.stats .note { height: 100%; min-height: 140px; }
+.stats__label { display: block; margin-top: 8px; font-size: var(--t-sm); font-weight: 500; line-height: 1.4; }
+.stats__label svg { margin-left: 3px; vertical-align: -1px; opacity: 0.6; }
+
+.tile-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s7) var(--s6); margin-top: var(--s8); }
+.tile-grid > li:nth-child(3n + 1) .project-tile { --tilt: -1.5deg; }
+.tile-grid > li:nth-child(3n + 2) .project-tile { --tilt: 1deg; }
+.tile-grid > li:nth-child(3n) .project-tile { --tilt: -0.6deg; }
+.footnote { max-width: 82ch; margin-top: var(--s6); color: var(--ink-3); font-family: var(--mono); font-size: var(--t-xs); line-height: 1.6; }
+
+.project-tile { display: flex; flex-direction: column; height: 100%; }
+.project-tile:hover { transform: rotate(0deg) translateY(-6px); box-shadow: var(--shadow-lift); }
+.project-tile__body { display: grid; align-content: start; gap: 4px; flex: 1; padding: 12px 4px 14px; color: var(--ink); text-decoration: none; }
+.project-tile__heading strong { font-size: var(--t-md); font-weight: 650; letter-spacing: -0.02em; }
+.project-tile__body:hover .project-tile__heading strong { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 2px; }
+.project-tile__proof { color: var(--signal-text); font-size: 21px; }
+.project-tile__line { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.5; }
+
+@media (max-width: 860px) { .tile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .tile-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s7); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); }
+  .stats .note { min-height: 120px; padding: 16px 14px 14px; }
+  .stats .note__big { font-size: 30px; }
+}

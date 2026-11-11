@@ -1,18 +1,29 @@
 export const home = {
-  role: "Full-stack engineer in Sofia",
+  role: "Full-stack engineer · Sofia",
   headline: ["I build software.", "Some of it gets weird."],
   introduction:
-    "I’m Boris. At work I build financial and product software — risk tools, the dashboards on top of them, and the data underneath. After hours I make browser music tools, games, 3D experiments and PC game mods that people actually download, then build the infrastructure that keeps them online: failover hosting, continuous integration on spare Android hardware, and local AI models instead of API bills.",
+    "Risk and product software at Man Group by day. After hours: browser games, a music workstation, crash physics for 2000s racing games, and the infrastructure that keeps all of it online.",
   problemsIntro:
     "Six problems worth writing down: what was wrong, what I built, and how I know it works.",
   workIntro:
-    "These are the projects I keep coming back to. Most are live, so you can try them.",
+    "The projects I keep coming back to. Most are live, so you can try them.",
   experienceIntro:
-    "I’ve worked in investment technology, hospitality, low-code tools, and telecoms. Here’s what I did at each.",
+    "Investment technology, hospitality, low-code tools and telecoms. Open a role for what I did there.",
   contactTitle: "Want to talk?",
   contactDescription:
     "If you’re hiring, building something interesting, or just want to compare notes, send me an email.",
 };
+
+// The dated log of recent releases at the top of the work column: proof that the
+// work is current. Newest first, five entries, real release dates only.
+export const shipped = [
+  { date: "2026-11-07", title: "Dynamic Damage for NFS Most Wanted, Carbon and ProStreet", kind: "Game mod", slug: "dynamic-damage" },
+  { date: "2026-11-06", title: "Last Levee", kind: "Browser game", slug: "last-levee" },
+  { date: "2026-11-02", title: "LA Frontend for GTA San Andreas", kind: "Game mod", slug: "gta-sa-mod" },
+  { date: "2026-10-31", title: "Ringer 3D on itch.io", kind: "Browser game", slug: "ringer3d" },
+  { date: "2026-10-27", title: "SphereCam 360° virtual webcam", kind: "Windows app", slug: "spherecam" },
+];
+
 // Editorial selection is independent of generated repo rankings.
 export const featuredSlugs = [
   "bobball",

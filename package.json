@@ -49,8 +49,10 @@
     "check:native": "node scripts/check-native-showcase.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/caveat": "^5.3.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
     "@vitejs/plugin-react": "^5.0.3",
-    "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.468.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

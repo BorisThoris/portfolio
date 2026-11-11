@@ -284,9 +284,9 @@ try {
   const heroVideo = hero.locator('video');
   await playing(heroVideo);
   await checkRatio(heroVideo, 'Homepage hero desktop');
-  const orbit = hero.locator('.hero__orbits i').first();
+  const orbit = hero.locator('.hero__signal i').first();
   const transform = await orbit.evaluate((el) => getComputedStyle(el).transform);
-  await page.waitForFunction((previous) => getComputedStyle(document.querySelector('.hero__orbits i')).transform !== previous, transform);
+  await page.waitForFunction((previous) => getComputedStyle(document.querySelector('.hero__signal i')).transform !== previous, transform);
   await page.getByRole('button', { name: 'Pause motion', exact: true }).click();
   await paused(heroVideo);
   assert.equal(await orbit.evaluate((el) => getComputedStyle(el).animationPlayState), 'paused');
@@ -305,26 +305,29 @@ try {
   assert.equal(await hero.getAttribute('data-motion'), 'paused');
   await page.setViewportSize({width:1440,height:1000});
   report.push('Homepage hero: real trailer playback on desktop/mobile, changing animation frames, pause/resume controls, offscreen pause');
-  let previousFeatured = null;
-  for (const tabIndex of [0, 1, 2, 4]) {
-    const tab = page.getByRole('tab').nth(tabIndex);
-    const panelId = await tab.getAttribute('aria-controls');
-    assert(panelId, 'Featured tab identifies its panel');
-    await tab.click();
-    const slide = page.locator(`#${panelId}`);
-    await slide.scrollIntoViewIfNeeded();
-    await playing(slide.locator('video'));
-    await checkRatio(slide.locator('video'), `${panelId} featured desktop`);
-    if (previousFeatured) await paused(previousFeatured.locator('video'));
-    if (tabIndex === 1) await page.screenshot({ path: 'output/playwright/video-featured.png' });
+  // Featured cases: a still until the pointer is over the case, then its preview
+  // plays at the source's ratio; moving on pauses the previous one.
+  let previousCase = null;
+  for (const slug of ['memory-dungeon', 'bbeats', 'vyb-chess']) {
+    const study = page.locator(`#case-${slug}`);
+    await study.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+    await study.locator('.case__media').hover();
+    await playing(study.locator('video'));
+    await checkRatio(study.locator('video'), `${slug} featured case desktop`);
+    if (previousCase) await paused(previousCase.locator('video'));
+    if (slug === 'bbeats') await page.screenshot({ path: 'output/playwright/video-featured.png' });
     await page.setViewportSize({width:390,height:844});
-    await checkRatio(slide.locator('video'), `${panelId} featured mobile`);
+    // A resize moves the case out from under the pointer, which correctly unloads its
+    // preview; bring it back under the pointer at the phone width before measuring.
+    await study.evaluate((el) => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+    await study.locator('.case__media').hover();
+    await playing(study.locator('video'));
+    await checkRatio(study.locator('video'), `${slug} featured case mobile`);
     await page.setViewportSize({width:1440,height:1000});
-    previousFeatured = slide;
+    previousCase = study;
   }
-  await page.getByRole('tab').nth(3).click();
-  const skillballPanel = page.locator(`#${await page.getByRole('tab').nth(3).getAttribute('aria-controls')}`);
-  assert(await skillballPanel.locator('img').first().evaluate(async img => { await img.decode(); return img.naturalWidth > 0; }));
+  const skillballCase = page.locator('#case-skillball');
+  assert(await skillballCase.locator('img').first().evaluate(async img => { await img.decode(); return img.naturalWidth > 0; }));
   const card = page.locator('.project-tile').filter({ has: page.locator('.project-tile__heading strong', { hasText: 'GTA San Andreas Mods' }) });
   // Finish the page's smooth scroll before placing the pointer over the card.
   await card.evaluate((el) => el.scrollIntoView({ behavior: "instant", block: "center", inline: "center" }));
@@ -335,14 +338,7 @@ try {
     console.error(await card.evaluate((el) => ({ rect: el.getBoundingClientRect().toJSON(), hovered: [...document.querySelectorAll(":hover")].map((item) => item.className), focus: document.activeElement?.outerHTML })));
     throw error;
   });
-  await checkRatio(card.locator('video'), 'GTA San Andreas Mods supporting card');
-  for (const name of ['Cross Repo Libs']) {
-    const tile = page.locator('.project-tile').filter({has:page.locator('.project-tile__heading strong', {hasText:name})});
-    await tile.evaluate((el) => el.scrollIntoView({behavior:'instant', block:'center'}));
-    await tile.hover();
-    await playing(tile.locator('video'));
-    await checkRatio(tile.locator('video'), `${name} card`);
-  }
+  await checkRatio(card.locator('video'), 'GTA San Andreas Mods mod tile');
   await card.getByRole("button", { name: /^Watch video/ }).click();
   await playing(page.getByRole("dialog").locator("video")).catch(async (error) => {
     console.error(requests);
@@ -350,10 +346,12 @@ try {
     throw error;
   });
   await page.getByRole("button", { name: "Close video" }).click();
-  await page.getByRole("heading", { level: 1 }).focus();
+  // Closing the player returns focus to its trigger inside the tile, which keeps the
+  // tile active; move focus and pointer away and the preview must stop.
+  await page.evaluate(() => (document.activeElement instanceof HTMLElement ? document.activeElement.blur() : undefined));
   await page.getByRole("heading", { level: 1 }).hover();
   await paused(card.locator("video"));
-  report.push("Homepage: original featured playback, SkillBall screenshot, supporting card hover and full player");
+  report.push("Homepage: featured case hover playback with ratio checks, SkillBall screenshot, mod tile hover and full player");
 
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 390, height: 844 });

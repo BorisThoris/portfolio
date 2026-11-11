@@ -1,10 +1,10 @@
 {
   "slug": "portfolio",
   "source": "public/favicon.svg",
-  "sourceHash": "8c087360d0c87671",
+  "sourceHash": "0b2204893e961bf6",
   "outputDir": "public",
   "urlPrefix": "/",
-  "renderedAt": "2026-09-14T20:12:59.725Z",
+  "renderedAt": "2026-11-11T17:25:39.033Z",
   "files": [
     "favicon.ico",
     "apple-touch-icon.png",

@@ -31,10 +31,16 @@ const visibleProjects = projectData.filter(
 );
 const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
 const featuredSlugs = ["bobball", "memory-dungeon", "bbeats", "skillball", "vyb-chess"];
-// Released mods have their own homepage section, so they stay out of the catalog too.
-const modSlugs = JSON.parse(await fs.readFile("src/project-traction.json", "utf8")).summary.projects;
-const supportingProjects = visibleProjects.filter(project => !featuredSlugs.includes(project.slug) && !modSlugs.includes(project.slug));
-const activeProjects = supportingProjects.filter(project => access[project.slug]?.kind !== "archive");
+// The homepage index lists every visible project; archives only under their filter
+// (or when a search is typed).
+const archivedProjects = visibleProjects.filter((project) => access[project.slug]?.kind === "archive");
+const activeProjects = visibleProjects.filter((project) => access[project.slug]?.kind !== "archive");
+const searchable = (project) => `${project.title} ${project.subtitle} ${project.tags.join(" ")}`.toLowerCase();
+const searchFor = (query) => {
+  const terms = query.trim().toLowerCase().split(/\s+/);
+  return visibleProjects.filter((project) => terms.every((term) => searchable(project).includes(term))).map((project) => project.title).sort();
+};
+const initialRows = 12;
 async function audit(page, name) {
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
@@ -84,64 +90,42 @@ try {
     0,
     "Visible labels and ARIA roles agree",
   );
-  await page.getByRole("button", { name: "Next project", exact: true }).click();
-  assert.equal(
-    await page.getByRole("tab").nth(1).getAttribute("aria-selected"),
-    "true",
-  );
-  await page.getByRole("tab").nth(1).focus();
-  await page.keyboard.press("End");
-  assert.equal(
-    await page.getByRole("tab").last().evaluate(
-        (el) =>
-          el === document.activeElement &&
-          el.getAttribute("aria-selected") === "true",
-      ),
-    true,
-  );
-  await page.keyboard.press("ArrowRight");
-  assert.equal(
-    await page.getByRole("tab").first().getAttribute("aria-selected"),
-    "true",
-  );
-  assert.equal(await page.locator('[role="tabpanel"][inert]').count(), 4);
-  assert.equal(await page.locator('.catalog-filters, .catalog-shelves, .project-tile__heading > span').count(), 0, "No category filters, rows, or badges");
-  assert.equal(await page.getByRole('heading', { name: /Supporting projects/ }).count(), 1);
-  assert.equal(await page.locator('.project-grid > li').count(), Math.min(6, activeProjects.length));
-  await page.getByRole('checkbox', {name: /Include historical archives/}).check();
-  assert.equal(await page.locator('.project-grid > li').count(), Math.min(6, supportingProjects.length));
-  await page.getByRole('button', { name: /View all .* supporting projects/ }).click();
-  assert.equal(await page.locator('.project-grid > li').count(), supportingProjects.length);
-  await page.getByRole('checkbox', {name: /Include historical archives/}).uncheck();
-  assert.equal(await page.locator('.project-grid > li').count(), activeProjects.length);
-  await page.getByRole('button', { name: 'Show fewer supporting projects' }).click();
-  assert.equal(await page.getByRole('heading', { name: /^(Apps & tools|Games|Commerce)$/ }).count(), 0);
-  assert.equal(await page.locator('.hero video').count(), 0, "Hero respects reduced motion");
-  assert.equal(await page.locator('.hero__orbits i').first().evaluate((el) => getComputedStyle(el).animationName), 'none');
-  await page.getByRole("searchbox", { name: "Search supporting projects" }).fill("BBeats");
-  assert.deepEqual(
-    (await page.locator('.project-grid strong').allTextContents()).sort(),
-    ['Soundstage Composer'],
-    'Featured work stays out of the supporting catalog',
-  );
-  await page.getByRole("searchbox", { name: "Search supporting projects" }).fill("  BBeats   NATIVE  ");
-  assert.equal(await page.locator('.project-grid > li').count(), 1);
-  assert.equal(
-    await page.locator('.project-grid strong').textContent(),
-    'Soundstage Composer',
-    'Every search term must match, regardless of case or surrounding whitespace',
-  );
-  await page
-    .getByRole("searchbox", { name: "Search supporting projects" })
-    .fill("no-match-xyz");
-  assert(
-    await page.getByRole("heading", { name: "No projects found" }).isVisible(),
-  );
+  // Light and dark are both shipped themes: audit the dark one too.
+  await page.emulateMedia({ colorScheme: "dark" });
+  await audit(page, "home-desktop-dark");
+  await page.emulateMedia({ colorScheme: "light" });
+  // The identity column's navigation follows the reading position.
+  await page.locator("#problems").evaluate((el) => el.scrollIntoView({ block: "start" }));
+  await page.waitForFunction(() => document.querySelector('.topnav__links a[aria-current="true"]')?.getAttribute("href") === "#problems");
+  // Selected work: the featured projects other than the one in the showreel, in depth.
+  assert.equal(await page.locator(".cases > li").count(), featuredSlugs.length - 1, "Featured cases below the showreel");
+  assert.equal(await page.locator(".hero video").count(), 0, "Hero respects reduced motion");
+  assert.equal(await page.locator(".hero__signal i").first().evaluate((el) => getComputedStyle(el).animationName), "none");
+  // The index: every project, filterable, archives behind their own filter.
+  const rows = page.locator(".project-grid > li");
+  assert.equal(await page.getByRole("heading", { level: 2, name: /^All work/ }).count(), 1);
+  assert.equal(await rows.count(), Math.min(initialRows, activeProjects.length));
+  await page.getByRole("button", { name: `Show all ${activeProjects.length} projects` }).click();
+  assert.equal(await rows.count(), activeProjects.length);
+  await page.getByRole("button", { name: "Show fewer projects" }).click();
+  assert.equal(await rows.count(), Math.min(initialRows, activeProjects.length));
+  const filters = page.getByRole("group", { name: "Filter projects" });
+  await filters.getByRole("button", { name: /^Archive/ }).click();
+  assert.equal(await filters.getByRole("button", { name: /^Archive/ }).getAttribute("aria-pressed"), "true");
+  assert.equal(await rows.count(), archivedProjects.length, "Archive filter lists exactly the archives");
+  await filters.getByRole("button", { name: /^Games/ }).click();
+  const games = await rows.count();
+  assert(games > 0 && games < activeProjects.length, "Games filter narrows the index");
+  await filters.getByRole("button", { name: /^All/ }).click();
+  const search = page.getByRole("searchbox", { name: "Search projects" });
+  await search.fill("BBeats");
+  assert.deepEqual((await page.locator(".project-grid strong").allTextContents()).sort(), searchFor("BBeats"), "Search matches name, line and tags");
+  await search.fill("  BBeats   NATIVE  ");
+  assert.deepEqual((await page.locator(".project-grid strong").allTextContents()).sort(), searchFor("BBeats native"), "Every search term must match, regardless of case or surrounding whitespace");
+  await search.fill("no-match-xyz");
+  assert(await page.getByRole("heading", { name: "No projects found" }).isVisible());
   await page.getByRole("button", { name: "Clear search" }).click();
-  assert.equal(
-    await page.locator(".project-grid .project-tile").count(),
-    Math.min(6, activeProjects.length),
-  );
+  assert.equal(await rows.count(), Math.min(initialRows, activeProjects.length));
   const job = page.locator(".experience-item").first();
   await job.locator("summary").first().focus();
   await page.keyboard.press("Enter");
@@ -154,7 +138,7 @@ try {
     "borisbostandzhiev@yahoo.com",
   );
   report.push(
-    "Desktop: featured carousel, source projects with optional historical archives, search/reset, reduced-motion hero, disclosure, clipboard",
+    "Desktop: dark-theme audit, section tracking, featured cases, index filters/expand/search/reset, reduced-motion hero, disclosure, clipboard",
   );
   // Chromium rounds fractional layout widths to integers; allow one CSS pixel.
   for (const width of [320, 390, 768, 1440]) {
@@ -207,31 +191,18 @@ try {
     path: `${output}/release-desktop.png`,
     fullPage: true,
   });
-  // The active featured project can change without invalidating navigation.
-  const activeFeaturedLink = page.locator('.featured [role="tabpanel"]:not([inert])').getByRole('link', { name: 'Explore project' });
-  const featuredHref = await activeFeaturedLink.getAttribute('href');
-  const featuredProject = projectData.find(project => featuredHref === `/projects/${project.slug}`);
-  assert(featuredProject, 'Active featured card links to a listed project');
-  await activeFeaturedLink.click();
-  await page
-    .getByRole("heading", { level: 1, name: featuredProject.title, exact: true })
-    .waitFor();
+  // A featured case links to its project, and "All work" returns to the index.
+  const caseLink = page.locator(".case").first().getByRole("link", { name: "Explore project" });
+  const featuredHref = await caseLink.getAttribute("href");
+  const featuredProject = projectData.find((project) => featuredHref === `/projects/${project.slug}`);
+  assert(featuredProject, "Featured case links to a listed project");
+  await caseLink.click();
+  await page.getByRole("heading", { level: 1, name: featuredProject.title, exact: true }).waitFor();
   assert.equal(await page.title(), `${featuredProject.title} | Boris Bostandzhiev`);
-  assert.equal(
-    await page.locator("main").evaluate((el) => el === document.activeElement),
-    true,
-    "Route transition moves focus to content",
-  );
+  assert.equal(await page.locator("main").evaluate((el) => el === document.activeElement), true, "Route transition moves focus to content");
   await page.getByRole("link", { name: "All work", exact: true }).click();
-  await page
-    .getByRole("heading", { name: "Projects I’d show first." })
-    .waitFor();
-  assert(
-    await page
-      .locator("#work")
-      .evaluate((el) => Math.abs(el.getBoundingClientRect().top) < 150),
-    "Work anchor restored",
-  );
+  await page.getByRole("heading", { level: 2, name: /^All work/ }).waitFor();
+  assert(await page.locator("#index").evaluate((el) => Math.abs(el.getBoundingClientRect().top) < 150), "Index anchor restored");
   for (const project of projectData.filter(
     (p) => rankings.find((r) => r.slug === p.slug)?.showcaseTier !== "excluded",
   )) {

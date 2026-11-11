@@ -1,5 +1,6 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import { execSync } from 'node:child_process';
 
 // The project catalogue is also the input to the local build/serve scripts, so it
 // records where each repo lives on the machine that generated it. Those fields are
@@ -36,7 +37,22 @@ function stripLocalPathsFromCatalogue(): Plugin {
   };
 }
 
+// The footer's build stamp: which commit this page was built from, and when.
+// Cloudflare Pages provides the commit; a local build asks git.
+function buildCommit() {
+  if (process.env.CF_PAGES_COMMIT_SHA) return process.env.CF_PAGES_COMMIT_SHA;
+  try {
+    return execSync('git rev-parse HEAD', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {
+    return '';
+  }
+}
+
 export default defineConfig({
+  define: {
+    __BUILD_COMMIT__: JSON.stringify(buildCommit()),
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+  },
   plugins: [stripLocalPathsFromCatalogue(), react()],
   server: {
     host: '127.0.0.1',

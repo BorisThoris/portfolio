@@ -1,26 +1,16 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
+// First, so every page stylesheet can override the base rules.
+import "./ui/base.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
-import { NotFoundPage } from "./pages/NotFoundPage";
+import { HomePage } from "./ui/home/HomePage";
+import { NotFoundPage } from "./ui/NotFoundPage";
 import { RouteEffects } from "./components/RouteEffects";
-import "./styles.css";
 
-const ProjectPage = lazy(() =>
-  import("./pages/ProjectPage").then((module) => ({
-    default: module.ProjectPage,
-  })),
-);
-const CvPrintPage = lazy(() =>
-  import("./pages/CvPrintPage").then((module) => ({
-    default: module.CvPrintPage,
-  })),
-);
+const ProjectPage = lazy(() => import("./ui/project/ProjectPage").then((module) => ({ default: module.ProjectPage })));
+const CvPrintPage = lazy(() => import("./pages/CvPrintPage").then((module) => ({ default: module.CvPrintPage })));
 
-class PageErrorBoundary extends React.Component<
-  { children: React.ReactNode },
-  { failed: boolean }
-> {
+class PageErrorBoundary extends React.Component<{ children: React.ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
@@ -28,35 +18,23 @@ class PageErrorBoundary extends React.Component<
   render() {
     if (this.state.failed)
       return (
-        <main className="shell empty-page">
-          <p className="eyebrow">Something didn’t load</p>
+        <main className="empty-page">
+          <p className="label">Something didn’t load</p>
           <h1>Let’s try that again.</h1>
           <p>A connection or update may have interrupted this page.</p>
-          <button
-            className="btn btn--primary"
-            onClick={() => window.location.reload()}
-          >
-            Reload page
-          </button>
-          <a className="text-link" href="/">
-            Return home
-          </a>
+          <button className="btn btn--primary" onClick={() => window.location.reload()}>Reload page</button>
+          <a className="link" href="/">Return home</a>
         </main>
       );
     return this.props.children;
   }
 }
+
 function App() {
   return (
     <PageErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-        <Suspense
-          fallback={
-            <main className="shell empty-page" role="status">
-              Loading page…
-            </main>
-          }
-        >
+        <Suspense fallback={<main className="empty-page" role="status">Loading page…</main>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cv-print" element={<CvPrintPage />} />
@@ -69,6 +47,7 @@ function App() {
     </PageErrorBoundary>
   );
 }
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

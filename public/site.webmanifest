@@ -1,12 +1,12 @@
 {
   "name": "Boris Bostandzhiev Portfolio",
   "short_name": "Portfolio",
-  "description": "Portfolio and selected projects by Boris Bostandzhiev, a full-stack engineer in Sofia.",
+  "description": "The React + Vite portfolio site that indexes every project here: it runs each demo locally on its own port, captures card/desktop/mobile/full screenshots through Playwright, and renders the scored project catalogue from generated metadata.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0d0e0c",
-  "theme_color": "#0d0e0c",
+  "background_color": "#121316",
+  "theme_color": "#0e0f11",
   "icons": [
     {
       "src": "/icon-192.png",

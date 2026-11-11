@@ -45,7 +45,7 @@ for (const { route, title, description, project } of routes) {
   const availability = entry ? `<section><h2>${escape(entry.label)}</h2><p>${escape(entry.status)}</p><p>Environment: ${escape(entry.environment)}</p><pre>${escape(entry.instructions)}</pre>${entry.downloadUrl ? `<p><a href="${escape(entry.downloadUrl)}">${escape(entry.downloadLabel || "Download")}</a></p>` : ""}</section>` : "";
   const image = entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/project-shots/native-placeholder.svg"}` : project?.screenshot
     ? `${site}${project.screenshot}`
-    : `${site}/social-preview-v3.png`;
+    : `${site}/social-preview-v4.png`;
   let html = template.replace(
     /<title>.*?<\/title>/s,
     `<title>${escape(title)}</title>`,
@@ -118,7 +118,7 @@ for (const { route, title, description, project } of routes) {
   );
   html = html.replace(
     /<noscript>[\s\S]*?<\/noscript>/,
-    `<noscript><main style="max-width:60rem;margin:3rem auto;padding:1rem;font-family:system-ui"><h1>${escape(project?.title ?? "Boris Bostandzhiev")}</h1><p>${escape(description)}</p>${availability}${project?.deploymentUrl && (!entry || entry.kind === "web") ? `<p><a href="${escape(project.deploymentUrl)}">Open live project</a></p>` : ""}<p>This portfolio uses JavaScript for interactive browsing.</p><a href="/">Portfolio</a> · <a href="mailto:borisbostandzhiev@yahoo.com">Contact Boris</a><ul>${visible.filter(p => access[p.slug]?.kind !== "archive").map((p) => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul><details><summary>Historical archives</summary><ul>${visible.filter(p => access[p.slug]?.kind === "archive").map(p => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul></details></main></noscript>`,
+    `<noscript><main style="max-width:44rem;margin:4rem auto;padding:1rem 1.25rem;font:16px/1.6 system-ui,sans-serif;color:CanvasText;background:Canvas"><h1>${escape(project?.title ?? "Boris Bostandzhiev")}</h1><p>${escape(description)}</p>${availability}${project?.deploymentUrl && (!entry || entry.kind === "web") ? `<p><a href="${escape(project.deploymentUrl)}">Open live project</a></p>` : ""}<p>This portfolio uses JavaScript for interactive browsing.</p><a href="/">Portfolio</a> · <a href="mailto:borisbostandzhiev@yahoo.com">Contact Boris</a><ul>${visible.filter(p => access[p.slug]?.kind !== "archive").map((p) => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul><details><summary>Historical archives</summary><ul>${visible.filter(p => access[p.slug]?.kind === "archive").map(p => `<li><a href="/projects/${p.slug}">${escape(p.title)}</a></li>`).join("")}</ul></details></main></noscript>`,
   );
   const directory = path.join(root, route);
   await fs.mkdir(directory, { recursive: true });

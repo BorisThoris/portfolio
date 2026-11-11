@@ -59,8 +59,8 @@ export default {
 
   // The icon set is rendered from favicon.svg by scripts/generate-app-icons.mjs.
   icons: {
-    "background": "#0d0e0c",
-    "themeColor": "#0d0e0c",
+    "background": "#121316",
+    "themeColor": "#0e0f11",
     "name": "Boris Bostandzhiev Portfolio",
     "shortName": "Portfolio"
   },

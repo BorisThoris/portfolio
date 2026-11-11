@@ -16,7 +16,13 @@
       content="Work by Boris Bostandzhiev, a full-stack engineer in Sofia: product software, music tools, games, and 3D projects."
     />
     <meta name="author" content="Boris Bostandzhiev" />
-    <meta name="theme-color" content="#141611" />
+    <meta name="theme-color" content="#f5f4f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0f11" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Apply a remembered light/dark choice before first paint (no flash).
+      try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
     <script id="site-schema" type="application/ld+json">{}</script>
     <link rel="canonical" href="https://boris-portfolio-git.pages.dev/" />
 
@@ -28,8 +34,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://boris-portfolio-git.pages.dev/" />
     <meta property="og:site_name" content="Boris Bostandzhiev Portfolio" />
-    <meta property="og:image" content="https://boris-portfolio-git.pages.dev/social-preview-v3.png" />
-    <meta property="og:image:secure_url" content="https://boris-portfolio-git.pages.dev/social-preview-v3.png" />
+    <meta property="og:image" content="https://boris-portfolio-git.pages.dev/social-preview-v4.png" />
+    <meta property="og:image:secure_url" content="https://boris-portfolio-git.pages.dev/social-preview-v4.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -41,7 +47,7 @@
       name="twitter:description"
       content="Product software, music tools, games, and 3D projects built by Boris Bostandzhiev."
     />
-    <meta name="twitter:image" content="https://boris-portfolio-git.pages.dev/social-preview-v3.png" />
+    <meta name="twitter:image" content="https://boris-portfolio-git.pages.dev/social-preview-v4.png" />
     <meta name="twitter:image:alt" content="Boris Bostandzhiev portfolio preview with project screenshots" />
   </head>
   <body>
