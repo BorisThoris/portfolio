@@ -65,11 +65,16 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: node scripts/refresh-traction.mjs --write || echo "traction refresh failed; keeping the last figures"
 
+      # The index's status lights: does each public demo still answer? Also once a
+      # day; a demo is shown as down only after two failed days in a row.
+      - name: Check the live demo links (once a day)
+        run: node scripts/check-deployments.mjs --write || echo "link check failed; keeping the last results"
+
       - name: Commit what changed
         run: |
           git config user.name "project-meta bot"
           git config user.email "project-meta-bot@users.noreply.github.com"
-          git add public/project-shots src/project-data.json src/project-details.json src/repo-analysis.json src/project-traction.json
+          git add public/project-shots src/project-data.json src/project-details.json src/repo-analysis.json src/project-traction.json src/project-health.json
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0

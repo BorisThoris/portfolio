@@ -11,7 +11,7 @@
 //                                                   or { type, mods: [[game, id], ...], metric }
 //   youtube      channel RSS feed (newest 15 videos, no key), then the Data API for older
 //                videos when YOUTUBE_API_KEY is set: { type, channel, videos: [id, ...] }
-//   itch         itch.io server API, needs ITCH_API_KEY: { type, games: [id, ...], metric: views_count|downloads_count }
+//   itch         itch.io server API (api.itch.io/profile/games), needs ITCH_API_KEY: { type, games: [id, ...], metric: views_count|downloads_count }
 //   reddit       public post JSON (often blocked for anonymous clients): { type, post, metric: score|num_comments }
 // `parts` fills {name} placeholders in a label from further sources, so a label never
 // carries a hard-coded number that the value next to it has outgrown.
@@ -71,7 +71,9 @@ function itchGames() {
   return memo('itch', async () => {
     const key = process.env.ITCH_API_KEY;
     if (!key) throw new Error('itch: ITCH_API_KEY not set');
-    const body = JSON.parse(await fetchText(`https://itch.io/api/1/${key}/my-games`));
+    // Current server API (the /api/1/KEY/my-games form is the legacy one). The key is
+    // unscoped, so it lives only in a CI secret.
+    const body = JSON.parse(await fetchText('https://api.itch.io/profile/games', { headers: { authorization: `Bearer ${key}` } }));
     return body.games;
   });
 }
