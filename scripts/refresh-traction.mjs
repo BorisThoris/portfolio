@@ -128,7 +128,11 @@ async function refresh(stat, where) {
     const previous = stat.counts[name];
     try {
       const result = await resolvers[source.type](source, previous);
-      stat.counts[name] = { value: result.value, ...(result.count != null ? { count: result.count } : {}), ...(result.known ? { known: result.known } : {}), checked: today };
+      // A partial answer (some YouTube videos only from the stored counts) is not a
+      // fresh confirmation of the whole figure: keep the older date until every part
+      // has been confirmed together.
+      const checked = result.partial ? previous?.checked ?? today : today;
+      stat.counts[name] = { value: result.value, ...(result.count != null ? { count: result.count } : {}), ...(result.known ? { known: result.known } : {}), checked };
       if (previous?.value !== result.value) report.push(`${where} ${name}: ${previous?.value ?? '-'} -> ${result.value}`);
     } catch (error) {
       report.push(`${where} ${name}: kept ${previous?.value ?? 'nothing'} (${error.message})`);
