@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 import { getProject } from "../projects";
+import { getProjectCover } from "../projectCovers";
 
 const site = "https://boris-portfolio-git.pages.dev";
 const homeTitle =
@@ -39,7 +40,10 @@ export function RouteEffects() {
     update('meta[property="og:description"]', description);
     update('meta[name="twitter:description"]', description);
     update('meta[property="og:url"]', `${site}${location.pathname}`);
-    const image = project?.screenshot
+    const cover = project ? getProjectCover(project.slug) : undefined;
+    const image = cover
+      ? `${site}${cover}`
+      : project?.screenshot
       ? `${site}/project-shots/${project.slug}/latest/card.jpg`
       : `${site}/social-preview-v4.png`;
     update('meta[property="og:image"]', image);

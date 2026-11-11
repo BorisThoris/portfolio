@@ -9,6 +9,7 @@ import { formatDuration, youtubeEmbedUrl } from "../lib/format";
 import { mediaRatio, previewClip, projectClips, type ProjectClip } from "../lib/projectMedia";
 import { getProjectAccess } from "../projectAccess";
 import { CaptureImage } from "./CaptureImage";
+import { getProjectCover } from "../projectCovers";
 import "../project-media.css";
 
 const watchEvent = "portfolio:watch";
@@ -108,7 +109,10 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
     };
   }, [loaded]);
 
-  const picture = clip?.poster && !posterFailed ? (
+  // Cards and tiles show the project's chosen best picture; its own page keeps the
+  // trailer poster, so the player opens on the frame it plays from.
+  const useCover = mode !== "cover" && Boolean(getProjectCover(project.slug));
+  const picture = clip?.poster && !posterFailed && !useCover ? (
     <img className="project-media__poster" src={clip.poster} alt={`${project.title} video preview`}
       loading={mode === "cover" ? "eager" : "lazy"} onError={() => setPosterFailed(true)} />
   ) : <CaptureImage project={project} priority={mode === "cover"} />;

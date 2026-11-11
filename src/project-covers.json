@@ -1,0 +1,17 @@
+{
+  "_note": "The best picture of each project, chosen by eye on 2026-11-12. Cards, index rows, tiles and link previews use it first; a project's own video player keeps its trailer poster. Paths are under public/.",
+  "cross-repo-libs": "/project-shots/cross-repo-libs/stable/card.jpg",
+  "runner-score-arcade": "/project-shots/runner-score-arcade/stable/card.jpg",
+  "cat-world": "/project-shots/cat-world/stable/card.jpg",
+  "flowforge-configurator": "/project-shots/flowforge-configurator/cover.jpg",
+  "gem-dungeon": "/project-shots/gem-dungeon/cover.jpg",
+  "skyfall": "/project-shots/skyfall/cover.jpg",
+  "roam-rental-dashboard": "/project-shots/roam-rental-dashboard/cover.jpg",
+  "user-hub-admin": "/project-shots/user-hub-admin/cover.jpg",
+  "org-atlas-directory": "/project-shots/org-atlas-directory/cover.jpg",
+  "soundstage-composer": "/native/soundstage-composer/bbeats/04-studio-theme.png",
+  "miata-lights": "/native/miata-lights/05-landscape.png",
+  "helloword": "/native/helloword/donut-spacing-4.png",
+  "bean-tapper-arena": "/native/bean-tapper-arena/bean-tapper-station.png",
+  "spherecam": "/native/spherecam/every-seat.jpg"
+}

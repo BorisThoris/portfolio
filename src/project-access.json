@@ -818,29 +818,36 @@
   "skillball": {
     "kind": "web",
     "label": "Browser game",
-    "status": "Verified locally; public demo not published yet.",
-    "environment": "Modern browser; Node.js for local development",
-    "instructions": "npm run dev -- --port 4121",
+    "status": "Public demo link available: play solo with bots or invite a friend to a private room. Also on itch.io.",
+    "environment": "Modern desktop browser with WebGL; mouse and keyboard",
+    "instructions": "npm ci\nnpm run dev",
     "sourceUrl": "",
-    "sourceStatus": "Local source; not published.",
+    "sourceStatus": "Private source.",
     "images": [
       {
         "profile": "desktop",
-        "path": "/project-shots/skillball/arena.jpg",
-        "caption": "SkillBall arena",
-        "width": 1280,
-        "height": 720
+        "path": "/project-shots/skillball/stable/card.jpg",
+        "caption": "SkillBall main menu, live build",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-shots/skillball/stable/mobile.jpg",
+        "caption": "SkillBall main menu, mobile",
+        "width": 860,
+        "height": 1864
       },
       {
         "profile": "gameplay",
-        "path": "/project-shots/skillball/gameplay.jpg",
-        "caption": "Recoil movement gameplay",
+        "path": "/project-shots/skillball/welcome.jpg",
+        "caption": "First-match onboarding: fire down, fly up",
         "width": 1280,
         "height": 720
       }
     ],
     "videos": [],
-    "captureNote": "Screenshots from the SkillBall browser game."
+    "captureNote": "Captured from the live build on 11 November 2026."
   },
   "marketcheck": {
     "kind": "web",

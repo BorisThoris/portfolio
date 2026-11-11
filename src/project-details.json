@@ -1,7 +1,7 @@
 {
   "bobball": {
     "slug": "bobball",
-    "generatedAt": "2026-09-29T09:45:55.914Z",
+    "generatedAt": "2026-10-01T20:26:26.302Z",
     "classification": "web-app",
     "links": {
       "deploymentUrl": "https://bobball.modaxxx009.workers.dev/",
@@ -20,29 +20,29 @@
       "devDependencyCount": 0
     },
     "metrics": {
-      "sourceFiles": 131,
-      "testFiles": 3,
-      "sourceLines": 85869,
+      "sourceFiles": 444,
+      "testFiles": 26,
+      "sourceLines": 450798,
       "largestDirectories": [
         {
           "directory": "output",
-          "files": 54
+          "files": 285
         },
         {
           "directory": "trailer",
-          "files": 31
+          "files": 93
         },
         {
           "directory": "tools_dev",
-          "files": 19
+          "files": 20
         },
         {
           "directory": "game",
-          "files": 12
+          "files": 19
         },
         {
           "directory": "scripts",
-          "files": 10
+          "files": 13
         }
       ],
       "hasTests": true,
@@ -51,10 +51,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5f64f21",
-      "lastCommitDate": "2026-09-29T12:22:42+03:00",
-      "lastCommitSubject": "Rebuild NDK hedges with rounded geometry and baked foliage",
-      "commitCount": 219
+      "head": "13f3521",
+      "lastCommitDate": "2026-09-29T23:59:56+03:00",
+      "lastCommitSubject": "Verify the completed game scope and repair mobile review coverage",
+      "commitCount": 263
     },
     "scores": {
       "priorityScore": 99,
@@ -106,53 +106,57 @@
       {
         "id": "trailer",
         "title": "BOBBALL - the trailer",
-        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer.mp4",
-        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer.jpg",
+        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer.mp4?v=7fec88972ba2cd36",
+        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer.jpg?v=a0b422bac2b1cf53",
         "width": 1920,
         "height": 1080,
         "duration": 30.02,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T14:26:23.958Z"
+        "builtAt": "2026-10-01T13:17:30.759Z",
+        "audioUpdatedAt": "2026-10-01T19:17:25.840Z"
       },
       {
         "id": "trailer-story",
         "title": "BOBBALL - the trailer, vertical (9:16)",
-        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-story.mp4",
-        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-story.jpg",
+        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-story.mp4?v=830a5b150c440b4b",
+        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-story.jpg?v=e829e56892f2a110",
         "width": 1080,
         "height": 1920,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-27T14:38:04.893Z"
+        "builtAt": "2026-10-01T13:40:05.790Z",
+        "audioUpdatedAt": "2026-10-01T19:19:20.505Z"
       },
       {
         "id": "trailer-post",
         "title": "BOBBALL - the trailer, 4:5",
-        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-post.mp4",
-        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-post.jpg",
+        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-post.mp4?v=c404f2298590d53a",
+        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-post.jpg?v=c1f7ba8a2972792a",
         "width": 1080,
         "height": 1350,
         "duration": 30.02,
         "orientation": "portrait",
-        "builtAt": "2026-09-27T14:46:56.973Z"
+        "builtAt": "2026-10-01T13:45:32.524Z",
+        "audioUpdatedAt": "2026-10-01T19:20:07.016Z"
       },
       {
         "id": "trailer-square",
         "title": "BOBBALL - the trailer, square",
-        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-square.mp4",
-        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-square.jpg",
+        "url": "https://bobball.modaxxx009.workers.dev/trailers/trailer-square.mp4?v=14d4db4ebcf41461",
+        "poster": "https://bobball.modaxxx009.workers.dev/trailers/trailer-square.jpg?v=40d13bcd38d46ff3",
         "width": 1080,
         "height": 1080,
         "duration": 30.02,
         "orientation": "square",
-        "builtAt": "2026-09-27T14:52:32.519Z"
+        "builtAt": "2026-10-01T13:49:56.654Z",
+        "audioUpdatedAt": "2026-10-01T19:20:48.326Z"
       }
     ],
     "source": "BorisThoris/bobball@main"
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-07T21:56:02.094Z",
+    "generatedAt": "2026-11-11T20:21:28.905Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -224,9 +228,9 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7683,
-      "testFiles": 3354,
-      "sourceLines": 1353001,
+      "sourceFiles": 7684,
+      "testFiles": 3355,
+      "sourceLines": 1353271,
       "largestDirectories": [
         {
           "directory": "src",
@@ -234,7 +238,7 @@
         },
         {
           "directory": "e2e",
-          "files": 276
+          "files": 277
         },
         {
           "directory": "public",
@@ -255,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "086c392f75c",
-      "lastCommitDate": "2026-11-07T23:15:42+02:00",
-      "lastCommitSubject": "Preserve panel drafts when collapsing a dock edge",
-      "commitCount": 6056
+      "head": "a0950af5cdd",
+      "lastCommitDate": "2026-11-11T22:12:26+02:00",
+      "lastCommitSubject": "Enable first-float help in Rack focus regression",
+      "commitCount": 6077
     },
     "scores": {
       "priorityScore": 96,
@@ -316,14 +320,14 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-07T21:53:06.160Z"
+        "builtAt": "2026-11-11T19:07:29.781Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
   },
   "vyb-chess": {
     "slug": "vyb-chess",
-    "generatedAt": "2026-10-31T00:42:35.730Z",
+    "generatedAt": "2026-11-11T19:26:05.178Z",
     "version": "0.2.0",
     "classification": "web-app",
     "links": {
@@ -374,13 +378,13 @@
       "devDependencyCount": 27
     },
     "metrics": {
-      "sourceFiles": 348,
+      "sourceFiles": 349,
       "testFiles": 139,
-      "sourceLines": 91040,
+      "sourceLines": 91083,
       "largestDirectories": [
         {
           "directory": "app",
-          "files": 205
+          "files": 206
         },
         {
           "directory": "scripts",
@@ -405,10 +409,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "4b1bf2c",
-      "lastCommitDate": "2026-10-31T02:27:26+02:00",
-      "lastCommitSubject": "Build the standalone Bulgarian ebook PDF",
-      "commitCount": 496
+      "head": "9219395",
+      "lastCommitDate": "2026-11-11T20:51:55+02:00",
+      "lastCommitSubject": "Merge pull request #10 from BorisThoris/claude/privacy-policy",
+      "commitCount": 499
     },
     "scores": {
       "priorityScore": 98,
@@ -425,35 +429,35 @@
         "path": "/project-shots/vyb-chess/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 99303
+        "bytes": 99675
       },
       {
         "profile": "desktop",
         "path": "/project-shots/vyb-chess/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 95493
+        "bytes": 95329
       },
       {
         "profile": "full",
         "path": "/project-shots/vyb-chess/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 79837
+        "bytes": 79749
       },
       {
         "profile": "mobile",
         "path": "/project-shots/vyb-chess/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 50148
+        "bytes": 50188
       },
       {
         "profile": "og",
         "path": "/project-shots/vyb-chess/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 80609
+        "bytes": 80573
       }
     ],
     "trailers": [

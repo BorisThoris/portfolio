@@ -4,6 +4,8 @@ import { effectiveMedia } from "./lib/effective-media.mjs";
 const root = path.resolve("dist");
 const site = "https://boris-portfolio-git.pages.dev";
 const template = await fs.readFile(path.join(root, "index.html"), "utf8");
+// The hand-picked best picture per project doubles as its link-preview image.
+const covers = JSON.parse(await fs.readFile(path.resolve("src/project-covers.json"), "utf8"));
 const projects = JSON.parse(await fs.readFile("src/project-data.json", "utf8"));
 const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
 const analysis = JSON.parse(
@@ -43,7 +45,8 @@ const routes = [
 for (const { route, title, description, project } of routes) {
   const entry = access[project?.slug];
   const availability = entry ? `<section><h2>${escape(entry.label)}</h2><p>${escape(entry.status)}</p><p>Environment: ${escape(entry.environment)}</p><pre>${escape(entry.instructions)}</pre>${entry.downloadUrl ? `<p><a href="${escape(entry.downloadUrl)}">${escape(entry.downloadLabel || "Download")}</a></p>` : ""}</section>` : "";
-  const image = entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/project-shots/native-placeholder.svg"}` : project?.screenshot
+  const cover = project ? covers[project.slug] : undefined;
+  const image = cover ? `${site}${cover}` : entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/project-shots/native-placeholder.svg"}` : project?.screenshot
     ? `${site}${project.screenshot}`
     : `${site}/social-preview-v4.png`;
   let html = template.replace(

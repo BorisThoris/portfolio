@@ -1,4 +1,5 @@
 import { getProjectAccess } from "../projectAccess";
+import { getProjectCover } from "../projectCovers";
 import { Project } from "../projects";
 
 // A project's card picture: the project's own latest self-portrait, then the
@@ -8,10 +9,13 @@ export function captureSources(
   preferredState: "latest" | "stable",
 ) {
   const access = getProjectAccess(project.slug);
-  if (access && access.kind !== "web") return [...access.images.map(image => image.path), "/project-shots/native-placeholder.svg"];
+  // A hand-picked best picture goes first (src/project-covers.json).
+  const cover = getProjectCover(project.slug);
+  if (access && access.kind !== "web") return [...new Set([...(cover ? [cover] : []), ...access.images.map(image => image.path), "/project-shots/native-placeholder.svg"])];
   const alternateState = preferredState === "latest" ? "stable" : "latest";
   return [
     ...new Set([
+      ...(cover ? [cover] : []),
       `/project-shots/${project.slug}/${preferredState}/card.jpg`,
       `/project-shots/${project.slug}/${alternateState}/card.jpg`,
       ...(project.screenshot ? [project.screenshot] : []),

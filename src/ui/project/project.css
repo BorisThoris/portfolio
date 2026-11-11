@@ -63,6 +63,8 @@
 .project-access strong { color: var(--ink); font-weight: 650; }
 .project-access pre { margin: 6px 0; padding: var(--s4) var(--s5); overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--sunk); color: var(--ink); font-family: var(--mono); font-size: var(--t-sm); line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
 .project-access .btn { justify-self: start; }
+/* Long labels ("Download the Windows player…") must wrap on a 320px screen. */
+.project-access .btn, .project-actions .btn { max-width: 100%; white-space: normal; text-align: left; }
 .pp__note { font-size: var(--t-sm); color: var(--ink-3) !important; }
 
 .pp__tech dl { display: grid; gap: var(--s3); }
@@ -76,7 +78,7 @@
 .pp__gallery h2, .pp__artwork h2 { font-size: var(--t-2xl); letter-spacing: -0.045em; }
 .pp__gallery header p { max-width: 52ch; color: var(--ink-2); font-size: var(--t-sm); }
 .shot-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--s7) var(--s6); }
-.shot { --tilt: -0.8deg; grid-column: span 6; display: grid; gap: 4px; padding: 10px 10px 6px; border: 1px solid var(--line); border-radius: 3px; background: var(--card); color: var(--ink-2); font-size: var(--t-sm); text-decoration: none; box-shadow: var(--shadow); }
+.shot { --tilt: -0.8deg; grid-column: span 6; display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 4px; padding: 10px 10px 6px; border: 1px solid var(--line); border-radius: 3px; background: var(--card); color: var(--ink-2); font-size: var(--t-sm); text-decoration: none; box-shadow: var(--shadow); }
 .shot-grid > .shot:nth-child(even) { --tilt: 0.9deg; }
 .shot:hover { transform: rotate(0deg) translateY(-4px) !important; box-shadow: var(--shadow-lift); }
 .shot--desktop, .shot--native-poster, .shot--full { grid-column: span 12; }
@@ -118,8 +120,10 @@
   .pp__bar { grid-template-columns: 1fr auto; }
   .pp__home, .pp__contact { display: none; }
   .project-cover .project-media--cover { border-width: 8px 8px 26px; }
-  .shot, .shot--mobile { grid-column: span 12; }
-  .shot--mobile { grid-column: span 6; }
+  /* Twelve columns of 32px gaps are wider than a phone: use two columns here. */
+  .shot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s3); }
+  .shot, .shot--desktop, .shot--native-poster, .shot--full { grid-column: span 2; }
+  .shot--mobile { grid-column: span 1; }
   .project-shelf__rail { grid-auto-columns: minmax(240px, 82%); }
   .artwork-rail { grid-auto-columns: minmax(220px, 80%); }
   .project-footer { grid-template-columns: 1fr; justify-items: start; }

@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import sharp from "sharp";
 const projects = JSON.parse(await fs.readFile("src/project-data.json", "utf8"));
 const access = JSON.parse(await fs.readFile("src/project-access.json", "utf8"));
+const covers = JSON.parse(await fs.readFile("src/project-covers.json", "utf8"));
 const directory = "public/project-previews";
 await fs.mkdir(directory, { recursive: true });
 const manifestPath = path.join(directory, "manifest.json");
@@ -15,7 +16,9 @@ let originalBytes = 0;
 let previewBytes = 0;
 for (const project of projects) {
   const entry = access[project.slug];
-  const candidates = entry && entry.kind !== "web" ? [...entry.images.map(image => `public${image.path}`), "public/project-shots/native-placeholder.svg"] : [
+  const cover = covers[project.slug] ? [`public${covers[project.slug]}`] : [];
+  const candidates = entry && entry.kind !== "web" ? [...cover, ...entry.images.map(image => `public${image.path}`), "public/project-shots/native-placeholder.svg"] : [
+    ...cover,
     `public/project-shots/${project.slug}/latest/card.jpg`,
     `public/project-shots/${project.slug}/stable/card.jpg`,
     ...(project.screenshot ? [`public${project.screenshot}`] : []),

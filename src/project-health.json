@@ -127,6 +127,13 @@
       "failures": 0,
       "lastUp": "2026-11-11"
     },
+    "skillball": {
+      "url": "https://skillball.modaxxx009.workers.dev/",
+      "up": true,
+      "status": 200,
+      "failures": 0,
+      "lastUp": "2026-11-11"
+    },
     "ringer3d": {
       "url": "https://ringer3d.modaxxx009.workers.dev/",
       "up": true,
