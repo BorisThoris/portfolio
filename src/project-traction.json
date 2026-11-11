@@ -1,25 +1,147 @@
 {
   "asOf": "2026-11-11",
-  "note": "Counted from the public Nexus Mods, YouTube and Reddit pages and the itch.io dashboard on the date shown. Nothing is projected or rounded up; YouTube counts above a thousand are YouTube’s own rounding.",
+  "note": "Nexus Mods and YouTube figures are recounted automatically once a day from their public APIs; itch.io and Reddit figures when their APIs answer. Each figure keeps the date it was last confirmed. YouTube counts above a thousand are rounded.",
   "summary": {
     "title": "Mods people actually downloaded.",
     "lede": "Since October I have been releasing PC game mods: real crash damage and first-person cameras for games from the 2000s. These are the counts so far, from the platforms themselves.",
     "stats": [
       {
         "value": "536",
-        "label": "downloads on Nexus Mods across 13 mods"
+        "label": "downloads on Nexus Mods across 13 mods",
+        "source": {
+          "type": "nexus",
+          "uploader": "Bostannn",
+          "metric": "downloads"
+        },
+        "template": "downloads on Nexus Mods across {count} mods",
+        "counts": {
+          "value": {
+            "value": 536,
+            "count": 13,
+            "checked": "2026-11-11"
+          }
+        },
+        "checked": "2026-11-11"
       },
       {
         "value": "6.8K",
-        "label": "views on the mod trailers on YouTube"
+        "label": "views on the mod trailers on YouTube",
+        "source": {
+          "type": "youtube",
+          "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+          "videos": [
+            "4-6-hNEtwwQ",
+            "ep-ievKrJcE",
+            "0dDv0iSMMjE",
+            "ijG2ohXj3T4",
+            "GmHsk_AN90w",
+            "KrBGs7qC9HQ",
+            "Ml9S1rs-Ojw",
+            "s71bntM9TgA",
+            "zmS1hgDq2V4",
+            "SWch0aE6Kg8",
+            "OjZO3vWzLWs",
+            "kv9D2xI_BMg",
+            "MUwfYjgVhqU",
+            "fyOQR8czrdc",
+            "u4Tvq6f6YtE"
+          ],
+          "format": "compact"
+        },
+        "counts": {
+          "value": {
+            "value": 6816,
+            "known": {
+              "4-6-hNEtwwQ": 114,
+              "ep-ievKrJcE": 339,
+              "0dDv0iSMMjE": 1320,
+              "ijG2ohXj3T4": 1700,
+              "GmHsk_AN90w": 1400,
+              "KrBGs7qC9HQ": 420,
+              "Ml9S1rs-Ojw": 166,
+              "s71bntM9TgA": 69,
+              "zmS1hgDq2V4": 80,
+              "SWch0aE6Kg8": 51,
+              "OjZO3vWzLWs": 353,
+              "kv9D2xI_BMg": 599,
+              "MUwfYjgVhqU": 96,
+              "fyOQR8czrdc": 72,
+              "u4Tvq6f6YtE": 37,
+              "uZNwVSXWy3Y": 9,
+              "Tzt0gsdY55o": 40,
+              "-v-D8zpNiTE": 501,
+              "Sq7d68AIRNU": 77,
+              "k9qykpvLCAc": 3,
+              "ywL2e-HdLG4": 275,
+              "h_TPONTVh_g": 534,
+              "qQDQNXWILys": 441,
+              "ZX7i33OpB40": 345,
+              "YhVkVr9sEl0": 125,
+              "R12uklk5o9s": 38
+            },
+            "checked": "2026-11-11"
+          }
+        },
+        "checked": "2026-11-11"
       },
       {
         "value": "250",
-        "label": "upvotes and 34 comments on the r/needforspeed launch post"
+        "label": "upvotes and 34 comments on the r/needforspeed launch post",
+        "source": {
+          "type": "reddit",
+          "post": "1xi6112",
+          "metric": "score"
+        },
+        "template": "upvotes and {comments} comments on the r/needforspeed launch post",
+        "parts": {
+          "comments": {
+            "type": "reddit",
+            "post": "1xi6112",
+            "metric": "num_comments"
+          }
+        },
+        "counts": {
+          "value": {
+            "value": 250,
+            "checked": "2026-11-11"
+          },
+          "comments": {
+            "value": 34,
+            "checked": "2026-11-11"
+          }
+        },
+        "checked": "2026-11-11"
       },
       {
         "value": "1,538",
-        "label": "views of the mod pages on itch.io"
+        "label": "views of the mod pages on itch.io",
+        "source": {
+          "type": "itch",
+          "games": [
+            5249697,
+            5279291,
+            5289507,
+            5229212,
+            5244682,
+            5264286,
+            5258359,
+            5244141,
+            5244106,
+            5244092,
+            5244080,
+            5244032
+          ],
+          "metric": "views_count",
+          "format": "exact"
+        },
+        "counts": {
+          "value": {
+            "value": 1538,
+            "count": 12,
+            "checked": "2026-11-11"
+          }
+        },
+        "checked": "2026-11-11"
       }
     ],
     "projects": [
@@ -35,22 +157,186 @@
         {
           "value": "250",
           "label": "upvotes and 34 comments on the Most Wanted launch post in r/needforspeed",
-          "url": "https://www.reddit.com/r/needforspeed/comments/1xi6112/"
+          "url": "https://www.reddit.com/r/needforspeed/comments/1xi6112/",
+          "source": {
+            "type": "reddit",
+            "post": "1xi6112",
+            "metric": "score"
+          },
+          "template": "upvotes and {comments} comments on the Most Wanted launch post in r/needforspeed",
+          "parts": {
+            "comments": {
+              "type": "reddit",
+              "post": "1xi6112",
+              "metric": "num_comments"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 250,
+              "checked": "2026-11-11"
+            },
+            "comments": {
+              "value": 34,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "4.9K",
           "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 1.7K)",
-          "url": "https://www.youtube.com/watch?v=ijG2ohXj3T4"
+          "url": "https://www.youtube.com/watch?v=ijG2ohXj3T4",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "4-6-hNEtwwQ",
+              "ep-ievKrJcE",
+              "0dDv0iSMMjE",
+              "ijG2ohXj3T4",
+              "GmHsk_AN90w"
+            ],
+            "format": "compact"
+          },
+          "template": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: {carbon})",
+          "parts": {
+            "carbon": {
+              "type": "youtube",
+              "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+              "videos": [
+                "ijG2ohXj3T4"
+              ],
+              "format": "compact"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 4873,
+              "known": {
+                "4-6-hNEtwwQ": 114,
+                "ep-ievKrJcE": 339,
+                "0dDv0iSMMjE": 1320,
+                "ijG2ohXj3T4": 1700,
+                "GmHsk_AN90w": 1400,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "h_TPONTVh_g": 534,
+                "qQDQNXWILys": 441,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            },
+            "carbon": {
+              "value": 1700,
+              "known": {
+                "ijG2ohXj3T4": 1700
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "200",
           "label": "Nexus downloads across the five games (Most Wanted: 129)",
-          "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349"
+          "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349",
+          "source": {
+            "type": "nexus",
+            "uploader": "Bostannn",
+            "mods": [
+              [
+                "needforspeedmostwanted2005",
+                349
+              ],
+              [
+                "needforspeedcarbon",
+                74
+              ],
+              [
+                "needforspeedprostreet",
+                17
+              ],
+              [
+                "thesimpsonshitandrun",
+                71
+              ],
+              [
+                "driverparrallellines",
+                14
+              ]
+            ],
+            "metric": "downloads"
+          },
+          "template": "Nexus downloads across the five games (Most Wanted: {mw})",
+          "parts": {
+            "mw": {
+              "type": "nexus",
+              "uploader": "Bostannn",
+              "mods": [
+                [
+                  "needforspeedmostwanted2005",
+                  349
+                ]
+              ],
+              "metric": "downloads"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 200,
+              "count": 5,
+              "checked": "2026-11-11"
+            },
+            "mw": {
+              "value": 129,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "1,193",
           "label": "views and 94 downloads of the NFS bundle page on itch.io",
-          "url": "https://boristhoris.itch.io/nfsmw-dynamic-damage"
+          "url": "https://boristhoris.itch.io/nfsmw-dynamic-damage",
+          "source": {
+            "type": "itch",
+            "games": [
+              5249697
+            ],
+            "metric": "views_count"
+          },
+          "template": "views and {dl} downloads of the NFS bundle page on itch.io",
+          "parts": {
+            "dl": {
+              "type": "itch",
+              "games": [
+                5249697
+              ],
+              "metric": "downloads_count"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 1193,
+              "count": 1,
+              "checked": "2026-11-11"
+            },
+            "dl": {
+              "value": 94,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -90,7 +376,9 @@
           "label": "Most Wanted, Carbon & ProStreet together",
           "url": "https://www.youtube.com/watch?v=4-6-hNEtwwQ"
         }
-      ]
+      ],
+      "headlineFrom": 0,
+      "headlineUnit": "upvotes on r/needforspeed"
     },
     "first-person-mods": {
       "headline": "93 upvotes on r/driver",
@@ -98,17 +386,139 @@
         {
           "value": "93",
           "label": "upvotes and 11 comments on the Driver: Parallel Lines cockpit-camera post in r/driver",
-          "url": "https://www.reddit.com/r/driver/comments/1x9wgps/"
+          "url": "https://www.reddit.com/r/driver/comments/1x9wgps/",
+          "source": {
+            "type": "reddit",
+            "post": "1x9wgps",
+            "metric": "score"
+          },
+          "template": "upvotes and {comments} comments on the Driver: Parallel Lines cockpit-camera post in r/driver",
+          "parts": {
+            "comments": {
+              "type": "reddit",
+              "post": "1x9wgps",
+              "metric": "num_comments"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 93,
+              "checked": "2026-11-11"
+            },
+            "comments": {
+              "value": 11,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "1.2K",
           "label": "views across the first-person trailers on YouTube (Hit & Run: 599)",
-          "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg"
+          "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "OjZO3vWzLWs",
+              "kv9D2xI_BMg",
+              "MUwfYjgVhqU",
+              "fyOQR8czrdc",
+              "u4Tvq6f6YtE"
+            ],
+            "format": "compact"
+          },
+          "template": "views across the first-person trailers on YouTube (Hit & Run: {shar})",
+          "parts": {
+            "shar": {
+              "type": "youtube",
+              "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+              "videos": [
+                "kv9D2xI_BMg"
+              ],
+              "format": "exact"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 1157,
+              "known": {
+                "OjZO3vWzLWs": 353,
+                "kv9D2xI_BMg": 599,
+                "MUwfYjgVhqU": 96,
+                "fyOQR8czrdc": 72,
+                "u4Tvq6f6YtE": 37
+              },
+              "checked": "2026-11-11"
+            },
+            "shar": {
+              "value": 599,
+              "known": {
+                "kv9D2xI_BMg": 599
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "132",
           "label": "Nexus downloads across the five mods (Hit & Run First Person: 49)",
-          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67"
+          "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67",
+          "source": {
+            "type": "nexus",
+            "uploader": "Bostannn",
+            "mods": [
+              [
+                "driverparrallellines",
+                12
+              ],
+              [
+                "thesimpsonshitandrun",
+                67
+              ],
+              [
+                "thesimpsonshitandrun",
+                68
+              ],
+              [
+                "familyguybacktothemultiverse",
+                8
+              ],
+              [
+                "wheelman",
+                3
+              ]
+            ],
+            "metric": "downloads"
+          },
+          "template": "Nexus downloads across the five mods (Hit & Run First Person: {shar})",
+          "parts": {
+            "shar": {
+              "type": "nexus",
+              "uploader": "Bostannn",
+              "mods": [
+                [
+                  "thesimpsonshitandrun",
+                  67
+                ]
+              ],
+              "metric": "downloads"
+            }
+          },
+          "counts": {
+            "value": {
+              "value": 132,
+              "count": 5,
+              "checked": "2026-11-11"
+            },
+            "shar": {
+              "value": 49,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -140,7 +550,9 @@
           "label": "Hit & Run first-person trailer",
           "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg"
         }
-      ]
+      ],
+      "headlineFrom": 0,
+      "headlineUnit": "upvotes on r/driver"
     },
     "gta-sa-mod": {
       "headline": "180 Nexus downloads",
@@ -148,12 +560,47 @@
         {
           "value": "180",
           "label": "Nexus downloads of Personal Fleet",
-          "url": "https://www.nexusmods.com/gtasanandreas/mods/3106"
+          "url": "https://www.nexusmods.com/gtasanandreas/mods/3106",
+          "source": {
+            "type": "nexus",
+            "uploader": "Bostannn",
+            "mods": [
+              [
+                "gtasanandreas",
+                3106
+              ]
+            ],
+            "metric": "downloads"
+          },
+          "counts": {
+            "value": {
+              "value": 180,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "38",
           "label": "itch.io downloads of Personal Fleet and LA Frontend",
-          "url": "https://boristhoris.itch.io/personal-fleet"
+          "url": "https://boristhoris.itch.io/personal-fleet",
+          "source": {
+            "type": "itch",
+            "games": [
+              5229212,
+              5289507
+            ],
+            "metric": "downloads_count"
+          },
+          "counts": {
+            "value": {
+              "value": 38,
+              "count": 2,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -173,14 +620,35 @@
           "label": "LA Frontend video",
           "url": "https://www.youtube.com/watch?v=zmS1hgDq2V4"
         }
-      ]
+      ],
+      "headlineFrom": 0,
+      "headlineUnit": "Nexus downloads"
     },
     "terraria-depth": {
       "stats": [
         {
           "value": "24",
           "label": "Nexus downloads",
-          "url": "https://www.nexusmods.com/terraria/mods/256"
+          "url": "https://www.nexusmods.com/terraria/mods/256",
+          "source": {
+            "type": "nexus",
+            "uploader": "Bostannn",
+            "mods": [
+              [
+                "terraria",
+                256
+              ]
+            ],
+            "metric": "downloads"
+          },
+          "counts": {
+            "value": {
+              "value": 24,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -195,8 +663,48 @@
       "stats": [
         {
           "value": "2.2K",
-          "label": "views across the SkillBall videos on YouTube (two above 900)",
-          "url": "https://www.youtube.com/watch?v=m4G49IVnNWo"
+          "label": "views across the SkillBall videos on YouTube",
+          "url": "https://www.youtube.com/watch?v=m4G49IVnNWo",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "m4G49IVnNWo",
+              "8urlsZfc6Mk",
+              "syk1g7UQWLE",
+              "mRnEZsmMHPI",
+              "uZNwVSXWy3Y"
+            ],
+            "format": "compact"
+          },
+          "counts": {
+            "value": {
+              "value": 2240,
+              "known": {
+                "m4G49IVnNWo": 1000,
+                "8urlsZfc6Mk": 910,
+                "syk1g7UQWLE": 277,
+                "mRnEZsmMHPI": 44,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "h_TPONTVh_g": 534,
+                "ep-ievKrJcE": 339,
+                "qQDQNXWILys": 441,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -208,14 +716,51 @@
           "label": "Video: tiny ball, huge arena",
           "url": "https://www.youtube.com/watch?v=m4G49IVnNWo"
         }
-      ]
+      ],
+      "headlineFrom": 0,
+      "headlineUnit": "video views"
     },
     "vyb-chess": {
       "stats": [
         {
           "value": "785",
           "label": "views across the Живият ум videos on YouTube",
-          "url": "https://www.youtube.com/watch?v=IPUH1nCi_x0"
+          "url": "https://www.youtube.com/watch?v=IPUH1nCi_x0",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "IPUH1nCi_x0",
+              "ywL2e-HdLG4",
+              "Tzt0gsdY55o"
+            ],
+            "format": "exact"
+          },
+          "counts": {
+            "value": {
+              "value": 785,
+              "known": {
+                "IPUH1nCi_x0": 470,
+                "ywL2e-HdLG4": 275,
+                "Tzt0gsdY55o": 40,
+                "uZNwVSXWy3Y": 9,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "h_TPONTVh_g": 534,
+                "ep-ievKrJcE": 339,
+                "qQDQNXWILys": 441,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -230,12 +775,31 @@
         {
           "value": "1K",
           "label": "views of the BOBBALL video on YouTube",
-          "url": "https://www.youtube.com/watch?v=ZP736LfwFbs"
+          "url": "https://www.youtube.com/watch?v=ZP736LfwFbs",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "ZP736LfwFbs"
+            ],
+            "format": "compact"
+          },
+          "counts": {
+            "value": {
+              "value": 1000,
+              "known": {
+                "ZP736LfwFbs": 1000
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "51",
           "label": "browser plays from itch.io",
-          "url": "https://boristhoris.itch.io/bob-ball"
+          "url": "https://boristhoris.itch.io/bob-ball",
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -250,12 +814,51 @@
         {
           "value": "737",
           "label": "views across the BBeats videos on YouTube",
-          "url": "https://www.youtube.com/watch?v=qQDQNXWILys"
+          "url": "https://www.youtube.com/watch?v=qQDQNXWILys",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "qQDQNXWILys",
+              "e011MDSFMJc",
+              "-3aGwr50Xu8",
+              "q1pk7h2Kb2g"
+            ],
+            "format": "exact"
+          },
+          "counts": {
+            "value": {
+              "value": 737,
+              "known": {
+                "qQDQNXWILys": 441,
+                "e011MDSFMJc": 178,
+                "-3aGwr50Xu8": 60,
+                "q1pk7h2Kb2g": 58,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "h_TPONTVh_g": 534,
+                "ep-ievKrJcE": 339,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "46",
           "label": "browser plays from itch.io",
-          "url": "https://boristhoris.itch.io/bbeats"
+          "url": "https://boristhoris.itch.io/bbeats",
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -270,12 +873,64 @@
         {
           "value": "618",
           "label": "views across the Memory Dungeon videos on YouTube",
-          "url": "https://www.youtube.com/watch?v=h_TPONTVh_g"
+          "url": "https://www.youtube.com/watch?v=h_TPONTVh_g",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "h_TPONTVh_g",
+              "R12uklk5o9s",
+              "ZwwBarv9baI",
+              "uZQBOkwoz4I"
+            ],
+            "format": "exact"
+          },
+          "counts": {
+            "value": {
+              "value": 618,
+              "known": {
+                "h_TPONTVh_g": 534,
+                "R12uklk5o9s": 38,
+                "ZwwBarv9baI": 30,
+                "uZQBOkwoz4I": 16,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "ep-ievKrJcE": 339,
+                "qQDQNXWILys": 441,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "91",
           "label": "views of the itch.io page",
-          "url": "https://boristhoris.itch.io/memory-dungeon"
+          "url": "https://boristhoris.itch.io/memory-dungeon",
+          "source": {
+            "type": "itch",
+            "games": [
+              5135053
+            ],
+            "metric": "views_count"
+          },
+          "counts": {
+            "value": {
+              "value": 91,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [
@@ -290,7 +945,25 @@
         {
           "value": "1.1K",
           "label": "views of the Cat World video on YouTube",
-          "url": "https://www.youtube.com/watch?v=3jXmvPtLKHU"
+          "url": "https://www.youtube.com/watch?v=3jXmvPtLKHU",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "3jXmvPtLKHU"
+            ],
+            "format": "compact"
+          },
+          "counts": {
+            "value": {
+              "value": 1100,
+              "known": {
+                "3jXmvPtLKHU": 1100
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ]
     },
@@ -299,7 +972,41 @@
         {
           "value": "525",
           "label": "views across the Bostan Teddy Hoodie videos on YouTube",
-          "url": "https://www.youtube.com/watch?v=-v-D8zpNiTE"
+          "url": "https://www.youtube.com/watch?v=-v-D8zpNiTE",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "-v-D8zpNiTE",
+              "QoYQi6XA5MQ"
+            ],
+            "format": "exact"
+          },
+          "counts": {
+            "value": {
+              "value": 525,
+              "known": {
+                "-v-D8zpNiTE": 501,
+                "QoYQi6XA5MQ": 24,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "h_TPONTVh_g": 534,
+                "ep-ievKrJcE": 339,
+                "qQDQNXWILys": 441,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "YhVkVr9sEl0": 125,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ]
     },
@@ -308,12 +1015,59 @@
         {
           "value": "125",
           "label": "views of the VoiceDrift video on YouTube",
-          "url": "https://www.youtube.com/watch?v=YhVkVr9sEl0"
+          "url": "https://www.youtube.com/watch?v=YhVkVr9sEl0",
+          "source": {
+            "type": "youtube",
+            "channel": "UC5qOxdwjjv8dJriDLrMG9Jw",
+            "videos": [
+              "YhVkVr9sEl0"
+            ],
+            "format": "exact"
+          },
+          "counts": {
+            "value": {
+              "value": 125,
+              "known": {
+                "YhVkVr9sEl0": 125,
+                "uZNwVSXWy3Y": 9,
+                "Tzt0gsdY55o": 40,
+                "-v-D8zpNiTE": 501,
+                "Sq7d68AIRNU": 77,
+                "4-6-hNEtwwQ": 114,
+                "k9qykpvLCAc": 3,
+                "ywL2e-HdLG4": 275,
+                "h_TPONTVh_g": 534,
+                "ep-ievKrJcE": 339,
+                "qQDQNXWILys": 441,
+                "0dDv0iSMMjE": 1320,
+                "ZX7i33OpB40": 345,
+                "zmS1hgDq2V4": 80,
+                "R12uklk5o9s": 38
+              },
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         },
         {
           "value": "50",
           "label": "views of the VoiceDrift page on itch.io",
-          "url": "https://boristhoris.itch.io/voicedrift"
+          "url": "https://boristhoris.itch.io/voicedrift",
+          "source": {
+            "type": "itch",
+            "games": [
+              5243754
+            ],
+            "metric": "views_count"
+          },
+          "counts": {
+            "value": {
+              "value": 50,
+              "count": 1,
+              "checked": "2026-11-11"
+            }
+          },
+          "checked": "2026-11-11"
         }
       ],
       "links": [

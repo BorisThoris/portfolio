@@ -55,11 +55,21 @@ jobs:
           PROJECT_META_MIRROR: .meta-mirror
         run: node scripts/meta/sync-project-meta.mjs --write
 
+      # Download and view counts for the released mods and videos. Runs every hour
+      # but recounts only once a day, so the numbers add at most one change a day to
+      # the bot's commit. A source that fails keeps its last confirmed figure and
+      # date; a failure here must never stop the screenshot sync.
+      - name: Recount traction figures (once a day)
+        env:
+          ITCH_API_KEY: ${{ secrets.ITCH_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node scripts/refresh-traction.mjs --write || echo "traction refresh failed; keeping the last figures"
+
       - name: Commit what changed
         run: |
           git config user.name "project-meta bot"
           git config user.email "project-meta-bot@users.noreply.github.com"
-          git add public/project-shots src/project-data.json src/project-details.json src/repo-analysis.json
+          git add public/project-shots src/project-data.json src/project-details.json src/repo-analysis.json src/project-traction.json
           if git diff --cached --quiet; then
             echo "nothing changed"
             exit 0
