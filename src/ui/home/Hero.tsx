@@ -6,6 +6,7 @@ import type { Project } from "../../projects";
 import { ProjectMedia } from "../../components/ProjectMedia";
 import { CountUp } from "../motion";
 import { tractionAsOf } from "../../projectTraction";
+import { getSandbox, requestPlay } from "../../content/sandboxes";
 
 export type ProofNote = { value: string; text: string; href: string; color: "yellow" | "pink" | "blue" | "green" };
 
@@ -130,7 +131,7 @@ export function Hero({ reel, proof, employers, email, motion }: {
         <p className="hero__value">{home.introduction}</p>
         <div className="hero__cta">
           <a className="btn btn--primary" href={`mailto:${email}`}>Email me <ArrowUpRight size={16} /></a>
-          <a className="btn" href="#work">See the work <ArrowDown size={16} /></a>
+          <a className="btn" href="#play">Play something <ArrowDown size={16} /></a>
           <span className="hero__aside hand" aria-hidden="true">← or just say hi</span>
         </div>
         <div className="hero__trust">
@@ -172,6 +173,11 @@ export function Hero({ reel, proof, employers, email, motion }: {
               <Link to={`/projects/${reel.slug}`} className="reel__title hand">
                 {reel.title}, {reel.subtitle.charAt(0).toLowerCase() + reel.subtitle.slice(1)}
               </Link>
+              {getSandbox(reel.slug) ? (
+                <a className="reel__play" href="#play" onClick={(event) => { event.preventDefault(); requestPlay(reel.slug); }}>
+                  ▶ This is the real game. Play it here
+                </a>
+              ) : null}
             </figcaption>
           </figure>
         ) : null}

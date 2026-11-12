@@ -73,7 +73,7 @@ export function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
     <section id="index" className="sec" aria-labelledby="index-title">
       <header className="sec__head">
-        <p className="label">04 / Index</p>
+        <p className="label">05 / Index</p>
         <h2 id="index-title"><span className="sweep">All work</span> <span className="num index__count">{counts.all}</span></h2>
         <p>Every project, filterable. A green light means its live demo answered today’s check; archives hold older work, kept for the record.</p>
       </header>

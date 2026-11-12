@@ -19,7 +19,7 @@ export function Contact() {
   return (
     <section id="contact" className="sec contact" aria-labelledby="contact-title">
       <div className="contact__note note" data-reveal>
-        <p className="label">06 / Contact</p>
+        <p className="label">07 / Contact</p>
         <h2 id="contact-title" className="hand">{home.contactTitle}</h2>
         <p className="contact__lede">{home.contactDescription}</p>
         <div className="contact__row">

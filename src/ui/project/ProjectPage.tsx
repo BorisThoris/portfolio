@@ -12,6 +12,8 @@ import { BuildStamp, ThemeToggle } from "../../components/SiteChrome";
 import { NotFoundPage } from "../NotFoundPage";
 import { Stats } from "../Stats";
 import { Related } from "./Related";
+import { Sandbox } from "../play/Sandbox";
+import { getSandbox } from "../../content/sandboxes";
 import { useReveal } from "../motion";
 import "./project.css";
 
@@ -29,6 +31,7 @@ function ProjectContent({ project }: { project: Project }) {
   const details = getProjectDetails(project.slug);
   const traction = getProjectTraction(project.slug);
   const status = projectStatus(project);
+  const sandbox = getSandbox(project.slug);
   useReveal([project.slug]);
   const artwork = details?.artwork ?? [];
   // The first native image is already the cover; don't show it twice.
@@ -90,6 +93,13 @@ function ProjectContent({ project }: { project: Project }) {
         <div className="project-cover" id="watch">
           <ProjectMedia key={project.slug} project={project} mode="cover" />
         </div>
+
+        {sandbox ? (
+          <section className="pp-play" id="play" aria-labelledby="play-here-title">
+            <h2 id="play-here-title" className="label">Play it here · the live build, in this page</h2>
+            <Sandbox sandbox={sandbox} project={project} storyHref={sandbox.story ? `/#${sandbox.story.problem}` : undefined} />
+          </section>
+        ) : null}
 
         <div className="pp__body">
           <aside className="pp__spec note" aria-label="Project facts">

@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "check:ui": "node scripts/run-isolated-browser.mjs scripts/check-ui.mjs",
     "check:media": "node scripts/run-isolated-browser.mjs scripts/check-media.mjs",
+    "check:play": "node scripts/run-isolated-browser.mjs scripts/check-play.mjs",
     "capture": "node scripts/capture-projects.mjs",
     "images:walk": "node scripts/capture-projects.mjs --state both",
     "images:refresh": "node scripts/capture-projects.mjs --state both",

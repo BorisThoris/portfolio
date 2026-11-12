@@ -17,6 +17,7 @@ import { Problems } from "./Problems";
 import { ProjectIndex } from "./ProjectIndex";
 import { Experience } from "./Experience";
 import { Contact } from "./Contact";
+import { Play } from "../play/Play";
 import "./home.css";
 
 const email = contactLinks.find((link) => link.label === "Email")!.href.slice(7);
@@ -69,6 +70,7 @@ export function HomePage() {
               {[...stack, ...stack].map((item, index) => <li key={`${item}-${index}`}>{item}</li>)}
             </ul>
           </div>
+          <Play />
           <SelectedWork projects={cases} intro={home.workIntro} />
           <Mods />
           <Problems />

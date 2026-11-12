@@ -11,7 +11,7 @@ export function Problems() {
   return (
     <section id="problems" className="sec" aria-labelledby="problems-title">
       <header className="sec__head">
-        <p className="label">03 / Problems solved</p>
+        <p className="label">04 / Problems solved</p>
         <h2 id="problems-title"><span className="sweep">The parts that were actually hard.</span></h2>
         <p>{home.problemsIntro}</p>
         <p className="hand sec__aside" aria-hidden="true">open a card for the hard part</p>
@@ -22,6 +22,7 @@ export function Problems() {
           return (
             <li key={study.slug} data-reveal style={{ "--tilt": index % 2 ? "0.6deg" : "-0.6deg", "--i": index % 3 } as CSSProperties}>
               <Disclosure
+                id={study.slug}
                 className="problem"
                 summary={
                   <>

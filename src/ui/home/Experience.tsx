@@ -9,7 +9,7 @@ export function Experience() {
   return (
     <section id="experience" className="sec" aria-labelledby="experience-title">
       <header className="sec__head">
-        <p className="label">05 / Experience</p>
+        <p className="label">06 / Experience</p>
         <h2 id="experience-title"><span className="sweep">Where I’ve worked.</span></h2>
         <p>{home.experienceIntro}</p>
       </header>

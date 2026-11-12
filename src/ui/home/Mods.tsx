@@ -9,7 +9,7 @@ export function Mods() {
   return (
     <section id="mods" className="sec" aria-labelledby="mods-title">
       <header className="sec__head">
-        <p className="label">02 / Released mods · counted {formatAsOf()}</p>
+        <p className="label">03 / Released mods · counted {formatAsOf()}</p>
         <h2 id="mods-title"><span className="sweep">{tractionSummary.title}</span></h2>
         <p>{tractionSummary.lede}</p>
         <p className="hand sec__aside" aria-hidden="true">counted from the platforms, not guessed</p>

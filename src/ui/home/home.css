@@ -81,6 +81,8 @@
 .reel figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 12px 6px 14px; }
 .reel__rec { display: inline-flex; align-items: center; gap: 6px; color: var(--signal-text); font-family: var(--mono); font-size: var(--t-xs); font-weight: 600; letter-spacing: 0.08em; }
 .reel__title { color: var(--ink); font-size: 26px; text-decoration: none; }
+.reel__play { padding: 3px 10px; border: 1.5px solid var(--ink); border-radius: var(--r-pill); background: var(--note-yellow); color: var(--note-ink); font-size: var(--t-xs); font-weight: 700; text-decoration: none; box-shadow: 0 2px 0 var(--ink); }
+.reel__play:hover { transform: translateY(-1px); box-shadow: 0 3px 0 var(--ink); }
 .reel__title:hover { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 2px; }
 .hero__signal { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; }
 .hero__signal i { display: block; width: 3px; height: 12px; border-radius: 1px; background: var(--signal); transform-origin: bottom; animation: signal 1.5s var(--ease) infinite alternate; }
