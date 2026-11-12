@@ -279,14 +279,14 @@
         "path": "/project-shots/bbeats/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 153502
+        "bytes": 153528
       },
       {
         "profile": "desktop",
         "path": "/project-shots/bbeats/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 140302
+        "bytes": 140319
       },
       {
         "profile": "full",
@@ -307,7 +307,7 @@
         "path": "/project-shots/bbeats/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 109210
+        "bytes": 109624
       }
     ],
     "trailers": [
@@ -1010,7 +1010,7 @@
   },
   "cross-repo-libs": {
     "slug": "cross-repo-libs",
-    "generatedAt": "2026-10-13T01:04:16.531Z",
+    "generatedAt": "2026-11-12T00:37:56.646Z",
     "version": "0.0.0",
     "classification": "web-library",
     "links": {
@@ -1090,10 +1090,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "06a0f20",
-      "lastCommitDate": "2026-10-13T01:43:30+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 42
+      "head": "0a7977d",
+      "lastCommitDate": "2026-11-12T01:35:25+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 45
     },
     "scores": {
       "priorityScore": 89,
@@ -1110,35 +1110,35 @@
         "path": "/project-shots/cross-repo-libs/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 110038
+        "bytes": 97414
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cross-repo-libs/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 111426
+        "bytes": 99016
       },
       {
         "profile": "full",
         "path": "/project-shots/cross-repo-libs/latest/full.jpg",
         "width": 1440,
-        "height": 2502,
-        "bytes": 156685
+        "height": 2524,
+        "bytes": 145277
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cross-repo-libs/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 40585
+        "bytes": 38521
       },
       {
         "profile": "og",
         "path": "/project-shots/cross-repo-libs/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 88699
+        "bytes": 80335
       }
     ],
     "trailers": [
@@ -1158,7 +1158,7 @@
   },
   "roam-rental-dashboard": {
     "slug": "roam-rental-dashboard",
-    "generatedAt": "2026-09-27T14:30:00.925Z",
+    "generatedAt": "2026-11-11T23:48:07.449Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1224,11 +1224,11 @@
       "hasDocs": false
     },
     "git": {
-      "branch": "HEAD",
-      "head": "a3da899",
-      "lastCommitDate": "2026-09-24T16:26:00+00:00",
-      "lastCommitSubject": "Refresh screenshots, card, icons and metadata [meta-bot]",
-      "commitCount": 55
+      "branch": "main",
+      "head": "58d896b",
+      "lastCommitDate": "2026-11-12T01:37:25+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 59
     },
     "scores": {
       "priorityScore": 74,
@@ -1245,35 +1245,35 @@
         "path": "/project-shots/roam-rental-dashboard/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 21144
+        "bytes": 20928
       },
       {
         "profile": "desktop",
         "path": "/project-shots/roam-rental-dashboard/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 25752
+        "bytes": 19209
       },
       {
         "profile": "full",
         "path": "/project-shots/roam-rental-dashboard/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 17997
+        "bytes": 17869
       },
       {
         "profile": "mobile",
         "path": "/project-shots/roam-rental-dashboard/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 9063
+        "bytes": 8637
       },
       {
         "profile": "og",
         "path": "/project-shots/roam-rental-dashboard/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 15002
+        "bytes": 14855
       }
     ],
     "trailers": [
@@ -1293,7 +1293,7 @@
   },
   "runner-score-arcade": {
     "slug": "runner-score-arcade",
-    "generatedAt": "2026-09-27T20:39:15.959Z",
+    "generatedAt": "2026-11-12T00:17:52.377Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -1364,10 +1364,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "901fb13",
-      "lastCommitDate": "2026-09-27T23:29:46+03:00",
-      "lastCommitSubject": "Serve published trailers with real HTTP byte ranges",
-      "commitCount": 59
+      "head": "286e769",
+      "lastCommitDate": "2026-11-12T01:37:37+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 63
     },
     "scores": {
       "priorityScore": 86,
@@ -1384,35 +1384,35 @@
         "path": "/project-shots/runner-score-arcade/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 130436
+        "bytes": 129455
       },
       {
         "profile": "desktop",
         "path": "/project-shots/runner-score-arcade/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 129131
+        "bytes": 128021
       },
       {
         "profile": "full",
         "path": "/project-shots/runner-score-arcade/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 114187
+        "bytes": 113899
       },
       {
         "profile": "mobile",
         "path": "/project-shots/runner-score-arcade/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 47613
+        "bytes": 47013
       },
       {
         "profile": "og",
         "path": "/project-shots/runner-score-arcade/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 94105
+        "bytes": 92307
       }
     ],
     "trailers": [
@@ -1432,7 +1432,7 @@
   },
   "cat-world": {
     "slug": "cat-world",
-    "generatedAt": "2026-10-13T01:05:07.449Z",
+    "generatedAt": "2026-11-12T00:24:38.387Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1495,10 +1495,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "ec5b4e0",
-      "lastCommitDate": "2026-10-13T01:43:25+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 55
+      "head": "d52c608",
+      "lastCommitDate": "2026-11-12T01:35:12+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 58
     },
     "scores": {
       "priorityScore": 84,
@@ -1522,7 +1522,7 @@
         "path": "/project-shots/cat-world/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 117037
+        "bytes": 117031
       },
       {
         "profile": "full",
@@ -1536,14 +1536,14 @@
         "path": "/project-shots/cat-world/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 64528
+        "bytes": 64508
       },
       {
         "profile": "og",
         "path": "/project-shots/cat-world/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 94626
+        "bytes": 94650
       }
     ],
     "trailers": [
@@ -1563,7 +1563,7 @@
   },
   "user-hub-admin": {
     "slug": "user-hub-admin",
-    "generatedAt": "2026-10-13T19:50:41.628Z",
+    "generatedAt": "2026-11-12T00:28:02.411Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1630,10 +1630,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "f49de1d",
-      "lastCommitDate": "2026-10-13T01:44:48+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 39
+      "head": "cada338",
+      "lastCommitDate": "2026-11-12T01:39:26+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 42
     },
     "scores": {
       "priorityScore": 66,
@@ -1650,35 +1650,35 @@
         "path": "/project-shots/user-hub-admin/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 71826
+        "bytes": 72439
       },
       {
         "profile": "desktop",
         "path": "/project-shots/user-hub-admin/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 65735
+        "bytes": 65745
       },
       {
         "profile": "full",
         "path": "/project-shots/user-hub-admin/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 56889
+        "bytes": 55904
       },
       {
         "profile": "mobile",
         "path": "/project-shots/user-hub-admin/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 25917
+        "bytes": 25884
       },
       {
         "profile": "og",
         "path": "/project-shots/user-hub-admin/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 48886
+        "bytes": 48432
       }
     ],
     "trailers": [
@@ -1698,7 +1698,7 @@
   },
   "pedal-rush": {
     "slug": "pedal-rush",
-    "generatedAt": "2026-09-27T20:34:49.796Z",
+    "generatedAt": "2026-11-11T23:57:18.955Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -1767,10 +1767,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "309ba37",
-      "lastCommitDate": "2026-09-27T23:32:00+03:00",
-      "lastCommitSubject": "Run video delivery regressions in the media verification gate",
-      "commitCount": 57
+      "head": "89a9b9e",
+      "lastCommitDate": "2026-11-12T01:37:15+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 61
     },
     "scores": {
       "priorityScore": 52,
@@ -1787,35 +1787,35 @@
         "path": "/project-shots/pedal-rush/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 143145
+        "bytes": 142972
       },
       {
         "profile": "desktop",
         "path": "/project-shots/pedal-rush/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 131271
+        "bytes": 131204
       },
       {
         "profile": "full",
         "path": "/project-shots/pedal-rush/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 110949
+        "bytes": 110674
       },
       {
         "profile": "mobile",
         "path": "/project-shots/pedal-rush/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 45980
+        "bytes": 45297
       },
       {
         "profile": "og",
         "path": "/project-shots/pedal-rush/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 107809
+        "bytes": 107209
       }
     ],
     "trailers": [
@@ -1898,10 +1898,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "6088b64",
-      "lastCommitDate": "2026-10-13T01:43:35+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 33
+      "head": "7126e9f",
+      "lastCommitDate": "2026-11-12T01:35:38+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 36
     },
     "scores": {
       "priorityScore": 61,
@@ -2031,10 +2031,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "96e6b25",
-      "lastCommitDate": "2026-10-13T01:43:45+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 47
+      "head": "88c2f0e",
+      "lastCommitDate": "2026-11-12T01:36:09+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 50
     },
     "scores": {
       "priorityScore": 82,
@@ -2099,7 +2099,7 @@
   },
   "memory-card-quest": {
     "slug": "memory-card-quest",
-    "generatedAt": "2026-10-13T01:11:25.006Z",
+    "generatedAt": "2026-11-11T23:53:15.176Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -2160,10 +2160,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "f5a2750",
-      "lastCommitDate": "2026-10-13T01:43:56+03:00",
-      "lastCommitSubject": "Hosted jobs move to the owner's own runners",
-      "commitCount": 48
+      "head": "e3d21fb",
+      "lastCommitDate": "2026-11-12T01:36:25+02:00",
+      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
+      "commitCount": 51
     },
     "scores": {
       "priorityScore": 55,
@@ -2180,14 +2180,14 @@
         "path": "/project-shots/memory-card-quest/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 96899
+        "bytes": 96885
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-card-quest/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 95508
+        "bytes": 95411
       },
       {
         "profile": "full",
@@ -2201,14 +2201,14 @@
         "path": "/project-shots/memory-card-quest/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 51409
+        "bytes": 51577
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-card-quest/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 79769
+        "bytes": 79605
       }
     ],
     "trailers": [
