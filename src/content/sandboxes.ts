@@ -10,6 +10,8 @@ export type Sandbox = {
   name: string;
   /** The live build, exactly as deployed. */
   url: string;
+  /** What the frame loads, when the build has a mode for being embedded; links still open `url`. */
+  frameUrl?: string;
   /** One concrete first thing to do, so the first ten seconds are not spent wondering. */
   dare: string;
   controls: string[];
@@ -25,6 +27,7 @@ export const sandboxes: Sandbox[] = [
     slug: "bobball",
     name: "BOBBALL",
     url: "https://bobball.modaxxx009.workers.dev/",
+    frameUrl: "https://bobball.modaxxx009.workers.dev/?embed",
     dare: "Press Meet Bob, then throw. A head shot is worth 30.",
     controls: ["Click to throw", "Hold for a power shot"],
     bootSeconds: 17,

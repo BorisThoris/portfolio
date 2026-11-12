@@ -62,6 +62,7 @@ try {
   assert.equal(await frames(page), 1, "exactly one live build after the hand-over");
   const src = await page.locator("iframe.sandbox__frame").getAttribute("src");
   assert.equal(new URL(src).host, "bobball.modaxxx009.workers.dev", "the frame shows BOBBALL's own deployment");
+  assert.ok(new URL(src).searchParams.has("embed"), "the frame asks BOBBALL for its embed mode");
   assert.ok(await page.locator("iframe.sandbox__frame").getAttribute("title"), "the frame has a title");
   // Give the real game time to boot, then prove it drew something that is not blank.
   await page.waitForTimeout(22000);

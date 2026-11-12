@@ -102,7 +102,7 @@ export function Sandbox({
               key={run}
               ref={frame}
               className="sandbox__frame"
-              src={sandbox.url}
+              src={sandbox.frameUrl ?? sandbox.url}
               title={title}
               allow="autoplay; fullscreen; gamepad; clipboard-write"
               allowFullScreen
