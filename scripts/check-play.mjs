@@ -25,7 +25,7 @@ try {
   // ---------- Desktop homepage ----------
   const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
   page.on("pageerror", (error) => errors.push(`home: ${error.message}`));
-  await page.goto(base + "/", { waitUntil: "networkidle" });
+  await page.goto(base + "/", { waitUntil: "load" });
   await page.locator("#play").scrollIntoViewIfNeeded();
   assert.equal(await frames(page), 0, "no live build may load before a click");
   assert.equal(await page.locator('.topnav__links a[href="#play"]').count(), 1, "Play is in the navigation");
@@ -98,13 +98,13 @@ try {
   report.push("Hero: the trailer's play link loads BOBBALL in the arcade");
 
   // A story link opens its Problems card.
-  await page.goto(base + "/#bobball-ragdoll", { waitUntil: "networkidle" });
+  await page.goto(base + "/#bobball-ragdoll", { waitUntil: "load" });
   await page.waitForTimeout(500);
   assert.equal(await page.locator("details#bobball-ragdoll").evaluate((el) => el.open), true, "a link to a problem opens its card");
   report.push("Problem anchors: /#bobball-ragdoll opens the card");
 
   // Accessibility of the section, idle.
-  await page.goto(base + "/", { waitUntil: "networkidle" });
+  await page.goto(base + "/", { waitUntil: "load" });
   await page.locator("#play").scrollIntoViewIfNeeded();
   const axe = await new AxeBuilder({ page }).include("#play").withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
   assert.deepEqual(axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`), [], "Play section passes axe");
@@ -114,7 +114,7 @@ try {
   // ---------- Phone ----------
   const phone = await browser.newPage({ viewport: { width: 320, height: 640 }, hasTouch: true, isMobile: true });
   phone.on("pageerror", (error) => errors.push(`phone: ${error.message}`));
-  await phone.goto(base + "/", { waitUntil: "networkidle" });
+  await phone.goto(base + "/", { waitUntil: "load" });
   await phone.locator("#play").scrollIntoViewIfNeeded();
   // Cards pin in with a tilt as they are revealed; measure once that has settled, as check-ui does.
   const settled = await phone.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 1, null, { timeout: 4000 }).then(() => true, () => false);
@@ -137,14 +137,14 @@ try {
   // ---------- Project page ----------
   const project = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   project.on("pageerror", (error) => errors.push(`project: ${error.message}`));
-  await project.goto(base + "/projects/last-levee", { waitUntil: "networkidle" });
+  await project.goto(base + "/projects/last-levee", { waitUntil: "load" });
   assert.equal(await frames(project), 0);
   await project.getByRole("button", { name: "Play Last Levee here" }).click();
   await project.locator("iframe.sandbox__frame").waitFor();
   await project.waitForTimeout(6000);
   await project.locator(".pp-play").screenshot({ path: `${out}/7-project-last-levee.png` });
   assert.equal(new URL(await project.locator("iframe.sandbox__frame").getAttribute("src")).host, "last-levee.pages.dev");
-  await project.goto(base + "/projects/cat-world", { waitUntil: "networkidle" });
+  await project.goto(base + "/projects/cat-world", { waitUntil: "load" });
   assert.equal(await project.locator(".pp-play").count(), 0, "projects without a verified sandbox show none");
   report.push("Project pages: Last Levee plays in place; projects without a verified sandbox show none");
   await project.close();

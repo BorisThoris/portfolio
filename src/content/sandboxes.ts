@@ -30,7 +30,7 @@ export const sandboxes: Sandbox[] = [
     frameUrl: "https://bobball.modaxxx009.workers.dev/?embed",
     dare: "Press Meet Bob, then throw. A head shot is worth 30.",
     controls: ["Click to throw", "Hold for a power shot"],
-    bootSeconds: 17,
+    bootSeconds: 12,
     kind: "3D physics game",
     story: { teaser: "Bob used to get launched at 200 m/s after a round. Here is why.", problem: "bobball-ragdoll" },
   },
