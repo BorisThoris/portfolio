@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-11T20:21:28.905Z",
+    "generatedAt": "2026-11-12T00:06:03.318Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -230,7 +230,7 @@
     "metrics": {
       "sourceFiles": 7684,
       "testFiles": 3355,
-      "sourceLines": 1353271,
+      "sourceLines": 1353309,
       "largestDirectories": [
         {
           "directory": "src",
@@ -259,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "a0950af5cdd",
-      "lastCommitDate": "2026-11-11T22:12:26+02:00",
-      "lastCommitSubject": "Enable first-float help in Rack focus regression",
-      "commitCount": 6077
+      "head": "6df32e23ceb",
+      "lastCommitDate": "2026-11-12T01:37:44+02:00",
+      "lastCommitSubject": "Record verified Rack layouts and remaining UX findings",
+      "commitCount": 6086
     },
     "scores": {
       "priorityScore": 96,
@@ -320,7 +320,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-11T19:07:29.781Z"
+        "builtAt": "2026-11-12T00:02:27.300Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
