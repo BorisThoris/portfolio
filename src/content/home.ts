@@ -4,7 +4,7 @@ export const home = {
   introduction:
     "Risk and product software at Man Group by day. After hours: browser games, a music workstation, crash physics for 2000s racing games, and the infrastructure that keeps all of it online.",
   problemsIntro:
-    "Six problems worth writing down: what was wrong, what I built, and how I know it works.",
+    "Ten problems from the commit history, each one diagnosed and measured: what was wrong, what fixed it, and how I know it works.",
   workIntro:
     "The projects I keep coming back to. Most are live, so you can try them.",
   experienceIntro:
