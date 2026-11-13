@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-13T14:00:00.776Z",
+    "generatedAt": "2026-11-13T20:51:26.003Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -230,7 +230,7 @@
     "metrics": {
       "sourceFiles": 7688,
       "testFiles": 3357,
-      "sourceLines": 1354278,
+      "sourceLines": 1354622,
       "largestDirectories": [
         {
           "directory": "src",
@@ -259,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "5bf73568883",
-      "lastCommitDate": "2026-11-13T17:22:58+02:00",
-      "lastCommitSubject": "Register qualified tour preparation as a CLI entry",
-      "commitCount": 6133
+      "head": "0dbceb88db8",
+      "lastCommitDate": "2026-11-13T22:47:45+02:00",
+      "lastCommitSubject": "Reuse canonical reachability scan and qualify installed WAM output",
+      "commitCount": 6147
     },
     "scores": {
       "priorityScore": 96,
@@ -308,6 +308,19 @@
         "width": 1200,
         "height": 630,
         "bytes": 109624
+      }
+    ],
+    "trailers": [
+      {
+        "id": "tour",
+        "title": "BBeats: Afterdark 808 in the studio",
+        "url": "https://bbeats-git.pages.dev/trailers/tour.mp4",
+        "poster": "https://bbeats-git.pages.dev/trailers/tour.jpg",
+        "width": 1920,
+        "height": 1080,
+        "duration": 59.48,
+        "orientation": "landscape",
+        "builtAt": "2026-11-13T19:12:48.950Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -475,7 +488,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-12T23:16:24.285Z",
+    "generatedAt": "2026-11-13T19:57:06.091Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -547,13 +560,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1573,
-      "testFiles": 680,
-      "sourceLines": 242217,
+      "sourceFiles": 1587,
+      "testFiles": 686,
+      "sourceLines": 243607,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1369
+          "files": 1382
         },
         {
           "directory": "scripts",
@@ -561,7 +574,7 @@
         },
         {
           "directory": "e2e",
-          "files": 78
+          "files": 79
         },
         {
           "directory": "packages",
@@ -578,10 +591,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "c741ff55",
-      "lastCommitDate": "2026-11-13T01:07:47+02:00",
-      "lastCommitSubject": "Refresh the repo model after merging main",
-      "commitCount": 2743
+      "head": "23d437e9",
+      "lastCommitDate": "2026-11-13T21:46:50+02:00",
+      "lastCommitSubject": "Start seeded e2e pages without a run put down earlier",
+      "commitCount": 2753
     },
     "scores": {
       "priorityScore": 94,
@@ -598,35 +611,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 93246
+        "bytes": 106997
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 90015
+        "bytes": 104115
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72888
+        "bytes": 90397
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43260
+        "bytes": 58463
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 72077
+        "bytes": 89930
       }
     ],
     "trailers": [
