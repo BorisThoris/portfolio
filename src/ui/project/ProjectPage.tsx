@@ -96,7 +96,7 @@ function ProjectContent({ project }: { project: Project }) {
 
         {sandbox ? (
           <section className="pp-play" id="play" aria-labelledby="play-here-title">
-            <h2 id="play-here-title" className="label">Play it here · the live build, in this page</h2>
+            <h2 id="play-here-title" className="label">{sandbox.shelf === "apps" ? "Try it here" : "Play it here"} · the live build, in this page</h2>
             <Sandbox sandbox={sandbox} project={project} storyHref={sandbox.story ? `/#${sandbox.story.problem}` : undefined} />
           </section>
         ) : null}

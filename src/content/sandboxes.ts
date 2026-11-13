@@ -2,8 +2,9 @@
 // iframe at card size in a headless browser before it was listed here: it drew,
 // took input after one click and needed nothing the embed cannot give it.
 // Left out on purpose: SkillBall (its server forbids framing), Skyfall, VYB Chess
-// and the Gem Dungeon editor (they stop when embedded storage is blocked), and
-// the storefronts (not something you play).
+// and the Gem Dungeon editor (they stop when embedded storage is blocked), Cat
+// World (its toast library 404s), and apps that only show a list in a small frame.
+// Games go on the arcade shelf; the work you would use rather than play, on the apps shelf.
 
 export type Sandbox = {
   slug: string;
@@ -18,6 +19,7 @@ export type Sandbox = {
   /** Measured from click to first input, rounded up. Shown so a wait is expected, not alarming. */
   bootSeconds: number;
   kind: string;
+  shelf: "games" | "apps";
   /** The engineering story behind it, on the homepage's Problems list. */
   story?: { teaser: string; problem: string };
 };
@@ -32,6 +34,7 @@ export const sandboxes: Sandbox[] = [
     controls: ["Click to throw", "Hold for a power shot"],
     bootSeconds: 12,
     kind: "3D physics game",
+    shelf: "games",
     story: { teaser: "Bob used to get launched at 200 m/s after a round. Here is why.", problem: "bobball-ragdoll" },
   },
   {
@@ -42,6 +45,7 @@ export const sandboxes: Sandbox[] = [
     controls: ["Space plays", "Click a step"],
     bootSeconds: 3,
     kind: "Music studio",
+    shelf: "games",
     story: { teaser: "A triplet used to sound 42 ms early. How the audio got exact.", problem: "bbeats-audio-truth" },
   },
   {
@@ -52,6 +56,7 @@ export const sandboxes: Sandbox[] = [
     controls: ["Mouse or touch", "The first storm coaches you"],
     bootSeconds: 3,
     kind: "Strategy game",
+    shelf: "games",
     story: { teaser: "The frames were going to Chrome’s translator. The hunt.", problem: "last-levee-frames" },
   },
   {
@@ -62,6 +67,7 @@ export const sandboxes: Sandbox[] = [
     controls: ["Click in, then WASD", "Mouse to look"],
     bootSeconds: 3,
     kind: "First-person dungeon",
+    shelf: "games",
     story: { teaser: "The player fell through the floor, and it was not the physics.", problem: "gem-dungeon-frame-time" },
   },
   {
@@ -72,6 +78,7 @@ export const sandboxes: Sandbox[] = [
     controls: ["Drag back and release, like a slingshot"],
     bootSeconds: 15,
     kind: "Marble game",
+    shelf: "games",
   },
   {
     slug: "pedal-rush",
@@ -81,6 +88,67 @@ export const sandboxes: Sandbox[] = [
     controls: ["Space for gas", "↑ ↓ change lane"],
     bootSeconds: 1,
     kind: "Arcade driver",
+    shelf: "games",
+  },
+  {
+    slug: "runner-score-arcade",
+    name: "Dodg’Em Up",
+    url: "https://runner-score-arcade-git.pages.dev/",
+    dare: "Enter the arena and outlast the first wave. Stars give a heart back.",
+    controls: ["← → move", "↑ jump", "↓ duck"],
+    bootSeconds: 2,
+    kind: "Arcade survival",
+    shelf: "games",
+  },
+  {
+    slug: "memory-card-quest",
+    name: "Memory Card Quest",
+    url: "https://memory-card-quest-git.pages.dev/",
+    dare: "Clear the six-pair board without losing a heart.",
+    controls: ["Click two cards", "Arrows and Enter work too"],
+    bootSeconds: 1,
+    kind: "Memory game",
+    shelf: "games",
+  },
+  {
+    slug: "bostan",
+    name: "Bostan",
+    url: "https://bostan.pages.dev/en/3d/",
+    dare: "Walk into a hall. These are real garments from my own streetwear label, modelled and lit in 3D.",
+    controls: ["Pick a hall", "Browse the drop"],
+    bootSeconds: 2,
+    kind: "My label · 3D showroom",
+    shelf: "apps",
+  },
+  {
+    slug: "cross-repo-libs",
+    name: "Cross Repo Libs",
+    url: "https://cross-repo-libs-git.pages.dev/",
+    dare: "Open ProjectileEffects or Torch: the shared pieces the games above are built from.",
+    controls: ["Pick a story", "Every one is live"],
+    bootSeconds: 2,
+    kind: "Component library",
+    shelf: "apps",
+  },
+  {
+    slug: "flowforge-configurator",
+    name: "FlowForge",
+    url: "https://flowforge-configurator-git.pages.dev/",
+    dare: "Clear the label, add a tag, switch the language, then save.",
+    controls: ["A form with validation", "Mocked API"],
+    bootSeconds: 1,
+    kind: "React + Redux form",
+    shelf: "apps",
+  },
+  {
+    slug: "gorilla-gainz",
+    name: "Gorilla Gainz",
+    url: "https://gorilla-gainz-git.pages.dev/",
+    dare: "Filter the catalogue, fill the bag and try the demo checkout. Nothing is charged.",
+    controls: ["Demo store", "No real purchases"],
+    bootSeconds: 1,
+    kind: "React store",
+    shelf: "apps",
   },
 ];
 
@@ -91,3 +159,6 @@ export const PLAY_EVENT = "portfolio:play";
 export function requestPlay(slug: string) {
   window.dispatchEvent(new CustomEvent(PLAY_EVENT, { detail: slug }));
 }
+
+/** Announced by a sandbox when it starts, so any other running one stops: one live build at a time, page-wide. */
+export const START_EVENT = "portfolio:sandbox-start";

@@ -157,3 +157,46 @@
   .toss__pop, .sandbox__story, .toss__charge { animation: none; }
   .sandbox__spinner { animation-duration: 3s; }
 }
+
+/* ---------- Miata Lights, from the app's own recording ---------- */
+.play__grid--apps { margin-top: clamp(28px, 4vw, 48px); }
+.miata {
+  position: relative;
+  display: grid;
+  gap: var(--s3);
+  align-self: start;
+  padding: 16px;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+.miata__stage { position: relative; aspect-ratio: 400 / 380; overflow: hidden; border-radius: var(--r-sm); background: #0b0c0e; user-select: none; -webkit-user-select: none; }
+.miata__frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.miata__frame--left { clip-path: inset(0 50% 0 0); }
+/* The hit areas sit over each headlight in the frame. */
+.miata__light { position: absolute; top: 48%; width: 30%; height: 26%; padding: 0; border: 0; border-radius: 40%; background: transparent; cursor: pointer; }
+.miata__light--left { left: 8%; }
+.miata__light--right { right: 8%; }
+.miata__light:hover { background: radial-gradient(closest-side, #ffd34d33, transparent); }
+.miata__light:focus-visible { outline: 2px solid #ffd34d; outline-offset: -4px; }
+.miata__help { position: absolute; left: 12px; top: 8px; margin: 0; color: #ffd34d; font-size: 22px; transform: rotate(-4deg); pointer-events: none; }
+.miata__controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+/* Amber pills, the app's own side controls; fixed colours, #15161a on #ffc93c is 11:1. */
+.miata__controls button { min-height: 40px; padding: 0 10px; border: 0; border-radius: var(--r-pill); background: #ffc93c; color: #15161a; font: inherit; font-size: var(--t-sm); font-weight: 700; cursor: pointer; box-shadow: 0 3px 0 #15161a; transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease); }
+.miata__controls button:hover { transform: translateY(-1px); box-shadow: 0 4px 0 #15161a; }
+.miata__controls button:active { transform: translateY(2px); box-shadow: 0 1px 0 #15161a; }
+.miata__cta .link { justify-self: start; display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
+
+/* ---------- The apps shelf, in a browser window ---------- */
+.arcade__intro { margin: 0; max-width: 60ch; color: var(--ink-2); }
+.arcade--browser .arcade__screen { padding: 0 12px 12px; background: #24262c; }
+.arcade__chrome { display: flex; align-items: center; gap: 12px; padding: 10px 2px; }
+.arcade__lights { display: inline-flex; gap: 6px; }
+.arcade__lights i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+.arcade__lights i:nth-child(2) { background: #febc2e; }
+.arcade__lights i:nth-child(3) { background: #28c840; }
+.arcade__address { flex: 1; min-width: 0; padding: 5px 12px; overflow: hidden; border-radius: var(--r-pill); background: #15161a; color: #f4f2ecc7; font-family: var(--mono); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.arcade__address::before { content: "🔒 "; font-size: 10px; }

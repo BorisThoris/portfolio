@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ExternalLink, Maximize2, Play, RotateCcw, X } from "lucide-react";
-import type { Sandbox as SandboxData } from "../../content/sandboxes";
+import { START_EVENT, type Sandbox as SandboxData } from "../../content/sandboxes";
 import type { Project } from "../../projects";
 import { projectStatus } from "../../projectStatus";
 import { CaptureImage } from "../../components/CaptureImage";
@@ -37,6 +37,19 @@ export function Sandbox({
   const title = `${sandbox.name}, the live build, running in this page`;
 
   useEffect(() => onPhase?.(phase), [phase, onPhase]);
+
+  // One live build in the whole page: starting this one stops any other, on either shelf.
+  const booting = phase === "booting";
+  useEffect(() => {
+    if (booting) window.dispatchEvent(new CustomEvent(START_EVENT, { detail: sandbox.slug }));
+  }, [booting, run, sandbox.slug]);
+  useEffect(() => {
+    const onStart = (event: Event) => {
+      if ((event as CustomEvent<string>).detail !== sandbox.slug) { setPhase("idle"); setLoadedAt(null); }
+    };
+    window.addEventListener(START_EVENT, onStart);
+    return () => window.removeEventListener(START_EVENT, onStart);
+  }, [sandbox.slug]);
 
   // A frame on a phone gets the whole screen: a desktop app in a 320px card is unusable.
   useEffect(() => {
@@ -83,7 +96,7 @@ export function Sandbox({
               ) : (
                 <>
                   <button type="button" className="btn sandbox__play" onClick={start}>
-                    <Play size={16} fill="currentColor" />Play {sandbox.name} here
+                    <Play size={16} fill="currentColor" />{sandbox.shelf === "apps" ? "Open" : "Play"} {sandbox.name} here
                   </button>
                   <ul className="sandbox__controls" aria-label="Controls">
                     {sandbox.controls.map((control) => <li key={control}>{control}</li>)}

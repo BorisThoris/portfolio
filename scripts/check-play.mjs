@@ -88,6 +88,60 @@ try {
   assert.equal(await frames(page), 0, "Stop unloads the build");
   report.push("Cartridges: switching and Stop both unload; one frame at a time");
 
+  // The Miata: each headlight moves on its own, and the moves hand over to the project page.
+  const miata = page.locator(".miata");
+  await miata.scrollIntoViewIfNeeded();
+  const leftSrc = () => page.locator(".miata__frame--left").getAttribute("src");
+  const rightSrc = () => page.locator(".miata__frame:not(.miata__frame--left)").getAttribute("src");
+  await page.getByRole("button", { name: "Pop the left headlight" }).click();
+  await page.waitForTimeout(600);
+  assert.match(await leftSrc(), /miata-4\.webp$/, "the left light pops up");
+  assert.match(await rightSrc(), /miata-0\.webp$/, "the right one stays down: a wink");
+  await page.getByRole("button", { name: "Sleepy" }).click();
+  await page.waitForTimeout(600);
+  assert.deepEqual([await leftSrc(), await rightSrc()].map((src) => src.match(/miata-(\d)/)[1]), ["2", "2"], "Sleepy leaves both half up");
+  await page.getByRole("button", { name: "Wink" }).click();
+  await page.waitForTimeout(900);
+  assert.ok(await miata.locator(".miata__cta.is-on").isVisible(), "after a few moves the note points to the real app");
+  await miata.screenshot({ path: `${out}/4b-miata.png` });
+  report.push("Miata: the left light pops up alone, Sleepy half-raises both, the note hands over to the project");
+
+  // The apps shelf, and one live build across both shelves.
+  await page.getByRole("tab", { name: /Pedal Rush/ }).click();
+  await page.getByRole("button", { name: "Play Pedal Rush here" }).click();
+  await page.locator("#arcade iframe.sandbox__frame").waitFor();
+  const appsShelf = page.locator("#apps");
+  await appsShelf.scrollIntoViewIfNeeded();
+  assert.equal(await appsShelf.locator(".arcade__address").innerText(), "bostan.pages.dev", "the apps shelf shows the real address");
+  await appsShelf.getByRole("button", { name: "Open Bostan here" }).click();
+  await appsShelf.locator("iframe.sandbox__frame").waitFor();
+  assert.equal(await frames(page), 1, "starting an app stops the running game");
+  assert.equal(new URL(await appsShelf.locator("iframe.sandbox__frame").getAttribute("src")).host, "bostan.pages.dev");
+  await page.waitForTimeout(4000);
+  await appsShelf.screenshot({ path: `${out}/4c-apps-bostan.png` });
+  for (const [tab, host] of [["Cross Repo Libs", "cross-repo-libs-git.pages.dev"], ["FlowForge", "flowforge-configurator-git.pages.dev"], ["Gorilla Gainz", "gorilla-gainz-git.pages.dev"]]) {
+    await appsShelf.getByRole("tab", { name: new RegExp(tab) }).click();
+    assert.equal(await appsShelf.locator(".arcade__address").innerText(), host);
+    await appsShelf.getByRole("button", { name: `Open ${tab} here` }).click();
+    await appsShelf.locator("iframe.sandbox__frame").waitFor();
+    await page.waitForTimeout(2500);
+    const body = await appsShelf.frameLocator("iframe.sandbox__frame").locator("body").innerText();
+    assert.ok(body.trim().length > 40, `${tab} drew its page inside the frame`);
+  }
+  await appsShelf.screenshot({ path: `${out}/4d-apps-last.png` });
+  await appsShelf.getByRole("button", { name: "Stop Gorilla Gainz" }).click();
+  assert.equal(await frames(page), 0);
+  // The two new games load on the arcade shelf.
+  for (const [tab, host] of [["Dodg’Em Up", "runner-score-arcade-git.pages.dev"], ["Memory Card Quest", "memory-card-quest-git.pages.dev"]]) {
+    await page.getByRole("tab", { name: new RegExp(tab) }).click();
+    await page.getByRole("button", { name: `Play ${tab} here` }).click();
+    await page.locator("#arcade iframe.sandbox__frame").waitFor();
+    assert.equal(new URL(await page.locator("#arcade iframe.sandbox__frame").getAttribute("src")).host, host);
+    await page.waitForTimeout(2500);
+    await page.getByRole("button", { name: `Stop ${tab}` }).click();
+  }
+  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge and Gorilla Gainz draw in the frame; starting one stops the running game; Dodg’Em Up and Memory Card Quest load");
+
   // The hero's trailer polaroid hands over to the same game.
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.locator(".reel__play").click();
@@ -120,13 +174,13 @@ try {
   const settled = await phone.waitForFunction(() => document.documentElement.scrollWidth <= innerWidth + 1, null, { timeout: 4000 }).then(() => true, () => false);
   const overflow = await phone.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   assert.ok(settled, `no sideways scroll at 320px (overflow ${overflow})`);
-  await phone.locator(".arcade").scrollIntoViewIfNeeded();
+  await phone.locator("#arcade").scrollIntoViewIfNeeded();
   await phone.screenshot({ path: `${out}/5-phone-idle.png` });
   await phone.getByRole("tab", { name: /Pedal Rush/ }).click();
   await phone.getByRole("button", { name: "Play Pedal Rush here" }).click();
   await phone.locator("iframe.sandbox__frame").waitFor();
   await phone.waitForTimeout(3000);
-  const rect = await phone.locator(".sandbox").evaluate((el) => { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), getComputedStyle(el).position]; });
+  const rect = await phone.locator("#arcade .sandbox").evaluate((el) => { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), getComputedStyle(el).position]; });
   assert.deepEqual(rect, [320, 640, "fixed"], "a running sandbox takes the whole phone screen");
   await phone.screenshot({ path: `${out}/6-phone-takeover.png` });
   await phone.getByRole("button", { name: "Stop Pedal Rush" }).click();
