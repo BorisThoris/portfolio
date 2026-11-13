@@ -3,7 +3,8 @@
 // took input after one click and needed nothing the embed cannot give it.
 // Left out on purpose: SkillBall (its server forbids framing), Skyfall, VYB Chess
 // and the Gem Dungeon editor (they stop when embedded storage is blocked), and Roam
-// Rental, whose dashboard shows an unstyled list that does not answer a click.
+// Rental: its search filters four listings, but the page draws unstyled and a
+// listing opens nothing, so it would be the thinnest thing on the shelf.
 // Games go on the arcade shelf; the work you would use rather than play, on the apps shelf.
 
 export type Sandbox = {
