@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { integerFit } from "../src/ui/project/toys/integerFit.ts";
-import { RandomGen } from "../src/ui/project/toys/weightedDraw.ts";
+import { RandomGen, pyFloat, round2 } from "../src/ui/project/toys/weightedDraw.ts";
 
 test("Integer Fit matches every row of the IntegerFit demo transcript", () => {
   const rows = {
@@ -38,4 +38,15 @@ test("RandomGen keeps the engine's validation, merging and proportions", () => {
   const counts = new Map();
   for (let n = 0; n < 100000; n++) { const v = big.nextNum(); counts.set(v, (counts.get(v) ?? 0) + 1); }
   assert.ok(Math.abs(counts.get(1) / 100000 - 0.58) < 0.01, "1 comes up about 58% of the time");
+});
+
+test("RandomGen rounds and prints like Python", () => {
+  // Python: [round(x, 2) for x in [0.995, 0.125, 0.375, 0.005, 0.015, 1.005, 0.285, 2.675]]
+  assert.deepEqual([0.995, 0.125, 0.375, 0.005, 0.015, 1.005, 0.285, 2.675].map(round2), [0.99, 0.12, 0.38, 0.01, 0.01, 1, 0.28, 2.67]);
+  assert.deepEqual([0, -1, 1e-7, 1.0299999999999998].map(pyFloat), ["0.0", "-1.0", "1e-07", "1.0299999999999998"]);
+  // 99.5% is rejected (round(0.995, 2) is 0.99), as the engine rejects it.
+  assert.throws(() => new RandomGen([1, 2], [0.5, 0.495]), /sum of probabilities is 0\.995/);
+  // Merged duplicates can leave the last cumulative value at 0.99; the engine then raises IndexError.
+  const gen = new RandomGen([-3, 0, 0, -2, -2], [0.19, 0.35, 0.06, 0.055, 0.34], () => 0.995);
+  assert.throws(() => gen.nextNum(), { message: "IndexError: list index out of range" });
 });

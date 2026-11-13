@@ -146,9 +146,22 @@ try {
     await page.locator("#arcade iframe.sandbox__frame").waitFor();
     assert.equal(new URL(await page.locator("#arcade iframe.sandbox__frame").getAttribute("src")).host, host);
     await page.waitForTimeout(2500);
+    if (tab === "Memory Dungeon") {
+      // Its dare, in the arcade-size frame: Play, Start run, then flip a tile once the memorize phase ends.
+      const game = page.frameLocator("#arcade iframe.sandbox__frame");
+      await game.getByRole("button", { name: "Play", exact: false }).first().click({ timeout: 60000 });
+      await game.getByRole("button", { name: "Start run" }).first().click();
+      await game.getByText("Find the pairs").first().waitFor({ timeout: 30000 });
+      await page.waitForTimeout(800);
+      const frameBox = await page.locator("#arcade iframe.sandbox__frame").boundingBox();
+      await page.mouse.click(frameBox.x + frameBox.width * 0.28, frameBox.y + frameBox.height * 0.36); // the first card at this 2×4 layout
+      await page.locator("#arcade").screenshot({ path: `${out}/4f-memory-dungeon.png` });
+      await game.getByText("Pick the matching tile").first().waitFor({ timeout: 8000 });
+      await page.locator("#arcade").screenshot({ path: `${out}/4f-memory-dungeon.png` });
+    }
     await page.getByRole("button", { name: `Stop ${tab}` }).click();
   }
-  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge, Gorilla Gainz, Org Atlas (company → project → team), User Hub and Cat World draw in the frame; starting one stops the running game; Dodg’Em Up, Memory Card Quest and Memory Dungeon load");
+  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge, Gorilla Gainz, Org Atlas (company → project → team), User Hub and Cat World draw in the frame; starting one stops the running game; Dodg’Em Up and Memory Card Quest load, and a Memory Dungeon run starts and flips a tile in the frame");
 
   // The hero's trailer polaroid hands over to the same game.
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -225,7 +238,13 @@ try {
   assert.deepEqual(crashAxe.violations.map((v) => v.id), [], "the crash switch passes axe");
   report.push("Project pages: Last Levee plays in place; Roam Rental shows no sandbox; Dynamic Damage switches stock → mod with labels");
 
-  // Toys that port a native program's core.
+  // Toys that port a native program's core. The Play section's link lands on the toy.
+  await project.goto(base + "/", { waitUntil: "load" });
+  await project.locator(".play__more").scrollIntoViewIfNeeded();
+  await project.getByRole("link", { name: "spin Donut Studio" }).click();
+  await project.waitForURL(/\/projects\/helloword/);
+  await project.locator("#toy-title").waitFor();
+  await project.waitForFunction(() => { const r = document.getElementById("toy-title").getBoundingClientRect(); return r.top >= -2 && r.top < innerHeight; }, null, { timeout: 5000 });
   const axeClean = async (selector) => (await new AxeBuilder({ page: project }).include(selector).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`);
   await project.goto(base + "/projects/helloword", { waitUntil: "load" });
   const donut = project.locator(".toy--donut");

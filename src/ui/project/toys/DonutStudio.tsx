@@ -64,7 +64,7 @@ export function DonutStudio() {
     <section className="pp-play toy toy--donut" aria-labelledby="toy-title">
       <h2 id="toy-title" className="label">Try it here · the same drawing loop, in your browser</h2>
       <div className="toy__window">
-        <p className="toy__titlebar">Donut Studio — drag the corner to resize, and adjust ring spacing</p>
+        <p className="toy__titlebar">Donut Studio — drag the bottom edge to resize, and adjust ring spacing</p>
         <div className="toy__canvas-wrap">
           <canvas ref={canvas} className="toy__canvas" role="img" aria-label={`Donut pattern: ${rings} rotated ellipses, ${step} degrees apart`} />
         </div>

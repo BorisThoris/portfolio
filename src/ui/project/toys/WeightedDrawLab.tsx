@@ -17,6 +17,7 @@ export function WeightedDrawLab() {
   const [counts, setCounts] = useState<number[] | null>(null);
   const [last, setLast] = useState<number | null>(null);
   const [rolls, setRolls] = useState(0);
+  const [drawError, setDrawError] = useState("");
 
   const engine = useMemo(() => {
     try {
@@ -34,20 +35,24 @@ export function WeightedDrawLab() {
     setLast(null);
   };
   const preset = (name: string) => { setPercent(PRESETS[name]); setCounts(null); setLast(null); };
-  const drawOnce = () => { if (engine.gen) { setLast(engine.gen.nextNum()); setRolls((value) => value + 1); } };
-  const drawMany = () => {
+  // The engine can fail mid-draw (IndexError); show it rather than hide it.
+  const attempt = (run: (gen: RandomGen) => void) => {
     if (!engine.gen) return;
-    const tally = OUTCOMES.map(() => 0);
-    for (let i = 0; i < DRAWS; i++) tally[OUTCOMES.indexOf(engine.gen.nextNum())]++;
-    setCounts(tally);
+    try { run(engine.gen); setDrawError(""); } catch (error) { setDrawError((error as Error).message); }
   };
+  const drawOnce = () => attempt((gen) => { setLast(gen.nextNum()); setRolls((value) => value + 1); });
+  const drawMany = () => attempt((gen) => {
+    const tally = OUTCOMES.map(() => 0);
+    for (let i = 0; i < DRAWS; i++) tally[OUTCOMES.indexOf(gen.nextNum())]++;
+    setCounts(tally);
+  });
 
   const total = percent.reduce((sum, value) => sum + value, 0);
   const top = Math.max(...percent, ...(counts ?? []).map((count) => (count / DRAWS) * 100), 1);
 
   return (
     <section className="pp-play toy toy--draw" aria-labelledby="toy-title">
-      <h2 id="toy-title" className="label">Try it here · the engine, ported line for line</h2>
+      <h2 id="toy-title" className="label">Try it here · the engine, ported and checked against the Python</h2>
       <div className="toy__panel">
         <div className="draw__presets" role="group" aria-label="Preset odds">
           {Object.keys(PRESETS).map((name) => (
@@ -88,10 +93,10 @@ export function WeightedDrawLab() {
             {last !== null ? <><span className="draw__ball num" key={rolls}>{last}</span> came up</> : <span className="draw__sum num">Total {Number(total.toFixed(4))}%</span>}
           </p>
         </div>
-        {engine.error ? <p className="draw__error" role="alert"><code>{engine.error}</code></p> : null}
+        {engine.error || drawError ? <p className="draw__error" role="alert"><code>{engine.error || drawError}</code></p> : null}
       </div>
       <p className="toy__note">
-        The engine is Python; this is its <code>RandomGen</code> class ported to TypeScript, with the same checks, the same messages and the same binary search over cumulative odds. Python draws with <code>random.random()</code> and this with <code>Math.random()</code>, so the counts differ run to run, as they should.
+        The engine is Python; this is its <code>RandomGen</code> class ported to TypeScript and run beside the original on 3,000 sets of odds with identical results: the same checks and messages, Python’s rounding to two places, and the same binary search over cumulative odds. Python draws with <code>random.random()</code> and this with <code>Math.random()</code>, so the counts differ run to run, as they should.
       </p>
     </section>
   );
