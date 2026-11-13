@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-13T01:06:45.288Z",
+    "generatedAt": "2026-11-13T14:00:00.776Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -228,9 +228,9 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7685,
-      "testFiles": 3356,
-      "sourceLines": 1353834,
+      "sourceFiles": 7688,
+      "testFiles": 3357,
+      "sourceLines": 1354278,
       "largestDirectories": [
         {
           "directory": "src",
@@ -246,7 +246,7 @@
         },
         {
           "directory": "scripts",
-          "files": 176
+          "files": 179
         },
         {
           "directory": ".",
@@ -259,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "704198fc7a2",
-      "lastCommitDate": "2026-11-13T03:34:00+02:00",
-      "lastCommitSubject": "Record live beatmaking and producer export qualification",
-      "commitCount": 6121
+      "head": "5bf73568883",
+      "lastCommitDate": "2026-11-13T17:22:58+02:00",
+      "lastCommitSubject": "Register qualified tour preparation as a CLI entry",
+      "commitCount": 6133
     },
     "scores": {
       "priorityScore": 96,
@@ -308,19 +308,6 @@
         "width": 1200,
         "height": 630,
         "bytes": 109624
-      }
-    ],
-    "trailers": [
-      {
-        "id": "tour",
-        "title": "BBeats: a starter pattern, played",
-        "url": "https://bbeats-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://bbeats-git.pages.dev/trailers/tour.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 24,
-        "orientation": "landscape",
-        "builtAt": "2026-11-13T01:03:36.112Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -1432,7 +1419,7 @@
   },
   "cat-world": {
     "slug": "cat-world",
-    "generatedAt": "2026-11-12T00:24:38.387Z",
+    "generatedAt": "2026-11-13T14:32:42.642Z",
     "version": "0.0.0",
     "classification": "web-app",
     "links": {
@@ -1474,7 +1461,7 @@
     "metrics": {
       "sourceFiles": 146,
       "testFiles": 32,
-      "sourceLines": 18766,
+      "sourceLines": 18764,
       "largestDirectories": [
         {
           "directory": "src",
@@ -1495,10 +1482,10 @@
     },
     "git": {
       "branch": "master",
-      "head": "d52c608",
-      "lastCommitDate": "2026-11-12T01:35:12+02:00",
-      "lastCommitSubject": "Republish the link-preview card from the new screenshots",
-      "commitCount": 58
+      "head": "85b2251",
+      "lastCommitDate": "2026-11-13T15:44:08+02:00",
+      "lastCommitSubject": "Drop two dead AngularJS toastr links from index.html",
+      "commitCount": 60
     },
     "scores": {
       "priorityScore": 84,
@@ -1515,35 +1502,35 @@
         "path": "/project-shots/cat-world/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 122112
+        "bytes": 122564
       },
       {
         "profile": "desktop",
         "path": "/project-shots/cat-world/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 117031
+        "bytes": 117889
       },
       {
         "profile": "full",
         "path": "/project-shots/cat-world/latest/full.jpg",
         "width": 1440,
         "height": 910,
-        "bytes": 102833
+        "bytes": 103569
       },
       {
         "profile": "mobile",
         "path": "/project-shots/cat-world/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 64508
+        "bytes": 64726
       },
       {
         "profile": "og",
         "path": "/project-shots/cat-world/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 94650
+        "bytes": 94972
       }
     ],
     "trailers": [
@@ -1556,7 +1543,7 @@
         "height": 720,
         "duration": 20,
         "orientation": "landscape",
-        "builtAt": "2026-09-27T13:54:59.580Z"
+        "builtAt": "2026-11-13T14:30:30.593Z"
       }
     ],
     "source": "BorisThoris/cat-world@master"
