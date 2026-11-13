@@ -147,3 +147,61 @@
   60% { transform: translate(-4px, 2px); filter: brightness(1); }
   100% { transform: none; }
 }
+
+/* Project-page toys: a native program's core, ported to run in the page. */
+.toy__note { margin: 0; max-width: 72ch; color: var(--ink-2); font-size: 0.92rem; }
+.toy__note code, .draw__error code { font-family: var(--mono); font-size: 0.88em; }
+
+/* Donut Studio: a Swing window around the ported canvas. */
+.toy__window { overflow: hidden; border: 1px solid #b9bcc4; border-radius: 8px; background: #eeeeee; box-shadow: var(--shadow-lift); color: #222; }
+.toy__titlebar { margin: 0; padding: 6px 12px; font: 600 0.82rem/1.3 system-ui, sans-serif; text-align: center; }
+.toy__canvas-wrap { resize: vertical; overflow: hidden; height: clamp(280px, 52vw, 520px); min-height: 220px; max-height: 900px; background: rgb(15, 23, 42); }
+.toy__canvas { display: block; width: 100%; height: 100%; }
+.toy__swing { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; padding: 10px 12px; font: 0.86rem/1.2 system-ui, sans-serif; }
+.toy__swing input[type="range"] { width: min(260px, 60vw); accent-color: #4f6ea8; }
+.toy__swing output { min-width: 9ch; color: #444; }
+.toy__swing button { padding: 6px 16px; border: 1px solid #8a8f9a; border-radius: 3px; background: linear-gradient(#fbfbfb, #dcdfe5); color: #222; font: inherit; cursor: pointer; }
+.toy__swing button:hover { background: linear-gradient(#ffffff, #e6e9ee); }
+
+/* Weighted Draw Lab */
+.toy__panel { display: grid; gap: 14px; padding: clamp(14px, 2.5vw, 22px); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--card); box-shadow: var(--shadow-sm); }
+.draw__presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.draw__preset { padding: 6px 12px; border: 1px solid var(--line-2); border-radius: var(--r-pill); background: var(--paper); color: var(--ink-2); font: 500 0.8rem/1.2 var(--mono); cursor: pointer; }
+.draw__preset[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.draw__table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.draw__table th, .draw__table td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.draw__table thead th { color: var(--ink-3); font: 500 0.72rem/1.2 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+.draw__table tbody th { width: 5ch; font-size: 1.05rem; }
+.draw__table tr.is-last th { color: var(--signal-text); }
+.draw__weight { display: inline-flex; align-items: center; gap: 4px; }
+.draw__weight input { width: 7ch; padding: 4px 6px; border: 1px solid var(--line-2); border-radius: 6px; background: var(--paper); color: var(--ink); font: 500 0.92rem/1.2 var(--mono); }
+.draw__count { color: var(--ink-3); font-size: 0.82em; }
+.draw__bar-col { width: 40%; }
+td.draw__bar-col { position: relative; height: 26px; }
+.draw__bar { position: absolute; left: 0; height: 8px; border-radius: 4px; transition: width 300ms ease; }
+.draw__bar--expected { top: 5px; background: var(--line-2); }
+.draw__bar--observed { top: 14px; background: var(--signal); }
+.draw__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.draw__last { margin: 0; color: var(--ink-2); }
+.draw__ball { display: inline-grid; place-items: center; min-width: 2.2em; height: 2.2em; margin-right: 6px; border-radius: 50%; background: var(--ink); color: var(--bg); font-weight: 700; animation: draw-pop 380ms var(--spring, ease-out); }
+.draw__error { margin: 0; padding: 10px 12px; border-left: 3px solid var(--signal); background: var(--signal-soft); color: var(--signal-text); }
+@keyframes draw-pop { from { transform: scale(0.4) rotate(-90deg); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (max-width: 560px) { .draw__bar-col { display: none; } }
+
+/* Integer Fit: a console with the types lit up. */
+.toy__console { display: grid; gap: 14px; padding: clamp(14px, 2.5vw, 22px); border-radius: var(--r-lg); background: #15161a; color: #e9e7e1; box-shadow: var(--shadow-lift); font-family: var(--mono); }
+.toy__prompt { margin: 0; color: #8f949e; font-size: 0.82rem; }
+.int__input { display: flex; gap: 8px; }
+.int__input input { flex: 1; width: 0; min-width: 0; padding: 10px 12px; border: 1px solid #3a3d45; border-radius: 8px; background: #0e0f12; color: #fff; font: 600 1.1rem/1.2 var(--mono); }
+.int__input button, .int__picks button { padding: 8px 12px; border: 1px solid #3a3d45; border-radius: 8px; background: #23252b; color: #e9e7e1; font: 500 0.88rem/1 var(--mono); cursor: pointer; }
+.int__input button:hover, .int__picks button:hover { border-color: #ffc93c; }
+.int__input button:disabled { opacity: 0.4; cursor: default; }
+.int__types { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.int__types li { display: grid; gap: 2px; padding: 8px 10px; border: 1px dashed #3a3d45; border-radius: 8px; color: #9ea3ad; transition: background 160ms, color 160ms, border-color 160ms; }
+.int__types li.is-fit { border-style: solid; border-color: #ffc93c; background: #ffc93c; color: #15161a; }
+.int__name { font-weight: 700; }
+.int__range { overflow-wrap: anywhere; font-size: 0.72rem; }
+.int__result { margin: 0; color: #ffc93c; font-size: 0.95rem; }
+.int__picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.int__picks button { padding: 5px 9px; font-size: 0.78rem; }
+.toy > * { min-width: 0; }

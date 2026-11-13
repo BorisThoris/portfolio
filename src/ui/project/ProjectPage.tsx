@@ -13,7 +13,7 @@ import { NotFoundPage } from "../NotFoundPage";
 import { Stats } from "../Stats";
 import { Related } from "./Related";
 import { Sandbox } from "../play/Sandbox";
-import { CrashSwitch } from "./CrashSwitch";
+import { getToy } from "./toys";
 import { getSandbox } from "../../content/sandboxes";
 import { useReveal } from "../motion";
 import "./project.css";
@@ -33,6 +33,7 @@ function ProjectContent({ project }: { project: Project }) {
   const traction = getProjectTraction(project.slug);
   const status = projectStatus(project);
   const sandbox = getSandbox(project.slug);
+  const Toy = getToy(project.slug);
   useReveal([project.slug]);
   const artwork = details?.artwork ?? [];
   // The first native image is already the cover; don't show it twice.
@@ -101,7 +102,7 @@ function ProjectContent({ project }: { project: Project }) {
             <Sandbox sandbox={sandbox} project={project} storyHref={sandbox.story ? `/#${sandbox.story.problem}` : undefined} />
           </section>
         ) : null}
-        {project.slug === "dynamic-damage" ? <CrashSwitch /> : null}
+        {Toy ? <Toy /> : null}
 
         <div className="pp__body">
           <aside className="pp__spec note" aria-label="Project facts">

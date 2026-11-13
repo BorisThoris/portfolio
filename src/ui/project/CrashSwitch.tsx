@@ -46,8 +46,8 @@ export function CrashSwitch() {
   const shot = mod ? SHOTS.mod : SHOTS.stock;
 
   return (
-    <section className="pp-play crash" aria-labelledby="crash-title">
-      <h2 id="crash-title" className="label">Switch it on · the same hit, with and without the mod</h2>
+    <section className="pp-play crash" aria-labelledby="toy-title">
+      <h2 id="toy-title" className="label">Switch it on · the same hit, with and without the mod</h2>
       <div className={`crash__stage${mod && !reduced ? " is-hit" : ""}`} key={reduced ? "still" : hits}>
         <img src={SHOTS.mod.src} alt="" aria-hidden="true" className="crash__preload" width={1920} height={1080} />
         <img src={shot.src} alt={shot.alt} width={1920} height={1080} />

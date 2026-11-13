@@ -15,6 +15,13 @@ const playable: Item[] = sandboxes.flatMap((sandbox) => {
 const games = playable.filter((item) => item.sandbox.shelf === "games");
 const apps = playable.filter((item) => item.sandbox.shelf === "apps");
 
+const toyLinks = [
+  { slug: "dynamic-damage", name: "switch on Dynamic Damage" },
+  { slug: "helloword", name: "spin Donut Studio" },
+  { slug: "weighted-draw-engine", name: "rig the Weighted Draw" },
+  { slug: "boris-rep", name: "overflow Integer Fit" },
+];
+
 const words = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 const count = (n: number) => words[n] ?? String(n);
 
@@ -49,6 +56,12 @@ export function Play() {
           intro="And the work you would use rather than play: my own label’s 3D store, the component library behind the games, and five business apps, back to an Angular site from 2018."
         />
       </div>
+      <p className="play__more">
+        <span className="hand">Programs that can’t run in a page get a toy on their own:</span>{" "}
+        {toyLinks.map(({ slug, name }, index) => (
+          <span key={slug}>{index ? " · " : ""}<Link className="link" to={`/projects/${slug}#toy-title`}>{name}</Link></span>
+        ))}
+      </p>
     </section>
   );
 }

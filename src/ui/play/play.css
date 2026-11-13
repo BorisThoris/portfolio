@@ -200,3 +200,5 @@
 .arcade__lights i:nth-child(3) { background: #28c840; }
 .arcade__address { flex: 1; min-width: 0; padding: 5px 12px; overflow: hidden; border-radius: var(--r-pill); background: #15161a; color: #f4f2ecc7; font-family: var(--mono); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
 .arcade__address::before { content: "🔒 "; font-size: 10px; }
+.play__more { margin: clamp(18px, 3vw, 28px) 0 0; color: var(--ink-2); font-size: var(--t-sm); line-height: 1.7; }
+.play__more .hand { color: var(--ink); font-size: 1.15em; }

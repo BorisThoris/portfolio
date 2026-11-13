@@ -140,7 +140,7 @@ try {
   await appsShelf.getByRole("button", { name: "Stop Cat World" }).click();
   assert.equal(await frames(page), 0);
   // The two new games load on the arcade shelf.
-  for (const [tab, host] of [["Dodg’Em Up", "runner-score-arcade-git.pages.dev"], ["Memory Card Quest", "memory-card-quest-git.pages.dev"]]) {
+  for (const [tab, host] of [["Dodg’Em Up", "runner-score-arcade-git.pages.dev"], ["Memory Card Quest", "memory-card-quest-git.pages.dev"], ["Memory Dungeon", "memory-dungeon-git.pages.dev"]]) {
     await page.getByRole("tab", { name: new RegExp(tab) }).click();
     await page.getByRole("button", { name: `Play ${tab} here` }).click();
     await page.locator("#arcade iframe.sandbox__frame").waitFor();
@@ -148,7 +148,7 @@ try {
     await page.waitForTimeout(2500);
     await page.getByRole("button", { name: `Stop ${tab}` }).click();
   }
-  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge, Gorilla Gainz, Org Atlas (company → project → team), User Hub and Cat World draw in the frame; starting one stops the running game; Dodg’Em Up and Memory Card Quest load");
+  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge, Gorilla Gainz, Org Atlas (company → project → team), User Hub and Cat World draw in the frame; starting one stops the running game; Dodg’Em Up, Memory Card Quest and Memory Dungeon load");
 
   // The hero's trailer polaroid hands over to the same game.
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -224,6 +224,63 @@ try {
   const crashAxe = await new AxeBuilder({ page: project }).include(".crash").withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
   assert.deepEqual(crashAxe.violations.map((v) => v.id), [], "the crash switch passes axe");
   report.push("Project pages: Last Levee plays in place; Roam Rental shows no sandbox; Dynamic Damage switches stock → mod with labels");
+
+  // Toys that port a native program's core.
+  const axeClean = async (selector) => (await new AxeBuilder({ page: project }).include(selector).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze()).violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(" ")).join(", ")}`);
+  await project.goto(base + "/projects/helloword", { waitUntil: "load" });
+  const donut = project.locator(".toy--donut");
+  await donut.scrollIntoViewIfNeeded();
+  assert.match(await donut.locator("canvas").getAttribute("aria-label"), /45 rotated ellipses, 8 degrees/, "Donut Studio starts at the Swing default, 8 degrees");
+  // The centre is the hole; a point on the ring is lit.
+  const lit = await donut.locator("canvas").evaluate((canvas) => {
+    const ctx = canvas.getContext("2d"); const r = devicePixelRatio;
+    const at = (x, y) => [...ctx.getImageData(Math.round(x * r), Math.round(y * r), 1, 1).data].slice(0, 3);
+    const w = canvas.clientWidth, h = canvas.clientHeight, s = Math.min(w, h) / 420;
+    return { centre: at(w / 2 - 20 * s, h / 2 - 20 * s), background: at(4, 4) };
+  });
+  assert.deepEqual(lit.background, [15, 23, 42], "the Swing panel's background colour");
+  for (const step of [4, 8, 18]) {
+    await donut.getByLabel("Ring spacing").fill(String(step));
+    await donut.screenshot({ path: `${out}/9-donut-${step}.png` });
+  }
+  await donut.getByRole("button", { name: "Reset pattern" }).click();
+  assert.match(await donut.locator("output").innerText(), /^8°/);
+  assert.deepEqual(await axeClean(".toy--donut"), [], "Donut Studio toy passes axe");
+
+  await project.goto(base + "/projects/weighted-draw-engine", { waitUntil: "load" });
+  const lab = project.locator(".toy--draw");
+  await lab.scrollIntoViewIfNeeded();
+  await lab.getByRole("button", { name: "Draw 10,000" }).click();
+  const observed = await lab.locator("tbody tr").evaluateAll((rows) => rows.map((row) => Number(row.querySelector(".draw__count").textContent.replace(/[^0-9]/g, ""))));
+  assert.equal(observed.reduce((a, b) => a + b, 0), 10000, "10,000 draws are all counted");
+  assert.ok(observed[2] > 5500 && observed[2] < 6100, `outcome 1 comes up about 58% of the time (${observed[2]})`);
+  await lab.screenshot({ path: `${out}/10-weighted-draw.png` });
+  await lab.getByLabel("Chance of 3, percent").fill("4");
+  assert.match(await lab.getByRole("alert").innerText(), /^Value Error: The sum of probabilities is 1\.0299999999999998, but it must be equal to 1\.0\.$/, "a bad set fails with the engine's own message, float sum and all (Python's += loop prints the same)");
+  assert.equal(await lab.getByRole("button", { name: "Draw 10,000" }).isDisabled(), true);
+  await lab.getByRole("button", { name: "Fair die (0–3)" }).click();
+  await lab.getByRole("button", { name: "Draw one" }).click();
+  assert.match(await lab.locator(".draw__last").innerText(), /^[0-3]\s+came up$/);
+  assert.deepEqual(await axeClean(".toy--draw"), [], "Weighted Draw toy passes axe");
+
+  await project.goto(base + "/projects/boris-rep", { waitUntil: "load" });
+  const ints = project.locator(".toy--int");
+  await ints.scrollIntoViewIfNeeded();
+  const result = () => ints.locator(".int__result").innerText();
+  for (const [input, want] of [["-129", "Fits: short, int, long"], ["255", "Fits: byte, short, ushort, int, uint, long, ulong"], ["9223372036854775808", "Fits: ulong"], ["18446744073709551616", "Does not fit a built-in integer type. Use BigInteger."]]) {
+    await ints.getByLabel("A whole number, any size").fill(input);
+    assert.equal(await result(), want, input);
+  }
+  await ints.getByRole("button", { name: "127", exact: true }).click();
+  await ints.getByRole("button", { name: "Add one" }).click();
+  assert.equal(await ints.getByLabel("A whole number, any size").inputValue(), "128");
+  assert.equal(await result(), "Fits: byte, short, ushort, int, uint, long, ulong", "+1 on 127 drops sbyte");
+  await ints.screenshot({ path: `${out}/11-integer-fit.png` });
+  await ints.getByLabel("A whole number, any size").fill("12.5");
+  assert.match(await result(), /^Not a whole number/);
+  await project.waitForTimeout(400); // let the chips finish their colour transition
+  assert.deepEqual(await axeClean(".toy--int"), [], "Integer Fit toy passes axe");
+  report.push("Toys: Donut Studio draws the Swing loop (8° default, reset), Weighted Draw counts 10,000 draws and fails bad odds with the engine's message, Integer Fit matches the transcript and +1 crosses a boundary");
   await project.close();
 
   assert.deepEqual(errors, [], "no runtime exceptions in the portfolio's own pages");

@@ -8,6 +8,7 @@
     "prebuild": "node scripts/build-previews.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/build-pages.mjs && node scripts/build-media-delivery.mjs",
+    "test:toys": "node --test --no-warnings scripts/toys.test.mjs",
     "test:media": "node --test scripts/media-delivery.test.mjs scripts/media-overrides.test.mjs",
     "preview": "vite preview",
     "check:ui": "node scripts/run-isolated-browser.mjs scripts/check-ui.mjs",

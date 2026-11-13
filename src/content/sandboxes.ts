@@ -112,6 +112,16 @@ export const sandboxes: Sandbox[] = [
     shelf: "games",
   },
   {
+    slug: "memory-dungeon",
+    name: "Memory Dungeon",
+    url: "https://memory-dungeon-git.pages.dev/",
+    dare: "Start a Classic Run. Memorize the floor, then find the pairs before your hearts run out.",
+    controls: ["Click a tile to flip it", "Pause is bottom right"],
+    bootSeconds: 8,
+    kind: "Memory roguelite",
+    shelf: "games",
+  },
+  {
     slug: "bostan",
     name: "Bostan",
     url: "https://bostan.pages.dev/en/3d/",
