@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-12T15:26:34.902Z",
+    "generatedAt": "2026-11-13T01:06:45.288Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -230,7 +230,7 @@
     "metrics": {
       "sourceFiles": 7685,
       "testFiles": 3356,
-      "sourceLines": 1353784,
+      "sourceLines": 1353834,
       "largestDirectories": [
         {
           "directory": "src",
@@ -259,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "e0a98e45d40",
-      "lastCommitDate": "2026-11-13T00:57:14+02:00",
-      "lastCommitSubject": "Record bounded native audio preflight failures",
-      "commitCount": 6116
+      "head": "704198fc7a2",
+      "lastCommitDate": "2026-11-13T03:34:00+02:00",
+      "lastCommitSubject": "Record live beatmaking and producer export qualification",
+      "commitCount": 6121
     },
     "scores": {
       "priorityScore": 96,
@@ -320,7 +320,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-12T15:23:26.519Z"
+        "builtAt": "2026-11-13T01:03:36.112Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
