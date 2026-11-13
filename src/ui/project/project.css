@@ -129,3 +129,21 @@
   .project-footer { grid-template-columns: 1fr; justify-items: start; }
   .project-footer > :last-child { justify-self: start; }
 }
+
+/* Dynamic Damage: the same hit, stock and modded, switched whole and labelled. */
+.crash__stage { position: relative; overflow: hidden; aspect-ratio: 16 / 9; border-radius: var(--r-lg); background: #15161a; box-shadow: var(--shadow-lift); }
+.crash__stage img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.crash__stage .crash__preload { display: none; }
+.crash__stage.is-hit { animation: crash-hit 420ms cubic-bezier(.2, .8, .3, 1); }
+.crash__chip { position: absolute; top: 14px; left: 14px; padding: 6px 12px; border-radius: 999px; font: 700 0.8rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+.crash__chip--stock { background: #15161a; color: #f4f2ec; }
+.crash__chip--mod { background: #ff7a45; color: #15161a; }
+.crash__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.crash__note { margin: 0; max-width: 62ch; color: var(--ink-2); font-size: 0.92rem; }
+@keyframes crash-hit {
+  0% { transform: translate(0, 0) scale(1.02); filter: brightness(1.6); }
+  20% { transform: translate(-10px, 4px) scale(1.02); }
+  40% { transform: translate(8px, -3px) scale(1.01); }
+  60% { transform: translate(-4px, 2px); filter: brightness(1); }
+  100% { transform: none; }
+}

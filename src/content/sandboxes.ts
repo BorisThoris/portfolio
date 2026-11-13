@@ -2,8 +2,8 @@
 // iframe at card size in a headless browser before it was listed here: it drew,
 // took input after one click and needed nothing the embed cannot give it.
 // Left out on purpose: SkillBall (its server forbids framing), Skyfall, VYB Chess
-// and the Gem Dungeon editor (they stop when embedded storage is blocked), Cat
-// World (its toast library 404s), and apps that only show a list in a small frame.
+// and the Gem Dungeon editor (they stop when embedded storage is blocked), and Roam
+// Rental, whose dashboard shows an unstyled list that does not answer a click.
 // Games go on the arcade shelf; the work you would use rather than play, on the apps shelf.
 
 export type Sandbox = {
@@ -148,6 +148,36 @@ export const sandboxes: Sandbox[] = [
     controls: ["Demo store", "No real purchases"],
     bootSeconds: 1,
     kind: "React store",
+    shelf: "apps",
+  },
+  {
+    slug: "org-atlas-directory",
+    name: "Org Atlas",
+    url: "https://org-atlas-directory-git.pages.dev/",
+    dare: "Open a company, then one of its projects. Rename the project and add someone to the team.",
+    controls: ["Company → project → people", "Edits stay in this tab"],
+    bootSeconds: 1,
+    kind: "React directory",
+    shelf: "apps",
+  },
+  {
+    slug: "user-hub-admin",
+    name: "User Hub",
+    url: "https://user-hub-admin-git.pages.dev/",
+    dare: "Manage users, type 3 and press Tab, run the setup wizard, then delete someone from the directory.",
+    controls: ["Angular + Clarity", "A guided demo flow"],
+    bootSeconds: 2,
+    kind: "Admin console",
+    shelf: "apps",
+  },
+  {
+    slug: "cat-world",
+    name: "Cat World",
+    url: "https://cat-world-git.pages.dev/",
+    dare: "Open All Cats and search by breed. It dates from 2018, and the breed names are in Bulgarian.",
+    controls: ["Menu top right on small screens", "Demo data only"],
+    bootSeconds: 2,
+    kind: "Angular · 2018",
     shelf: "apps",
   },
 ];

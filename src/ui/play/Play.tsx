@@ -46,7 +46,7 @@ export function Play() {
           label="Live apps"
           id="apps"
           variant="browser"
-          intro="And the work you would use rather than play: my own label’s store, the component library behind the games, and two client-style apps."
+          intro="And the work you would use rather than play: my own label’s 3D store, the component library behind the games, and five business apps, back to an Angular site from 2018."
         />
       </div>
     </section>

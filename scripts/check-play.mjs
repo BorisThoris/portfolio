@@ -119,7 +119,7 @@ try {
   assert.equal(new URL(await appsShelf.locator("iframe.sandbox__frame").getAttribute("src")).host, "bostan.pages.dev");
   await page.waitForTimeout(4000);
   await appsShelf.screenshot({ path: `${out}/4c-apps-bostan.png` });
-  for (const [tab, host] of [["Cross Repo Libs", "cross-repo-libs-git.pages.dev"], ["FlowForge", "flowforge-configurator-git.pages.dev"], ["Gorilla Gainz", "gorilla-gainz-git.pages.dev"]]) {
+  for (const [tab, host] of [["Cross Repo Libs", "cross-repo-libs-git.pages.dev"], ["FlowForge", "flowforge-configurator-git.pages.dev"], ["Gorilla Gainz", "gorilla-gainz-git.pages.dev"], ["Org Atlas", "org-atlas-directory-git.pages.dev"], ["User Hub", "user-hub-admin-git.pages.dev"], ["Cat World", "cat-world-git.pages.dev"]]) {
     await appsShelf.getByRole("tab", { name: new RegExp(tab) }).click();
     assert.equal(await appsShelf.locator(".arcade__address").innerText(), host);
     await appsShelf.getByRole("button", { name: `Open ${tab} here` }).click();
@@ -127,9 +127,17 @@ try {
     await page.waitForTimeout(2500);
     const body = await appsShelf.frameLocator("iframe.sandbox__frame").locator("body").innerText();
     assert.ok(body.trim().length > 40, `${tab} drew its page inside the frame`);
+    if (tab === "Org Atlas") {
+      // The dare: a company opens its projects, a project opens its team.
+      const app = appsShelf.frameLocator("iframe.sandbox__frame");
+      await app.getByText("Hackett - Greenfelder").first().click();
+      await app.getByText("Incredible Rubber Chicken").first().click();
+      await app.getByText("Add Employee").waitFor({ timeout: 8000 });
+      await appsShelf.screenshot({ path: `${out}/4d-apps-org-atlas.png` });
+    }
   }
-  await appsShelf.screenshot({ path: `${out}/4d-apps-last.png` });
-  await appsShelf.getByRole("button", { name: "Stop Gorilla Gainz" }).click();
+  await appsShelf.screenshot({ path: `${out}/4e-apps-cat-world.png` });
+  await appsShelf.getByRole("button", { name: "Stop Cat World" }).click();
   assert.equal(await frames(page), 0);
   // The two new games load on the arcade shelf.
   for (const [tab, host] of [["Dodg’Em Up", "runner-score-arcade-git.pages.dev"], ["Memory Card Quest", "memory-card-quest-git.pages.dev"]]) {
@@ -140,7 +148,7 @@ try {
     await page.waitForTimeout(2500);
     await page.getByRole("button", { name: `Stop ${tab}` }).click();
   }
-  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge and Gorilla Gainz draw in the frame; starting one stops the running game; Dodg’Em Up and Memory Card Quest load");
+  report.push("Apps shelf: Bostan, Cross Repo Libs, FlowForge, Gorilla Gainz, Org Atlas (company → project → team), User Hub and Cat World draw in the frame; starting one stops the running game; Dodg’Em Up and Memory Card Quest load");
 
   // The hero's trailer polaroid hands over to the same game.
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -189,7 +197,7 @@ try {
   await phone.close();
 
   // ---------- Project page ----------
-  const project = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const project = await (await browser.newContext({ viewport: { width: 1280, height: 900 } })).newPage();
   project.on("pageerror", (error) => errors.push(`project: ${error.message}`));
   await project.goto(base + "/projects/last-levee", { waitUntil: "load" });
   assert.equal(await frames(project), 0);
@@ -198,9 +206,24 @@ try {
   await project.waitForTimeout(6000);
   await project.locator(".pp-play").screenshot({ path: `${out}/7-project-last-levee.png` });
   assert.equal(new URL(await project.locator("iframe.sandbox__frame").getAttribute("src")).host, "last-levee.pages.dev");
-  await project.goto(base + "/projects/cat-world", { waitUntil: "load" });
+  await project.goto(base + "/projects/roam-rental-dashboard", { waitUntil: "load" });
   assert.equal(await project.locator(".pp-play").count(), 0, "projects without a verified sandbox show none");
-  report.push("Project pages: Last Levee plays in place; projects without a verified sandbox show none");
+  // Dynamic Damage cannot run in a page: its stock/mod switch shows whole, labelled takes.
+  await project.goto(base + "/projects/dynamic-damage", { waitUntil: "load" });
+  assert.equal(await frames(project), 0);
+  const crash = project.locator(".crash");
+  await crash.scrollIntoViewIfNeeded();
+  assert.equal(await crash.locator(".crash__chip").innerText(), "STOCK");
+  assert.match(await crash.locator(".crash__stage img:not(.crash__preload)").getAttribute("src"), /prostreet-stock/);
+  await crash.getByRole("button", { name: "Switch Dynamic Damage on" }).click();
+  assert.equal(await crash.locator(".crash__chip").innerText(), "MOD");
+  assert.match(await crash.locator(".crash__stage img:not(.crash__preload)").getAttribute("src"), /prostreet-mod/);
+  assert.equal(await crash.getByRole("button", { name: "Back to the stock game" }).getAttribute("aria-pressed"), "true");
+  await project.waitForTimeout(600);
+  await crash.screenshot({ path: `${out}/8-dynamic-damage-mod.png` });
+  const crashAxe = await new AxeBuilder({ page: project }).include(".crash").withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
+  assert.deepEqual(crashAxe.violations.map((v) => v.id), [], "the crash switch passes axe");
+  report.push("Project pages: Last Levee plays in place; Roam Rental shows no sandbox; Dynamic Damage switches stock → mod with labels");
   await project.close();
 
   assert.deepEqual(errors, [], "no runtime exceptions in the portfolio's own pages");

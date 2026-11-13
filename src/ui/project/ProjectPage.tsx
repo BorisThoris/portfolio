@@ -13,6 +13,7 @@ import { NotFoundPage } from "../NotFoundPage";
 import { Stats } from "../Stats";
 import { Related } from "./Related";
 import { Sandbox } from "../play/Sandbox";
+import { CrashSwitch } from "./CrashSwitch";
 import { getSandbox } from "../../content/sandboxes";
 import { useReveal } from "../motion";
 import "./project.css";
@@ -100,6 +101,7 @@ function ProjectContent({ project }: { project: Project }) {
             <Sandbox sandbox={sandbox} project={project} storyHref={sandbox.story ? `/#${sandbox.story.problem}` : undefined} />
           </section>
         ) : null}
+        {project.slug === "dynamic-damage" ? <CrashSwitch /> : null}
 
         <div className="pp__body">
           <aside className="pp__spec note" aria-label="Project facts">
