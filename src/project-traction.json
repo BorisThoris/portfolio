@@ -1,12 +1,12 @@
 {
-  "asOf": "2026-11-12",
+  "asOf": "2026-11-13",
   "note": "Nexus Mods and YouTube figures are recounted automatically once a day from their public APIs; itch.io and Reddit figures when their APIs answer. Each figure keeps the date it was last confirmed. YouTube counts above a thousand are rounded.",
   "summary": {
     "title": "Mods people actually downloaded.",
     "lede": "Since October I have been releasing PC game mods: real crash damage and first-person cameras for games from the 2000s. These are the counts so far, from the platforms themselves.",
     "stats": [
       {
-        "value": "555",
+        "value": "578",
         "label": "downloads on Nexus Mods across 13 mods",
         "source": {
           "type": "nexus",
@@ -16,12 +16,12 @@
         "template": "downloads on Nexus Mods across {count} mods",
         "counts": {
           "value": {
-            "value": 555,
+            "value": 578,
             "count": 13,
-            "checked": "2026-11-12"
+            "checked": "2026-11-13"
           }
         },
-        "checked": "2026-11-12"
+        "checked": "2026-11-13"
       },
       {
         "value": "6.8K",
@@ -245,8 +245,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "215",
-          "label": "Nexus downloads across the five games (Most Wanted: 139)",
+          "value": "230",
+          "label": "Nexus downloads across the five games (Most Wanted: 150)",
           "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349",
           "source": {
             "type": "nexus",
@@ -291,17 +291,17 @@
           },
           "counts": {
             "value": {
-              "value": 215,
+              "value": 230,
               "count": 5,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             },
             "mw": {
-              "value": 139,
+              "value": 150,
               "count": 1,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             }
           },
-          "checked": "2026-11-12"
+          "checked": "2026-11-13"
         },
         {
           "value": "1,193",
@@ -462,8 +462,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "136",
-          "label": "Nexus downloads across the five mods (Hit & Run First Person: 49)",
+          "value": "140",
+          "label": "Nexus downloads across the five mods (Hit & Run First Person: 51)",
           "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67",
           "source": {
             "type": "nexus",
@@ -508,17 +508,17 @@
           },
           "counts": {
             "value": {
-              "value": 136,
+              "value": 140,
               "count": 5,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             },
             "shar": {
-              "value": 49,
+              "value": 51,
               "count": 1,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             }
           },
-          "checked": "2026-11-12"
+          "checked": "2026-11-13"
         }
       ],
       "links": [
@@ -555,10 +555,10 @@
       "headlineUnit": "upvotes on r/driver"
     },
     "gta-sa-mod": {
-      "headline": "180 Nexus downloads",
+      "headline": "184 Nexus downloads",
       "stats": [
         {
-          "value": "180",
+          "value": "184",
           "label": "Nexus downloads of Personal Fleet",
           "url": "https://www.nexusmods.com/gtasanandreas/mods/3106",
           "source": {
@@ -574,12 +574,12 @@
           },
           "counts": {
             "value": {
-              "value": 180,
+              "value": 184,
               "count": 1,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             }
           },
-          "checked": "2026-11-12"
+          "checked": "2026-11-13"
         },
         {
           "value": "38",
@@ -645,10 +645,10 @@
             "value": {
               "value": 24,
               "count": 1,
-              "checked": "2026-11-12"
+              "checked": "2026-11-13"
             }
           },
-          "checked": "2026-11-12"
+          "checked": "2026-11-13"
         }
       ],
       "links": [

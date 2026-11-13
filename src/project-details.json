@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-12T00:06:03.318Z",
+    "generatedAt": "2026-11-12T15:26:34.902Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -228,9 +228,9 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7684,
-      "testFiles": 3355,
-      "sourceLines": 1353309,
+      "sourceFiles": 7685,
+      "testFiles": 3356,
+      "sourceLines": 1353784,
       "largestDirectories": [
         {
           "directory": "src",
@@ -238,7 +238,7 @@
         },
         {
           "directory": "e2e",
-          "files": 277
+          "files": 278
         },
         {
           "directory": "public",
@@ -259,10 +259,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "6df32e23ceb",
-      "lastCommitDate": "2026-11-12T01:37:44+02:00",
-      "lastCommitSubject": "Record verified Rack layouts and remaining UX findings",
-      "commitCount": 6086
+      "head": "e0a98e45d40",
+      "lastCommitDate": "2026-11-13T00:57:14+02:00",
+      "lastCommitSubject": "Record bounded native audio preflight failures",
+      "commitCount": 6116
     },
     "scores": {
       "priorityScore": 96,
@@ -300,7 +300,7 @@
         "path": "/project-shots/bbeats/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 44344
+        "bytes": 44199
       },
       {
         "profile": "og",
@@ -320,7 +320,7 @@
         "height": 720,
         "duration": 24,
         "orientation": "landscape",
-        "builtAt": "2026-11-12T00:02:27.300Z"
+        "builtAt": "2026-11-12T15:23:26.519Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -488,7 +488,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-06T22:06:47.934Z",
+    "generatedAt": "2026-11-12T23:16:24.285Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -562,7 +562,7 @@
     "metrics": {
       "sourceFiles": 1573,
       "testFiles": 680,
-      "sourceLines": 242099,
+      "sourceLines": 242217,
       "largestDirectories": [
         {
           "directory": "src",
@@ -591,10 +591,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "b44039f3",
-      "lastCommitDate": "2026-11-06T18:37:46+02:00",
-      "lastCommitSubject": "Fit the store's shelves at a laptop's height and stop the clear ghosting through the doors",
-      "commitCount": 2725
+      "head": "c741ff55",
+      "lastCommitDate": "2026-11-13T01:07:47+02:00",
+      "lastCommitSubject": "Refresh the repo model after merging main",
+      "commitCount": 2743
     },
     "scores": {
       "priorityScore": 94,
@@ -611,35 +611,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 88960
+        "bytes": 93246
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 89984
+        "bytes": 90015
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 72254
+        "bytes": 72888
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 43378
+        "bytes": 43260
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 76127
+        "bytes": 72077
       }
     ],
     "trailers": [
