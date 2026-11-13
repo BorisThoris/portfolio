@@ -34,6 +34,7 @@ try {
   // Bob: throw at his chest until he has been hit three times.
   const bob = page.locator(".toss__bob img");
   await bob.waitFor();
+  await page.locator(".toss__stage").scrollIntoViewIfNeeded(); // the section is taller than the window
   const box = await bob.boundingBox();
   let hits = 0;
   for (let i = 0; i < 10 && hits < 3; i++) {
@@ -41,7 +42,7 @@ try {
     await page.mouse.down();
     await page.mouse.up();
     await page.waitForTimeout(700);
-    hits = Number((await page.locator(".toss__foot .label").innerText()).match(/(\d+)\//)?.[1] ?? 0);
+    hits = Number((await page.locator(".toss .toss__foot .label").innerText()).match(/(\d+)\//)?.[1] ?? 0);
   }
   assert.ok(hits >= 3, `three throws at Bob's chest should land (landed ${hits})`);
   const score = Number(await page.locator(".toss__score").evaluate((el) => el.firstChild.textContent));
@@ -50,7 +51,7 @@ try {
   const stage = await page.locator(".toss__stage").boundingBox();
   await page.mouse.click(stage.x + 12, stage.y + stage.height - 12);
   await page.waitForTimeout(700);
-  assert.match(await page.locator(".toss__foot .label").innerText(), new RegExp(`${hits}/${hits + 1}`), "a throw at empty paper is a miss");
+  assert.match(await page.locator(".toss .toss__foot .label").innerText(), new RegExp(`${hits}/${hits + 1}`), "a throw at empty paper is a miss");
   await page.screenshot({ path: `${out}/2-bob-hit.png` });
   report.push(`Bob: ${hits} hits, score ${score}, a miss counted as a miss`);
 
@@ -105,6 +106,55 @@ try {
   assert.ok(await miata.locator(".miata__cta.is-on").isVisible(), "after a few moves the note points to the real app");
   await miata.screenshot({ path: `${out}/4b-miata.png` });
   report.push("Miata: the left light pops up alone, Sleepy half-raises both, the note hands over to the project");
+
+  // Memory Dungeon's cards: flip two at a time, remembering faces, until the board clears.
+  const flipBoard = page.locator(".flip__board");
+  await flipBoard.scrollIntoViewIfNeeded();
+  const seen = new Map();
+  const label = (i) => flipBoard.locator(".flip__card").nth(i).getAttribute("aria-label");
+  const face = (text) => text.split(": ")[1]?.replace(", matched", "");
+  const flipCard = async (i) => { await flipBoard.locator(".flip__card").nth(i).click(); await page.waitForTimeout(120); return face(await label(i)); };
+  for (let guard = 0; guard < 12; guard++) {
+    const labels = await flipBoard.locator(".flip__card").evaluateAll((els) => els.map((el) => el.getAttribute("aria-label")));
+    if (labels.every((text) => text.endsWith("matched"))) break;
+    const down = labels.map((text, i) => (text.endsWith("face down") ? i : -1)).filter((i) => i >= 0);
+    // A known pair first.
+    const pair = [...seen.entries()].find(([, idx]) => idx.filter((i) => down.includes(i)).length === 2);
+    if (pair) { const [a, b] = pair[1].filter((i) => down.includes(i)); await flipCard(a); await flipCard(b); continue; }
+    const first = down.find((i) => ![...seen.values()].flat().includes(i)) ?? down[0];
+    const name = await flipCard(first);
+    seen.set(name, [...new Set([...(seen.get(name) ?? []), first])]);
+    const match = (seen.get(name) ?? []).find((i) => i !== first && down.includes(i));
+    const second = match ?? down.find((i) => i !== first && ![...seen.values()].flat().includes(i));
+    const other = await flipCard(second);
+    seen.set(other, [...new Set([...(seen.get(other) ?? []), second])]);
+    await page.waitForTimeout(1100);
+  }
+  assert.match(await page.locator(".flip .flip__count").innerText(), /^3\/3 pairs/i, "the three pairs can be cleared");
+  await page.locator(".flip").screenshot({ path: `${out}/4g-memory-flip.png` });
+  await page.getByRole("button", { name: "Play the real Memory Dungeon here" }).click();
+  await page.locator("#arcade iframe.sandbox__frame").waitFor();
+  assert.equal(new URL(await page.locator("#arcade iframe.sandbox__frame").getAttribute("src")).host, "memory-dungeon-git.pages.dev", "the cleared board hands over to the real game");
+  await page.getByRole("button", { name: "Stop Memory Dungeon" }).click();
+
+  // SkillBall: it looks at the pointer, and a shot to the right shoves it left.
+  const arena = page.locator(".ballt__arena");
+  await arena.scrollIntoViewIfNeeded();
+  const ballX = () => arena.locator(".ballt__body").getAttribute("transform").then((t) => Number(t.match(/translate\(([\d.]+)/)[1]));
+  const arenaBox = await arena.boundingBox();
+  const x0 = await ballX();
+  await page.mouse.click(arenaBox.x + arenaBox.width * 0.95, arenaBox.y + arenaBox.height / 2);
+  await page.waitForTimeout(900);
+  assert.ok((await ballX()) < x0 - 30, "recoil from a shot to the right pushes the ball left");
+  for (let i = 0; i < 5; i++) { await page.mouse.click(arenaBox.x + arenaBox.width * (i % 2 ? 0.05 : 0.95), arenaBox.y + arenaBox.height * 0.5); await page.waitForTimeout(150); }
+  await arena.focus();
+  await page.keyboard.press("Space");
+  assert.match(await page.locator(".ballt .flip__count").innerText(), /^7 shots/i, "pointer and keyboard shots both count");
+  const ballCta = page.getByRole("link", { name: /Play SkillBall/ });
+  await ballCta.waitFor({ state: "visible" });
+  assert.equal(new URL(await ballCta.getAttribute("href")).host, "skillball.modaxxx009.workers.dev");
+  await page.locator(".ballt").screenshot({ path: `${out}/4h-skillball.png` });
+  report.push("Toys in Play: the Memory Dungeon board clears and hands over to the game; the SkillBall recoils away from each shot and links to the live game");
 
   // The apps shelf, and one live build across both shelves.
   await page.getByRole("tab", { name: /Pedal Rush/ }).click();

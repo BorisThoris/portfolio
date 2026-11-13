@@ -202,3 +202,45 @@
 .arcade__address::before { content: "🔒 "; font-size: 10px; }
 .play__more { margin: clamp(18px, 3vw, 28px) 0 0; color: var(--ink-2); font-size: var(--t-sm); line-height: 1.7; }
 .play__more .hand { color: var(--ink); font-size: 1.15em; }
+
+/* Two more warm-ups: Memory Dungeon's cards, and a SkillBall that watches you. */
+.play__grid--toys { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: clamp(20px, 3vw, 40px); }
+.flip, .ballt {
+  position: relative; display: grid; gap: var(--s3); align-self: start; padding: 16px;
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px; border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);
+}
+.flip__count { font-family: var(--mono); font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.04em; line-height: 1; color: var(--signal-text); }
+.flip__count .label { font-size: var(--t-xs); letter-spacing: 0.06em; }
+.flip__help { color: var(--ink-2); font-size: 20px; }
+.flip__board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(8px, 1.4vw, 14px); padding: clamp(10px, 2vw, 18px); border-radius: var(--r-sm); background: radial-gradient(ellipse at 50% 30%, #2a3540, #12161c 75%); perspective: 900px; }
+.flip__card { aspect-ratio: 300 / 438; padding: 0; border: 0; background: none; cursor: pointer; transition: transform 160ms var(--ease); }
+.flip__card:hover:not(.is-up) { transform: translateY(-4px) rotate(-1deg); }
+.flip__card:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
+.flip__inner { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 520ms cubic-bezier(.3, 1.4, .5, 1); }
+.flip__card.is-up .flip__inner { transform: rotateY(180deg); }
+.flip__back, .flip__face { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 8px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 6px 14px #0007; }
+.flip__back { object-fit: cover; }
+.flip__face { display: block; overflow: hidden; padding: 5%; background: linear-gradient(160deg, #2b2416, #110f0b); border: 2px solid #c9a24a; transform: rotateY(180deg); }
+.flip__face img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.flip__card.is-done .flip__face { box-shadow: 0 0 0 2px #ffd56b, 0 0 18px #ffd56b88; }
+.flip__card.is-done { cursor: default; }
+.flip__board.is-still .flip__inner, .flip__board.is-still .flip__card { transition: none; }
+.ballt__arena { display: block; width: 100%; height: auto; border-radius: var(--r-sm); cursor: none; touch-action: none; user-select: none; }
+.ballt__arena:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.ballt__floor { fill: #cfd8c6; stroke: #8fa08a; stroke-width: 2; }
+.ballt__lane { stroke: #ffffffaa; stroke-width: 3; stroke-dasharray: 10 8; fill: none; }
+.ballt__ring { fill: none; stroke: #ffffffaa; stroke-width: 3; }
+.ballt__shadow { fill: #15161a33; }
+.ballt__ball { fill: #e4f878; stroke: #3d4a2c; stroke-width: 2.5; }
+.ballt__band { fill: none; stroke: #6aa7d8; stroke-width: 5; }
+.ballt__eye { fill: #23494a; }
+.ballt__smile { fill: none; stroke: #23494a; stroke-width: 3.2; stroke-linecap: round; }
+.ballt__shine { fill: #ffffff88; }
+.ballt__shot { stroke: #ff7a45; stroke-width: 3; stroke-linecap: round; animation: ballt-shot 260ms ease-out forwards; }
+.ballt__crosshair circle, .ballt__crosshair path { fill: none; stroke: #e2532d; stroke-width: 2; }
+.ballt__links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+@keyframes ballt-shot { from { opacity: 1; stroke-width: 4; } to { opacity: 0; stroke-width: 1; } }
+@media (max-width: 860px) { .play__grid--toys { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .flip__inner { transition: none; } .ballt__shot { animation: none; opacity: .8; } }

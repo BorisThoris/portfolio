@@ -4,7 +4,9 @@ import { PLAY_EVENT, sandboxes, type Sandbox as SandboxData } from "../../conten
 import { getProject, type Project } from "../../projects";
 import { projectStatus } from "../../projectStatus";
 import { BobToss } from "./BobToss";
+import { MemoryFlip } from "./MemoryFlip";
 import { MiataLights } from "./MiataLights";
+import { SkillBallToy } from "./SkillBallToy";
 import { Sandbox } from "./Sandbox";
 
 type Item = { sandbox: SandboxData; project: Project };
@@ -55,6 +57,10 @@ export function Play() {
           variant="browser"
           intro="And the work you would use rather than play: my own label’s 3D store, the component library behind the games, and five business apps, back to an Angular site from 2018."
         />
+      </div>
+      <div className="play__grid play__grid--toys">
+        <MemoryFlip />
+        <SkillBallToy />
       </div>
       <p className="play__more">
         <span className="hand">Programs that can’t run in a page get a toy on their own:</span>{" "}
