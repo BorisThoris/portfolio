@@ -82,7 +82,7 @@ export const experiences: Experience[] = [
   {
     company: 'Man Group',
     role: 'Project Owner / Full-stack Risk Software Engineer',
-    tenure: 'Feb 2024 - Present',
+    tenure: 'Feb 2024 – Present',
     startYear: '2024',
     type: 'Full-time - Investment technology',
     summary:
@@ -149,7 +149,7 @@ export const experiences: Experience[] = [
   {
     company: 'Expert Allies / Zonal',
     role: 'Senior Software Engineer / Senior React Developer',
-    tenure: 'Feb 2023 - Feb 2024',
+    tenure: 'Feb 2023 – Feb 2024',
     startYear: '2023',
     type: 'Contract/employment engagement - Hospitality software',
     summary: 'Worked as a senior React and React Native engineer on Zonal product interfaces for hospitality operators.',
@@ -217,7 +217,7 @@ export const experiences: Experience[] = [
   {
     company: 'Quickbase',
     role: 'Software Engineer II',
-    tenure: 'Aug 2020 - Jan 2023',
+    tenure: 'Aug 2020 – Jan 2023',
     startYear: '2020',
     type: 'Full-time - Low-code automation',
     summary: 'Built new parts of Quickbase’s low-code automation product while gradually replacing older frontend code.',
@@ -284,7 +284,7 @@ export const experiences: Experience[] = [
   {
     company: 'Hakomo',
     role: 'Software Engineer',
-    tenure: 'Jan 2020 - Jun 2020',
+    tenure: 'Jan 2020 – Jun 2020',
     startYear: '2020',
     type: 'Full-time - Mobile and web products',
     summary: 'Built React Native apps and React websites, working closely with the people designing and managing each product.',
@@ -335,7 +335,7 @@ export const experiences: Experience[] = [
   {
     company: 'A1 Bulgaria',
     role: 'Junior Software Engineer',
-    tenure: 'Mar 2019 - Nov 2019',
+    tenure: 'Mar 2019 – Nov 2019',
     startYear: '2019',
     type: 'Full-time - Telecom software',
     summary: 'Built React, React Native, and C# software for customer-facing products and internal support teams.',
@@ -390,7 +390,7 @@ export const experiences: Experience[] = [
   {
     company: 'Evolution Bulgaria',
     role: 'Trainee Software Engineer',
-    tenure: 'Jan 2019 - Feb 2019',
+    tenure: 'Jan 2019 – Feb 2019',
     startYear: '2019',
     type: 'Professional training',
     summary: 'Completed a short professional training programme before moving into my first full-time engineering role.',
@@ -406,7 +406,7 @@ export const experiences: Experience[] = [
   {
     company: 'Independent Products',
     role: 'Full-stack Product Builder',
-    tenure: 'Jul 2018 - Present',
+    tenure: 'Jul 2018 – Present',
     startYear: '2018',
     type: 'Independent software projects',
     summary: 'I’ve kept building my own software alongside work, from early Angular demos to browser games, music tools, and 3D editors.',
@@ -424,7 +424,7 @@ export const experiences: Experience[] = [
   {
     company: 'Soap Factory',
     role: 'Family Business / E-commerce & Operations Support',
-    tenure: '2017 - 2019 + Ongoing support',
+    tenure: '2017 – 2019 + Ongoing support',
     startYear: '2017',
     type: 'Family business - Natural cosmetics and e-commerce',
     summary: 'Supported the family natural-cosmetics business across hands-on operations, customer-facing sales, and web shop maintenance.',

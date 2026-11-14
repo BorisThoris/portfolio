@@ -412,7 +412,7 @@
   {
     "slug": "hosted-failover",
     "title": "Hosted Failover",
-    "subtitle": "Keep static sites available when their primary origin fails.",
+    "subtitle": "Keep static sites available when their primary origin fails",
     "description": "Isolated real origin/failover demo; malformed URL and changed-root refresh fixes.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/hosted-failover",
     "localUrl": "",
@@ -429,7 +429,7 @@
   {
     "slug": "portfolio-ai-orchestrator",
     "title": "Portfolio Refinement Monitor",
-    "subtitle": "Follow task progress through an interactive refinement session.",
+    "subtitle": "Follow task progress through an interactive refinement session",
     "description": "A Windows Electron dashboard for task ledgers, worker progress and refinement logs. The native demonstration runs fictional tasks in memory, with start, advance, pause and reset controls.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/portfolio-ai-orchestrator/monitor-app",
     "localUrl": "http://127.0.0.1:4412/",
@@ -446,7 +446,7 @@
   {
     "slug": "automation-assignment",
     "title": "Browser Automation Assignment",
-    "subtitle": "Export workspace members through repeatable browser automation.",
+    "subtitle": "Export workspace members through repeatable browser automation",
     "description": "A browser automation command-line workflow that extracts structured member data. The reproducible local demonstration uses fictional fixtures; live Notion access requires authentication.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/accessowl-browser-automation",
     "localUrl": "http://127.0.0.1:8311/",
@@ -463,7 +463,7 @@
   {
     "slug": "weighted-draw-engine",
     "title": "Weighted Draw Engine",
-    "subtitle": "Explore weighted probabilities and sample outcomes.",
+    "subtitle": "Explore weighted probabilities and sample outcomes",
     "description": "A Python weighted sampling engine with input validation, duplicate merging and binary-search selection. The command-line demonstration explains probabilities and samples real results.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/Man_Group_Assignment_2023",
     "localUrl": "http://127.0.0.1:4310/",
@@ -480,7 +480,7 @@
   {
     "slug": "bean-tapper-arena",
     "title": "Bean Tapper Arena",
-    "subtitle": "Race friends at tapping stations in a physical 3D arena.",
+    "subtitle": "Race friends at tapping stations in a physical 3D arena",
     "description": "A native S&box tapping game with physical bean avatars, station ownership, timed rounds and tournament scores. A refined world scoreboard, nearby-station action and guarded camera make the prepared local build easier to play and inspect.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bean",
     "localUrl": "http://127.0.0.1:4413/",
@@ -497,7 +497,7 @@
   {
     "slug": "soundstage-composer",
     "title": "Soundstage Composer",
-    "subtitle": "Arrange piano ideas in a native BBeats-derived music editor.",
+    "subtitle": "Arrange piano ideas in a native BBeats-derived music editor",
     "description": "A native C#/Unity UI Toolkit music editor derived from the actual BBeats frontend. Classical and Studio themes frame a horizontal arrangement, track mixer, searchable sound library, piano roll and note inspector, with original FMOD piano playback, undo and versioned composition files.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/my-musial-app",
     "localUrl": "http://127.0.0.1:8313/",
@@ -515,7 +515,7 @@
   },
   {
     "slug": "my-musical-app-code",
-    "title": "My-musical-app-code",
+    "title": "My Musical App",
     "subtitle": "Historical repository",
     "description": "An empty historical repository retained for provenance. No runnable source was found.",
     "repoPath": "",
@@ -531,7 +531,7 @@
   {
     "slug": "unity-audio-recorder",
     "title": "Unity Audio Recorder",
-    "subtitle": "Load, play, record and export audio in a compact workstation.",
+    "subtitle": "Load, play, record and export audio in a compact workstation",
     "description": "A Unity audio workstation for loading, playing, recording and exporting audio. A sample tone makes the native Windows demonstration usable without a microphone.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\Unity-Audio-Recorder",
     "localUrl": "",
@@ -547,7 +547,7 @@
   },
   {
     "slug": "w-i-p-stop-the-crowns-game-unity",
-    "title": "W.I.P-Stop-The-Crowns-Game-Unity",
+    "title": "Stop the Crowns (Unity, unfinished)",
     "subtitle": "Historical repository",
     "description": "An empty historical repository retained for provenance. No runnable source was found.",
     "repoPath": "",
@@ -562,7 +562,7 @@
   },
   {
     "slug": "w-i-p-3d-endless-runner-unity",
-    "title": "W.I.P-3D-Endless-Runner-Unity",
+    "title": "3D Endless Runner (Unity, unfinished)",
     "subtitle": "Historical repository",
     "description": "An empty historical repository retained for provenance. No runnable source was found.",
     "repoPath": "",
@@ -578,7 +578,7 @@
   {
     "slug": "keyboard-controlled-website-method",
     "title": "Keyboard Navigation Lab",
-    "subtitle": "Move focus with directional keys and keyboard shortcuts.",
+    "subtitle": "Move focus with directional keys and keyboard shortcuts",
     "description": "A keyboard navigation experiment with directional focus movement, uneven rows, Home and End shortcuts, and accessible native controls.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\Keyboard-Controlled-Website-Method",
     "localUrl": "http://127.0.0.1:4415/",
@@ -595,7 +595,7 @@
   },
   {
     "slug": "keyboard-controlled-website",
-    "title": "Keyboard-Controlled-Website",
+    "title": "Keyboard-Controlled Website",
     "subtitle": "Historical repository",
     "description": "An empty historical repository retained for provenance. No runnable source was found.",
     "repoPath": "",
@@ -611,7 +611,7 @@
   {
     "slug": "my-app",
     "title": "TV Navigation",
-    "subtitle": "Browse a TV-style interface using only the keyboard.",
+    "subtitle": "Browse a TV-style interface using only the keyboard",
     "description": "A television navigation prototype with image-backed sections and keyboard focus movement, recovered from an early React application.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\my-app",
     "localUrl": "http://127.0.0.1:4416/",
@@ -629,7 +629,7 @@
   {
     "slug": "csharp-backend-websitedemo",
     "title": "ASP.NET Website Demo",
-    "subtitle": "An early personal website rendered with ASP.NET MVC.",
+    "subtitle": "An early personal website rendered with ASP.NET MVC",
     "description": "An early personal website, preserved as historical content and recovered on ASP.NET Core MVC. Explore server-rendered pages, local assets and responsive layout.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\cSharp-backend-websiteDemo",
     "localUrl": "http://127.0.0.1:4417/",
@@ -648,7 +648,7 @@
   {
     "slug": "myapp",
     "title": "Greeting & Clock CLI",
-    "subtitle": "Named greetings and a UTC clock, with readable or JSON output.",
+    "subtitle": "Named greetings and a UTC clock, with readable or JSON output",
     "description": "A small C# greeting and clock utility with named greetings, UTC output, structured JSON and argument validation.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\myApp",
     "localUrl": "",
@@ -665,7 +665,7 @@
   {
     "slug": "helloword",
     "title": "Donut Studio",
-    "subtitle": "Explore colorful ellipse patterns with a resizable canvas and density controls.",
+    "subtitle": "Explore colorful ellipse patterns with a resizable canvas and density controls",
     "description": "A Java Swing drawing studio with a resizable Java2D canvas, adjustable ring density, keyboard controls and image export.",
     "repoPath": "C:\\Users\\Gaming PC\\Documents\\Codex\\2026-09-27\\new-chat\\work\\archived\\HelloWord",
     "localUrl": "",
@@ -681,7 +681,7 @@
   },
   {
     "slug": "javapractice",
-    "title": "javaPractice",
+    "title": "Java Practice",
     "subtitle": "Historical repository",
     "description": "An empty historical repository retained for provenance. No runnable source was found.",
     "repoPath": "",
@@ -697,7 +697,7 @@
   {
     "slug": "boris-rep",
     "title": "Integer Fit",
-    "subtitle": "Find which C# integer types can hold a number.",
+    "subtitle": "Find which C# integer types can hold a number",
     "description": "A C# integer range explorer that identifies fitting numeric types, including BigInteger for values outside the standard integer ranges.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/GitHub/Boris-rep",
     "localUrl": "",
@@ -714,7 +714,7 @@
   {
     "slug": "practice",
     "title": "Algorithm Practice",
-    "subtitle": "Experiment with subsequences and searchable offline posts.",
+    "subtitle": "Experiment with subsequences and searchable offline posts",
     "description": "A React practice application combining an interactive nondecreasing subsequence exercise with an offline post search.",
     "repoPath": "C:/Users/Gaming PC/Desktop/DevWork/Exercise/practice",
     "localUrl": "http://127.0.0.1:4419/",
@@ -732,7 +732,7 @@
   {
     "slug": "moviedb",
     "title": "Film Library",
-    "subtitle": "Browse and search an offline collection of fictional films.",
+    "subtitle": "Browse and search an offline collection of fictional films",
     "description": "An Angular film library with fictional offline movies, search, film details, local posters and missing-page recovery.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/movieDb",
     "localUrl": "http://127.0.0.1:4420/",
@@ -750,7 +750,7 @@
   {
     "slug": "github-csharp-exercises",
     "title": "C# Exercise Collection",
-    "subtitle": "Run sixteen recovered numeric, text and geometry exercises.",
+    "subtitle": "Run sixteen recovered numeric, text and geometry exercises",
     "description": "A historical C# collection with sixteen native launcher entries, an interactive menu and explicit original-source mappings. Recovered implementations cover arithmetic, geometry, workdays, arrays and command interpreters; original fragments remain available for study.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Old Stuff/Old Desktop/Old Stuff/GitHub",
     "localUrl": "",
@@ -786,7 +786,7 @@
   {
     "slug": "gta-sa-mod",
     "title": "GTA San Andreas Mods",
-    "subtitle": "A personal fleet, a wardrobe and a Midnight Club-style pause menu for San Andreas.",
+    "subtitle": "A personal fleet, a wardrobe and a Midnight Club-style pause menu for San Andreas",
     "description": "Three GTA San Andreas 1.0 US mods: Personal Fleet adds persistent vehicle ownership, mechanic delivery and specialist garages; Personal Wardrobe adds custom garments and NPC outfit variants; LA Frontend replaces the pause menu with one inspired by Midnight Club: Los Angeles.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/bobMods",
     "localUrl": "",
@@ -804,7 +804,7 @@
   {
     "slug": "skillball",
     "title": "SkillBall",
-    "subtitle": "Move by firing in a momentum arena shooter.",
+    "subtitle": "Move by firing in a momentum arena shooter",
     "description": "A browser arena FPS built on momentum: you roll, launch and slam, and every weapon's recoil throws you around the arena. Four weapons, multiple modes and maps, and local and WebRTC multiplayer experiments.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/SkillBall",
     "localUrl": "http://127.0.0.1:4121/",
@@ -822,7 +822,7 @@
   {
     "slug": "marketcheck",
     "title": "marketCheck",
-    "subtitle": "A transparent dashboard for European bank signals.",
+    "subtitle": "A transparent dashboard for European bank signals",
     "description": "An installable dashboard that brings banking, macro, credit and EXV1 market indicators into one graded view. It shows source history and data freshness, lets users edit thresholds, and has a compact tray view; its grades are illustrative context, not predictions.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/marketCheck",
     "localUrl": "http://127.0.0.1:3000/",
@@ -840,7 +840,7 @@
   {
     "slug": "terraria-depth",
     "title": "Terraria Depth Experiment",
-    "subtitle": "A highly experimental native 3D Terraria mod.",
+    "subtitle": "A highly experimental native 3D Terraria mod",
     "description": "A tModLoader experiment that renders Terraria in a native 3D scene. It is an unfinished alpha prototype with incomplete combat and progression; the film uses verified scene screenshots.",
     "repoPath": "C:/Users/Gaming PC/Documents/ChatGPT/Terraria Minecraft",
     "localUrl": "",
@@ -858,7 +858,7 @@
   {
     "slug": "voxshift",
     "title": "VoxShift",
-    "subtitle": "Real-time voice changer that runs inside the Windows audio engine.",
+    "subtitle": "Real-time voice changer that runs inside the Windows audio engine",
     "description": "Pitch and formant move independently, so the voice shifts without turning into a chipmunk. Ships as an Electron app and as a Windows audio processing object, so apps hear the altered voice through the ordinary microphone with no virtual cable.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/voxshift",
     "localUrl": "",
@@ -876,7 +876,7 @@
   {
     "slug": "first-person-core",
     "title": "First-Person Core",
-    "subtitle": "A reusable first-person camera for games that only ship a third-person one.",
+    "subtitle": "A reusable first-person camera for games that only ship a third-person one",
     "description": "A game-agnostic C++17 camera rig with no dependencies, plus thin per-game adapters. The core never touches game memory: an adapter fills a snapshot each frame, the rig decides where the eye belongs, and the adapter writes the result back. Built for Driver: Parallel Lines, with cockpit calibration for 82 vehicles.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/first-person-core",
     "localUrl": "",
@@ -894,7 +894,7 @@
   {
     "slug": "dynamic-damage",
     "title": "Dynamic Damage",
-    "subtitle": "Real-time crash deformation for five racing and driving games from the 2000s.",
+    "subtitle": "Real-time crash deformation for five racing and driving games from the 2000s",
     "description": "One shared C++ damage engine, ported into games that only ever had painted-on scratches: Need for Speed Most Wanted, Carbon and ProStreet, The Simpsons: Hit & Run and Driver: Parallel Lines. Bodywork dents where it is hit, wheels bend and tear off, and in Carbon loose parts fly. The Most Wanted port checks the exact game bytes at every hook site and hooks nothing on a mismatch, and a fault inside the mod switches the mod off instead of crashing the game.",
     "repoName": "damage-engine",
     "localUrl": "",
@@ -911,7 +911,7 @@
   {
     "slug": "first-person-mods",
     "title": "First-Person Mods",
-    "subtitle": "Cockpit and on-foot first-person views for games that only shipped a chase camera.",
+    "subtitle": "Cockpit and on-foot first-person views for games that only shipped a chase camera",
     "description": "Four first-person camera mods: a cockpit view for Driver: Parallel Lines, mouse-look and cockpit driving for The Simpsons: Hit & Run (plus car interiors and clear windows so there is something to sit in), a see-your-body view for Family Guy: Back to the Multiverse, and Wheelman in first person. Each one hooks the game’s own camera after it updates and moves the eye into the character’s head or the driver’s seat, with F6 to switch back.",
     "repoName": "fp-mods",
     "localUrl": "",
@@ -928,7 +928,7 @@
   {
     "slug": "ringer3d",
     "title": "Ringer 3D",
-    "subtitle": "A cel-shaded 3D marble game: knock marbles out of the ring, keep what you win.",
+    "subtitle": "A cel-shaded 3D marble game: knock marbles out of the ring, keep what you win",
     "description": "Marbles on a desk, a cul-de-sac, grass, sand, ice and a mini-golf course, with generated maps, bots, pass-and-play and online rooms. Every marble is procedural glass from Marble Forge, the generator behind it, which also ships on its own as an itch.io asset pack.",
     "repoName": "ringer3d",
     "localUrl": "",
@@ -945,7 +945,7 @@
   {
     "slug": "last-levee",
     "title": "Last Levee",
-    "subtitle": "Hold the coast against a storm surge, one sandbag at a time.",
+    "subtitle": "Hold the coast against a storm surge, one sandbag at a time",
     "description": "A storm-surge defence game with a sandbox underneath: a campaign of eight storms, generated coasts in endless mode, a daily storm and an archive of real surge heights with sourced notes. Which wall fails, and how, depends on the soil it stands on; bots replay every storm to keep the balance honest, and a test makes sure a storm left to play itself never earns full marks.",
     "repoName": "last-levee",
     "localUrl": "",
@@ -962,7 +962,7 @@
   {
     "slug": "bostan",
     "title": "Bostan",
-    "subtitle": "A Bulgarian streetwear label from car culture, with its own storefront and 3D showroom.",
+    "subtitle": "A Bulgarian streetwear label from car culture, with its own storefront and 3D showroom",
     "description": "The site for my clothing brand: drops and lines in Bulgarian and English, a 3D showroom where the garments are real models under studio lights, and an outfit builder. Orders go to a print-on-demand partner; the static site, the 3D work and the product photography pipeline are mine.",
     "repoName": "SAD-launch",
     "localUrl": "",
@@ -979,7 +979,7 @@
   {
     "slug": "spherecam",
     "title": "SphereCam",
-    "subtitle": "Turns a 360° camera into an ordinary webcam any app can pick.",
+    "subtitle": "Turns a 360° camera into an ordinary webcam any app can pick",
     "description": "Pick a view out of the full panorama and every video app sees it as a normal camera. SphereCam registers its own Windows virtual camera through Media Foundation, so apps that only list Media Foundation devices (where OBS’s DirectShow camera never appears) can use it, at up to 4K.",
     "repoName": "SphereCam",
     "localUrl": "",

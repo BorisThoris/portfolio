@@ -3,7 +3,7 @@ export const cvExperience = [
   {
     company: 'Man Group',
     role: 'Project Owner / Full-stack Risk Software Engineer',
-    tenure: 'Feb 2024 - Present',
+    tenure: 'Feb 2024 – Present',
     accent: '#8bd3ff',
     summary:
       'Lead delivery of internal risk and reporting software used by analysts, portfolio managers, and senior stakeholders.',
@@ -26,7 +26,7 @@ export const cvExperience = [
   {
     company: 'Expert Allies / Zonal',
     role: 'Senior Software Engineer / Senior React Developer',
-    tenure: 'Feb 2023 - Feb 2024',
+    tenure: 'Feb 2023 – Feb 2024',
     accent: '#90f0c0',
     summary: 'Built React and React Native product interfaces for hospitality software used by pubs, hotels, restaurants, and venue operators.',
     bullets: [
@@ -39,7 +39,7 @@ export const cvExperience = [
   {
     company: 'Quickbase',
     role: 'Software Engineer II',
-    tenure: 'Aug 2020 - Jan 2023',
+    tenure: 'Aug 2020 – Jan 2023',
     accent: '#f0d879',
     summary: 'Built new parts of Quickbase’s low-code automation product while gradually replacing older frontend code.',
     bullets: [
@@ -53,7 +53,7 @@ export const cvExperience = [
   {
     company: 'Hakomo',
     role: 'Software Engineer',
-    tenure: 'Jan 2020 - Jun 2020',
+    tenure: 'Jan 2020 – Jun 2020',
     accent: '#ff9f73',
     summary: 'Built React Native apps and React websites, working closely with product managers and designers.',
     bullets: [
@@ -66,7 +66,7 @@ export const cvExperience = [
   {
     company: 'A1 Bulgaria',
     role: 'Junior Software Engineer',
-    tenure: 'Mar 2019 - Nov 2019',
+    tenure: 'Mar 2019 – Nov 2019',
     accent: '#a7d7ff',
     summary: 'Built React, React Native, and C# software for customer-facing products and internal support teams.',
     bullets: [

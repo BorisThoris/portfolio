@@ -63,7 +63,7 @@ export function Play() {
         <SkillBallToy />
       </div>
       <p className="play__more">
-        <span className="hand">Programs that can’t run in a page get a toy on their own:</span>{" "}
+        <span className="hand">Programs that can’t run in a browser get a toy on their own page:</span>{" "}
         {toyLinks.map(({ slug, name }, index) => (
           <span key={slug}>{index ? " · " : ""}<Link className="link" to={`/projects/${slug}#toy-title`}>{name}</Link></span>
         ))}

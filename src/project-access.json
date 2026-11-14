@@ -116,7 +116,22 @@
     "instructions": "npm install\nnpm start\nSee the repository README for the published source setup.",
     "sourceUrl": "https://github.com/BorisThoris/org-atlas-directory",
     "sourceStatus": "Public repository",
-    "images": [],
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-curated/org-atlas-directory/desktop.jpg",
+        "caption": "A company, one of its projects and the project's team, opened side by side",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "profile": "mobile",
+        "path": "/project-curated/org-atlas-directory/mobile.jpg",
+        "caption": "A company opened on a phone",
+        "width": 430,
+        "height": 932
+      }
+    ],
     "videos": []
   },
   "gorilla-gainz": {
@@ -149,7 +164,15 @@
     "instructions": "npm start -- --host 127.0.0.1 --port 4109",
     "sourceUrl": "https://github.com/BorisThoris/user-hub-admin",
     "sourceStatus": "Public repository",
-    "images": [],
+    "images": [
+      {
+        "profile": "desktop",
+        "path": "/project-curated/user-hub-admin/desktop.jpg",
+        "caption": "The Clarity setup wizard, naming the second of four demo users",
+        "width": 1440,
+        "height": 900
+      }
+    ],
     "videos": []
   },
   "cat-world": {
