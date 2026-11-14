@@ -260,7 +260,7 @@
 .contact h2 { margin-top: var(--s3); font-size: clamp(56px, 9vw, 120px); line-height: 0.9; }
 .contact__lede { max-width: 46ch; margin-top: var(--s4); font-size: var(--t-md); }
 .contact__row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); margin-top: var(--s6); padding-top: var(--s5); border-top: 2px dashed color-mix(in srgb, var(--note-ink) 30%, transparent); }
-.contact__email { display: inline-flex; align-items: center; gap: 10px; color: var(--note-ink); font-size: clamp(20px, 3vw, 36px); font-weight: 650; letter-spacing: -0.035em; text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; text-underline-offset: 8px; overflow-wrap: anywhere; }
+.contact__email { display: inline-flex; align-items: center; gap: 10px; color: var(--note-ink); font-size: clamp(17px, 3vw, 36px); font-weight: 650; letter-spacing: -0.035em; text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; text-underline-offset: 8px; overflow-wrap: break-word; }
 .contact__email:hover { text-decoration-style: wavy; }
 .contact .icon-button { border-color: var(--note-ink); background: transparent; color: var(--note-ink); }
 .contact__links { display: flex; flex-wrap: wrap; gap: var(--s4); margin-top: var(--s3); }
@@ -390,3 +390,6 @@
 .index__preview img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #0b0c0e; }
 .index__preview span { position: absolute; left: 10px; bottom: 4px; font-family: var(--hand); font-size: 20px; font-weight: 700; color: var(--ink); }
 @media (pointer: coarse), (max-width: 860px) { .index__preview { display: none; } }
+
+/* Previews play on mouse hover only; on touch screens the hint would be a promise it can't keep. */
+@media (hover: none) { #work .sec__aside { display: none; } }

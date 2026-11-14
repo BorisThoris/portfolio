@@ -244,3 +244,13 @@
 @keyframes ballt-shot { from { opacity: 1; stroke-width: 4; } to { opacity: 0; stroke-width: 1; } }
 @media (max-width: 860px) { .play__grid--toys { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .flip__inner { transition: none; } .ballt__shot { animation: none; opacity: .8; } }
+
+.flip .toss__head, .ballt .toss__head { flex-wrap: wrap; row-gap: 4px; }
+.flip .toss__head .label, .ballt .toss__head > .label { flex: 1 1 auto; }
+.flip__count { white-space: nowrap; }
+:root[data-theme="dark"] .ballt__floor { fill: #2a3128; stroke: #4b5a46; }
+:root[data-theme="dark"] .ballt__lane, :root[data-theme="dark"] .ballt__ring { stroke: #ffffff40; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ballt__floor { fill: #2a3128; stroke: #4b5a46; }
+  :root:not([data-theme="light"]) .ballt__lane, :root:not([data-theme="light"]) .ballt__ring { stroke: #ffffff40; }
+}

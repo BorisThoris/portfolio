@@ -23,7 +23,7 @@ export function Contact() {
         <h2 id="contact-title" className="hand">{home.contactTitle}</h2>
         <p className="contact__lede">{home.contactDescription}</p>
         <div className="contact__row">
-          <a className="contact__email" href={`mailto:${email}`}>{email}<ArrowUpRight size={22} aria-hidden="true" /></a>
+          <a className="contact__email" href={`mailto:${email}`}>{email.split("@")[0]}<wbr />@{email.split("@")[1]}<ArrowUpRight size={22} aria-hidden="true" /></a>
           <button type="button" className="icon-button" onClick={copyEmail} aria-label="Copy email address">
             {copyState === "copied" ? <Check size={16} /> : <Copy size={16} />}
           </button>

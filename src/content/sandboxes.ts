@@ -98,7 +98,7 @@ export const sandboxes: Sandbox[] = [
     dare: "Enter the arena and outlast the first wave. Stars give a heart back.",
     controls: ["← → move", "↑ jump", "↓ duck"],
     bootSeconds: 2,
-    kind: "Arcade survival",
+    kind: "Runner Score Arcade",
     shelf: "games",
   },
   {
