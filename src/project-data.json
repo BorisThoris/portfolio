@@ -805,7 +805,7 @@
     "slug": "skillball",
     "title": "SkillBall",
     "subtitle": "Move by firing in a momentum arena shooter.",
-    "description": "A browser arena FPS where weapon recoil drives movement instead of WASD. Four weapons, multiple modes and maps, and local and WebRTC multiplayer experiments.",
+    "description": "A browser arena FPS built on momentum: you roll, launch and slam, and every weapon's recoil throws you around the arena. Four weapons, multiple modes and maps, and local and WebRTC multiplayer experiments.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/SkillBall",
     "localUrl": "http://127.0.0.1:4121/",
     "buildCommand": "npm run build",
