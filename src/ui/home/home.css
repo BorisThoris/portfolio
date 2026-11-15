@@ -279,6 +279,9 @@
 @media (max-width: 1000px) {
   .topnav__links { display: none; }
   .hero__desk { grid-template-columns: minmax(0, 1fr); }
+  /* One column: let the width set the reel's size, so the landscape trailer fills
+     the polaroid instead of sitting in a short, letterboxed strip. */
+  .reel .project-media--feature { --media-height: min(62dvh, 560px); }
   .row { grid-template-columns: 70px minmax(0, 1.6fr) minmax(0, 0.9fr) 108px 18px; }
   .row__kind { display: none; }
   .skills dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }

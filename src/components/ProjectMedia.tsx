@@ -44,6 +44,14 @@ function useMediaRecovery(url?: string) {
 }
 
 /** Shared motion cover. Only visible, active previews may play; full playback is explicit. */
+// How wide each mode is drawn, so the browser picks a sharp enough preview file.
+// "cover" matches the preload hint that build-pages.mjs writes for project pages.
+const MEDIA_SIZES = {
+  cover: "(max-width: 760px) 100vw, 1280px",
+  feature: "(max-width: 1000px) 100vw, 55vw",
+  card: "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw",
+} as const;
+
 export function ProjectMedia({ project, active = true, mode = "feature" }: {
   project: Project;
   active?: boolean;
@@ -115,7 +123,7 @@ export function ProjectMedia({ project, active = true, mode = "feature" }: {
   const picture = clip?.poster && !posterFailed && !useCover ? (
     <img className="project-media__poster" src={clip.poster} alt={`${project.title} video preview`}
       loading={mode === "cover" ? "eager" : "lazy"} onError={() => setPosterFailed(true)} />
-  ) : <CaptureImage project={project} priority={mode === "cover"} />;
+  ) : <CaptureImage project={project} priority={mode === "cover"} sizes={MEDIA_SIZES[mode]} />;
 
   return (
     <div ref={container}

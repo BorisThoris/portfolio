@@ -19,6 +19,7 @@ export function Sandbox({
   autoStart = false,
   storyHref,
   onPhase,
+  sizes = "(max-width: 860px) 100vw, 60vw",
 }: {
   sandbox: SandboxData;
   project: Project;
@@ -26,6 +27,8 @@ export function Sandbox({
   /** Where "how it was built" points; the homepage passes an anchor on the same page. */
   storyHref?: string;
   onPhase?: (phase: Phase) => void;
+  /** How wide the poster is drawn; the project page shows it full width. */
+  sizes?: string;
 }) {
   const [phase, setPhase] = useState<Phase>(autoStart ? "booting" : "idle");
   const [run, setRun] = useState(0);
@@ -87,7 +90,7 @@ export function Sandbox({
       <div className="sandbox__screen">
         {phase === "idle" ? (
           <div className="sandbox__poster">
-            <CaptureImage project={project} className="sandbox__img" sizes="(max-width: 760px) 100vw, 60vw" />
+            <CaptureImage project={project} className="sandbox__img" sizes={sizes} />
             <div className="sandbox__invite">
               <p className="label">{sandbox.kind} · the real build</p>
               <p className="sandbox__dare hand">{sandbox.dare}</p>

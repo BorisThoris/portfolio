@@ -243,7 +243,7 @@
 .ballt__crosshair circle, .ballt__crosshair path { fill: none; stroke: #e2532d; stroke-width: 2; }
 .ballt__links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 @keyframes ballt-shot { from { opacity: 1; stroke-width: 4; } to { opacity: 0; stroke-width: 1; } }
-@media (max-width: 860px) { .play__grid--toys { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .play__grid--toys { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .flip__inner { transition: none; } .ballt__shot { animation: none; opacity: .8; } }
 
 .flip .toss__head, .ballt .toss__head { flex-wrap: wrap; row-gap: 4px; }
