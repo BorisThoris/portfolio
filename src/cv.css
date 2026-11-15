@@ -50,6 +50,11 @@
   .resume-job__heading { flex-direction: column; gap: 2px; }
   .cv-toolbar .btn { flex: 1; }
 }
+/* Thumb-sized contact links on touch screens; print keeps the compact list. */
+@media screen and (max-width: 650px) {
+  .resume-header address { gap: 0; }
+  .resume-header address a { padding-block: 4px; }
+}
 
 @media print {
   @page { size: A4; margin: 14mm; }
