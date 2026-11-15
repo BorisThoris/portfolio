@@ -3,7 +3,15 @@ import path from "node:path";
 import { effectiveMedia } from "./lib/effective-media.mjs";
 const root = path.resolve("dist");
 const site = "https://boris-portfolio-git.pages.dev";
-const template = await fs.readFile(path.join(root, "index.html"), "utf8");
+// Preload the two Latin fonts the first screen is set in, so text is laid out
+// once: without them the fallback fonts wrap the hero differently and the page
+// jumps when the real fonts arrive.
+const fontPreloads = (await fs.readdir(path.join(root, "assets")))
+  .filter((file) => /^(geist|caveat)-latin-wght-normal-.*\.woff2$/.test(file))
+  .map((file) => `<link rel="preload" as="font" type="font/woff2" href="/assets/${file}" crossorigin />`)
+  .join("");
+const template = (await fs.readFile(path.join(root, "index.html"), "utf8"))
+  .replace("</title>", `</title>${fontPreloads}`);
 // The hand-picked best picture per project doubles as its link-preview image.
 const covers = JSON.parse(await fs.readFile(path.resolve("src/project-covers.json"), "utf8"));
 const projects = JSON.parse(await fs.readFile("src/project-data.json", "utf8"));
@@ -22,6 +30,20 @@ const escape = (text) =>
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+// The home hero plays the first featured project with a landscape video (same rule
+// as HomePage's reel); preload that video's poster rather than a preview it doesn't show.
+const featuredSlugs = [...(await fs.readFile("src/content/home.ts", "utf8"))
+  .match(/featuredSlugs = \[([\s\S]*?)\]/)[1].matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+const homeMedia = effectiveMedia(
+  JSON.parse(await fs.readFile("src/project-details.json", "utf8")),
+  JSON.parse(await fs.readFile("src/project-media-overrides.json", "utf8")),
+  access);
+const ratio = (clip) => clip.width > 0 && clip.height > 0 ? clip.width / clip.height : clip.orientation === "portrait" ? 9 / 16 : clip.orientation === "square" ? 1 : 16 / 9;
+const reelPoster = featuredSlugs.map((slug) => {
+  const media = homeMedia[slug] ?? {};
+  const clips = [...(media.trailers ?? []).map((clip) => ({ ...clip, kind: "video" })), ...(media.videos ?? []).map((clip) => ({ ...clip, kind: clip.kind ?? "link" }))];
+  return clips.find((clip) => clip.kind === "video" && ratio(clip) >= 1)?.poster;
+}).find(Boolean);
 const routes = [
   {
     route: "/",
@@ -46,7 +68,7 @@ for (const { route, title, description, project } of routes) {
   const entry = access[project?.slug];
   const availability = entry ? `<section><h2>${escape(entry.label)}</h2><p>${escape(entry.status)}</p><p>Environment: ${escape(entry.environment)}</p><pre>${escape(entry.instructions)}</pre>${entry.downloadUrl ? `<p><a href="${escape(entry.downloadUrl)}">${escape(entry.downloadLabel || "Download")}</a></p>` : ""}</section>` : "";
   const cover = project ? covers[project.slug] : undefined;
-  const image = cover ? `${site}${cover}` : entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/project-shots/native-placeholder.svg"}` : project?.screenshot
+  const image = cover ? `${site}${cover}` : entry?.kind === "web" && entry.images[0]?.path ? `${site}${entry.images[0].path}` : entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/social-preview-v4.png"}` : project?.screenshot
     ? `${site}${project.screenshot}`
     : `${site}/social-preview-v4.png`;
   let html = template.replace(
@@ -57,6 +79,8 @@ for (const { route, title, description, project } of routes) {
     /<link data-project-preload[^>]*>/,
     route === "/cv-print"
       ? ""
+      : route === "/" && reelPoster
+        ? `<link rel="preload" as="image" href="${escape(reelPoster)}" fetchpriority="high" />`
       : entry && entry.kind !== "web"
         ? `<link rel="preload" as="image" href="${escape(entry.images[0]?.path ?? "/project-shots/native-placeholder.svg")}" fetchpriority="high" />`
         : `<link rel="preload" as="image" href="/project-previews/${project?.slug ?? "bbeats"}-960.webp" imagesrcset="/project-previews/${project?.slug ?? "bbeats"}-480.webp 480w, /project-previews/${project?.slug ?? "bbeats"}-960.webp 960w, /project-previews/${project?.slug ?? "bbeats"}-1600.webp 1600w" imagesizes="${project ? "(max-width: 760px) 100vw, 1280px" : "(max-width: 480px) 100vw, (max-width: 760px) 70vw, 50vw"}" fetchpriority="high" />`,
@@ -144,6 +168,7 @@ console.log(
 await fs.writeFile(
   path.join(root, "404.html"),
   template
+    .replace(/<link data-project-preload[^>]*>/, "")
     .replace(
       /<title>.*?<\/title>/s,
       "<title>Page not found | Boris Bostandzhiev</title>",

@@ -27,7 +27,8 @@
 
 .pp__intro { display: grid; justify-items: center; gap: var(--s4); padding-block: clamp(48px, 8vw, 104px) var(--s7); text-align: center; }
 .pp__crumb { display: flex; gap: 8px; padding: 5px 12px; border: 1.5px solid var(--ink); border-radius: var(--r-pill); background: var(--card); box-shadow: 0 2px 0 var(--ink); }
-.pp__crumb a { color: var(--ink-2); text-decoration: none; }
+/* A taller hit area for the crumb link without changing the pill's size. */
+.pp__crumb a { display: inline-block; margin: -8px -6px; padding: 8px 6px; color: var(--ink-2); text-decoration: none; }
 .pp__crumb a:hover { color: var(--ink); }
 .pp__intro h1 { max-width: 16ch; font-size: clamp(48px, 8.6vw, 128px); line-height: 0.92; letter-spacing: -0.06em; font-weight: 700; overflow-wrap: anywhere; }
 .pp__subtitle { max-width: 30ch; color: var(--signal-text); font-size: clamp(26px, 3vw, 40px); transform: rotate(-1.5deg); }
@@ -158,7 +159,7 @@
 .toy__canvas-wrap { resize: vertical; overflow: hidden; height: clamp(280px, 52vw, 520px); min-height: 220px; max-height: 900px; background: rgb(15, 23, 42); }
 .toy__canvas { display: block; width: 100%; height: 100%; }
 .toy__swing { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; padding: 10px 12px; font: 0.86rem/1.2 system-ui, sans-serif; }
-.toy__swing input[type="range"] { width: min(260px, 60vw); accent-color: #4f6ea8; }
+.toy__swing input[type="range"] { width: min(260px, 60vw); height: 28px; accent-color: #4f6ea8; }
 .toy__swing output { min-width: 9ch; color: #444; }
 .toy__swing button { padding: 6px 16px; border: 1px solid #8a8f9a; border-radius: 3px; background: linear-gradient(#fbfbfb, #dcdfe5); color: #222; font: inherit; cursor: pointer; }
 .toy__swing button:hover { background: linear-gradient(#ffffff, #e6e9ee); }

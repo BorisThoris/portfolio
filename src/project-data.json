@@ -413,7 +413,7 @@
     "slug": "hosted-failover",
     "title": "Hosted Failover",
     "subtitle": "Keep static sites available when their primary origin fails",
-    "description": "Isolated real origin/failover demo; malformed URL and changed-root refresh fixes.",
+    "description": "One stable URL for my built sites: the PC serves them while it is on, and an always-on tablet takes over with a synced copy when it is not. The demo starts the real origin and failover servers, stops the primary, and checks that visitors fall back and then return.",
     "repoPath": "C:/Users/Gaming PC/Desktop/Repos/hosted-failover",
     "localUrl": "",
     "buildCommand": "",

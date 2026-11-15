@@ -193,7 +193,7 @@
 .index__filters button:is(:nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5)):not([aria-pressed="true"]) { color: var(--note-ink); }
 .index__search { display: flex; align-items: center; gap: 8px; min-width: min(100%, 300px); min-height: 42px; margin-bottom: 8px; padding: 0 14px; border: 1.5px solid var(--ink); border-radius: var(--r-pill); background: var(--card); color: var(--ink-3); }
 .index__search:focus-within { box-shadow: 0 3px 0 var(--ink); outline: 2px solid var(--focus); outline-offset: 3px; }
-.index__search input { flex: 1; min-width: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: var(--t-sm); outline: none; }
+.index__search input { flex: 1; align-self: stretch; min-width: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: var(--t-sm); outline: none; }
 .index__book { padding-top: 8px; padding-bottom: 8px; }
 .project-grid { display: grid; }
 .row { position: relative; display: grid; grid-template-columns: 76px minmax(0, 1.7fr) minmax(0, 0.8fr) minmax(0, 0.9fr) 112px 18px; gap: var(--s4); align-items: center; min-height: 64px; padding-block: 8px; border-bottom: 1px dashed var(--line-2); transition: background var(--fast) var(--ease); }
