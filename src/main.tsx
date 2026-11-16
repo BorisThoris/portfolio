@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./ui/home/HomePage";
 import { NotFoundPage } from "./ui/NotFoundPage";
 import { RouteEffects } from "./components/RouteEffects";
+import { Aura } from "./ui/aura/Aura";
 
 const ProjectPage = lazy(() => import("./ui/project/ProjectPage").then((module) => ({ default: module.ProjectPage })));
 const CvPrintPage = lazy(() => import("./pages/CvPrintPage").then((module) => ({ default: module.CvPrintPage })));
@@ -34,6 +35,7 @@ function App() {
   return (
     <PageErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <Aura />
         <Suspense fallback={<main className="empty-page" role="status">Loading page…</main>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
