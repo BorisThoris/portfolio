@@ -207,7 +207,8 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
   let slowFrames = 0;
   let measured = 0;
 
-  const paused = () => document.hidden || document.querySelector('[data-motion="paused"]') !== null;
+  // Only the page-wide "Pause motion" toggle; the hero marks itself paused when scrolled away.
+  const paused = () => document.hidden || document.querySelector('.home[data-motion="paused"]') !== null;
 
   const draw = (now: number) => {
     const time = options.still ? 40 : (now - start) / 1000;
