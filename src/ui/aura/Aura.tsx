@@ -16,7 +16,7 @@ export function Aura() {
   const print = pathname.startsWith("/cv-print");
 
   useEffect(() => {
-    if (print) return;
+    if (print || window.matchMedia("(forced-colors: active)").matches) return;
     let handle: AuraHandle | null = null;
     let cancelled = false;
     const still =
@@ -25,7 +25,8 @@ export function Aura() {
     const boot = () => {
       import("./auraGl").then(({ startAura }) => {
         if (cancelled || !canvasRef.current) return;
-        handle = startAura(canvasRef.current, { still });
+        // If the GPU drops the context, fall back to the static glows.
+        handle = startAura(canvasRef.current, { still, onLost: () => setLive(false) });
         if (handle) setLive(true);
       }).catch(() => {});
     };

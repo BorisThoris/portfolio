@@ -19,6 +19,7 @@ uniform float uTime;
 uniform vec2 uMouse;
 uniform float uScroll;
 uniform float uEnergy;
+uniform float uHover;
 uniform vec3 uPulse;
 uniform vec3 uBg;
 uniform vec3 uC1;
@@ -52,7 +53,7 @@ void main() {
 
   vec2 m = (uMouse - uv) * vec2(asp, 1.0);
   float md = length(m);
-  float pull = exp(-md * 2.6);
+  float pull = exp(-md * 2.6) * (0.4 + 0.6 * uHover);
 
   vec2 q = vec2(fbm(p + vec2(0.0, t)), fbm(p + vec2(5.2, 1.3) - t));
   vec2 r = vec2(
@@ -73,7 +74,7 @@ void main() {
   a *= uStrength * (1.0 + 0.45 * uEnergy);
 
   // A bloom that follows the pointer.
-  float glow = exp(-md * md * 9.0);
+  float glow = exp(-md * md * 9.0) * uHover;
   col = mix(col, uC1, glow * 0.6);
   a += glow * uStrength * 0.55;
 
@@ -131,7 +132,7 @@ function readPalette(): Palette {
 export type AuraHandle = { stop: () => void };
 
 /** Starts the shader on `canvas`. Returns null when WebGL is unavailable. */
-export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }): AuraHandle | null {
+export function startAura(canvas: HTMLCanvasElement, options: { still: boolean; onLost?: () => void }): AuraHandle | null {
   const gl = canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true, antialias: false, depth: false, stencil: false, powerPreference: "low-power" });
   if (!gl) return null;
 
@@ -160,29 +161,50 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
 
   const u = (name: string) => gl.getUniformLocation(program, name);
   const U = {
-    res: u("uRes"), time: u("uTime"), mouse: u("uMouse"), scroll: u("uScroll"), energy: u("uEnergy"), pulse: u("uPulse"),
+    res: u("uRes"), time: u("uTime"), mouse: u("uMouse"), scroll: u("uScroll"), energy: u("uEnergy"), hover: u("uHover"), pulse: u("uPulse"),
     bg: u("uBg"), c1: u("uC1"), c2: u("uC2"), c3: u("uC3"), c4: u("uC4"),
     strength: u("uStrength"), dark: u("uDark"), limit: u("uLimit"), limitMargin: u("uLimitMargin"), column: u("uColumn"),
   };
 
-  let palette = readPalette();
-  const applyPalette = () => {
-    palette = readPalette();
-    gl.uniform3fv(U.bg, palette.bg);
-    gl.uniform3fv(U.c1, palette.c[0]);
-    gl.uniform3fv(U.c2, palette.c[1]);
-    gl.uniform3fv(U.c3, palette.c[2]);
-    gl.uniform3fv(U.c4, palette.c[3]);
-    gl.uniform1f(U.strength, palette.strength);
-    gl.uniform1f(U.dark, palette.dark);
-    gl.uniform1f(U.limit, palette.limit);
-    gl.uniform1f(U.limitMargin, palette.limitMargin);
+  // Theme switches morph the palette instead of snapping.
+  const flat = (p: Palette) => [...p.bg, ...p.c.flat(), p.strength, p.dark, p.limit, p.limitMargin];
+  let shown = flat(readPalette());
+  let from = shown;
+  let target = shown;
+  let morphAt = -1;
+  const MORPH_MS = 700;
+  const uploadPalette = (values: number[]) => {
+    gl.uniform3f(U.bg, values[0], values[1], values[2]);
+    gl.uniform3f(U.c1, values[3], values[4], values[5]);
+    gl.uniform3f(U.c2, values[6], values[7], values[8]);
+    gl.uniform3f(U.c3, values[9], values[10], values[11]);
+    gl.uniform3f(U.c4, values[12], values[13], values[14]);
+    gl.uniform1f(U.strength, values[15]);
+    gl.uniform1f(U.dark, values[16]);
+    gl.uniform1f(U.limit, values[17]);
+    gl.uniform1f(U.limitMargin, values[18]);
   };
-  applyPalette();
+  const stepPalette = (now: number) => {
+    if (morphAt < 0) return;
+    const k = Math.min(1, (now - morphAt) / MORPH_MS);
+    const e = k * k * (3 - 2 * k);
+    // The dark flag picks the luma-cap direction, so it switches at once.
+    shown = from.map((value, index) => (index === 16 ? target[16] : value + (target[index] - value) * e));
+    uploadPalette(shown);
+    if (k >= 1) morphAt = -1;
+  };
+  uploadPalette(shown);
 
-  const resize = () => {
+  let sizedW = 0;
+  let sizedH = 0;
+  const resize = (force = false) => {
     const w = window.innerWidth;
     const h = window.innerHeight;
+    // A phone's URL bar sliding in and out only changes the height a little; the
+    // canvas is stretched by CSS anyway, so keep the buffer and skip the realloc.
+    if (!force && w === sizedW && Math.abs(h - sizedH) < sizedH * 0.2) return;
+    sizedW = w;
+    sizedH = h;
     // The field is soft: ~480px on the long side is plenty once upscaled.
     const scale = Math.min(1, 480 / Math.max(w, h));
     canvas.width = Math.max(2, Math.round(w * scale));
@@ -193,17 +215,21 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
     const gutter = Math.min(48, Math.max(18, w * 0.04));
     gl.uniform1f(U.column, Math.min(w - 2 * gutter, 1240) / 2 / w);
   };
-  resize();
+  resize(true);
 
   const mouse = { x: 0.5, y: 0.62, tx: 0.5, ty: 0.62 };
   const pulse = { x: 0.5, y: 0.5, at: -100 };
+  const start = performance.now();
   let scrollY = window.scrollY;
   let energy = 0;
   let lastScroll = scrollY;
+  let hover = 0;
+  let lastMouse = -1e9;
+  let lastInput = start;
+  let hasMouse = false;
   let running = true;
   let frame = 0;
   let last = 0;
-  const start = performance.now();
   let slowFrames = 0;
   let measured = 0;
 
@@ -211,14 +237,25 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
   const paused = () => document.hidden || document.querySelector('.home[data-motion="paused"]') !== null;
 
   const draw = (now: number) => {
+    stepPalette(now);
     const time = options.still ? 40 : (now - start) / 1000;
-    mouse.x += (mouse.tx - mouse.x) * 0.08;
-    mouse.y += (mouse.ty - mouse.y) * 0.08;
+    const mouseRecent = now - lastMouse < 2500;
+    if (!mouseRecent && !options.still) {
+      // No live mouse: let the bloom wander slowly so phones and idle desktops still breathe.
+      const s = time * 0.06;
+      mouse.tx = 0.5 + 0.32 * Math.sin(s * 1.3) * Math.cos(s * 0.7);
+      mouse.ty = 0.55 + 0.25 * Math.sin(s * 0.9 + 1.1);
+    }
+    const ease = mouseRecent ? 0.08 : 0.02;
+    mouse.x += (mouse.tx - mouse.x) * ease;
+    mouse.y += (mouse.ty - mouse.y) * ease;
+    hover += ((mouseRecent ? 1 : hasMouse ? 0.25 : 0.45) - hover) * 0.05;
     const velocity = Math.abs(scrollY - lastScroll) / Math.max(1, window.innerHeight);
     lastScroll = scrollY;
     energy = Math.min(1, energy * 0.92 + velocity * 2.5);
     gl.uniform1f(U.time, time);
     gl.uniform2f(U.mouse, mouse.x, mouse.y);
+    gl.uniform1f(U.hover, options.still ? 0.3 : hover);
     gl.uniform1f(U.scroll, (scrollY / Math.max(1, window.innerHeight)) * 0.35);
     gl.uniform1f(U.energy, options.still ? 0 : energy);
     gl.uniform3f(U.pulse, pulse.x, pulse.y, options.still ? -1 : (now - pulse.at) / 1000);
@@ -228,7 +265,9 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
   const loop = (now: number) => {
     if (!running) return;
     frame = requestAnimationFrame(loop);
-    if (now - last < 33 || paused()) return;
+    // 30 fps while someone is interacting or the palette is morphing, 20 fps when the page just sits there.
+    const busy = now - lastInput < 3000 || morphAt >= 0 || now - pulse.at < 1500;
+    if (now - last < (busy ? 33 : 50) || paused()) return;
     const begin = performance.now();
     last = now;
     draw(now);
@@ -239,21 +278,37 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
       if (measured === 90 && slowFrames > 45) { options.still = true; running = false; cancelAnimationFrame(frame); draw(now); }
     }
   };
+  // A still frame still has to follow the theme, so redraw until a morph settles.
+  const redrawStill = () => {
+    const tick = (now: number) => { draw(now); if (morphAt >= 0) frame = requestAnimationFrame(tick); };
+    frame = requestAnimationFrame(tick);
+  };
 
   const onPointer = (event: PointerEvent) => {
+    lastInput = performance.now();
     if (event.pointerType !== "mouse") return;
+    hasMouse = true;
+    lastMouse = lastInput;
     mouse.tx = event.clientX / window.innerWidth;
     mouse.ty = 1 - event.clientY / window.innerHeight;
   };
+  const onLeave = () => { lastMouse = -1e9; };
   const onDown = (event: PointerEvent) => {
+    if (event.button > 0) return;
+    lastInput = performance.now();
     pulse.x = event.clientX / window.innerWidth;
     pulse.y = 1 - event.clientY / window.innerHeight;
-    pulse.at = performance.now();
-    if (event.pointerType !== "mouse") { mouse.tx = pulse.x; mouse.ty = pulse.y; }
+    pulse.at = lastInput;
   };
-  const onScroll = () => { scrollY = window.scrollY; if (options.still) draw(performance.now()); };
+  const onScroll = () => { scrollY = window.scrollY; lastInput = performance.now(); if (options.still) draw(performance.now()); };
   const onResize = () => { resize(); if (options.still) draw(performance.now()); };
-  const onTheme = () => { applyPalette(); if (options.still) draw(performance.now()); };
+  const onTheme = () => {
+    from = shown;
+    target = flat(readPalette());
+    morphAt = performance.now();
+    if (options.still || !running) redrawStill();
+  };
+  const onLost = (event: Event) => { event.preventDefault(); running = false; cancelAnimationFrame(frame); options.onLost?.(); };
 
   const themeObserver = new MutationObserver(onTheme);
   themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
@@ -261,8 +316,10 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
   scheme.addEventListener("change", onTheme);
   window.addEventListener("pointermove", onPointer, { passive: true });
   window.addEventListener("pointerdown", onDown, { passive: true });
+  document.documentElement.addEventListener("pointerleave", onLeave);
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onResize);
+  canvas.addEventListener("webglcontextlost", onLost);
 
   if (options.still) draw(performance.now());
   else frame = requestAnimationFrame(loop);
@@ -275,8 +332,10 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean }
       scheme.removeEventListener("change", onTheme);
       window.removeEventListener("pointermove", onPointer);
       window.removeEventListener("pointerdown", onDown);
+      document.documentElement.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      canvas.removeEventListener("webglcontextlost", onLost);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     },
   };

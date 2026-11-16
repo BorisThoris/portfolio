@@ -61,6 +61,8 @@
   background-size: 180px 180px;
 }
 @media print { .aura { display: none; } }
+/* High-contrast modes paint their own background; stay out of the way. */
+@media (forced-colors: active) { .aura { display: none; } }
 
 /* ---------- A little glow on the things that should glow ---------- */
 :root[data-theme="dark"] .hero h1 { text-shadow: 0 0 60px color-mix(in srgb, var(--aura-1) 28%, transparent), 0 0 120px color-mix(in srgb, var(--aura-2) 22%, transparent); }
