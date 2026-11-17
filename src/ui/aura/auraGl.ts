@@ -112,6 +112,12 @@ function hex(value: string, fallback: number[]): number[] {
   return [(n >> 16) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
 }
 
+function hsl(h: number, s: number, l: number): number[] {
+  const k = (n: number) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  return [0, 8, 4].map((n) => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1)));
+}
+
 function readPalette(): Palette {
   const style = getComputedStyle(document.documentElement);
   const v = (name: string) => style.getPropertyValue(name);
@@ -119,13 +125,19 @@ function readPalette(): Palette {
     const parsed = parseFloat(v(name));
     return Number.isFinite(parsed) ? parsed : fallback;
   };
+  const dark = style.colorScheme.includes("dark");
+  // A page or section may steer the body of the field with two hues (see tint.ts).
+  const hues = document.documentElement.dataset.auraHues?.split(",").map(Number).filter(Number.isFinite);
+  const steer = hues?.length === 2
+    ? dark ? [hsl(hues[0], 0.85, 0.52), hsl(hues[1], 0.8, 0.56)] : [hsl(hues[0], 1, 0.74), hsl(hues[1], 0.95, 0.78)]
+    : null;
   return {
     bg: hex(v("--bg"), [0.95, 0.95, 0.93]),
-    c: [hex(v("--aura-1"), [1, 0.5, 0.3]), hex(v("--aura-2"), [0.5, 0.6, 1]), hex(v("--aura-3"), [1, 0.6, 0.8]), hex(v("--aura-4"), [1, 0.85, 0.4])],
+    c: [hex(v("--aura-1"), [1, 0.5, 0.3]), steer?.[0] ?? hex(v("--aura-2"), [0.5, 0.6, 1]), steer?.[1] ?? hex(v("--aura-3"), [1, 0.6, 0.8]), hex(v("--aura-4"), [1, 0.85, 0.4])],
     strength: num("--aura-strength", 0.4),
     limit: num("--aura-limit", 0.8),
     limitMargin: num("--aura-limit-margin", 0.6),
-    dark: style.colorScheme.includes("dark") ? 1 : 0,
+    dark: dark ? 1 : 0,
   };
 }
 
@@ -311,7 +323,7 @@ export function startAura(canvas: HTMLCanvasElement, options: { still: boolean; 
   const onLost = (event: Event) => { event.preventDefault(); running = false; cancelAnimationFrame(frame); options.onLost?.(); };
 
   const themeObserver = new MutationObserver(onTheme);
-  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "data-aura-hues"] });
   const scheme = window.matchMedia("(prefers-color-scheme: dark)");
   scheme.addEventListener("change", onTheme);
   window.addEventListener("pointermove", onPointer, { passive: true });

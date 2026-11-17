@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, Download, ExternalLink, Github } from "lucide-react";
 import { getProject, visibleProjects, type Project, type ProjectImage } from "../../projects";
 import { getProjectAccess } from "../../projectAccess";
+import { getProjectCover } from "../../projectCovers";
 import { getProjectDetails } from "../../projectDetails";
 import { formatAsOf, getProjectTraction } from "../../projectTraction";
 import { projectStatus } from "../../projectStatus";
@@ -16,6 +17,7 @@ import { Sandbox } from "../play/Sandbox";
 import { getToy } from "./toys";
 import { getSandbox } from "../../content/sandboxes";
 import { useReveal } from "../motion";
+import { useAuraFromImage } from "../aura/tint";
 import "./project.css";
 
 export function ProjectPage() {
@@ -35,6 +37,7 @@ function ProjectContent({ project }: { project: Project }) {
   const sandbox = getSandbox(project.slug);
   const Toy = getToy(project.slug);
   useReveal([project.slug]);
+  useAuraFromImage(`/project-previews/${project.slug}-480.webp`, getProjectCover(project.slug));
   const artwork = details?.artwork ?? [];
   // The first native image is already the cover; don't show it twice.
   const gallery = access && access.kind !== "web"

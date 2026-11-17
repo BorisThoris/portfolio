@@ -9,6 +9,7 @@ import { useMediaQuery } from "../../lib/runtime";
 import { mediaRatio, previewClip, projectClips } from "../../lib/projectMedia";
 import { BuildStamp } from "../../components/SiteChrome";
 import { useReveal } from "../motion";
+import { useAuraSections, type Hues } from "../aura/tint";
 import { TopNav } from "./TopNav";
 import { Hero, type ProofNote } from "./Hero";
 import { SelectedWork } from "./SelectedWork";
@@ -40,6 +41,17 @@ const proof: ProofNote[] = [
 const employers = ["Man Group", "Quickbase", "Zonal", "A1 Bulgaria"];
 const stack = ["React", "TypeScript", "Python", "C++", "C#", "Three.js", "Web Audio", "Electron", "Playwright", "Cloudflare", "Kubernetes", "Babylon.js", "Reverse engineering", "Direct3D"];
 
+// The aura's two body hues while each section is mid-screen; the hero keeps the default.
+const sectionHues: Record<string, Hues> = {
+  play: [165, 95],
+  work: [228, 275],
+  mods: [14, 340],
+  problems: [42, 12],
+  index: [195, 250],
+  experience: [262, 300],
+  contact: [330, 18],
+};
+
 export function HomePage() {
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [paused, setPaused] = useState(false);
@@ -48,6 +60,7 @@ export function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const motionEnabled = !paused && !reducedMotion && pageVisible;
   useReveal();
+  useAuraSections(sectionHues);
   useEffect(() => {
     const update = () => setPageVisible(!document.hidden);
     const observer = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting));
