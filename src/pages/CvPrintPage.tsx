@@ -42,9 +42,7 @@ export function CvPrintPage() {
             </a>
             <a href="tel:+359897023731">+359 89 702 3731</a>
             <a href="https://github.com/BorisThoris">github.com/BorisThoris</a>
-            <a href="https://www.linkedin.com/in/boris-b-22566b171/">
-              LinkedIn profile
-            </a>
+            <a href="https://www.linkedin.com/in/boris-bostandzhiev/">linkedin.com/in/boris-bostandzhiev</a>
             <a href="https://boris-portfolio-git.pages.dev/">
               Portfolio &amp; live projects
             </a>

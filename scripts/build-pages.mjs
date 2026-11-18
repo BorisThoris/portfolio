@@ -137,7 +137,7 @@ for (const { route, title, description, project } of routes) {
         jobTitle: "Full-stack Engineer",
         sameAs: [
           "https://github.com/BorisThoris",
-          "https://www.linkedin.com/in/boris-b-22566b171/",
+          "https://www.linkedin.com/in/boris-bostandzhiev/",
         ],
       };
   html = html.replace(

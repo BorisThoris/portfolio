@@ -500,7 +500,7 @@ export const contactLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/boris-b-22566b171/',
+    href: 'https://www.linkedin.com/in/boris-bostandzhiev/',
     icon: Linkedin,
     external: true
   },
