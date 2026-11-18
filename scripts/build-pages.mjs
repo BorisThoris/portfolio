@@ -68,9 +68,9 @@ for (const { route, title, description, project } of routes) {
   const entry = access[project?.slug];
   const availability = entry ? `<section><h2>${escape(entry.label)}</h2><p>${escape(entry.status)}</p><p>Environment: ${escape(entry.environment)}</p><pre>${escape(entry.instructions)}</pre>${entry.downloadUrl ? `<p><a href="${escape(entry.downloadUrl)}">${escape(entry.downloadLabel || "Download")}</a></p>` : ""}</section>` : "";
   const cover = project ? covers[project.slug] : undefined;
-  const image = cover ? `${site}${cover}` : entry?.kind === "web" && entry.images[0]?.path ? `${site}${entry.images[0].path}` : entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/social-preview-v4.png"}` : project?.screenshot
+  const image = cover ? `${site}${cover}` : entry?.kind === "web" && entry.images[0]?.path ? `${site}${entry.images[0].path}` : entry && entry.kind !== "web" ? `${site}${entry.images[0]?.path ?? "/social-preview-v5.png"}` : project?.screenshot
     ? `${site}${project.screenshot}`
-    : `${site}/social-preview-v4.png`;
+    : `${site}/social-preview-v5.png`;
   let html = template.replace(
     /<title>.*?<\/title>/s,
     `<title>${escape(title)}</title>`,

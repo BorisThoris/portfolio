@@ -45,7 +45,7 @@ export function RouteEffects() {
       ? `${site}${cover}`
       : project?.screenshot
       ? `${site}/project-shots/${project.slug}/latest/card.jpg`
-      : `${site}/social-preview-v4.png`;
+      : `${site}/social-preview-v5.png`;
     update('meta[property="og:image"]', image);
     update('meta[property="og:image:secure_url"]', image);
     update('meta[name="twitter:image"]', image);
