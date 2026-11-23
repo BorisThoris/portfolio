@@ -60,9 +60,25 @@ function youtubeFeed(channel) {
   });
 }
 
+// Without a Data API key, read each older video's public watch page, one at a time.
+// A video whose page does not carry a count keeps its last confirmed figure.
+async function youtubePages(ids) {
+  const views = {};
+  for (const id of ids) {
+    const count = await memo(`ytpage:${id}`, async () => {
+      const html = await fetchText(`https://www.youtube.com/watch?v=${id}`, { headers: { 'accept-language': 'en' } }).catch(() => '');
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      return html.match(/"viewCount":"(\d+)"/)?.[1];
+    });
+    if (count) views[id] = Number(count);
+  }
+  return views;
+}
+
 async function youtubeApi(ids) {
   const key = process.env.YOUTUBE_API_KEY;
-  if (!key || !ids.length) return {};
+  if (!ids.length) return {};
+  if (!key) return youtubePages(ids);
   const body = JSON.parse(await fetchText(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${ids.join(',')}&key=${key}`));
   return Object.fromEntries(body.items.map((item) => [item.id, Number(item.statistics.viewCount)]));
 }

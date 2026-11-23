@@ -24,7 +24,7 @@
         "checked": "2026-11-23"
       },
       {
-        "value": "6.8K",
+        "value": "8.7K",
         "label": "views on the mod trailers on YouTube",
         "source": {
           "type": "youtube",
@@ -50,23 +50,23 @@
         },
         "counts": {
           "value": {
-            "value": 6840,
+            "value": 8690,
             "known": {
-              "4-6-hNEtwwQ": 122,
-              "ep-ievKrJcE": 345,
-              "0dDv0iSMMjE": 1328,
-              "ijG2ohXj3T4": 1700,
-              "GmHsk_AN90w": 1400,
-              "KrBGs7qC9HQ": 420,
-              "Ml9S1rs-Ojw": 166,
-              "s71bntM9TgA": 69,
-              "zmS1hgDq2V4": 82,
-              "SWch0aE6Kg8": 51,
-              "OjZO3vWzLWs": 353,
-              "kv9D2xI_BMg": 599,
-              "MUwfYjgVhqU": 96,
-              "fyOQR8czrdc": 72,
-              "u4Tvq6f6YtE": 37,
+              "4-6-hNEtwwQ": 211,
+              "ep-ievKrJcE": 428,
+              "0dDv0iSMMjE": 1373,
+              "ijG2ohXj3T4": 1941,
+              "GmHsk_AN90w": 1958,
+              "KrBGs7qC9HQ": 564,
+              "Ml9S1rs-Ojw": 214,
+              "s71bntM9TgA": 93,
+              "zmS1hgDq2V4": 118,
+              "SWch0aE6Kg8": 95,
+              "OjZO3vWzLWs": 656,
+              "kv9D2xI_BMg": 741,
+              "MUwfYjgVhqU": 113,
+              "fyOQR8czrdc": 123,
+              "u4Tvq6f6YtE": 62,
               "uZNwVSXWy3Y": 30,
               "Tzt0gsdY55o": 83,
               "-v-D8zpNiTE": 501,
@@ -77,12 +77,27 @@
               "qQDQNXWILys": 441,
               "ZX7i33OpB40": 345,
               "YhVkVr9sEl0": 125,
-              "R12uklk5o9s": 38
+              "R12uklk5o9s": 38,
+              "BTOwCtZELyA": 1,
+              "UqCAzIzCzdU": 3,
+              "MPd2KdlWYj4": 4,
+              "xnXNoDAAnDw": 1,
+              "yGsEeEwmUWo": 3,
+              "xKmT5bvDbUw": 4,
+              "CtkjXkA2vjU": 9,
+              "0c92T2fH2SM": 0,
+              "fJeAKQo8_Bk": 8,
+              "kUmgBLrnGc8": 5,
+              "E-zA2S8GCsU": 7,
+              "IeXM1OTQhg4": 32,
+              "QmRHWqkdsqM": 1444,
+              "im6cUGGaC1s": 966,
+              "fYoxXsqbtFM": 57
             },
-            "checked": "2026-11-11"
+            "checked": "2026-11-23"
           }
         },
-        "checked": "2026-11-11"
+        "checked": "2026-11-23"
       },
       {
         "value": "250",
@@ -184,8 +199,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "4.9K",
-          "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 1.7K)",
+          "value": "5.9K",
+          "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 1.9K)",
           "url": "https://www.youtube.com/watch?v=ijG2ohXj3T4",
           "source": {
             "type": "youtube",
@@ -212,13 +227,13 @@
           },
           "counts": {
             "value": {
-              "value": 4895,
+              "value": 5911,
               "known": {
-                "4-6-hNEtwwQ": 122,
-                "ep-ievKrJcE": 345,
-                "0dDv0iSMMjE": 1328,
-                "ijG2ohXj3T4": 1700,
-                "GmHsk_AN90w": 1400,
+                "4-6-hNEtwwQ": 211,
+                "ep-ievKrJcE": 428,
+                "0dDv0iSMMjE": 1373,
+                "ijG2ohXj3T4": 1941,
+                "GmHsk_AN90w": 1958,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
@@ -230,19 +245,49 @@
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
                 "YhVkVr9sEl0": 125,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             },
             "carbon": {
-              "value": 1700,
+              "value": 1941,
               "known": {
-                "ijG2ohXj3T4": 1700
+                "ijG2ohXj3T4": 1941,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         },
         {
           "value": "344",
@@ -413,8 +458,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "1.2K",
-          "label": "views across the first-person trailers on YouTube (Hit & Run: 599)",
+          "value": "1.7K",
+          "label": "views across the first-person trailers on YouTube (Hit & Run: 741)",
           "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg",
           "source": {
             "type": "youtube",
@@ -441,25 +486,55 @@
           },
           "counts": {
             "value": {
-              "value": 1157,
+              "value": 1695,
               "known": {
-                "OjZO3vWzLWs": 353,
-                "kv9D2xI_BMg": 599,
-                "MUwfYjgVhqU": 96,
-                "fyOQR8czrdc": 72,
-                "u4Tvq6f6YtE": 37
+                "OjZO3vWzLWs": 656,
+                "kv9D2xI_BMg": 741,
+                "MUwfYjgVhqU": 113,
+                "fyOQR8czrdc": 123,
+                "u4Tvq6f6YtE": 62,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             },
             "shar": {
-              "value": 599,
+              "value": 741,
               "known": {
-                "kv9D2xI_BMg": 599
+                "kv9D2xI_BMg": 741,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         },
         {
           "value": "181",
@@ -679,13 +754,13 @@
           },
           "counts": {
             "value": {
-              "value": 2261,
+              "value": 2322,
               "known": {
-                "m4G49IVnNWo": 1000,
-                "8urlsZfc6Mk": 910,
-                "syk1g7UQWLE": 277,
-                "mRnEZsmMHPI": 44,
-                "uZNwVSXWy3Y": 30,
+                "m4G49IVnNWo": 1016,
+                "8urlsZfc6Mk": 911,
+                "syk1g7UQWLE": 278,
+                "mRnEZsmMHPI": 56,
+                "uZNwVSXWy3Y": 61,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
                 "Sq7d68AIRNU": 77,
@@ -699,12 +774,27 @@
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
                 "YhVkVr9sEl0": 125,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         }
       ],
       "links": [
@@ -723,7 +813,7 @@
     "vyb-chess": {
       "stats": [
         {
-          "value": "828",
+          "value": "902",
           "label": "views across the Живият ум videos on YouTube",
           "url": "https://www.youtube.com/watch?v=IPUH1nCi_x0",
           "source": {
@@ -738,11 +828,11 @@
           },
           "counts": {
             "value": {
-              "value": 828,
+              "value": 902,
               "known": {
-                "IPUH1nCi_x0": 470,
-                "ywL2e-HdLG4": 275,
-                "Tzt0gsdY55o": 83,
+                "IPUH1nCi_x0": 471,
+                "ywL2e-HdLG4": 283,
+                "Tzt0gsdY55o": 148,
                 "uZNwVSXWy3Y": 30,
                 "-v-D8zpNiTE": 501,
                 "Sq7d68AIRNU": 77,
@@ -755,12 +845,27 @@
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
                 "YhVkVr9sEl0": 125,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         }
       ],
       "links": [
@@ -773,7 +878,7 @@
     "bobball": {
       "stats": [
         {
-          "value": "1K",
+          "value": "1.1K",
           "label": "views of the BOBBALL video on YouTube",
           "url": "https://www.youtube.com/watch?v=ZP736LfwFbs",
           "source": {
@@ -786,14 +891,29 @@
           },
           "counts": {
             "value": {
-              "value": 1000,
+              "value": 1067,
               "known": {
-                "ZP736LfwFbs": 1000
+                "ZP736LfwFbs": 1067,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         },
         {
           "value": "51",
@@ -812,7 +932,7 @@
     "bbeats": {
       "stats": [
         {
-          "value": "737",
+          "value": "746",
           "label": "views across the BBeats videos on YouTube",
           "url": "https://www.youtube.com/watch?v=qQDQNXWILys",
           "source": {
@@ -828,12 +948,12 @@
           },
           "counts": {
             "value": {
-              "value": 737,
+              "value": 746,
               "known": {
-                "qQDQNXWILys": 441,
-                "e011MDSFMJc": 178,
-                "-3aGwr50Xu8": 60,
-                "q1pk7h2Kb2g": 58,
+                "qQDQNXWILys": 444,
+                "e011MDSFMJc": 180,
+                "-3aGwr50Xu8": 62,
+                "q1pk7h2Kb2g": 60,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
@@ -847,12 +967,27 @@
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
                 "YhVkVr9sEl0": 125,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         },
         {
           "value": "46",
@@ -871,7 +1006,7 @@
     "memory-dungeon": {
       "stats": [
         {
-          "value": "618",
+          "value": "628",
           "label": "views across the Memory Dungeon videos on YouTube",
           "url": "https://www.youtube.com/watch?v=h_TPONTVh_g",
           "source": {
@@ -887,12 +1022,12 @@
           },
           "counts": {
             "value": {
-              "value": 618,
+              "value": 628,
               "known": {
-                "h_TPONTVh_g": 534,
-                "R12uklk5o9s": 38,
+                "h_TPONTVh_g": 541,
+                "R12uklk5o9s": 39,
                 "ZwwBarv9baI": 30,
-                "uZQBOkwoz4I": 16,
+                "uZQBOkwoz4I": 18,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
@@ -905,12 +1040,27 @@
                 "0dDv0iSMMjE": 1328,
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
-                "YhVkVr9sEl0": 125
+                "YhVkVr9sEl0": 125,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         },
         {
           "value": "91",
@@ -943,7 +1093,7 @@
     "cat-world": {
       "stats": [
         {
-          "value": "1.1K",
+          "value": "1.2K",
           "label": "views of the Cat World video on YouTube",
           "url": "https://www.youtube.com/watch?v=3jXmvPtLKHU",
           "source": {
@@ -956,21 +1106,36 @@
           },
           "counts": {
             "value": {
-              "value": 1100,
+              "value": 1177,
               "known": {
-                "3jXmvPtLKHU": 1100
+                "3jXmvPtLKHU": 1177,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         }
       ]
     },
     "bostan": {
       "stats": [
         {
-          "value": "525",
+          "value": "529",
           "label": "views across the Bostan Teddy Hoodie videos on YouTube",
           "url": "https://www.youtube.com/watch?v=-v-D8zpNiTE",
           "source": {
@@ -984,10 +1149,10 @@
           },
           "counts": {
             "value": {
-              "value": 525,
+              "value": 529,
               "known": {
-                "-v-D8zpNiTE": 501,
-                "QoYQi6XA5MQ": 24,
+                "-v-D8zpNiTE": 504,
+                "QoYQi6XA5MQ": 25,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "Sq7d68AIRNU": 77,
@@ -1001,19 +1166,34 @@
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
                 "YhVkVr9sEl0": 125,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-11"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-11"
+          "checked": "2026-11-23"
         }
       ]
     },
     "voxshift": {
       "stats": [
         {
-          "value": "125",
+          "value": "127",
           "label": "views of the VoiceDrift video on YouTube",
           "url": "https://www.youtube.com/watch?v=YhVkVr9sEl0",
           "source": {
@@ -1026,9 +1206,9 @@
           },
           "counts": {
             "value": {
-              "value": 125,
+              "value": 127,
               "known": {
-                "YhVkVr9sEl0": 125,
+                "YhVkVr9sEl0": 127,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
@@ -1042,12 +1222,27 @@
                 "0dDv0iSMMjE": 1328,
                 "ZX7i33OpB40": 345,
                 "zmS1hgDq2V4": 82,
-                "R12uklk5o9s": 38
+                "R12uklk5o9s": 38,
+                "BTOwCtZELyA": 1,
+                "UqCAzIzCzdU": 3,
+                "MPd2KdlWYj4": 4,
+                "xnXNoDAAnDw": 1,
+                "yGsEeEwmUWo": 3,
+                "xKmT5bvDbUw": 4,
+                "CtkjXkA2vjU": 9,
+                "0c92T2fH2SM": 0,
+                "fJeAKQo8_Bk": 8,
+                "kUmgBLrnGc8": 5,
+                "E-zA2S8GCsU": 7,
+                "IeXM1OTQhg4": 32,
+                "QmRHWqkdsqM": 1444,
+                "im6cUGGaC1s": 966,
+                "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-12"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-12"
+          "checked": "2026-11-23"
         },
         {
           "value": "50",
