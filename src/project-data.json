@@ -32,7 +32,7 @@
     "buildCommand": "yarn build",
     "buildOutput": "build",
     "runCommand": "yarn dev --host 127.0.0.1 --port 4101",
-    "screenshot": "/project-shots/bbeats/main.png",
+    "screenshot": "/project-shots/bbeats/latest/card.jpg",
     "tags": [
       "Web Audio",
       "DAW",
@@ -47,14 +47,14 @@
     "slug": "memory-dungeon",
     "title": "Memory Dungeon",
     "subtitle": "Seeker of Shards: a memory roguelite",
-    "description": "A memory roguelite: read the board, match the pairs and protect the streak while relics bend the rules and every run deals deeper, harder boards. Run modes, a collection to unlock, local saves and an Electron build aimed at Steam.",
+    "description": "A memory roguelite: read the board, match the pairs and protect the streak while relics bend the rules and every run deals deeper, harder boards. Descend forty floors to the Warden, then on into Endless. Plays offline.",
     "repoPath": "C:\\Users\\Gaming PC\\Desktop\\Repos\\memory-dungeon",
     "localUrl": "http://127.0.0.1:4102/",
     "deploymentUrl": "https://memory-dungeon-git.pages.dev/",
     "buildCommand": "yarn build:cloudflare",
     "buildOutput": "dist",
     "runCommand": "yarn dev:renderer --host 127.0.0.1 --port 4102",
-    "screenshot": "/project-shots/memory-dungeon/main.png",
+    "screenshot": "/project-shots/memory-dungeon/latest/card.jpg",
     "tags": [
       "Roguelite",
       "Memory Game",
@@ -109,8 +109,8 @@
   {
     "slug": "saad-print-on-demand",
     "title": "SAAD Print-on-Demand",
-    "subtitle": "Live graphic-apparel storefront",
-    "description": "A live streetwear, racing, and graphic apparel storefront managed as a small revenue-generating print-on-demand product.",
+    "subtitle": "Where my clothing label started",
+    "description": "The first store for my streetwear label: Search & Destroy, Kopitoto, Seikotsu and the other lines on a storefront hosted by printondemand.bg, with cash-on-delivery checkout and every piece printed to order in Plovdiv. The label now lives on Bostan, its own site, which sends orders to the same print house through its API.",
     "repoPath": "https://saad.printondemand.bg/",
     "localUrl": "https://saad.printondemand.bg/",
     "deploymentUrl": "https://saad.printondemand.bg/",
@@ -963,7 +963,7 @@
     "slug": "bostan",
     "title": "Bostan",
     "subtitle": "A Bulgarian streetwear label from car culture, with its own storefront and 3D showroom",
-    "description": "The site for my clothing brand: drops and lines in Bulgarian and English, a 3D showroom where the garments are real models under studio lights, and an outfit builder. Orders go to a print-on-demand partner; the static site, the 3D work and the product photography pipeline are mine.",
+    "description": "The site for my clothing brand: drops and lines in Bulgarian and English, its own cart and Stripe checkout that sends each order straight to the print house through its API, a 3D showroom where the garments are real models under studio lights, and an outfit builder. The static site, the checkout, the 3D work and the product photography pipeline are mine.",
     "repoName": "SAD-launch",
     "localUrl": "",
     "deploymentUrl": "https://bostan.pages.dev/",
@@ -974,7 +974,8 @@
       "E-commerce",
       "Brand"
     ],
-    "accent": "#f2b33d"
+    "accent": "#f2b33d",
+    "screenshot": "/project-shots/bostan/stable/card.jpg"
   },
   {
     "slug": "spherecam",

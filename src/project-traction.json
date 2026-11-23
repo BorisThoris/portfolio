@@ -1,13 +1,13 @@
 {
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-23",
   "note": "Nexus Mods and YouTube figures are recounted automatically once a day from their public APIs; itch.io and Reddit figures when their APIs answer. Each figure keeps the date it was last confirmed. YouTube counts above a thousand are rounded.",
   "summary": {
     "title": "Mods people actually downloaded.",
     "lede": "Since October I have been releasing PC game mods: real crash damage and first-person cameras for games from the 2000s. These are the counts so far, from the platforms themselves.",
     "stats": [
       {
-        "value": "578",
-        "label": "downloads on Nexus Mods across 13 mods",
+        "value": "799",
+        "label": "downloads on Nexus Mods across 14 mods",
         "source": {
           "type": "nexus",
           "uploader": "Bostannn",
@@ -16,12 +16,12 @@
         "template": "downloads on Nexus Mods across {count} mods",
         "counts": {
           "value": {
-            "value": 578,
-            "count": 13,
-            "checked": "2026-11-13"
+            "value": 799,
+            "count": 14,
+            "checked": "2026-11-23"
           }
         },
-        "checked": "2026-11-13"
+        "checked": "2026-11-23"
       },
       {
         "value": "6.8K",
@@ -245,8 +245,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "230",
-          "label": "Nexus downloads across the five games (Most Wanted: 150)",
+          "value": "344",
+          "label": "Nexus downloads across the five games (Most Wanted: 230)",
           "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349",
           "source": {
             "type": "nexus",
@@ -291,17 +291,17 @@
           },
           "counts": {
             "value": {
-              "value": 230,
+              "value": 344,
               "count": 5,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             },
             "mw": {
-              "value": 150,
+              "value": 230,
               "count": 1,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-13"
+          "checked": "2026-11-23"
         },
         {
           "value": "1,193",
@@ -462,8 +462,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "140",
-          "label": "Nexus downloads across the five mods (Hit & Run First Person: 51)",
+          "value": "181",
+          "label": "Nexus downloads across the five mods (Hit & Run First Person: 66)",
           "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67",
           "source": {
             "type": "nexus",
@@ -508,17 +508,17 @@
           },
           "counts": {
             "value": {
-              "value": 140,
+              "value": 181,
               "count": 5,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             },
             "shar": {
-              "value": 51,
+              "value": 66,
               "count": 1,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-13"
+          "checked": "2026-11-23"
         }
       ],
       "links": [
@@ -555,10 +555,10 @@
       "headlineUnit": "upvotes on r/driver"
     },
     "gta-sa-mod": {
-      "headline": "184 Nexus downloads",
+      "headline": "242 Nexus downloads",
       "stats": [
         {
-          "value": "184",
+          "value": "242",
           "label": "Nexus downloads of Personal Fleet",
           "url": "https://www.nexusmods.com/gtasanandreas/mods/3106",
           "source": {
@@ -574,12 +574,12 @@
           },
           "counts": {
             "value": {
-              "value": 184,
+              "value": 242,
               "count": 1,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-13"
+          "checked": "2026-11-23"
         },
         {
           "value": "38",
@@ -627,7 +627,7 @@
     "terraria-depth": {
       "stats": [
         {
-          "value": "24",
+          "value": "32",
           "label": "Nexus downloads",
           "url": "https://www.nexusmods.com/terraria/mods/256",
           "source": {
@@ -643,12 +643,12 @@
           },
           "counts": {
             "value": {
-              "value": 24,
+              "value": 32,
               "count": 1,
-              "checked": "2026-11-13"
+              "checked": "2026-11-23"
             }
           },
-          "checked": "2026-11-13"
+          "checked": "2026-11-23"
         }
       ],
       "links": [

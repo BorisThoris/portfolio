@@ -156,7 +156,7 @@
   },
   "bbeats": {
     "slug": "bbeats",
-    "generatedAt": "2026-11-13T20:51:26.003Z",
+    "generatedAt": "2026-11-17T12:23:58.991Z",
     "version": "0.1.0",
     "classification": "web-app",
     "links": {
@@ -228,13 +228,13 @@
       "devDependencyCount": 61
     },
     "metrics": {
-      "sourceFiles": 7688,
-      "testFiles": 3357,
-      "sourceLines": 1354622,
+      "sourceFiles": 7698,
+      "testFiles": 3363,
+      "sourceLines": 1357434,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 6968
+          "files": 6976
         },
         {
           "directory": "e2e",
@@ -246,7 +246,7 @@
         },
         {
           "directory": "scripts",
-          "files": 179
+          "files": 181
         },
         {
           "directory": ".",
@@ -258,11 +258,11 @@
       "hasDocs": true
     },
     "git": {
-      "branch": "main",
-      "head": "0dbceb88db8",
-      "lastCommitDate": "2026-11-13T22:47:45+02:00",
-      "lastCommitSubject": "Reuse canonical reachability scan and qualify installed WAM output",
-      "commitCount": 6147
+      "branch": "HEAD",
+      "head": "9dda0d6dc",
+      "lastCommitDate": "2026-11-17T14:21:39+02:00",
+      "lastCommitSubject": "Bound pending beat-load diagnostics and record release preparation",
+      "commitCount": 6238
     },
     "scores": {
       "priorityScore": 96,
@@ -308,19 +308,6 @@
         "width": 1200,
         "height": 630,
         "bytes": 109624
-      }
-    ],
-    "trailers": [
-      {
-        "id": "tour",
-        "title": "BBeats: Afterdark 808 in the studio",
-        "url": "https://bbeats-git.pages.dev/trailers/tour.mp4",
-        "poster": "https://bbeats-git.pages.dev/trailers/tour.jpg",
-        "width": 1920,
-        "height": 1080,
-        "duration": 59.48,
-        "orientation": "landscape",
-        "builtAt": "2026-11-13T19:12:48.950Z"
       }
     ],
     "source": "BorisThoris/BBeats@main"
@@ -488,7 +475,7 @@
   },
   "memory-dungeon": {
     "slug": "memory-dungeon",
-    "generatedAt": "2026-11-13T19:57:06.091Z",
+    "generatedAt": "2026-11-13T23:19:27.176Z",
     "version": "1.0.0",
     "classification": "web-app",
     "links": {
@@ -560,13 +547,13 @@
       "devDependencyCount": 47
     },
     "metrics": {
-      "sourceFiles": 1587,
-      "testFiles": 686,
-      "sourceLines": 243607,
+      "sourceFiles": 1595,
+      "testFiles": 690,
+      "sourceLines": 244319,
       "largestDirectories": [
         {
           "directory": "src",
-          "files": 1382
+          "files": 1389
         },
         {
           "directory": "scripts",
@@ -574,7 +561,7 @@
         },
         {
           "directory": "e2e",
-          "files": 79
+          "files": 80
         },
         {
           "directory": "packages",
@@ -591,10 +578,10 @@
     },
     "git": {
       "branch": "main",
-      "head": "23d437e9",
-      "lastCommitDate": "2026-11-13T21:46:50+02:00",
-      "lastCommitSubject": "Start seeded e2e pages without a run put down earlier",
-      "commitCount": 2753
+      "head": "9c8e3e7f",
+      "lastCommitDate": "2026-11-13T22:20:54+02:00",
+      "lastCommitSubject": "Refresh the repo model after merging main",
+      "commitCount": 2757
     },
     "scores": {
       "priorityScore": 94,
@@ -611,35 +598,35 @@
         "path": "/project-shots/memory-dungeon/latest/card.jpg",
         "width": 1600,
         "height": 900,
-        "bytes": 106997
+        "bytes": 106945
       },
       {
         "profile": "desktop",
         "path": "/project-shots/memory-dungeon/latest/desktop.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 104115
+        "bytes": 104307
       },
       {
         "profile": "full",
         "path": "/project-shots/memory-dungeon/latest/full.jpg",
         "width": 1440,
         "height": 900,
-        "bytes": 90397
+        "bytes": 123424
       },
       {
         "profile": "mobile",
         "path": "/project-shots/memory-dungeon/latest/mobile.jpg",
         "width": 430,
         "height": 932,
-        "bytes": 58463
+        "bytes": 58622
       },
       {
         "profile": "og",
         "path": "/project-shots/memory-dungeon/latest/og.jpg",
         "width": 1200,
         "height": 630,
-        "bytes": 89930
+        "bytes": 89949
       }
     ],
     "trailers": [
