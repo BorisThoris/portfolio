@@ -17,11 +17,11 @@ export const home = {
 // The dated log of recent releases at the top of the work column: proof that the
 // work is current. Newest first, five entries, real release dates only.
 export const shipped = [
+  { date: "2026-11-21", title: "BBeats on itch.io: the desktop studio, with a free browser demo", kind: "Music studio", slug: "bbeats" },
+  { date: "2026-11-10", title: "Bostan opens its own checkout", kind: "Storefront", slug: "bostan" },
   { date: "2026-11-07", title: "Dynamic Damage for NFS Most Wanted, Carbon and ProStreet", kind: "Game mod", slug: "dynamic-damage" },
   { date: "2026-11-06", title: "Last Levee", kind: "Browser game", slug: "last-levee" },
   { date: "2026-11-02", title: "LA Frontend for GTA San Andreas", kind: "Game mod", slug: "gta-sa-mod" },
-  { date: "2026-10-31", title: "Ringer 3D on itch.io", kind: "Browser game", slug: "ringer3d" },
-  { date: "2026-10-27", title: "SphereCam 360° virtual webcam", kind: "Windows app", slug: "spherecam" },
 ];
 
 // Editorial selection is independent of generated repo rankings.

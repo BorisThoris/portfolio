@@ -344,7 +344,7 @@
     "buildCommand": "yarn build",
     "buildOutput": "dist",
     "runCommand": "yarn dev --host 127.0.0.1 --port 4116",
-    "screenshot": "/project-shots/threejs-gem-dungeon-editor/main.png",
+    "screenshot": "/project-shots/threejs-gem-dungeon-editor/run-2026-11-23.jpg",
     "tags": [
       "Game",
       "First Person",

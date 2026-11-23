@@ -850,14 +850,14 @@
       {
         "profile": "desktop",
         "path": "/project-shots/skillball/stable/card.jpg",
-        "caption": "SkillBall main menu, live build",
+        "caption": "SkillBall practice run, live build",
         "width": 1600,
         "height": 900
       },
       {
         "profile": "mobile",
         "path": "/project-shots/skillball/stable/mobile.jpg",
-        "caption": "SkillBall main menu, mobile",
+        "caption": "SkillBall practice run, mobile",
         "width": 860,
         "height": 1864
       },
