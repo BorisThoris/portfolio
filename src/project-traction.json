@@ -1,12 +1,12 @@
 {
-  "asOf": "2026-11-23",
+  "asOf": "2026-11-24",
   "note": "Nexus Mods and YouTube figures are recounted automatically once a day from their public APIs; itch.io and Reddit figures when their APIs answer. Each figure keeps the date it was last confirmed. YouTube counts above a thousand are rounded.",
   "summary": {
     "title": "Mods people actually downloaded.",
     "lede": "Since October I have been releasing PC game mods: real crash damage and first-person cameras for games from the 2000s. These are the counts so far, from the platforms themselves.",
     "stats": [
       {
-        "value": "799",
+        "value": "812",
         "label": "downloads on Nexus Mods across 14 mods",
         "source": {
           "type": "nexus",
@@ -16,15 +16,15 @@
         "template": "downloads on Nexus Mods across {count} mods",
         "counts": {
           "value": {
-            "value": 799,
+            "value": 812,
             "count": 14,
-            "checked": "2026-11-23"
+            "checked": "2026-11-24"
           }
         },
-        "checked": "2026-11-23"
+        "checked": "2026-11-24"
       },
       {
-        "value": "8.7K",
+        "value": "8.8K",
         "label": "views on the mod trailers on YouTube",
         "source": {
           "type": "youtube",
@@ -50,22 +50,22 @@
         },
         "counts": {
           "value": {
-            "value": 8690,
+            "value": 8783,
             "known": {
-              "4-6-hNEtwwQ": 211,
-              "ep-ievKrJcE": 428,
+              "4-6-hNEtwwQ": 219,
+              "ep-ievKrJcE": 430,
               "0dDv0iSMMjE": 1373,
-              "ijG2ohXj3T4": 1941,
-              "GmHsk_AN90w": 1958,
-              "KrBGs7qC9HQ": 564,
+              "ijG2ohXj3T4": 1957,
+              "GmHsk_AN90w": 1982,
+              "KrBGs7qC9HQ": 573,
               "Ml9S1rs-Ojw": 214,
-              "s71bntM9TgA": 93,
-              "zmS1hgDq2V4": 118,
+              "s71bntM9TgA": 94,
+              "zmS1hgDq2V4": 120,
               "SWch0aE6Kg8": 95,
-              "OjZO3vWzLWs": 656,
-              "kv9D2xI_BMg": 741,
+              "OjZO3vWzLWs": 669,
+              "kv9D2xI_BMg": 752,
               "MUwfYjgVhqU": 113,
-              "fyOQR8czrdc": 123,
+              "fyOQR8czrdc": 130,
               "u4Tvq6f6YtE": 62,
               "uZNwVSXWy3Y": 30,
               "Tzt0gsdY55o": 83,
@@ -94,10 +94,10 @@
               "im6cUGGaC1s": 966,
               "fYoxXsqbtFM": 57
             },
-            "checked": "2026-11-23"
+            "checked": "2026-11-24"
           }
         },
-        "checked": "2026-11-23"
+        "checked": "2026-11-24"
       },
       {
         "value": "250",
@@ -199,8 +199,8 @@
           "checked": "2026-11-11"
         },
         {
-          "value": "5.9K",
-          "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 1.9K)",
+          "value": "6K",
+          "label": "views across five NFS trailers on YouTube (Carbon 1.0 trailer: 2K)",
           "url": "https://www.youtube.com/watch?v=ijG2ohXj3T4",
           "source": {
             "type": "youtube",
@@ -227,13 +227,13 @@
           },
           "counts": {
             "value": {
-              "value": 5911,
+              "value": 5961,
               "known": {
-                "4-6-hNEtwwQ": 211,
-                "ep-ievKrJcE": 428,
+                "4-6-hNEtwwQ": 219,
+                "ep-ievKrJcE": 430,
                 "0dDv0iSMMjE": 1373,
-                "ijG2ohXj3T4": 1941,
-                "GmHsk_AN90w": 1958,
+                "ijG2ohXj3T4": 1957,
+                "GmHsk_AN90w": 1982,
                 "uZNwVSXWy3Y": 30,
                 "Tzt0gsdY55o": 83,
                 "-v-D8zpNiTE": 501,
@@ -262,12 +262,12 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             },
             "carbon": {
-              "value": 1941,
+              "value": 1957,
               "known": {
-                "ijG2ohXj3T4": 1941,
+                "ijG2ohXj3T4": 1957,
                 "BTOwCtZELyA": 1,
                 "UqCAzIzCzdU": 3,
                 "MPd2KdlWYj4": 4,
@@ -284,14 +284,14 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
-          "value": "344",
-          "label": "Nexus downloads across the five games (Most Wanted: 230)",
+          "value": "351",
+          "label": "Nexus downloads across the five games (Most Wanted: 234)",
           "url": "https://www.nexusmods.com/needforspeedmostwanted2005/mods/349",
           "source": {
             "type": "nexus",
@@ -336,17 +336,17 @@
           },
           "counts": {
             "value": {
-              "value": 344,
+              "value": 351,
               "count": 5,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             },
             "mw": {
-              "value": 230,
+              "value": 234,
               "count": 1,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "1,193",
@@ -459,7 +459,7 @@
         },
         {
           "value": "1.7K",
-          "label": "views across the first-person trailers on YouTube (Hit & Run: 741)",
+          "label": "views across the first-person trailers on YouTube (Hit & Run: 752)",
           "url": "https://www.youtube.com/watch?v=kv9D2xI_BMg",
           "source": {
             "type": "youtube",
@@ -486,12 +486,12 @@
           },
           "counts": {
             "value": {
-              "value": 1695,
+              "value": 1726,
               "known": {
-                "OjZO3vWzLWs": 656,
-                "kv9D2xI_BMg": 741,
+                "OjZO3vWzLWs": 669,
+                "kv9D2xI_BMg": 752,
                 "MUwfYjgVhqU": 113,
-                "fyOQR8czrdc": 123,
+                "fyOQR8czrdc": 130,
                 "u4Tvq6f6YtE": 62,
                 "BTOwCtZELyA": 1,
                 "UqCAzIzCzdU": 3,
@@ -509,12 +509,12 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             },
             "shar": {
-              "value": 741,
+              "value": 752,
               "known": {
-                "kv9D2xI_BMg": 741,
+                "kv9D2xI_BMg": 752,
                 "BTOwCtZELyA": 1,
                 "UqCAzIzCzdU": 3,
                 "MPd2KdlWYj4": 4,
@@ -531,14 +531,14 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
-          "value": "181",
-          "label": "Nexus downloads across the five mods (Hit & Run First Person: 66)",
+          "value": "187",
+          "label": "Nexus downloads across the five mods (Hit & Run First Person: 68)",
           "url": "https://www.nexusmods.com/thesimpsonshitandrun/mods/67",
           "source": {
             "type": "nexus",
@@ -583,17 +583,17 @@
           },
           "counts": {
             "value": {
-              "value": 181,
+              "value": 187,
               "count": 5,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             },
             "shar": {
-              "value": 66,
+              "value": 68,
               "count": 1,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ],
       "links": [
@@ -651,10 +651,10 @@
             "value": {
               "value": 242,
               "count": 1,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "38",
@@ -720,10 +720,10 @@
             "value": {
               "value": 32,
               "count": 1,
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ],
       "links": [
@@ -791,10 +791,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ],
       "links": [
@@ -813,7 +813,7 @@
     "vyb-chess": {
       "stats": [
         {
-          "value": "902",
+          "value": "903",
           "label": "views across the Живият ум videos on YouTube",
           "url": "https://www.youtube.com/watch?v=IPUH1nCi_x0",
           "source": {
@@ -828,11 +828,11 @@
           },
           "counts": {
             "value": {
-              "value": 902,
+              "value": 903,
               "known": {
                 "IPUH1nCi_x0": 471,
                 "ywL2e-HdLG4": 283,
-                "Tzt0gsdY55o": 148,
+                "Tzt0gsdY55o": 149,
                 "uZNwVSXWy3Y": 30,
                 "-v-D8zpNiTE": 501,
                 "Sq7d68AIRNU": 77,
@@ -862,10 +862,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ],
       "links": [
@@ -910,10 +910,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "51",
@@ -984,10 +984,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "46",
@@ -1057,10 +1057,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "91",
@@ -1125,10 +1125,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ]
     },
@@ -1183,10 +1183,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         }
       ]
     },
@@ -1239,10 +1239,10 @@
                 "im6cUGGaC1s": 966,
                 "fYoxXsqbtFM": 57
               },
-              "checked": "2026-11-23"
+              "checked": "2026-11-24"
             }
           },
-          "checked": "2026-11-23"
+          "checked": "2026-11-24"
         },
         {
           "value": "50",
